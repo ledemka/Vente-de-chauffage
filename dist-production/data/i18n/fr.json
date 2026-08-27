@@ -19,6 +19,17 @@
     "pellets": "Granulés / Pellets",
     "coal_starters": "Charbon / Allume-feu / Bûches de torche"
   },
+  "catalog_discount_note": "Tarifs dégressifs dès 2 palettes — voir le détail sur chaque fiche produit",
+  "pricing": {
+    "discount_title": "VOTRE TARIF DÉGRESSIF",
+    "select_quantity": "Quantité de palettes :",
+    "tier_level": "Niveau atteint :",
+    "full_truckload": "Tarif Camion Complet (-10%)",
+    "discount_rate": "Réduction appliquée :",
+    "unit_price_after_discount": "Prix unitaire après remise :",
+    "total_price": "Prix total de la commande HT :",
+    "next_tier_incentive": "Plus que {count} palette(s) supplémentaire(s) pour bénéficier de -{pct}% !"
+  },
   "hero": {
     "title": "Fournisseur B2B N°1 en Bois de Chauffage & Granulés",
     "subtitle": "Livraison par camion complet ou demi-palette directement dans vos dépôts, collectivités et entrepôts.",

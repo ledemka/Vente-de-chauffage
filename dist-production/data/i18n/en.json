@@ -19,6 +19,17 @@
     "pellets": "Wood Pellets",
     "coal_starters": "Charcoal, Kindling & Torch Logs"
   },
+  "catalog_discount_note": "Volume discounts starting from 2 pallets — see details on each product page",
+  "pricing": {
+    "discount_title": "YOUR VOLUME DISCOUNT",
+    "select_quantity": "Quantity of pallets:",
+    "tier_level": "Tier level:",
+    "full_truckload": "Full Truckload Rate (-10%)",
+    "discount_rate": "Applied discount:",
+    "unit_price_after_discount": "Unit price after discount:",
+    "total_price": "Total order price (excl. VAT):",
+    "next_tier_incentive": "Only {count} more pallet(s) to reach -{pct}% discount!"
+  },
   "hero": {
     "title": "Leading B2B Supplier of Firewood & Wood Pellets",
     "subtitle": "Full truckload and palletized deliveries directly to your warehouses and commercial facilities.",

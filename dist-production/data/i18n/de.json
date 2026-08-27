@@ -19,6 +19,17 @@
     "pellets": "Holzpellets",
     "coal_starters": "Holzkohle, Anzündholz & Fackelholz"
   },
+  "catalog_discount_note": "Mengenrabatte ab 2 Paletten — Details auf der jeweiligen Produktseite",
+  "pricing": {
+    "discount_title": "IHR MENGENRABATT",
+    "select_quantity": "Anzahl Paletten:",
+    "tier_level": "Erreichte Stufe:",
+    "full_truckload": "LKW-Komplettladung (-10%)",
+    "discount_rate": "Angewendeter Rabatt:",
+    "unit_price_after_discount": "Stückpreis nach Rabatt:",
+    "total_price": "Gesamtpreis der Bestellung (zzgl. MwSt.):",
+    "next_tier_incentive": "Nur noch {count} Palette(n) bis zu -{pct}% Rabatt!"
+  },
   "hero": {
     "title": "Ihr B2B-Großhändler für Kaminholz & Pellets",
     "subtitle": "Direktlieferung per LKW-Komplettladung oder Palettenware an Ihr Lager.",

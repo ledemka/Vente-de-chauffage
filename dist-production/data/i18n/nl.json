@@ -19,6 +19,17 @@
     "pellets": "Houtpellets",
     "coal_starters": "Houtskool, Aanmaakhout & Fakkelhout"
   },
+  "catalog_discount_note": "Volumekortingen vanaf 2 pallets — zie details op elke productpagina",
+  "pricing": {
+    "discount_title": "UW VOLUMEKORTING",
+    "select_quantity": "Aantal pallets:",
+    "tier_level": "Bereikt niveau:",
+    "full_truckload": "Volle Vrachtwagen Tarief (-10%)",
+    "discount_rate": "Toegepaste korting:",
+    "unit_price_after_discount": "Stukprijs na korting:",
+    "total_price": "Totale bestelprijs (excl. btw):",
+    "next_tier_incentive": "Nog slechts {count} pallet(s) nodig voor -{pct}% korting!"
+  },
   "hero": {
     "title": "B2B Groothandel in Haardhout & Pellets",
     "subtitle": "Levering per volle vrachtwagen of pallet rechtstreeks bij uw magazijn.",
