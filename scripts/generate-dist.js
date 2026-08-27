@@ -4,10 +4,10 @@ const path = require('path');
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DIST_DIR = path.join(ROOT_DIR, 'dist-production');
 
-// List of expected 9 pages per language
 const PAGES = [
     'index.html',
     'catalogue.html',
+    'produit.html',
     'livraison.html',
     'avis-clients.html',
     'guide-choix.html',
@@ -39,13 +39,11 @@ function copyRecursiveSync(src, dest) {
 
 console.log('=== BUILD START: Packaging to dist-production ===');
 
-// Clear / recreate dist-production
 if (fs.existsSync(DIST_DIR)) {
     fs.rmSync(DIST_DIR, { recursive: true, force: true });
 }
 fs.mkdirSync(DIST_DIR, { recursive: true });
 
-// Copy Assets, Data, API
 ['assets', 'data', 'api'].forEach(dir => {
     const srcPath = path.join(ROOT_DIR, dir);
     if (fs.existsSync(srcPath)) {
@@ -54,7 +52,6 @@ fs.mkdirSync(DIST_DIR, { recursive: true });
     }
 });
 
-// Copy 36 HTML Pages (9 Pages x 4 Languages)
 let totalCopied = 0;
 
 LANGS.forEach(lang => {
