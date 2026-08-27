@@ -1,0 +1,36 @@
+{
+  "site_name": "Bois de Chauffage PRO",
+  "tagline": "Vente en Gros & Demi-Gros de Bois de Chauffage, Pellets et Briquettes B2B",
+  "nav": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "delivery": "Livraison & Logistique",
+    "reviews": "Avis Clients",
+    "guide": "Guide de Choix",
+    "quote": "Devis Express",
+    "returns": "Politique de Retour",
+    "blog": "Blog & Actualités",
+    "contact": "Contact"
+  },
+  "categories": {
+    "logs": "Bûches de bois",
+    "briquettes_compressed": "Bûches compressées / briquettes de bois",
+    "briquettes": "Briquettes",
+    "pellets": "Granulés / Pellets",
+    "coal_starters": "Charbon / Allume-feu / Bûches de torche"
+  },
+  "hero": {
+    "title": "Fournisseur B2B N°1 en Bois de Chauffage & Granulés",
+    "subtitle": "Livraison par camion complet ou demi-palette directement dans vos dépôts, collectivités et entrepôts.",
+    "cta_catalog": "Explorer les 5 Gammes",
+    "cta_quote": "Demander un Devis Grossiste"
+  },
+  "footer": {
+    "reassurance_title": "Engagement Qualité Grossiste",
+    "reassurance_1": "Bois Certifié PEFC & FSC",
+    "reassurance_2": "Granulés DIN+ / EN+ A1",
+    "reassurance_3": "Livraison avec Haillon & Transpalette",
+    "reassurance_4": "Paiement Différé PRO 30 jours",
+    "rights": "Tous droits réservés. Vente aux professionnels et collectivités."
+  }
+}

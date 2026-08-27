@@ -1,0 +1,36 @@
+{
+  "site_name": "Brennholz PRO B2B",
+  "tagline": "Großhandel & Großmengen für Kaminholz, Holzpellets und Holzbriketts",
+  "nav": {
+    "home": "Startseite",
+    "catalog": "Katalog",
+    "delivery": "Lieferung & Logistik",
+    "reviews": "Bewertungen",
+    "guide": "Kaufberater",
+    "quote": "Angebot anfordern",
+    "returns": "Rückgaberecht",
+    "blog": "Blog & Aktuelles",
+    "contact": "Kontakt"
+  },
+  "categories": {
+    "logs": "Kaminholz / Scheitholz",
+    "briquettes_compressed": "Hartholzbriketts / Holzbriketts",
+    "briquettes": "Briketts",
+    "pellets": "Holzpellets",
+    "coal_starters": "Holzkohle, Anzündholz & Fackelholz"
+  },
+  "hero": {
+    "title": "Ihr B2B-Großhändler für Kaminholz & Pellets",
+    "subtitle": "Direktlieferung per LKW-Komplettladung oder Palettenware an Ihr Lager.",
+    "cta_catalog": "Alle 5 Produktgruppen",
+    "cta_quote": "Großhandelsangebot anfordern"
+  },
+  "footer": {
+    "reassurance_title": "Qualitätsversprechen Großhandel",
+    "reassurance_1": "PEFC & FSC Zertifiziertes Holz",
+    "reassurance_2": "DIN+ / EN+ A1 Pellets",
+    "reassurance_3": "Lieferung mit Hebebühne",
+    "reassurance_4": "30 Tage Zahlungsziel B2B",
+    "rights": "Alle Rechte vorbehalten. Verkauf nur an Gewerbekunden."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "site_name": "Haardhout PRO B2B",
+  "tagline": "Groothandel & Bulk Haardhout, Houtpellets en Houtbriketten",
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalogus",
+    "delivery": "Levering & Logistiek",
+    "reviews": "Klantbeoordelingen",
+    "guide": "Keuzegids",
+    "quote": "Offerte Aanvragen",
+    "returns": "Retourbeleid",
+    "blog": "Blog & Nieuws",
+    "contact": "Contact"
+  },
+  "categories": {
+    "logs": "Haardhout / Blokken",
+    "briquettes_compressed": "Geperst Hout & Briketten",
+    "briquettes": "Briketten",
+    "pellets": "Houtpellets",
+    "coal_starters": "Houtskool, Aanmaakhout & Fakkelhout"
+  },
+  "hero": {
+    "title": "B2B Groothandel in Haardhout & Pellets",
+    "subtitle": "Levering per volle vrachtwagen of pallet rechtstreeks bij uw magazijn.",
+    "cta_catalog": "Ontdek 5 Categorieën",
+    "cta_quote": "Groothandelsgarantie Aanvragen"
+  },
+  "footer": {
+    "reassurance_title": "Kwaliteitsgarantie Groothandel",
+    "reassurance_1": "PEFC & FSC Gecertificeerd Hout",
+    "reassurance_2": "DIN+ / EN+ A1 Pellets",
+    "reassurance_3": "Levering met Laadklep",
+    "reassurance_4": "30 Dagen Betalingstermijn B2B",
+    "rights": "Alle rechten voorbehouden. Verkoop aan zakelijke klanten."
+  }
+}

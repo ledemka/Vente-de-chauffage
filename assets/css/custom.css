@@ -1,0 +1,34 @@
+/* Material Symbols Outlined Font Definition */
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 22px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+}
+
+/* Custom Warm Wood Palette Variables */
+:root {
+    --wood-dark: #2C1810;
+    --wood-amber: #B45309;
+    --wood-warm: #78350F;
+    --wood-light: #FEF3C7;
+    --forest-green: #064E3B;
+}
+
+/* Custom transitions and scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}

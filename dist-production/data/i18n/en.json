@@ -1,0 +1,36 @@
+{
+  "site_name": "Firewood PRO B2B",
+  "tagline": "Wholesale & Bulk Firewood, Wood Pellets and Compressed Briquettes",
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "delivery": "Delivery & Logistics",
+    "reviews": "Customer Reviews",
+    "guide": "Buying Guide",
+    "quote": "Express Quote",
+    "returns": "Return Policy",
+    "blog": "Blog & News",
+    "contact": "Contact"
+  },
+  "categories": {
+    "logs": "Firewood Logs",
+    "briquettes_compressed": "Compressed Logs & Briquettes",
+    "briquettes": "Wood Briquettes",
+    "pellets": "Wood Pellets",
+    "coal_starters": "Charcoal, Kindling & Torch Logs"
+  },
+  "hero": {
+    "title": "Leading B2B Supplier of Firewood & Wood Pellets",
+    "subtitle": "Full truckload and palletized deliveries directly to your warehouses and commercial facilities.",
+    "cta_catalog": "Explore 5 Product Ranges",
+    "cta_quote": "Request Wholesale Quote"
+  },
+  "footer": {
+    "reassurance_title": "Wholesale Quality Commitment",
+    "reassurance_1": "PEFC & FSC Certified Wood",
+    "reassurance_2": "DIN+ / EN+ A1 Certified Pellets",
+    "reassurance_3": "Tail-lift & Pallet Jack Delivery",
+    "reassurance_4": "30-Day B2B Credit Terms",
+    "rights": "All rights reserved. Wholesale & commercial sales."
+  }
+}
