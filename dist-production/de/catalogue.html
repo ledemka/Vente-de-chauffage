@@ -16,9 +16,32 @@
     <link rel="alternate" hreflang="nl" href="https://www.boisdechauffage-pro.com/nl/catalogue.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.boisdechauffage-pro.com/catalogue.html" />
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN & Custom Config -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              chestnut: '#2C1810',
+              amberwood: '#78350F',
+              secondarywood: '#944A23',
+              golden: '#D97706',
+              foresteco: '#064E3B',
+              bgbase: '#F7F9FB',
+              surface: '#FFFFFF',
+              textmain: '#191C1E',
+              textsec: '#504440',
+              bordercolor: '#D3C3BE',
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
     <!-- Material Symbols Outlined (Google Fonts) -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     
@@ -28,144 +51,146 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/custom.css">
 </head>
-<body class="bg-stone-50 text-stone-800 flex flex-col min-h-screen">
+<body class="bg-[#F7F9FB] text-[#191C1E] flex flex-col min-h-screen font-sans">
 
 
-    <!-- Topbar -->
-    <div class="bg-amber-950 text-amber-200 text-xs py-2 border-b border-amber-900/50">
-        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-2">
-            <div class="flex items-center gap-4">
-                <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-amber-500 text-sm">phone</span> Hotline B2B : <strong>+33 (0)1 89 00 00 00</strong></span>
-                <a href="../de/avis-clients.html" class="hidden md:inline-flex items-center gap-1 hover:text-white transition">
-                    <span class="material-symbols-outlined text-amber-400 text-sm">star</span> <strong>★★★★★ 4,8/5 — Über 1.000 zufriedene Kunden</strong>
+    <!-- Topbar (Stitch Deep Chestnut Fine Bar) -->
+    <div class="bg-[#2C1810] text-[#D3C3BE] text-xs py-2 uppercase border-b border-[#504440]/30 font-sans">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-6">
+                <span class="inline-flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[#D97706] text-base">call</span> Hotline B2B : <strong class="text-white">+33 (0)1 89 00 00 00</strong></span>
+                <a href="../de/avis-clients.html" class="hidden md:inline-flex items-center gap-1.5 text-[#D3C3BE] hover:text-white transition font-medium">
+                    <span class="material-symbols-outlined text-[#D97706] text-base">star</span> <span>★★★★★ 4,8/5 — Über 1.000 zufriedene Kunden</span>
                 </a>
             </div>
-            <div class="flex items-center gap-4">
-                <a href="../de/devis.html" class="hover:text-white transition font-medium inline-flex items-center gap-1"><span class="material-symbols-outlined text-sm">request_quote</span> Angebot anfordern</a>
+            <div class="flex items-center gap-5">
+                <a href="../de/devis.html" class="hover:text-white transition font-semibold inline-flex items-center gap-1 text-[#FD9E70]"><span class="material-symbols-outlined text-sm">request_quote</span> Angebot anfordern</a>
                 
                 <!-- Language Switcher Dropdown -->
                 <div class="relative inline-block text-left">
-                    <button id="lang-switcher-btn" class="bg-amber-900/60 hover:bg-amber-900 text-white px-2.5 py-1 rounded border border-amber-800 text-xs font-semibold uppercase flex items-center gap-1">
+                    <button id="lang-switcher-btn" class="bg-[#78350F]/60 hover:bg-[#78350F] text-white px-3 py-1 rounded-lg border border-[#944A23]/50 text-xs font-bold uppercase flex items-center gap-1.5 transition">
                         <span class="material-symbols-outlined text-sm">language</span> DE <span class="material-symbols-outlined text-sm">expand_more</span>
                     </button>
-                    <div id="lang-switcher-menu" class="hidden absolute right-0 mt-1 w-32 bg-amber-950 border border-amber-800 rounded shadow-xl z-50 py-1">
-                        <a href="../catalogue.html" class="block px-3 py-1.5 text-xs text-amber-100 hover:bg-amber-900 hover:text-white ">🇫🇷 Français</a>
-                        <a href="../en/catalogue.html" class="block px-3 py-1.5 text-xs text-amber-100 hover:bg-amber-900 hover:text-white ">🇬🇧 English</a>
-                        <a href="../de/catalogue.html" class="block px-3 py-1.5 text-xs text-amber-100 hover:bg-amber-900 hover:text-white font-bold text-amber-400">🇩🇪 Deutsch</a>
-                        <a href="../nl/catalogue.html" class="block px-3 py-1.5 text-xs text-amber-100 hover:bg-amber-900 hover:text-white ">🇳🇱 Nederlands</a>
+                    <div id="lang-switcher-menu" class="hidden absolute right-0 mt-1 w-36 bg-[#2C1810] border border-[#D3C3BE]/30 rounded-xl shadow-2xl z-50 py-1">
+                        <a href="../catalogue.html" class="block px-3.5 py-2 text-xs text-[#D3C3BE] hover:bg-[#78350F] hover:text-white ">🇫🇷 Français</a>
+                        <a href="../en/catalogue.html" class="block px-3.5 py-2 text-xs text-[#D3C3BE] hover:bg-[#78350F] hover:text-white ">🇬🇧 English</a>
+                        <a href="../de/catalogue.html" class="block px-3.5 py-2 text-xs text-[#D3C3BE] hover:bg-[#78350F] hover:text-white font-bold text-[#D97706]">🇩🇪 Deutsch</a>
+                        <a href="../nl/catalogue.html" class="block px-3.5 py-2 text-xs text-[#D3C3BE] hover:bg-[#78350F] hover:text-white ">🇳🇱 Nederlands</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Main Header -->
-    <header class="bg-white border-b border-amber-100 shadow-sm sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-            <a href="../de/index.html" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 bg-gradient-to-br from-amber-700 to-amber-900 rounded-lg flex items-center justify-center text-white shadow-md group-hover:scale-105 transition">
+    <!-- Main Header (White Surface) -->
+    <header class="bg-white border-b border-[#D3C3BE]/60 shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 py-3.5 flex items-center justify-between gap-6">
+            <a href="../de/index.html" class="flex items-center gap-3.5 group">
+                <div class="w-11 h-11 bg-gradient-to-br from-[#78350F] to-[#2C1810] rounded-xl flex items-center justify-center text-white shadow-md group-hover:scale-105 transition">
                     <span class="material-symbols-outlined text-2xl">forest</span>
                 </div>
                 <div>
-                    <span class="text-xl font-extrabold text-amber-950 tracking-tight block leading-none">Brennholz PRO B2B</span>
-                    <span class="text-[10px] font-bold text-amber-700 tracking-wider uppercase block mt-0.5">Großhandel & Großmengen für Kaminholz, Holzpellets und Holzbriketts</span>
+                    <span class="text-xl font-extrabold text-[#191C1E] tracking-tight block leading-none font-sans">Brennholz PRO B2B</span>
+                    <span class="text-[10px] font-bold text-[#78350F] tracking-widest uppercase block mt-1">Großhandel & Großmengen für Kaminholz, Holzpellets und Holzbriketts</span>
                 </div>
             </a>
 
             <!-- Search Bar -->
-            <div class="hidden lg:flex flex-1 max-w-md relative">
-                <input type="text" placeholder="Search firewood, pellets, briquettes..." class="w-full pl-4 pr-10 py-2 border-2 border-amber-200 rounded-lg text-sm focus:outline-none focus:border-amber-600">
-                <button class="absolute right-2 top-2 text-amber-700 hover:text-amber-900"><span class="material-symbols-outlined">search</span></button>
+            <div class="hidden lg:flex flex-1 max-w-lg relative">
+                <input type="text" placeholder="Search firewood, pellets, briquettes..." class="w-full pl-4 pr-11 py-2.5 border border-[#D3C3BE] rounded-xl text-sm text-[#191C1E] placeholder-[#504440]/60 bg-[#F7F9FB] focus:outline-none focus:border-[#78350F] focus:bg-white transition">
+                <button class="absolute right-2 top-2 w-7 h-7 bg-[#2C1810] hover:bg-[#78350F] text-white rounded-lg flex items-center justify-center transition">
+                    <span class="material-symbols-outlined text-base">search</span>
+                </button>
             </div>
 
             <!-- Header CTA -->
             <div class="flex items-center gap-3">
-                <a href="../de/devis.html" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-sm px-4 py-2.5 rounded-lg shadow-sm hover:shadow transition flex items-center gap-2">
+                <a href="../de/devis.html" class="bg-[#944A23] hover:bg-[#78350F] text-white font-extrabold text-sm px-5 py-2.5 rounded-xl shadow-sm hover:shadow transition flex items-center gap-2">
                     <span class="material-symbols-outlined">request_quote</span> <span>Angebot anfordern</span>
                 </a>
-                <button id="mobile-menu-btn" class="lg:hidden p-2 text-amber-900">
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-[#2C1810] hover:text-[#78350F]">
                     <span class="material-symbols-outlined text-2xl">menu</span>
                 </button>
             </div>
         </div>
 
-        <!-- Navigation Menu -->
-        <nav class="hidden lg:block bg-amber-950 text-amber-100 border-t border-amber-900">
-            <div class="max-w-7xl mx-auto px-4 flex items-center gap-1">
-                <a href="../de/index.html" class="px-4 py-3 font-semibold text-sm hover:bg-amber-900 hover:text-white transition flex items-center gap-1.5 ">
-                    <span class="material-symbols-outlined text-lg">home</span> Startseite
+        <!-- Navigation Menu (Stitch Header Style) -->
+        <nav class="hidden lg:block bg-[#2C1810] text-[#D3C3BE] border-t border-[#504440]/40">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8 flex items-center gap-1">
+                <a href="../de/index.html" class="px-4 py-3 font-semibold text-sm hover:bg-[#78350F] hover:text-white transition flex items-center gap-2 ">
+                    <span class="material-symbols-outlined text-lg text-[#D97706]">home</span> Startseite
                 </a>
 
                 <!-- Dropdown Categories -->
                 <div class="relative group">
-                    <a href="../de/catalogue.html" class="px-4 py-3 font-semibold text-sm hover:bg-amber-900 hover:text-white transition flex items-center gap-1.5 bg-amber-900 text-white border-b-2 border-amber-500">
-                        <span class="material-symbols-outlined text-lg">grid_view</span> Katalog <span class="material-symbols-outlined text-sm">expand_more</span>
+                    <a href="../de/catalogue.html" class="px-4 py-3 font-semibold text-sm hover:bg-[#78350F] hover:text-white transition flex items-center gap-2 bg-[#78350F] text-white border-b-2 border-[#D97706]">
+                        <span class="material-symbols-outlined text-lg text-[#D97706]">grid_view</span> Katalog <span class="material-symbols-outlined text-sm">expand_more</span>
                     </a>
-                    <div class="absolute left-0 top-full w-72 bg-amber-950 border border-amber-800 rounded-b-lg shadow-2xl hidden group-hover:block py-2 z-50">
-                        <a href="../de/catalogue.html#subgroup-1" class="block px-4 py-2.5 text-xs text-amber-200 hover:bg-amber-900 hover:text-white font-medium border-b border-amber-900/50 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-amber-500 text-base">wood</span> Kaminholz / Scheitholz
+                    <div class="absolute left-0 top-full w-80 bg-[#2C1810] border border-[#D3C3BE]/30 rounded-b-xl shadow-2xl hidden group-hover:block py-2 z-50">
+                        <a href="../de/catalogue.html#subgroup-1" class="block px-4 py-2.5 text-xs text-[#D3C3BE] hover:bg-[#78350F] hover:text-white font-medium border-b border-[#504440]/30 flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-[#D97706] text-base">wood</span> Kaminholz / Scheitholz
                         </a>
-                        <a href="../de/catalogue.html#subgroup-2" class="block px-4 py-2.5 text-xs text-amber-200 hover:bg-amber-900 hover:text-white font-medium border-b border-amber-900/50 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-amber-500 text-base">view_in_ar</span> Hartholzbriketts / Holzbriketts
+                        <a href="../de/catalogue.html#subgroup-2" class="block px-4 py-2.5 text-xs text-[#D3C3BE] hover:bg-[#78350F] hover:text-white font-medium border-b border-[#504440]/30 flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-[#D97706] text-base">view_in_ar</span> Hartholzbriketts / Holzbriketts
                         </a>
-                        <a href="../de/catalogue.html#subgroup-3" class="block px-4 py-2.5 text-xs text-amber-200 hover:bg-amber-900 hover:text-white font-medium border-b border-amber-900/50 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-amber-500 text-base">square</span> Briketts
+                        <a href="../de/catalogue.html#subgroup-3" class="block px-4 py-2.5 text-xs text-[#D3C3BE] hover:bg-[#78350F] hover:text-white font-medium border-b border-[#504440]/30 flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-[#D97706] text-base">square</span> Briketts
                         </a>
-                        <a href="../de/catalogue.html#subgroup-4" class="block px-4 py-2.5 text-xs text-amber-200 hover:bg-amber-900 hover:text-white font-medium border-b border-amber-900/50 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-amber-500 text-base">grain</span> Holzpellets
+                        <a href="../de/catalogue.html#subgroup-4" class="block px-4 py-2.5 text-xs text-[#D3C3BE] hover:bg-[#78350F] hover:text-white font-medium border-b border-[#504440]/30 flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-[#D97706] text-base">grain</span> Holzpellets
                         </a>
-                        <a href="../de/catalogue.html#subgroup-5" class="block px-4 py-2.5 text-xs text-amber-200 hover:bg-amber-900 hover:text-white font-medium flex items-center gap-2">
-                            <span class="material-symbols-outlined text-amber-500 text-base">local_fire_department</span> Holzkohle, Anzündholz & Fackelholz
+                        <a href="../de/catalogue.html#subgroup-5" class="block px-4 py-2.5 text-xs text-[#D3C3BE] hover:bg-[#78350F] hover:text-white font-medium flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-[#D97706] text-base">local_fire_department</span> Holzkohle, Anzündholz & Fackelholz
                         </a>
                     </div>
                 </div>
 
-                <a href="../de/livraison.html" class="px-4 py-3 font-semibold text-sm hover:bg-amber-900 hover:text-white transition flex items-center gap-1.5 ">
-                    <span class="material-symbols-outlined text-lg">local_shipping</span> Lieferung & Logistik
+                <a href="../de/livraison.html" class="px-4 py-3 font-semibold text-sm hover:bg-[#78350F] hover:text-white transition flex items-center gap-2 ">
+                    <span class="material-symbols-outlined text-lg text-[#D97706]">local_shipping</span> Lieferung & Logistik
                 </a>
-                <a href="../de/avis-clients.html" class="px-4 py-3 font-semibold text-sm hover:bg-amber-900 hover:text-white transition flex items-center gap-1.5 ">
-                    <span class="material-symbols-outlined text-lg">star</span> Bewertungen
+                <a href="../de/avis-clients.html" class="px-4 py-3 font-semibold text-sm hover:bg-[#78350F] hover:text-white transition flex items-center gap-2 ">
+                    <span class="material-symbols-outlined text-lg text-[#D97706]">star</span> Bewertungen
                 </a>
-                <a href="../de/guide-choix.html" class="px-4 py-3 font-semibold text-sm hover:bg-amber-900 hover:text-white transition flex items-center gap-1.5 ">
-                    <span class="material-symbols-outlined text-lg">auto_stories</span> Kaufberater
+                <a href="../de/guide-choix.html" class="px-4 py-3 font-semibold text-sm hover:bg-[#78350F] hover:text-white transition flex items-center gap-2 ">
+                    <span class="material-symbols-outlined text-lg text-[#D97706]">auto_stories</span> Kaufberater
                 </a>
-                <a href="../de/blog.html" class="px-4 py-3 font-semibold text-sm hover:bg-amber-900 hover:text-white transition flex items-center gap-1.5 ">
-                    <span class="material-symbols-outlined text-lg">newspaper</span> Blog & Aktuelles
+                <a href="../de/blog.html" class="px-4 py-3 font-semibold text-sm hover:bg-[#78350F] hover:text-white transition flex items-center gap-2 ">
+                    <span class="material-symbols-outlined text-lg text-[#D97706]">newspaper</span> Blog & Aktuelles
                 </a>
-                <a href="../de/contact.html" class="px-4 py-3 font-semibold text-sm hover:bg-amber-900 hover:text-white transition flex items-center gap-1.5 ">
-                    <span class="material-symbols-outlined text-lg">call</span> Kontakt
+                <a href="../de/contact.html" class="px-4 py-3 font-semibold text-sm hover:bg-[#78350F] hover:text-white transition flex items-center gap-2 ">
+                    <span class="material-symbols-outlined text-lg text-[#D97706]">call</span> Kontakt
                 </a>
             </div>
         </nav>
     </header>
 
     <!-- Mobile Drawer Navigation -->
-    <div id="mobile-menu-drawer" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm">
-        <div class="w-4/5 max-w-sm bg-amber-950 h-full text-white p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
+    <div id="mobile-menu-drawer" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm">
+        <div class="w-4/5 max-w-sm bg-[#2C1810] h-full text-white p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
             <div>
-                <div class="flex items-center justify-between border-b border-amber-800 pb-4 mb-6">
-                    <span class="font-extrabold text-lg text-amber-400 flex items-center gap-2"><span class="material-symbols-outlined">forest</span> Brennholz PRO B2B</span>
-                    <button id="mobile-menu-close" class="text-amber-300 hover:text-white"><span class="material-symbols-outlined text-2xl">close</span></button>
+                <div class="flex items-center justify-between border-b border-[#504440]/50 pb-4 mb-6">
+                    <span class="font-extrabold text-lg text-[#D97706] flex items-center gap-2"><span class="material-symbols-outlined">forest</span> Brennholz PRO B2B</span>
+                    <button id="mobile-menu-close" class="text-[#D3C3BE] hover:text-white"><span class="material-symbols-outlined text-2xl">close</span></button>
                 </div>
                 <div class="space-y-3 font-semibold text-sm">
-                    <a href="../de/index.html" class="block py-2 text-amber-100 hover:text-amber-400">Startseite</a>
-                    <a href="../de/catalogue.html" class="block py-2 text-amber-100 hover:text-amber-400">Katalog</a>
-                    <div class="pl-4 space-y-2 border-l border-amber-800 text-xs font-normal text-amber-300">
+                    <a href="../de/index.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]">Startseite</a>
+                    <a href="../de/catalogue.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]">Katalog</a>
+                    <div class="pl-4 space-y-2 border-l border-[#78350F] text-xs font-normal text-[#D3C3BE]/80">
                         <a href="../de/catalogue.html#subgroup-1" class="block">• Kaminholz / Scheitholz</a>
                         <a href="../de/catalogue.html#subgroup-2" class="block">• Hartholzbriketts / Holzbriketts</a>
                         <a href="../de/catalogue.html#subgroup-3" class="block">• Briketts</a>
                         <a href="../de/catalogue.html#subgroup-4" class="block">• Holzpellets</a>
                         <a href="../de/catalogue.html#subgroup-5" class="block">• Holzkohle, Anzündholz & Fackelholz</a>
                     </div>
-                    <a href="../de/livraison.html" class="block py-2 text-amber-100 hover:text-amber-400">Lieferung & Logistik</a>
-                    <a href="../de/avis-clients.html" class="block py-2 text-amber-100 hover:text-amber-400">Bewertungen</a>
-                    <a href="../de/guide-choix.html" class="block py-2 text-amber-100 hover:text-amber-400">Kaufberater</a>
-                    <a href="../de/devis.html" class="block py-2 text-amber-100 hover:text-amber-400">Angebot anfordern</a>
-                    <a href="../de/blog.html" class="block py-2 text-amber-100 hover:text-amber-400">Blog & Aktuelles</a>
-                    <a href="../de/contact.html" class="block py-2 text-amber-100 hover:text-amber-400">Kontakt</a>
+                    <a href="../de/livraison.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]">Lieferung & Logistik</a>
+                    <a href="../de/avis-clients.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]">Bewertungen</a>
+                    <a href="../de/guide-choix.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]">Kaufberater</a>
+                    <a href="../de/devis.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]">Angebot anfordern</a>
+                    <a href="../de/blog.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]">Blog & Aktuelles</a>
+                    <a href="../de/contact.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]">Kontakt</a>
                 </div>
             </div>
-            <div class="border-t border-amber-900 pt-4 text-xs text-amber-400">
+            <div class="border-t border-[#504440]/50 pt-4 text-xs text-[#D97706]">
                 <p>Hotline B2B : +33 (0)1 89 00 00 00</p>
             </div>
         </div>
@@ -174,200 +199,200 @@
 
 <main class="flex-1">
 
-    <section class="py-12 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="mb-8 text-center max-w-3xl mx-auto">
-                <span class="bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full inline-block mb-3 border border-amber-200">Catalogue Grossiste B2B (16 Produits)</span>
-                <h1 class="text-3xl lg:text-4xl font-extrabold text-amber-950 mb-3">B2B Katalog Kaminholz & Pellets | Brennholz PRO</h1>
-                <p class="text-base text-stone-600 mb-4">Entdecken Sie unsere 5 Produktkategorien: Kaminholz, Hartholzbriketts, Briketts, Holzpellets und Holzkohle/Anzündholz.</p>
+    <section class="py-12 bg-[#F7F9FB]">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="mb-10 text-center max-w-3xl mx-auto">
+                <span class="bg-[#FEF3C7] text-[#78350F] text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-block mb-3 border border-[#D97706]/30">Catalogue Grossiste B2B (16 Produits)</span>
+                <h1 class="text-3xl lg:text-[40px] leading-tight font-extrabold text-[#191C1E] mb-3">B2B Katalog Kaminholz & Pellets | Brennholz PRO</h1>
+                <p class="text-base text-[#504440] mb-5">Entdecken Sie unsere 5 Produktkategorien: Kaminholz, Hartholzbriketts, Briketts, Holzpellets und Holzkohle/Anzündholz.</p>
                 
                 <!-- Short discrete volume discount notice -->
-                <div class="bg-amber-100/80 border border-amber-300 rounded-xl p-3.5 text-center text-xs font-extrabold text-amber-950 flex items-center justify-center gap-2 shadow-sm">
-                    <span class="material-symbols-outlined text-amber-700 text-base">percent</span>
+                <div class="bg-[#FEF3C7]/90 border border-[#D97706]/40 rounded-xl p-4 text-center text-xs font-extrabold text-[#2C1810] flex items-center justify-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined text-[#D97706] text-lg">percent</span>
                     <span>Mengenrabatte ab 2 Paletten — Details auf der jeweiligen Produktseite</span>
                 </div>
             </div>
 
             <div class="space-y-12">
                 
-                <div id="subgroup-1" class="bg-white border border-amber-200/80 rounded-2xl p-6 lg:p-8 shadow-sm">
-                    <div class="flex items-center gap-3 border-b border-amber-100 pb-4 mb-6">
-                        <div class="w-12 h-12 bg-amber-100 text-amber-900 rounded-xl flex items-center justify-center">
+                <div id="subgroup-1" class="bg-white border border-[#D3C3BE] rounded-2xl p-6 lg:p-8 shadow-sm">
+                    <div class="flex items-center gap-3.5 border-b border-[#D3C3BE]/50 pb-4 mb-6">
+                        <div class="w-12 h-12 bg-[#FEF3C7] text-[#78350F] rounded-xl flex items-center justify-center shrink-0">
                             <span class="material-symbols-outlined text-2xl">wood</span>
                         </div>
                         <div>
-                            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">Sous-Groupe 1</span>
-                            <h2 class="text-2xl font-bold text-amber-950">Kaminholz / Scheitholz</h2>
+                            <span class="text-xs font-bold text-[#944A23] uppercase tracking-wider">Sous-Groupe 1</span>
+                            <h2 class="text-2xl font-bold text-[#191C1E]">Kaminholz / Scheitholz</h2>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-stone-200 text-stone-800">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#F7F9FB] text-[#504440] border border-[#D3C3BE]">
                                         Bon prix – sous marché
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=hetre-etuve" class="hover:text-amber-700 transition">Hêtre étuvé / séché au four</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=hetre-etuve" class="hover:text-[#78350F] transition">Hêtre étuvé / séché au four</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>25 / 30 / 33 / 40 / 50 cm</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>25 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>40 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">25 / 30 / 33 / 40 / 50 cm</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">25 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">40 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">575 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 499 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">575 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 499 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=hetre-etuve" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=hetre-etuve" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#78350F] border border-[#D97706]/30">
                                         Très bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=hetre-demi-sec" class="hover:text-amber-700 transition">Hêtre demi-sec</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=hetre-demi-sec" class="hover:text-[#78350F] transition">Hêtre demi-sec</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>25 / 30 / 33 / 40 / 50 cm</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>25 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>40 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">25 / 30 / 33 / 40 / 50 cm</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">25 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">40 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">425 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 379 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">425 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 379 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=hetre-demi-sec" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=hetre-demi-sec" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-stone-200 text-stone-800">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#F7F9FB] text-[#504440] border border-[#D3C3BE]">
                                         Bon prix – sous marché
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=chene-etuve" class="hover:text-amber-700 transition">Chêne étuvé / séché au four</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=chene-etuve" class="hover:text-[#78350F] transition">Chêne étuvé / séché au four</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>25 / 30 / 33 / 40 / 50 cm</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>25 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>40 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">25 / 30 / 33 / 40 / 50 cm</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">25 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">40 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">625 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 539 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">625 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 539 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=chene-etuve" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=chene-etuve" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-stone-200 text-stone-800">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#F7F9FB] text-[#504440] border border-[#D3C3BE]">
                                         Bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=chene-sec-air" class="hover:text-amber-700 transition">Chêne sec à l'air</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=chene-sec-air" class="hover:text-[#78350F] transition">Chêne sec à l'air</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>25 / 30 / 33 / 40 / 50 cm</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>25 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>40 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">25 / 30 / 33 / 40 / 50 cm</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">25 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">40 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">525 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 459 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">525 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 459 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=chene-sec-air" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=chene-sec-air" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#78350F] border border-[#D97706]/30">
                                         Très bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=melange-essences" class="hover:text-amber-700 transition">Mélange d'essences séché au four</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=melange-essences" class="hover:text-[#78350F] transition">Mélange d'essences séché au four</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>25 / 30 / 33 / 40 / 50 cm</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>25 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>40 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">25 / 30 / 33 / 40 / 50 cm</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">25 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">40 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">500 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 439 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">500 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 439 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=melange-essences" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=melange-essences" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
@@ -376,184 +401,184 @@
                     </div>
                 </div>
                 
-                <div id="subgroup-2" class="bg-white border border-amber-200/80 rounded-2xl p-6 lg:p-8 shadow-sm">
-                    <div class="flex items-center gap-3 border-b border-amber-100 pb-4 mb-6">
-                        <div class="w-12 h-12 bg-amber-100 text-amber-900 rounded-xl flex items-center justify-center">
+                <div id="subgroup-2" class="bg-white border border-[#D3C3BE] rounded-2xl p-6 lg:p-8 shadow-sm">
+                    <div class="flex items-center gap-3.5 border-b border-[#D3C3BE]/50 pb-4 mb-6">
+                        <div class="w-12 h-12 bg-[#FEF3C7] text-[#78350F] rounded-xl flex items-center justify-center shrink-0">
                             <span class="material-symbols-outlined text-2xl">view_in_ar</span>
                         </div>
                         <div>
-                            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">Sous-Groupe 2</span>
-                            <h2 class="text-2xl font-bold text-amber-950">Hartholzbriketts / Holzbriketts</h2>
+                            <span class="text-xs font-bold text-[#944A23] uppercase tracking-wider">Sous-Groupe 2</span>
+                            <h2 class="text-2xl font-bold text-[#191C1E]">Hartholzbriketts / Holzbriketts</h2>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#78350F] border border-[#D97706]/30">
                                         Très bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=jour-premium-cylindrique" class="hover:text-amber-700 transition">JOUR PREMIUM – Cylindrique</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=jour-premium-cylindrique" class="hover:text-[#78350F] transition">JOUR PREMIUM – Cylindrique</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Cylindrique</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>10 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>100 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Cylindrique</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">10 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">100 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">500 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 449 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">500 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 449 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=jour-premium-cylindrique" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=jour-premium-cylindrique" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#78350F] border border-[#D97706]/30">
                                         Très bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=nuit-longue-duree" class="hover:text-amber-700 transition">NUIT – Longue Durée (Compressée)</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=nuit-longue-duree" class="hover:text-[#78350F] transition">NUIT – Longue Durée (Compressée)</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Cylindrique écorce</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>10 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>100 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Cylindrique écorce</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">10 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">100 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">495 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 439 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">495 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 439 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=nuit-longue-duree" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=nuit-longue-duree" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#78350F] border border-[#D97706]/30">
                                         Très bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=jour-forte-chaleur-cubique" class="hover:text-amber-700 transition">JOUR FORTE CHALEUR – Cubique</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=jour-forte-chaleur-cubique" class="hover:text-[#78350F] transition">JOUR FORTE CHALEUR – Cubique</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Cubique</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>10 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>100 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Cubique</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">10 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">100 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">505 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 449 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">505 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 449 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=jour-forte-chaleur-cubique" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=jour-forte-chaleur-cubique" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-stone-200 text-stone-800">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#F7F9FB] text-[#504440] border border-[#D3C3BE]">
                                         Bon prix – sous marché
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=pini-kay-compressbee" class="hover:text-amber-700 transition">Pini Kay (Compressée premium)</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=pini-kay-compressbee" class="hover:text-[#78350F] transition">Pini Kay (Compressée premium)</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Octogonal extrudé</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>10 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>100 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Octogonal extrudé</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">10 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">100 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">525 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 479 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">525 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 479 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=pini-kay-compressbee" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=pini-kay-compressbee" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#78350F] border border-[#D97706]/30">
                                         Très bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=jour-eco-cylindrique" class="hover:text-amber-700 transition">JOUR ECO – Cylindrique</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=jour-eco-cylindrique" class="hover:text-[#78350F] transition">JOUR ECO – Cylindrique</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Cylindrique standard</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>10 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>100 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Cylindrique standard</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">10 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">100 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">375 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 349 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">375 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 349 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=jour-eco-cylindrique" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=jour-eco-cylindrique" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
@@ -562,82 +587,82 @@
                     </div>
                 </div>
                 
-                <div id="subgroup-3" class="bg-white border border-amber-200/80 rounded-2xl p-6 lg:p-8 shadow-sm">
-                    <div class="flex items-center gap-3 border-b border-amber-100 pb-4 mb-6">
-                        <div class="w-12 h-12 bg-amber-100 text-amber-900 rounded-xl flex items-center justify-center">
+                <div id="subgroup-3" class="bg-white border border-[#D3C3BE] rounded-2xl p-6 lg:p-8 shadow-sm">
+                    <div class="flex items-center gap-3.5 border-b border-[#D3C3BE]/50 pb-4 mb-6">
+                        <div class="w-12 h-12 bg-[#FEF3C7] text-[#78350F] rounded-xl flex items-center justify-center shrink-0">
                             <span class="material-symbols-outlined text-2xl">square</span>
                         </div>
                         <div>
-                            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">Sous-Groupe 3</span>
-                            <h2 class="text-2xl font-bold text-amber-950">Briketts</h2>
+                            <span class="text-xs font-bold text-[#944A23] uppercase tracking-wider">Sous-Groupe 3</span>
+                            <h2 class="text-2xl font-bold text-[#191C1E]">Briketts</h2>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#78350F] border border-[#D97706]/30">
                                         Très bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=briquettes-ruf" class="hover:text-amber-700 transition">Briquettes RUF</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=briquettes-ruf" class="hover:text-[#78350F] transition">Briquettes RUF</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Pâté rectangulaire RUF</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>10 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>96 unités (960 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Pâté rectangulaire RUF</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">10 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">96 unités (960 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">400 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 339 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">400 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 339 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=briquettes-ruf" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=briquettes-ruf" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#78350F] border border-[#D97706]/30">
                                         Très bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=briquettes-ecorce" class="hover:text-amber-700 transition">Briquettes d'écorce</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=briquettes-ecorce" class="hover:text-[#78350F] transition">Briquettes d'écorce</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Rectangulaire écorce</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>10 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>100 unités (1000 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Rectangulaire écorce</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">10 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">100 unités (1000 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">400 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 349 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">400 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 349 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=briquettes-ecorce" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=briquettes-ecorce" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
@@ -646,48 +671,48 @@
                     </div>
                 </div>
                 
-                <div id="subgroup-4" class="bg-white border border-amber-200/80 rounded-2xl p-6 lg:p-8 shadow-sm">
-                    <div class="flex items-center gap-3 border-b border-amber-100 pb-4 mb-6">
-                        <div class="w-12 h-12 bg-amber-100 text-amber-900 rounded-xl flex items-center justify-center">
+                <div id="subgroup-4" class="bg-white border border-[#D3C3BE] rounded-2xl p-6 lg:p-8 shadow-sm">
+                    <div class="flex items-center gap-3.5 border-b border-[#D3C3BE]/50 pb-4 mb-6">
+                        <div class="w-12 h-12 bg-[#FEF3C7] text-[#78350F] rounded-xl flex items-center justify-center shrink-0">
                             <span class="material-symbols-outlined text-2xl">grain</span>
                         </div>
                         <div>
-                            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">Sous-Groupe 4</span>
-                            <h2 class="text-2xl font-bold text-amber-950">Holzpellets</h2>
+                            <span class="text-xs font-bold text-[#944A23] uppercase tracking-wider">Sous-Groupe 4</span>
+                            <h2 class="text-2xl font-bold text-[#191C1E]">Holzpellets</h2>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#78350F] border border-[#D97706]/30">
                                         Très bon prix
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=granules-pellets-premium" class="hover:text-amber-700 transition">Granulés / Pellets Premium</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=granules-pellets-premium" class="hover:text-[#78350F] transition">Granulés / Pellets Premium</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Granulés 6mm DIN+ / EN+ A1</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>15 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>66 unités (990 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Granulés 6mm DIN+ / EN+ A1</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">15 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">66 unités (990 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">355 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 389 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">355 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 389 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=granules-pellets-premium" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=granules-pellets-premium" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
@@ -696,116 +721,116 @@
                     </div>
                 </div>
                 
-                <div id="subgroup-5" class="bg-white border border-amber-200/80 rounded-2xl p-6 lg:p-8 shadow-sm">
-                    <div class="flex items-center gap-3 border-b border-amber-100 pb-4 mb-6">
-                        <div class="w-12 h-12 bg-amber-100 text-amber-900 rounded-xl flex items-center justify-center">
+                <div id="subgroup-5" class="bg-white border border-[#D3C3BE] rounded-2xl p-6 lg:p-8 shadow-sm">
+                    <div class="flex items-center gap-3.5 border-b border-[#D3C3BE]/50 pb-4 mb-6">
+                        <div class="w-12 h-12 bg-[#FEF3C7] text-[#78350F] rounded-xl flex items-center justify-center shrink-0">
                             <span class="material-symbols-outlined text-2xl">local_fire_department</span>
                         </div>
                         <div>
-                            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">Sous-Groupe 5</span>
-                            <h2 class="text-2xl font-bold text-amber-950">Holzkohle, Anzündholz & Fackelholz</h2>
+                            <span class="text-xs font-bold text-[#944A23] uppercase tracking-wider">Sous-Groupe 5</span>
+                            <h2 class="text-2xl font-bold text-[#191C1E]">Holzkohle, Anzündholz & Fackelholz</h2>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-stone-200 text-stone-800">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#F7F9FB] text-[#504440] border border-[#D3C3BE]">
                                         Bon prix – sous marché
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=charbon-bois-morceaux" class="hover:text-amber-700 transition">Charbon de bois en morceaux</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=charbon-bois-morceaux" class="hover:text-[#78350F] transition">Charbon de bois en morceaux</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Gros morceaux qualité restaurant</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>10 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>80 unités (800 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Gros morceaux qualité restaurant</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">10 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">80 unités (800 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">700 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 549 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">700 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 549 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=charbon-bois-morceaux" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=charbon-bois-morceaux" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-stone-200 text-stone-800">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#F7F9FB] text-[#504440] border border-[#D3C3BE]">
                                         Bon prix – sous marché
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=allume-feu-laine-bois" class="hover:text-amber-700 transition">Allume-feu en laine de bois</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=allume-feu-laine-bois" class="hover:text-[#78350F] transition">Allume-feu en laine de bois</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Rouleaux laine de bois</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>5 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>120 unités (600 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Rouleaux laine de bois</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">5 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">120 unités (600 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">500 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 429 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">500 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 429 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=allume-feu-laine-bois" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=allume-feu-laine-bois" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between">
+                        <div class="bg-white border border-[#D3C3BE] rounded-xl p-5 hover:border-[#78350F] hover:shadow-md transition flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-start gap-2 mb-3">
-                                    <span class="text-xs font-bold px-2.5 py-1 rounded bg-stone-200 text-stone-800">
+                                    <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-[#F7F9FB] text-[#504440] border border-[#D3C3BE]">
                                         Bon prix – sous marché
                                     </span>
-                                    <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="text-xs text-[#064E3B] font-bold bg-[#064E3B]/10 px-2 py-0.5 rounded border border-[#064E3B]/30 flex items-center gap-1">
                                         <span class="material-symbols-outlined text-sm">check_circle</span> En Stock
                                     </span>
                                 </div>
 
-                                <h3 class="font-extrabold text-lg text-amber-950 mb-2 leading-snug">
-                                    <a href="../de/produit.html?id=buches-torche-suedoise" class="hover:text-amber-700 transition">Bûches de torche suédoise</a>
+                                <h3 class="font-extrabold text-lg text-[#191C1E] mb-2 leading-snug">
+                                    <a href="../de/produit.html?id=buches-torche-suedoise" class="hover:text-[#78350F] transition">Bûches de torche suédoise</a>
                                 </h3>
 
-                                <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs space-y-1 text-stone-700 mb-4">
-                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong>Bûche fendue avec mèche intégrée</strong></div>
-                                    <div class="flex justify-between"><span>Unité:</span> <strong>5 kg</strong></div>
-                                    <div class="flex justify-between"><span>Palette:</span> <strong>160 unités (800 kg)</strong></div>
+                                <div class="bg-[#F7F9FB] p-3.5 rounded-lg border border-[#D3C3BE]/60 text-xs space-y-1.5 text-[#504440] mb-4">
+                                    <div class="flex justify-between"><span>Format / Longueur:</span> <strong class="text-[#191C1E]">Bûche fendue avec mèche intégrée</strong></div>
+                                    <div class="flex justify-between"><span>Unité:</span> <strong class="text-[#191C1E]">5 kg</strong></div>
+                                    <div class="flex justify-between"><span>Palette:</span> <strong class="text-[#191C1E]">160 unités (800 kg)</strong></div>
                                 </div>
                             </div>
 
-                            <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
+                            <div class="pt-3 border-t border-[#D3C3BE]/50 flex items-center justify-between">
                                 <div>
-                                    <span class="text-[11px] text-stone-500 block">Prix Grossiste HT</span>
-                                    <span class="text-xl font-black text-amber-950">800 € <span class="text-xs font-normal text-stone-500">/palette</span></span>
-                                    <span class="text-[11px] text-amber-800 block">Prix conseillé : 599 €</span>
+                                    <span class="text-[11px] text-[#504440] block">Prix Grossiste HT</span>
+                                    <span class="text-xl font-black text-[#2C1810]">800 € <span class="text-xs font-normal text-[#504440]">/palette</span></span>
+                                    <span class="text-[11px] text-[#78350F] block">Prix conseillé : 599 €</span>
                                 </div>
-                                <a href="../de/produit.html?id=buches-torche-suedoise" class="bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <a href="../de/produit.html?id=buches-torche-suedoise" class="bg-[#D97706] hover:bg-[#78350F] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
                                     <span>Voir Fiche</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
@@ -821,90 +846,98 @@
 </main>
 
 
-    <!-- Reassurance Section -->
-    <section class="bg-amber-900 text-white py-10 border-t-4 border-amber-600">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Reassurance Section (Stitch 4 Pillars) -->
+    <section class="bg-[#78350F] text-white py-12 border-t-4 border-[#D97706]">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="flex items-start gap-4">
-                <span class="material-symbols-outlined text-amber-400 text-4xl">verified_user</span>
+                <div class="w-12 h-12 bg-[#2C1810] rounded-xl flex items-center justify-center text-[#D97706] shrink-0 shadow-sm">
+                    <span class="material-symbols-outlined text-2xl">verified_user</span>
+                </div>
                 <div>
-                    <h4 class="font-bold text-base text-amber-100">PEFC & FSC Zertifiziertes Holz</h4>
-                    <p class="text-xs text-amber-200/80 mt-1">Sourcing responsable issu de forêts durables gérées en Europe.</p>
+                    <h4 class="font-bold text-base text-white">PEFC & FSC Zertifiziertes Holz</h4>
+                    <p class="text-xs text-[#D3C3BE] mt-1.5 leading-relaxed">Sourcing responsable issu de forêts durables gérées en Europe.</p>
                 </div>
             </div>
             <div class="flex items-start gap-4">
-                <span class="material-symbols-outlined text-amber-400 text-4xl">workspace_premium</span>
+                <div class="w-12 h-12 bg-[#2C1810] rounded-xl flex items-center justify-center text-[#D97706] shrink-0 shadow-sm">
+                    <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                </div>
                 <div>
-                    <h4 class="font-bold text-base text-amber-100">DIN+ / EN+ A1 Pellets</h4>
-                    <p class="text-xs text-amber-200/80 mt-1">Granulés pur résineux sans liant avec taux de cendres inférieur à 0.7%.</p>
+                    <h4 class="font-bold text-base text-white">DIN+ / EN+ A1 Pellets</h4>
+                    <p class="text-xs text-[#D3C3BE] mt-1.5 leading-relaxed">Granulés pur résineux sans liant avec taux de cendres inférieur à 0.7%.</p>
                 </div>
             </div>
             <div class="flex items-start gap-4">
-                <span class="material-symbols-outlined text-amber-400 text-4xl">local_shipping</span>
+                <div class="w-12 h-12 bg-[#2C1810] rounded-xl flex items-center justify-center text-[#D97706] shrink-0 shadow-sm">
+                    <span class="material-symbols-outlined text-2xl">local_shipping</span>
+                </div>
                 <div>
-                    <h4 class="font-bold text-base text-amber-100">Lieferung mit Hebebühne</h4>
-                    <p class="text-xs text-amber-200/80 mt-1">Livraison sur palette directement sur vos sites de stockage et entrepôts.</p>
+                    <h4 class="font-bold text-base text-white">Lieferung mit Hebebühne</h4>
+                    <p class="text-xs text-[#D3C3BE] mt-1.5 leading-relaxed">Livraison sur palette directement sur vos sites de stockage et entrepôts.</p>
                 </div>
             </div>
             <div class="flex items-start gap-4">
-                <span class="material-symbols-outlined text-amber-400 text-4xl">credit_score</span>
+                <div class="w-12 h-12 bg-[#2C1810] rounded-xl flex items-center justify-center text-[#D97706] shrink-0 shadow-sm">
+                    <span class="material-symbols-outlined text-2xl">credit_score</span>
+                </div>
                 <div>
-                    <h4 class="font-bold text-base text-amber-100">30 Tage Zahlungsziel B2B</h4>
-                    <p class="text-xs text-amber-200/80 mt-1">Facilités de paiement et compte pro réservé aux entreprises et collectivités.</p>
+                    <h4 class="font-bold text-base text-white">30 Tage Zahlungsziel B2B</h4>
+                    <p class="text-xs text-[#D3C3BE] mt-1.5 leading-relaxed">Facilités de paiement et compte pro réservé aux entreprises et collectivités.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-amber-950 text-amber-200/80 py-12 text-sm border-t border-amber-900">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+    <!-- Footer (Deep Chestnut Minimal Surface) -->
+    <footer class="bg-[#2C1810] text-[#D3C3BE] py-12 text-sm border-t border-[#504440]/40">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
             <div>
-                <div class="flex items-center gap-2 text-white font-extrabold text-lg mb-4">
-                    <span class="material-symbols-outlined text-amber-500">forest</span> Brennholz PRO B2B
+                <div class="flex items-center gap-2.5 text-white font-extrabold text-lg mb-4">
+                    <span class="material-symbols-outlined text-[#D97706]">forest</span> Brennholz PRO B2B
                 </div>
-                <p class="text-xs leading-relaxed text-amber-300/70 mb-4">Großhandel & Großmengen für Kaminholz, Holzpellets und Holzbriketts</p>
-                <div class="text-xs space-y-1">
-                    <p><strong class="text-amber-200">Email :</strong> pro@boisdechauffage-pro.com</p>
-                    <p><strong class="text-amber-200">Hotline :</strong> +33 (0)1 89 00 00 00</p>
+                <p class="text-xs leading-relaxed text-[#D3C3BE]/80 mb-4">Großhandel & Großmengen für Kaminholz, Holzpellets und Holzbriketts</p>
+                <div class="text-xs space-y-1.5 text-[#D3C3BE]">
+                    <p><strong class="text-white">Email :</strong> pro@boisdechauffage-pro.com</p>
+                    <p><strong class="text-white">Hotline :</strong> +33 (0)1 89 00 00 00</p>
                 </div>
             </div>
 
             <div>
-                <h5 class="text-white font-bold text-sm mb-4 border-b border-amber-800 pb-2">Nos 5 Gammes B2B</h5>
+                <h5 class="text-white font-bold text-sm mb-4 border-b border-[#504440]/60 pb-2">Nos 5 Gammes B2B</h5>
                 <ul class="space-y-2 text-xs">
-                    <li><a href="../de/catalogue.html#subgroup-1" class="hover:text-amber-400 transition flex items-center gap-1"><span class="material-symbols-outlined text-sm">chevron_right</span> Kaminholz / Scheitholz</a></li>
-                    <li><a href="../de/catalogue.html#subgroup-2" class="hover:text-amber-400 transition flex items-center gap-1"><span class="material-symbols-outlined text-sm">chevron_right</span> Hartholzbriketts / Holzbriketts</a></li>
-                    <li><a href="../de/catalogue.html#subgroup-3" class="hover:text-amber-400 transition flex items-center gap-1"><span class="material-symbols-outlined text-sm">chevron_right</span> Briketts</a></li>
-                    <li><a href="../de/catalogue.html#subgroup-4" class="hover:text-amber-400 transition flex items-center gap-1"><span class="material-symbols-outlined text-sm">chevron_right</span> Holzpellets</a></li>
-                    <li><a href="../de/catalogue.html#subgroup-5" class="hover:text-amber-400 transition flex items-center gap-1"><span class="material-symbols-outlined text-sm">chevron_right</span> Holzkohle, Anzündholz & Fackelholz</a></li>
+                    <li><a href="../de/catalogue.html#subgroup-1" class="hover:text-[#D97706] transition flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-[#D97706]">chevron_right</span> Kaminholz / Scheitholz</a></li>
+                    <li><a href="../de/catalogue.html#subgroup-2" class="hover:text-[#D97706] transition flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-[#D97706]">chevron_right</span> Hartholzbriketts / Holzbriketts</a></li>
+                    <li><a href="../de/catalogue.html#subgroup-3" class="hover:text-[#D97706] transition flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-[#D97706]">chevron_right</span> Briketts</a></li>
+                    <li><a href="../de/catalogue.html#subgroup-4" class="hover:text-[#D97706] transition flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-[#D97706]">chevron_right</span> Holzpellets</a></li>
+                    <li><a href="../de/catalogue.html#subgroup-5" class="hover:text-[#D97706] transition flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-[#D97706]">chevron_right</span> Holzkohle, Anzündholz & Fackelholz</a></li>
                 </ul>
             </div>
 
             <div>
-                <h5 class="text-white font-bold text-sm mb-4 border-b border-amber-800 pb-2">Informations & Service</h5>
+                <h5 class="text-white font-bold text-sm mb-4 border-b border-[#504440]/60 pb-2">Informations & Service</h5>
                 <ul class="space-y-2 text-xs">
-                    <li><a href="../de/livraison.html" class="hover:text-amber-400 transition flex items-center gap-1"><span class="material-symbols-outlined text-sm">chevron_right</span> Lieferung & Logistik</a></li>
-                    <li><a href="../de/avis-clients.html" class="hover:text-amber-400 transition flex items-center gap-1"><span class="material-symbols-outlined text-sm">chevron_right</span> Bewertungen</a></li>
-                    <li><a href="../de/guide-choix.html" class="hover:text-amber-400 transition flex items-center gap-1"><span class="material-symbols-outlined text-sm">chevron_right</span> Kaufberater</a></li>
-                    <li><a href="../de/politique-retour.html" class="hover:text-amber-400 transition flex items-center gap-1"><span class="material-symbols-outlined text-sm">chevron_right</span> Rückgaberecht</a></li>
+                    <li><a href="../de/livraison.html" class="hover:text-[#D97706] transition flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-[#D97706]">chevron_right</span> Lieferung & Logistik</a></li>
+                    <li><a href="../de/avis-clients.html" class="hover:text-[#D97706] transition flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-[#D97706]">chevron_right</span> Bewertungen</a></li>
+                    <li><a href="../de/guide-choix.html" class="hover:text-[#D97706] transition flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-[#D97706]">chevron_right</span> Kaufberater</a></li>
+                    <li><a href="../de/politique-retour.html" class="hover:text-[#D97706] transition flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-[#D97706]">chevron_right</span> Rückgaberecht</a></li>
                 </ul>
             </div>
 
             <div>
-                <h5 class="text-white font-bold text-sm mb-4 border-b border-amber-800 pb-2">Langues & Territoires</h5>
+                <h5 class="text-white font-bold text-sm mb-4 border-b border-[#504440]/60 pb-2">Langues & Territoires</h5>
                 <div class="grid grid-cols-2 gap-2 text-xs">
-                    <a href="../index.html" class="bg-amber-900/60 p-2 rounded text-center hover:bg-amber-800 text-amber-200">🇫🇷 France / FR</a>
-                    <a href="../en/index.html" class="bg-amber-900/60 p-2 rounded text-center hover:bg-amber-800 text-amber-200">🇬🇧 International / EN</a>
-                    <a href="../de/index.html" class="bg-amber-900/60 p-2 rounded text-center hover:bg-amber-800 text-amber-200">🇩🇪 Germany / DE</a>
-                    <a href="../nl/index.html" class="bg-amber-900/60 p-2 rounded text-center hover:bg-amber-800 text-amber-200">🇳🇱 Netherlands / NL</a>
+                    <a href="../index.html" class="bg-[#78350F]/40 p-2 rounded-lg text-center hover:bg-[#78350F] text-[#D3C3BE] transition">🇫🇷 France / FR</a>
+                    <a href="../en/index.html" class="bg-[#78350F]/40 p-2 rounded-lg text-center hover:bg-[#78350F] text-[#D3C3BE] transition">🇬🇧 International / EN</a>
+                    <a href="../de/index.html" class="bg-[#78350F]/40 p-2 rounded-lg text-center hover:bg-[#78350F] text-[#D3C3BE] transition">🇩🇪 Germany / DE</a>
+                    <a href="../nl/index.html" class="bg-[#78350F]/40 p-2 rounded-lg text-center hover:bg-[#78350F] text-[#D3C3BE] transition">🇳🇱 Netherlands / NL</a>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 border-t border-amber-900/80 pt-6 flex flex-wrap justify-between items-center text-xs text-amber-400/60 gap-4">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 border-t border-[#504440]/40 pt-6 flex flex-wrap justify-between items-center text-xs text-[#D3C3BE]/60 gap-4">
             <p>© 2026 Brennholz PRO B2B. Alle Rechte vorbehalten. Verkauf nur an Gewerbekunden.</p>
             <div class="flex gap-4">
-                <a href="../de/politique-retour.html" class="hover:underline">Mentions Légales & CGV</a>
+                <a href="../de/politique-retour.html" class="hover:underline hover:text-white">Mentions Légales & CGV</a>
             </div>
         </div>
     </footer>
