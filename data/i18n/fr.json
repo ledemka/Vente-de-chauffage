@@ -68,7 +68,7 @@
     "address": "[Adresse à compléter par le client]",
     "phone": "[Téléphone à compléter par le client]",
     "email": "[Email à compléter par le client]",
-    "siret": "SIRET: 823 456 789 00012",
+    "siret": "SIRET: [SIRET à compléter par le client]",
     "certs_title": "CERTIFICATIONS",
     "rights": "© 2024 Terre & Feu. Tous droits réservés.",
     "legal": "Mentions Légales",
