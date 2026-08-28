@@ -109,39 +109,18 @@
 <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="material-symbols-outlined text-[32px] text-primary/50" style="font-variation-settings: 'FILL' 1;">star_half</span>
 </div>
-<p class="text-label-md font-label-md text-on-surface-variant tracking-widest uppercase">Avis vérifiés TrustPilot</p>
-<!-- Micro chart -->
-<div class="w-full mt-8 flex flex-col gap-3">
-<div class="flex items-center gap-3">
-<span class="text-data-mono font-data-mono text-on-surface-variant w-4">5</span>
-<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-primary w-[85%] rounded-full"></div>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<span class="text-data-mono font-data-mono text-on-surface-variant w-4">4</span>
-<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-primary/70 w-[10%] rounded-full"></div>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<span class="text-data-mono font-data-mono text-on-surface-variant w-4">3</span>
-<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-outline w-[3%] rounded-full"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+
+</div></div></section>
 <!-- Filters & Sorting -->
 <section class="max-w-[1440px] mx-auto px-margin-desktop mb-12 flex flex-col sm:flex-row justify-between items-center gap-6 z-20">
-<div class="flex flex-wrap gap-3">
-<button class="px-6 py-2 rounded-full bg-primary text-on-primary text-label-md font-label-md shadow-md">TOUS (1042)</button>
-<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">RESTAURATION (412)</button>
-<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">INDUSTRIE (358)</button>
-<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">REVENDEURS (272)</button>
-</div>
+
+                <div class="flex flex-wrap gap-3">
+                    <button class="px-6 py-2 rounded-full bg-primary text-on-primary text-label-md font-label-md shadow-md">ALLE</button>
+                    <button class="px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">GASTRONOMIE</button>
+                    <button class="px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">INDUSTRIE</button>
+                    <button class="px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">WIEDERVERKÄUFER</button>
+                </div>
+            
 <div class="relative">
 <select class="appearance-none bg-surface-container text-on-surface text-label-md font-label-md px-6 py-3 pr-12 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
 <option>PLUS RÉCENTS</option>
@@ -153,10 +132,13 @@
 </section>
 <!-- Reviews Grid -->
 <section class="max-w-[1440px] mx-auto px-margin-desktop mb-24">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10" id="reviews-grid">
-<!-- Card 1 -->
-<article class="bg-surface rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full group relative overflow-hidden">
-<div class="absolute top-0 right-0 w-24 h-24 bg-surface-container rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+
+                <div class="grid grid-cols-1 gap-8 relative z-10" id="reviews-grid">
+                    <div class="bg-surface-container rounded-xl p-12 text-center text-on-surface-variant font-body-lg border border-outline/30">
+                        [Kundenbewertung hinzuzufügen — Platzhalter reserviert für echte professionelle Erfahrungsberichte]
+                    </div>
+                </div>
+            
 <span class="material-symbols-outlined absolute top-6 right-6 text-outline/20 text-4xl">format_quote</span>
 <div class="flex gap-1 mb-6 text-primary z-10">
 <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -335,11 +317,13 @@
         });
     });
 </script></main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2">
-            <div class="flex items-center gap-2.5 text-white font-extrabold text-lg">
-                <span class="material-symbols-outlined text-[#802813]">local_fire_department</span>
-                <span data-i18n="site_name">Terre & Feu</span>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
+                    <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
+                </div>
+                <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">Terre & Feu</span>
             </div>
-        <span class="text-headline-md font-headline-md">Terre & Feu</span></div><p class="text-body-sm text-outline-variant">Solutions professionnelles de biomasse et bois de chauffage haute performance.</p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS & SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="#"><span data-i18n="footer.service_1">Bûches de bois franc</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="#"><span data-i18n="footer.service_2">Granulés (Pellets)</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="#"><span data-i18n="footer.service_3">Bois de cuisson pro</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="#"><span data-i18n="footer.service_4">Tarifs Gros & B2B</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">12 Rue de l'Industrie, 67000 Strasbourg</span></span><span><span data-i18n="footer.phone">Tél: +33 (0)3 88 00 00 00</span></span><span><span data-i18n="footer.email">Email: contact@terreetfeu.pro</span></span><span><span data-i18n="footer.siret">SIRET: 823 456 789 00012</span></span></div></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.certs_title">CERTIFICATIONS</span></h4><div class="flex gap-4 opacity-70 hover:opacity-100 transition-opacity"><div class="w-16 h-12 bg-white/10 rounded flex items-center justify-center text-[10px] font-bold text-white border border-white/20">PEFC</div><div class="w-16 h-12 bg-white/10 rounded flex items-center justify-center text-[10px] font-bold text-white border border-white/20">FSC</div></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-between text-body-sm text-outline-variant"><span><span data-i18n="footer.rights">© 2024 Terre & Feu. Tous droits réservés.</span></span><div class="flex gap-6"><span><span data-i18n="footer.legal">Mentions Légales</span></span><span><span data-i18n="footer.cgv">CGV</span></span><span><span data-i18n="footer.privacy">Confidentialité</span>é</span></div></div></div></footer><script src="../assets/js/i18n-loader.js"></script>
+        <span class="text-headline-md font-headline-md">Terre & Feu</span></div><p class="text-body-sm text-outline-variant">Solutions professionnelles de biomasse et bois de chauffage haute performance.</p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS & SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="#"><span data-i18n="footer.service_1">Bûches de bois franc</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="#"><span data-i18n="footer.service_2">Granulés (Pellets)</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="#"><span data-i18n="footer.service_3">Bois de cuisson pro</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="#"><span data-i18n="footer.service_4">Tarifs Gros & B2B</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse vom Kunden zu ergänzen]</span></span><span><span data-i18n="footer.phone">[Telefon vom Kunden zu ergänzen]</span></span><span>Email: [E-Mail vom Kunden zu ergänzen]</span><span><span data-i18n="footer.siret">SIRET: 823 456 789 00012</span></span></div></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.certs_title">CERTIFICATIONS</span></h4><div class="flex gap-4 opacity-70 hover:opacity-100 transition-opacity"><div class="w-16 h-12 bg-white/10 rounded flex items-center justify-center text-[10px] font-bold text-white border border-white/20">PEFC</div><div class="w-16 h-12 bg-white/10 rounded flex items-center justify-center text-[10px] font-bold text-white border border-white/20">FSC</div></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-between text-body-sm text-outline-variant"><span><span data-i18n="footer.rights">© 2024 Terre & Feu. Tous droits réservés.</span></span><div class="flex gap-6"><span><span data-i18n="footer.legal">Mentions Légales</span></span><span><span data-i18n="footer.cgv">CGV</span></span><span><span data-i18n="footer.privacy">Confidentialité</span>é</span></div></div></div></footer><script src="../assets/js/i18n-loader.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const btn = document.getElementById('mobile-menu-btn');
