@@ -1,0 +1,36 @@
+<?php
+/**
+ * PHP / PDO Skeleton for B2B Wood Heating Catalog Database Connection
+ * Prepared for Step 2 product data integration and B2B quote handling.
+ */
+
+declare(strict_types=1);
+
+class Database {
+    private string $host = '127.0.0.1';
+    private string $db_name = 'bois_chauffage_b2b';
+    private string $username = 'root';
+    private string $password = '';
+    private ?PDO $conn = null;
+
+    public function getConnection(): ?PDO {
+        if ($this->conn !== null) {
+            return $this->conn;
+        }
+
+        try {
+            $dsn = "mysql:host={$this->host};dbname={$this->db_name};charset=utf8mb4";
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ];
+            $this->conn = new PDO($dsn, $this->username, $this->password, $options);
+        } catch (PDOException $e) {
+            // Logging connection error silently in production
+            error_log("Database connection error: " . $e->getMessage());
+        }
+
+        return $this->conn;
+    }
+}

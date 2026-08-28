@@ -1,0 +1,38 @@
+{
+  "index.html": {
+    "title": "Großhandel Kaminholz, Holzpellets & Briketts B2B | Brennholz PRO",
+    "description": "B2B Lieferant für Hartholz, DIN+/EN+ Pellets und Briketts. Lieferung per LKW-Ladung oder Palette direkt an Ihr Lager."
+  },
+  "catalogue.html": {
+    "title": "B2B Katalog Kaminholz & Pellets | Brennholz PRO",
+    "description": "Entdecken Sie unsere 5 Produktkategorien: Kaminholz, Hartholzbriketts, Briketts, Holzpellets und Holzkohle/Anzündholz."
+  },
+  "livraison.html": {
+    "title": "Lieferung & Logistik B2B | Brennholz PRO",
+    "description": "Lieferoptionen per LKW mit Hebebühne oder Komplettladung für Gewerbekunden und Händler."
+  },
+  "avis-clients.html": {
+    "title": "Kundenbewertungen & Referenzen B2B | Brennholz PRO",
+    "description": "Lesen Sie Erfahrungsberichte unserer Unternehmenskunden, GaLaBau-Betriebe und Wiederverkäufer."
+  },
+  "guide-choix.html": {
+    "title": "Kaufberater & Tipps Kaminholz | Brennholz PRO",
+    "description": "Der richtige Brennstoff für Ihren Bedarf: Heizwert, Restfeuchte und Vergleich zwischen Kaminholz, Briketts und Pellets."
+  },
+  "devis.html": {
+    "title": "Express B2B Angebot anfordern | Brennholz PRO",
+    "description": "Erhalten Sie innerhalb von 24 Stunden ein individuelles Großhandelsangebot für Paletten- oder LKW-Bestellungen."
+  },
+  "politique-retour.html": {
+    "title": "Rückgaberecht & Qualitätsgarantie | Brennholz PRO",
+    "description": "Unsere Qualitätsversprechen, Restfeuchtegarantie < 20% und gewerbliche Abwicklungsrichtlinien."
+  },
+  "blog.html": {
+    "title": "Blog & Marktnews Brennholz | Brennholz PRO",
+    "description": "Aktuelle Trends zu Pelletpreisen, Biomasse-Verordnungen, Lagertipps und Branchennews."
+  },
+  "contact.html": {
+    "title": "Kontakt & Kundenservice B2B | Brennholz PRO",
+    "description": "Kontaktieren Sie unser Vertriebsteam und Experten für Großkunden telefonisch oder per Formular."
+  }
+}
