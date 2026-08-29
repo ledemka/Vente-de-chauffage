@@ -337,8 +337,9 @@ $clientText = $clientTextMap[$lang] ?? $clientTextMap['fr'];
 
 // Helper to make API request to Resend
 function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text): bool {
+    global $toEmail;
     $url = 'https://api.resend.com/emails';
-    $unsubscribeLink = 'mailto:contact@terreetfeu.pro?subject=unsubscribe';
+    $unsubscribeLink = 'mailto:' . $toEmail . '?subject=unsubscribe';
     $data = [
         'from' => $from,
         'to' => [$to],
