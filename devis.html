@@ -338,29 +338,96 @@
             if (e.target.value < 1) e.target.value = 1;
         });
 
-        // Form Submission visual feedback
+        // Form Submission real AJAX request
         const form = document.getElementById('quote-form');
+        
+        // Add dynamic error container above submit button
+        const errorContainer = document.createElement('div');
+        errorContainer.id = 'form-error-container';
+        errorContainer.className = 'hidden bg-error-container text-on-error-container p-4 rounded-lg font-body-sm text-body-sm mb-4';
+        form.querySelector('.pt-6').before(errorContainer);
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalContent = submitBtn.innerHTML;
             
+            // Clear previous errors
+            errorContainer.classList.add('hidden');
+            errorContainer.textContent = '';
+            
+            // Button loading state
             submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span><span>TRAITEMENT...</span>';
             submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
-            
-            // Simulate network request
-            setTimeout(() => {
+            submitBtn.disabled = true;
+
+            // Detect current language from pathname
+            const lang = window.location.pathname.split('/').filter(Boolean).find(p => ['en', 'de', 'nl'].includes(p)) || 'fr';
+
+            // Gather values
+            const formData = {
+                product_type: document.getElementById('product_type').value,
+                format: document.getElementById('format').value,
+                quantity: parseInt(document.getElementById('quantity').value) || 1,
+                delivery_date: document.getElementById('delivery_date').value || null,
+                truck_access: document.getElementById('truck_access').value,
+                delivery_address: document.getElementById('delivery_address').value,
+                company: document.getElementById('company').value,
+                siret: document.getElementById('siret').value || null,
+                contact_name: document.getElementById('contact_name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value || null,
+                lang: lang
+            };
+
+            const endpoint = lang === 'fr' ? './api/devis.php' : '../api/devis.php';
+
+            fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errData => {
+                        throw new Error(errData.message || 'Une erreur est survenue. Veuillez réessayer.');
+                    }).catch(() => {
+                        throw new Error('Une erreur est survenue. Veuillez réessayer.');
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
                 submitBtn.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>DEMANDE ENVOYÉE</span>';
                 submitBtn.classList.remove('bg-primary', 'hover:bg-primary-container');
                 submitBtn.classList.add('bg-green-700', 'hover:bg-green-800');
                 
                 setTimeout(() => {
                     form.reset();
+                    // Reset checkbox tick icon
+                    const checkIcon = form.querySelector('input[type="checkbox"]').nextElementSibling;
+                    checkIcon.classList.add('opacity-0');
+                    checkIcon.classList.remove('opacity-100');
+
                     submitBtn.innerHTML = originalContent;
                     submitBtn.classList.add('bg-primary', 'hover:bg-primary-container');
                     submitBtn.classList.remove('bg-green-700', 'hover:bg-green-800', 'opacity-80', 'cursor-not-allowed');
-                }, 3000);
-            }, 1500);
+                    submitBtn.disabled = false;
+                }, 4000);
+            })
+            .catch(error => {
+                errorContainer.textContent = error.message;
+                errorContainer.classList.remove('hidden');
+                
+                // Reset submit button state
+                submitBtn.innerHTML = originalContent;
+                submitBtn.classList.add('bg-primary', 'hover:bg-primary-container');
+                submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
+                submitBtn.disabled = false;
+            });
         });
         
         // Checkbox visual hack for sibling elements
