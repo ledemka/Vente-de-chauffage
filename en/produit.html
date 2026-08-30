@@ -116,20 +116,20 @@
 <!-- Row 1 -->
 <div class="flex justify-between py-3 border-b border-outline/30">
 <span class="text-label-md font-label-md text-on-surface-variant">ESSENCE</span>
-<span class="text-body-md font-data-mono text-on-surface text-right">Chêne (100%)</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-essence">Chêne (100%)</span>
 </div>
 <div class="flex justify-between py-3 border-b border-outline/30">
 <span class="text-label-md font-label-md text-on-surface-variant">LONGUEUR</span>
-<span class="text-body-md font-data-mono text-on-surface text-right">33 cm (± 2cm)</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-longueur">33 cm (± 2cm)</span>
 </div>
 <!-- Row 2 -->
 <div class="flex justify-between py-3 border-b border-outline/30">
 <span class="text-label-md font-label-md text-on-surface-variant">TAUX D'HUMIDITÉ</span>
-<span class="text-body-md font-data-mono text-on-surface text-right">< 20% (Séchoir)</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-humidite">< 20% (Séchoir)</span>
 </div>
 <div class="flex justify-between py-3 border-b border-outline/30">
 <span class="text-label-md font-label-md text-on-surface-variant">POUVOIR CALORIFIQUE</span>
-<span class="text-body-md font-data-mono text-on-surface text-right">~ 2000 kWh/stère</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-pouvoir">~ 2000 kWh/stère</span>
 </div>
 <!-- Row 3 -->
 <div class="flex justify-between py-3 border-b border-outline/30">
@@ -137,7 +137,7 @@
 </div>
 <div class="flex justify-between py-3 border-b border-outline/30">
 <span class="text-label-md font-label-md text-on-surface-variant">VOLUME</span>
-<span class="text-body-md font-data-mono text-on-surface text-right">1.5 Stères vrac</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-volume">1.5 Stères vrac</span>
 </div>
 <!-- Row 4 -->
 <div class="flex justify-between py-3 border-b border-outline/30">
@@ -187,7 +187,7 @@
 <button class="w-12 h-12 rounded bg-surface-container flex items-center justify-center hover:bg-outline-variant/30 text-on-surface transition-colors" id="btn-decrease" type="button">
 <span class="material-symbols-outlined">remove</span>
 </button>
-<input class="flex-1 bg-transparent text-center text-headline-lg font-data-mono text-on-surface focus:outline-none" id="qty-input"  min="1" type="number" value="1"/>
+<input class="flex-1 w-full min-w-0 bg-transparent text-center text-headline-lg font-data-mono text-on-surface focus:outline-none" id="qty-input" min="1" type="number" value="1"/>
 <button class="w-12 h-12 rounded bg-surface-container flex items-center justify-center hover:bg-outline-variant/30 text-on-surface transition-colors" id="btn-increase" type="button">
 <span class="material-symbols-outlined">add</span>
 </button>
@@ -244,128 +244,7 @@
 </div>
 </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const basePrice = 185.00;
-        
-        // DOM Elements
-        const qtyInput = document.getElementById('qty-input');
-        const btnDecrease = document.getElementById('btn-decrease');
-        const btnIncrease = document.getElementById('btn-increase');
-        const unitPriceEl = document.getElementById('unit-price');
-        const subtotalEl = document.getElementById('subtotal');
-        const totalEl = document.getElementById('total');
-        const discountRow = document.getElementById('discount-row');
-        const discountAmtEl = document.getElementById('discount-amt');
-        const tierStatusEl = document.getElementById('tier-status');
-        const discountPctEl = document.getElementById('discount-pct');
-        const progressBar = document.getElementById('progress-bar');
-        const nextTierMsg = document.getElementById('next-tier-msg');
-        const discountBadge = document.getElementById('discount-badge');
-
-        const formatCurrency = (val) => val.toFixed(2) + '€';
-
-        function updatePricing() {
-            let qty = parseInt(qtyInput.value) || 1;
-            
-            // Tier Logic: 1=0%, 2-4=-4%, 5-9=-6%, 10-19=-8%, 20+=-10%
-            let discountRate = 0;
-            let nextTierQty = 2;
-            let nextTierDiscount = 4;
-            let tierName = "Standard";
-            let progress = 5;
-
-            if (qty >= 20) {
-                discountRate = 0.10;
-                nextTierQty = null;
-                tierName = "Grossiste Master";
-                progress = 100;
-            } else if (qty >= 10) {
-                discountRate = 0.08;
-                nextTierQty = 20;
-                nextTierDiscount = 10;
-                tierName = "Volume Pro";
-                progress = 75;
-            } else if (qty >= 5) {
-                discountRate = 0.06;
-                nextTierQty = 10;
-                nextTierDiscount = 8;
-                tierName = "Revendeur";
-                progress = 50;
-            } else if (qty >= 2) {
-                discountRate = 0.04;
-                nextTierQty = 5;
-                nextTierDiscount = 6;
-                tierName = "Pro Initial";
-                progress = 25;
-            }
-
-            // Calculations
-            const subtotal = basePrice * qty;
-            const discountAmt = subtotal * discountRate;
-            const finalTotal = subtotal - discountAmt;
-            const unitPrice = basePrice * (1 - discountRate);
-
-            // Update UI: Pricing
-            unitPriceEl.textContent = formatCurrency(unitPrice);
-            subtotalEl.textContent = formatCurrency(subtotal);
-            totalEl.textContent = formatCurrency(finalTotal);
-
-            // Update UI: Discount Visibility
-            if (discountRate > 0) {
-                discountRow.classList.remove('hidden');
-                discountAmtEl.textContent = '-' + formatCurrency(discountAmt);
-                discountBadge.classList.remove('hidden');
-            } else {
-                discountRow.classList.add('hidden');
-                discountBadge.classList.add('hidden');
-            }
-
-            // Update UI: Tiers & Progress
-            tierStatusEl.textContent = `Palier : ${tierName}`;
-            discountPctEl.textContent = `-${(discountRate * 100).toFixed(0)}%`;
-            progressBar.style.width = `${progress}%`;
-
-            if (nextTierQty) {
-                const diff = nextTierQty - qty;
-                nextTierMsg.innerHTML = `Ajoutez <span class="font-bold text-on-surface">${diff}</span> palette${diff > 1 ? 's' : ''} pour débloquer -${nextTierDiscount}%`;
-                nextTierMsg.classList.remove('hidden');
-            } else {
-                nextTierMsg.innerHTML = `<span class="text-primary font-bold">Remise maximale atteinte !</span>`;
-            }
-        }
-
-        // Event Listeners
-        btnDecrease.addEventListener('click', () => {
-            if (qtyInput.value > 1) {
-                qtyInput.value = parseInt(qtyInput.value) - 1;
-                updatePricing();
-            }
-        });
-
-        btnIncrease.addEventListener('click', () => {
-            if (qtyInput.value < parseInt(qtyInput.max)) {
-                qtyInput.value = parseInt(qtyInput.value) + 1;
-                updatePricing();
-            }
-        });
-
-        qtyInput.addEventListener('input', () => {
-            let val = parseInt(qtyInput.value);
-            if (isNaN(val) || val < 1) qtyInput.value = 1;
-            if (val > parseInt(qtyInput.max)) qtyInput.value = qtyInput.max;
-            updatePricing();
-        });
-        
-        qtyInput.addEventListener('blur', () => {
-            if (!qtyInput.value) qtyInput.value = 1;
-            updatePricing();
-        })
-
-        // Initial setup
-        updatePricing();
-    });
-</script></main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2">
+</main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
                     <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
