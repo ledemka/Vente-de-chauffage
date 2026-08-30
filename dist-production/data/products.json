@@ -13,8 +13,8 @@
     "positioning": "Bon prix – sous marché",
     "species_material": "Hêtre séché au four (< 20% humidité)",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/78350F/FFF?text=Buches+Hetre+Etuve",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Hetre+1000kg",
+    "image_product": "/assets/images/products/hetre-etuve-product.jpg",
+    "image_packaging": "/assets/images/products/hetre-etuve-packaging.jpg",
     "humidity_bucket": "<20%",
     "available": true
   },
@@ -32,8 +32,8 @@
     "positioning": "Très bon prix",
     "species_material": "Hêtre demi-sec",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/78350F/FFF?text=Buches+Hetre+Demi-Sec",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Hetre+1000kg",
+    "image_product": "/assets/images/products/hetre-demi-sec-product.jpg",
+    "image_packaging": "/assets/images/products/hetre-demi-sec-packaging.jpg",
     "humidity_bucket": "20-25%",
     "available": true
   },
@@ -51,8 +51,8 @@
     "positioning": "Bon prix – sous marché",
     "species_material": "Chêne séché au four (< 20% humidité)",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/78350F/FFF?text=Buches+Chene+Etuve",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Chene+1000kg",
+    "image_product": "/assets/images/products/chene-etuve-product.jpg",
+    "image_packaging": "/assets/images/products/chene-etuve-packaging.jpg",
     "humidity_bucket": "<20%",
     "available": true
   },
@@ -70,8 +70,8 @@
     "positioning": "Bon prix",
     "species_material": "Chêne séché à l'air libre",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/78350F/FFF?text=Buches+Chene+Sec+Air",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Chene+1000kg",
+    "image_product": "/assets/images/products/chene-sec-air-product.jpg",
+    "image_packaging": "/assets/images/products/chene-sec-air-packaging.jpg",
     "humidity_bucket": "non spécifié",
     "available": true
   },
@@ -89,8 +89,8 @@
     "positioning": "Très bon prix",
     "species_material": "Mélange d'essences feuillues dures",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/78350F/FFF?text=Melange+Essences+Etuve",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Melange+1000kg",
+    "image_product": "/assets/images/products/melange-essences-product.jpg",
+    "image_packaging": "/assets/images/products/melange-essences-packaging.jpg",
     "humidity_bucket": "<20%",
     "available": true
   },
@@ -108,8 +108,8 @@
     "positioning": "Très bon prix",
     "species_material": "Bois densifié résineux & feuillus",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/B45309/FFF?text=Buches+Jour+Premium",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Pack+1000kg",
+    "image_product": "/assets/images/products/jour-premium-cylindrique-product.jpg",
+    "image_packaging": "/assets/images/products/jour-premium-cylindrique-packaging.jpg",
     "available": true
   },
   {
@@ -126,7 +126,7 @@
     "positioning": "Très bon prix",
     "species_material": "Écorces bois densifiées",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/B45309/FFF?text=Buches+Nuit+Longue+Duree",
+    "image_product": "/assets/images/products/nuit-longue-duree-product.jpg",
     "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Pack+1000kg",
     "available": true
   },

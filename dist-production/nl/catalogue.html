@@ -237,42 +237,42 @@
                                         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                                             ${sg.products.map(p => {
                                                 const showBadge = p.positioning && p.positioning !== '';
-                                                const badgeHtml = showBadge ? \`
+                                                const badgeHtml = showBadge ? `
                                                     <div class="absolute top-3 left-3 bg-surface text-primary px-2 py-1 rounded text-label-md font-label-md flex items-center gap-1 shadow-sm">
                                                         <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-                                                        \${p.positioning.toUpperCase()}
+                                                        ${p.positioning.toUpperCase()}
                                                     </div>
-                                                \` : '';
+                                                ` : '';
 
-                                                return \`
-                                                    <article onclick="window.location.href='\${relPath}/\${lang === 'fr' ? '' : lang + '/'}produit.html?id=\${p.id}'" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group">
+                                                return `
+                                                    <article onclick="window.location.href='${relPath}/${lang === 'fr' ? '' : lang + '/'}produit.html?id=${p.id}'" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group">
                                                         <div class="relative w-full h-48 rounded bg-surface-container overflow-hidden">
-                                                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="\${p.image_product}" alt="\${p.name}"/>
-                                                            \${badgeHtml}
+                                                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${p.image_product}" alt="${p.name}"/>
+                                                            ${badgeHtml}
                                                         </div>
                                                         <div class="flex flex-col gap-2">
-                                                            <h3 class="text-headline-md font-headline-md text-on-surface leading-tight">\${p.name}</h3>
-                                                            <p class="text-body-sm font-body-sm text-on-surface-variant">\${p.species_material}</p>
+                                                            <h3 class="text-headline-md font-headline-md text-on-surface leading-tight">${p.name}</h3>
+                                                            <p class="text-body-sm font-body-sm text-on-surface-variant">${p.species_material}</p>
                                                         </div>
                                                         <div class="flex flex-col gap-2 mt-auto">
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span class="text-label-md font-label-md text-on-surface-variant">FORMAT</span>
-                                                                <span class="text-data-mono font-data-mono text-on-surface">\${p.format}</span>
+                                                                <span class="text-data-mono font-data-mono text-on-surface">${p.format}</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span class="text-label-md font-label-md text-on-surface-variant">UNITE / PALETTE</span>
-                                                                <span class="text-data-mono font-data-mono text-on-surface">\${p.units_per_palette} U / Palette</span>
+                                                                <span class="text-data-mono font-data-mono text-on-surface">${p.units_per_palette} U / Palette</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span class="text-label-md font-label-md text-on-surface-variant">POIDS PALETTE</span>
-                                                                <span class="text-data-mono font-data-mono text-on-surface">\${p.palette_weight}</span>
+                                                                <span class="text-data-mono font-data-mono text-on-surface">${p.palette_weight}</span>
                                                             </div>
                                                         </div>
                                                         <div class="flex items-end justify-between mt-2">
                                                             <div class="flex flex-col">
                                                                 <span class="text-label-md font-label-md text-on-surface-variant">PRIX GROS / PALETTE</span>
                                                                 <div class="flex items-baseline gap-1">
-                                                                    <span class="text-headline-lg font-headline-lg text-primary">\${p.wholesale_price}</span>
+                                                                    <span class="text-headline-lg font-headline-lg text-primary">${p.wholesale_price}</span>
                                                                     <span class="text-body-md font-body-md text-primary">€ HT</span>
                                                                 </div>
                                                             </div>
@@ -281,7 +281,7 @@
                                                             </button>
                                                         </div>
                                                     </article>
-                                                \`;
+                                                `;
                                             }).join('')}
                                         </div>
                                     `;
