@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" style="background-color: #ece0da;">
+  <defs>
+    <!-- Radial Warm Map Gradient -->
+    <radialGradient id="mapGlow" cx="65%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#fff8f5" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#ece0da" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ddc0ba" stop-opacity="0.9"/>
+    </radialGradient>
+    <linearGradient id="hubLine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#802813" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#802813" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#mapGlow)"/>
+
+  <!-- Stylized Geo Grid -->
+  <g stroke="#ddc0ba" stroke-width="1" stroke-dasharray="4,8" opacity="0.6">
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="250" y1="0" x2="250" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="550" y1="0" x2="550" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+    <line x1="0" y1="120" x2="800" y2="120"/>
+    <line x1="0" y1="240" x2="800" y2="240"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="0" y1="480" x2="800" y2="480"/>
+  </g>
+
+  <!-- Stylized European Country Contours (France, Benelux, Germany, Switzerland) -->
+  <g fill="#dfd0c7" stroke="#caa9a0" stroke-width="2" opacity="0.85">
+    <!-- France -->
+    <path d="M 440,160 L 520,180 L 580,240 L 620,330 L 580,440 L 540,510 L 460,530 L 380,480 L 320,410 L 340,310 L 380,220 Z"/>
+    <!-- Belgium / Benelux -->
+    <path d="M 520,140 L 570,140 L 590,180 L 540,180 Z"/>
+    <!-- Germany West -->
+    <path d="M 590,140 L 710,130 L 740,240 L 690,320 L 620,290 L 590,200 Z"/>
+    <!-- Switzerland -->
+    <path d="M 610,360 L 690,360 L 710,410 L 630,410 Z"/>
+  </g>
+
+  <!-- Zone 1 Coverage Overlay (Nord-Est, Grand Est, Rhône-Alpes, Benelux) -->
+  <path d="M 480,150 Q 640,160 670,280 Q 660,390 570,410 Q 510,340 480,250 Z" 
+        fill="#802813" fill-opacity="0.18" stroke="#802813" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+  <!-- Zone 2 Coverage Overlay (Rest of France, Central Europe) -->
+  <path d="M 330,220 Q 520,130 730,140 Q 740,430 550,520 Q 340,470 330,220 Z" 
+        fill="#56423d" fill-opacity="0.08" stroke="#56423d" stroke-width="1.5" stroke-dasharray="8,6"/>
+
+  <!-- Logistics Network Lines -->
+  <g stroke="url(#hubLine)" stroke-width="2.5" opacity="0.8">
+    <line x1="490" y1="230" x2="570" y2="170"/>
+    <line x1="490" y1="230" x2="620" y2="240"/>
+    <line x1="490" y1="230" x2="560" y2="350"/>
+    <line x1="560" y1="350" x2="650" y2="380"/>
+    <line x1="620" y1="240" x2="690" y2="210"/>
+    <line x1="490" y1="230" x2="400" y2="340"/>
+  </g>
+
+  <!-- Logistics Hub Markers -->
+  <!-- Hub Paris -->
+  <g transform="translate(490, 230)" filter="url(#shadow)">
+    <circle r="12" fill="#802813" fill-opacity="0.25"/>
+    <circle r="6" fill="#802813"/>
+    <circle r="2.5" fill="#fff8f5"/>
+    <text x="14" y="4" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#201a17">Hub Paris IDF</text>
+  </g>
+
+  <!-- Hub Lille / Benelux -->
+  <g transform="translate(540, 165)" filter="url(#shadow)">
+    <circle r="10" fill="#802813" fill-opacity="0.25"/>
+    <circle r="5" fill="#802813"/>
+    <circle r="2" fill="#fff8f5"/>
+    <text x="12" y="4" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#201a17">Hub Lille / Benelux</text>
+  </g>
+
+  <!-- Hub Strasbourg / Rhin -->
+  <g transform="translate(640, 235)" filter="url(#shadow)">
+    <circle r="12" fill="#802813" fill-opacity="0.25"/>
+    <circle r="6" fill="#802813"/>
+    <circle r="2.5" fill="#fff8f5"/>
+    <text x="14" y="4" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#201a17">Hub Strasbourg</text>
+  </g>
+
+  <!-- Hub Lyon -->
+  <g transform="translate(565, 360)" filter="url(#shadow)">
+    <circle r="10" fill="#802813" fill-opacity="0.25"/>
+    <circle r="5" fill="#802813"/>
+    <circle r="2" fill="#fff8f5"/>
+    <text x="12" y="4" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#201a17">Hub Lyon / Alpes</text>
+  </g>
+
+  <!-- Hub Frankfurt / DE -->
+  <g transform="translate(680, 185)" filter="url(#shadow)">
+    <circle r="9" fill="#56423d" fill-opacity="0.25"/>
+    <circle r="4.5" fill="#56423d"/>
+    <circle r="2" fill="#fff8f5"/>
+    <text x="12" y="4" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#56423d">Hub Frankfurt</text>
+  </g>
+</svg>
