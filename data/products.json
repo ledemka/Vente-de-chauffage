@@ -252,8 +252,8 @@
     "positioning": "Bon prix – sous marché",
     "species_material": "Charbon de bois dépoussiéré",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/18181B/FFF?text=Charbon+de+Bois+10kg",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Charbon+800kg",
+    "image_product": "/assets/images/products/charbon-bois-morceaux-product.jpg",
+    "image_packaging": "/assets/images/products/charbon-bois-morceaux-packaging.jpg",
     "available": true
   },
   {
@@ -270,8 +270,8 @@
     "positioning": "Bon prix – sous marché",
     "species_material": "Fibre de bois & cire végétale",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/D97706/FFF?text=Allume-Feu+Laine+de+Bois",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+AllumeFeu+600kg",
+    "image_product": "/assets/images/products/allume-feu-laine-bois-product.jpg",
+    "image_packaging": "/assets/images/products/allume-feu-laine-bois-packaging.jpg",
     "available": true
   },
   {
@@ -288,8 +288,8 @@
     "positioning": "Bon prix – sous marché",
     "species_material": "Bois naturel résineux",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/78350F/FFF?text=Torche+Suedoise",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Torches+800kg",
+    "image_product": "/assets/images/products/buches-torche-suedoise-product.jpg",
+    "image_packaging": "/assets/images/products/buches-torche-suedoise-packaging.jpg",
     "available": true
   }
 ]
