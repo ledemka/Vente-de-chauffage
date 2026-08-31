@@ -127,7 +127,7 @@
     "species_material": "Écorces bois densifiées",
     "origin": "À préciser",
     "image_product": "/assets/images/products/nuit-longue-duree-product.jpg",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Pack+1000kg",
+    "image_packaging": "/assets/images/products/nuit-longue-duree-packaging.jpg",
     "available": true
   },
   {
@@ -144,8 +144,8 @@
     "positioning": "Très bon prix",
     "species_material": "100% Bois dur compressé",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/B45309/FFF?text=Buches+Jour+Forte+Chaleur",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Pack+1000kg",
+    "image_product": "/assets/images/products/jour-forte-chaleur-cubique-product.jpg",
+    "image_packaging": "/assets/images/products/jour-forte-chaleur-cubique-packaging.jpg",
     "available": true
   },
   {
@@ -162,8 +162,8 @@
     "positioning": "Bon prix – sous marché",
     "species_material": "Bois chêne/hêtre extrudé Pini-Kay",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/B45309/FFF?text=Pini+Kay+Premium",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+PiniKay+1000kg",
+    "image_product": "/assets/images/products/pini-kay-compressbee-product.jpg",
+    "image_packaging": "/assets/images/products/pini-kay-compressbee-packaging.jpg",
     "available": true
   },
   {
@@ -180,8 +180,8 @@
     "positioning": "Très bon prix",
     "species_material": "Mélange copeaux & sciures compressés",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/B45309/FFF?text=Buches+Jour+Eco",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Eco+1000kg",
+    "image_product": "/assets/images/products/jour-eco-cylindrique-product.jpg",
+    "image_packaging": "/assets/images/products/jour-eco-cylindrique-packaging.jpg",
     "available": true
   },
   {
@@ -198,8 +198,8 @@
     "positioning": "Très bon prix",
     "species_material": "Bois compressé haute pression RUF",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/78350F/FFF?text=Briquettes+RUF",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+RUF+960kg",
+    "image_product": "/assets/images/products/briquettes-ruf-product.jpg",
+    "image_packaging": "/assets/images/products/briquettes-ruf-packaging.jpg",
     "available": true
   },
   {
@@ -216,8 +216,8 @@
     "positioning": "Très bon prix",
     "species_material": "100% Écorces naturelles compressées",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/78350F/FFF?text=Briquettes+Ecorce",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Ecorce+1000kg",
+    "image_product": "/assets/images/products/briquettes-ecorce-product.jpg",
+    "image_packaging": "/assets/images/products/briquettes-ecorce-packaging.jpg",
     "available": true
   },
   {
@@ -234,8 +234,8 @@
     "positioning": "Très bon prix",
     "species_material": "100% Résineux dépoussiéré",
     "origin": "À préciser",
-    "image_product": "https://placehold.co/600x400/064E3B/FFF?text=Pellets+Premium+15kg",
-    "image_packaging": "https://placehold.co/600x400/2C1810/FFF?text=Palette+Pellets+990kg",
+    "image_product": "/assets/images/products/granules-pellets-premium-product.jpg",
+    "image_packaging": "/assets/images/products/granules-pellets-premium-packaging.jpg",
     "available": true
   },
   {
