@@ -380,6 +380,13 @@
                             });
 
                             // Initial load
+                            const subgroupParam = new URLSearchParams(window.location.search).get('subgroup');
+                            if (subgroupParam && parseInt(subgroupParam) >= 1 && parseInt(subgroupParam) <= 5) {
+                                const targetCheckbox = document.querySelector(`.filter-category[data-subgroup="${parseInt(subgroupParam)}"]`);
+                                if (targetCheckbox) {
+                                    targetCheckbox.checked = true;
+                                }
+                            }
                             applyFilters();
 
                         } catch (err) {
