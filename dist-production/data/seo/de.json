@@ -34,5 +34,17 @@
   "contact.html": {
     "title": "Kontakt & Kundenservice B2B | Brennholz PRO",
     "description": "Kontaktieren Sie unser Vertriebsteam und Experten für Großkunden telefonisch oder per Formular."
+  },
+  "mentions-legales.html": {
+    "title": "Impressum | Bois de Chauffage PRO",
+    "description": "Rechtliche und redaktionelle Informationen zur Terre & Feu Website, B2B Spezialisten für Biomasse und Brennholz."
+  },
+  "cgv.html": {
+    "title": "Allgemeine Geschäftsbedingungen B2B | Bois de Chauffage PRO",
+    "description": "Lesen Sie unsere AGB für den Großhandel mit Brennholz, Pellets und Briketts für gewerbliche Kunden."
+  },
+  "politique-confidentialite.html": {
+    "title": "Datenschutzerklärung | Bois de Chauffage PRO",
+    "description": "Erfahren Sie mehr über unseren Umgang mit Ihren personenbezogenen Daten gemäß der DSGVO für unsere B2B-Kunden."
   }
 }

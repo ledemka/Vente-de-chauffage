@@ -14,6 +14,11 @@
     "contact": "Contact"
   },
   "categories": {
+    "1": "Firewood Logs",
+    "2": "Compressed Logs / Wood Briquettes",
+    "3": "Briquettes",
+    "4": "Wood Pellets",
+    "5": "Charcoal / Firestarters / Torch Logs",
     "logs": "Firewood Logs",
     "briquettes_compressed": "Compressed Logs",
     "briquettes": "Wood Briquettes",
@@ -77,5 +82,12 @@
     "reassurance_2": "DIN+ / EN+ A1 Certified Pellets",
     "reassurance_3": "Tail-lift & Pallet Jack Delivery",
     "reassurance_4": "B2B Payment Terms"
+  },
+  "blog": {
+    "article_1_title": "Optimizing Winter Storage: Maintaining Moisture Levels Below 15%",
+    "article_2_title": "The Future of Industrial Wood Pellets",
+    "article_3_title": "Which Wood to Choose for Professional Cooking?",
+    "article_4_title": "Anticipating Supply Chain Disruptions",
+    "article_5_title": "Decoding the ISO 17225-2 Standard"
   }
 }

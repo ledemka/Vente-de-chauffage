@@ -14,6 +14,11 @@
     "contact": "Contact"
   },
   "categories": {
+    "1": "Brandhout",
+    "2": "Geperst Hout / Houtbriketten",
+    "3": "Briketten",
+    "4": "Houtpellets",
+    "5": "Houtskool / Aanmaakblokjes / Fakkels",
     "logs": "Haardhout",
     "briquettes_compressed": "Houtbriketten",
     "briquettes": "Briketten",
@@ -77,5 +82,12 @@
     "reassurance_2": "DIN+ / EN+ A1 gecertificeerde pellets",
     "reassurance_3": "Levering met laadklep & pompwagen",
     "reassurance_4": "B2B Betalingsvoorwaarden"
+  },
+  "blog": {
+    "article_1_title": "Winteropslag Optimaliseren: Vochtgehalte Onder 15% Houden",
+    "article_2_title": "De Toekomst van Industriële Houtpellets",
+    "article_3_title": "Welk Hout Kiezen voor Professioneel Koken?",
+    "article_4_title": "Anticiperen op Leveringsonderbrekingen",
+    "article_5_title": "Ontcijfering van de ISO 17225-2 Norm"
   }
 }

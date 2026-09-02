@@ -34,5 +34,17 @@
   "contact.html": {
     "title": "Contact & B2B Klantenservice | Haardhout PRO",
     "description": "Neem contact op met ons verkoopteam via telefoon of het contactformulier."
+  },
+  "mentions-legales.html": {
+    "title": "Wettelijke vermeldingen | Bois de Chauffage PRO",
+    "description": "Juridische en redactionele informatie betreffende de Terre & Feu website, B2B specialisten in biomassa en brandhout."
+  },
+  "cgv.html": {
+    "title": "Algemene Voorwaarden B2B | Bois de Chauffage PRO",
+    "description": "Bekijk onze algemene voorwaarden voor de groothandel in brandhout, pellets en briketten voor professionals."
+  },
+  "politique-confidentialite.html": {
+    "title": "Privacybeleid | Bois de Chauffage PRO",
+    "description": "Meer informatie over onze verwerking van uw persoonsgegevens in overeenstemming met de AVG-regelgeving voor onze B2B-klanten."
   }
 }

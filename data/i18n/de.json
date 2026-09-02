@@ -14,6 +14,11 @@
     "contact": "Kontakt"
   },
   "categories": {
+    "1": "Brennholzscheite",
+    "2": "Pressholz / Holzbriketts",
+    "3": "Briketts",
+    "4": "Holzpellets",
+    "5": "Holzkohle / Anzünder / Fackeln",
     "logs": "Brennholz",
     "briquettes_compressed": "Holzbriketts",
     "briquettes": "Briketts",
@@ -77,5 +82,12 @@
     "reassurance_2": "DIN+ / EN+ A1 zertifizierte Pellets",
     "reassurance_3": "Lieferung mit Hebebühne & Hubwagen",
     "reassurance_4": "B2B Zahlungsbedingungen"
+  },
+  "blog": {
+    "article_1_title": "Optimierung der Winterlagerung: Feuchtigkeitsgehalt unter 15% halten",
+    "article_2_title": "Die Zukunft von Industrie-Holzpellets",
+    "article_3_title": "Welches Holz für professionelles Kochen?",
+    "article_4_title": "Lieferengpässe antizipieren und vermeiden",
+    "article_5_title": "Entschlüsselung der Norm ISO 17225-2"
   }
 }

@@ -34,5 +34,17 @@
   "contact.html": {
     "title": "Contact B2B Sales & Support | Firewood PRO",
     "description": "Get in touch with our commercial sales team and thermal experts via phone or contact form."
+  },
+  "mentions-legales.html": {
+    "title": "Legal Notice | Bois de Chauffage PRO",
+    "description": "Legal and editorial information regarding the Terre & Feu website, B2B specialists in biomass and firewood."
+  },
+  "cgv.html": {
+    "title": "B2B Terms and Conditions of Sale | Bois de Chauffage PRO",
+    "description": "View our Terms and Conditions applicable to the wholesale distribution of firewood, pellets, and briquettes for professionals."
+  },
+  "politique-confidentialite.html": {
+    "title": "Privacy Policy | Bois de Chauffage PRO",
+    "description": "Learn more about our handling of your personal data in accordance with GDPR regulations for our B2B clients."
   }
 }
