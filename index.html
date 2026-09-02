@@ -71,11 +71,11 @@
             </div>
             <main class="w-full pt-[128px] bg-background"><div class="flex flex-col w-full">
 <!-- Hero Section -->
-<section id="hero-carousel-section" class="relative w-full min-h-[640px] flex items-center justify-center bg-inverse-surface text-inverse-on-surface overflow-hidden -mt-[128px] pt-[128px]">
-<button id="hero-prev-btn" class="w-8 h-8 rounded-full flex items-center justify-center text-outline-variant hover:text-on-tertiary hover:bg-white/10 transition-colors absolute top-1/2 -translate-y-1/2 left-4 md:left-8 z-30" aria-label="Précédent">
+<section id="hero-carousel-section" class="group relative w-full min-h-[640px] flex items-center justify-center bg-inverse-surface text-inverse-on-surface overflow-hidden -mt-[128px] pt-[128px]">
+<button id="hero-prev-btn" class="w-8 h-8 rounded-full flex items-center justify-center text-outline-variant hover:text-on-tertiary hover:bg-white/10 transition-colors absolute top-1/2 -translate-y-1/2 left-4 md:left-8 z-30 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-300" aria-label="Précédent">
       <span class="material-symbols-outlined text-[18px]">chevron_left</span>
     </button>
-<button id="hero-next-btn" class="w-8 h-8 rounded-full flex items-center justify-center text-outline-variant hover:text-on-tertiary hover:bg-white/10 transition-colors absolute top-1/2 -translate-y-1/2 right-4 md:right-8 z-30" aria-label="Suivant">
+<button id="hero-next-btn" class="w-8 h-8 rounded-full flex items-center justify-center text-outline-variant hover:text-on-tertiary hover:bg-white/10 transition-colors absolute top-1/2 -translate-y-1/2 right-4 md:right-8 z-30 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-300" aria-label="Suivant">
       <span class="material-symbols-outlined text-[18px]">chevron_right</span>
     </button>
 <!-- Carousel Background Slides -->
@@ -124,23 +124,7 @@
 <span class="text-data-mono text-outline-variant"><span data-i18n="metrics.metric_3_label">Délais d'Expédition</span></span>
 </div>
 </div>
-</div>
-
-<!-- Carousel Controls -->
-<div class="lg:col-span-4 flex flex-col lg:items-end justify-end gap-4 mt-4 lg:mt-0">
-  <div class="flex items-center gap-3 bg-[#201a17]/60 backdrop-blur-md p-2 rounded-full border border-outline/20 shadow-lg">
-    
-    <div class="flex items-center gap-2 px-1" id="hero-carousel-dots">
-      <button class="hero-dot w-8 h-1.5 rounded-full bg-primary transition-all duration-300" data-slide="0" aria-label="Slide 1"></button>
-      <button class="hero-dot w-3 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" data-slide="1" aria-label="Slide 2"></button>
-      <button class="hero-dot w-3 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" data-slide="2" aria-label="Slide 3"></button>
-      <button class="hero-dot w-3 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" data-slide="3" aria-label="Slide 4"></button>
-      <button class="hero-dot w-3 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" data-slide="4" aria-label="Slide 5"></button>
-    </div>
-    
-  </div>
-</div>
-</div>
+</div></div>
 </section>
 <!-- Reassurance Band -->
 <section class="bg-primary text-on-primary py-4 w-full shadow-md z-20">
@@ -238,7 +222,7 @@
                 </div>
                 <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">Terre & Feu</span>
             </div>
-        <span class="text-headline-md font-headline-md">Terre & Feu</span></div><p class="text-body-sm text-outline-variant">Solutions professionnelles de biomasse et bois de chauffage haute performance.</p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS & SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=1"><span data-i18n="footer.service_1">Bûches de bois franc</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=4"><span data-i18n="footer.service_2">Granulés (Pellets)</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html"><span data-i18n="footer.service_3">Bois de cuisson pro</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./devis.html"><span data-i18n="footer.service_4">Tarifs Gros & B2B</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse à compléter par le client]</span></span><span><span data-i18n="footer.phone">[Téléphone à compléter par le client]</span></span><span>Email: [Email à compléter par le client]</span><span><span data-i18n="footer.siret">SIRET: [SIRET à compléter par le client]</span></span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><span><span data-i18n="footer.legal">Mentions Légales</span></span><span><span data-i18n="footer.cgv">CGV</span></span><span><span data-i18n="footer.privacy">Confidentialité</span>é</span></div></div></div></footer><script src="./assets/js/i18n-loader.js"></script>
+        <span class="text-headline-md font-headline-md">Terre & Feu</span></div><p class="text-body-sm text-outline-variant">Solutions professionnelles de biomasse et bois de chauffage haute performance.</p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS & SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=1"><span data-i18n="footer.service_1">Bûches de bois franc</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=4"><span data-i18n="footer.service_2">Granulés (Pellets)</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html"><span data-i18n="footer.service_3">Bois de cuisson pro</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./devis.html"><span data-i18n="footer.service_4">Tarifs Gros & B2B</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse à compléter par le client]</span></span><span><span data-i18n="footer.phone">[Téléphone à compléter par le client]</span></span><span>Email: [Email à compléter par le client]</span><span><span data-i18n="footer.siret">SIRET: [SIRET à compléter par le client]</span></span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="./mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="./cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="./politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a></div></div></div></footer><script src="./assets/js/i18n-loader.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 // Mobile menu
