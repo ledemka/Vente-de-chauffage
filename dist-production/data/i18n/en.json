@@ -89,5 +89,10 @@
     "article_3_title": "Which Wood to Choose for Professional Cooking?",
     "article_4_title": "Anticipating Supply Chain Disruptions",
     "article_5_title": "Decoding the ISO 17225-2 Standard"
+  },
+  "delivery_promo": {
+    "title": "Secure Industrial Delivery",
+    "desc": "From sustainably managed forests to your site. Our fleet guarantees a constant supply for professional volumes, with an average dispatch time of 48 hours.",
+    "cta": "Learn more about delivery"
   }
 }
