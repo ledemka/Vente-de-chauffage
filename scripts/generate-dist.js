@@ -14,7 +14,10 @@ const PAGES = [
     'devis.html',
     'politique-retour.html',
     'blog.html',
-    'contact.html'
+    'contact.html',
+    'mentions-legales.html',
+    'cgv.html',
+    'politique-confidentialite.html'
 ];
 
 const LANGS = ['fr', 'en', 'de', 'nl'];
