@@ -288,14 +288,15 @@
                             if (product) {
                                 document.getElementById('product-title').textContent = product.name;
                                 document.getElementById('product-ref').textContent = `Ref: ${product.id.toUpperCase()}-PAL`;
-                                document.getElementById('product-desc').textContent = `${product.species_material} - Humidité: ${product.humidity_bucket}. Origine: ${product.origin}. Idéal pour professionnels.`;
+                                const displayHumidity = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
+                                document.getElementById('product-desc').textContent = `${product.species_material} - Humidité: ${displayHumidity}. Origine: ${product.origin}. Idéal pour professionnels.`;
                                 document.getElementById('product-stock').textContent = 'En Stock';
                                 document.getElementById('product-img-1').src = product.image_product;
                                 document.getElementById('product-img-2').src = product.image_packaging;
 
                                 document.getElementById('spec-essence').textContent = product.species_material;
                                 document.getElementById('spec-longueur').textContent = product.format;
-                                document.getElementById('spec-humidite').textContent = product.humidity_bucket;
+                                document.getElementById('spec-humidite').textContent = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
                                 document.getElementById('spec-origine').textContent = product.origin;
                                 document.getElementById('spec-pouvoir').textContent = '~ 4.8 kWh/kg';
                                 document.getElementById('spec-poids').textContent = product.palette_weight;

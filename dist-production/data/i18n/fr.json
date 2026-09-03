@@ -99,6 +99,7 @@
   },
   "specs": {
     "humidity": "TAUX D'HUMIDITÉ",
-    "origin": "ORIGINE"
+    "origin": "ORIGINE",
+    "humidity_unavailable": "Non communiqué"
   }
 }

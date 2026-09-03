@@ -99,6 +99,7 @@
   },
   "specs": {
     "humidity": "VOCHTGEHALTE",
-    "origin": "OORSPRONG"
+    "origin": "OORSPRONG",
+    "humidity_unavailable": "Niet gespecificeerd"
   }
 }

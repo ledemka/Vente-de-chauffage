@@ -99,6 +99,7 @@
   },
   "specs": {
     "humidity": "FEUCHTIGKEITSGEHALT",
-    "origin": "HERKUNFT"
+    "origin": "HERKUNFT",
+    "humidity_unavailable": "Keine Angabe"
   }
 }

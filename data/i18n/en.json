@@ -99,6 +99,7 @@
   },
   "specs": {
     "humidity": "MOISTURE CONTENT",
-    "origin": "ORIGIN"
+    "origin": "ORIGIN",
+    "humidity_unavailable": "Not specified"
   }
 }
