@@ -96,5 +96,9 @@
     "title": "Veilige industriële levering",
     "desc": "Van duurzaam beheerde bossen tot op uw locatie. Onze vloot garandeert een constante aanvoer voor professionele volumes, met een gemiddelde verzendtijd van 48 uur.",
     "cta": "Meer info over levering"
+  },
+  "specs": {
+    "humidity": "VOCHTGEHALTE",
+    "origin": "OORSPRONG"
   }
 }

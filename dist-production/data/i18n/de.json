@@ -96,5 +96,9 @@
     "title": "Sichere industrielle Lieferung",
     "desc": "Von nachhaltig bewirtschafteten Wäldern bis zu Ihrem Standort. Unsere Flotte garantiert eine konstante Versorgung für gewerbliche Mengen bei einer durchschnittlichen Versandzeit von 48 Stunden.",
     "cta": "Mehr zur Lieferung erfahren"
+  },
+  "specs": {
+    "humidity": "FEUCHTIGKEITSGEHALT",
+    "origin": "HERKUNFT"
   }
 }

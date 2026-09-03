@@ -96,5 +96,9 @@
     "title": "Secure Industrial Delivery",
     "desc": "From sustainably managed forests to your site. Our fleet guarantees a constant supply for professional volumes, with an average dispatch time of 48 hours.",
     "cta": "Learn more about delivery"
+  },
+  "specs": {
+    "humidity": "MOISTURE CONTENT",
+    "origin": "ORIGIN"
   }
 }

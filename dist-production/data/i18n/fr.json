@@ -96,5 +96,9 @@
     "title": "Livraison Industrielle Sécurisée",
     "desc": "Des forêts gérées durablement jusqu'à votre site. Notre flotte garantit un approvisionnement constant pour les volumes professionnels, avec un délai d'expédition moyen de 48h.",
     "cta": "En savoir plus sur la livraison"
+  },
+  "specs": {
+    "humidity": "TAUX D'HUMIDITÉ",
+    "origin": "ORIGINE"
   }
 }
