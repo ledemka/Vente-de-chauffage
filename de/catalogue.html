@@ -201,7 +201,7 @@
                         const relPath = lang === 'fr' ? '.' : '..';
 
                         try {
-                            const res = await fetch(`./data/products.json`);
+                            const res = await fetch(`../data/products.json`);
                             const allProducts = await res.json();
 
                             const subGroups = [

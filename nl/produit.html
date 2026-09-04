@@ -280,7 +280,7 @@
                         const productId = urlParams.get('id') || 'hetre-etuve';
 
                         try {
-                            const resProducts = await fetch(`./data/products.json`);
+                            const resProducts = await fetch(`../data/products.json`);
                             const products = await resProducts.json();
                             const product = products.find(p => p.id === productId) || products[0];
 
