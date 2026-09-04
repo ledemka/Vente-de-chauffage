@@ -147,5 +147,10 @@
     "msg1": "Votre commande a bien été enregistrée.",
     "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires vient de vous être envoyé.",
     "back_home": "Retour à l'accueil"
-  }
+  },
+  "footer.client_space_title": "ESPACE CLIENT & PANIER",
+  "footer.client_link_1": "Mon Panier",
+  "footer.client_link_2": "Connexion / Inscription",
+  "footer.client_link_3": "Suivi de livraison",
+  "footer.client_link_4": "Service commercial"
 }

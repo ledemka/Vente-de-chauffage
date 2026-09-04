@@ -51,7 +51,7 @@
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.catalog" href="../catalogue.html"><span data-i18n="nav.catalog">CATALOGUE</span></a>
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.guide" href="../guide-choix.html"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.blog" href="../blog.html"><span data-i18n="nav.blog">BLOG</span></a>
-                    <a class="text-primary font-bold border-b-2 border-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.contact" href="../recapitulatif-commande.html"><span data-i18n="nav.contact">CONTACT</span></a>
+                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.contact" href="../contact.html"><span data-i18n="nav.contact">CONTACT</span></a>
                 </div>
             </nav>
         </header>
@@ -74,14 +74,119 @@
                     </div>
                 </div>
             </div>
-            <main class="w-full pt-[128px] bg-background"><div class="max-w-[1440px] mx-auto px-margin-desktop py-16"><div class="bg-surface-container rounded-xl p-8 shadow-sm flex flex-col gap-6"><h1 class="text-headline-xl text-on-surface" data-i18n="recapitulatif-commande.title">recapitulatif-commande.html</h1><p class="text-body-md text-on-surface-variant">Contenu en cours de construction. Integration de cart.js et auth.js à venir.</p></div></div></main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
-                    <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
+            <main class="w-full pt-[128px] bg-background"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-16">
+    <div class="flex items-center gap-2 mb-8">
+        <a href="../panier.html" class="text-on-surface-variant hover:text-primary transition-colors flex items-center">
+            <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+            <span class="ml-1" data-i18n="cart.title">Panier</span>
+        </a>
+        <span class="text-outline-variant">/</span>
+        <span class="text-on-surface font-bold" data-i18n="checkout.title">Récapitulatif de commande</span>
+    </div>
+
+    <h1 class="text-headline-xl text-on-surface mb-8" data-i18n="checkout.title">Récapitulatif de commande</h1>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <div class="lg:col-span-7">
+            <form id="checkout-form" class="bg-surface-container rounded-xl p-8 shadow-sm flex flex-col gap-8">
+                <div id="checkout-error" class="hidden bg-error-container text-on-error-container p-4 rounded-md text-body-sm font-medium shadow-sm"></div>
+
+                <!-- Delivery Section -->
+                <div>
+                    <h2 class="text-headline-md font-headline-md text-on-surface mb-6 flex items-center gap-2 border-b border-outline/20 pb-4">
+                        <span class="material-symbols-outlined text-primary">local_shipping</span>
+                        <span data-i18n="checkout.delivery_details">Détails de livraison</span>
+                    </h2>
+                    
+                    <div class="flex flex-col gap-5">
+                        <div class="flex flex-col gap-2">
+                            <label for="company" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="auth.company">Société *</label>
+                            <input type="text" id="company" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        </div>
+                        
+                        <div class="flex flex-col gap-2">
+                            <label for="address" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="checkout.address">Adresse de livraison *</label>
+                            <input type="text" id="address" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div class="flex flex-col gap-2">
+                                <label for="zip_code" class="text-label-md font-label-md text-on-surface uppercase">Code Postal *</label>
+                                <input type="text" id="zip_code" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label for="city" class="text-label-md font-label-md text-on-surface uppercase">Ville *</label>
+                                <input type="text" id="city" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                            </div>
+                        </div>
+
+                        <label class="flex items-start gap-3 mt-2 cursor-pointer group">
+                            <div class="relative flex items-center justify-center">
+                                <input type="checkbox" id="truck_access" class="peer appearance-none w-6 h-6 border-2 border-outline-variant rounded-md checked:bg-primary checked:border-primary transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 focus:ring-offset-surface-container">
+                                <span class="material-symbols-outlined absolute text-on-primary text-[18px] opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity">check</span>
+                            </div>
+                            <div class="flex flex-col pt-0.5">
+                                <span class="text-label-md font-label-md text-on-surface group-hover:text-primary transition-colors" data-i18n="checkout.truck_access">Accès Poids Lourd garanti (Semi-remorque)</span>
+                                <span class="text-body-sm text-on-surface-variant mt-1">Cochez cette case si le site de livraison permet l'accès, le demi-tour et le déchargement d'un camion 44T.</span>
+                            </div>
+                        </label>
+                    </div>
                 </div>
-                <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">Terre & Feu</span>
+
+                <!-- Payment Section -->
+                <div>
+                    <h2 class="text-headline-md font-headline-md text-on-surface mb-6 flex items-center gap-2 border-b border-outline/20 pb-4">
+                        <span class="material-symbols-outlined text-primary">account_balance</span>
+                        <span data-i18n="checkout.payment_method">Mode de paiement</span>
+                    </h2>
+                    
+                    <div class="bg-surface-container-highest border-l-4 border-primary rounded-r-md p-5 flex flex-col gap-2 shadow-sm">
+                        <div class="flex items-center gap-2 text-on-surface font-bold">
+                            <span class="material-symbols-outlined text-primary">verified</span>
+                            <span data-i18n="checkout.bank_transfer_only">Virement bancaire uniquement</span>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant ml-8" data-i18n="checkout.bank_transfer_desc">
+                            Nos coordonnées bancaires vous seront transmises après validation de la commande. Votre commande sera expédiée dès réception des fonds.
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Order Summary Sidebar -->
+        <div class="lg:col-span-5">
+            <div class="bg-surface-container-highest rounded-xl p-8 shadow-md h-fit border border-outline/10">
+                <h3 class="text-headline-md font-headline-md text-on-surface mb-6" data-i18n="cart.title">Votre Commande</h3>
+                
+                <div id="checkout-items" class="mb-6">
+                    <!-- Loaded dynamically via CartUI -->
+                    <div class="animate-pulse flex flex-col gap-4">
+                        <div class="h-12 bg-surface-dim rounded-md"></div>
+                        <div class="h-12 bg-surface-dim rounded-md"></div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between mb-4">
+                    <span class="text-body-md text-on-surface-variant" data-i18n="cart.subtotal">Sous-total HT</span>
+                    <span class="font-data-mono font-medium text-on-surface" id="checkout-subtotal">0.00€</span>
+                </div>
+                <div class="flex justify-between mb-4 text-primary">
+                    <span class="text-body-md" data-i18n="cart.discount">Remise Volume</span>
+                    <span class="font-data-mono font-bold" id="checkout-discount">-0.00€</span>
+                </div>
+                <div class="flex justify-between mb-8 text-headline-md text-on-surface border-t border-outline/30 pt-4">
+                    <span data-i18n="cart.total">Total HT</span>
+                    <span class="font-data-mono font-bold" id="checkout-total">0.00€</span>
+                </div>
+
+                <button form="checkout-form" type="submit" id="submit-order-btn" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider py-4 px-6 rounded-md transition-colors flex items-center justify-center gap-2 shadow-sm">
+                    <span data-i18n="checkout.confirm_btn">Confirmer la commande</span>
+                    <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                </button>
             </div>
-        <span class="text-headline-md font-headline-md">Terre & Feu</span></div><p class="text-body-sm text-outline-variant">Solutions professionnelles de biomasse et bois de chauffage haute performance.</p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS & SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=1"><span data-i18n="footer.service_1">Bûches de bois franc</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=4"><span data-i18n="footer.service_2">Granulés (Pellets)</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html"><span data-i18n="footer.service_3">Bois de cuisson pro</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../devis.html"><span data-i18n="footer.service_4">Tarifs Gros & B2B</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.service_5">Livraison</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse à compléter par le client]</span></span><span><span data-i18n="footer.phone">[Téléphone à compléter par le client]</span></span><span>Email: [Email à compléter par le client]</span><span><span data-i18n="footer.siret">SIRET: [SIRET à compléter par le client]</span></span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="../mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="../cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="../politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="../politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="../assets/js/i18n-loader.js"></script>
+        </div>
+    </div>
+</div></main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">Terre &amp; Feu</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Solutions professionnelles de biomasse et bois de chauffage haute performance.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS &amp; SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=1"><span data-i18n="categories.1">Bûches de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=2"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=3"><span data-i18n="categories.3">Briquettes</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=4"><span data-i18n="categories.4">Granulés / Pellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=5"><span data-i18n="categories.5">Charbon / Allume-feu</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./devis.html"><span data-i18n="nav.quote">Devis</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.service_5">Livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="nav.contact">Contact</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">ESPACE CLIENT &amp; PANIER</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./panier.html"><span data-i18n="footer.client_link_1">Mon Panier</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./connexion.html"><span data-i18n="footer.client_link_2">Connexion / Inscription</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.client_link_3">Suivi de livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="footer.client_link_4">Service commercial</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse à compléter par le client]</span></span><span><span data-i18n="footer.phone">[Téléphone à compléter par le client]</span></span><span>Email: [Email à compléter par le client]</span><span><span data-i18n="footer.siret">SIRET: [SIRET à compléter par le client]</span></span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="./mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="./cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="./politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="./politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="../assets/js/i18n-loader.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const btn = document.getElementById('mobile-menu-btn');

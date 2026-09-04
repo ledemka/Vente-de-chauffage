@@ -51,7 +51,7 @@
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.catalog" href="../catalogue.html"><span data-i18n="nav.catalog">CATALOGUE</span></a>
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.guide" href="../guide-choix.html"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.blog" href="../blog.html"><span data-i18n="nav.blog">BLOG</span></a>
-                    <a class="text-primary font-bold border-b-2 border-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.contact" href="../connexion.html"><span data-i18n="nav.contact">CONTACT</span></a>
+                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.contact" href="../contact.html"><span data-i18n="nav.contact">CONTACT</span></a>
                 </div>
             </nav>
         </header>
@@ -74,48 +74,96 @@
                     </div>
                 </div>
             </div>
-            <main class="w-full pt-[128px] bg-background"><div class="max-w-md mx-auto px-margin-mobile md:px-margin-desktop py-16">
-    <div class="bg-surface-container rounded-xl p-8 shadow-md flex flex-col gap-6 border border-outline/20">
-        <div class="flex flex-col items-center gap-2 mb-4">
-            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-2">
-                <span class="material-symbols-outlined text-[28px]">lock</span>
+            <main class="w-full pt-[128px] bg-background"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Content Side (Left) -->
+        <div class="flex flex-col gap-8">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-primary/10 text-primary font-label-md text-label-md uppercase px-3 py-1.5 rounded-full mb-6">
+                    <span class="material-symbols-outlined text-[18px]">business_center</span>
+                    <span>ESPACE PROFESSIONNEL / PERSONNEL</span>
+                </div>
+                <h1 class="text-headline-xl font-headline-xl text-on-surface mb-6">Optimisez vos approvisionnements en biomasse.</h1>
+                <p class="text-body-lg text-on-surface-variant max-w-lg" data-i18n="hero.subtitle">Accédez à vos grilles tarifaires négociées, suivez vos livraisons de bois haute performance en temps réel et gérez vos commandes en gros en toute simplicité.</p>
             </div>
-            <h1 class="text-headline-lg font-headline-lg text-on-surface" data-i18n="auth.login_title">Connexion</h1>
-        </div>
-
-        <form id="login-form" class="flex flex-col gap-5">
-            <div id="login-error" class="hidden bg-error-container text-on-error-container p-3 rounded-md text-body-sm text-center font-medium"></div>
             
-            <div class="flex flex-col gap-2">
-                <label for="email" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="auth.email">Adresse Email</label>
-                <input type="email" id="email" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div class="bg-surface-container-highest p-6 rounded-xl border border-outline/10 shadow-sm">
+                    <span class="material-symbols-outlined text-primary text-[32px] mb-4">local_shipping</span>
+                    <h3 class="text-headline-md font-headline-md text-on-surface mb-2" data-i18n="footer.reassurance_3">Livraison Palette</h3>
+                    <p class="text-body-sm text-on-surface-variant">Logistique optimisée sur toute la France et l'Europe.</p>
+                </div>
+                <div class="bg-surface-container-highest p-6 rounded-xl border border-outline/10 shadow-sm">
+                    <span class="material-symbols-outlined text-primary text-[32px] mb-4">receipt_long</span>
+                    <h3 class="text-headline-md font-headline-md text-on-surface mb-2" data-i18n="footer.reassurance_4">Facturation Pro</h3>
+                    <p class="text-body-sm text-on-surface-variant">Gestion centralisée et bons de livraison dématérialisés.</p>
+                </div>
             </div>
+        </div>
+        
+        <!-- Form Side (Right) -->
+        <div class="flex justify-center lg:justify-end">
+            <div class="w-full max-w-md bg-surface-container p-8 md:p-10 rounded-2xl shadow-md border border-outline/10">
+                <div class="mb-8 text-center">
+                    <h2 class="text-headline-lg font-headline-lg text-on-surface" data-i18n="auth.login_title">Connexion B2B</h2>
+                    <p class="text-body-sm text-on-surface-variant mt-2">Entrez vos identifiants professionnels pour accéder à votre espace.</p>
+                </div>
+                
+                <form id="login-form" class="flex flex-col gap-5">
+                    <div id="login-error" class="hidden bg-error-container text-on-error-container p-3 rounded-md text-body-sm text-center font-medium"></div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <label for="email" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="auth.email">Email Professionnel *</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">mail</span>
+                            <input type="email" id="email" required placeholder="(Ex: contact@entreprise.fr)" class="w-full bg-surface-container-highest border border-outline/30 rounded-md py-3 pl-10 pr-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        </div>
+                    </div>
 
-            <div class="flex flex-col gap-2">
-                <label for="password" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="auth.password">Mot de passe</label>
-                <input type="password" id="password" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between">
+                            <label for="password" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="auth.password">Mot de passe *</label>
+                            <a href="#" class="text-label-md font-label-md text-primary hover:underline">Mot de passe oublié ?</a>
+                        </div>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">lock</span>
+                            <input type="password" id="password" required placeholder="(Votre mot de passe sécurisé)" class="w-full bg-surface-container-highest border border-outline/30 rounded-md py-3 pl-10 pr-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mt-2">
+                        <input type="checkbox" id="remember" class="w-4 h-4 border-outline-variant rounded cursor-pointer accent-primary">
+                        <label for="remember" class="text-body-sm text-on-surface-variant cursor-pointer">Rester connecté</label>
+                    </div>
+
+                    <button type="submit" class="mt-2 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-4 px-8 rounded-md transition-colors flex items-center justify-center gap-2 w-full shadow-sm">
+                        <span data-i18n="auth.login_btn">Se connecter</span>
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                    </button>
+                    
+                    <div class="relative flex py-4 items-center">
+                        <div class="flex-grow border-t border-outline/20"></div>
+                        <span class="flex-shrink-0 mx-4 text-outline-variant text-body-sm">OU</span>
+                        <div class="flex-grow border-t border-outline/20"></div>
+                    </div>
+                    
+                    <a href="../panier.html" class="bg-surface-container-highest hover:bg-surface-dim text-on-surface font-label-md text-label-md py-3 px-8 rounded-md transition-colors flex items-center justify-center gap-2 w-full border border-outline/20 shadow-sm">
+                        <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                        <span data-i18n="auth.guest_btn">Continuer en tant qu'invité</span>
+                    </a>
+                </form>
+
+                <div class="mt-8 text-center text-body-sm text-on-surface-variant">
+                    <p>Pas encore de compte ? <a href="../inscription.html" class="text-primary font-bold hover:underline ml-1">S'inscrire</a></p>
+                </div>
             </div>
-
-            <button type="submit" class="mt-4 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-4 px-8 rounded-md transition-colors flex items-center justify-center gap-2 w-full shadow-sm">
-                <span data-i18n="auth.login_btn">Se connecter</span>
-                <span class="material-symbols-outlined text-[20px]">login</span>
-            </button>
-        </form>
-
-        <div class="mt-6 text-center text-body-sm text-on-surface-variant border-t border-outline/20 pt-6">
-            <p>Pas encore de compte professionnel ?</p>
-            <a href="../inscription.html" class="text-primary font-bold hover:underline mt-2 inline-block">Créer un compte B2B</a>
         </div>
     </div>
 </div>
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if already logged in
     const user = AuthAPI && AuthAPI.getUser();
-    if (user) {
-        window.location.href = '../panier.html';
-    }
+    if (user) window.location.href = '../panier.html';
 
     const form = document.getElementById('login-form');
     const errorDiv = document.getElementById('login-error');
@@ -152,14 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-</script></main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
-                    <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
-                </div>
-                <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">Terre & Feu</span>
-            </div>
-        <span class="text-headline-md font-headline-md">Terre & Feu</span></div><p class="text-body-sm text-outline-variant">Solutions professionnelles de biomasse et bois de chauffage haute performance.</p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS & SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=1"><span data-i18n="footer.service_1">Bûches de bois franc</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=4"><span data-i18n="footer.service_2">Granulés (Pellets)</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html"><span data-i18n="footer.service_3">Bois de cuisson pro</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../devis.html"><span data-i18n="footer.service_4">Tarifs Gros & B2B</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.service_5">Livraison</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse à compléter par le client]</span></span><span><span data-i18n="footer.phone">[Téléphone à compléter par le client]</span></span><span>Email: [Email à compléter par le client]</span><span><span data-i18n="footer.siret">SIRET: [SIRET à compléter par le client]</span></span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="../mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="../cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="../politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="../politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="../assets/js/i18n-loader.js"></script>
+</script></main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">Terre &amp; Feu</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Solutions professionnelles de biomasse et bois de chauffage haute performance.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS &amp; SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=1"><span data-i18n="categories.1">Bûches de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=2"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=3"><span data-i18n="categories.3">Briquettes</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=4"><span data-i18n="categories.4">Granulés / Pellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=5"><span data-i18n="categories.5">Charbon / Allume-feu</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./devis.html"><span data-i18n="nav.quote">Devis</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.service_5">Livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="nav.contact">Contact</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">ESPACE CLIENT &amp; PANIER</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./panier.html"><span data-i18n="footer.client_link_1">Mon Panier</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./connexion.html"><span data-i18n="footer.client_link_2">Connexion / Inscription</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.client_link_3">Suivi de livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="footer.client_link_4">Service commercial</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse à compléter par le client]</span></span><span><span data-i18n="footer.phone">[Téléphone à compléter par le client]</span></span><span>Email: [Email à compléter par le client]</span><span><span data-i18n="footer.siret">SIRET: [SIRET à compléter par le client]</span></span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="./mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="./cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="./politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="./politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="../assets/js/i18n-loader.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const btn = document.getElementById('mobile-menu-btn');
