@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cartLinks = Array.from(document.querySelectorAll('a')).filter(a => a.getAttribute('href') && a.getAttribute('href').endsWith('panier.html'));
                 if (cartLinks.length > 0) {
                     // Header link is usually the first one
-                    const headerCartLink = cartLinks[0];
+                    const headerCartLink = cartLinks.find(a => a.innerHTML.includes('shopping_cart')) || cartLinks[0];
                     headerCartLink.classList.add('relative');
                     badge = document.createElement('span');
                     badge.id = 'cart-badge';
