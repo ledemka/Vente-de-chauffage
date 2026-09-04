@@ -3,43 +3,59 @@
  */
 
 const CartAPI = {
+    _getCart() {
+        try {
+            return JSON.parse(localStorage.getItem('mock_cart')) || [];
+        } catch(e) {
+            return [];
+        }
+    },
+    _saveCart(cart) {
+        localStorage.setItem('mock_cart', JSON.stringify(cart));
+    },
     async request(action, data = {}) {
-        const token = localStorage.getItem('cart_session_token');
-        if (token) data.session_token = token;
-        data.action = action;
-        
-        const formData = new URLSearchParams();
-        for (const key in data) {
-            formData.append(key, data[key]);
-        }
+        await new Promise(r => setTimeout(r, 200));
+        let cart = this._getCart();
 
-        const res = await fetch('/api/cart.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: formData.toString()
-        });
-        const json = await res.json();
-        
-        if (json.session_token) {
-            localStorage.setItem('cart_session_token', json.session_token);
+        if (action === 'get') {
+            return { items: cart };
         }
-        return json;
+        if (action === 'add') {
+            const existing = cart.find(i => i.product_id === data.product_id);
+            if (existing) {
+                existing.quantity += parseInt(data.quantity);
+            } else {
+                cart.push({ product_id: data.product_id, quantity: parseInt(data.quantity) });
+            }
+            this._saveCart(cart);
+            return { success: true, items: cart };
+        }
+        if (action === 'update') {
+            const existing = cart.find(i => i.product_id === data.product_id);
+            if (existing) {
+                existing.quantity = parseInt(data.quantity);
+            }
+            this._saveCart(cart);
+            return { success: true, items: cart };
+        }
+        if (action === 'remove') {
+            cart = cart.filter(i => i.product_id !== data.product_id);
+            this._saveCart(cart);
+            return { success: true, items: cart };
+        }
+        
+        return { success: false, error: 'Unknown action' };
     },
 
     async add(productId, quantity = 1) {
         return this.request('add', { product_id: productId, quantity });
     },
-
     async update(productId, quantity) {
         return this.request('update', { product_id: productId, quantity });
     },
-
     async remove(productId) {
         return this.request('remove', { product_id: productId });
     },
-
     async get() {
         return this.request('get');
     }
