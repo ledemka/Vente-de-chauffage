@@ -101,5 +101,11 @@
     "humidity": "TAUX D'HUMIDITÉ",
     "origin": "ORIGINE",
     "humidity_unavailable": "Non communiqué"
+  },
+  "cgv": {
+    "payment_method_title": "MODE DE PAIEMENT",
+    "payment_method_desc": "Le règlement s'effectue <strong>exclusivement par virement bancaire</strong>. Aucun autre moyen de paiement (carte bancaire, chèque, prélèvement SEPA) n'est accepté.",
+    "payment_terms_title": "DÉLAIS DE PAIEMENT",
+    "payment_terms_desc": "Selon les modalités convenues avec votre chargé de compte."
   }
 }

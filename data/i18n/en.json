@@ -101,5 +101,11 @@
     "humidity": "MOISTURE CONTENT",
     "origin": "ORIGIN",
     "humidity_unavailable": "Not specified"
+  },
+  "cgv": {
+    "payment_method_title": "PAYMENT METHOD",
+    "payment_method_desc": "Payment is made <strong>exclusively by bank transfer</strong>. No other payment methods (credit card, check, SEPA direct debit) are accepted.",
+    "payment_terms_title": "PAYMENT TERMS",
+    "payment_terms_desc": "According to the terms agreed upon with your account manager."
   }
 }

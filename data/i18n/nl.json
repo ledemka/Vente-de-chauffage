@@ -101,5 +101,11 @@
     "humidity": "VOCHTGEHALTE",
     "origin": "OORSPRONG",
     "humidity_unavailable": "Niet gespecificeerd"
+  },
+  "cgv": {
+    "payment_method_title": "BETAALMETHODE",
+    "payment_method_desc": "Betaling geschiedt <strong>uitsluitend per bankoverschrijving</strong>. Andere betaalmethoden (creditcard, cheque, SEPA-incasso) worden niet geaccepteerd.",
+    "payment_terms_title": "BETALINGSTERMIJNEN",
+    "payment_terms_desc": "Volgens de voorwaarden die met uw accountmanager zijn overeengekomen."
   }
 }

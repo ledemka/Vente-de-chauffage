@@ -101,5 +101,11 @@
     "humidity": "FEUCHTIGKEITSGEHALT",
     "origin": "HERKUNFT",
     "humidity_unavailable": "Keine Angabe"
+  },
+  "cgv": {
+    "payment_method_title": "ZAHLUNGSMETHODE",
+    "payment_method_desc": "Die Zahlung erfolgt <strong>ausschließlich per Banküberweisung</strong>. Keine anderen Zahlungsmethoden (Kreditkarte, Scheck, SEPA-Lastschrift) werden akzeptiert.",
+    "payment_terms_title": "ZAHLUNGSBEDINGUNGEN",
+    "payment_terms_desc": "Gemäß den mit Ihrem Kundenbetreuer vereinbarten Bedingungen."
   }
 }
