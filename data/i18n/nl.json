@@ -107,5 +107,45 @@
     "payment_method_desc": "Betaling geschiedt <strong>uitsluitend per bankoverschrijving</strong>. Andere betaalmethoden (creditcard, cheque, SEPA-incasso) worden niet geaccepteerd.",
     "payment_terms_title": "BETALINGSTERMIJNEN",
     "payment_terms_desc": "Volgens de voorwaarden die met uw accountmanager zijn overeengekomen."
+  },
+  "auth": {
+    "login_title": "Connexion",
+    "register_title": "Création de compte",
+    "email": "Adresse Email",
+    "password": "Mot de passe",
+    "company": "Société",
+    "siret": "SIRET (Optionnel)",
+    "contact_name": "Nom du contact",
+    "phone": "Téléphone",
+    "login_btn": "Se connecter",
+    "register_btn": "Créer mon compte",
+    "guest_btn": "Continuer sans compte",
+    "logout": "Se déconnecter"
+  },
+  "cart": {
+    "title": "Votre Panier",
+    "empty": "Votre panier est vide",
+    "checkout_btn": "Valider la commande",
+    "subtotal": "Sous-total HT",
+    "discount": "Remise Volume",
+    "total": "Total HT",
+    "remove": "Supprimer"
+  },
+  "checkout": {
+    "title": "Récapitulatif de commande",
+    "delivery_details": "Détails de livraison",
+    "address": "Adresse de livraison",
+    "truck_access": "Accès Poids Lourd",
+    "payment_method": "Mode de paiement",
+    "bank_transfer_only": "Virement bancaire uniquement",
+    "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
+    "confirm_btn": "Confirmer la commande"
+  },
+  "confirmation": {
+    "title": "Commande confirmée",
+    "ref": "Référence de votre commande :",
+    "msg1": "Votre commande a bien été enregistrée.",
+    "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires vient de vous être envoyé.",
+    "back_home": "Retour à l'accueil"
   }
 }
