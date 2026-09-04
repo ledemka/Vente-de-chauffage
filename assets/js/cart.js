@@ -227,6 +227,7 @@ const CartUI = {
         if (items.length === 0) {
             container.innerHTML = '<p data-i18n="cart.empty" class="text-body-md text-on-surface-variant p-8 text-center bg-surface-container rounded-xl">Votre panier est vide</p>';
             if(window.i18n) window.i18n.translateDOM(container);
+        if(window.updateCartBadge) window.updateCartBadge();
             
             // Réinitialiser la sidebar
             const sidebar = document.getElementById('cart-sidebar');
@@ -380,6 +381,7 @@ const CartUI = {
         }
         
         if(window.i18n) window.i18n.translateDOM(container);
+        if(window.updateCartBadge) window.updateCartBadge();
     },
 
     async renderCheckoutPage() {
