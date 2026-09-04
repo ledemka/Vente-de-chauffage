@@ -73,7 +73,6 @@
     "address": "[Address to be completed by the client]",
     "phone": "[Phone to be completed by the client]",
     "email": "[Email to be completed by the client]",
-    "siret": "SIRET: [SIRET to be completed by the client]",
     "legal": "Legal Notice",
     "cgv": "Terms & Conditions",
     "privacy": "Privacy Policy",
