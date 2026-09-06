@@ -20,7 +20,7 @@ function respondError(int $statusCode, string $message, array $details = []): vo
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST' && $_SERVER['REQUEST_METHOD'] !== 'GET') {
     respondError(405, 'Méthode non autorisée. Utilisez POST.');
 }
 
@@ -126,6 +126,32 @@ try {
         session_destroy();
         echo json_encode(['success' => true, 'message' => 'Déconnexion réussie']);
         exit;
+    }
+    
+    elseif ($action === 'check') {
+        if (!isset($_SESSION['client_id'])) {
+            http_response_code(401);
+            echo json_encode(['authenticated' => false]);
+            exit;
+        }
+        
+        $stmt = $pdo->prepare("SELECT company, contact_name, email FROM clients WHERE id = ?");
+        $stmt->execute([$_SESSION['client_id']]);
+        $client = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($client) {
+            echo json_encode([
+                'authenticated' => true,
+                'company' => $client['company'],
+                'contact_name' => $client['contact_name'],
+                'email' => $client['email']
+            ]);
+            exit;
+        } else {
+            http_response_code(401);
+            echo json_encode(['authenticated' => false]);
+            exit;
+        }
     }
     else {
         respondError(400, 'Action invalide.');

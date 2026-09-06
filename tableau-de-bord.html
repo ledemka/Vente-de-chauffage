@@ -131,15 +131,33 @@
 </main>
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
-    const user = AuthAPI && AuthAPI.getUser();
-    if (!user) {
-        window.location.href = './connexion.html';
+    
+    try {
+        const checkRes = await fetch('./api/auth.php?action=check', { method: 'POST' });
+        if (!checkRes.ok) throw new Error('Not auth');
+        const userData = await checkRes.json();
+        
+        if (!userData.authenticated) {
+            throw new Error('Not auth');
+        }
+        
+        document.getElementById('info-company').textContent = userData.company || '-';
+        document.getElementById('info-contact').textContent = userData.contact_name || '-';
+        document.getElementById('info-email').textContent = userData.email || '-';
+        
+        // Mettre à jour l'entête de bienvenue
+        const h1 = document.querySelector('h1.text-headline-xl');
+        if (h1 && userData.contact_name) {
+            // Optionnel: ajouter le nom au titre
+            // h1.textContent = `Bonjour ${userData.contact_name}`;
+        }
+        
+    } catch (e) {
+        localStorage.removeItem('user');
+        window.location.href = './connexion.html?redirect=tableau-de-bord.html';
         return;
     }
-    
-    document.getElementById('info-company').textContent = user.company || '-';
-    document.getElementById('info-contact').textContent = user.contact_name || '-';
-    document.getElementById('info-email').textContent = user.email || '-';
+
 
     const ordersContainer = document.getElementById('orders-container');
     try {
