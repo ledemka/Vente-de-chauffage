@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' && $_SERVER['REQUEST_METHOD'] !== 'GET
     respondError(405, 'Méthode non autorisée. Utilisez POST.');
 }
 
-$action = $_GET['action'] ?? '';
+$action = $_POST['action'] ?? $_GET['action'] ?? '';
 $input = [];
 $rawBody = file_get_contents('php://input');
 if ($rawBody) {
@@ -68,10 +68,6 @@ try {
         $stmt->execute([$company, $siret ?: null, $contact_name, $email, $phone, $password_hash, $lang]);
         
         $client_id = $pdo->lastInsertId();
-        
-        $_SESSION['client_id'] = $client_id;
-        $_SESSION['email'] = $email;
-        $_SESSION['contact_name'] = $contact_name;
         
         echo json_encode(['success' => true, 'message' => 'Inscription réussie', 'client_id' => $client_id]);
         exit;

@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if already logged in
     const user = typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.getUser() : null;
     if (user) {
-        window.location.href = 'LINK_PANIER';
+        window.location.href = 'LINK_TABLEAU_DE_BORD';
     }
 
     const form = document.getElementById('login-form');
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const res = await (typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.login(email, password) : AuthAPI.login(email, password));
                 if (res.success) {
-                    window.location.href = 'LINK_PANIER';
+                    window.location.href = 'LINK_TABLEAU_DE_BORD';
                 } else {
                     errorDiv.textContent = res.message || 'Erreur de connexion';
                     errorDiv.classList.remove('hidden');
@@ -194,7 +194,7 @@ for (const dir of dirs) {
         const relPath = dir === '.' ? '.' : '..';
         let customContent = newMainContent
             .replace(/LINK_INSCRIPTION/g, `${relPath}/inscription.html`)
-            .replace(/LINK_PANIER/g, `${relPath}/panier.html`)
+            .replace(/LINK_TABLEAU_DE_BORD/g, `${relPath}/tableau-de-bord.html`)
             .replace(/LINK_CATALOGUE/g, `${relPath}/catalogue.html`);
 
         content = content.replace(mainRegex, (match, p1) => {

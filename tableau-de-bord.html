@@ -131,26 +131,42 @@
 </main>
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
-    
+    // 1. Affichage optimiste immǸdiat depuis le localStorage
+    let user = null;
     try {
-        const checkRes = await fetch('./api/auth.php?action=check', { method: 'POST' });
-        if (!checkRes.ok) throw new Error('Not auth');
-        const userData = await checkRes.json();
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            user = JSON.parse(storedUser);
+            document.getElementById('info-company').textContent = user.company || '-';
+            document.getElementById('info-contact').textContent = user.contact_name || '-';
+            document.getElementById('info-email').textContent = user.email || '-';
+        }
+    } catch (e) {
+        // Ignorer les erreurs de parsing
+    }
+
+    // 2. VǸrification rǸelle cǧtǸ serveur (Source de vǸritǸ finale)
+    try {
+        const formData = new URLSearchParams();
+        formData.append('action', 'check');
         
+        const checkRes = await fetch('./api/auth.php', { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString()
+        });
+        
+        if (!checkRes.ok) throw new Error('Not auth');
+        
+        const userData = await checkRes.json();
         if (!userData.authenticated) {
             throw new Error('Not auth');
         }
         
+        // Mettre  jour avec les vraies donnǸes du serveur
         document.getElementById('info-company').textContent = userData.company || '-';
         document.getElementById('info-contact').textContent = userData.contact_name || '-';
         document.getElementById('info-email').textContent = userData.email || '-';
-        
-        // Mettre à jour l'entête de bienvenue
-        const h1 = document.querySelector('h1.text-headline-xl');
-        if (h1 && userData.contact_name) {
-            // Optionnel: ajouter le nom au titre
-            // h1.textContent = `Bonjour ${userData.contact_name}`;
-        }
         
     } catch (e) {
         localStorage.removeItem('user');
@@ -158,7 +174,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-
+    // 3. Chargement des commandes
     const ordersContainer = document.getElementById('orders-container');
     try {
         const formData = new URLSearchParams();
@@ -171,17 +187,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await res.json();
         
         if (data.success && data.orders && data.orders.length > 0) {
-            let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">Référence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total HT</th></tr></thead><tbody>';
+            let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">RǸfǸrence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total HT</th></tr></thead><tbody>';
             
             data.orders.forEach(order => {
                 const dateObj = new Date(order.created_at);
                 const dateStr = dateObj.toLocaleDateString();
                 const statusMap = {
                     'pending_payment': 'En attente de virement',
-                    'paid': 'Payée',
-                    'shipped': 'Expédiée',
-                    'delivered': 'Livrée',
-                    'cancelled': 'Annulée'
+                    'paid': 'PayǸe',
+                    'shipped': 'ExpǸdiǸe',
+                    'delivered': 'LivrǸe',
+                    'cancelled': 'AnnulǸe'
                 };
                 const statusTxt = statusMap[order.status] || order.status;
                 const totalFmt = parseFloat(order.total).toFixed(2) + ' €';

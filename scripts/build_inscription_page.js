@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const res = await (typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.register(data) : AuthAPI.register(data));
                 if (res.success) {
-                    window.location.href = 'LINK_PANIER';
+                    window.location.href = 'LINK_CONNEXION';
                 } else {
                     errorDiv.textContent = res.message || 'Erreur lors de la création';
                     errorDiv.classList.remove('hidden');

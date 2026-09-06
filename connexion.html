@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if already logged in
     const user = typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.getUser() : null;
     if (user) {
-        window.location.href = './panier.html';
+        window.location.href = './tableau-de-bord.html';
     }
 
     const form = document.getElementById('login-form');
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const res = await (typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.login(email, password) : AuthAPI.login(email, password));
                 if (res.success) {
-                    window.location.href = './panier.html';
+                    window.location.href = './tableau-de-bord.html';
                 } else {
                     errorDiv.textContent = res.message || 'Erreur de connexion';
                     errorDiv.classList.remove('hidden');
