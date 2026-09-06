@@ -131,7 +131,7 @@
 </main>
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Affichage optimiste immǸdiat depuis le localStorage
+    // 1. Affichage optimiste immédiat depuis le localStorage
     let user = null;
     try {
         const storedUser = localStorage.getItem('user');
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Ignorer les erreurs de parsing
     }
 
-    // 2. VǸrification rǸelle cǧtǸ serveur (Source de vǸritǸ finale)
+    // 2. Vérification réelle côté serveur (Source de vérité finale)
     try {
         const formData = new URLSearchParams();
         formData.append('action', 'check');
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error('Not auth');
         }
         
-        // Mettre  jour avec les vraies donnǸes du serveur
+        // Mettre à jour avec les vraies données du serveur
         document.getElementById('info-company').textContent = userData.company || '-';
         document.getElementById('info-contact').textContent = userData.contact_name || '-';
         document.getElementById('info-email').textContent = userData.email || '-';
@@ -187,17 +187,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await res.json();
         
         if (data.success && data.orders && data.orders.length > 0) {
-            let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">RǸfǸrence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total HT</th></tr></thead><tbody>';
+            let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">Référence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total HT</th></tr></thead><tbody>';
             
             data.orders.forEach(order => {
                 const dateObj = new Date(order.created_at);
                 const dateStr = dateObj.toLocaleDateString();
                 const statusMap = {
                     'pending_payment': 'En attente de virement',
-                    'paid': 'PayǸe',
-                    'shipped': 'ExpǸdiǸe',
-                    'delivered': 'LivrǸe',
-                    'cancelled': 'AnnulǸe'
+                    'paid': 'Payée',
+                    'shipped': 'Expédiée',
+                    'delivered': 'Livrée',
+                    'cancelled': 'Annulée'
                 };
                 const statusTxt = statusMap[order.status] || order.status;
                 const totalFmt = parseFloat(order.total).toFixed(2) + ' €';
