@@ -61,71 +61,6 @@ const CartAPI = {
     }
 };
 
-const AuthAPI = {
-    async request(action, data = {}) {
-        data.action = action;
-        const formData = new URLSearchParams();
-        for (const key in data) {
-            formData.append(key, data[key]);
-        }
-
-        const res = await fetch('/api/auth.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: formData.toString()
-        });
-        return await res.json();
-    },
-
-    async login(email, password) {
-        const res = await this.request('login', { email, password });
-        if (res.success) {
-            localStorage.setItem('user', JSON.stringify(res.client));
-            // Sync cart
-            const token = localStorage.getItem('cart_session_token');
-            if (token) {
-                await fetch('/api/cart.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams({ action: 'sync', session_token: token })
-                });
-            }
-        }
-        return res;
-    },
-
-    async register(data) {
-        const res = await this.request('register', data);
-        if (res.success) {
-            // Also sync cart
-            const token = localStorage.getItem('cart_session_token');
-            if (token) {
-                await fetch('/api/cart.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams({ action: 'sync', session_token: token })
-                });
-            }
-        }
-        return res;
-    },
-
-    async logout() {
-        localStorage.removeItem('user');
-        return this.request('logout');
-    },
-
-    getUser() {
-        try {
-            return JSON.parse(localStorage.getItem('user'));
-        } catch(e) {
-            return null;
-        }
-    }
-};
-
 const OrderAPI = {
     async create(data) {
         const token = localStorage.getItem('cart_session_token');
@@ -148,7 +83,7 @@ const OrderAPI = {
 };
 
 window.CartAPI = CartAPI;
-window.AuthAPI = AuthAPI;
+// AuthAPI is defined and exported by auth.js — do NOT redeclare here
 window.OrderAPI = OrderAPI;
 
 
