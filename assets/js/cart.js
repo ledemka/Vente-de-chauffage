@@ -373,6 +373,9 @@ const CartUI = {
         const user = AuthAPI.getUser();
         if (user) {
             if(document.getElementById('company')) document.getElementById('company').value = user.company || '';
+            if(document.getElementById('contact_name')) document.getElementById('contact_name').value = user.contact_name || '';
+            if(document.getElementById('email')) document.getElementById('email').value = user.email || '';
+            if(document.getElementById('phone')) document.getElementById('phone').value = user.phone || '';
         }
 
         // Handle form submission
@@ -389,9 +392,10 @@ const CartUI = {
 
                 const data = {
                     company: document.getElementById('company').value,
-                    address: document.getElementById('address').value,
-                    zip_code: document.getElementById('zip_code').value,
-                    city: document.getElementById('city').value,
+                    contact_name: document.getElementById('contact_name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    delivery_address: document.getElementById('address').value + ' ' + document.getElementById('zip_code').value + ' ' + document.getElementById('city').value,
                     truck_access: document.getElementById('truck_access').checked ? 1 : 0
                 };
 
