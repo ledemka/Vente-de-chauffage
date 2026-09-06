@@ -3,48 +3,36 @@
  */
 
 const CartAPI = {
-    _getCart() {
-        try {
-            return JSON.parse(localStorage.getItem('mock_cart')) || [];
-        } catch(e) {
-            return [];
+    _ensureToken() {
+        let token = localStorage.getItem('cart_session_token');
+        if (!token) {
+            token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
+            localStorage.setItem('cart_session_token', token);
         }
+        return token;
     },
-    _saveCart(cart) {
-        localStorage.setItem('mock_cart', JSON.stringify(cart));
-    },
-    async request(action, data = {}) {
-        await new Promise(r => setTimeout(r, 200));
-        let cart = this._getCart();
 
-        if (action === 'get') {
-            return { items: cart };
-        }
-        if (action === 'add') {
-            const existing = cart.find(i => i.product_id === data.product_id);
-            if (existing) {
-                existing.quantity += parseInt(data.quantity);
-            } else {
-                cart.push({ product_id: data.product_id, quantity: parseInt(data.quantity) });
-            }
-            this._saveCart(cart);
-            return { success: true, items: cart };
-        }
-        if (action === 'update') {
-            const existing = cart.find(i => i.product_id === data.product_id);
-            if (existing) {
-                existing.quantity = parseInt(data.quantity);
-            }
-            this._saveCart(cart);
-            return { success: true, items: cart };
-        }
-        if (action === 'remove') {
-            cart = cart.filter(i => i.product_id !== data.product_id);
-            this._saveCart(cart);
-            return { success: true, items: cart };
-        }
+    async request(action, data = {}) {
+        data.action = action;
+        data.session_token = this._ensureToken();
         
-        return { success: false, error: 'Unknown action' };
+        const formData = new URLSearchParams();
+        for (const key in data) {
+            formData.append(key, data[key]);
+        }
+
+        // Use proper API path depending on current location
+        const inSubdir = /^\/(en|de|nl)\//.test(window.location.pathname);
+        const apiPath = inSubdir ? '../api/cart.php' : '/api/cart.php';
+
+        const res = await fetch(apiPath, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formData.toString()
+        });
+        return await res.json();
     },
 
     async add(productId, quantity = 1) {
