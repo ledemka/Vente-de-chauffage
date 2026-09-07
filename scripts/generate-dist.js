@@ -55,6 +55,13 @@ fs.mkdirSync(DIST_DIR, { recursive: true });
     }
 });
 
+// Also copy root favicon if present
+const rootFavicon = path.join(ROOT_DIR, 'favicon.ico');
+if (fs.existsSync(rootFavicon)) {
+    fs.copyFileSync(rootFavicon, path.join(DIST_DIR, 'favicon.ico'));
+    console.log(`[Copied File]: favicon.ico -> dist-production/favicon.ico`);
+}
+
 let totalCopied = 0;
 
 LANGS.forEach(lang => {
