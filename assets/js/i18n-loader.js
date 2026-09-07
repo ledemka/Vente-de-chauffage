@@ -67,10 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(err => console.error('Error loading SEO metadata:', err));
 
     // 3. Cart Badge Logic
-    const updateCartBadge = () => {
+    const updateCartBadge = async () => {
         try {
-            const cart = JSON.parse(localStorage.getItem('mock_cart')) || [];
-            const count = cart.reduce((acc, item) => acc + (parseInt(item.quantity) || 0), 0);
+            if (typeof CartAPI === 'undefined') return;
+            const res = await CartAPI.get();
+            const items = res.items || [];
+            const count = items.reduce((acc, item) => acc + (parseInt(item.quantity) || 0), 0);
+            
             let badge = document.getElementById('cart-badge');
             
             if (!badge) {
