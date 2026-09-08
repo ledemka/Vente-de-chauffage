@@ -313,8 +313,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 };
                 const statusTxt = statusMap[order.status] || order.status;
                 const totalFmt = parseFloat(order.total).toFixed(2) + ' €';
-                
-                html += `
                 const orderData = {
                     ref: order.order_reference,
                     date: dateStr,
@@ -325,7 +323,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Proper HTML escaping for double quotes
                 const orderDataStr = JSON.stringify(orderData).replace(/"/g, '&quot;');
                 
-                html += `<tr class="order-row border-b border-outline/10 cursor-pointer hover:bg-surface-container-highest/20 transition-colors" data-order="${orderDataStr}">`
+                html += `<tr class="order-row border-b border-outline/10 cursor-pointer hover:bg-surface-container-highest/20 transition-colors" data-order="${orderDataStr}">
                     <td class="py-4 pr-2 text-body-md font-bold text-on-surface">${order.order_reference}</td>
                     <td class="py-4 px-2 text-body-sm text-on-surface-variant">${dateStr}</td>
                     <td class="py-4 px-2 text-body-sm"><span class="px-2 py-1 bg-surface-container-highest rounded text-on-surface-variant">${statusTxt}</span></td>
