@@ -33,7 +33,7 @@ try {
     $pdo = $db->getConnection();
     if ($pdo === null) throw new Exception("DB error");
 
-    $stmt = $pdo->prepare("SELECT order_reference, total, status, created_at, items FROM orders WHERE client_id = ? ORDER BY created_at DESC");
+    $stmt = $pdo->prepare("SELECT order_reference, total, status, created_at, items, delivery_address FROM orders WHERE client_id = ? ORDER BY created_at DESC");
     $stmt->execute([$client_id]);
     $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

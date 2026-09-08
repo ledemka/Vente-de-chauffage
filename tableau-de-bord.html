@@ -211,6 +211,9 @@
                     <span>Date : <span id="modal-date"></span></span>
                     <span>Statut : <span id="modal-status" class="px-2 py-0.5 bg-surface-container-highest rounded font-semibold"></span></span>
                 </div>
+                <div class="mt-2 text-body-sm text-on-surface-variant">
+                    Livraison : <span id="modal-address" class="font-semibold text-on-surface"></span>
+                </div>
             </div>
             
             <div class="overflow-x-auto">
@@ -318,6 +321,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     date: dateStr,
                     status: statusTxt,
                     total: totalFmt,
+                    delivery_address: order.delivery_address || 'Non spécifiée',
                     items: typeof order.items === 'string' ? JSON.parse(order.items || '[]') : (order.items || [])
                 };
                 // Proper HTML escaping for double quotes
@@ -446,6 +450,9 @@ window.openOrderModal = (data) => {
     document.getElementById('modal-date').textContent = data.date;
     document.getElementById('modal-status').textContent = data.status;
     document.getElementById('modal-total').textContent = data.total;
+    if (document.getElementById('modal-address')) {
+        document.getElementById('modal-address').textContent = data.delivery_address || 'Non spécifiée';
+    }
     
     const container = document.getElementById('modal-items-container');
     container.innerHTML = '';
