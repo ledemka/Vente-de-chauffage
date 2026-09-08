@@ -1,5 +1,6 @@
-<html lang="fr"><head>
+<html lang="fr" translate="no"><head>
     <meta charset="utf-8"/>
+    <meta name="google" content="notranslate"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
@@ -12,32 +13,44 @@
     <link rel="stylesheet" href="./assets/css/custom.css">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.boisdechauffage-pro.com/guide-choix.html" />
+    <link rel="canonical" href="https://www.sotramsbois.com/guide-choix.html" />
     
     <!-- Reciprocal hreflang Tags -->
-    <link rel="alternate" hreflang="fr" href="https://www.boisdechauffage-pro.com/guide-choix.html" />
-    <link rel="alternate" hreflang="en" href="https://www.boisdechauffage-pro.com/en/guide-choix.html" />
-    <link rel="alternate" hreflang="de" href="https://www.boisdechauffage-pro.com/de/guide-choix.html" />
-    <link rel="alternate" hreflang="nl" href="https://www.boisdechauffage-pro.com/nl/guide-choix.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.boisdechauffage-pro.com/guide-choix.html" />
+    <link rel="alternate" hreflang="fr" href="https://www.sotramsbois.com/guide-choix.html" />
+    <link rel="alternate" hreflang="en" href="https://www.sotramsbois.com/en/guide-choix.html" />
+    <link rel="alternate" hreflang="de" href="https://www.sotramsbois.com/de/guide-choix.html" />
+    <link rel="alternate" hreflang="nl" href="https://www.sotramsbois.com/nl/guide-choix.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.sotramsbois.com/guide-choix.html" />
+<script src="./assets/js/auth.js"></script>
+
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
 </head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-inverse-surface shadow-[0_1px_8px_rgba(0,0,0,0.1)]"><div class="h-20 max-w-[1440px] mx-auto px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-4">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
                     <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
                 </div>
-                <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">Terre & Feu</span>
+                <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span>
             </div>
-        <span class="text-headline-md font-headline-md text-inverse-on-surface">Terre & Feu</span></div><div class="flex-1 max-w-md px-gutter"><div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span><input class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 pl-10 pr-4 text-body-sm text-inverse-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary" placeholder="Rechercher un produit..." data-i18n="search_placeholder" type="text"/></div></div><div class="flex items-center gap-6">
-            <div class="flex gap-2 text-label-md text-outline-variant font-label-md">
-                <a href="./guide-choix.html" class="text-inverse-on-surface font-bold cursor-pointer">FR</a>
-                <span>/</span>
-                <a href="./en/guide-choix.html" class="hover:text-inverse-on-surface cursor-pointer">EN</a>
-                <span>/</span>
-                <a href="./de/guide-choix.html" class="hover:text-inverse-on-surface cursor-pointer">DE</a>
-                <span>/</span>
-                <a href="./nl/guide-choix.html" class="hover:text-inverse-on-surface cursor-pointer">NL</a>
-            </div>
-        <div class="flex items-center gap-4"><span class="material-symbols-outlined text-inverse-on-surface cursor-pointer">shopping_cart</span><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div>
+        <span class="text-headline-md font-headline-md text-inverse-on-surface">sotramsbois</span></div><div class="flex-1 max-w-md px-gutter"><div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span><input class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 pl-10 pr-4 text-body-sm text-inverse-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary" placeholder="Rechercher un produit..." data-i18n="search_placeholder" type="text"/></div></div><div class="flex items-center gap-6">
+            <div class="relative" id="lang-selector-wrapper">
+                    <button id="lang-selector-btn" class="flex items-center gap-1.5 bg-surface-container/20 hover:bg-surface-container/30 border border-inverse-on-surface/20 rounded-full px-2.5 py-1.5 transition-colors cursor-pointer" aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-3.5 rounded-sm object-cover"><rect width="3" height="2" fill="#ED2939"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002395"/></svg>
+                        <span class="text-inverse-on-surface text-label-md font-label-md">FR</span>
+                        <span class="material-symbols-outlined text-inverse-on-surface text-[16px]">expand_more</span>
+                    </button>
+                    <div id="lang-dropdown" class="hidden absolute right-0 top-full mt-2 w-44 bg-surface-container-lowest shadow-md rounded-md overflow-hidden z-[100] border border-outline/10">
+<a href="guide-choix.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm bg-surface-container-high text-primary font-semibold transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-3.5 rounded-sm object-cover"><rect width="3" height="2" fill="#ED2939"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002395"/></svg><span>Français</span><span class="material-symbols-outlined text-[14px] ml-auto">check</span></a>
+<a href="en/guide-choix.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm text-on-surface hover:bg-surface-container transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-5 h-3.5 rounded-sm object-cover"><clipPath id="lang-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="lang-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#lang-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#lang-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a>
+<a href="de/guide-choix.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm text-on-surface hover:bg-surface-container transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" class="w-5 h-3.5 rounded-sm object-cover"><rect width="5" height="3" fill="#000"/><rect width="5" height="2" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg><span>Deutsch</span></a>
+<a href="nl/guide-choix.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm text-on-surface hover:bg-surface-container transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" class="w-5 h-3.5 rounded-sm object-cover"><rect width="9" height="6" fill="#21468B"/><rect width="9" height="4" fill="#FFF"/><rect width="9" height="2" fill="#AE1C28"/></svg><span>Nederlands</span></a>
+                    </div>
+                </div>
+                <div id="user-menu-container" class="flex items-center"></div>
+                <a href="./panier.html" class="flex items-center">
+                    <span class="material-symbols-outlined text-inverse-on-surface cursor-pointer hover:opacity-80 transition-opacity">shopping_cart</span>
+                </a>
+            </div></div></div>
             <nav class="bg-surface-container border-t border-outline-variant/20">
                 <div class="max-w-[1440px] mx-auto px-margin-desktop h-12 flex items-center gap-10">
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.home" href="./index.html"><span data-i18n="nav.home">ACCUEIL</span></a>
@@ -54,7 +67,7 @@
                 <div class="w-4/5 max-w-sm bg-[#2C1810] h-full text-white p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
                     <div>
                         <div class="flex items-center justify-between border-b border-[#504440]/50 pb-4 mb-6">
-                            <span class="font-extrabold text-lg text-[#D97706] flex items-center gap-2"><span class="material-symbols-outlined">local_fire_department</span> <span data-i18n="site_name">Terre & Feu</span></span>
+                            <span class="font-extrabold text-lg text-[#D97706] flex items-center gap-2"><span class="material-symbols-outlined">local_fire_department</span> <span data-i18n="site_name">sotramsbois</span></span>
                             <button id="mobile-menu-close" class="text-[#D3C3BE] hover:text-white"><span class="material-symbols-outlined text-2xl">close</span></button>
                         </div>
                         <div class="space-y-3 font-semibold text-sm">
@@ -409,14 +422,7 @@
       });
     });
   });
-</script></main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
-                    <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
-                </div>
-                <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">Terre & Feu</span>
-            </div>
-        <span class="text-headline-md font-headline-md">Terre & Feu</span></div><p class="text-body-sm text-outline-variant">Solutions professionnelles de biomasse et bois de chauffage haute performance.</p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS & SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=1"><span data-i18n="footer.service_1">Bûches de bois franc</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=4"><span data-i18n="footer.service_2">Granulés (Pellets)</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html"><span data-i18n="footer.service_3">Bois de cuisson pro</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./devis.html"><span data-i18n="footer.service_4">Tarifs Gros & B2B</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.service_5">Livraison</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse à compléter par le client]</span></span><span><span data-i18n="footer.phone">[Téléphone à compléter par le client]</span></span><span>Email: [Email à compléter par le client]</span><span><span data-i18n="footer.siret">SIRET: [SIRET à compléter par le client]</span></span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="./mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="./cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="./politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="./politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="./assets/js/i18n-loader.js"></script>
+</script></main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Solutions professionnelles de biomasse et bois de chauffage haute performance.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS &amp; SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=1"><span data-i18n="categories.1">Bûches de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=2"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=3"><span data-i18n="categories.3">Briquettes</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=4"><span data-i18n="categories.4">Granulés / Pellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=5"><span data-i18n="categories.5">Charbon / Allume-feu</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./devis.html"><span data-i18n="nav.quote">Devis</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.service_5">Livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="nav.contact">Contact</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">ESPACE CLIENT &amp; PANIER</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./panier.html"><span data-i18n="footer.client_link_1">Mon Panier</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./connexion.html"><span data-i18n="footer.client_link_2">Connexion / Inscription</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.client_link_3">Suivi de livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="footer.client_link_4">Service commercial</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse à compléter par le client]</span></span><span><span data-i18n="footer.phone">[Téléphone à compléter par le client]</span></span><span>Email: [Email à compléter par le client]</span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="./mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="./cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="./politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="./politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="./assets/js/i18n-loader.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const btn = document.getElementById('mobile-menu-btn');
@@ -431,4 +437,6 @@
                 }
             });
         </script>
+<script src="./assets/js/user-menu.js"></script>
+<script src="./assets/js/lang-selector.js"></script>
 </body></html>

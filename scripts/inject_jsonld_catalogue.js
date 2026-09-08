@@ -27,13 +27,13 @@ Object.entries(dirs).forEach(([dir, labels]) => {
           "@type": "ListItem",
           "position": 1,
           "name": "${labels.home}",
-          "item": "https://www.boisdechauffage-pro.com${prefix}/index.html"
+          "item": "https://www.sotramsbois.com${prefix}/index.html"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "${labels.cat}",
-          "item": "https://www.boisdechauffage-pro.com${prefix}/catalogue.html"
+          "item": "https://www.sotramsbois.com${prefix}/catalogue.html"
         }
       ]
     }

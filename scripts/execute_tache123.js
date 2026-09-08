@@ -193,7 +193,7 @@ async function handleLogout() {
 `;
         
         let resultHtml = tpl.replace(mainRegex, dashboardMain);
-        resultHtml = resultHtml.replace(/<title>.*?<\/title>/, '<title>Mon Tableau de Bord | Terre & Feu</title>');
+        resultHtml = resultHtml.replace(/<title>.*?<\/title>/, '<title>Mon Tableau de Bord | sotramsbois</title>');
         
         const dest = path.join(rootDir, lang, 'tableau-de-bord.html');
         fs.writeFileSync(dest, resultHtml);

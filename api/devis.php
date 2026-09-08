@@ -244,41 +244,41 @@ Notes : " . ($message ?? 'Aucune note') . "
 
 // B. Client confirmation email (HTML and Plain Text)
 $clientSubjectMap = [
-    'fr' => "Confirmation de votre demande de devis B2B - Terre & Feu",
-    'en' => "Confirmation of your B2B quote request - Terre & Feu",
-    'de' => "Bestätigung Ihrer B2B-Angebotsanfrage - Terre & Feu",
-    'nl' => "Bevestiging van uw B2B-offerteaanvraag - Terre & Feu"
+    'fr' => "Confirmation de votre demande de devis B2B - sotramsbois",
+    'en' => "Confirmation of your B2B quote request - sotramsbois",
+    'de' => "Bestätigung Ihrer B2B-Angebotsanfrage - sotramsbois",
+    'nl' => "Bevestiging van uw B2B-offerteaanvraag - sotramsbois"
 ];
 $clientSubject = $clientSubjectMap[$lang] ?? $clientSubjectMap['fr'];
 
 $clientHtmlMap = [
     'fr' => "
         <p>Bonjour " . htmlspecialchars($contactName) . ",</p>
-        <p>Nous vous remercions pour l'intérêt que vous portez à <strong>Terre & Feu</strong>.</p>
+        <p>Nous vous remercions pour l'intérêt que vous portez à <strong>sotramsbois</strong>.</p>
         <p>Nous avons bien reçu votre demande de devis B2B numéro #{$insertedId} concernant le produit <strong>" . htmlspecialchars($productName) . "</strong>.</p>
         <p>Nos équipes vont étudier la faisabilité logistique et tarifaire de votre demande. Un conseiller commercial prendra contact avec vous dès que possible pour vous proposer une offre adaptée.</p>
-        <p>Cordialement,<br/>L'équipe Terre & Feu</p>
+        <p>Cordialement,<br/>L'équipe sotramsbois</p>
     ",
     'en' => "
         <p>Hello " . htmlspecialchars($contactName) . ",</p>
-        <p>Thank you for your interest in <strong>Terre & Feu</strong>.</p>
+        <p>Thank you for your interest in <strong>sotramsbois</strong>.</p>
         <p>We have successfully received your B2B quote request #{$insertedId} regarding the product <strong>" . htmlspecialchars($productName) . "</strong>.</p>
         <p>Our teams will study the feasibility and pricing. A sales representative will contact you as soon as possible to present a custom offer.</p>
-        <p>Best regards,<br/>The Terre & Feu Team</p>
+        <p>Best regards,<br/>The sotramsbois Team</p>
     ",
     'de' => "
         <p>Hallo " . htmlspecialchars($contactName) . ",</p>
-        <p>Vielen Dank für Ihr Interesse an <strong>Terre & Feu</strong>.</p>
+        <p>Vielen Dank für Ihr Interesse an <strong>sotramsbois</strong>.</p>
         <p>Wir haben Ihre B2B-Angebotsanfrage #{$insertedId} für das Produkt <strong>" . htmlspecialchars($productName) . "</strong> erhalten.</p>
         <p>Unsere Teams werden die logistische und preisliche Machbarkeit prüfen. Ein Vertriebsmitarbeiter wird sich so schnell wie möglich mit Ihnen in Verbindung setzen, um Ihnen ein passendes Angebot zu unterbreiten.</p>
-        <p>Mit freundlichen Grüßen,<br/>Ihr Terre & Feu Team</p>
+        <p>Mit freundlichen Grüßen,<br/>Ihr sotramsbois Team</p>
     ",
     'nl' => "
         <p>Beste " . htmlspecialchars($contactName) . ",</p>
-        <p>Bedankt voor uw interesse in <strong>Terre & Feu</strong>.</p>
+        <p>Bedankt voor uw interesse in <strong>sotramsbois</strong>.</p>
         <p>We hebben uw B2B-offerteaanvraag #{$insertedId} voor het product <strong>" . htmlspecialchars($productName) . "</strong> goed ontvangen.</p>
         <p>Onze teams zullen de logistieke en financiële haalbaarheid bestuderen. Een commercieel adviseur zal zo snel mogelijk contact met u opnemen om u een passend voorstel te doen.</p>
-        <p>Met vriendelijke groet,<br/>Het Terre & Feu Team</p>
+        <p>Met vriendelijke groet,<br/>Het sotramsbois Team</p>
     "
 ];
 $clientHtml = $clientHtmlMap[$lang] ?? $clientHtmlMap['fr'];
@@ -287,50 +287,50 @@ $clientTextMap = [
     'fr' => "
 Bonjour " . $contactName . ",
 
-Nous vous remercions pour l'intérêt que vous portez à Terre & Feu.
+Nous vous remercions pour l'intérêt que vous portez à sotramsbois.
 
 Nous avons bien reçu votre demande de devis B2B numéro #{$insertedId} concernant le produit " . $productName . ".
 
 Nos équipes vont étudier la faisabilité logistique et tarifaire de votre demande. Un conseiller commercial prendra contact avec vous dès que possible pour vous proposer une offre adaptée.
 
 Cordialement,
-L'équipe Terre & Feu
+L'équipe sotramsbois
 ",
     'en' => "
 Hello " . $contactName . ",
 
-Thank you for your interest in Terre & Feu.
+Thank you for your interest in sotramsbois.
 
 We have successfully received your B2B quote request #{$insertedId} regarding the product " . $productName . ".
 
 Our teams will study the feasibility and pricing. A sales representative will contact you as soon as possible to present a custom offer.
 
 Best regards,
-The Terre & Feu Team
+The sotramsbois Team
 ",
     'de' => "
 Hallo " . $contactName . ",
 
-Vielen Dank für Ihr Interesse an Terre & Feu.
+Vielen Dank für Ihr Interesse an sotramsbois.
 
 Wir haben Ihre B2B-Angebotsanfrage #{$insertedId} für das Produkt " . $productName . " erhalten.
 
 Unsere Teams werden die logistische und preisliche Machbarkeit prüfen. Ein Vertriebsmitarbeiter wird sich so schnell wie möglich mit Ihnen in Verbindung setzen, um Ihnen ein passendes Angebot zu unterbreiten.
 
 Mit freundlichen Grüßen,
-Ihr Terre & Feu Team
+Ihr sotramsbois Team
 ",
     'nl' => "
 Beste " . $contactName . ",
 
-Bedankt voor uw interesse in Terre & Feu.
+Bedankt voor uw interesse in sotramsbois.
 
 We hebben uw B2B-offerteaanvraag #{$insertedId} voor het product " . $productName . " goed ontvangen.
 
 Onze teams zullen de logistieke en financiële haalbaarheid bestuderen. Een commercieel adviseur zal zo snel mogelijk contact met u opnemen om u een passend voorstel te doen.
 
 Met vriendelijke groet,
-Het Terre & Feu Team
+Het sotramsbois Team
 "
 ];
 $clientText = $clientTextMap[$lang] ?? $clientTextMap['fr'];

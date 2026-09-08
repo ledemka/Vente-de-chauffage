@@ -14,7 +14,7 @@ const newMainContent = `<div class="max-w-[1440px] mx-auto px-margin-mobile md:p
                     <span>Portail B2B Exclusif</span>
                 </div>
                 <h1 class="text-[40px] leading-[1.2] font-headline-xl text-on-surface">
-                    Ouvrez votre compte professionnel Terre & Feu
+                    Ouvrez votre compte professionnel sotramsbois
                 </h1>
                 <p class="text-body-lg text-on-surface-variant">
                     Bénéficiez d'une tarification dégressive en gros, d'une logistique sur-mesure et d'un accompagnement dédié pour vos besoins en biomasse et bois de chauffage haute performance.
@@ -129,7 +129,7 @@ const newMainContent = `<div class="max-w-[1440px] mx-auto px-margin-mobile md:p
                 <div class="flex items-start gap-3 mt-2">
                     <input type="checkbox" id="cgv" required class="mt-1 w-4 h-4 text-primary bg-surface-container-lowest border-outline rounded focus:ring-primary focus:ring-2">
                     <label for="cgv" class="text-body-sm text-on-surface-variant leading-tight">
-                        J'accepte les <a href="LINK_CGV" class="text-primary hover:underline">Conditions Générales de Vente (CGV)</a> ainsi que la politique de confidentialité de Terre & Feu. <span class="text-primary">*</span>
+                        J'accepte les <a href="LINK_CGV" class="text-primary hover:underline">Conditions Générales de Vente (CGV)</a> ainsi que la politique de confidentialité de sotramsbois. <span class="text-primary">*</span>
                     </label>
                 </div>
 

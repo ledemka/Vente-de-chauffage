@@ -10,8 +10,8 @@ const jsonLd = `
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Terre & Feu",
-      "url": "https://www.boisdechauffage-pro.com"
+      "name": "sotramsbois",
+      "url": "https://www.sotramsbois.com"
     }
     </script>
 </head>`;

@@ -8,7 +8,7 @@ const seoData = {
     fr: {
         "mentions-legales.html": {
             "title": "Mentions Légales | Bois de Chauffage PRO",
-            "description": "Informations légales et éditoriales concernant le site Terre & Feu, spécialiste B2B en biomasse et bois de chauffage."
+            "description": "Informations légales et éditoriales concernant le site sotramsbois, spécialiste B2B en biomasse et bois de chauffage."
         },
         "cgv.html": {
             "title": "Conditions Générales de Vente B2B | Bois de Chauffage PRO",
@@ -22,7 +22,7 @@ const seoData = {
     en: {
         "mentions-legales.html": {
             "title": "Legal Notice | Bois de Chauffage PRO",
-            "description": "Legal and editorial information regarding the Terre & Feu website, B2B specialists in biomass and firewood."
+            "description": "Legal and editorial information regarding the sotramsbois website, B2B specialists in biomass and firewood."
         },
         "cgv.html": {
             "title": "B2B Terms and Conditions of Sale | Bois de Chauffage PRO",
@@ -36,7 +36,7 @@ const seoData = {
     de: {
         "mentions-legales.html": {
             "title": "Impressum | Bois de Chauffage PRO",
-            "description": "Rechtliche und redaktionelle Informationen zur Terre & Feu Website, B2B Spezialisten für Biomasse und Brennholz."
+            "description": "Rechtliche und redaktionelle Informationen zur sotramsbois Website, B2B Spezialisten für Biomasse und Brennholz."
         },
         "cgv.html": {
             "title": "Allgemeine Geschäftsbedingungen B2B | Bois de Chauffage PRO",
@@ -50,7 +50,7 @@ const seoData = {
     nl: {
         "mentions-legales.html": {
             "title": "Wettelijke vermeldingen | Bois de Chauffage PRO",
-            "description": "Juridische en redactionele informatie betreffende de Terre & Feu website, B2B specialisten in biomassa en brandhout."
+            "description": "Juridische en redactionele informatie betreffende de sotramsbois website, B2B specialisten in biomassa en brandhout."
         },
         "cgv.html": {
             "title": "Algemene Voorwaarden B2B | Bois de Chauffage PRO",

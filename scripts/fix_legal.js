@@ -12,7 +12,7 @@ dirs.forEach(dir => {
         let content = fs.readFileSync(filepath, 'utf8');
         
         // Task 1 replacements
-        content = content.replace(/Terre & Feu SAS/g, '[Raison sociale à compléter]');
+        content = content.replace(/sotramsbois SAS/g, '[Raison sociale à compléter]');
         content = content.replace(/500 000 €/g, '[Capital social à compléter]');
         content = content.replace(/12 Rue de l'Industrie, 67000 Strasbourg, France/g, '[Adresse du siège social à compléter]');
         content = content.replace(/Strasbourg B 823 456 789/g, '[RCS à compléter]');

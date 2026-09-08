@@ -34,7 +34,7 @@ const replacementContent = `                                const breadcrumbCat 
                                     "name": product.name,
                                     "description": \`\${product.species_material} B2B Wholesale Palette. \${product.format}\`,
                                     "sku": product.id,
-                                    "image": "https://www.boisdechauffage-pro.com" + product.image_product.replace('.', ''),
+                                    "image": "https://www.sotramsbois.com" + product.image_product.replace('.', ''),
                                     "offers": {
                                         "@type": "Offer",
                                         "priceCurrency": "EUR",

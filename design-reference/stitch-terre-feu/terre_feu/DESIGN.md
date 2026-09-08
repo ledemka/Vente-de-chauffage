@@ -1,5 +1,5 @@
 ---
-name: Terre & Feu
+name: sotramsbois
 colors:
   surface: '#fff8f5'
   surface-dim: '#e3d8d1'
