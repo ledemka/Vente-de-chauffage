@@ -57,11 +57,24 @@ class Database {
                 contact_name VARCHAR(255) NOT NULL,
                 email VARCHAR(255) NOT NULL UNIQUE,
                 phone VARCHAR(50) NOT NULL,
+                address VARCHAR(255) NOT NULL DEFAULT '',
+                city VARCHAR(100) NOT NULL DEFAULT '',
+                postal_code VARCHAR(20) NOT NULL DEFAULT '',
                 password_hash VARCHAR(255) NOT NULL,
                 is_admin TINYINT(1) DEFAULT 0,
                 lang VARCHAR(10) NOT NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
             $this->conn->exec($sql);
+
+            // Migration: Add new columns if they don't exist
+            try {
+                $this->conn->exec("ALTER TABLE clients 
+                    ADD COLUMN address VARCHAR(255) NOT NULL DEFAULT '' AFTER phone,
+                    ADD COLUMN city VARCHAR(100) NOT NULL DEFAULT '' AFTER address,
+                    ADD COLUMN postal_code VARCHAR(20) NOT NULL DEFAULT '' AFTER city;");
+            } catch (PDOException $e) {
+                // Column already exists or other duplicate error, ignore
+            }
 
             // Create cart_items table
             $sql = "CREATE TABLE IF NOT EXISTS cart_items (

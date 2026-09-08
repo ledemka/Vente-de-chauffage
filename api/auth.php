@@ -131,7 +131,7 @@ try {
             exit;
         }
         
-        $stmt = $pdo->prepare("SELECT company, contact_name, email FROM clients WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT company, contact_name, email, phone, address, city, postal_code FROM clients WHERE id = ?");
         $stmt->execute([$_SESSION['client_id']]);
         $client = $stmt->fetch(PDO::FETCH_ASSOC);
         
@@ -140,7 +140,11 @@ try {
                 'authenticated' => true,
                 'company' => $client['company'],
                 'contact_name' => $client['contact_name'],
-                'email' => $client['email']
+                'email' => $client['email'],
+                'phone' => $client['phone'],
+                'address' => $client['address'],
+                'city' => $client['city'],
+                'postal_code' => $client['postal_code']
             ]);
             exit;
         } else {
@@ -148,6 +152,55 @@ try {
             echo json_encode(['authenticated' => false]);
             exit;
         }
+    }
+    elseif ($action === 'update_profile') {
+        if (!isset($_SESSION['client_id'])) {
+            respondError(401, 'Non autorisé.');
+        }
+
+        $company = trim((string)($input['company'] ?? ''));
+        $contact_name = trim((string)($input['contact_name'] ?? ''));
+        $email = trim((string)($input['email'] ?? ''));
+        $phone = trim((string)($input['phone'] ?? ''));
+        $address = trim((string)($input['address'] ?? ''));
+        $city = trim((string)($input['city'] ?? ''));
+        $postal_code = trim((string)($input['postal_code'] ?? ''));
+
+        if (!$address || !$city || !$postal_code || !$company || !$contact_name || !$email || !$phone) {
+            respondError(400, 'Tous les champs obligatoires doivent être remplis.');
+        }
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            respondError(400, 'Adresse e-mail invalide.');
+        }
+
+        if ($email !== $_SESSION['email']) {
+            $stmt = $pdo->prepare("SELECT id FROM clients WHERE email = ? AND id != ?");
+            $stmt->execute([$email, $_SESSION['client_id']]);
+            if ($stmt->fetch()) {
+                respondError(409, 'Un compte existe déjà avec cette adresse email.');
+            }
+        }
+
+        $stmt = $pdo->prepare("UPDATE clients SET company = ?, contact_name = ?, email = ?, phone = ?, address = ?, city = ?, postal_code = ? WHERE id = ?");
+        $stmt->execute([$company, $contact_name, $email, $phone, $address, $city, $postal_code, $_SESSION['client_id']]);
+
+        $_SESSION['email'] = $email;
+        $_SESSION['contact_name'] = $contact_name;
+
+        echo json_encode([
+            'success' => true, 
+            'message' => 'Profil mis à jour.',
+            'client' => [
+                'company' => $company,
+                'contact_name' => $contact_name,
+                'email' => $email,
+                'phone' => $phone,
+                'address' => $address,
+                'city' => $city,
+                'postal_code' => $postal_code
+            ]
+        ]);
+        exit;
     }
     else {
         respondError(400, 'Action invalide.');
