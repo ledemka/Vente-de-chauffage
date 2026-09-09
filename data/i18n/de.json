@@ -153,5 +153,14 @@
   "footer.client_link_1": "Mein Warenkorb",
   "footer.client_link_2": "Anmelden / Registrieren",
   "footer.client_link_3": "Lieferverfolgung",
-  "footer.client_link_4": "Vertriebsabteilung"
+  "footer.client_link_4": "Vertriebsabteilung",
+  "merci": {
+    "contact": "Nachricht gesendet",
+    "contact_body": "Ihre Nachricht wurde gesendet. Wir werden uns so schnell wie möglich bei Ihnen melden.",
+    "devis": "Angebotsanfrage gesendet",
+    "devis_body": "Ihre Anfrage wurde an unser Team weitergeleitet.",
+    "inscription": "Registrierung erfolgreich",
+    "inscription_body": "Eine Aktivierungs-E-Mail wurde an Sie gesendet. Sie müssen Ihr Konto aktivieren, bevor Sie sich anmelden können.",
+    "inscription_cta": "Zur Anmeldung"
+  }
 }

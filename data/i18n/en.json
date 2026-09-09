@@ -153,5 +153,14 @@
   "footer.client_link_1": "My Cart",
   "footer.client_link_2": "Login / Register",
   "footer.client_link_3": "Delivery Tracking",
-  "footer.client_link_4": "Sales Department"
+  "footer.client_link_4": "Sales Department",
+  "merci": {
+    "contact": "Message sent",
+    "contact_body": "Your message has been sent. We will get back to you as soon as possible.",
+    "devis": "Quote request sent",
+    "devis_body": "Your request has been forwarded to our team.",
+    "inscription": "Registration successful",
+    "inscription_body": "An activation email has been sent to you. You must activate your account before you can log in.",
+    "inscription_cta": "Go to login"
+  }
 }

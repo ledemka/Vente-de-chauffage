@@ -153,5 +153,14 @@
   "footer.client_link_1": "Mon Panier",
   "footer.client_link_2": "Connexion / Inscription",
   "footer.client_link_3": "Suivi de livraison",
-  "footer.client_link_4": "Service commercial"
+  "footer.client_link_4": "Service commercial",
+  "merci": {
+    "contact": "Message envoyé",
+    "contact_body": "Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais.",
+    "devis": "Demande de devis envoyée",
+    "devis_body": "Votre demande a bien été transmise à notre équipe.",
+    "inscription": "Inscription réussie",
+    "inscription_body": "Un email d'activation vous a été envoyé. Vous devez activer votre compte avant de pouvoir vous connecter.",
+    "inscription_cta": "Aller à la connexion"
+  }
 }
