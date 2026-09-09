@@ -357,7 +357,7 @@
                 truck_access: document.getElementById('truck_access').value,
                 delivery_address: document.getElementById('delivery_address').value,
                 company: document.getElementById('company').value,
-                .getElementById('siret').value || null,
+                siret: document.getElementById('siret').value || null,
                 contact_name: document.getElementById('contact_name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
@@ -385,22 +385,7 @@
                 return response.json();
             })
             .then(data => {
-                submitBtn.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>DEMANDE ENVOYÉE</span>';
-                submitBtn.classList.remove('bg-primary', 'hover:bg-primary-container');
-                submitBtn.classList.add('bg-green-700', 'hover:bg-green-800');
-                
-                setTimeout(() => {
-                    form.reset();
-                    // Reset checkbox tick icon
-                    const checkIcon = form.querySelector('input[type="checkbox"]').nextElementSibling;
-                    checkIcon.classList.add('opacity-0');
-                    checkIcon.classList.remove('opacity-100');
-
-                    submitBtn.innerHTML = originalContent;
-                    submitBtn.classList.add('bg-primary', 'hover:bg-primary-container');
-                    submitBtn.classList.remove('bg-green-700', 'hover:bg-green-800', 'opacity-80', 'cursor-not-allowed');
-                    submitBtn.disabled = false;
-                }, 4000);
+                window.location.href = './merci-devis.html?email=' + encodeURIComponent(formData.email);
             })
             .catch(error => {
                 errorContainer.textContent = error.message;

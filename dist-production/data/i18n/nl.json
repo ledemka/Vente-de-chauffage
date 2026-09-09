@@ -141,15 +141,26 @@
     "confirm_btn": "Confirmer la commande"
   },
   "confirmation": {
-    "title": "Commande confirmée",
-    "ref": "Référence de votre commande :",
-    "msg1": "Votre commande a bien été enregistrée.",
-    "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires vient de vous être envoyé.",
-    "back_home": "Retour à l'accueil"
+    "title": "Bestelling bevestigd",
+    "ref": "Uw bestelnummer:",
+    "msg1": "Uw bestelling is succesvol geregistreerd.",
+    "msg2": "Alleen bankoverschrijving. Een e-mail met onze bankgegevens is zojuist naar u verzonden.",
+    "back_home": "Terug naar home",
+    "spam_notice_title": "Controleer uw spam",
+    "spam_notice": "Er is een bevestigingsmail gestuurd naar {{email}}. Als u deze niet binnen een paar minuten ziet, controleer dan uw map met ongewenste e-mail/spam."
   },
   "footer.client_space_title": "KLANTENZONE & WINKELWAGEN",
   "footer.client_link_1": "Mijn Winkelwagen",
   "footer.client_link_2": "Inloggen / Registreren",
   "footer.client_link_3": "Levering Volgen",
-  "footer.client_link_4": "Verkoopafdeling"
+  "footer.client_link_4": "Verkoopafdeling",
+  "merci": {
+    "contact": "Bericht verzonden",
+    "contact_body": "Uw bericht is verzonden. Wij nemen zo snel mogelijk contact met u op.",
+    "devis": "Offerteaanvraag verzonden",
+    "devis_body": "Uw aanvraag is doorgestuurd naar ons team.",
+    "inscription": "Registratie geslaagd",
+    "inscription_body": "Er is een activeringsmail naar u gestuurd. U moet uw account activeren voordat u kunt inloggen.",
+    "inscription_cta": "Naar inloggen"
+  }
 }

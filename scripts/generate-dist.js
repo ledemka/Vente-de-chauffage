@@ -17,7 +17,20 @@ const PAGES = [
     'contact.html',
     'mentions-legales.html',
     'cgv.html',
-    'politique-confidentialite.html'
+    'politique-confidentialite.html',
+    // Auth & account
+    'connexion.html',
+    'inscription.html',
+    'activation.html',
+    'tableau-de-bord.html',
+    // Cart & order
+    'panier.html',
+    'recapitulatif-commande.html',
+    'confirmation-commande.html',
+    // Thank-you pages
+    'merci-contact.html',
+    'merci-devis.html',
+    'merci-inscription.html',
 ];
 
 const LANGS = ['fr', 'en', 'de', 'nl'];

@@ -14,6 +14,41 @@ header('Content-Type: application/json; charset=utf-8');
 
 require_once __DIR__ . '/db.php';
 
+function getEnvVar(string $key, string $default = ''): string {
+    $envFile = __DIR__ . '/../.env';
+    if (!file_exists($envFile)) return $default;
+    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        list($k, $v) = explode('=', $line, 2) + [NULL, NULL];
+        if (trim((string)$k) === $key) return trim((string)$v);
+    }
+    return $default;
+}
+
+function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text): void {
+    $url = 'https://api.resend.com/emails';
+    $unsubscribeLink = 'mailto:' . getEnvVar('TO_EMAIL') . '?subject=unsubscribe';
+    
+    $data = [
+        'from' => $from,
+        'to' => [$to],
+        'subject' => $subject,
+        'html' => $html,
+        'text' => $text,
+        'headers' => [
+            'List-Unsubscribe' => "<{$unsubscribeLink}>"
+        ]
+    ];
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $apiKey, 'Content-Type: application/json']);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_exec($ch);
+    curl_close($ch);
+}
+
 function respondError(int $statusCode, string $message, array $details = []): void {
     http_response_code($statusCode);
     echo json_encode(['success' => false, 'message' => $message, 'details' => $details], JSON_UNESCAPED_UNICODE);
@@ -63,13 +98,67 @@ try {
         }
 
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
+        $token = bin2hex(random_bytes(32));
+        $expiresAt = date('Y-m-d H:i:s', strtotime('+24 hours'));
 
-        $stmt = $pdo->prepare("INSERT INTO clients (company, siret, contact_name, email, phone, password_hash, lang) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$company, $siret ?: null, $contact_name, $email, $phone, $password_hash, $lang]);
+        $stmt = $pdo->prepare("INSERT INTO clients (company, siret, contact_name, email, phone, password_hash, lang, is_active, activation_token, token_expires_at) VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, ?)");
+        $stmt->execute([$company, $siret ?: null, $contact_name, $email, $phone, $password_hash, $lang, $token, $expiresAt]);
         
         $client_id = $pdo->lastInsertId();
         
-        echo json_encode(['success' => true, 'message' => 'Inscription réussie', 'client_id' => $client_id]);
+        // Load i18n
+        $i18nPath = __DIR__ . "/../data/i18n/emails-{$lang}.json";
+        if (!file_exists($i18nPath)) {
+            $i18nPath = __DIR__ . "/../data/i18n/emails-fr.json";
+        }
+        $i18nData = json_decode(file_get_contents($i18nPath), true);
+        $i18n = $i18nData['account_activation'] ?? $i18nData['fr']['account_activation'] ?? [];
+        if (empty($i18n)) {
+            $i18n = [
+                'subject' => "Activez votre compte",
+                'title' => "Bienvenue !",
+                'intro' => "Merci de vous être inscrit. Veuillez activer votre compte en cliquant sur le lien ci-dessous :",
+                'cta' => "Activer mon compte",
+                'delay_info' => "Ce lien est valable 24 heures."
+            ];
+        }
+
+        $appUrl = rtrim(getEnvVar('APP_URL', 'https://sotramsbois.com'), '/');
+        $activationLink = "{$appUrl}/activation.html?token={$token}";
+
+        $templatePath = __DIR__ . '/templates/emails/account_activation.html';
+        $htmlContent = file_exists($templatePath) ? file_get_contents($templatePath) : "";
+        if (!empty($htmlContent)) {
+            $htmlContent = str_replace(
+                ['{{title}}', '{{intro}}', '{{cta_text}}', '{{activation_link}}', '{{delay_info}}', '{{app_url}}', '{{year}}'],
+                [
+                    $i18n['title'],
+                    $i18n['intro'],
+                    $i18n['cta'],
+                    $activationLink,
+                    $i18n['delay_info'],
+                    $appUrl,
+                    date('Y')
+                ],
+                $htmlContent
+            );
+        } else {
+            $htmlContent = "<p>{$i18n['intro']}</p><p><a href='{$activationLink}'>{$i18n['cta']}</a></p><p>{$i18n['delay_info']}</p>";
+        }
+
+        $textContent = strip_tags(str_replace(['<br>', '<h2>', '</h2>', '<p>', '</p>'], ["\n", "\n\n", "\n\n", "", "\n\n"], $htmlContent));
+        $textContent .= "\n\n" . $activationLink;
+
+        $resendApiKey = getEnvVar('RESEND_API_KEY');
+        $resendFromEmail = getEnvVar('RESEND_FROM_EMAIL') ?: getEnvVar('FROM_EMAIL');
+        $resendFromName = getEnvVar('RESEND_FROM_NAME', 'sotramsbois');
+        $fromEmailFull = "{$resendFromName} <{$resendFromEmail}>";
+
+        if (!empty($resendApiKey) && !empty($fromEmailFull)) {
+            sendResendEmail($resendApiKey, $fromEmailFull, $email, $i18n['subject'], $htmlContent, $textContent);
+        }
+        
+        echo json_encode(['success' => true, 'message' => 'Inscription réussie. Un email d\'activation vous a été envoyé.', 'client_id' => $client_id]);
         exit;
     } 
     elseif ($action === 'login') {
@@ -94,6 +183,10 @@ try {
         $client = $stmt->fetch();
 
         if ($client && password_verify($password, $client['password_hash'])) {
+            if ((int)$client['is_active'] === 0) {
+                respondError(403, 'Veuillez activer votre compte via le lien envoyé par email avant de vous connecter.');
+            }
+
             // Success: clear attempts
             $stmt = $pdo->prepare("DELETE FROM login_attempts WHERE email = ? OR ip_address = ?");
             $stmt->execute([$email, $ip_address]);

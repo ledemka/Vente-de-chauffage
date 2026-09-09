@@ -1,0 +1,28 @@
+{
+  "order_confirmation": {
+    "subject": "Orderbevestiging {{order_ref}}",
+    "title": "Bedankt voor uw bestelling!",
+    "intro": "Uw bestelling is succesvol geregistreerd en doorgestuurd naar ons logistiek team.",
+    "sepa_notice": "BELANGRIJK: Verzending vindt plaats na ontvangst van uw bankoverschrijving.",
+    "cta_account": "Log in op uw klantaccount om uw inkooporder te downloaden",
+    "cta_tracking": "Mijn bestelling volgen",
+    "total_label": "Bedrag Excl. BTW:",
+    "ref_label": "Referentie:"
+  },
+  "quote_sent": {
+    "subject": "Uw offerteaanvraag is bevestigd",
+    "title": "Offerteaanvraag ontvangen",
+    "intro": "Ons verkoopteam beoordeelt uw aanvraag voor het volgende product:",
+    "product_label": "Product:",
+    "qty_label": "Gevraagde hoeveelheid:",
+    "delay_info": "U ontvangt binnen 24 werkuren een prijsvoorstel.",
+    "cta_product": "Bekijk product"
+  },
+  "contact_receipt": {
+    "subject": "Ontvangstbevestiging - Uw bericht",
+    "title": "We hebben uw bericht ontvangen",
+    "intro": "Bedankt voor het contact opnemen. Hier is een samenvatting van uw aanvraag:",
+    "delay_info": "Onze klantenservice zal u zo snel mogelijk antwoorden.",
+    "cta_home": "Terug naar de site"
+  }
+}

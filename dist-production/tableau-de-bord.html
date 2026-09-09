@@ -1,0 +1,523 @@
+<html lang="fr" translate="no"><head>\n    <script>if(!localStorage.getItem("user")){window.location.href="./connexion.html";}</script>
+    <meta charset="utf-8"/>
+    <meta name="google" content="notranslate"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config={theme:{extend:{"colors":{"on-tertiary-fixed":"#271813","on-surface":"#201a17","secondary-container":"#f0dfd6","on-tertiary-fixed-variant":"#56423d","outline-variant":"#ddc0ba","inverse-primary":"#ffb4a3","surface-container-lowest":"#ffffff","on-secondary-fixed-variant":"#4f453e","primary":"#802813","primary-fixed":"#ffdad2","secondary-fixed":"#f0dfd6","surface-container-low":"#fef1eb","surface-bright":"#fff8f5","surface-container-highest":"#ece0da","tertiary-fixed":"#fadcd5","on-surface-variant":"#56423d","outline":"#8a726c","surface-container":"#f8ece5","background":"#fff8f5","on-secondary-fixed":"#221a15","surface-dim":"#e3d8d1","secondary-fixed-dim":"#d3c3bb","tertiary-container":"#6f5953","on-primary-fixed":"#3d0700","on-error":"#ffffff","on-secondary":"#ffffff","tertiary-fixed-dim":"#ddc0b9","on-tertiary-container":"#efd1ca","on-background":"#201a17","on-secondary-container":"#6e625b","on-error-container":"#93000a","error-container":"#ffdad6","primary-fixed-dim":"#ffb4a3","on-primary-fixed-variant":"#812813","error":"#ba1a1a","primary-container":"#a03f28","tertiary":"#56423d","surface":"#fff8f5","inverse-surface":"#362f2b","surface-container-high":"#f2e6df","on-tertiary":"#ffffff","surface-tint":"#a03f28","on-primary":"#ffffff","inverse-on-surface":"#fbeee8","secondary":"#685c55","on-primary-container":"#ffcdc1","surface-variant":"#ece0da"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"max-width":"1440px","margin-desktop":"64px","margin-mobile":"16px","gutter":"24px","base":"8px"},"fontFamily":{"body-sm":["Inter"],"body-lg":["Inter"],"headline-lg-mobile":["Chivo"],"headline-lg":["Chivo"],"headline-md":["Chivo"],"body-md":["Inter"],"headline-xl":["Chivo"],"data-mono":["Inter"],"label-md":["Inter"]},"fontSize":{"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"data-mono":["14px",{"lineHeight":"20px","letterSpacing":"-0.01em","fontWeight":"500"}],"label-md":["14px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"600"}]}}}}
+    </script>
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.sotramsbois.com/connexion.html" />
+    
+    <!-- Reciprocal hreflang Tags -->
+    <link rel="alternate" hreflang="fr" href="https://www.sotramsbois.com/connexion.html" />
+    <link rel="alternate" hreflang="en" href="https://www.sotramsbois.com/en/connexion.html" />
+    <link rel="alternate" hreflang="de" href="https://www.sotramsbois.com/de/connexion.html" />
+    <link rel="alternate" hreflang="nl" href="https://www.sotramsbois.com/nl/connexion.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.sotramsbois.com/connexion.html" />
+    <script src="./assets/js/auth.js"></script>
+<script src="./assets/js/cart.js"></script>
+
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+</head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-inverse-surface shadow-[0_1px_8px_rgba(0,0,0,0.1)]"><div class="h-20 max-w-[1440px] mx-auto px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
+                    <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
+                </div>
+                <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span>
+            </div>
+</div><div class="flex-1 max-w-md px-gutter"><div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span><input class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 pl-10 pr-4 text-body-sm text-inverse-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary" placeholder="Rechercher un produit..." data-i18n="search_placeholder" type="text"/></div></div><div class="flex items-center gap-6">
+            <div class="relative" id="lang-selector-wrapper">
+                    <button id="lang-selector-btn" class="flex items-center gap-1.5 bg-surface-container/20 hover:bg-surface-container/30 border border-inverse-on-surface/20 rounded-full px-2.5 py-1.5 transition-colors cursor-pointer" aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-3.5 rounded-sm object-cover"><rect width="3" height="2" fill="#ED2939"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002395"/></svg>
+                        <span class="text-inverse-on-surface text-label-md font-label-md">FR</span>
+                        <span class="material-symbols-outlined text-inverse-on-surface text-[16px]">expand_more</span>
+                    </button>
+                    <div id="lang-dropdown" class="hidden absolute right-0 top-full mt-2 w-44 bg-surface-container-lowest shadow-md rounded-md overflow-hidden z-[100] border border-outline/10">
+<a href="tableau-de-bord.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm bg-surface-container-high text-primary font-semibold transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-3.5 rounded-sm object-cover"><rect width="3" height="2" fill="#ED2939"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002395"/></svg><span>Français</span><span class="material-symbols-outlined text-[14px] ml-auto">check</span></a>
+<a href="en/tableau-de-bord.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm text-on-surface hover:bg-surface-container transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-5 h-3.5 rounded-sm object-cover"><clipPath id="lang-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="lang-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#lang-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#lang-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a>
+<a href="de/tableau-de-bord.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm text-on-surface hover:bg-surface-container transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" class="w-5 h-3.5 rounded-sm object-cover"><rect width="5" height="3" fill="#000"/><rect width="5" height="2" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg><span>Deutsch</span></a>
+<a href="nl/tableau-de-bord.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm text-on-surface hover:bg-surface-container transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" class="w-5 h-3.5 rounded-sm object-cover"><rect width="9" height="6" fill="#21468B"/><rect width="9" height="4" fill="#FFF"/><rect width="9" height="2" fill="#AE1C28"/></svg><span>Nederlands</span></a>
+                    </div>
+                </div>
+                <div id="user-menu-container" class="flex items-center"></div>
+                <a href="./panier.html" class="flex items-center">
+                    <span class="material-symbols-outlined text-inverse-on-surface cursor-pointer hover:opacity-80 transition-opacity">shopping_cart</span>
+                </a>
+            </div></div></div>
+            <nav class="bg-surface-container border-t border-outline-variant/20">
+                <div class="max-w-[1440px] mx-auto px-margin-desktop h-12 flex items-center gap-10">
+                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.home" href="./index.html"><span data-i18n="nav.home">ACCUEIL</span></a>
+                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.catalog" href="./catalogue.html"><span data-i18n="nav.catalog">CATALOGUE</span></a>
+                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.guide" href="./guide-choix.html"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
+                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.blog" href="./blog.html"><span data-i18n="nav.blog">BLOG</span></a>
+                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.contact" href="./contact.html"><span data-i18n="nav.contact">CONTACT</span></a>
+                </div>
+            </nav>
+        </header>
+
+            <!-- Mobile Drawer Navigation -->
+            <div id="mobile-menu-drawer" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm">
+                <div class="w-4/5 max-w-sm bg-[#2C1810] h-full text-white p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-[#504440]/50 pb-4 mb-6">
+                            <span class="font-extrabold text-lg text-[#D97706] flex items-center gap-2"><span class="material-symbols-outlined">local_fire_department</span> <span data-i18n="site_name">sotramsbois</span></span>
+                            <button id="mobile-menu-close" class="text-[#D3C3BE] hover:text-white"><span class="material-symbols-outlined text-2xl">close</span></button>
+                        </div>
+                        <div class="space-y-3 font-semibold text-sm">
+                            <a href="./index.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]" data-i18n="nav.home"><span data-i18n="nav.home">ACCUEIL</span></a>
+                            <a href="./catalogue.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]" data-i18n="nav.catalog"><span data-i18n="nav.catalog">CATALOGUE</span></a>
+                            <a href="./guide-choix.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]" data-i18n="nav.guide"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
+                            <a href="./blog.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]" data-i18n="nav.blog"><span data-i18n="nav.blog">BLOG</span></a>
+                            <a href="./connexion.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706]" data-i18n="nav.contact"><span data-i18n="nav.contact">CONTACT</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<main class="w-full pt-[128px] bg-background min-h-screen">
+    <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-16">
+        <div class="flex justify-between items-center mb-10">
+            <h1 class="text-headline-xl font-headline-xl text-on-surface" data-i18n="dashboard.title">Mon Tableau de Bord</h1>
+            <button onclick="handleLogout()" class="bg-surface-container-highest hover:bg-surface-dim text-on-surface font-label-md text-label-md py-2 px-6 rounded-md transition-colors flex items-center gap-2 border border-outline/20 shadow-sm">
+                <span class="material-symbols-outlined text-[20px]">logout</span>
+                <span data-i18n="dashboard.logout">Déconnexion</span>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-1">
+                <div class="bg-surface-container p-6 rounded-xl border border-outline/10 shadow-sm h-full">
+                    <h2 class="text-headline-md font-headline-md text-on-surface mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">badge</span>
+                        <span data-i18n="dashboard.my_info">Mes Informations</span>
+                    </h2>
+                    
+                    <div id="profile-view" class="flex flex-col gap-4">
+                        <div>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Société</span>
+                            <span id="view-company" class="text-body-md text-on-surface font-bold">-</span>
+                        </div>
+                        <div>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Contact</span>
+                            <span id="view-contact" class="text-body-md text-on-surface">-</span>
+                        </div>
+                        <div>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Email</span>
+                            <span id="view-email" class="text-body-md text-on-surface">-</span>
+                        </div>
+                        <div>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Téléphone</span>
+                            <span id="view-phone" class="text-body-md text-on-surface">-</span>
+                        </div>
+                        <div>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Adresse</span>
+                            <span id="view-address" class="text-body-md text-on-surface">-</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <span class="text-label-md font-label-md text-outline-variant block mb-1">Code Postal</span>
+                                <span id="view-postal" class="text-body-md text-on-surface">-</span>
+                            </div>
+                            <div>
+                                <span class="text-label-md font-label-md text-outline-variant block mb-1">Ville</span>
+                                <span id="view-city" class="text-body-md text-on-surface">-</span>
+                            </div>
+                        </div>
+                        <button type="button" id="btn-edit-profile" class="mt-2 w-full border border-primary text-primary hover:bg-primary/5 py-2 rounded-lg font-label-md transition-colors">
+                            Modifier mes informations
+                        </button>
+                    </div>
+
+                    <form id="profile-form" class="hidden flex-col gap-4">
+                        <div id="profile-msg" class="text-body-sm font-bold hidden px-4 py-2 rounded"></div>
+                        <div>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Société</label>
+                            <input type="text" id="info-company" name="company" class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
+                        </div>
+                        <div>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Contact</label>
+                            <input type="text" id="info-contact" name="contact_name" class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
+                        </div>
+                        <div>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Email</label>
+                            <input type="email" id="info-email" name="email" class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
+                        </div>
+                        <div>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Téléphone</label>
+                            <input type="text" id="info-phone" name="phone" class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
+                        </div>
+                        <div>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Adresse <span class="text-error">*</span></label>
+                            <input type="text" id="info-address" name="address" required class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-label-md font-label-md text-outline-variant block mb-1">Code Postal <span class="text-error">*</span></label>
+                                <input type="text" id="info-postal" name="postal_code" required class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
+                            </div>
+                            <div>
+                                <label class="text-label-md font-label-md text-outline-variant block mb-1">Ville <span class="text-error">*</span></label>
+                                <input type="text" id="info-city" name="city" required class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
+                            </div>
+                        </div>
+                        <div class="flex gap-4 mt-2">
+                            <button type="button" id="btn-cancel-edit" class="flex-1 border border-outline text-on-surface hover:bg-surface-container py-2 rounded-lg font-label-md transition-colors">
+                                Annuler
+                            </button>
+                            <button type="submit" class="flex-1 bg-primary hover:bg-primary/90 text-on-primary py-2 rounded-lg font-label-md transition-colors">
+                                Enregistrer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2">
+                <div class="bg-surface-container p-6 rounded-xl border border-outline/10 shadow-sm h-full">
+                    <h2 class="text-headline-md font-headline-md text-on-surface mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">list_alt</span>
+                        <span data-i18n="dashboard.my_orders">Mes Commandes</span>
+                    </h2>
+                    
+                    <div id="orders-container" class="overflow-x-auto">
+                        <div class="text-center py-10 text-on-surface-variant flex flex-col items-center justify-center">
+                            <span class="material-symbols-outlined animate-spin text-[32px] mb-4">autorenew</span>
+                            <span data-i18n="dashboard.loading">Chargement...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <dialog id="order-modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 m-0 bg-transparent p-4 w-full max-w-3xl backdrop:bg-inverse-surface/40 backdrop:backdrop-blur-sm">
+        <div class="bg-surface-container-lowest shadow-md rounded-xl p-6 md:p-8 flex flex-col gap-6 w-full relative">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-outline-variant hover:text-on-surface transition-colors">
+                <span class="material-symbols-outlined text-[24px]">close</span>
+            </button>
+            
+            <div class="border-b border-outline/20 pb-4 relative">
+                <h3 class="text-headline-md font-headline-md text-on-surface pr-24">Commande <span id="modal-ref" class="text-primary"></span></h3>
+                <a id="modal-download-btn" href="#" class="absolute top-0 right-8 flex items-center gap-1.5 text-body-sm bg-primary text-on-primary px-3 py-1.5 rounded-lg hover:bg-primary/90 transition-colors shadow-sm">
+                    <span class="material-symbols-outlined text-[18px]">download</span>
+                    <span class="hidden sm:inline font-semibold">Télécharger le bon de commande</span>
+                </a>
+                <div class="flex gap-4 mt-2 text-body-sm text-on-surface-variant">
+                    <span>Date : <span id="modal-date"></span></span>
+                    <span>Statut : <span id="modal-status" class="px-2 py-0.5 bg-surface-container-highest rounded font-semibold"></span></span>
+                </div>
+                <div class="mt-2 text-body-sm text-on-surface-variant">
+                    Livraison : <span id="modal-address" class="font-semibold text-on-surface"></span>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[500px]">
+                    <thead class="border-b border-outline/20 text-label-md font-label-md text-on-surface-variant">
+                        <tr>
+                            <th class="py-2 pr-2 w-16">Article</th>
+                            <th class="py-2 px-2">Détails</th>
+                            <th class="py-2 px-2 text-center">Qté</th>
+                            <th class="py-2 px-2 text-right">P.U.</th>
+                            <th class="py-2 pl-2 text-right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modal-items-container">
+                        <!-- Items injected here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="border-t border-outline/20 pt-4 flex justify-between items-center text-headline-md font-headline-md">
+                <span>Total HT</span>
+                <span id="modal-total" class="text-primary font-data-mono"></span>
+            </div>
+        </div>
+    </dialog>
+</main>
+<script>
+let productsData = {};
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // 1. Fetch Products for images
+    try {
+        const prodRes = await fetch('./data/products.json');
+        const prods = await prodRes.json();
+        prods.forEach(p => productsData[p.id] = p);
+    } catch(e) { console.error('Error loading products'); }
+
+    // 2. Affichage optimiste immédiat depuis le localStorage
+    try {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            const user = JSON.parse(storedUser);
+            fillProfileForm(user);
+        }
+    } catch (e) {
+        // Ignorer les erreurs de parsing
+    }
+
+    // 3. Vérification réelle côté serveur
+    try {
+        const formData = new URLSearchParams();
+        formData.append('action', 'check');
+        
+        const checkRes = await fetch('./api/auth.php', { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString()
+        });
+        
+        if (!checkRes.ok) throw new Error('Not auth');
+        
+        const userData = await checkRes.json();
+        if (!userData.authenticated) {
+            throw new Error('Not auth');
+        }
+        
+        fillProfileForm(userData);
+        localStorage.setItem('user', JSON.stringify(userData));
+        
+    } catch (e) {
+        localStorage.removeItem('user');
+        window.location.href = './connexion.html?redirect=tableau-de-bord.html';
+        return;
+    }
+
+    // 4. Chargement des commandes
+    const ordersContainer = document.getElementById('orders-container');
+    try {
+        const formData = new URLSearchParams();
+        formData.append('action', 'list');
+        const res = await fetch('./api/orders.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString()
+        });
+        const data = await res.json();
+        
+        if (data.success && data.orders && data.orders.length > 0) {
+            let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">Référence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total HT</th></tr></thead><tbody>';
+            
+            data.orders.forEach(order => {
+                const dateObj = new Date(order.created_at);
+                const dateStr = dateObj.toLocaleDateString();
+                const statusMap = {
+                    'pending_payment': 'En attente',
+                    'paid': 'Payée',
+                    'shipped': 'Expédiée',
+                    'delivered': 'Livrée',
+                    'cancelled': 'Annulée'
+                };
+                const statusTxt = statusMap[order.status] || order.status;
+                const totalFmt = parseFloat(order.total).toFixed(2) + ' €';
+                const orderData = {
+                    ref: order.order_reference,
+                    date: dateStr,
+                    status: statusTxt,
+                    total: totalFmt,
+                    delivery_address: order.delivery_address || 'Non spécifiée',
+                    items: typeof order.items === 'string' ? JSON.parse(order.items || '[]') : (order.items || [])
+                };
+                // Proper HTML escaping for double quotes
+                const orderDataStr = JSON.stringify(orderData).replace(/"/g, '&quot;');
+                
+                html += `<tr class="order-row border-b border-outline/10 cursor-pointer hover:bg-surface-container-highest/20 transition-colors" data-order="${orderDataStr}">
+                    <td class="py-4 pr-2 text-body-md font-bold text-on-surface">${order.order_reference}</td>
+                    <td class="py-4 px-2 text-body-sm text-on-surface-variant">${dateStr}</td>
+                    <td class="py-4 px-2 text-body-sm"><span class="px-2 py-1 bg-surface-container-highest rounded text-on-surface-variant">${statusTxt}</span></td>
+                    <td class="py-4 pl-2 text-right text-body-md font-data-mono font-bold text-primary">${totalFmt}</td>
+                </tr>`;
+            });
+            html += '</tbody></table>';
+            ordersContainer.innerHTML = html;
+        } else {
+            ordersContainer.innerHTML = '<div class="text-center py-10 text-on-surface-variant"><span class="material-symbols-outlined text-[48px] opacity-50 mb-4 block">inventory_2</span><p data-i18n="dashboard.no_orders">Aucune commande pour le moment.</p></div>';
+        }
+    } catch (err) {
+        ordersContainer.innerHTML = '<div class="text-center py-10 text-error">Erreur lors du chargement des commandes.</div>';
+    }
+});
+
+
+let currentProfileData = {};
+
+function fillProfileForm(data) {
+    currentProfileData = { ...currentProfileData, ...data };
+    // Remplissage Vue
+    if(data.company) document.getElementById('view-company').textContent = data.company;
+    if(data.contact_name) document.getElementById('view-contact').textContent = data.contact_name;
+    if(data.email) document.getElementById('view-email').textContent = data.email;
+    if(data.phone) document.getElementById('view-phone').textContent = data.phone;
+    if(data.address) document.getElementById('view-address').textContent = data.address;
+    if(data.city) document.getElementById('view-city').textContent = data.city;
+    if(data.postal_code) document.getElementById('view-postal').textContent = data.postal_code;
+    
+    // Remplissage Formulaire
+    if(data.company) document.getElementById('info-company').value = data.company;
+    if(data.contact_name) document.getElementById('info-contact').value = data.contact_name;
+    if(data.email) document.getElementById('info-email').value = data.email;
+    if(data.phone) document.getElementById('info-phone').value = data.phone;
+    if(data.address) document.getElementById('info-address').value = data.address;
+    if(data.city) document.getElementById('info-city').value = data.city;
+    if(data.postal_code) document.getElementById('info-postal').value = data.postal_code;
+}
+
+document.getElementById('btn-edit-profile').addEventListener('click', () => {
+    document.getElementById('profile-view').classList.remove('flex');
+    document.getElementById('profile-view').classList.add('hidden');
+    document.getElementById('profile-form').classList.remove('hidden');
+    document.getElementById('profile-form').classList.add('flex');
+});
+
+document.getElementById('btn-cancel-edit').addEventListener('click', () => {
+    // Reset form to currentProfileData
+    fillProfileForm(currentProfileData);
+    document.getElementById('profile-msg').classList.add('hidden');
+    
+    document.getElementById('profile-form').classList.remove('flex');
+    document.getElementById('profile-form').classList.add('hidden');
+    document.getElementById('profile-view').classList.remove('hidden');
+    document.getElementById('profile-view').classList.add('flex');
+});
+
+
+// Form Submission
+document.getElementById('profile-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const msg = document.getElementById('profile-msg');
+    msg.classList.add('hidden');
+    
+    const formData = new URLSearchParams(new FormData(e.target));
+    formData.append('action', 'update_profile');
+
+    try {
+        const res = await fetch('./api/auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString()
+        });
+        const data = await res.json();
+        
+        if (data.success) {
+            msg.textContent = data.message;
+            msg.className = 'text-body-sm font-bold block px-4 py-2 rounded bg-[#dcfce7] text-[#166534] mb-4';
+            // Update local storage
+            let user = JSON.parse(localStorage.getItem('user') || '{}');
+            
+            user = { ...user, ...data.client };
+            localStorage.setItem('user', JSON.stringify(user));
+            fillProfileForm(user);
+            
+            // Revenir au mode vue après délai
+            setTimeout(() => {
+                document.getElementById('btn-cancel-edit').click();
+            }, 1000);
+
+        } else {
+            msg.textContent = data.message || 'Erreur lors de la mise à jour.';
+            msg.className = 'text-body-sm font-bold block px-4 py-2 rounded bg-error-container text-on-error-container mb-4';
+        }
+    } catch(err) {
+        msg.textContent = 'Erreur réseau.';
+        msg.className = 'text-body-sm font-bold block px-4 py-2 rounded bg-error-container text-on-error-container mb-4';
+    }
+});
+
+// Modal Logic
+const modal = document.getElementById('order-modal');
+const closeBtn = document.getElementById('close-modal-btn');
+
+
+// Delegate order row clicks
+document.getElementById('orders-container').addEventListener('click', (e) => {
+    const tr = e.target.closest('.order-row');
+    if (tr && tr.dataset.order) {
+        try {
+            const data = JSON.parse(tr.dataset.order);
+            window.openOrderModal(data);
+        } catch(err) { console.error('Error parsing order dataset', err); }
+    }
+});
+
+window.openOrderModal = (data) => {
+    document.getElementById('modal-ref').textContent = data.ref;
+    document.getElementById('modal-date').textContent = data.date;
+    document.getElementById('modal-status').textContent = data.status;
+    document.getElementById('modal-total').textContent = data.total;
+    if (document.getElementById('modal-address')) {
+        document.getElementById('modal-address').textContent = data.delivery_address || 'Non spécifiée';
+    }
+    if (document.getElementById('modal-download-btn')) {
+        document.getElementById('modal-download-btn').href = `./api/generate-order-pdf.php?ref=${data.ref}`;
+    }
+    
+    const container = document.getElementById('modal-items-container');
+    container.innerHTML = '';
+    
+    try {
+        const items = data.items;
+
+        items.forEach(item => {
+            const product = productsData[item.product_id] || {};
+            const img = product.image_product ? `<img src="${product.image_product}" class="w-12 h-12 object-cover rounded" />` : '<div class="w-12 h-12 bg-surface-container rounded flex items-center justify-center"><span class="material-symbols-outlined text-outline-variant">image</span></div>';
+            
+            const lineTotal = (item.quantity * item.unit_price).toFixed(2);
+            
+            container.innerHTML += `
+                <tr class="border-b border-outline/10">
+                    <td class="py-3 pr-2">${img}</td>
+                    <td class="py-3 px-2">
+                        <div class="font-bold text-body-md text-on-surface">${item.name}</div>
+                        <div class="text-body-sm text-outline-variant">${item.format}</div>
+                    </td>
+                    <td class="py-3 px-2 text-center text-body-md">${item.quantity}</td>
+                    <td class="py-3 px-2 text-right text-body-sm">${parseFloat(item.unit_price).toFixed(2)} €</td>
+                    <td class="py-3 pl-2 text-right font-data-mono font-bold text-primary">${lineTotal} €</td>
+                </tr>
+            `;
+        });
+    } catch(e) { console.error('Error parsing items'); }
+    
+    modal.showModal();
+};
+
+closeBtn.addEventListener('click', () => modal.close());
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.close();
+});
+
+async function handleLogout() {
+    if (window.AuthAPI) {
+        await AuthAPI.logout();
+        window.location.href = './connexion.html';
+    }
+}
+</script>
+<footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Solutions professionnelles de biomasse et bois de chauffage haute performance.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS &amp; SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=1"><span data-i18n="categories.1">Bûches de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=2"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=3"><span data-i18n="categories.3">Briquettes</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=4"><span data-i18n="categories.4">Granulés / Pellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=5"><span data-i18n="categories.5">Charbon / Allume-feu</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./devis.html"><span data-i18n="nav.quote">Devis</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.service_5">Livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="nav.contact">Contact</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">ESPACE CLIENT &amp; PANIER</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./panier.html"><span data-i18n="footer.client_link_1">Mon Panier</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./connexion.html"><span data-i18n="footer.client_link_2">Connexion / Inscription</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.client_link_3">Suivi de livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="footer.client_link_4">Service commercial</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">[Adresse à compléter par le client]</span></span><span><span data-i18n="footer.phone">[Téléphone à compléter par le client]</span></span><span>Email: [Email à compléter par le client]</span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="./mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="./cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="./politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="./politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="./assets/js/i18n-loader.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.getElementById('mobile-menu-btn');
+                const drawer = document.getElementById('mobile-menu-drawer');
+                const close = document.getElementById('mobile-menu-close');
+                
+                if (btn && drawer) {
+                    btn.addEventListener('click', () => drawer.classList.remove('hidden'));
+                }
+                if (close && drawer) {
+                    close.addEventListener('click', () => drawer.classList.add('hidden'));
+                }
+            });
+        </script>
+<script src="./assets/js/user-menu.js"></script>
+<script src="./assets/js/lang-selector.js"></script>
+</body></html>

@@ -179,62 +179,62 @@ try {
 
     // 5. Send Confirmation Email (Virement Bancaire)
     $resendApiKey = getEnvVar('RESEND_API_KEY');
-    $fromEmail = getEnvVar('FROM_EMAIL');
+    $resendFromEmail = getEnvVar('RESEND_FROM_EMAIL');
+    if (empty($resendFromEmail)) $resendFromEmail = getEnvVar('FROM_EMAIL');
+    $resendFromName = getEnvVar('RESEND_FROM_NAME', 'sotramsbois');
+    $fromEmail = "{$resendFromName} <{$resendFromEmail}>";
     $toEmail = getEnvVar('TO_EMAIL');
+    $appUrl = rtrim(getEnvVar('APP_URL', 'https://sotramsbois.com'), '/');
 
     if ($resendApiKey && $fromEmail && $toEmail) {
-        $clientSubjectMap = [
-            'fr' => "Confirmation de commande {$orderRef} - Virement attendu",
-            'en' => "Order Confirmation {$orderRef} - Bank transfer required",
-            'de' => "Bestellbestätigung {$orderRef} - Banküberweisung erforderlich",
-            'nl' => "Orderbevestiging {$orderRef} - Bankoverschrijving vereist"
-        ];
-        $clientSubject = $clientSubjectMap[$lang] ?? $clientSubjectMap['fr'];
-
         $contactNameHtml = htmlspecialchars(trim((string)$input['contact_name']));
         $totalFmt = number_format(round($subtotal, 2), 2, ',', ' ') . ' €';
 
-        $clientHtmlMap = [
-            'fr' => "
-                <h2>Merci pour votre commande {$orderRef}</h2>
-                <p>Bonjour {$contactNameHtml},</p>
-                <p>Votre commande d'un montant de <strong>{$totalFmt} HT</strong> a bien été enregistrée.</p>
-                <p style='color:#d32f2f; font-weight:bold;'>IMPORTANT : Paiement par virement bancaire uniquement.</p>
-                <p>Nos coordonnées bancaires (IBAN) vous seront communiquées séparément par notre service comptabilité après validation logistique.</p>
-                <p>Votre commande sera expédiée dès réception du virement sur notre compte.</p>
-                <p>Cordialement,<br>L'équipe sotramsbois</p>
-            ",
-            'en' => "
-                <h2>Thank you for your order {$orderRef}</h2>
-                <p>Hello {$contactNameHtml},</p>
-                <p>Your order for a total of <strong>{$totalFmt} (excl. tax)</strong> has been successfully registered.</p>
-                <p style='color:#d32f2f; font-weight:bold;'>IMPORTANT: Payment by bank transfer only.</p>
-                <p>Our bank details (IBAN) will be communicated to you separately by our accounting department after logistics validation.</p>
-                <p>Your order will be shipped upon receipt of the transfer to our account.</p>
-                <p>Best regards,<br>The sotramsbois Team</p>
-            ",
-            // Fallback for others to english or simple translation
-            'de' => "
-                <h2>Vielen Dank für Ihre Bestellung {$orderRef}</h2>
-                <p>Hallo {$contactNameHtml},</p>
-                <p>Ihre Bestellung über insgesamt <strong>{$totalFmt} (exkl. MwSt.)</strong> wurde erfolgreich registriert.</p>
-                <p style='color:#d32f2f; font-weight:bold;'>WICHTIG: Zahlung nur per Banküberweisung.</p>
-                <p>Unsere Bankverbindung (IBAN) wird Ihnen nach der Logistikprüfung von unserer Buchhaltung separat mitgeteilt.</p>
-                <p>Ihre Bestellung wird nach Eingang der Überweisung auf unserem Konto versandt.</p>
-                <p>Mit freundlichen Grüßen,<br>Ihr sotramsbois Team</p>
-            ",
-            'nl' => "
-                <h2>Bedankt voor uw bestelling {$orderRef}</h2>
-                <p>Hallo {$contactNameHtml},</p>
-                <p>Uw bestelling voor een totaal van <strong>{$totalFmt} (excl. btw)</strong> is succesvol geregistreerd.</p>
-                <p style='color:#d32f2f; font-weight:bold;'>BELANGRIJK: Betaling alleen via bankoverschrijving.</p>
-                <p>Onze bankgegevens (IBAN) worden na logistieke validatie apart door onze boekhoudafdeling aan u gecommuniceerd.</p>
-                <p>Uw bestelling wordt verzonden na ontvangst van de overschrijving op onze rekening.</p>
-                <p>Met vriendelijke groet,<br>Het sotramsbois Team</p>
-            "
-        ];
-        $clientHtml = $clientHtmlMap[$lang] ?? $clientHtmlMap['fr'];
+        $i18nPath = __DIR__ . "/../data/i18n/emails-{$lang}.json";
+        if (!file_exists($i18nPath)) {
+            $i18nPath = __DIR__ . "/../data/i18n/emails-fr.json";
+        }
+        $i18nData = json_decode(file_get_contents($i18nPath), true);
+        $i18n = $i18nData['order_confirmation'] ?? $i18nData['fr']['order_confirmation'] ?? [];
+        if (empty($i18n)) { // Fallback just in case
+            $i18n = [
+                'subject' => "Confirmation de commande {$orderRef}",
+                'title' => "Merci pour votre commande !",
+                'intro' => "Bonjour {$contactNameHtml}, votre commande a bien été enregistrée.",
+                'sepa_notice' => "IMPORTANT : L'expédition interviendra après réception de votre virement bancaire.",
+                'cta_account' => "Connectez-vous à votre espace client pour télécharger votre bon de commande",
+                'ref_label' => "Référence :",
+                'total_label' => "Montant HT :"
+            ];
+        }
+
+        $clientSubject = str_replace('{{order_ref}}', $orderRef, $i18n['subject']);
+
+        $templatePath = __DIR__ . '/templates/emails/order_confirmation.html';
+        $clientHtml = file_exists($templatePath) ? file_get_contents($templatePath) : "";
         
+        if (!empty($clientHtml)) {
+            $clientHtml = str_replace(
+                ['{{title}}', '{{intro}}', '{{order_ref}}', '{{total}}', '{{sepa_notice}}', '{{cta_account}}', '{{ref_label}}', '{{total_label}}', '{{app_url}}', '{{year}}', '{{pdf_url}}'],
+                [
+                    $i18n['title'],
+                    $i18n['intro'] . (strpos($i18n['intro'], 'Bonjour') === false ? " Bonjour {$contactNameHtml}," : ""),
+                    $orderRef,
+                    $totalFmt,
+                    $i18n['sepa_notice'],
+                    $i18n['cta_account'],
+                    $i18n['ref_label'],
+                    $i18n['total_label'],
+                    $appUrl,
+                    date('Y'),
+                    $appUrl . '/connexion.html'
+                ],
+                $clientHtml
+            );
+        } else {
+            $clientHtml = "<p>Votre commande <strong>{$orderRef}</strong> de {$totalFmt} est confirmée.</p>";
+        }
+
         $clientText = strip_tags(str_replace(['<br>', '<h2>', '</h2>', '<p>', '</p>'], ["\n", "\n\n", "\n\n", "", "\n\n"], $clientHtml));
 
         // Internal Notif

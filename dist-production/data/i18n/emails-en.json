@@ -1,0 +1,28 @@
+{
+  "order_confirmation": {
+    "subject": "Order Confirmation {{order_ref}}",
+    "title": "Thank you for your order!",
+    "intro": "Your order has been successfully recorded and sent to our logistics team.",
+    "sepa_notice": "IMPORTANT: Shipment will occur after receipt of your bank transfer.",
+    "cta_account": "Log in to your customer account to download your purchase order",
+    "cta_tracking": "Track my order",
+    "total_label": "Amount Excl. Tax:",
+    "ref_label": "Reference:"
+  },
+  "quote_sent": {
+    "subject": "Your quote request is confirmed",
+    "title": "Quote request received",
+    "intro": "Our sales team is reviewing your request for the following product:",
+    "product_label": "Product:",
+    "qty_label": "Quantity requested:",
+    "delay_info": "You will receive a pricing proposal within 24 business hours.",
+    "cta_product": "View product"
+  },
+  "contact_receipt": {
+    "subject": "Acknowledgment of receipt - Your message",
+    "title": "We have received your message",
+    "intro": "Thank you for contacting us. Here is a summary of your request:",
+    "delay_info": "Our customer service will reply to you as soon as possible.",
+    "cta_home": "Return to the site"
+  }
+}
