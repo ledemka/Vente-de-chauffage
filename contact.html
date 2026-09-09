@@ -148,7 +148,12 @@
 <h2 class="text-headline-lg font-headline-lg text-on-surface">Demande de devis / Renseignements</h2>
 <p class="text-body-md font-body-md text-on-surface-variant">Remplissez le formulaire ci-dessous, notre service commercial vous recontactera rapidement.</p>
 </div>
-<form class="flex flex-col gap-6" onsubmit="event.preventDefault(); alert('Formulaire envoyé avec succès. Nous vous contacterons dans les plus brefs délais.');">
+<form id="contactForm" class="flex flex-col gap-6">
+<!-- Honeypot -->
+<div class="hidden" aria-hidden="true">
+    <label for="website_url">Laissez ce champ vide</label>
+    <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+</div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="flex flex-col gap-2 relative">
 <label class="text-label-md font-label-md text-on-surface uppercase" for="societe">Société</label>
@@ -237,6 +242,65 @@
                 }
                 if (close && drawer) {
                     close.addEventListener('click', () => drawer.classList.add('hidden'));
+                }
+
+                // Form submission logic
+                const form = document.getElementById('contactForm');
+                if (form) {
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const submitBtn = form.querySelector('button[type="submit"]');
+                        const originalContent = submitBtn.innerHTML;
+                        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">autorenew</span>';
+                        submitBtn.disabled = true;
+
+                        const formData = {
+                            societe: document.getElementById('societe').value || null,
+                            siret: document.getElementById('siret').value || null,
+                            nom: document.getElementById('nom').value,
+                            fonction: document.getElementById('fonction').value || null,
+                            email: document.getElementById('email').value,
+                            telephone: document.getElementById('telephone').value,
+                            besoin: document.getElementById('besoin').value,
+                            message: document.getElementById('message').value || null,
+                            website_url: '' // Honeypot
+                        };
+
+                        // Optional honeypot field if added later
+                        const hp = document.querySelector('input[name="website_url"]');
+                        if (hp) formData.website_url = hp.value;
+
+                        const lang = localStorage.getItem('sotramsbois_lang') || 'fr';
+                        formData.lang = lang;
+
+                        const endpoint = lang === 'fr' ? './api/contact.php' : '../api/contact.php';
+
+                        fetch(endpoint, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: new URLSearchParams(formData)
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                return response.json().then(errData => {
+                                    throw new Error(errData.message || 'Une erreur est survenue.');
+                                }).catch(() => {
+                                    throw new Error('Une erreur est survenue.');
+                                });
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            window.location.href = './merci-contact.html?email=' + encodeURIComponent(formData.email);
+                        })
+                        .catch(error => {
+                            alert(error.message);
+                            submitBtn.innerHTML = originalContent;
+                            submitBtn.disabled = false;
+                        });
+                    });
                 }
             });
         </script>

@@ -393,7 +393,7 @@ const CartUI = {
                         const pathParts = window.location.pathname.split('/');
                         const fileIdx = pathParts.findIndex(p => p.includes('.html'));
                         pathParts[fileIdx] = 'confirmation-commande.html';
-                        const newUrl = pathParts.join('/') + '?ref=' + res.order_reference;
+                        const newUrl = pathParts.join('/') + '?ref=' + res.order_reference + '&email=' + encodeURIComponent(data.email);
                         window.location.href = newUrl;
                     } else {
                         if(errorDiv) {
