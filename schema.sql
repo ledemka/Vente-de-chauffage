@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `company` varchar(255) NOT NULL,
   `siret` varchar(100) DEFAULT NULL,
+  `first_name` varchar(255) NOT NULL DEFAULT '',
   `contact_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone` varchar(50) NOT NULL,

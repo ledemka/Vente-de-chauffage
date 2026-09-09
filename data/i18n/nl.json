@@ -144,10 +144,10 @@
     "title": "Bestelling bevestigd",
     "ref": "Uw bestelnummer:",
     "msg1": "Uw bestelling is succesvol geregistreerd.",
-    "msg2": "Alleen bankoverschrijving. Een e-mail met onze bankgegevens is zojuist naar u verzonden.",
+    "msg2": "Alleen bankoverschrijving. Een e-mail met onze bankgegevens is verzonden naar {{email}}.",
     "back_home": "Terug naar home",
     "spam_notice_title": "Controleer uw spam",
-    "spam_notice": "Er is een bevestigingsmail gestuurd naar {{email}}. Als u deze niet binnen een paar minuten ziet, controleer dan uw map met ongewenste e-mail/spam."
+    "spam_notice": "Als u deze niet binnen enkele minuten ziet, controleer dan uw spammap."
   },
   "footer.client_space_title": "KLANTENZONE & WINKELWAGEN",
   "footer.client_link_1": "Mijn Winkelwagen",
@@ -156,11 +156,11 @@
   "footer.client_link_4": "Verkoopafdeling",
   "merci": {
     "contact": "Bericht verzonden",
-    "contact_body": "Uw bericht is verzonden. Wij nemen zo snel mogelijk contact met u op.",
+    "contact_body": "Uw bericht is succesvol verzonden. Er is een ontvangstbevestiging verzonden naar {{email}}. We zullen zo snel mogelijk antwoorden.",
     "devis": "Offerteaanvraag verzonden",
-    "devis_body": "Uw aanvraag is doorgestuurd naar ons team.",
+    "devis_body": "Uw aanvraag is doorgestuurd naar ons team. Er is een bevestiging verzonden naar {{email}}.",
     "inscription": "Registratie geslaagd",
-    "inscription_body": "Er is een activeringsmail naar u gestuurd. U moet uw account activeren voordat u kunt inloggen.",
+    "inscription_body": "Er is een activeringsmail verzonden naar {{email}}. U moet uw account activeren voordat u kunt inloggen.",
     "inscription_cta": "Naar inloggen"
   }
 }

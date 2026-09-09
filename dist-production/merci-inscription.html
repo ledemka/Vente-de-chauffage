@@ -90,16 +90,18 @@
         
         <h1 class="text-headline-xl font-headline-xl text-on-surface" data-i18n="merci.inscription">Inscription réussie</h1>
         
-        <p class="text-body-lg text-on-surface-variant font-medium mt-4" data-i18n="merci.inscription_body">
+        <p id="main-body-text" class="text-body-lg text-on-surface-variant font-medium mt-4" data-i18n="merci.inscription_body">
             Un email d'activation vous a été envoyé. Vous devez activer votre compte avant de pouvoir vous connecter.
         </p>
 
-        <div id="spam-notice-container" class="bg-surface-dim rounded-md p-5 text-left border-l-4 border-outline text-body-sm text-on-surface shadow-sm mt-4 hidden">
-            <div class="flex gap-3 mb-2 font-bold">
-                <span class="material-symbols-outlined text-outline">info</span>
-                <span data-i18n="confirmation.spam_notice_title">Vérifiez vos spams</span>
+        <div id="spam-notice-container" class="alert-warning mt-6 hidden" role="status">
+            <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined mt-0.5">warning</span>
+                <div>
+                    <p class="font-bold text-label-md mb-1" data-i18n="confirmation.spam_notice_title">Vérifiez vos spams</p>
+                    <p class="text-body-sm" data-i18n="confirmation.spam_notice"></p>
+                </div>
             </div>
-            <p id="spam-notice-text"></p>
         </div>
 
         <a href="./connexion.html" class="mt-6 bg-primary hover:bg-primary-container text-white font-label-md text-label-md py-4 px-8 rounded-md transition-colors shadow-sm">
@@ -113,10 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const email = urlParams.get('email');
     if (email) {
-        const spamNotice = window.i18nData?.confirmation?.spam_notice || "--- {{email}} ---";
-        const noticeText = spamNotice.replace('{{email}}', '<strong>' + email + '</strong>');
-        document.getElementById('spam-notice-text').innerHTML = noticeText;
-        document.getElementById('spam-notice-container').classList.remove('hidden');
+        // Use i18nLoaded event to inject email after translations are applied
+        document.addEventListener('i18nLoaded', (e) => {
+            const el = document.getElementById('main-body-text');
+            if (el) {
+                const tpl = e.detail.translations?.['merci']?.['inscription_body'] || el.textContent;
+                el.innerHTML = tpl.replace('{{email}}', '<strong>' + email + '</strong>');
+            }
+            const notice = document.getElementById('spam-notice-container');
+            if (notice) notice.classList.remove('hidden');
+        });
     }
 });
 </script>

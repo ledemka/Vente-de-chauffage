@@ -1,83 +1,54 @@
 const fs = require('fs');
 const path = require('path');
 
-const i18nDir = path.join(__dirname, '..', 'data', 'i18n');
-const langs = ['fr', 'en', 'de', 'nl'];
-
-const blogTranslations = {
+const files = {
     fr: {
-        "article_1_title": "Optimisation du Stockage Hivernal : Maintenir un Taux d'Humidité Inférieur à 15%",
-        "article_2_title": "L'Avenir du Pellet Industriel",
-        "article_3_title": "Quel bois choisir pour la cuisson professionnelle ?",
-        "article_4_title": "Anticiper les ruptures d'approvisionnement",
-        "article_5_title": "Décryptage : La norme ISO 17225-2"
+        'merci.inscription_body': "Un email d'activation a été envoyé à {{email}}. Vous devez activer votre compte avant de pouvoir vous connecter.",
+        'merci.contact_body': "Votre message a bien été envoyé. Un accusé de réception a été envoyé à {{email}}. Nous vous répondrons dans les plus brefs délais.",
+        'merci.devis_body': "Votre demande a bien été transmise à notre équipe. Une confirmation a été envoyée à {{email}}.",
+        'confirmation.msg2': "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires a été envoyé à {{email}}.",
+        'confirmation.spam_notice': "Si vous ne le voyez pas d'ici quelques minutes, vérifiez votre dossier spam."
     },
     en: {
-        "article_1_title": "Optimizing Winter Storage: Maintaining Moisture Levels Below 15%",
-        "article_2_title": "The Future of Industrial Wood Pellets",
-        "article_3_title": "Which Wood to Choose for Professional Cooking?",
-        "article_4_title": "Anticipating Supply Chain Disruptions",
-        "article_5_title": "Decoding the ISO 17225-2 Standard"
+        'merci.inscription_body': "An activation email has been sent to {{email}}. You must activate your account before you can log in.",
+        'merci.contact_body': "Your message has been successfully sent. An acknowledgment has been sent to {{email}}. We will reply as soon as possible.",
+        'merci.devis_body': "Your request has been forwarded to our team. A confirmation has been sent to {{email}}.",
+        'confirmation.msg2': "Bank transfer only. An email with our bank details has been sent to {{email}}.",
+        'confirmation.spam_notice': "If you don't see it within a few minutes, check your spam folder."
     },
     de: {
-        "article_1_title": "Optimierung der Winterlagerung: Feuchtigkeitsgehalt unter 15% halten",
-        "article_2_title": "Die Zukunft von Industrie-Holzpellets",
-        "article_3_title": "Welches Holz für professionelles Kochen?",
-        "article_4_title": "Lieferengpässe antizipieren und vermeiden",
-        "article_5_title": "Entschlüsselung der Norm ISO 17225-2"
+        'merci.inscription_body': "Eine Aktivierungs-E-Mail wurde an {{email}} gesendet. Sie müssen Ihr Konto aktivieren, bevor Sie sich anmelden können.",
+        'merci.contact_body': "Ihre Nachricht wurde erfolgreich gesendet. Eine Bestätigung wurde an {{email}} gesendet. Wir werden so schnell wie möglich antworten.",
+        'merci.devis_body': "Ihre Anfrage wurde an unser Team weitergeleitet. Eine Bestätigung wurde an {{email}} gesendet.",
+        'confirmation.msg2': "Nur Banküberweisung. Eine E-Mail mit unseren Bankdaten wurde an {{email}} gesendet.",
+        'confirmation.spam_notice': "Wenn Sie diese nicht innerhalb weniger Minuten sehen, überprüfen Sie Ihren Spam-Ordner."
     },
     nl: {
-        "article_1_title": "Winteropslag Optimaliseren: Vochtgehalte Onder 15% Houden",
-        "article_2_title": "De Toekomst van Industriële Houtpellets",
-        "article_3_title": "Welk Hout Kiezen voor Professioneel Koken?",
-        "article_4_title": "Anticiperen op Leveringsonderbrekingen",
-        "article_5_title": "Ontcijfering van de ISO 17225-2 Norm"
+        'merci.inscription_body': "Er is een activeringsmail verzonden naar {{email}}. U moet uw account activeren voordat u kunt inloggen.",
+        'merci.contact_body': "Uw bericht is succesvol verzonden. Er is een ontvangstbevestiging verzonden naar {{email}}. We zullen zo snel mogelijk antwoorden.",
+        'merci.devis_body': "Uw aanvraag is doorgestuurd naar ons team. Er is een bevestiging verzonden naar {{email}}.",
+        'confirmation.msg2': "Alleen bankoverschrijving. Een e-mail met onze bankgegevens is verzonden naar {{email}}.",
+        'confirmation.spam_notice': "Als u deze niet binnen enkele minuten ziet, controleer dan uw spammap."
     }
 };
 
-const catTranslations = {
-    fr: {
-        "1": "Bûches de bois",
-        "2": "Bûches compressées / briquettes de bois",
-        "3": "Briquettes",
-        "4": "Granulés / Pellets",
-        "5": "Charbon / Allume-feu / Bûches de torche"
-    },
-    en: {
-        "1": "Firewood Logs",
-        "2": "Compressed Logs / Wood Briquettes",
-        "3": "Briquettes",
-        "4": "Wood Pellets",
-        "5": "Charcoal / Firestarters / Torch Logs"
-    },
-    de: {
-        "1": "Brennholzscheite",
-        "2": "Pressholz / Holzbriketts",
-        "3": "Briketts",
-        "4": "Holzpellets",
-        "5": "Holzkohle / Anzünder / Fackeln"
-    },
-    nl: {
-        "1": "Brandhout",
-        "2": "Geperst Hout / Houtbriketten",
-        "3": "Briketten",
-        "4": "Houtpellets",
-        "5": "Houtskool / Aanmaakblokjes / Fakkels"
+for (const [lang, updates] of Object.entries(files)) {
+    const filePath = path.join(__dirname, `../data/i18n/${lang}.json`);
+    if (!fs.existsSync(filePath)) continue;
+    
+    let data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    
+    // Apply updates
+    for (const [keyPath, val] of Object.entries(updates)) {
+        const parts = keyPath.split('.');
+        if (parts.length === 2) {
+            if (!data[parts[0]]) data[parts[0]] = {};
+            data[parts[0]][parts[1]] = val;
+        } else {
+            data[parts[0]] = val;
+        }
     }
-};
-
-langs.forEach(lang => {
-    const file = path.join(i18nDir, `${lang}.json`);
-    if (fs.existsSync(file)) {
-        const data = JSON.parse(fs.readFileSync(file, 'utf8'));
-        
-        if (!data.blog) data.blog = {};
-        Object.assign(data.blog, blogTranslations[lang]);
-        
-        if (!data.categories) data.categories = {};
-        Object.assign(data.categories, catTranslations[lang]);
-        
-        fs.writeFileSync(file, JSON.stringify(data, null, 2), 'utf8');
-        console.log(`Updated i18n/${lang}.json`);
-    }
-});
+    
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+}
+console.log('JSON files updated');

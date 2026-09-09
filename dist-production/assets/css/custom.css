@@ -36,3 +36,14 @@ input[type=number] {
     appearance: textfield;
 }
 
+/* Alert styles */
+.alert-warning {
+    background-color: #fadcd5;
+    border-left: 4px solid #8a726c;
+    color: #271813;
+    padding: 1rem;
+    border-radius: 0.375rem; /* rounded-md */
+}
+.alert-warning .material-symbols-outlined {
+    color: #271813;
+}

@@ -19,6 +19,10 @@ try {
     $pdo->exec("ALTER TABLE clients ADD COLUMN token_expires_at DATETIME DEFAULT NULL");
     echo "Added activation token columns.\n";
 
+    // 4. Add first_name column
+    $pdo->exec("ALTER TABLE clients ADD COLUMN first_name VARCHAR(255) NOT NULL DEFAULT ''");
+    echo "Added first_name column.\n";
+
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage() . "\n";
 }

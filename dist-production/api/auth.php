@@ -76,6 +76,7 @@ try {
     if ($pdo === null) throw new Exception("Impossible de se connecter à la base de données.");
 
     if ($action === 'register') {
+        $first_name = trim((string)($input['first_name'] ?? ''));
         $email = trim((string)($input['email'] ?? ''));
         $password = (string)($input['password'] ?? '');
         $company = trim((string)($input['company'] ?? ''));
@@ -83,10 +84,13 @@ try {
         $phone = trim((string)($input['phone'] ?? ''));
         $siret = trim((string)($input['siret'] ?? ''));
         $lang = strtolower(trim((string)($input['lang'] ?? 'fr')));
+        $is_professional = !empty($input['is_professional']) && $input['is_professional'] !== '0';
 
-        if (!$email || !$password || !$company || !$contact_name || !$phone) {
-            respondError(400, 'Tous les champs obligatoires doivent être remplis.');
-        }
+        if (!$email) respondError(400, 'L\'adresse e-mail est obligatoire.');
+        if (!$password) respondError(400, 'Le mot de passe est obligatoire.');
+        if (!$contact_name) respondError(400, 'Le nom du contact est obligatoire.');
+        if (!$phone) respondError(400, 'Le numéro de téléphone est obligatoire.');
+        if ($is_professional && !$company) respondError(400, 'Le nom de la société est obligatoire pour un compte professionnel.');
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             respondError(400, 'Adresse e-mail invalide.');
         }
@@ -101,8 +105,8 @@ try {
         $token = bin2hex(random_bytes(32));
         $expiresAt = date('Y-m-d H:i:s', strtotime('+24 hours'));
 
-        $stmt = $pdo->prepare("INSERT INTO clients (company, siret, contact_name, email, phone, password_hash, lang, is_active, activation_token, token_expires_at) VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, ?)");
-        $stmt->execute([$company, $siret ?: null, $contact_name, $email, $phone, $password_hash, $lang, $token, $expiresAt]);
+        $stmt = $pdo->prepare("INSERT INTO clients (first_name, company, siret, contact_name, email, phone, password_hash, lang, is_active, activation_token, token_expires_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)");
+        $stmt->execute([$first_name, $company, $siret ?: null, $contact_name, $email, $phone, $password_hash, $lang, $token, $expiresAt]);
         
         $client_id = $pdo->lastInsertId();
         

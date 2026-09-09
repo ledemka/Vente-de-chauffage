@@ -336,14 +336,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle bloc professionnel
     const proCheckbox = document.getElementById('is_professional');
     const proFields = document.getElementById('pro-fields');
+    const companyInput = document.getElementById('company');
+    const companyLabelSpan = document.querySelector('label[for="company"] span');
+    
     if (proCheckbox && proFields) {
         proCheckbox.addEventListener('change', () => {
             if (proCheckbox.checked) {
                 proFields.classList.remove('hidden');
                 proFields.classList.add('flex');
+                if (companyInput) companyInput.setAttribute('required', 'required');
+                if (companyLabelSpan) {
+                    companyLabelSpan.innerHTML = '* (Obligatoire)';
+                    companyLabelSpan.className = 'text-primary font-bold';
+                }
             } else {
                 proFields.classList.add('hidden');
                 proFields.classList.remove('flex');
+                if (companyInput) companyInput.removeAttribute('required');
+                if (companyLabelSpan) {
+                    companyLabelSpan.innerHTML = '(Optionnel)';
+                    companyLabelSpan.className = 'text-outline-variant font-normal';
+                }
             }
         });
     }

@@ -144,10 +144,10 @@
     "title": "Commande confirmée",
     "ref": "Référence de votre commande :",
     "msg1": "Votre commande a bien été enregistrée.",
-    "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires vient de vous être envoyé.",
+    "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires a été envoyé à {{email}}.",
     "back_home": "Retour à l'accueil",
     "spam_notice_title": "Vérifiez vos spams",
-    "spam_notice": "Un email de confirmation a été envoyé à {{email}}. Si vous ne le voyez pas d'ici quelques minutes, pensez à vérifier votre dossier spam/courrier indésirable."
+    "spam_notice": "Si vous ne le voyez pas d'ici quelques minutes, vérifiez votre dossier spam."
   },
   "footer.client_space_title": "ESPACE CLIENT & PANIER",
   "footer.client_link_1": "Mon Panier",
@@ -156,11 +156,11 @@
   "footer.client_link_4": "Service commercial",
   "merci": {
     "contact": "Message envoyé",
-    "contact_body": "Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais.",
+    "contact_body": "Votre message a bien été envoyé. Un accusé de réception a été envoyé à {{email}}. Nous vous répondrons dans les plus brefs délais.",
     "devis": "Demande de devis envoyée",
-    "devis_body": "Votre demande a bien été transmise à notre équipe.",
+    "devis_body": "Votre demande a bien été transmise à notre équipe. Une confirmation a été envoyée à {{email}}.",
     "inscription": "Inscription réussie",
-    "inscription_body": "Un email d'activation vous a été envoyé. Vous devez activer votre compte avant de pouvoir vous connecter.",
+    "inscription_body": "Un email d'activation a été envoyé à {{email}}. Vous devez activer votre compte avant de pouvoir vous connecter.",
     "inscription_cta": "Aller à la connexion"
   }
 }
