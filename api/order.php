@@ -179,7 +179,10 @@ try {
 
     // 5. Send Confirmation Email (Virement Bancaire)
     $resendApiKey = getEnvVar('RESEND_API_KEY');
-    $fromEmail = getEnvVar('FROM_EMAIL');
+    $resendFromEmail = getEnvVar('RESEND_FROM_EMAIL');
+    if (empty($resendFromEmail)) $resendFromEmail = getEnvVar('FROM_EMAIL');
+    $resendFromName = getEnvVar('RESEND_FROM_NAME', 'Conteneur Pro');
+    $fromEmail = "{$resendFromName} <{$resendFromEmail}>";
     $toEmail = getEnvVar('TO_EMAIL');
 
     if ($resendApiKey && $fromEmail && $toEmail) {
