@@ -1,0 +1,28 @@
+{
+  "order_confirmation": {
+    "subject": "Confirmation de votre commande {{order_ref}}",
+    "title": "Merci pour votre commande !",
+    "intro": "Votre commande a bien été enregistrée et transmise à notre équipe logistique.",
+    "sepa_notice": "IMPORTANT : L'expédition interviendra après réception de votre virement bancaire.",
+    "cta_account": "Connectez-vous à votre espace client pour télécharger votre bon de commande",
+    "cta_tracking": "Suivre ma commande",
+    "total_label": "Montant HT :",
+    "ref_label": "Référence :"
+  },
+  "quote_sent": {
+    "subject": "Votre demande de devis est confirmée",
+    "title": "Demande de cotation reçue",
+    "intro": "Notre équipe commerciale étudie votre demande pour le produit suivant :",
+    "product_label": "Produit :",
+    "qty_label": "Quantité demandée :",
+    "delay_info": "Vous recevrez une proposition tarifaire sous 24h ouvrées.",
+    "cta_product": "Voir le produit"
+  },
+  "contact_receipt": {
+    "subject": "Accusé de réception - Votre message",
+    "title": "Nous avons bien reçu votre message",
+    "intro": "Merci de nous avoir contactés. Voici un récapitulatif de votre demande :",
+    "delay_info": "Notre service client vous répondra dans les plus brefs délais.",
+    "cta_home": "Retourner sur le site"
+  }
+}

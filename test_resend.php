@@ -28,7 +28,7 @@ function getEnvVar(string $name, string $default = ''): string {
 $resendApiKey = getEnvVar('RESEND_API_KEY');
 $resendFromEmail = getEnvVar('RESEND_FROM_EMAIL');
 if (empty($resendFromEmail)) $resendFromEmail = getEnvVar('FROM_EMAIL');
-$resendFromName = getEnvVar('RESEND_FROM_NAME', 'Conteneur Pro');
+$resendFromName = getEnvVar('RESEND_FROM_NAME', 'sotramsbois');
 $fromEmail = "{$resendFromName} <{$resendFromEmail}>";
 $toEmail = getEnvVar('TO_EMAIL');
 
@@ -44,8 +44,8 @@ $data = [
     'from' => $fromEmail,
     'to' => [$to],
     'subject' => 'Test Resend Email',
-    'html' => '<p>Ceci est un test de la configuration Resend de Conteneur Pro.</p>',
-    'text' => 'Ceci est un test de la configuration Resend de Conteneur Pro.'
+    'html' => '<p>Ceci est un test de la configuration Resend de sotramsbois.</p>',
+    'text' => 'Ceci est un test de la configuration Resend de sotramsbois.'
 ];
 
 $ch = curl_init($url);

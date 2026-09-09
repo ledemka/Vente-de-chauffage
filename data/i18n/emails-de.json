@@ -1,0 +1,28 @@
+{
+  "order_confirmation": {
+    "subject": "Bestellbestätigung {{order_ref}}",
+    "title": "Vielen Dank für Ihre Bestellung!",
+    "intro": "Ihre Bestellung wurde erfolgreich erfasst und an unser Logistikteam weitergeleitet.",
+    "sepa_notice": "WICHTIG: Der Versand erfolgt nach Eingang Ihrer Banküberweisung.",
+    "cta_account": "Melden Sie sich in Ihrem Kundenkonto an, um Ihre Bestellung herunterzuladen",
+    "cta_tracking": "Meine Bestellung verfolgen",
+    "total_label": "Betrag ohne MwSt.:",
+    "ref_label": "Referenz:"
+  },
+  "quote_sent": {
+    "subject": "Ihre Angebotsanfrage wurde bestätigt",
+    "title": "Angebotsanfrage erhalten",
+    "intro": "Unser Vertriebsteam prüft Ihre Anfrage für das folgende Produkt:",
+    "product_label": "Produkt:",
+    "qty_label": "Angeforderte Menge:",
+    "delay_info": "Sie erhalten innerhalb von 24 Geschäftsstunden ein Preisangebot.",
+    "cta_product": "Produkt ansehen"
+  },
+  "contact_receipt": {
+    "subject": "Eingangsbestätigung - Ihre Nachricht",
+    "title": "Wir haben Ihre Nachricht erhalten",
+    "intro": "Vielen Dank, dass Sie uns kontaktiert haben. Hier ist eine Zusammenfassung Ihrer Anfrage:",
+    "delay_info": "Unser Kundenservice wird Ihnen so schnell wie möglich antworten.",
+    "cta_home": "Zurück zur Website"
+  }
+}

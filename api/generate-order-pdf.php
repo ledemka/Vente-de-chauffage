@@ -57,7 +57,7 @@ try {
     $total_tva = floatval($order['total']) - $total_ht;
     $total_ttc = floatval($order['total']);
 
-    // HTML Structure inspirée de Conteneur Pro, chartée sotramsbois
+    // HTML Structure inspirée de sotramsbois, chartée sotramsbois
     $html = '<!DOCTYPE html>
     <html lang="fr">
     <head>

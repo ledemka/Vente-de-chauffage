@@ -183,7 +183,7 @@ try {
 $resendApiKey = getEnvVar('RESEND_API_KEY');
 $resendFromEmail = getEnvVar('RESEND_FROM_EMAIL');
 if (empty($resendFromEmail)) $resendFromEmail = getEnvVar('FROM_EMAIL');
-$resendFromName = getEnvVar('RESEND_FROM_NAME', 'Conteneur Pro');
+$resendFromName = getEnvVar('RESEND_FROM_NAME', 'sotramsbois');
 $fromEmail = "{$resendFromName} <{$resendFromEmail}>";
 $toEmail = getEnvVar('TO_EMAIL');
 
@@ -246,97 +246,54 @@ Notes : " . ($message ?? 'Aucune note') . "
 ";
 
 // B. Client confirmation email (HTML and Plain Text)
-$clientSubjectMap = [
-    'fr' => "Confirmation de votre demande de devis B2B - sotramsbois",
-    'en' => "Confirmation of your B2B quote request - sotramsbois",
-    'de' => "Bestätigung Ihrer B2B-Angebotsanfrage - sotramsbois",
-    'nl' => "Bevestiging van uw B2B-offerteaanvraag - sotramsbois"
-];
-$clientSubject = $clientSubjectMap[$lang] ?? $clientSubjectMap['fr'];
+$appUrl = rtrim(getEnvVar('APP_URL', 'https://sotramsbois.com'), '/');
 
-$clientHtmlMap = [
-    'fr' => "
-        <p>Bonjour " . htmlspecialchars($contactName) . ",</p>
-        <p>Nous vous remercions pour l'intérêt que vous portez à <strong>sotramsbois</strong>.</p>
-        <p>Nous avons bien reçu votre demande de devis B2B numéro #{$insertedId} concernant le produit <strong>" . htmlspecialchars($productName) . "</strong>.</p>
-        <p>Nos équipes vont étudier la faisabilité logistique et tarifaire de votre demande. Un conseiller commercial prendra contact avec vous dès que possible pour vous proposer une offre adaptée.</p>
-        <p>Cordialement,<br/>L'équipe sotramsbois</p>
-    ",
-    'en' => "
-        <p>Hello " . htmlspecialchars($contactName) . ",</p>
-        <p>Thank you for your interest in <strong>sotramsbois</strong>.</p>
-        <p>We have successfully received your B2B quote request #{$insertedId} regarding the product <strong>" . htmlspecialchars($productName) . "</strong>.</p>
-        <p>Our teams will study the feasibility and pricing. A sales representative will contact you as soon as possible to present a custom offer.</p>
-        <p>Best regards,<br/>The sotramsbois Team</p>
-    ",
-    'de' => "
-        <p>Hallo " . htmlspecialchars($contactName) . ",</p>
-        <p>Vielen Dank für Ihr Interesse an <strong>sotramsbois</strong>.</p>
-        <p>Wir haben Ihre B2B-Angebotsanfrage #{$insertedId} für das Produkt <strong>" . htmlspecialchars($productName) . "</strong> erhalten.</p>
-        <p>Unsere Teams werden die logistische und preisliche Machbarkeit prüfen. Ein Vertriebsmitarbeiter wird sich so schnell wie möglich mit Ihnen in Verbindung setzen, um Ihnen ein passendes Angebot zu unterbreiten.</p>
-        <p>Mit freundlichen Grüßen,<br/>Ihr sotramsbois Team</p>
-    ",
-    'nl' => "
-        <p>Beste " . htmlspecialchars($contactName) . ",</p>
-        <p>Bedankt voor uw interesse in <strong>sotramsbois</strong>.</p>
-        <p>We hebben uw B2B-offerteaanvraag #{$insertedId} voor het product <strong>" . htmlspecialchars($productName) . "</strong> goed ontvangen.</p>
-        <p>Onze teams zullen de logistieke en financiële haalbaarheid bestuderen. Een commercieel adviseur zal zo snel mogelijk contact met u opnemen om u een passend voorstel te doen.</p>
-        <p>Met vriendelijke groet,<br/>Het sotramsbois Team</p>
-    "
-];
-$clientHtml = $clientHtmlMap[$lang] ?? $clientHtmlMap['fr'];
+$i18nPath = __DIR__ . "/../data/i18n/emails-{$lang}.json";
+if (!file_exists($i18nPath)) {
+    $i18nPath = __DIR__ . "/../data/i18n/emails-fr.json";
+}
+$i18nData = json_decode(file_get_contents($i18nPath), true);
+$i18n = $i18nData['quote_sent'] ?? $i18nData['fr']['quote_sent'] ?? [];
+if (empty($i18n)) {
+    $i18n = [
+        'subject' => "Votre demande de devis est confirmée",
+        'title' => "Demande de cotation reçue",
+        'intro' => "Bonjour {$contactName}, notre équipe commerciale étudie votre demande pour le produit suivant :",
+        'product_label' => "Produit :",
+        'qty_label' => "Quantité demandée :",
+        'delay_info' => "Vous recevrez une proposition tarifaire sous 24h ouvrées.",
+        'cta_product' => "Voir le produit"
+    ];
+}
 
-$clientTextMap = [
-    'fr' => "
-Bonjour " . $contactName . ",
+$clientSubject = $i18n['subject'];
 
-Nous vous remercions pour l'intérêt que vous portez à sotramsbois.
+$templatePath = __DIR__ . '/templates/emails/quote_sent.html';
+$clientHtml = file_exists($templatePath) ? file_get_contents($templatePath) : "";
 
-Nous avons bien reçu votre demande de devis B2B numéro #{$insertedId} concernant le produit " . $productName . ".
+if (!empty($clientHtml)) {
+    $clientHtml = str_replace(
+        ['{{title}}', '{{intro}}', '{{product_label}}', '{{product_name}}', '{{qty_label}}', '{{quantity}}', '{{delay_info}}', '{{cta_product}}', '{{app_url}}', '{{year}}', '{{product_url}}'],
+        [
+            $i18n['title'],
+            $i18n['intro'] . (strpos($i18n['intro'], 'Bonjour') === false && strpos($i18n['intro'], 'Hello') === false && strpos($i18n['intro'], 'Hallo') === false && strpos($i18n['intro'], 'Beste') === false ? " Bonjour {$contactName}," : ""),
+            $i18n['product_label'],
+            htmlspecialchars($productName),
+            $i18n['qty_label'],
+            htmlspecialchars((string)$quantity),
+            $i18n['delay_info'],
+            $i18n['cta_product'],
+            $appUrl,
+            date('Y'),
+            $appUrl . '/produit.html?product=' . urlencode((string)$productType)
+        ],
+        $clientHtml
+    );
+} else {
+    $clientHtml = "<p>Demande reçue pour {$productName}.</p>";
+}
 
-Nos équipes vont étudier la faisabilité logistique et tarifaire de votre demande. Un conseiller commercial prendra contact avec vous dès que possible pour vous proposer une offre adaptée.
-
-Cordialement,
-L'équipe sotramsbois
-",
-    'en' => "
-Hello " . $contactName . ",
-
-Thank you for your interest in sotramsbois.
-
-We have successfully received your B2B quote request #{$insertedId} regarding the product " . $productName . ".
-
-Our teams will study the feasibility and pricing. A sales representative will contact you as soon as possible to present a custom offer.
-
-Best regards,
-The sotramsbois Team
-",
-    'de' => "
-Hallo " . $contactName . ",
-
-Vielen Dank für Ihr Interesse an sotramsbois.
-
-Wir haben Ihre B2B-Angebotsanfrage #{$insertedId} für das Produkt " . $productName . " erhalten.
-
-Unsere Teams werden die logistische und preisliche Machbarkeit prüfen. Ein Vertriebsmitarbeiter wird sich so schnell wie möglich mit Ihnen in Verbindung setzen, um Ihnen ein passendes Angebot zu unterbreiten.
-
-Mit freundlichen Grüßen,
-Ihr sotramsbois Team
-",
-    'nl' => "
-Beste " . $contactName . ",
-
-Bedankt voor uw interesse in sotramsbois.
-
-We hebben uw B2B-offerteaanvraag #{$insertedId} voor het product " . $productName . " goed ontvangen.
-
-Onze teams zullen de logistieke en financiële haalbaarheid bestuderen. Een commercieel adviseur zal zo snel mogelijk contact met u opnemen om u een passend voorstel te doen.
-
-Met vriendelijke groet,
-Het sotramsbois Team
-"
-];
-$clientText = $clientTextMap[$lang] ?? $clientTextMap['fr'];
+$clientText = strip_tags(str_replace(['<br>', '<h2>', '</h2>', '<p>', '</p>'], ["\n", "\n\n", "\n\n", "", "\n\n"], $clientHtml));
 
 // Helper to make API request to Resend
 function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text): bool {
