@@ -34,7 +34,23 @@
                 <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span>
             </div>
 </div><div class="flex-1 max-w-md px-gutter"><div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span><input class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 pl-10 pr-4 text-body-sm text-inverse-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary" placeholder="Rechercher un produit..." data-i18n="search_placeholder" type="text"/></div></div><div class="flex items-center gap-6">
-            <div class="flex items-center gap-4"><a href="./panier.html" class="flex items-center"><span class="material-symbols-outlined text-inverse-on-surface cursor-pointer hover:opacity-80 transition-opacity">shopping_cart</span></a><a href="./inscription.html" class="flex items-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:opacity-80 transition-opacity"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></a></div></div></div>
+<div class="flex items-center gap-4">
+    <div class="relative" id="lang-selector-wrapper">
+        <button id="lang-selector-btn" class="flex items-center gap-1.5 bg-surface-container/20 hover:bg-surface-container/30 border border-inverse-on-surface/20 rounded-full px-2.5 py-1.5 transition-colors cursor-pointer" aria-haspopup="true" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-3.5 rounded-sm object-cover"><rect width="3" height="2" fill="#ED2939"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002395"/></svg>
+            <span class="text-inverse-on-surface text-label-md font-label-md">FR</span>
+            <span class="material-symbols-outlined text-inverse-on-surface text-[16px]">expand_more</span>
+        </button>
+        <div id="lang-dropdown" class="hidden absolute right-0 top-full mt-2 w-44 bg-surface-container-lowest shadow-md rounded-md overflow-hidden z-[100] border border-outline/10">
+            <a href="../inscription.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm bg-surface-container-high text-primary font-semibold transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-3.5 rounded-sm object-cover"><rect width="3" height="2" fill="#ED2939"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002395"/></svg><span>Français</span><span class="material-symbols-outlined text-[14px] ml-auto">check</span></a>
+            <a href="../en/inscription.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm text-on-surface hover:bg-surface-container transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-5 h-3.5 rounded-sm object-cover"><clipPath id="lang-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="lang-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#lang-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#lang-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a>
+            <a href="../de/inscription.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm text-on-surface hover:bg-surface-container transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" class="w-5 h-3.5 rounded-sm object-cover"><rect width="5" height="3" fill="#000"/><rect width="5" height="2" y="1" fill="#D00"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg><span>Deutsch</span></a>
+            <a href="../nl/inscription.html" class="flex items-center gap-3 px-4 py-2.5 text-body-sm text-on-surface hover:bg-surface-container transition-colors"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" class="w-5 h-3.5 rounded-sm object-cover"><rect width="9" height="6" fill="#21468B"/><rect width="9" height="4" fill="#FFF"/><rect width="9" height="2" fill="#AE1C28"/></svg><span>Nederlands</span></a>
+        </div>
+    </div>
+    <a href="./panier.html" class="flex items-center"><span class="material-symbols-outlined text-inverse-on-surface cursor-pointer hover:opacity-80 transition-opacity">shopping_cart</span></a>
+    <a href="./inscription.html" class="flex items-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:opacity-80 transition-opacity"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></a>
+</div></div></div>
             <nav class="bg-surface-container border-t border-outline-variant/20">
                 <div class="max-w-[1440px] mx-auto px-margin-desktop h-12 flex items-center gap-10">
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3" data-i18n="nav.home" href="./index.html"><span data-i18n="nav.home">ACCUEIL</span></a>
@@ -132,32 +148,63 @@
             <form id="register-form" class="flex flex-col gap-6">
                 <div id="register-error" class="hidden bg-error-container text-on-error-container p-3 rounded-md text-body-sm text-center font-medium"></div>
                 
+                <!-- Case "Professionnel" -->
+                <label for="is_professional" class="flex items-center gap-4 p-4 bg-surface-dim rounded-lg border border-outline/20 cursor-pointer select-none hover:bg-surface-container transition-colors" id="pro-toggle-wrapper">
+                    <div class="relative flex-shrink-0">
+                        <input type="checkbox" id="is_professional" class="peer sr-only">
+                        <div class="w-11 h-6 bg-outline-variant rounded-full peer-checked:bg-primary transition-colors duration-200"></div>
+                        <div class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200 peer-checked:translate-x-5 pointer-events-none"></div>
+                    </div>
+                    <span class="text-body-sm font-semibold text-on-surface">Vous êtes professionnel (entreprise, revendeur, artisan...)</span>
+                </label>
+
+                <!-- Bloc infos société — affiché uniquement si professionnel -->
+                <div id="pro-fields" class="hidden flex-col gap-5">
+                    <div class="flex items-center gap-3">
+                        <div class="flex-1 h-px bg-outline/20"></div>
+                        <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider text-xs px-2">Informations professionnelles</span>
+                        <div class="flex-1 h-px bg-outline/20"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="flex flex-col gap-2 h-full justify-end">
+                            <label for="company" class="text-label-md font-label-md text-on-surface">Société / Raison Sociale <span class="text-outline-variant font-normal">(Optionnel)</span></label>
+                            <input type="text" id="company" placeholder="Ex: SAS Bois Énergie Grand Est" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        </div>
+                        <div class="flex flex-col gap-2 h-full justify-end">
+                            <label for="siret" class="text-label-md font-label-md text-on-surface">Numéro SIRET <span class="text-outline-variant font-normal">(Optionnel)</span></label>
+                            <input type="text" id="siret" placeholder="Ex: 823 456 789 00012" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="flex flex-col gap-2 h-full justify-end">
+                            <label for="fonction" class="text-label-md font-label-md text-on-surface">Fonction <span class="text-outline-variant font-normal">(Optionnel)</span></label>
+                            <input type="text" id="fonction" placeholder="Ex: Responsable Achats" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        </div>
+                        <div class="flex flex-col gap-2 h-full justify-end">
+                            <label for="tva" class="text-label-md font-label-md text-on-surface">Numéro TVA <span class="text-outline-variant font-normal">(Optionnel)</span></label>
+                            <input type="text" id="tva" placeholder="Ex: FR 32 123456789" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        </div>
+                    </div>
+                    <div class="flex-1 h-px bg-outline/20"></div>
+                </div>
+
+                <!-- Nom & Prénom -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div class="flex flex-col gap-2">
-                        <label for="company" class="text-label-md font-label-md text-on-surface">Société / Raison Sociale <span class="text-primary">*</span></label>
-                        <input type="text" id="company" required placeholder="Ex: SAS Bois Énergie Grand Est" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        <label for="first_name" class="text-label-md font-label-md text-on-surface">Prénom <span class="text-primary">*</span></label>
+                        <input type="text" id="first_name" required placeholder="Ex: Jean" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
                     </div>
                     <div class="flex flex-col gap-2">
-                        <label for="siret" class="text-label-md font-label-md text-on-surface">Numéro SIRET <span class="text-outline-variant font-normal">(Optionnel)</span></label>
-                        <input type="text" id="siret" placeholder="Ex: 823 456 789 00012" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        <label for="contact_name" class="text-label-md font-label-md text-on-surface">Nom <span class="text-primary">*</span></label>
+                        <input type="text" id="contact_name" required placeholder="Ex: Dupont" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
                     </div>
                 </div>
 
+                <!-- Email & Téléphone -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div class="flex flex-col gap-2">
-                        <label for="contact_name" class="text-label-md font-label-md text-on-surface">Nom du contact <span class="text-primary">*</span></label>
-                        <input type="text" id="contact_name" required placeholder="Ex: Jean Dupont" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="fonction" class="text-label-md font-label-md text-on-surface">Fonction <span class="text-primary">*</span></label>
-                        <input type="text" id="fonction" required placeholder="Ex: Responsable Achats" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="flex flex-col gap-2">
-                        <label for="email" class="text-label-md font-label-md text-on-surface">Email professionnel <span class="text-primary">*</span></label>
-                        <input type="email" id="email" required placeholder="Ex: j.dupont@bois-energie.fr" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        <label for="email" class="text-label-md font-label-md text-on-surface">Email <span class="text-primary">*</span></label>
+                        <input type="email" id="email" required placeholder="Ex: jean.dupont@exemple.fr" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
                     </div>
                     <div class="flex flex-col gap-2">
                         <label for="phone" class="text-label-md font-label-md text-on-surface">Téléphone <span class="text-primary">*</span></label>
@@ -252,12 +299,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const data = {
+                first_name: document.getElementById('first_name').value,
+                contact_name: document.getElementById('contact_name').value,
                 company: document.getElementById('company').value,
                 siret: document.getElementById('siret').value,
-                contact_name: document.getElementById('contact_name').value,
+                fonction: document.getElementById('fonction').value,
                 phone: document.getElementById('phone').value,
                 email: document.getElementById('email').value,
-                password: password
+                password: password,
+                is_professional: document.getElementById('is_professional').checked ? 1 : 0
             };
             
             const btn = form.querySelector('button[type="submit"]');
@@ -280,6 +330,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorDiv.classList.remove('hidden');
                 btn.innerHTML = originalText;
                 btn.disabled = false;
+            }
+        });
+    }
+    // Toggle bloc professionnel
+    const proCheckbox = document.getElementById('is_professional');
+    const proFields = document.getElementById('pro-fields');
+    if (proCheckbox && proFields) {
+        proCheckbox.addEventListener('change', () => {
+            if (proCheckbox.checked) {
+                proFields.classList.remove('hidden');
+                proFields.classList.add('flex');
+            } else {
+                proFields.classList.add('hidden');
+                proFields.classList.remove('flex');
             }
         });
     }
