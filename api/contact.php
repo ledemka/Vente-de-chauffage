@@ -60,9 +60,9 @@ try {
 }
 
 // 3. Validation
-$name = trim((string)($_POST['name'] ?? ''));
+$name = trim((string)($_POST['nom'] ?? ''));
 $email = trim((string)($_POST['email'] ?? ''));
-$phone = trim((string)($_POST['phone'] ?? ''));
+$phone = trim((string)($_POST['telephone'] ?? ''));
 $message = trim((string)($_POST['message'] ?? ''));
 $lang = trim((string)($_POST['lang'] ?? 'fr'));
 
@@ -110,13 +110,29 @@ if (empty($resendApiKey) || empty($fromEmail) || empty($toEmail)) {
     respondError(500, "Erreur de configuration serveur.");
 }
 
+// 5. Additional Fields
+$societe = trim((string)($_POST['societe'] ?? ''));
+$siret = trim((string)($_POST['siret'] ?? ''));
+$fonction = trim((string)($_POST['fonction'] ?? ''));
+$besoin = trim((string)($_POST['besoin'] ?? ''));
+
+foreach ([&$societe, &$siret, &$fonction, &$besoin] as &$champ) {
+    if ($champ === 'null') $champ = '';
+}
+unset($champ);
+
+$societeHtml = $societe !== '' ? "\n<p><strong>Société :</strong> " . htmlspecialchars($societe) . "</p>" : '';
+$siretHtml = $siret !== '' ? "\n<p><strong>SIRET :</strong> " . htmlspecialchars($siret) . "</p>" : '';
+$fonctionHtml = $fonction !== '' ? "\n<p><strong>Fonction :</strong> " . htmlspecialchars($fonction) . "</p>" : '';
+$besoinHtml = $besoin !== '' ? "\n<p><strong>Besoin :</strong> " . htmlspecialchars($besoin) . "</p>" : '';
+
 // Internal Admin Email
 $internalSubject = "Nouveau message de contact - " . htmlspecialchars($name);
 $internalHtml = "
 <h2>Nouveau message depuis le formulaire de contact</h2>
 <p><strong>Nom :</strong> " . htmlspecialchars($name) . "</p>
 <p><strong>Email :</strong> " . htmlspecialchars($email) . "</p>
-<p><strong>Téléphone :</strong> " . htmlspecialchars($phone) . "</p>
+<p><strong>Téléphone :</strong> " . htmlspecialchars($phone) . "</p>{$societeHtml}{$siretHtml}{$fonctionHtml}{$besoinHtml}
 <hr/>
 <p><strong>Message :</strong><br/>" . nl2br(htmlspecialchars($message)) . "</p>
 ";
