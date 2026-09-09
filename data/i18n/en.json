@@ -141,11 +141,13 @@
     "confirm_btn": "Confirmer la commande"
   },
   "confirmation": {
-    "title": "Commande confirmée",
-    "ref": "Référence de votre commande :",
-    "msg1": "Votre commande a bien été enregistrée.",
-    "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires vient de vous être envoyé.",
-    "back_home": "Retour à l'accueil"
+    "title": "Order confirmed",
+    "ref": "Your order reference:",
+    "msg1": "Your order has been successfully recorded.",
+    "msg2": "Bank transfer only. An email containing our bank details has just been sent to you.",
+    "back_home": "Back to home",
+    "spam_notice_title": "Check your spam",
+    "spam_notice": "A confirmation email has been sent to {{email}}. If you don't see it within a few minutes, please check your spam/junk folder."
   },
   "footer.client_space_title": "CUSTOMER AREA & CART",
   "footer.client_link_1": "My Cart",

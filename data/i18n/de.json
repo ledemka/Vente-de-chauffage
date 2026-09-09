@@ -141,11 +141,13 @@
     "confirm_btn": "Confirmer la commande"
   },
   "confirmation": {
-    "title": "Commande confirmée",
-    "ref": "Référence de votre commande :",
-    "msg1": "Votre commande a bien été enregistrée.",
-    "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires vient de vous être envoyé.",
-    "back_home": "Retour à l'accueil"
+    "title": "Bestellung bestätigt",
+    "ref": "Ihre Bestellnummer:",
+    "msg1": "Ihre Bestellung wurde erfolgreich erfasst.",
+    "msg2": "Nur Banküberweisung. Eine E-Mail mit unseren Bankdaten wurde soeben an Sie gesendet.",
+    "back_home": "Zurück zur Startseite",
+    "spam_notice_title": "Überprüfen Sie Ihren Spam-Ordner",
+    "spam_notice": "Eine Bestätigungs-E-Mail wurde an {{email}} gesendet. Wenn Sie sie nicht innerhalb weniger Minuten sehen, überprüfen Sie bitte Ihren Spam-Ordner."
   },
   "footer.client_space_title": "KUNDENBEREICH & WARENKORB",
   "footer.client_link_1": "Mein Warenkorb",
