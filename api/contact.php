@@ -27,40 +27,36 @@ if (!empty($websiteUrl)) {
 // 2. Rate Limiting based on IP
 $ipAddress = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
 
+$pdo = null;
 try {
     $db = new Database();
     $pdo = $db->getConnection();
-    if ($pdo === null) throw new Exception("DB error");
+    if ($pdo) {
+        // Create table if not exists
+        $pdo->exec("
+            CREATE TABLE IF NOT EXISTS contact_attempts (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                ip_address VARCHAR(45) NOT NULL,
+                attempt_time DATETIME NOT NULL
+            )
+        ");
 
-    // Create table if not exists
-    $pdo->exec("
-        CREATE TABLE IF contact_attempts (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            ip_address VARCHAR(45) NOT NULL,
-            attempt_time DATETIME NOT NULL
-        )
-    ");
-} catch (Exception $e) {
-    // Ignore error if table exists, but we shouldn't fail if we just created it.
-    // Let's use a simpler check:
-}
+        // Delete old attempts (older than 1 hour)
+        $pdo->exec("DELETE FROM contact_attempts WHERE attempt_time < DATE_SUB(NOW(), INTERVAL 1 HOUR)");
 
-try {
-    // Delete old attempts (older than 1 hour)
-    $stmt = $pdo->prepare("DELETE FROM contact_attempts WHERE attempt_time < DATE_SUB(NOW(), INTERVAL 1 HOUR)");
-    if ($stmt) $stmt->execute();
-
-    // Check recent attempts
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM contact_attempts WHERE ip_address = ?");
-    if ($stmt) {
-        $stmt->execute([$ipAddress]);
-        $attempts = (int)$stmt->fetchColumn();
-        if ($attempts >= 3) {
-            respondError(429, "Trop de demandes de contact. Veuillez réessayer plus tard.");
+        // Check recent attempts
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM contact_attempts WHERE ip_address = ?");
+        if ($stmt) {
+            $stmt->execute([$ipAddress]);
+            $attempts = (int)$stmt->fetchColumn();
+            if ($attempts >= 3) {
+                respondError(429, "Trop de demandes de contact. Veuillez réessayer plus tard.");
+            }
         }
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     error_log("Rate limit error: " . $e->getMessage());
+    // On laisse passer l'erreur de BD pour ne pas bloquer l'envoi d'email légitime.
 }
 
 // 3. Validation
@@ -79,11 +75,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Log attempt
-try {
-    $stmt = $pdo->prepare("INSERT INTO contact_attempts (ip_address, attempt_time) VALUES (?, NOW())");
-    if ($stmt) $stmt->execute([$ipAddress]);
-} catch (Exception $e) {
-    // Ignore
+if ($pdo) {
+    try {
+        $stmt = $pdo->prepare("INSERT INTO contact_attempts (ip_address, attempt_time) VALUES (?, NOW())");
+        if ($stmt) $stmt->execute([$ipAddress]);
+    } catch (Throwable $e) {
+        // Ignore
+    }
 }
 
 // 4. Send Emails via Resend
