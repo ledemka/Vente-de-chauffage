@@ -441,7 +441,7 @@
                                             const originalText = btnCommander.innerHTML;
                                             btnCommander.innerHTML = '<span class="material-symbols-outlined animate-spin">autorenew</span>';
                                             try {
-                                                await window.CartAPI.add(product.id, qty);
+                                                await window.CartAPI.update(product.id, qty); // fix: use update to avoid cumulation
                                                 window.location.href = './panier.html';
                                             } catch (e) {
                                                 console.error(e);
@@ -477,7 +477,9 @@ window.handleCommanderClick = async function(btn) {
         const originalText = btn.innerHTML;
         btn.innerHTML = '<span class="material-symbols-outlined animate-spin">autorenew</span>';
         try {
-            await window.CartAPI.add(productId, qty);
+            // Use update (not add) to always set the quantity to what the user typed
+            // This prevents cumulation if the user comes back to the product page and clicks Commander again
+            await window.CartAPI.update(productId, qty);
             window.location.href = './panier.html';
         } catch (e) {
             console.error(e);

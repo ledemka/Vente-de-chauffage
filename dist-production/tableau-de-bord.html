@@ -460,7 +460,20 @@ window.openOrderModal = (data) => {
         document.getElementById('modal-address').textContent = data.delivery_address || 'Non spécifiée';
     }
     if (document.getElementById('modal-download-btn')) {
-        document.getElementById('modal-download-btn').href = `./api/generate-order-pdf.php?ref=${data.ref}`;
+        const btn = document.getElementById('modal-download-btn');
+        btn.href = '#';
+        btn.onclick = (e) => {
+            e.preventDefault();
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            // Extract language subdirectory if any
+            const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
+            const apiPath = inSubdir ? '../api/generate-order-pdf.php' : './api/generate-order-pdf.php';
+            iframe.src = `${apiPath}?ref=${data.ref}`;
+            document.body.appendChild(iframe);
+            // Cleanup iframe after a short delay
+            setTimeout(() => { if (iframe.parentNode) document.body.removeChild(iframe); }, 5000);
+        };
     }
     
     const container = document.getElementById('modal-items-container');

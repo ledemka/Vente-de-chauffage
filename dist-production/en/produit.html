@@ -441,7 +441,7 @@
                                             const originalText = btnCommander.innerHTML;
                                             btnCommander.innerHTML = '<span class="material-symbols-outlined animate-spin">autorenew</span>';
                                             try {
-                                                await window.CartAPI.add(product.id, qty);
+                                                await window.CartAPI.update(product.id, qty); // fix: use update to avoid cumulation
                                                 window.location.href = './panier.html';
                                             } catch (e) {
                                                 console.error(e);
