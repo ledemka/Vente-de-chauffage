@@ -192,21 +192,37 @@
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
+            
             const bounds = [];
-            const customIcon = L.divIcon({
-                className: 'custom-leaflet-icon',
-                html: '<span class="material-symbols-outlined" style="color: #802813; font-size: 32px; filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.3));">location_on</span>',
-                iconSize: [32, 32],
-                iconAnchor: [16, 32],
-                popupAnchor: [0, -32]
-            });
+            
+            // Define a theme-compliant color palette for the 8 countries
+            const countryColors = {
+                'Pologne': '#802813',       // primary
+                'Lettonie': '#56423d',      // tertiary
+                'Lituanie': '#a03f28',      // primary-container
+                'Roumanie': '#685c55',      // secondary
+                'Rép. tchèque': '#D97706',  // amber
+                'Croatie': '#8a726c',       // outline
+                'Bosnie-Herz.': '#3d0700',  // on-primary-fixed
+                'France': '#ba1a1a'         // error
+            };
             
             fetch('../data/depots.json')
                 .then(res => res.json())
+                
                 .then(data => {
                     // Inject markers
                     data.forEach(item => {
                         if (item.lat && item.lng) {
+                            const color = countryColors[item.pays] || '#802813';
+                            const customIcon = L.divIcon({
+                                className: 'custom-leaflet-icon',
+                                html: `<span class="material-symbols-outlined" style="color: ${color}; font-size: 32px; filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.3));">location_on</span>`,
+                                iconSize: [32, 32],
+                                iconAnchor: [16, 32],
+                                popupAnchor: [0, -32]
+                            });
+                            
                             const marker = L.marker([item.lat, item.lng], {icon: customIcon}).addTo(map);
                             marker.bindPopup(`<b>${item.ville}</b><br>${item.pays}`);
                             bounds.push([item.lat, item.lng]);
@@ -225,14 +241,17 @@
                         grouped[item.pays].push(item.ville);
                     });
                     
+                    
                     // Create cards
                     Object.keys(grouped).forEach(pays => {
                         const card = document.createElement('div');
-                        card.className = 'bg-surface-container rounded-xl p-6 shadow-sm border-l-4 border-primary flex flex-col gap-4';
+                        // Use inline style for the border color to match the map marker
+                        card.className = 'bg-surface-container rounded-xl p-6 shadow-sm border-l-4 flex flex-col gap-4';
+                        card.style.borderLeftColor = countryColors[pays] || '#802813';
                         
                         const title = document.createElement('h3');
                         title.className = 'text-headline-md font-headline-md text-on-surface flex items-center gap-2';
-                        title.innerHTML = `<span class="material-symbols-outlined text-primary">location_on</span> ${pays}`;
+                        title.innerHTML = `<span class="material-symbols-outlined" style="color: ${countryColors[pays] || '#802813'}">location_on</span> ${pays}`;
                         card.appendChild(title);
                         
                         const list = document.createElement('ul');
