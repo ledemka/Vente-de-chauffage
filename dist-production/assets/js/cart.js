@@ -93,9 +93,9 @@ const CartUI = {
     async loadProducts() {
         if (!this.products) {
             try {
-                const res = await fetch('/data/products.json');
+                const res = await fetch('/data/products.json?v=' + Date.now());
                 if(!res.ok) {
-                    const res2 = await fetch('../data/products.json');
+                    const res2 = await fetch('../data/products.json?v=' + Date.now());
                     this.products = await res2.json();
                 } else {
                     this.products = await res.json();
@@ -460,3 +460,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 window.CartUI = CartUI;
+

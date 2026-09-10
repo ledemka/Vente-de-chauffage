@@ -210,7 +210,7 @@
                         const relPath = lang === 'fr' ? '.' : '..';
 
                         try {
-                            const res = await fetch(`../data/products.json`);
+                            const res = await fetch('../data/products.json?v=' + Date.now());
                             const allProducts = await res.json();
 
                             const subGroups = [
@@ -426,3 +426,4 @@
 <script src="../assets/js/user-menu.js"></script>
 <script src="../assets/js/lang-selector.js"></script>
 </body></html>
+

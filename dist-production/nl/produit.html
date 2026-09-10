@@ -290,7 +290,7 @@
                         const productId = urlParams.get('id') || 'hetre-etuve';
 
                         try {
-                            const resProducts = await fetch(`../data/products.json`);
+                            const resProducts = await fetch('../data/products.json?v=' + Date.now());
                             const products = await resProducts.json();
                             const product = products.find(p => p.id === productId) || products[0];
 
@@ -489,3 +489,4 @@ window.handleCommanderClick = async function(btn) {
 <script src="../assets/js/user-menu.js"></script>
 <script src="../assets/js/lang-selector.js"></script>
 </body></html>
+
