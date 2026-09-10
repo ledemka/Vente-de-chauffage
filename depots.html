@@ -179,11 +179,7 @@
                 close.addEventListener('click', () => drawer.classList.add('hidden'));
             }
             
-            // Determine API path based on lang
-            const lang = localStorage.getItem('sotramsbois_lang') || 'fr';
-            const endpoint = lang === 'fr' ? './data/depots.json' : '../data/depots.json';
-            
-            fetch(endpoint)
+            fetch('./data/depots.json')
                 .then(res => res.json())
                 .then(data => {
                     const container = document.getElementById('depots-container');
