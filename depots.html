@@ -110,6 +110,23 @@
                     </p>
                 </div>
                 
+                <!-- Stats Banner -->
+                <div class="grid grid-cols-2 gap-6 max-w-lg mx-auto mb-16 text-center">
+                    <div class="bg-surface-container-high rounded-xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-2">
+                        <span id="stat-pays" class="text-headline-xl font-headline-xl text-primary">0</span>
+                        <span class="text-label-md font-label-md text-on-surface-variant uppercase">Pays partenaires</span>
+                    </div>
+                    <div class="bg-surface-container-high rounded-xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-2">
+                        <span id="stat-villes" class="text-headline-xl font-headline-xl text-primary">0</span>
+                        <span class="text-label-md font-label-md text-on-surface-variant uppercase">Dépôts locaux</span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-headline-md font-headline-md text-on-surface">Notre présence</h2>
+                    <button id="reset-map-btn" class="hidden text-label-md font-label-md text-primary bg-surface-container hover:bg-surface-container-high px-4 py-2 rounded-full transition-colors flex items-center gap-1 shadow-sm"><span class="material-symbols-outlined text-[18px]">public</span> Voir tout</button>
+                </div>
+                
                 <!-- Leaflet Map -->
                 <div id="map" class="w-full h-[400px] md:h-[500px] rounded-xl shadow-md z-10 mb-12 border border-outline-variant/30"></div>
                 
@@ -197,23 +214,54 @@
             
             // Define a theme-compliant color palette for the 8 countries
             const countryColors = {
-                'Pologne': '#802813',       // primary
-                'Lettonie': '#56423d',      // tertiary
-                'Lituanie': '#a03f28',      // primary-container
-                'Roumanie': '#685c55',      // secondary
-                'Rép. tchèque': '#D97706',  // amber
-                'Croatie': '#8a726c',       // outline
-                'Bosnie-Herz.': '#3d0700',  // on-primary-fixed
-                'France': '#ba1a1a'         // error
+                'Pologne': '#802813',        // primary
+                'Lettonie': '#3d0700',       // on-primary-fixed
+                'Lituanie': '#a03f28',       // primary-container
+                'Roumanie': '#685c55',       // secondary
+                'Rép. tchèque': '#6f5953',   // tertiary-container
+                'Croatie': '#8a726c',        // outline
+                'Bosnie-Herz.': '#56423d',   // tertiary
+                'France': '#93000a'          // on-error-container
             };
             
             fetch('./data/depots.json')
                 .then(res => res.json())
-                
                 .then(data => {
+                    const countryBounds = {};
+                    const totalVilles = data.length;
+                    const totalPays = new Set(data.map(item => item.pays)).size;
+                    
+                    // Stats Animation
+                    const statPays = document.getElementById('stat-pays');
+                    const statVilles = document.getElementById('stat-villes');
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && !entry.target.hasAttribute('data-animated')) {
+                                entry.target.setAttribute('data-animated', 'true');
+                                const target = entry.target === statPays ? totalPays : totalVilles;
+                                const duration = 1500;
+                                const startTime = performance.now();
+                                
+                                const update = (currentTime) => {
+                                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                                    const easeOut = progress * (2 - progress);
+                                    entry.target.textContent = Math.floor(easeOut * target);
+                                    if (progress < 1) requestAnimationFrame(update);
+                                    else entry.target.textContent = target;
+                                };
+                                requestAnimationFrame(update);
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    if (statPays) observer.observe(statPays);
+                    if (statVilles) observer.observe(statVilles);
+
                     // Inject markers
                     data.forEach(item => {
                         if (item.lat && item.lng) {
+                            if (!countryBounds[item.pays]) countryBounds[item.pays] = [];
+                            countryBounds[item.pays].push([item.lat, item.lng]);
+                            
                             const color = countryColors[item.pays] || '#802813';
                             const customIcon = L.divIcon({
                                 className: 'custom-leaflet-icon',
@@ -232,6 +280,16 @@
                         map.fitBounds(bounds, {padding: [30, 30]});
                     }
                     
+                    document.getElementById('reset-map-btn')?.addEventListener('click', () => {
+                        document.querySelectorAll('.country-card').forEach(c => {
+                            c.style.backgroundColor = '';
+                            c.classList.remove('ring-2', 'ring-primary/50');
+                            c.dataset.active = 'false';
+                        });
+                        map.flyToBounds(bounds, {padding: [30, 30], duration: 1.5});
+                        document.getElementById('reset-map-btn').classList.add('hidden');
+                    });
+                    
                     const container = document.getElementById('depots-container');
                     
                     // Group by pays
@@ -241,18 +299,58 @@
                         grouped[item.pays].push(item.ville);
                     });
                     
-                    
+                    // Card Observer for fade-in stagger
+                    const cardObserver = new IntersectionObserver((entries) => {
+                        let delay = 0;
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && entry.target.style.opacity === '0') {
+                                setTimeout(() => {
+                                    entry.target.style.opacity = '1';
+                                    entry.target.style.transform = 'translateY(0)';
+                                }, delay);
+                                delay += 100;
+                                cardObserver.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.1 });
+
                     // Create cards
                     Object.keys(grouped).forEach(pays => {
                         const card = document.createElement('div');
                         // Use inline style for the border color to match the map marker
-                        card.className = 'bg-surface-container rounded-xl p-6 shadow-sm border-l-4 flex flex-col gap-4';
+                        card.className = 'country-card bg-surface-container rounded-xl p-6 shadow-sm border-l-4 flex flex-col gap-4 cursor-pointer transition-all duration-300';
                         card.style.borderLeftColor = countryColors[pays] || '#802813';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px)';
+                        cardObserver.observe(card);
                         
                         const title = document.createElement('h3');
                         title.className = 'text-headline-md font-headline-md text-on-surface flex items-center gap-2';
                         title.innerHTML = `<span class="material-symbols-outlined" style="color: ${countryColors[pays] || '#802813'}">location_on</span> ${pays}`;
                         card.appendChild(title);
+                        
+                        card.addEventListener('click', () => {
+                            const isActive = card.dataset.active === 'true';
+                            
+                            document.querySelectorAll('.country-card').forEach(c => {
+                                c.style.backgroundColor = '';
+                                c.classList.remove('ring-2', 'ring-primary/50');
+                                c.dataset.active = 'false';
+                            });
+                            
+                            if (isActive) {
+                                map.flyToBounds(bounds, {padding: [30, 30], duration: 1.5});
+                                document.getElementById('reset-map-btn').classList.add('hidden');
+                            } else {
+                                card.dataset.active = 'true';
+                                card.classList.add('ring-2', 'ring-primary/50');
+                                card.style.backgroundColor = '#fff8f5';
+                                if (countryBounds[pays]) {
+                                    map.flyToBounds(countryBounds[pays], {padding: [50, 50], duration: 1.5, maxZoom: 8});
+                                    document.getElementById('reset-map-btn').classList.remove('hidden');
+                                }
+                            }
+                        });
                         
                         const list = document.createElement('ul');
                         list.className = 'flex flex-col gap-2';
