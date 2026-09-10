@@ -1,166 +1,171 @@
 {
-  "site_name": "sotramsbois",
-  "tagline": "Großhandel mit Brennholz, Holzpellets und Holzbriketts B2B",
-  "search_placeholder": "Produkt suchen...",
-  "nav": {
-    "home": "Startseite",
-    "catalog": "Katalog",
-    "delivery": "Lieferung",
-    "reviews": "Bewertungen",
-    "guide": "Ratgeber",
-    "quote": "Angebot",
-    "returns": "Rückgaberecht",
-    "blog": "Blog",
-    "contact": "Kontakt"
-  },
-  "categories": {
-    "1": "Brennholzscheite",
-    "2": "Pressholz / Holzbriketts",
-    "3": "Briketts",
-    "4": "Holzpellets",
-    "5": "Holzkohle / Anzünder / Fackeln",
-    "logs": "Brennholz",
-    "briquettes_compressed": "Holzbriketts",
-    "briquettes": "Briketts",
-    "pellets": "Holzpellets",
-    "coal_starters": "Kohle & Zubehör"
-  },
-  "catalog_discount_note": "Mengenrabatte ab 2 Paletten — Details auf jeder Produktseite",
-  "rating_badge": "4,8/5 — Über 1.000 zufriedene B2B-Kunden in Europa",
-  "pricing": {
-    "discount_title": "IHR MENGENRABATT",
-    "select_quantity": "Menge (Paletten):",
-    "tier_level": "Stufe:",
-    "full_truckload": "Komplette LKW-Rate (-10%)",
-    "discount_rate": "Angewandter Rabatt:",
-    "unit_price_after_discount": "Stückpreis nach Rabatt:",
-    "total_price": "Gesamtpreis der Bestellung HT:",
-    "next_tier_incentive": "Fügen Sie {count} weitere Palette(n) hinzu, um -{pct}% Rabatt freizuschalten!"
-  },
-  "hero": {
-    "tagline": "Großhändler für Biomasse & Holzenergie",
-    "title_html": "Thermische Exzellenz<br/>im Dienste von Fachleuten.",
-    "subtitle": "Garantierte Lieferung von Hochleistungs-Brennholz, Pellets und Briketts. Premium-Qualität, zertifizierte Rückverfolgbarkeit und optimierte Logistik für Wiederverkäufer und Industrien.",
-    "cta_catalog": "KATALOG ENTDECKEN",
-    "cta_quote": "ANGEBOT ANFORDERN"
-  },
-  "metrics": {
-    "metric_1_val": "15k+",
-    "metric_1_label": "Gelieferte Tonnen / Jahr",
-    "metric_2_val": "100%",
-    "metric_2_label": "Zertifiziertes Holz",
-    "metric_3_val": "48h",
-    "metric_3_label": "Versandzeit"
-  },
-  "categories_section": {
-    "title": "Brennstoffsortiment",
-    "subtitle": "Holzheizlösungen für den industriellen Bedarf und Wiederverkauf. Optimale Heizleistung und kontrollierter Feuchtigkeitsgehalt.",
-    "logs_desc": "Getrocknetes Hartholz, gebrauchsfertig. Feuchtigkeit < 20%.",
-    "briquettes_compressed_desc": "Hoher Heizwert. Tag und Nacht.",
-    "briquettes_desc": "Ideal für Profis. Optimierte Lagerung.",
-    "pellets_desc": "DINplus / ENplus A1 zertifiziert. Lose und Paletten.",
-    "coal_starters_desc": "Holzkohle in Restaurantqualität, Grillanzünder.",
-    "cta_view": "SORTIMENT ANZEIGEN"
-  },
-  "footer": {
-    "desc": "Professionelle Biomasse- und Hochleistungs-Brennholzlösungen.",
-    "services_title": "PRODUKTE & DIENSTE",
-    "service_1": "Hartholzscheite",
-    "service_2": "Holzpellets",
-    "service_3": "Profi-Kochholz",
-    "service_4": "Großhandels- & B2B-Preise",
-    "coords_title": "KONTAKTDATEN",
-    "address": "[Adresse vom Kunden zu ergänzen]",
-    "phone": "[Telefon vom Kunden zu ergänzen]",
-    "email": "[E-Mail vom Kunden zu ergänzen]",
-    "legal": "Impressum",
-    "cgv": "AGB",
-    "privacy": "Datenschutz",
-    "reassurance_title": "Qualitätsverpflichtung für den Großhandel",
-    "reassurance_1": "Zertifiziertes Holz von hoher Qualität",
-    "reassurance_2": "DIN+ / EN+ A1 zertifizierte Pellets",
-    "reassurance_3": "Lieferung mit Hebebühne & Hubwagen",
-    "reassurance_4": "B2B Zahlungsbedingungen",
-    "service_5": "Lieferung",
-    "return_policy": "Rückgaberecht"
-  },
-  "blog": {
-    "article_1_title": "Optimierung der Winterlagerung: Feuchtigkeitsgehalt unter 15% halten",
-    "article_2_title": "Die Zukunft von Industrie-Holzpellets",
-    "article_3_title": "Welches Holz für professionelles Kochen?",
-    "article_4_title": "Lieferengpässe antizipieren und vermeiden",
-    "article_5_title": "Entschlüsselung der Norm ISO 17225-2"
-  },
-  "delivery_promo": {
-    "title": "Sichere industrielle Lieferung",
-    "desc": "Von nachhaltig bewirtschafteten Wäldern bis zu Ihrem Standort. Unsere Flotte garantiert eine konstante Versorgung für gewerbliche Mengen bei einer durchschnittlichen Versandzeit von 48 Stunden.",
-    "cta": "Mehr zur Lieferung erfahren"
-  },
-  "specs": {
-    "humidity": "FEUCHTIGKEITSGEHALT",
-    "origin": "HERKUNFT",
-    "humidity_unavailable": "Keine Angabe"
-  },
-  "cgv": {
-    "payment_method_title": "ZAHLUNGSMETHODE",
-    "payment_method_desc": "Die Zahlung erfolgt <strong>ausschließlich per Banküberweisung</strong>. Keine anderen Zahlungsmethoden (Kreditkarte, Scheck, SEPA-Lastschrift) werden akzeptiert.",
-    "payment_terms_title": "ZAHLUNGSBEDINGUNGEN",
-    "payment_terms_desc": "Gemäß den mit Ihrem Kundenbetreuer vereinbarten Bedingungen."
-  },
-  "auth": {
-    "login_title": "Connexion",
-    "register_title": "Création de compte",
-    "email": "Adresse Email",
-    "password": "Mot de passe",
-    "company": "Société",
-    "siret": "SIRET (Optionnel)",
-    "contact_name": "Nom du contact",
-    "phone": "Téléphone",
-    "login_btn": "Se connecter",
-    "register_btn": "Créer mon compte",
-    "guest_btn": "Continuer sans compte",
-    "logout": "Se déconnecter"
-  },
-  "cart": {
-    "title": "Votre Panier",
-    "empty": "Votre panier est vide",
-    "checkout_btn": "Valider la commande",
-    "subtotal": "Sous-total HT",
-    "discount": "Remise Volume",
-    "total": "Total HT",
-    "remove": "Supprimer"
-  },
-  "checkout": {
-    "title": "Récapitulatif de commande",
-    "delivery_details": "Détails de livraison",
-    "address": "Adresse de livraison",
-    "truck_access": "Accès Poids Lourd",
-    "payment_method": "Mode de paiement",
-    "bank_transfer_only": "Virement bancaire uniquement",
-    "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
-    "confirm_btn": "Confirmer la commande"
-  },
-  "confirmation": {
-    "title": "Bestellung bestätigt",
-    "ref": "Ihre Bestellnummer:",
-    "msg1": "Ihre Bestellung wurde erfolgreich erfasst.",
-    "msg2": "Nur Banküberweisung. Eine E-Mail mit unseren Bankdaten wurde an {{email}} gesendet.",
-    "back_home": "Zurück zur Startseite",
-    "spam_notice_title": "Überprüfen Sie Ihren Spam-Ordner",
-    "spam_notice": "Wenn Sie diese nicht innerhalb weniger Minuten sehen, überprüfen Sie Ihren Spam-Ordner."
-  },
-  "footer.client_space_title": "KUNDENBEREICH & WARENKORB",
-  "footer.client_link_1": "Mein Warenkorb",
-  "footer.client_link_2": "Anmelden / Registrieren",
-  "footer.client_link_3": "Lieferverfolgung",
-  "footer.client_link_4": "Vertriebsabteilung",
-  "merci": {
-    "contact": "Nachricht gesendet",
-    "contact_body": "Ihre Nachricht wurde erfolgreich gesendet. Eine Bestätigung wurde an {{email}} gesendet. Wir werden so schnell wie möglich antworten.",
-    "devis": "Angebotsanfrage gesendet",
-    "devis_body": "Ihre Anfrage wurde an unser Team weitergeleitet. Eine Bestätigung wurde an {{email}} gesendet.",
-    "inscription": "Registrierung erfolgreich",
-    "inscription_body": "Eine Aktivierungs-E-Mail wurde an {{email}} gesendet. Sie müssen Ihr Konto aktivieren, bevor Sie sich anmelden können.",
-    "inscription_cta": "Zur Anmeldung"
-  }
+    "site_name": "sotramsbois",
+    "tagline": "Großhandel mit Brennholz, Holzpellets und Holzbriketts B2B",
+    "search_placeholder": "Produkt suchen...",
+    "nav": {
+        "home": "Startseite",
+        "catalog": "Katalog",
+        "delivery": "Lieferung",
+        "reviews": "Bewertungen",
+        "guide": "Ratgeber",
+        "quote": "Angebot",
+        "returns": "Rückgaberecht",
+        "blog": "Blog",
+        "contact": "Kontakt",
+        "depots": "Depots"
+    },
+    "categories": {
+        "1": "Brennholzscheite",
+        "2": "Pressholz / Holzbriketts",
+        "3": "Briketts",
+        "4": "Holzpellets",
+        "5": "Holzkohle / Anzünder / Fackeln",
+        "logs": "Brennholz",
+        "briquettes_compressed": "Holzbriketts",
+        "briquettes": "Briketts",
+        "pellets": "Holzpellets",
+        "coal_starters": "Kohle & Zubehör"
+    },
+    "catalog_discount_note": "Mengenrabatte ab 2 Paletten — Details auf jeder Produktseite",
+    "rating_badge": "4,8/5 — Über 1.000 zufriedene B2B-Kunden in Europa",
+    "pricing": {
+        "discount_title": "IHR MENGENRABATT",
+        "select_quantity": "Menge (Paletten):",
+        "tier_level": "Stufe:",
+        "full_truckload": "Komplette LKW-Rate (-10%)",
+        "discount_rate": "Angewandter Rabatt:",
+        "unit_price_after_discount": "Stückpreis nach Rabatt:",
+        "total_price": "Gesamtpreis der Bestellung HT:",
+        "next_tier_incentive": "Fügen Sie {count} weitere Palette(n) hinzu, um -{pct}% Rabatt freizuschalten!"
+    },
+    "hero": {
+        "tagline": "Großhändler für Biomasse & Holzenergie",
+        "title_html": "Thermische Exzellenz<br/>im Dienste von Fachleuten.",
+        "subtitle": "Garantierte Lieferung von Hochleistungs-Brennholz, Pellets und Briketts. Premium-Qualität, zertifizierte Rückverfolgbarkeit und optimierte Logistik für Wiederverkäufer und Industrien.",
+        "cta_catalog": "KATALOG ENTDECKEN",
+        "cta_quote": "ANGEBOT ANFORDERN"
+    },
+    "metrics": {
+        "metric_1_val": "15k+",
+        "metric_1_label": "Gelieferte Tonnen / Jahr",
+        "metric_2_val": "100%",
+        "metric_2_label": "Zertifiziertes Holz",
+        "metric_3_val": "48h",
+        "metric_3_label": "Versandzeit"
+    },
+    "categories_section": {
+        "title": "Brennstoffsortiment",
+        "subtitle": "Holzheizlösungen für den industriellen Bedarf und Wiederverkauf. Optimale Heizleistung und kontrollierter Feuchtigkeitsgehalt.",
+        "logs_desc": "Getrocknetes Hartholz, gebrauchsfertig. Feuchtigkeit < 20%.",
+        "briquettes_compressed_desc": "Hoher Heizwert. Tag und Nacht.",
+        "briquettes_desc": "Ideal für Profis. Optimierte Lagerung.",
+        "pellets_desc": "DINplus / ENplus A1 zertifiziert. Lose und Paletten.",
+        "coal_starters_desc": "Holzkohle in Restaurantqualität, Grillanzünder.",
+        "cta_view": "SORTIMENT ANZEIGEN"
+    },
+    "footer": {
+        "desc": "Professionelle Biomasse- und Hochleistungs-Brennholzlösungen.",
+        "services_title": "PRODUKTE & DIENSTE",
+        "service_1": "Hartholzscheite",
+        "service_2": "Holzpellets",
+        "service_3": "Profi-Kochholz",
+        "service_4": "Großhandels- & B2B-Preise",
+        "coords_title": "KONTAKTDATEN",
+        "address": "[Adresse vom Kunden zu ergänzen]",
+        "phone": "[Telefon vom Kunden zu ergänzen]",
+        "email": "[E-Mail vom Kunden zu ergänzen]",
+        "legal": "Impressum",
+        "cgv": "AGB",
+        "privacy": "Datenschutz",
+        "reassurance_title": "Qualitätsverpflichtung für den Großhandel",
+        "reassurance_1": "Zertifiziertes Holz von hoher Qualität",
+        "reassurance_2": "DIN+ / EN+ A1 zertifizierte Pellets",
+        "reassurance_3": "Lieferung mit Hebebühne & Hubwagen",
+        "reassurance_4": "B2B Zahlungsbedingungen",
+        "service_5": "Lieferung",
+        "return_policy": "Rückgaberecht"
+    },
+    "blog": {
+        "article_1_title": "Optimierung der Winterlagerung: Feuchtigkeitsgehalt unter 15% halten",
+        "article_2_title": "Die Zukunft von Industrie-Holzpellets",
+        "article_3_title": "Welches Holz für professionelles Kochen?",
+        "article_4_title": "Lieferengpässe antizipieren und vermeiden",
+        "article_5_title": "Entschlüsselung der Norm ISO 17225-2"
+    },
+    "delivery_promo": {
+        "title": "Sichere industrielle Lieferung",
+        "desc": "Von nachhaltig bewirtschafteten Wäldern bis zu Ihrem Standort. Unsere Flotte garantiert eine konstante Versorgung für gewerbliche Mengen bei einer durchschnittlichen Versandzeit von 48 Stunden.",
+        "cta": "Mehr zur Lieferung erfahren"
+    },
+    "specs": {
+        "humidity": "FEUCHTIGKEITSGEHALT",
+        "origin": "HERKUNFT",
+        "humidity_unavailable": "Keine Angabe"
+    },
+    "cgv": {
+        "payment_method_title": "ZAHLUNGSMETHODE",
+        "payment_method_desc": "Die Zahlung erfolgt <strong>ausschließlich per Banküberweisung</strong>. Keine anderen Zahlungsmethoden (Kreditkarte, Scheck, SEPA-Lastschrift) werden akzeptiert.",
+        "payment_terms_title": "ZAHLUNGSBEDINGUNGEN",
+        "payment_terms_desc": "Gemäß den mit Ihrem Kundenbetreuer vereinbarten Bedingungen."
+    },
+    "auth": {
+        "login_title": "Connexion",
+        "register_title": "Création de compte",
+        "email": "Adresse Email",
+        "password": "Mot de passe",
+        "company": "Société",
+        "siret": "SIRET (Optionnel)",
+        "contact_name": "Nom du contact",
+        "phone": "Téléphone",
+        "login_btn": "Se connecter",
+        "register_btn": "Créer mon compte",
+        "guest_btn": "Continuer sans compte",
+        "logout": "Se déconnecter"
+    },
+    "cart": {
+        "title": "Votre Panier",
+        "empty": "Votre panier est vide",
+        "checkout_btn": "Valider la commande",
+        "subtotal": "Sous-total HT",
+        "discount": "Remise Volume",
+        "total": "Total HT",
+        "remove": "Supprimer"
+    },
+    "checkout": {
+        "title": "Récapitulatif de commande",
+        "delivery_details": "Détails de livraison",
+        "address": "Adresse de livraison",
+        "truck_access": "Accès Poids Lourd",
+        "payment_method": "Mode de paiement",
+        "bank_transfer_only": "Virement bancaire uniquement",
+        "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
+        "confirm_btn": "Confirmer la commande"
+    },
+    "confirmation": {
+        "title": "Bestellung bestätigt",
+        "ref": "Ihre Bestellnummer:",
+        "msg1": "Ihre Bestellung wurde erfolgreich erfasst.",
+        "msg2": "Nur Banküberweisung. Eine E-Mail mit unseren Bankdaten wurde an {{email}} gesendet.",
+        "back_home": "Zurück zur Startseite",
+        "spam_notice_title": "Überprüfen Sie Ihren Spam-Ordner",
+        "spam_notice": "Wenn Sie diese nicht innerhalb weniger Minuten sehen, überprüfen Sie Ihren Spam-Ordner."
+    },
+    "footer.client_space_title": "KUNDENBEREICH & WARENKORB",
+    "footer.client_link_1": "Mein Warenkorb",
+    "footer.client_link_2": "Anmelden / Registrieren",
+    "footer.client_link_3": "Lieferverfolgung",
+    "footer.client_link_4": "Vertriebsabteilung",
+    "merci": {
+        "contact": "Nachricht gesendet",
+        "contact_body": "Ihre Nachricht wurde erfolgreich gesendet. Eine Bestätigung wurde an {{email}} gesendet. Wir werden so schnell wie möglich antworten.",
+        "devis": "Angebotsanfrage gesendet",
+        "devis_body": "Ihre Anfrage wurde an unser Team weitergeleitet. Eine Bestätigung wurde an {{email}} gesendet.",
+        "inscription": "Registrierung erfolgreich",
+        "inscription_body": "Eine Aktivierungs-E-Mail wurde an {{email}} gesendet. Sie müssen Ihr Konto aktivieren, bevor Sie sich anmelden können.",
+        "inscription_cta": "Zur Anmeldung"
+    },
+    "depots": {
+        "title": "Präsent im Herzen von Europas Holzindustrie",
+        "body": "Unsere Stärke ist unser Netzwerk. Mit Standorten in 8 Ländern und 24 Städten in ganz Europa arbeiten wir Hand in Hand mit lokalen Produzenten, Sägewerken und Großhändlern, um Ihnen ganzjährig hochwertiges Brennholz zu kontrollierten Preisen zu garantieren. Diese Nähe zu unseren Partnern ermöglicht es uns, unsere Versorgung auch in Zeiten hoher Nachfrage zu sichern, die Qualität an der Quelle zu kontrollieren und Ihnen wettbewerbsfähige Preise ohne überflüssige Zwischenhändler anzubieten."
+    }
 }

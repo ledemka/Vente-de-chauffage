@@ -1,166 +1,171 @@
 {
-  "site_name": "sotramsbois",
-  "tagline": "Groothandel in brandhout, houtpellets en houtbriketten B2B",
-  "search_placeholder": "Product zoeken...",
-  "nav": {
-    "home": "Home",
-    "catalog": "Catalogus",
-    "delivery": "Levering",
-    "reviews": "Beoordelingen",
-    "guide": "Keuzehulp",
-    "quote": "Offerte",
-    "returns": "Retourbeleid",
-    "blog": "Blog",
-    "contact": "Contact"
-  },
-  "categories": {
-    "1": "Brandhout",
-    "2": "Geperst Hout / Houtbriketten",
-    "3": "Briketten",
-    "4": "Houtpellets",
-    "5": "Houtskool / Aanmaakblokjes / Fakkels",
-    "logs": "Haardhout",
-    "briquettes_compressed": "Houtbriketten",
-    "briquettes": "Briketten",
-    "pellets": "Houtpellets",
-    "coal_starters": "Kool & Acc."
-  },
-  "catalog_discount_note": "Volumekortingen vanaf 2 pallets — details op elke productpagina",
-  "rating_badge": "4,8/5 — Meer dan 1.000 tevreden B2B-klanten in Europa",
-  "pricing": {
-    "discount_title": "UW VOLUMEKORTING",
-    "select_quantity": "Aantal (Pallets):",
-    "tier_level": "Niveau:",
-    "full_truckload": "Volledig vrachtwagentarief (-10%)",
-    "discount_rate": "Toegepaste korting:",
-    "unit_price_after_discount": "Stukprijs na korting:",
-    "total_price": "Totale orderprijs HT:",
-    "next_tier_incentive": "Voeg {count} extra palette(s) toe om -{pct}% korting te ontgrendelen!"
-  },
-  "hero": {
-    "tagline": "Groothandel in biomassa & houtenergie",
-    "title_html": "Thermische uitmuntendheid<br/>ten dienste van professionals.",
-    "subtitle": "Gegarandeerde levering van hoogwaardig haardhout, pellets en briketten. Premium kwaliteit, gecertificeerde traceerbaarheid en geoptimaliseerde logistiek voor wederverkopers en industrieën.",
-    "cta_catalog": "ONTDEK CATALOGUS",
-    "cta_quote": "OFFERTE AANVRAGEN"
-  },
-  "metrics": {
-    "metric_1_val": "15k+",
-    "metric_1_label": "Geleverde tonnen / jaar",
-    "metric_2_val": "100%",
-    "metric_2_label": "Gecertificeerd hout",
-    "metric_3_val": "48u",
-    "metric_3_label": "Verzendtijd"
-  },
-  "categories_section": {
-    "title": "Brandstofassortiment",
-    "subtitle": "Houtverwarmingsoplossingen op maat voor industriële behoeften en wederverkoop. Optimale warmteafgifte en gecontroleerd vochtgehalte.",
-    "logs_desc": "Gedroogd hardhout, klaar voor gebruik. Vochtigheid < 20%.",
-    "briquettes_compressed_desc": "Hoge calorische waarde. Dag en nacht.",
-    "briquettes_desc": "Ideaal voor professionals. Geoptimaliseerde opslag.",
-    "pellets_desc": "DINplus / ENplus A1 gecertificeerd. Bulk en pallets.",
-    "coal_starters_desc": "Houtskool van restaurantkwaliteit, aanmaakblokjes.",
-    "cta_view": "BEKIJK ASSORTIMENT"
-  },
-  "footer": {
-    "desc": "Professionele biomassa en hoogwaardige brandhoutoplossingen.",
-    "services_title": "PRODUCTEN & DIENSTEN",
-    "service_1": "Hardhouten blokken",
-    "service_2": "Houtpellets",
-    "service_3": "Profi-kookhout",
-    "service_4": "Groothandels- & B2B-tarieven",
-    "coords_title": "CONTACTGEGEVENS",
-    "address": "[Adres door de klant in te vullen]",
-    "phone": "[Telefoonnummer door de klant in te vullen]",
-    "email": "[E-mailadres door de klant in te vullen]",
-    "legal": "Juridische kennisgeving",
-    "cgv": "Algemene Voorwaarden",
-    "privacy": "Privacybeleid",
-    "reassurance_title": "Kwaliteitsverplichting voor de groothandel",
-    "reassurance_1": "Gecertificeerd hout van hoge kwaliteit",
-    "reassurance_2": "DIN+ / EN+ A1 gecertificeerde pellets",
-    "reassurance_3": "Levering met laadklep & pompwagen",
-    "reassurance_4": "B2B Betalingsvoorwaarden",
-    "service_5": "Levering",
-    "return_policy": "Retourbeleid"
-  },
-  "blog": {
-    "article_1_title": "Winteropslag Optimaliseren: Vochtgehalte Onder 15% Houden",
-    "article_2_title": "De Toekomst van Industriële Houtpellets",
-    "article_3_title": "Welk Hout Kiezen voor Professioneel Koken?",
-    "article_4_title": "Anticiperen op Leveringsonderbrekingen",
-    "article_5_title": "Ontcijfering van de ISO 17225-2 Norm"
-  },
-  "delivery_promo": {
-    "title": "Veilige industriële levering",
-    "desc": "Van duurzaam beheerde bossen tot op uw locatie. Onze vloot garandeert een constante aanvoer voor professionele volumes, met een gemiddelde verzendtijd van 48 uur.",
-    "cta": "Meer info over levering"
-  },
-  "specs": {
-    "humidity": "VOCHTGEHALTE",
-    "origin": "OORSPRONG",
-    "humidity_unavailable": "Niet gespecificeerd"
-  },
-  "cgv": {
-    "payment_method_title": "BETAALMETHODE",
-    "payment_method_desc": "Betaling geschiedt <strong>uitsluitend per bankoverschrijving</strong>. Andere betaalmethoden (creditcard, cheque, SEPA-incasso) worden niet geaccepteerd.",
-    "payment_terms_title": "BETALINGSTERMIJNEN",
-    "payment_terms_desc": "Volgens de voorwaarden die met uw accountmanager zijn overeengekomen."
-  },
-  "auth": {
-    "login_title": "Connexion",
-    "register_title": "Création de compte",
-    "email": "Adresse Email",
-    "password": "Mot de passe",
-    "company": "Société",
-    "siret": "SIRET (Optionnel)",
-    "contact_name": "Nom du contact",
-    "phone": "Téléphone",
-    "login_btn": "Se connecter",
-    "register_btn": "Créer mon compte",
-    "guest_btn": "Continuer sans compte",
-    "logout": "Se déconnecter"
-  },
-  "cart": {
-    "title": "Votre Panier",
-    "empty": "Votre panier est vide",
-    "checkout_btn": "Valider la commande",
-    "subtotal": "Sous-total HT",
-    "discount": "Remise Volume",
-    "total": "Total HT",
-    "remove": "Supprimer"
-  },
-  "checkout": {
-    "title": "Récapitulatif de commande",
-    "delivery_details": "Détails de livraison",
-    "address": "Adresse de livraison",
-    "truck_access": "Accès Poids Lourd",
-    "payment_method": "Mode de paiement",
-    "bank_transfer_only": "Virement bancaire uniquement",
-    "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
-    "confirm_btn": "Confirmer la commande"
-  },
-  "confirmation": {
-    "title": "Bestelling bevestigd",
-    "ref": "Uw bestelnummer:",
-    "msg1": "Uw bestelling is succesvol geregistreerd.",
-    "msg2": "Alleen bankoverschrijving. Een e-mail met onze bankgegevens is verzonden naar {{email}}.",
-    "back_home": "Terug naar home",
-    "spam_notice_title": "Controleer uw spam",
-    "spam_notice": "Als u deze niet binnen enkele minuten ziet, controleer dan uw spammap."
-  },
-  "footer.client_space_title": "KLANTENZONE & WINKELWAGEN",
-  "footer.client_link_1": "Mijn Winkelwagen",
-  "footer.client_link_2": "Inloggen / Registreren",
-  "footer.client_link_3": "Levering Volgen",
-  "footer.client_link_4": "Verkoopafdeling",
-  "merci": {
-    "contact": "Bericht verzonden",
-    "contact_body": "Uw bericht is succesvol verzonden. Er is een ontvangstbevestiging verzonden naar {{email}}. We zullen zo snel mogelijk antwoorden.",
-    "devis": "Offerteaanvraag verzonden",
-    "devis_body": "Uw aanvraag is doorgestuurd naar ons team. Er is een bevestiging verzonden naar {{email}}.",
-    "inscription": "Registratie geslaagd",
-    "inscription_body": "Er is een activeringsmail verzonden naar {{email}}. U moet uw account activeren voordat u kunt inloggen.",
-    "inscription_cta": "Naar inloggen"
-  }
+    "site_name": "sotramsbois",
+    "tagline": "Groothandel in brandhout, houtpellets en houtbriketten B2B",
+    "search_placeholder": "Product zoeken...",
+    "nav": {
+        "home": "Home",
+        "catalog": "Catalogus",
+        "delivery": "Levering",
+        "reviews": "Beoordelingen",
+        "guide": "Keuzehulp",
+        "quote": "Offerte",
+        "returns": "Retourbeleid",
+        "blog": "Blog",
+        "contact": "Contact",
+        "depots": "Depots"
+    },
+    "categories": {
+        "1": "Brandhout",
+        "2": "Geperst Hout / Houtbriketten",
+        "3": "Briketten",
+        "4": "Houtpellets",
+        "5": "Houtskool / Aanmaakblokjes / Fakkels",
+        "logs": "Haardhout",
+        "briquettes_compressed": "Houtbriketten",
+        "briquettes": "Briketten",
+        "pellets": "Houtpellets",
+        "coal_starters": "Kool & Acc."
+    },
+    "catalog_discount_note": "Volumekortingen vanaf 2 pallets — details op elke productpagina",
+    "rating_badge": "4,8/5 — Meer dan 1.000 tevreden B2B-klanten in Europa",
+    "pricing": {
+        "discount_title": "UW VOLUMEKORTING",
+        "select_quantity": "Aantal (Pallets):",
+        "tier_level": "Niveau:",
+        "full_truckload": "Volledig vrachtwagentarief (-10%)",
+        "discount_rate": "Toegepaste korting:",
+        "unit_price_after_discount": "Stukprijs na korting:",
+        "total_price": "Totale orderprijs HT:",
+        "next_tier_incentive": "Voeg {count} extra palette(s) toe om -{pct}% korting te ontgrendelen!"
+    },
+    "hero": {
+        "tagline": "Groothandel in biomassa & houtenergie",
+        "title_html": "Thermische uitmuntendheid<br/>ten dienste van professionals.",
+        "subtitle": "Gegarandeerde levering van hoogwaardig haardhout, pellets en briketten. Premium kwaliteit, gecertificeerde traceerbaarheid en geoptimaliseerde logistiek voor wederverkopers en industrieën.",
+        "cta_catalog": "ONTDEK CATALOGUS",
+        "cta_quote": "OFFERTE AANVRAGEN"
+    },
+    "metrics": {
+        "metric_1_val": "15k+",
+        "metric_1_label": "Geleverde tonnen / jaar",
+        "metric_2_val": "100%",
+        "metric_2_label": "Gecertificeerd hout",
+        "metric_3_val": "48u",
+        "metric_3_label": "Verzendtijd"
+    },
+    "categories_section": {
+        "title": "Brandstofassortiment",
+        "subtitle": "Houtverwarmingsoplossingen op maat voor industriële behoeften en wederverkoop. Optimale warmteafgifte en gecontroleerd vochtgehalte.",
+        "logs_desc": "Gedroogd hardhout, klaar voor gebruik. Vochtigheid < 20%.",
+        "briquettes_compressed_desc": "Hoge calorische waarde. Dag en nacht.",
+        "briquettes_desc": "Ideaal voor professionals. Geoptimaliseerde opslag.",
+        "pellets_desc": "DINplus / ENplus A1 gecertificeerd. Bulk en pallets.",
+        "coal_starters_desc": "Houtskool van restaurantkwaliteit, aanmaakblokjes.",
+        "cta_view": "BEKIJK ASSORTIMENT"
+    },
+    "footer": {
+        "desc": "Professionele biomassa en hoogwaardige brandhoutoplossingen.",
+        "services_title": "PRODUCTEN & DIENSTEN",
+        "service_1": "Hardhouten blokken",
+        "service_2": "Houtpellets",
+        "service_3": "Profi-kookhout",
+        "service_4": "Groothandels- & B2B-tarieven",
+        "coords_title": "CONTACTGEGEVENS",
+        "address": "[Adres door de klant in te vullen]",
+        "phone": "[Telefoonnummer door de klant in te vullen]",
+        "email": "[E-mailadres door de klant in te vullen]",
+        "legal": "Juridische kennisgeving",
+        "cgv": "Algemene Voorwaarden",
+        "privacy": "Privacybeleid",
+        "reassurance_title": "Kwaliteitsverplichting voor de groothandel",
+        "reassurance_1": "Gecertificeerd hout van hoge kwaliteit",
+        "reassurance_2": "DIN+ / EN+ A1 gecertificeerde pellets",
+        "reassurance_3": "Levering met laadklep & pompwagen",
+        "reassurance_4": "B2B Betalingsvoorwaarden",
+        "service_5": "Levering",
+        "return_policy": "Retourbeleid"
+    },
+    "blog": {
+        "article_1_title": "Winteropslag Optimaliseren: Vochtgehalte Onder 15% Houden",
+        "article_2_title": "De Toekomst van Industriële Houtpellets",
+        "article_3_title": "Welk Hout Kiezen voor Professioneel Koken?",
+        "article_4_title": "Anticiperen op Leveringsonderbrekingen",
+        "article_5_title": "Ontcijfering van de ISO 17225-2 Norm"
+    },
+    "delivery_promo": {
+        "title": "Veilige industriële levering",
+        "desc": "Van duurzaam beheerde bossen tot op uw locatie. Onze vloot garandeert een constante aanvoer voor professionele volumes, met een gemiddelde verzendtijd van 48 uur.",
+        "cta": "Meer info over levering"
+    },
+    "specs": {
+        "humidity": "VOCHTGEHALTE",
+        "origin": "OORSPRONG",
+        "humidity_unavailable": "Niet gespecificeerd"
+    },
+    "cgv": {
+        "payment_method_title": "BETAALMETHODE",
+        "payment_method_desc": "Betaling geschiedt <strong>uitsluitend per bankoverschrijving</strong>. Andere betaalmethoden (creditcard, cheque, SEPA-incasso) worden niet geaccepteerd.",
+        "payment_terms_title": "BETALINGSTERMIJNEN",
+        "payment_terms_desc": "Volgens de voorwaarden die met uw accountmanager zijn overeengekomen."
+    },
+    "auth": {
+        "login_title": "Connexion",
+        "register_title": "Création de compte",
+        "email": "Adresse Email",
+        "password": "Mot de passe",
+        "company": "Société",
+        "siret": "SIRET (Optionnel)",
+        "contact_name": "Nom du contact",
+        "phone": "Téléphone",
+        "login_btn": "Se connecter",
+        "register_btn": "Créer mon compte",
+        "guest_btn": "Continuer sans compte",
+        "logout": "Se déconnecter"
+    },
+    "cart": {
+        "title": "Votre Panier",
+        "empty": "Votre panier est vide",
+        "checkout_btn": "Valider la commande",
+        "subtotal": "Sous-total HT",
+        "discount": "Remise Volume",
+        "total": "Total HT",
+        "remove": "Supprimer"
+    },
+    "checkout": {
+        "title": "Récapitulatif de commande",
+        "delivery_details": "Détails de livraison",
+        "address": "Adresse de livraison",
+        "truck_access": "Accès Poids Lourd",
+        "payment_method": "Mode de paiement",
+        "bank_transfer_only": "Virement bancaire uniquement",
+        "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
+        "confirm_btn": "Confirmer la commande"
+    },
+    "confirmation": {
+        "title": "Bestelling bevestigd",
+        "ref": "Uw bestelnummer:",
+        "msg1": "Uw bestelling is succesvol geregistreerd.",
+        "msg2": "Alleen bankoverschrijving. Een e-mail met onze bankgegevens is verzonden naar {{email}}.",
+        "back_home": "Terug naar home",
+        "spam_notice_title": "Controleer uw spam",
+        "spam_notice": "Als u deze niet binnen enkele minuten ziet, controleer dan uw spammap."
+    },
+    "footer.client_space_title": "KLANTENZONE & WINKELWAGEN",
+    "footer.client_link_1": "Mijn Winkelwagen",
+    "footer.client_link_2": "Inloggen / Registreren",
+    "footer.client_link_3": "Levering Volgen",
+    "footer.client_link_4": "Verkoopafdeling",
+    "merci": {
+        "contact": "Bericht verzonden",
+        "contact_body": "Uw bericht is succesvol verzonden. Er is een ontvangstbevestiging verzonden naar {{email}}. We zullen zo snel mogelijk antwoorden.",
+        "devis": "Offerteaanvraag verzonden",
+        "devis_body": "Uw aanvraag is doorgestuurd naar ons team. Er is een bevestiging verzonden naar {{email}}.",
+        "inscription": "Registratie geslaagd",
+        "inscription_body": "Er is een activeringsmail verzonden naar {{email}}. U moet uw account activeren voordat u kunt inloggen.",
+        "inscription_cta": "Naar inloggen"
+    },
+    "depots": {
+        "title": "Aanwezig in het hart van de Europese houtindustrie",
+        "body": "Onze kracht is ons netwerk. Gevestigd in 8 landen en 24 steden in heel Europa, werken wij hand in hand met lokale producenten, zagerijen en groothandelaren om u het hele jaar door brandhout van hoge kwaliteit te garanderen tegen een beheerste prijs. Deze nabijheid tot onze partners stelt ons in staat onze bevoorrading veilig te stellen, zelfs in periodes van grote vraag, de kwaliteit bij de bron te controleren en u concurrerende tarieven aan te bieden zonder overbodige tussenpersonen."
+    }
 }

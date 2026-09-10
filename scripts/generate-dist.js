@@ -11,6 +11,7 @@ const PAGES = [
     'livraison.html',
     'avis-clients.html',
     'guide-choix.html',
+    'depots.html',
     'devis.html',
     'politique-retour.html',
     'blog.html',

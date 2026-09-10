@@ -1,166 +1,171 @@
 {
-  "site_name": "sotramsbois",
-  "tagline": "Vente en Gros & Demi-Gros de Bois de Chauffage, Pellets et Briquettes B2B",
-  "search_placeholder": "Rechercher un produit...",
-  "nav": {
-    "home": "Accueil",
-    "catalog": "Catalogue",
-    "delivery": "Livraison",
-    "reviews": "Avis Clients",
-    "guide": "Guide de Choix",
-    "quote": "Devis",
-    "returns": "Politique de Retour",
-    "blog": "Blog",
-    "contact": "Contact"
-  },
-  "categories": {
-    "1": "Bûches de bois",
-    "2": "Bûches compressées / briquettes de bois",
-    "3": "Briquettes",
-    "4": "Granulés / Pellets",
-    "5": "Charbon / Allume-feu / Bûches de torche",
-    "logs": "Bûches",
-    "briquettes_compressed": "Bûches Compressées",
-    "briquettes": "Briquettes",
-    "pellets": "Granulés (Pellets)",
-    "coal_starters": "Charbon & Acc."
-  },
-  "catalog_discount_note": "Tarifs dégressifs dès 2 palettes — voir le détail sur chaque fiche produit",
-  "rating_badge": "4,8/5 — Plus de 1 000 clients B2B satisfaits en Europe",
-  "pricing": {
-    "discount_title": "VOTRE TARIF DÉGRESSIF",
-    "select_quantity": "Quantité (Palettes) :",
-    "tier_level": "Palier :",
-    "full_truckload": "Tarif Camion Complet (-10%)",
-    "discount_rate": "Réduction appliquée :",
-    "unit_price_after_discount": "Prix unitaire après remise :",
-    "total_price": "Prix total de la commande HT :",
-    "next_tier_incentive": "Ajoutez {count} palette(s) supplémentaire(s) pour bénéficier de -{pct}% !"
-  },
-  "hero": {
-    "tagline": "Grossiste Biomasse & Bois Énergie",
-    "title_html": "L'Exigence Thermique<br/>au Service des Professionnels.",
-    "subtitle": "Approvisionnement garanti en bois de chauffage, granulés et briquettes haute performance. Qualité premium, traçabilité certifiée et logistique optimisée pour les revendeurs et les industries.",
-    "cta_catalog": "DÉCOUVRIR LE CATALOGUE",
-    "cta_quote": "DEMANDER UN DEVIS"
-  },
-  "metrics": {
-    "metric_1_val": "15k+",
-    "metric_1_label": "Tonnes Livrées / An",
-    "metric_2_val": "100%",
-    "metric_2_label": "Bois Certifié",
-    "metric_3_val": "48h",
-    "metric_3_label": "Délais d'Expédition"
-  },
-  "categories_section": {
-    "title": "Gamme de Combustibles",
-    "subtitle": "Solutions de chauffage au bois adaptées aux besoins industriels et à la revente. Rendement calorifique optimal et taux d'humidité contrôlé.",
-    "logs_desc": "Bois dur séché, prêt à l'emploi. Humidité < 20%.",
-    "briquettes_compressed_desc": "Haut pouvoir calorifique. Jour et nuit.",
-    "briquettes_desc": "Idéal professionnels. Stockage optimisé.",
-    "pellets_desc": "Certifiés DINplus / ENplus A1. Vrac et palettes.",
-    "coal_starters_desc": "Charbon de bois restauration, allume-feux.",
-    "cta_view": "VOIR LA GAMME"
-  },
-  "footer": {
-    "desc": "Solutions professionnelles de biomasse et bois de chauffage haute performance.",
-    "services_title": "PRODUITS & SERVICES",
-    "service_1": "Bûches de bois franc",
-    "service_2": "Granulés (Pellets)",
-    "service_3": "Bois de cuisson pro",
-    "service_4": "Tarifs Gros & B2B",
-    "coords_title": "COORDONNÉES",
-    "address": "[Adresse à compléter par le client]",
-    "phone": "[Téléphone à compléter par le client]",
-    "email": "[Email à compléter par le client]",
-    "legal": "Mentions Légales",
-    "cgv": "CGV",
-    "privacy": "Confidentialité",
-    "reassurance_title": "Engagement Qualité Grossiste",
-    "reassurance_1": "Bois de Qualité Certifiée",
-    "reassurance_2": "Granulés DIN+ / EN+ A1",
-    "reassurance_3": "Livraison avec Haillon & Transpalette",
-    "reassurance_4": "Conditions de Règlement B2B",
-    "service_5": "Livraison",
-    "return_policy": "Politique de Retour"
-  },
-  "blog": {
-    "article_1_title": "Optimisation du Stockage Hivernal : Maintenir un Taux d'Humidité Inférieur à 15%",
-    "article_2_title": "L'Avenir du Pellet Industriel",
-    "article_3_title": "Quel bois choisir pour la cuisson professionnelle ?",
-    "article_4_title": "Anticiper les ruptures d'approvisionnement",
-    "article_5_title": "Décryptage : La norme ISO 17225-2"
-  },
-  "delivery_promo": {
-    "title": "Livraison Industrielle Sécurisée",
-    "desc": "Des forêts gérées durablement jusqu'à votre site. Notre flotte garantit un approvisionnement constant pour les volumes professionnels, avec un délai d'expédition moyen de 48h.",
-    "cta": "En savoir plus sur la livraison"
-  },
-  "specs": {
-    "humidity": "TAUX D'HUMIDITÉ",
-    "origin": "ORIGINE",
-    "humidity_unavailable": "Non communiqué"
-  },
-  "cgv": {
-    "payment_method_title": "MODE DE PAIEMENT",
-    "payment_method_desc": "Le règlement s'effectue <strong>exclusivement par virement bancaire</strong>. Aucun autre moyen de paiement (carte bancaire, chèque, prélèvement SEPA) n'est accepté.",
-    "payment_terms_title": "DÉLAIS DE PAIEMENT",
-    "payment_terms_desc": "Selon les modalités convenues avec votre chargé de compte."
-  },
-  "auth": {
-    "login_title": "Connexion",
-    "register_title": "Création de compte",
-    "email": "Adresse Email",
-    "password": "Mot de passe",
-    "company": "Société",
-    "siret": "SIRET (Optionnel)",
-    "contact_name": "Nom du contact",
-    "phone": "Téléphone",
-    "login_btn": "Se connecter",
-    "register_btn": "Créer mon compte",
-    "guest_btn": "Continuer sans compte",
-    "logout": "Se déconnecter"
-  },
-  "cart": {
-    "title": "Votre Panier",
-    "empty": "Votre panier est vide",
-    "checkout_btn": "Valider la commande",
-    "subtotal": "Sous-total HT",
-    "discount": "Remise Volume",
-    "total": "Total HT",
-    "remove": "Supprimer"
-  },
-  "checkout": {
-    "title": "Récapitulatif de commande",
-    "delivery_details": "Détails de livraison",
-    "address": "Adresse de livraison",
-    "truck_access": "Accès Poids Lourd",
-    "payment_method": "Mode de paiement",
-    "bank_transfer_only": "Virement bancaire uniquement",
-    "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
-    "confirm_btn": "Confirmer la commande"
-  },
-  "confirmation": {
-    "title": "Commande confirmée",
-    "ref": "Référence de votre commande :",
-    "msg1": "Votre commande a bien été enregistrée.",
-    "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires a été envoyé à {{email}}.",
-    "back_home": "Retour à l'accueil",
-    "spam_notice_title": "Vérifiez vos spams",
-    "spam_notice": "Si vous ne le voyez pas d'ici quelques minutes, vérifiez votre dossier spam."
-  },
-  "footer.client_space_title": "ESPACE CLIENT & PANIER",
-  "footer.client_link_1": "Mon Panier",
-  "footer.client_link_2": "Connexion / Inscription",
-  "footer.client_link_3": "Suivi de livraison",
-  "footer.client_link_4": "Service commercial",
-  "merci": {
-    "contact": "Message envoyé",
-    "contact_body": "Votre message a bien été envoyé. Un accusé de réception a été envoyé à {{email}}. Nous vous répondrons dans les plus brefs délais.",
-    "devis": "Demande de devis envoyée",
-    "devis_body": "Votre demande a bien été transmise à notre équipe. Une confirmation a été envoyée à {{email}}.",
-    "inscription": "Inscription réussie",
-    "inscription_body": "Un email d'activation a été envoyé à {{email}}. Vous devez activer votre compte avant de pouvoir vous connecter.",
-    "inscription_cta": "Aller à la connexion"
-  }
+    "site_name": "sotramsbois",
+    "tagline": "Vente en Gros & Demi-Gros de Bois de Chauffage, Pellets et Briquettes B2B",
+    "search_placeholder": "Rechercher un produit...",
+    "nav": {
+        "home": "Accueil",
+        "catalog": "Catalogue",
+        "delivery": "Livraison",
+        "reviews": "Avis Clients",
+        "guide": "Guide de Choix",
+        "quote": "Devis",
+        "returns": "Politique de Retour",
+        "blog": "Blog",
+        "contact": "Contact",
+        "depots": "Dépôts"
+    },
+    "categories": {
+        "1": "Bûches de bois",
+        "2": "Bûches compressées / briquettes de bois",
+        "3": "Briquettes",
+        "4": "Granulés / Pellets",
+        "5": "Charbon / Allume-feu / Bûches de torche",
+        "logs": "Bûches",
+        "briquettes_compressed": "Bûches Compressées",
+        "briquettes": "Briquettes",
+        "pellets": "Granulés (Pellets)",
+        "coal_starters": "Charbon & Acc."
+    },
+    "catalog_discount_note": "Tarifs dégressifs dès 2 palettes — voir le détail sur chaque fiche produit",
+    "rating_badge": "4,8/5 — Plus de 1 000 clients B2B satisfaits en Europe",
+    "pricing": {
+        "discount_title": "VOTRE TARIF DÉGRESSIF",
+        "select_quantity": "Quantité (Palettes) :",
+        "tier_level": "Palier :",
+        "full_truckload": "Tarif Camion Complet (-10%)",
+        "discount_rate": "Réduction appliquée :",
+        "unit_price_after_discount": "Prix unitaire après remise :",
+        "total_price": "Prix total de la commande HT :",
+        "next_tier_incentive": "Ajoutez {count} palette(s) supplémentaire(s) pour bénéficier de -{pct}% !"
+    },
+    "hero": {
+        "tagline": "Grossiste Biomasse & Bois Énergie",
+        "title_html": "L'Exigence Thermique<br/>au Service des Professionnels.",
+        "subtitle": "Approvisionnement garanti en bois de chauffage, granulés et briquettes haute performance. Qualité premium, traçabilité certifiée et logistique optimisée pour les revendeurs et les industries.",
+        "cta_catalog": "DÉCOUVRIR LE CATALOGUE",
+        "cta_quote": "DEMANDER UN DEVIS"
+    },
+    "metrics": {
+        "metric_1_val": "15k+",
+        "metric_1_label": "Tonnes Livrées / An",
+        "metric_2_val": "100%",
+        "metric_2_label": "Bois Certifié",
+        "metric_3_val": "48h",
+        "metric_3_label": "Délais d'Expédition"
+    },
+    "categories_section": {
+        "title": "Gamme de Combustibles",
+        "subtitle": "Solutions de chauffage au bois adaptées aux besoins industriels et à la revente. Rendement calorifique optimal et taux d'humidité contrôlé.",
+        "logs_desc": "Bois dur séché, prêt à l'emploi. Humidité < 20%.",
+        "briquettes_compressed_desc": "Haut pouvoir calorifique. Jour et nuit.",
+        "briquettes_desc": "Idéal professionnels. Stockage optimisé.",
+        "pellets_desc": "Certifiés DINplus / ENplus A1. Vrac et palettes.",
+        "coal_starters_desc": "Charbon de bois restauration, allume-feux.",
+        "cta_view": "VOIR LA GAMME"
+    },
+    "footer": {
+        "desc": "Solutions professionnelles de biomasse et bois de chauffage haute performance.",
+        "services_title": "PRODUITS & SERVICES",
+        "service_1": "Bûches de bois franc",
+        "service_2": "Granulés (Pellets)",
+        "service_3": "Bois de cuisson pro",
+        "service_4": "Tarifs Gros & B2B",
+        "coords_title": "COORDONNÉES",
+        "address": "[Adresse à compléter par le client]",
+        "phone": "[Téléphone à compléter par le client]",
+        "email": "[Email à compléter par le client]",
+        "legal": "Mentions Légales",
+        "cgv": "CGV",
+        "privacy": "Confidentialité",
+        "reassurance_title": "Engagement Qualité Grossiste",
+        "reassurance_1": "Bois de Qualité Certifiée",
+        "reassurance_2": "Granulés DIN+ / EN+ A1",
+        "reassurance_3": "Livraison avec Haillon & Transpalette",
+        "reassurance_4": "Conditions de Règlement B2B",
+        "service_5": "Livraison",
+        "return_policy": "Politique de Retour"
+    },
+    "blog": {
+        "article_1_title": "Optimisation du Stockage Hivernal : Maintenir un Taux d'Humidité Inférieur à 15%",
+        "article_2_title": "L'Avenir du Pellet Industriel",
+        "article_3_title": "Quel bois choisir pour la cuisson professionnelle ?",
+        "article_4_title": "Anticiper les ruptures d'approvisionnement",
+        "article_5_title": "Décryptage : La norme ISO 17225-2"
+    },
+    "delivery_promo": {
+        "title": "Livraison Industrielle Sécurisée",
+        "desc": "Des forêts gérées durablement jusqu'à votre site. Notre flotte garantit un approvisionnement constant pour les volumes professionnels, avec un délai d'expédition moyen de 48h.",
+        "cta": "En savoir plus sur la livraison"
+    },
+    "specs": {
+        "humidity": "TAUX D'HUMIDITÉ",
+        "origin": "ORIGINE",
+        "humidity_unavailable": "Non communiqué"
+    },
+    "cgv": {
+        "payment_method_title": "MODE DE PAIEMENT",
+        "payment_method_desc": "Le règlement s'effectue <strong>exclusivement par virement bancaire</strong>. Aucun autre moyen de paiement (carte bancaire, chèque, prélèvement SEPA) n'est accepté.",
+        "payment_terms_title": "DÉLAIS DE PAIEMENT",
+        "payment_terms_desc": "Selon les modalités convenues avec votre chargé de compte."
+    },
+    "auth": {
+        "login_title": "Connexion",
+        "register_title": "Création de compte",
+        "email": "Adresse Email",
+        "password": "Mot de passe",
+        "company": "Société",
+        "siret": "SIRET (Optionnel)",
+        "contact_name": "Nom du contact",
+        "phone": "Téléphone",
+        "login_btn": "Se connecter",
+        "register_btn": "Créer mon compte",
+        "guest_btn": "Continuer sans compte",
+        "logout": "Se déconnecter"
+    },
+    "cart": {
+        "title": "Votre Panier",
+        "empty": "Votre panier est vide",
+        "checkout_btn": "Valider la commande",
+        "subtotal": "Sous-total HT",
+        "discount": "Remise Volume",
+        "total": "Total HT",
+        "remove": "Supprimer"
+    },
+    "checkout": {
+        "title": "Récapitulatif de commande",
+        "delivery_details": "Détails de livraison",
+        "address": "Adresse de livraison",
+        "truck_access": "Accès Poids Lourd",
+        "payment_method": "Mode de paiement",
+        "bank_transfer_only": "Virement bancaire uniquement",
+        "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
+        "confirm_btn": "Confirmer la commande"
+    },
+    "confirmation": {
+        "title": "Commande confirmée",
+        "ref": "Référence de votre commande :",
+        "msg1": "Votre commande a bien été enregistrée.",
+        "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires a été envoyé à {{email}}.",
+        "back_home": "Retour à l'accueil",
+        "spam_notice_title": "Vérifiez vos spams",
+        "spam_notice": "Si vous ne le voyez pas d'ici quelques minutes, vérifiez votre dossier spam."
+    },
+    "footer.client_space_title": "ESPACE CLIENT & PANIER",
+    "footer.client_link_1": "Mon Panier",
+    "footer.client_link_2": "Connexion / Inscription",
+    "footer.client_link_3": "Suivi de livraison",
+    "footer.client_link_4": "Service commercial",
+    "merci": {
+        "contact": "Message envoyé",
+        "contact_body": "Votre message a bien été envoyé. Un accusé de réception a été envoyé à {{email}}. Nous vous répondrons dans les plus brefs délais.",
+        "devis": "Demande de devis envoyée",
+        "devis_body": "Votre demande a bien été transmise à notre équipe. Une confirmation a été envoyée à {{email}}.",
+        "inscription": "Inscription réussie",
+        "inscription_body": "Un email d'activation a été envoyé à {{email}}. Vous devez activer votre compte avant de pouvoir vous connecter.",
+        "inscription_cta": "Aller à la connexion"
+    },
+    "depots": {
+        "title": "Présents au cœur de l'Europe du bois",
+        "body": "Notre force, c'est notre réseau. Implantés dans 8 pays et 24 villes à travers l'Europe, nous travaillons main dans la main avec des producteurs, scieries et grossistes locaux pour vous garantir un bois de chauffage de qualité, disponible toute l'année et à un prix maîtrisé. Cette proximité avec nos partenaires nous permet de sécuriser nos approvisionnements même en période de forte demande, de contrôler la qualité à la source, et de vous proposer des tarifs compétitifs sans intermédiaire superflu."
+    }
 }
