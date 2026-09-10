@@ -111,9 +111,34 @@
                 <span class="material-symbols-outlined text-outline">account_balance</span>
                 <span>Rappel Virement</span>
             </div>
-            <p data-i18n="confirmation.msg2">
-                Virement bancaire uniquement. Un email contenant nos coordonnées bancaires vient de vous être envoyé.
-            </p>
+            
+            <div class="flex flex-col gap-2 mt-3 text-sm">
+                <p>Veuillez effectuer votre virement sur le compte suivant :</p>
+                <div class="bg-surface-container-highest p-4 rounded-md border border-outline-variant/50 font-data-mono">
+                    <div class="grid grid-cols-[120px_1fr] gap-y-1 mb-2">
+                        <span class="text-on-surface-variant font-medium">Bénéficiaire :</span>
+                        <span class="font-bold">CAMARA LANSANA - Responsable légale sotramsbois</span>
+                    </div>
+                    <div class="grid grid-cols-[120px_1fr] gap-y-1 mb-2">
+                        <span class="text-on-surface-variant font-medium">Banque :</span>
+                        <span class="font-bold">Qonto</span>
+                    </div>
+                    <div class="grid grid-cols-[120px_1fr] gap-y-1 mb-2">
+                        <span class="text-on-surface-variant font-medium">IBAN :</span>
+                        <span class="font-bold text-primary tracking-wider">FR76 1695 8000 0154 3879 6652 982</span>
+                    </div>
+                    <div class="grid grid-cols-[120px_1fr] gap-y-1 mb-2">
+                        <span class="text-on-surface-variant font-medium">BIC :</span>
+                        <span class="font-bold">QNTOFRP1XXX</span>
+                    </div>
+                    <div class="grid grid-cols-[120px_1fr] gap-y-1 mt-3 pt-3 border-t border-outline/20">
+                        <span class="text-on-surface-variant font-medium">Référence :</span>
+                        <span class="font-bold text-primary">Votre numéro de commande</span>
+                    </div>
+                </div>
+                <p class="text-xs text-on-surface-variant italic mt-1">Votre commande sera validée et expédiée dès réception de votre virement.</p>
+            </div>
+
         </div>
 
         <div id="spam-notice-container" class="bg-surface-dim rounded-md p-5 text-left border-l-4 border-outline text-body-sm text-on-surface shadow-sm mt-4 hidden">

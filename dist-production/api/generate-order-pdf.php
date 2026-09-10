@@ -179,8 +179,33 @@ try {
 
         <div class="payment-info">
             <h4>Instructions de paiement</h4>
-            <p><strong>Mode de paiement :</strong> Virement Bancaire</p>
-            <p>[Coordonnées bancaires (IBAN/BIC) à transmettre par email après validation de la commande]</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px;">
+                <tr>
+                    <td style="padding: 4px 0; width: 40%;"><strong>Mode de paiement :</strong></td>
+                    <td style="padding: 4px 0;">Virement Bancaire (SEPA)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 4px 0;"><strong>Bénéficiaire :</strong></td>
+                    <td style="padding: 4px 0;">CAMARA LANSANA - Responsable légale sotramsbois</td>
+                </tr>
+                <tr>
+                    <td style="padding: 4px 0;"><strong>Banque :</strong></td>
+                    <td style="padding: 4px 0;">Qonto</td>
+                </tr>
+                <tr>
+                    <td style="padding: 4px 0;"><strong>IBAN :</strong></td>
+                    <td style="padding: 4px 0;">FR76 1695 8000 0154 3879 6652 982</td>
+                </tr>
+                <tr>
+                    <td style="padding: 4px 0;"><strong>BIC :</strong></td>
+                    <td style="padding: 4px 0;">QNTOFRP1XXX</td>
+                </tr>
+                <tr>
+                    <td style="padding: 4px 0;"><strong>Référence obligatoire à rappeler :</strong></td>
+                    <td style="padding: 4px 0;">' . htmlspecialchars($ref) . '</td>
+                </tr>
+            </table>
+            <p style="font-size: 11px; font-style: italic; margin-top: 10px; color: #666;">Votre commande sera validée et expédiée dès réception de votre virement.</p>
         </div>
 
         <div class="footer">
