@@ -46,6 +46,9 @@ const CartAPI = {
     },
     async get() {
         return this.request('get');
+    },
+    async clear() {
+        return this.request('clear');
     }
 };
 

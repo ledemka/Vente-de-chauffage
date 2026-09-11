@@ -145,6 +145,15 @@ try {
         echo json_encode(['success' => true]);
         exit;
     }
+    elseif ($action === 'clear') {
+        if ($client_id) {
+            $pdo->prepare("DELETE FROM cart_items WHERE client_id = ?")->execute([$client_id]);
+        } else {
+            $pdo->prepare("DELETE FROM cart_items WHERE session_token = ? AND client_id IS NULL")->execute([$session_token]);
+        }
+        echo json_encode(['success' => true]);
+        exit;
+    }
     elseif ($action === 'get') {
         if ($client_id) {
             $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE client_id = ?");
