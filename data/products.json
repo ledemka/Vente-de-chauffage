@@ -16,7 +16,8 @@
     "image_product": "/assets/images/products/hetre-etuve-product.jpg",
     "image_packaging": "/assets/images/products/hetre-etuve-packaging.jpg",
     "humidity_bucket": "<20%",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "hetre-demi-sec",
@@ -35,7 +36,8 @@
     "image_product": "/assets/images/products/hetre-demi-sec-product.jpg",
     "image_packaging": "/assets/images/products/hetre-demi-sec-packaging.jpg",
     "humidity_bucket": "20-25%",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "chene-etuve",
@@ -54,7 +56,8 @@
     "image_product": "/assets/images/products/chene-etuve-product.jpg",
     "image_packaging": "/assets/images/products/chene-etuve-packaging.jpg",
     "humidity_bucket": "<20%",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "chene-sec-air",
@@ -73,7 +76,8 @@
     "image_product": "/assets/images/products/chene-sec-air-product.jpg",
     "image_packaging": "/assets/images/products/chene-sec-air-packaging.jpg",
     "humidity_bucket": "non spécifié",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "melange-essences",
@@ -92,7 +96,8 @@
     "image_product": "/assets/images/products/melange-essences-product.jpg",
     "image_packaging": "/assets/images/products/melange-essences-packaging.jpg",
     "humidity_bucket": "<20%",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "jour-premium-cylindrique",
@@ -110,7 +115,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/jour-premium-cylindrique-product.jpg",
     "image_packaging": "/assets/images/products/jour-premium-cylindrique-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "nuit-longue-duree",
@@ -128,7 +134,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/nuit-longue-duree-product.jpg",
     "image_packaging": "/assets/images/products/nuit-longue-duree-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "jour-forte-chaleur-cubique",
@@ -146,7 +153,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/jour-forte-chaleur-cubique-product.jpg",
     "image_packaging": "/assets/images/products/jour-forte-chaleur-cubique-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "pini-kay-compressbee",
@@ -164,7 +172,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/pini-kay-compressbee-product.jpg",
     "image_packaging": "/assets/images/products/pini-kay-compressbee-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "jour-eco-cylindrique",
@@ -182,7 +191,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/jour-eco-cylindrique-product.jpg",
     "image_packaging": "/assets/images/products/jour-eco-cylindrique-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "briquettes-ruf",
@@ -200,7 +210,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/briquettes-ruf-product.jpg",
     "image_packaging": "/assets/images/products/briquettes-ruf-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "briquettes-ecorce",
@@ -218,7 +229,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/briquettes-ecorce-product.jpg",
     "image_packaging": "/assets/images/products/briquettes-ecorce-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "granules-pellets-premium",
@@ -236,7 +248,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/granules-pellets-premium-product.jpg",
     "image_packaging": "/assets/images/products/granules-pellets-premium-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "charbon-bois-morceaux",
@@ -254,7 +267,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/charbon-bois-morceaux-product.jpg",
     "image_packaging": "/assets/images/products/charbon-bois-morceaux-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "allume-feu-laine-bois",
@@ -272,7 +286,8 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/allume-feu-laine-bois-product.jpg",
     "image_packaging": "/assets/images/products/allume-feu-laine-bois-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   },
   {
     "id": "buches-torche-suedoise",
@@ -290,6 +305,7 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/buches-torche-suedoise-product.jpg",
     "image_packaging": "/assets/images/products/buches-torche-suedoise-packaging.jpg",
-    "available": true
+    "available": true,
+    "volume_m3": 2.16
   }
 ]
