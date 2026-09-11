@@ -160,6 +160,35 @@ const CartUI = {
 
         // Rendu des cartes produits
         let html = '<div class="flex flex-col gap-4">';
+        
+        let checkoutShippingCost = null;
+        let validatedAddress = '';
+        let isShippingCalculable = false;
+        let checkoutTotalQty = 0;
+        let checkoutSubtotal = 0;
+        let checkoutDiscountAmt = 0;
+        let isCalculating = false;
+        
+        function updateCheckoutTotal() {
+            const totalHT = checkoutSubtotal - checkoutDiscountAmt + (checkoutShippingCost || 0);
+            document.getElementById('checkout-total').textContent = this.formatPrice(totalHT);
+            
+            const btn = document.getElementById('submit-order-btn');
+            if (btn && btn.id === 'submit-order-btn') {
+                if (!validatedAddress || checkoutShippingCost === null || isCalculating) {
+                    btn.disabled = true;
+                    btn.innerHTML = 'Veuillez sélectionner une adresse valide';
+                } else if (!isShippingCalculable) {
+                    btn.disabled = true;
+                    btn.innerHTML = 'Demande de devis requise';
+                } else {
+                    btn.disabled = false;
+                    btn.innerHTML = 'Confirmer la commande';
+                }
+            }
+        }
+        updateCheckoutTotal = updateCheckoutTotal.bind(this);
+    
         let subtotal = 0;
         let totalQuantity = 0;
 
@@ -351,11 +380,16 @@ const CartUI = {
         itemsContainer.innerHTML = html;
 
         const discount = this.calculateDiscount(totalQuantity, subtotal);
-        const totalHT = subtotal - discount;
-
+        
+        checkoutSubtotal = subtotal;
+        checkoutTotalQty = totalQuantity;
+        checkoutDiscountAmt = discount;
+        
         document.getElementById('checkout-subtotal').textContent = this.formatPrice(subtotal);
         document.getElementById('checkout-discount').textContent = '-' + this.formatPrice(discount);
-        document.getElementById('checkout-total').textContent = this.formatPrice(totalHT);
+        document.getElementById('checkout-shipping').textContent = 'À calculer';
+        
+        updateCheckoutTotal();
 
         // Pre-fill user data if logged in
         const user = AuthAPI.getUser();
@@ -365,6 +399,113 @@ const CartUI = {
             if(document.getElementById('email')) document.getElementById('email').value = user.email || '';
             if(document.getElementById('phone')) document.getElementById('phone').value = user.phone || '';
         }
+
+        
+        // Initialize shipping autocomplete
+        const shippingAddress = document.getElementById('address');
+        const autocompleteResults = document.getElementById('autocomplete-results');
+        const shippingResult = document.getElementById('shipping-result');
+        const shippingError = document.getElementById('shipping-error');
+        const shippingCostEl = document.getElementById('checkout-shipping');
+        const shippingDistanceEl = document.getElementById('shipping-distance');
+        const shippingDepotEl = document.getElementById('shipping-depot');
+        let debounceTimer;
+        
+        if (shippingAddress) {
+            shippingAddress.addEventListener('input', (e) => {
+                clearTimeout(debounceTimer);
+                validatedAddress = '';
+                checkoutShippingCost = null;
+                isShippingCalculable = false;
+                shippingResult.classList.add('hidden');
+                shippingError.classList.add('hidden');
+                shippingCostEl.textContent = 'À calculer';
+                updateCheckoutTotal();
+                
+                const q = e.target.value;
+                if (q.length < 3) {
+                    autocompleteResults.classList.add('hidden');
+                    return;
+                }
+                
+                debounceTimer = setTimeout(async () => {
+                    try {
+                        const res = await fetch(`./api/shipping.php?action=autocomplete&q=${encodeURIComponent(q)}`);
+                        const data = await res.json();
+                        if (data.items && data.items.length > 0) {
+                            autocompleteResults.innerHTML = '';
+                            data.items.forEach(item => {
+                                const div = document.createElement('div');
+                                div.className = 'p-3 hover:bg-surface-container-low cursor-pointer text-body-sm border-b border-outline/10 last:border-b-0';
+                                div.textContent = item.address.label;
+                                div.addEventListener('click', async () => {
+                                    shippingAddress.value = item.address.label;
+                                    autocompleteResults.classList.add('hidden');
+                                    await calculateCheckoutShipping(item.address.label);
+                                });
+                                autocompleteResults.appendChild(div);
+                            });
+                            autocompleteResults.classList.remove('hidden');
+                        }
+                    } catch (err) {
+                        console.error('Autocomplete error', err);
+                    }
+                }, 300);
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!shippingAddress.contains(e.target) && !autocompleteResults.contains(e.target)) {
+                    autocompleteResults.classList.add('hidden');
+                }
+            });
+        }
+        
+        async function calculateCheckoutShipping(address) {
+            isCalculating = true;
+            updateCheckoutTotal();
+            shippingAddress.disabled = true;
+            
+            try {
+                const res = await fetch(`./api/shipping.php?action=calculate&address=${encodeURIComponent(address)}&quantity=${checkoutTotalQty}`);
+                const data = await res.json();
+                
+                if (data.calculable) {
+                    shippingError.classList.add('hidden');
+                    shippingResult.classList.remove('hidden');
+                    
+                    checkoutShippingCost = parseFloat(data.shipping_price);
+                    validatedAddress = address;
+                    isShippingCalculable = true;
+                    
+                    shippingCostEl.textContent = this.formatPrice(checkoutShippingCost);
+                    shippingDistanceEl.textContent = data.distance_km + ' km';
+                    shippingDepotEl.textContent = 'Expédié depuis ' + data.depot + ' (' + data.depot_country + ')';
+                } else {
+                    shippingResult.classList.add('hidden');
+                    shippingError.classList.remove('hidden');
+                    
+                    checkoutShippingCost = 0;
+                    validatedAddress = address;
+                    isShippingCalculable = false;
+                    
+                    shippingCostEl.textContent = '-';
+                    if (data.reason === 'out_of_bounds_qty') {
+                        document.getElementById('shipping-error-msg').textContent = "Quantité supérieure à 24 palettes. Veuillez demander un devis.";
+                    } else {
+                        document.getElementById('shipping-error-msg').textContent = "Distance supérieure à 1000km. Veuillez demander un devis.";
+                    }
+                }
+            } catch (err) {
+                console.error('Shipping calc error', err);
+                checkoutShippingCost = 0;
+            }
+            
+            shippingAddress.disabled = false;
+            isCalculating = false;
+            updateCheckoutTotal();
+        }
+        calculateCheckoutShipping = calculateCheckoutShipping.bind(this);
+    
 
         // Handle form submission
         const form = document.getElementById('checkout-form');
@@ -383,7 +524,7 @@ const CartUI = {
                     contact_name: document.getElementById('contact_name').value,
                     email: document.getElementById('email').value,
                     phone: document.getElementById('phone').value,
-                    delivery_address: document.getElementById('address').value + ' ' + document.getElementById('zip_code').value + ' ' + document.getElementById('city').value,
+                    delivery_address: validatedAddress || document.getElementById('address').value,
                     truck_access: document.getElementById('truck_access').checked ? 1 : 0
                 };
 
