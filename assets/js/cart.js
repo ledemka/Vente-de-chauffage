@@ -164,34 +164,6 @@ const CartUI = {
         // Rendu des cartes produits
         let html = '<div class="flex flex-col gap-4">';
         
-        let checkoutShippingCost = null;
-        let validatedAddress = '';
-        let isShippingCalculable = false;
-        let checkoutTotalQty = 0;
-        let checkoutSubtotal = 0;
-        let checkoutDiscountAmt = 0;
-        let isCalculating = false;
-        
-        function updateCheckoutTotal() {
-            const totalHT = checkoutSubtotal - checkoutDiscountAmt + (checkoutShippingCost || 0);
-            document.getElementById('checkout-total').textContent = this.formatPrice(totalHT);
-            
-            const btn = document.getElementById('submit-order-btn');
-            if (btn && btn.id === 'submit-order-btn') {
-                if (!validatedAddress || checkoutShippingCost === null || isCalculating) {
-                    btn.disabled = true;
-                    btn.innerHTML = 'Veuillez sélectionner une adresse valide';
-                } else if (!isShippingCalculable) {
-                    btn.disabled = true;
-                    btn.innerHTML = 'Demande de devis requise';
-                } else {
-                    btn.disabled = false;
-                    btn.innerHTML = 'Confirmer la commande';
-                }
-            }
-        }
-        updateCheckoutTotal = updateCheckoutTotal.bind(this);
-    
         let subtotal = 0;
         let totalQuantity = 0;
 
@@ -358,6 +330,35 @@ const CartUI = {
         html += '<th class="py-3 px-2 text-label-md font-label-md uppercase text-on-surface-variant text-center">Qté</th>';
         html += '<th class="py-3 pl-2 text-label-md font-label-md uppercase text-on-surface-variant text-right">Total HT</th>';
         html += '</tr></thead><tbody>';
+
+        let checkoutShippingCost = null;
+        let validatedAddress = '';
+        let isShippingCalculable = false;
+        let checkoutTotalQty = 0;
+        let checkoutSubtotal = 0;
+        let checkoutDiscountAmt = 0;
+        let isCalculating = false;
+        
+        function updateCheckoutTotal() {
+            const totalHT = checkoutSubtotal - checkoutDiscountAmt + (checkoutShippingCost || 0);
+            const totalEl = document.getElementById('checkout-total');
+            if (totalEl) totalEl.textContent = this.formatPrice(totalHT);
+            
+            const btn = document.getElementById('submit-order-btn');
+            if (btn && btn.id === 'submit-order-btn') {
+                if (!validatedAddress || checkoutShippingCost === null || isCalculating) {
+                    btn.disabled = true;
+                    btn.innerHTML = 'Veuillez sélectionner une adresse valide';
+                } else if (!isShippingCalculable) {
+                    btn.disabled = true;
+                    btn.innerHTML = 'Demande de devis requise';
+                } else {
+                    btn.disabled = false;
+                    btn.innerHTML = 'Confirmer la commande';
+                }
+            }
+        }
+        updateCheckoutTotal = updateCheckoutTotal.bind(this);
 
         let subtotal = 0;
         let totalQuantity = 0;
