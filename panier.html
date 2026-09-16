@@ -84,6 +84,29 @@
                 </div>
             </div>
             <main class="w-full pt-[128px] bg-background"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-16">
+
+    <!-- Stepper -->
+    <div class="mb-10 w-full max-w-3xl mx-auto hidden md:block">
+        <div class="flex items-center justify-between relative">
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-outline/20 -z-10"></div>
+            
+            <div class="flex flex-col items-center gap-2 bg-background px-4">
+                <div class="w-10 h-10 rounded-full bg-[#802813] text-white flex items-center justify-center font-bold text-label-md border-4 border-background">1</div>
+                <span class="text-label-md font-bold text-[#802813]" data-i18n="stepper.cart">Panier</span>
+            </div>
+            
+            <div class="flex flex-col items-center gap-2 bg-background px-4">
+                <div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-label-md border-4 border-background">2</div>
+                <span class="text-label-md font-medium text-on-surface-variant" data-i18n="stepper.address">Adresse & Calcul</span>
+            </div>
+            
+            <div class="flex flex-col items-center gap-2 bg-background px-4">
+                <div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-label-md border-4 border-background">3</div>
+                <span class="text-label-md font-medium text-on-surface-variant" data-i18n="stepper.confirm">Confirmation</span>
+            </div>
+        </div>
+    </div>
+
     <div class="flex items-center gap-2 mb-8">
         <div class="inline-flex items-center gap-2 bg-primary/10 text-primary font-label-md text-label-md uppercase px-3 py-1.5 rounded-full">
             <span class="material-symbols-outlined text-[18px]">shopping_cart</span>

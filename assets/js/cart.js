@@ -36,19 +36,27 @@ const CartAPI = {
     },
 
     async add(productId, quantity = 1) {
-        return this.request('add', { product_id: productId, quantity });
+        const res = await this.request('add', { product_id: productId, quantity });
+        if(window.updateCartBadge) window.updateCartBadge();
+        return res;
     },
     async update(productId, quantity) {
-        return this.request('update', { product_id: productId, quantity });
+        const res = await this.request('update', { product_id: productId, quantity });
+        if(window.updateCartBadge) window.updateCartBadge();
+        return res;
     },
     async remove(productId) {
-        return this.request('remove', { product_id: productId });
+        const res = await this.request('remove', { product_id: productId });
+        if(window.updateCartBadge) window.updateCartBadge();
+        return res;
     },
     async get() {
         return this.request('get');
     },
     async clear() {
-        return this.request('clear');
+        const res = await this.request('clear');
+        if(window.updateCartBadge) window.updateCartBadge();
+        return res;
     }
 };
 
@@ -166,14 +174,21 @@ const CartUI = {
         
         let subtotal = 0;
         let totalQuantity = 0;
+        
+        let subgroupCounts = {};
+        let firstSubgroup = null;
 
         items.forEach(item => {
             const prod = this.getProduct(item.product_id);
             if (!prod) return;
             
-            const lineTotal = prod.wholesale_price * item.quantity;
-            subtotal += lineTotal;
+            const lineTotalHT = prod.wholesale_price * item.quantity;
+            const lineTotalTTC = lineTotalHT * 1.20;
+            subtotal += lineTotalHT;
             totalQuantity += item.quantity;
+            
+            if (!firstSubgroup) firstSubgroup = prod.subgroup_id;
+            subgroupCounts[prod.subgroup_id] = (subgroupCounts[prod.subgroup_id] || 0) + item.quantity;
 
             html += `
             <div class="bg-surface-container rounded-xl p-5 border border-outline/10 shadow-sm flex flex-col md:flex-row items-center gap-6">
@@ -199,7 +214,8 @@ const CartUI = {
                         </button>
                     </div>
                     <div class="text-right">
-                        <div class="text-headline-md font-data-mono font-bold text-on-surface">${this.formatPrice(prod.wholesale_price)} HT</div>
+                        <div class="text-headline-md font-data-mono font-bold text-on-surface">${this.formatPrice(lineTotalTTC)} TTC</div>
+                          <div class="text-xs text-on-surface-variant font-normal">soit ${this.formatPrice(lineTotalHT)} HT</div>
                     </div>
                 </div>
                 
@@ -210,6 +226,91 @@ const CartUI = {
                 </div>
             </div>`;
         });
+        
+        // --- Cross-selling Recommendation Logic ---
+        let maxCount = -1;
+        let majoritySubgroup = null;
+        for (let sg in subgroupCounts) {
+            if (subgroupCounts[sg] > maxCount) {
+                maxCount = subgroupCounts[sg];
+                majoritySubgroup = parseInt(sg);
+            } else if (subgroupCounts[sg] === maxCount) {
+                if (parseInt(sg) === firstSubgroup) {
+                    majoritySubgroup = parseInt(sg);
+                }
+            }
+        }
+        
+        if (majoritySubgroup !== null) {
+            // Option B: Randomize (shuffle) and pick 3 max
+            const shuffleArray = array => {
+                let curId = array.length;
+                while (0 !== curId) {
+                    let randId = Math.floor(Math.random() * curId);
+                    curId -= 1;
+                    let tmp = array[curId];
+                    array[curId] = array[randId];
+                    array[randId] = tmp;
+                }
+                return array;
+            };
+
+            // 1. Similar Products
+            let similarProducts = this.products.filter(p => p.subgroup_id === majoritySubgroup && !items.find(i => i.product_id === p.id));
+            similarProducts = shuffleArray(similarProducts).slice(0, 3);
+            
+            // 2. Complementary Products
+            let recSubgroup = 5;
+            if (majoritySubgroup === 5) recSubgroup = 1;
+            
+            let recProducts = this.products.filter(p => p.subgroup_id === recSubgroup && !items.find(i => i.product_id === p.id));
+            recProducts = shuffleArray(recProducts).slice(0, 3);
+            
+            const renderProductCards = (prodList) => {
+                let phtml = '<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">';
+                prodList.forEach(p => {
+                    phtml += `
+                        <div class="bg-surface-container rounded-xl p-4 border border-outline/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                            <div>
+                                <img src="${p.image_product}" class="w-full h-32 object-cover rounded-lg mb-4" alt="">
+                                <h4 class="text-label-lg font-bold text-on-surface mb-1 line-clamp-2">${p.name}</h4>
+                                <div class="text-body-sm text-on-surface-variant mb-2">${p.format}</div>
+                            </div>
+                            <div>
+                                <div class="text-label-lg font-data-mono font-bold text-primary">${this.formatPrice(p.wholesale_price * 1.20)} TTC</div>
+                                <div class="text-[10px] text-on-surface-variant font-normal mb-3">soit ${this.formatPrice(p.wholesale_price)} HT</div>
+                                <button onclick="CartUI.addRecommended('${p.id}')" class="w-full bg-surface-container-highest hover:bg-surface-dim text-on-surface font-label-md py-2 rounded-md transition-colors border border-outline-variant flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">add</span> <span data-i18n="product.add_to_cart">Ajouter</span>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                phtml += '</div>';
+                return phtml;
+            };
+
+            if (similarProducts.length > 0 || recProducts.length > 0) {
+                html += '<div class="mt-12 mb-4 border-t border-outline/20 pt-8 flex flex-col gap-8">';
+                
+                if (similarProducts.length > 0) {
+                    html += '<div>';
+                    html += '<h3 class="text-headline-sm font-bold text-on-surface mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">sell</span><span data-i18n="cart.similar">Produits similaires</span></h3>';
+                    html += renderProductCards(similarProducts);
+                    html += '</div>';
+                }
+
+                if (recProducts.length > 0) {
+                    html += '<div>';
+                    html += '<h3 class="text-headline-sm font-bold text-on-surface mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">add_shopping_cart</span><span data-i18n="cart.recommended">Produits complémentaires</span></h3>';
+                    html += renderProductCards(recProducts);
+                    html += '</div>';
+                }
+                
+                html += '</div>';
+            }
+        }
+
         html += '</div>';
         
         container.innerHTML = html;
@@ -274,21 +375,21 @@ const CartUI = {
                     
                     <div class="border-t border-outline/20 mt-6 pt-6 flex flex-col gap-3">
                         <div class="flex justify-between text-body-sm text-on-surface-variant">
-                            <span>Sous-total HT</span>
-                            <span class="font-data-mono">${this.formatPrice(subtotal)}</span>
+                            <span>Sous-total TTC</span>
+                              <div class="text-right">
+                                  <span class="font-data-mono">${this.formatPrice(subtotalTTC)}</span>
+                                  <div class="text-[10px]">soit ${this.formatPrice(subtotal)} HT</div>
+                              </div>
                         </div>
                         <div class="flex justify-between text-body-sm font-bold text-primary">
                             <span>Remise volume (-${currentTier.pct * 100}%)</span>
-                            <span class="font-data-mono">-${this.formatPrice(discount)}</span>
+                              <span class="font-data-mono">-${this.formatPrice(discountTTC)}</span>
                         </div>
                         <div class="flex justify-between text-body-sm text-on-surface-variant">
                             <span>Frais de livraison</span>
                             <span class="font-bold">Calculés à la validation</span>
                         </div>
-                        <div class="flex justify-between text-body-sm text-on-surface-variant">
-                            <span>TVA (20%)</span>
-                            <span class="font-data-mono">${this.formatPrice(totalHT * 0.20)}</span>
-                        </div>
+                        
                     </div>
                     
                     <div class="flex justify-between items-end mb-6 text-on-surface border-t border-outline/30 mt-4 pt-4">
@@ -328,7 +429,7 @@ const CartUI = {
         html += '<thead><tr class="border-b border-outline/20">';
         html += '<th class="py-3 pr-2 text-label-md font-label-md uppercase text-on-surface-variant">Produit</th>';
         html += '<th class="py-3 px-2 text-label-md font-label-md uppercase text-on-surface-variant text-center">Qté</th>';
-        html += '<th class="py-3 pl-2 text-label-md font-label-md uppercase text-on-surface-variant text-right">Total HT</th>';
+        html += '<th class="py-3 pl-2 text-label-md font-label-md uppercase text-on-surface-variant text-right">Total TTC</th>';
         html += '</tr></thead><tbody>';
 
         let checkoutShippingCost = null;
@@ -340,11 +441,18 @@ const CartUI = {
         let isCalculating = false;
         
         function updateCheckoutTotal() {
-            const totalHT = checkoutSubtotal - checkoutDiscountAmt + (checkoutShippingCost || 0);
-            const totalEl = document.getElementById('checkout-total');
-            if (totalEl) totalEl.textContent = this.formatPrice(totalHT);
-            
-            const btn = document.getElementById('submit-order-btn');
+        if (!checkoutSubtotal) return;
+        
+        const htAfterDiscount = checkoutSubtotal - checkoutDiscountAmt;
+        const totalTTC_products = htAfterDiscount * 1.20;
+        
+        // Shipping is already TTC
+        const total = totalTTC_products + (checkoutShippingCost || 0);
+
+        const totalEl = document.getElementById('checkout-total');
+        if (totalEl) totalEl.textContent = this.formatPrice(total);
+        
+        const btn = document.getElementById('submit-order-btn');
             if (btn && btn.id === 'submit-order-btn') {
                 if (!validatedAddress || checkoutShippingCost === null || isCalculating) {
                     btn.disabled = true;
@@ -376,7 +484,10 @@ const CartUI = {
                     <span class="text-label-md uppercase text-outline-variant mt-1 block">RÉF: ${prod.id}</span>
                 </td>
                 <td class="py-3 px-2 text-center text-body-sm font-data-mono">${item.quantity}</td>
-                <td class="py-3 pl-2 text-right text-body-sm font-data-mono font-bold text-primary">${this.formatPrice(lineTotal)}</td>
+                <td class="py-3 pl-2 text-right text-body-sm font-data-mono font-bold text-primary">
+                    ${this.formatPrice(lineTotalTTC)} TTC
+                    <div class="text-xs font-normal text-on-surface-variant text-right mt-1">soit ${this.formatPrice(lineTotalHT)} HT</div>
+                </td>
             </tr>`;
         });
 
@@ -388,9 +499,11 @@ const CartUI = {
         checkoutSubtotal = subtotal;
         checkoutTotalQty = totalQuantity;
         checkoutDiscountAmt = discount;
+        const subtotalTTC = subtotal * 1.20;
+        const discountTTC = discount * 1.20;
         
-        document.getElementById('checkout-subtotal').textContent = this.formatPrice(subtotal);
-        document.getElementById('checkout-discount').textContent = '-' + this.formatPrice(discount);
+        document.getElementById('checkout-subtotal').innerHTML = `${this.formatPrice(subtotalTTC)}<div class="text-[10px] font-normal">soit ${this.formatPrice(subtotal)} HT</div>`;
+        document.getElementById('checkout-discount').textContent = '-' + this.formatPrice(discountTTC);
         document.getElementById('checkout-shipping').textContent = 'À calculer';
         
         updateCheckoutTotal();
@@ -412,8 +525,7 @@ const CartUI = {
         const shippingError = document.getElementById('shipping-error');
         const shippingCostEl = document.getElementById('checkout-shipping');
         const shippingDistanceEl = document.getElementById('shipping-distance');
-        const shippingDepotEl = document.getElementById('shipping-depot');
-        let debounceTimer;
+                let debounceTimer;
         
         if (shippingAddress) {
             shippingAddress.addEventListener('input', (e) => {
@@ -442,10 +554,75 @@ const CartUI = {
                                 const div = document.createElement('div');
                                 div.className = 'p-3 hover:bg-surface-container-low cursor-pointer text-body-sm border-b border-outline/10 last:border-b-0';
                                 div.textContent = item.address.label;
-                                div.addEventListener('click', async () => {
-                                    shippingAddress.value = item.address.label;
+                                div.addEventListener('click', () => {
                                     autocompleteResults.classList.add('hidden');
-                                    await calculateCheckoutShipping(item.address.label);
+                                    
+                                    const street = [item.address.street || '', item.address.houseNumber || ''].join(' ').trim() || item.title || item.address.label;
+                                    const zip = item.address.postalCode || '';
+                                    const city = item.address.city || '';
+
+                                    const modalHtml = `
+                                        <div id="address-confirm-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+                                            <div class="bg-surface-container rounded-2xl shadow-xl w-full max-w-md border border-outline/20 overflow-hidden">
+                                                <div class="p-6">
+                                                    <h3 class="text-headline-sm font-bold text-on-surface flex items-center gap-2 mb-4">
+                                                        <span class="material-symbols-outlined text-primary">location_on</span>
+                                                        Confirmer l'adresse
+                                                    </h3>
+                                                    <div class="bg-surface p-4 rounded-xl border border-primary/20 mb-6">
+                                                        <div class="mb-3">
+                                                            <span class="text-label-sm uppercase text-outline-variant tracking-wider">Adresse</span>
+                                                            <div class="text-body-lg font-bold text-on-surface mt-1">${street}</div>
+                                                        </div>
+                                                        <div class="flex gap-6">
+                                                            <div>
+                                                                <span class="text-label-sm uppercase text-outline-variant tracking-wider">Code Postal</span>
+                                                                <div class="text-body-lg font-bold text-on-surface mt-1">${zip}</div>
+                                                            </div>
+                                                            <div>
+                                                                <span class="text-label-sm uppercase text-outline-variant tracking-wider">Ville</span>
+                                                                <div class="text-body-lg font-bold text-on-surface mt-1">${city}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex gap-3">
+                                                        <button id="btn-modal-cancel" class="flex-1 py-3 border-2 border-outline hover:border-primary text-on-surface rounded-md font-label-md transition-colors shadow-sm">Modifier</button>
+                                                        <button id="btn-modal-confirm" class="flex-1 py-3 bg-primary hover:bg-primary-container text-on-primary rounded-md font-label-md transition-colors shadow-sm">Confirmer</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `;
+                                    document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+                                    document.getElementById('btn-modal-cancel').onclick = () => {
+                                        document.getElementById('address-confirm-modal').remove();
+                                        shippingAddress.focus();
+                                    };
+
+                                    document.getElementById('btn-modal-confirm').onclick = async () => {
+                                        document.getElementById('address-confirm-modal').remove();
+                                        shippingAddress.value = item.address.label;
+                                        
+                                        // Read-only widget
+                                        let widget = document.getElementById('address-readonly-widget');
+                                        if (!widget) {
+                                            widget = document.createElement('div');
+                                            widget.id = 'address-readonly-widget';
+                                            widget.className = 'mt-3 bg-[#802813]/10 p-4 rounded-xl border border-[#802813]/30 flex items-start gap-3';
+                                            shippingAddress.parentNode.parentNode.appendChild(widget);
+                                        }
+                                        widget.innerHTML = `
+                                            <span class="material-symbols-outlined text-[#802813]">check_circle</span>
+                                            <div>
+                                                <div class="text-label-md font-bold text-[#802813] mb-1">Adresse validée</div>
+                                                <div class="text-body-sm text-on-surface">${street}</div>
+                                                <div class="text-body-sm text-on-surface font-medium">${zip} ${city}</div>
+                                            </div>
+                                        `;
+                                        
+                                        await calculateCheckoutShipping(item.address.label);
+                                    };
                                 });
                                 autocompleteResults.appendChild(div);
                             });
@@ -483,8 +660,7 @@ const CartUI = {
                     
                     shippingCostEl.textContent = this.formatPrice(checkoutShippingCost);
                     shippingDistanceEl.textContent = data.distance_km + ' km';
-                    shippingDepotEl.textContent = 'Expédié depuis ' + data.depot + ' (' + data.depot_country + ')';
-                } else {
+                                    } else {
                     shippingResult.classList.add('hidden');
                     shippingError.classList.remove('hidden');
                     
@@ -560,15 +736,29 @@ const CartUI = {
         }
     },
 
+    async addRecommended(productId) {
+        const container = document.getElementById('cart-items-container');
+        if (container) container.style.opacity = '0.5';
+        await CartAPI.add(productId, 1);
+        await this.renderCartPage();
+        if (container) container.style.opacity = '1';
+    },
+
     async updateItem(productId, qty) {
         if (qty < 1) return;
+        const container = document.getElementById('cart-items-container');
+        if (container) container.style.opacity = '0.5';
         await CartAPI.update(productId, qty);
-        this.renderCartPage();
+        await this.renderCartPage();
+        if (container) container.style.opacity = '1';
     },
 
     async removeItem(productId) {
+        const container = document.getElementById('cart-items-container');
+        if (container) container.style.opacity = '0.5';
         await CartAPI.remove(productId);
-        this.renderCartPage();
+        await this.renderCartPage();
+        if (container) container.style.opacity = '1';
     },
     
     renderConfirmationPage() {

@@ -189,6 +189,7 @@ try {
     if ($resendApiKey && $fromEmail && $toEmail) {
         $contactNameHtml = htmlspecialchars(trim((string)$input['contact_name']));
         $totalFmt = number_format(round($subtotal, 2), 2, ',', ' ') . ' €';
+        $totalTtcFmt = number_format(round($subtotal * 1.20, 2), 2, ',', ' ') . ' €';
 
         $i18nPath = __DIR__ . "/../data/i18n/emails-{$lang}.json";
         if (!file_exists($i18nPath)) {
@@ -196,6 +197,9 @@ try {
         }
         $i18nData = json_decode(file_get_contents($i18nPath), true);
         $i18n = $i18nData['order_confirmation'] ?? $i18nData['fr']['order_confirmation'] ?? [];
+        if (isset($i18n['total_label'])) {
+            $i18n['total_label'] = str_replace('HT', 'TTC', $i18n['total_label']);
+        }
         if (empty($i18n)) { // Fallback just in case
             $i18n = [
                 'subject' => "Confirmation de commande {$orderRef}",
@@ -204,7 +208,7 @@ try {
                 'sepa_notice' => "IMPORTANT : L'expédition interviendra après réception de votre virement bancaire.",
                 'cta_account' => "Connectez-vous à votre espace client pour télécharger votre bon de commande",
                 'ref_label' => "Référence :",
-                'total_label' => "Montant HT :"
+                'total_label' => "Montant TTC :"
             ];
         }
 
@@ -220,7 +224,7 @@ try {
                     $i18n['title'],
                     $i18n['intro'] . (strpos($i18n['intro'], 'Bonjour') === false ? " Bonjour {$contactNameHtml}," : ""),
                     $orderRef,
-                    $totalFmt,
+                    $totalTtcFmt . ' <span style="font-size: 11px; font-weight: normal; color: #666666;">(soit ' . $totalFmt . ' HT)</span>',
                     $i18n['sepa_notice'],
                     $i18n['cta_account'],
                     $i18n['ref_label'],
@@ -232,14 +236,14 @@ try {
                 $clientHtml
             );
         } else {
-            $clientHtml = "<p>Votre commande <strong>{$orderRef}</strong> de {$totalFmt} est confirmée.</p>";
+            $clientHtml = "<p>Votre commande <strong>{$orderRef}</strong> de {$totalTtcFmt} TTC (soit {$totalFmt} HT) est confirmée.</p>";
         }
 
         $clientText = strip_tags(str_replace(['<br>', '<h2>', '</h2>', '<p>', '</p>'], ["\n", "\n\n", "\n\n", "", "\n\n"], $clientHtml));
 
         // Internal Notif
         $internalHtml = "<h2>Nouvelle Commande B2B: {$orderRef}</h2>
-        <p>Montant: {$totalFmt} HT</p>
+        <p>Montant: {$totalTtcFmt} TTC (soit {$totalFmt} HT)</p>
         <p>Client: " . htmlspecialchars(trim((string)$input['company'])) . " ({$contactNameHtml})</p>
         <p>Email: " . htmlspecialchars(trim((string)$input['email'])) . "</p>";
 

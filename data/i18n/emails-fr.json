@@ -6,7 +6,7 @@
     "sepa_notice": "IMPORTANT : L'expédition interviendra après réception de votre virement bancaire.",
     "cta_account": "Connectez-vous à votre espace client pour télécharger votre bon de commande",
     "cta_tracking": "Suivre ma commande",
-    "total_label": "Montant HT :",
+    "total_label": "Montant TTC :",
     "ref_label": "Référence :"
   },
   "quote_sent": {
