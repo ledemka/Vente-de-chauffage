@@ -319,6 +319,8 @@ const CartUI = {
         const discount = this.calculateDiscount(totalQuantity, subtotal);
         const totalHT = subtotal - discount;
         const totalTTC = totalHT * 1.20;
+        const subtotalTTC = subtotal * 1.20;
+        const discountTTC = discount * 1.20;
         
         const { currentTier, nextTier } = this.getCurrentTier(totalQuantity);
         
@@ -475,6 +477,8 @@ const CartUI = {
             const prod = this.getProduct(item.product_id);
             if (!prod) return;
             const lineTotal = prod.wholesale_price * item.quantity;
+            const lineTotalHT = lineTotal;
+            const lineTotalTTC = lineTotal * 1.20;
             subtotal += lineTotal;
             totalQuantity += item.quantity;
 
