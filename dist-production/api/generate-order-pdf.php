@@ -53,9 +53,9 @@ try {
     
     // Taux de TVA (Défaut français standard, à confirmer avec le client)
     $tva_rate = 0.20; 
-    $total_ht = floatval($order['total']) / (1 + $tva_rate);
-    $total_tva = floatval($order['total']) - $total_ht;
-    $total_ttc = floatval($order['total']);
+    $total_ht = floatval($order['total']);
+    $total_tva = $total_ht * $tva_rate;
+    $total_ttc = $total_ht + $total_tva;
 
     // HTML Structure inspirée de sotramsbois, chartée sotramsbois
     $html = '<!DOCTYPE html>

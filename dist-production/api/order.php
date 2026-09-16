@@ -7,6 +7,9 @@ declare(strict_types=1);
 session_start();
 header('Content-Type: application/json; charset=utf-8');
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/dompdf/autoload.inc.php';
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 function respondError(int $statusCode, string $message, array $details = []): void {
     http_response_code($statusCode);
@@ -170,6 +173,113 @@ try {
     ]);
     $orderId = $pdo->lastInsertId();
 
+    // 3b. Generate PDF in memory for email attachment
+    $pdfBytes = null;
+    try {
+        $tva_rate  = 0.20;
+        $total_ht  = round($subtotal, 2);
+        $total_tva = round($total_ht * $tva_rate, 2);
+        $total_ttc = round($total_ht + $total_tva, 2);
+        $date      = date('d/m/Y');
+
+        $pdfHtml = '<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><title>Bon de commande - ' . htmlspecialchars($orderRef) . '</title>
+<style>
+  body{font-family:"Helvetica","Arial",sans-serif;font-size:13px;color:#333;margin:0;padding:20px}
+  .header{width:100%;border-bottom:3px solid #802813;padding-bottom:20px;margin-bottom:30px}
+  .logo{font-size:28px;font-weight:bold;color:#802813;margin-bottom:10px}
+  .co-info{font-size:11px;color:#666;line-height:1.5}
+  .doc-title{text-align:right;margin-top:-60px}
+  .doc-title h1{color:#802813;font-size:24px;margin:0;text-transform:uppercase}
+  .doc-title p{margin:5px 0 0 0;font-size:14px;font-weight:bold}
+  .addresses{width:100%;margin-bottom:40px}
+  .address-box{width:45%;padding:15px;border:1px solid #ddd;background:#f9f9f9;border-radius:4px}
+  .address-box h3{margin-top:0;margin-bottom:10px;font-size:14px;color:#802813;border-bottom:1px solid #ddd;padding-bottom:5px}
+  .address-box p{margin:0 0 5px 0;line-height:1.4}
+  table.items{width:100%;border-collapse:collapse;margin-bottom:30px}
+  table.items th{background:#802813;color:#fff;padding:10px;text-align:left;font-size:12px}
+  table.items td{padding:10px;border-bottom:1px solid #eee}
+  table.items th.right,table.items td.right{text-align:right}
+  table.items th.center,table.items td.center{text-align:center}
+  .totals{width:40%;float:right;margin-bottom:40px}
+  .totals table{width:100%;border-collapse:collapse}
+  .totals table td{padding:8px;border-bottom:1px solid #eee}
+  .totals table tr.grand-total td{font-weight:bold;font-size:16px;color:#802813;border-top:2px solid #802813;border-bottom:none}
+  .payment-info{clear:both;background:#f5f5f5;border-left:4px solid #802813;padding:15px;margin-bottom:40px}
+  .payment-info h4{margin-top:0;margin-bottom:10px;color:#802813}
+  .footer{position:fixed;bottom:-20px;left:0;right:0;text-align:center;font-size:10px;color:#999;border-top:1px solid #eee;padding-top:10px}
+</style></head><body>
+<table class="header"><tr>
+  <td width="50%"><div class="logo">sotramsbois</div><div class="co-info">[Adresse à compléter]</div></td>
+  <td width="50%" class="doc-title"><h1>BON DE COMMANDE</h1><p>Réf: ' . htmlspecialchars($orderRef) . '</p><p>Date: ' . $date . '</p></td>
+</tr></table>
+<table class="addresses"><tr>
+  <td class="address-box" valign="top">
+    <h3>Facturé / Livré à</h3>
+    <p><strong>' . htmlspecialchars(trim((string)$input['company'])) . '</strong></p>
+    <p>' . htmlspecialchars(trim((string)$input['contact_name'])) . '</p>
+    <p>' . nl2br(htmlspecialchars(trim((string)$input['delivery_address']))) . '</p>
+    <p>Tél: ' . htmlspecialchars(trim((string)$input['phone'])) . '</p>
+    <p>Email: ' . htmlspecialchars(trim((string)$input['email'])) . '</p>
+  </td>
+  <td width="10%"></td>
+  <td class="address-box" valign="top">
+    <h3>Informations de livraison</h3>
+    <p><strong>Statut:</strong> En attente de paiement</p>
+    <p><em>Nous vous contacterons pour planifier la livraison.</em></p>
+  </td>
+</tr></table>
+<table class="items"><thead><tr>
+  <th>Désignation</th><th>Format</th><th class="center">Qté</th><th class="right">P.U. HT</th><th class="right">Total HT</th>
+</tr></thead><tbody>';
+
+        foreach ($orderItems as $oi) {
+            $pu_ht    = floatval($oi['unit_price']);
+            $oi_qty   = intval($oi['quantity']);
+            $line_ht  = $pu_ht * $oi_qty;
+            $pdfHtml .= '<tr>
+  <td><strong>' . htmlspecialchars($oi['name']) . '</strong></td>
+  <td>' . htmlspecialchars($oi['format'] ?? '') . '</td>
+  <td class="center">' . $oi_qty . '</td>
+  <td class="right">' . number_format($pu_ht, 2, ',', ' ') . ' €</td>
+  <td class="right">' . number_format($line_ht, 2, ',', ' ') . ' €</td>
+</tr>';
+        }
+
+        $pdfHtml .= '</tbody></table>
+<div class="totals"><table>
+  <tr><td>Sous-total HT</td><td class="right">' . number_format($total_ht, 2, ',', ' ') . ' €</td></tr>
+  <tr><td>TVA (20%)</td><td class="right">' . number_format($total_tva, 2, ',', ' ') . ' €</td></tr>
+  <tr class="grand-total"><td>TOTAL TTC</td><td class="right">' . number_format($total_ttc, 2, ',', ' ') . ' €</td></tr>
+</table></div>
+<div class="payment-info">
+  <h4>Instructions de paiement</h4>
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <tr><td style="padding:4px 0;width:40%"><strong>Mode :</strong></td><td style="padding:4px 0">Virement Bancaire (SEPA)</td></tr>
+    <tr><td style="padding:4px 0"><strong>Bénéficiaire :</strong></td><td style="padding:4px 0">CAMARA LANSANA - Responsable légale sotramsbois</td></tr>
+    <tr><td style="padding:4px 0"><strong>Banque :</strong></td><td style="padding:4px 0">Qonto</td></tr>
+    <tr><td style="padding:4px 0"><strong>IBAN :</strong></td><td style="padding:4px 0">FR76 1695 8000 0154 3879 6652 982</td></tr>
+    <tr><td style="padding:4px 0"><strong>BIC :</strong></td><td style="padding:4px 0">QNTOFR P1XXX</td></tr>
+    <tr><td style="padding:4px 0"><strong>Référence :</strong></td><td style="padding:4px 0">' . htmlspecialchars($orderRef) . '</td></tr>
+  </table>
+  <p style="font-size:11px;font-style:italic;margin-top:10px;color:#666">Votre commande sera validée dès réception du virement.</p>
+</div>
+<div class="footer">sotramsbois — Bon de commande généré numériquement le ' . date('d/m/Y H:i') . '</div>
+</body></html>';
+
+        $opts = new Options();
+        $opts->set('defaultFont', 'Helvetica');
+        $opts->set('isRemoteEnabled', false);
+        $dom = new Dompdf($opts);
+        $dom->loadHtml($pdfHtml);
+        $dom->setPaper('A4', 'portrait');
+        $dom->render();
+        $pdfBytes = $dom->output(); // raw binary — no stream
+    } catch (Exception $pdfEx) {
+        error_log('PDF attachment generation failed: ' . $pdfEx->getMessage());
+        // Non-blocking: email will still be sent without attachment
+    }
+
     // 4. Clear Cart
     if ($client_id) {
         $pdo->prepare("DELETE FROM cart_items WHERE client_id = ?")->execute([$client_id]);
@@ -189,6 +299,7 @@ try {
     if ($resendApiKey && $fromEmail && $toEmail) {
         $contactNameHtml = htmlspecialchars(trim((string)$input['contact_name']));
         $totalFmt = number_format(round($subtotal, 2), 2, ',', ' ') . ' €';
+        $totalTtcFmt = number_format(round($subtotal * 1.20, 2), 2, ',', ' ') . ' €';
 
         $i18nPath = __DIR__ . "/../data/i18n/emails-{$lang}.json";
         if (!file_exists($i18nPath)) {
@@ -196,6 +307,9 @@ try {
         }
         $i18nData = json_decode(file_get_contents($i18nPath), true);
         $i18n = $i18nData['order_confirmation'] ?? $i18nData['fr']['order_confirmation'] ?? [];
+        if (isset($i18n['total_label'])) {
+            $i18n['total_label'] = str_replace('HT', 'TTC', $i18n['total_label']);
+        }
         if (empty($i18n)) { // Fallback just in case
             $i18n = [
                 'subject' => "Confirmation de commande {$orderRef}",
@@ -204,7 +318,7 @@ try {
                 'sepa_notice' => "IMPORTANT : L'expédition interviendra après réception de votre virement bancaire.",
                 'cta_account' => "Connectez-vous à votre espace client pour télécharger votre bon de commande",
                 'ref_label' => "Référence :",
-                'total_label' => "Montant HT :"
+                'total_label' => "Montant TTC :"
             ];
         }
 
@@ -220,7 +334,7 @@ try {
                     $i18n['title'],
                     $i18n['intro'] . (strpos($i18n['intro'], 'Bonjour') === false ? " Bonjour {$contactNameHtml}," : ""),
                     $orderRef,
-                    $totalFmt,
+                    $totalTtcFmt . ' <span style="font-size: 11px; font-weight: normal; color: #666666;">(soit ' . $totalFmt . ' HT)</span>',
                     $i18n['sepa_notice'],
                     $i18n['cta_account'],
                     $i18n['ref_label'],
@@ -232,20 +346,23 @@ try {
                 $clientHtml
             );
         } else {
-            $clientHtml = "<p>Votre commande <strong>{$orderRef}</strong> de {$totalFmt} est confirmée.</p>";
+            $clientHtml = "<p>Votre commande <strong>{$orderRef}</strong> de {$totalTtcFmt} TTC (soit {$totalFmt} HT) est confirmée.</p>";
         }
 
         $clientText = strip_tags(str_replace(['<br>', '<h2>', '</h2>', '<p>', '</p>'], ["\n", "\n\n", "\n\n", "", "\n\n"], $clientHtml));
 
         // Internal Notif
         $internalHtml = "<h2>Nouvelle Commande B2B: {$orderRef}</h2>
-        <p>Montant: {$totalFmt} HT</p>
+        <p>Montant: {$totalTtcFmt} TTC (soit {$totalFmt} HT)</p>
         <p>Client: " . htmlspecialchars(trim((string)$input['company'])) . " ({$contactNameHtml})</p>
         <p>Email: " . htmlspecialchars(trim((string)$input['email'])) . "</p>";
 
-        function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text): void {
-            $url = 'https://api.resend.com/emails';
+        function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text, array $attachments = []): void {
+            $url  = 'https://api.resend.com/emails';
             $data = ['from' => $from, 'to' => [$to], 'subject' => $subject, 'html' => $html, 'text' => $text];
+            if (!empty($attachments)) {
+                $data['attachments'] = $attachments;
+            }
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POST, true);
@@ -255,8 +372,17 @@ try {
             curl_close($ch);
         }
 
-        sendResendEmail($resendApiKey, $fromEmail, trim((string)$input['email']), $clientSubject, $clientHtml, $clientText);
-        sendResendEmail($resendApiKey, $fromEmail, $toEmail, "[COMMANDE B2B] " . $orderRef, $internalHtml, strip_tags($internalHtml));
+        // Build attachment array if PDF was generated successfully
+        $emailAttachments = [];
+        if ($pdfBytes !== null) {
+            $emailAttachments[] = [
+                'filename' => 'bon-commande-' . $orderRef . '.pdf',
+                'content'  => base64_encode($pdfBytes),
+            ];
+        }
+
+        sendResendEmail($resendApiKey, $fromEmail, trim((string)$input['email']), $clientSubject, $clientHtml, $clientText, $emailAttachments);
+        sendResendEmail($resendApiKey, $fromEmail, $toEmail, "[COMMANDE B2B] " . $orderRef, $internalHtml, strip_tags($internalHtml), $emailAttachments);
     }
 
     echo json_encode(['success' => true, 'order_reference' => $orderRef]);

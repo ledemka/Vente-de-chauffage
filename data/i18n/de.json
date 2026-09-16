@@ -137,9 +137,10 @@
         "address": "Adresse de livraison",
         "truck_access": "Accès Poids Lourd",
         "payment_method": "Mode de paiement",
-        "bank_transfer_only": "Virement bancaire uniquement",
-        "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
-        "confirm_btn": "Confirmer la commande"
+        "bank_transfer_only": "Nur Banküberweisung",
+        "bank_transfer_desc": "Unsere Bankverbindung wird Ihnen nach der Bestellbestätigung mitgeteilt.",
+        "confirm_btn": "Bestellung bestätigen",
+        "shipping_calculating": "Wird berechnet..."
     },
     "confirmation": {
         "title": "Bestellung bestätigt",

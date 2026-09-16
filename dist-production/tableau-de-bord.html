@@ -240,7 +240,7 @@
             </div>
             
             <div class="border-t border-outline/20 pt-4 flex justify-between items-center text-headline-md font-headline-md">
-                <span>Total HT</span>
+                <span>Total TTC</span>
                 <span id="modal-total" class="text-primary font-data-mono"></span>
             </div>
         </div>
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await res.json();
         
         if (data.success && data.orders && data.orders.length > 0) {
-            let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">Référence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total HT</th></tr></thead><tbody>';
+            let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">Référence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total TTC</th></tr></thead><tbody>';
             
             data.orders.forEach(order => {
                 const dateObj = new Date(order.created_at);

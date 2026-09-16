@@ -139,7 +139,8 @@
         "payment_method": "Mode de paiement",
         "bank_transfer_only": "Virement bancaire uniquement",
         "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
-        "confirm_btn": "Confirmer la commande"
+        "confirm_btn": "Confirmer la commande",
+        "shipping_calculating": "Calculating..."
     },
     "confirmation": {
         "title": "Order confirmed",

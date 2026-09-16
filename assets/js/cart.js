@@ -215,7 +215,6 @@ const CartUI = {
                     </div>
                     <div class="text-right">
                         <div class="text-headline-md font-data-mono font-bold text-on-surface">${this.formatPrice(lineTotalTTC)} TTC</div>
-                          <div class="text-xs text-on-surface-variant font-normal">soit ${this.formatPrice(lineTotalHT)} HT</div>
                     </div>
                 </div>
                 
@@ -278,7 +277,6 @@ const CartUI = {
                             </div>
                             <div>
                                 <div class="text-label-lg font-data-mono font-bold text-primary">${this.formatPrice(p.wholesale_price * 1.20)} TTC</div>
-                                <div class="text-[10px] text-on-surface-variant font-normal mb-3">soit ${this.formatPrice(p.wholesale_price)} HT</div>
                                 <button onclick="CartUI.addRecommended('${p.id}')" class="w-full bg-surface-container-highest hover:bg-surface-dim text-on-surface font-label-md py-2 rounded-md transition-colors border border-outline-variant flex items-center justify-center gap-2">
                                     <span class="material-symbols-outlined text-[18px]">add</span> <span data-i18n="product.add_to_cart">Ajouter</span>
                                 </button>
@@ -380,7 +378,6 @@ const CartUI = {
                             <span>Sous-total TTC</span>
                               <div class="text-right">
                                   <span class="font-data-mono">${this.formatPrice(subtotalTTC)}</span>
-                                  <div class="text-[10px]">soit ${this.formatPrice(subtotal)} HT</div>
                               </div>
                         </div>
                         <div class="flex justify-between text-body-sm font-bold text-primary">
@@ -490,7 +487,6 @@ const CartUI = {
                 <td class="py-3 px-2 text-center text-body-sm font-data-mono">${item.quantity}</td>
                 <td class="py-3 pl-2 text-right text-body-sm font-data-mono font-bold text-primary">
                     ${this.formatPrice(lineTotalTTC)} TTC
-                    <div class="text-xs font-normal text-on-surface-variant text-right mt-1">soit ${this.formatPrice(lineTotalHT)} HT</div>
                 </td>
             </tr>`;
         });
@@ -506,7 +502,7 @@ const CartUI = {
         const subtotalTTC = subtotal * 1.20;
         const discountTTC = discount * 1.20;
         
-        document.getElementById('checkout-subtotal').innerHTML = `${this.formatPrice(subtotalTTC)}<div class="text-[10px] font-normal">soit ${this.formatPrice(subtotal)} HT</div>`;
+        document.getElementById('checkout-subtotal').innerHTML = `${this.formatPrice(subtotalTTC)}`;
         document.getElementById('checkout-discount').textContent = '-' + this.formatPrice(discountTTC);
         document.getElementById('checkout-shipping').textContent = 'À calculer';
         
@@ -529,6 +525,7 @@ const CartUI = {
         const shippingError = document.getElementById('shipping-error');
         const shippingCostEl = document.getElementById('checkout-shipping');
         const shippingDistanceEl = document.getElementById('shipping-distance');
+        const shippingLoading = document.getElementById('shipping-loading');
                 let debounceTimer;
         
         if (shippingAddress) {
@@ -650,9 +647,15 @@ const CartUI = {
             updateCheckoutTotal();
             shippingAddress.disabled = true;
             
+            shippingResult.classList.add('hidden');
+            shippingError.classList.add('hidden');
+            if (shippingLoading) shippingLoading.classList.remove('hidden');
+            
             try {
                 const res = await fetch(`./api/shipping.php?action=calculate&address=${encodeURIComponent(address)}&quantity=${checkoutTotalQty}`);
                 const data = await res.json();
+                
+                if (shippingLoading) shippingLoading.classList.add('hidden');
                 
                 if (data.calculable) {
                     shippingError.classList.add('hidden');
@@ -682,6 +685,7 @@ const CartUI = {
             } catch (err) {
                 console.error('Shipping calc error', err);
                 checkoutShippingCost = 0;
+                if (shippingLoading) shippingLoading.classList.add('hidden');
             }
             
             shippingAddress.disabled = false;

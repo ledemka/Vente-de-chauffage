@@ -84,6 +84,31 @@
                 </div>
             </div>
             <main class="w-full pt-[128px] bg-background"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-16">
+
+    <!-- Stepper -->
+    <div class="mb-10 w-full max-w-3xl mx-auto hidden md:block">
+        <div class="flex items-center justify-between relative">
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-outline/20 -z-10"></div>
+            
+            <div class="flex flex-col items-center gap-2 bg-background px-4">
+                <div class="w-10 h-10 rounded-full bg-[#802813] text-white flex items-center justify-center font-bold text-label-md border-4 border-background">
+                    <span class="material-symbols-outlined text-[20px]">check</span>
+                </div>
+                <span class="text-label-md font-bold text-[#802813]" data-i18n="stepper.cart">Panier</span>
+            </div>
+            
+            <div class="flex flex-col items-center gap-2 bg-background px-4">
+                <div class="w-10 h-10 rounded-full bg-[#802813] text-white flex items-center justify-center font-bold text-label-md border-4 border-background">2</div>
+                <span class="text-label-md font-bold text-[#802813]" data-i18n="stepper.address">Adresse & Calcul</span>
+            </div>
+            
+            <div class="flex flex-col items-center gap-2 bg-background px-4">
+                <div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-label-md border-4 border-background">3</div>
+                <span class="text-label-md font-medium text-on-surface-variant" data-i18n="stepper.confirm">Confirmation</span>
+            </div>
+        </div>
+    </div>
+
     <div class="flex items-center gap-2 mb-8">
         <a href="../panier.html" class="text-on-surface-variant hover:text-primary transition-colors flex items-center">
             <span class="material-symbols-outlined text-[20px]">arrow_back</span>
@@ -111,22 +136,22 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div class="flex flex-col gap-2">
                                 <label for="company" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="auth.company">Société *</label>
-                                <input type="text" id="company" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                                <input type="text" id="company" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all bg-surface-dim cursor-not-allowed opacity-80" readonly>
                             </div>
                             <div class="flex flex-col gap-2">
                                 <label for="contact_name" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="auth.contact_name">Nom du contact *</label>
-                                <input type="text" id="contact_name" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                                <input type="text" id="contact_name" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all bg-surface-dim cursor-not-allowed opacity-80" readonly>
                             </div>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div class="flex flex-col gap-2">
                                 <label for="email" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="auth.email">Email *</label>
-                                <input type="email" id="email" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                                <input type="email" id="email" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all bg-surface-dim cursor-not-allowed opacity-80" readonly>
                             </div>
                             <div class="flex flex-col gap-2">
                                 <label for="phone" class="text-label-md font-label-md text-on-surface uppercase" data-i18n="auth.phone">Téléphone *</label>
-                                <input type="tel" id="phone" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                                <input type="tel" id="phone" required class="w-full bg-surface-container-highest border border-outline-variant rounded-md py-3 px-4 text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all bg-surface-dim cursor-not-allowed opacity-80" readonly>
                             </div>
                         </div>
                         
@@ -137,9 +162,13 @@
                             <div id="autocomplete-results" class="absolute top-full left-0 right-0 bg-surface border border-outline/30 rounded-lg shadow-lg z-50 hidden max-h-60 overflow-y-auto mt-1"></div>
                         </div>
                         
+                        <div id="shipping-loading" class="hidden flex items-center gap-2 text-on-surface-variant text-sm">
+                            <span class="material-symbols-outlined animate-spin text-[18px] text-[#802813]">progress_activity</span>
+                            <span data-i18n="checkout.shipping_calculating">Calcul en cours...</span>
+                        </div>
                         <div id="shipping-result" class="hidden flex flex-col gap-2 bg-surface p-4 rounded-lg border border-primary/20">
                             <div class="flex justify-between items-center text-body-sm text-on-surface-variant">
-                                <span id="shipping-depot">Expédié depuis...</span>
+                                <span data-i18n="checkout.distance">Distance de livraison</span>
                                 <span class="font-data-mono" id="shipping-distance"></span>
                             </div>
                         </div>
@@ -154,12 +183,13 @@
 
                         <label class="flex items-start gap-3 mt-2 cursor-pointer group">
                             <div class="relative flex items-center justify-center">
-                                <input type="checkbox" id="truck_access" class="peer appearance-none w-6 h-6 border-2 border-outline-variant rounded-md checked:bg-primary checked:border-primary transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 focus:ring-offset-surface-container">
+                                <input type="checkbox" id="truck_access" required class="peer appearance-none w-6 h-6 border-2 border-outline-variant rounded-md checked:bg-primary checked:border-primary transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 focus:ring-offset-surface-container">
                                 <span class="material-symbols-outlined absolute text-on-primary text-[18px] opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity">check</span>
                             </div>
                             <div class="flex flex-col pt-0.5">
-                                <span class="text-label-md font-label-md text-on-surface group-hover:text-primary transition-colors" data-i18n="checkout.truck_access">Accès Poids Lourd garanti (Semi-remorque)</span>
-                                <span class="text-body-sm text-on-surface-variant mt-1">Cochez cette case si le site de livraison permet l'accès, le demi-tour et le déchargement d'un camion 44T.</span>
+                                <span class="text-label-md font-label-md text-on-surface transition-colors mt-1">
+                                    J'accepte les <a href="./cgv.html" class="text-primary hover:underline" target="_blank">conditions générales de vente</a> et je reconnais que ma commande implique une obligation de paiement.
+                                </span>
                             </div>
                         </label>
                     </div>
@@ -174,12 +204,12 @@
                     
                     <div class="bg-surface-container-highest border-l-4 border-primary rounded-r-md p-5 flex flex-col gap-2 shadow-sm">
                         <div class="flex items-center gap-2 text-on-surface font-bold">
-                            <span class="material-symbols-outlined text-primary">verified</span>
-                            <span data-i18n="checkout.bank_transfer_only">Virement bancaire uniquement</span>
-                        </div>
-                        <p class="text-body-sm text-on-surface-variant ml-8" data-i18n="checkout.bank_transfer_desc">
-                            Nos coordonnées bancaires vous seront transmises après validation de la commande. Votre commande sera expédiée dès réception des fonds.
-                        </p>
+                              <span class="material-symbols-outlined text-primary">verified</span>
+                              <span>Virement Bancaire (SEPA)</span>
+                          </div>
+                          <p class="text-body-sm text-on-surface-variant ml-8">
+                              Le RIB de Conteneur Pro vous sera transmis immédiatement après la validation. Votre commande sera traitée dès réception des fonds (généralement 24-48h).
+                          </p>
                     </div>
                 </div>
             </form>
@@ -199,7 +229,7 @@
                 </div>
 
                 <div class="flex justify-between mb-4">
-                    <span class="text-body-md text-on-surface-variant" data-i18n="cart.subtotal">Sous-total HT</span>
+                    <span class="text-body-md text-on-surface-variant" data-i18n="cart.subtotal">Sous-total TTC</span>
                     <span class="font-data-mono font-medium text-on-surface" id="checkout-subtotal">0.00€</span>
                 </div>
                 <div class="flex justify-between mb-4 text-primary">
@@ -207,15 +237,15 @@
                     <span class="font-data-mono font-bold" id="checkout-discount">-0.00€</span>
                 </div>
                                 <div class="flex justify-between mb-4">
-                    <span class="text-body-md text-on-surface-variant">Frais de livraison HT</span>
+                    <span class="text-body-md text-on-surface-variant">Frais de livraison</span>
                     <span class="font-data-mono font-medium text-on-surface" id="checkout-shipping">À calculer</span>
                 </div>
 <div class="flex justify-between mb-8 text-headline-md text-on-surface border-t border-outline/30 pt-4">
-                    <span data-i18n="cart.total">Total HT</span>
+                    <span data-i18n="cart.total">Total TTC</span>
                     <span class="font-data-mono font-bold" id="checkout-total">0.00€</span>
                 </div>
 
-                <button form="checkout-form" type="submit" id="submit-order-btn" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider py-4 px-6 rounded-md transition-colors flex items-center justify-center gap-2 shadow-sm">
+                <button form="checkout-form" type="submit" id="submit-order-btn" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider py-4 px-6 rounded-md transition-colors flex items-center justify-center gap-2 shadow-sm" disabled>
                     <span data-i18n="checkout.confirm_btn">Confirmer la commande</span>
                     <span class="material-symbols-outlined text-[20px]">check_circle</span>
                 </button>

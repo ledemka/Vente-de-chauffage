@@ -300,8 +300,8 @@
                                                             <div class="flex flex-col">
                                                                 <span class="text-label-md font-label-md text-on-surface-variant">PRIX GROS / PALETTE</span>
                                                                 <div class="flex items-baseline gap-1">
-                                                                    <span class="text-headline-lg font-headline-lg text-primary">${p.wholesale_price}</span>
-                                                                    <span class="text-body-md font-body-md text-primary">€ HT</span>
+                                                                    <span class="text-headline-lg font-headline-lg text-primary">${(p.wholesale_price * 1.2).toFixed(2)}</span>
+                                                                      <span class="text-body-md font-body-md text-primary">€ TTC</span>
                                                                 </div>
                                                             </div>
                                                             <button class="w-12 h-12 bg-primary text-on-primary rounded flex items-center justify-center hover:bg-primary/90 transition-colors">
