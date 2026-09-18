@@ -44,14 +44,27 @@ const AuthAPI = {
             // Sync cart if session token exists
             const token = localStorage.getItem('cart_session_token');
             if (token) {
-                const inSubdir = /^\/(en|de|nl)\//.test(window.location.pathname);
+                // Determine API path for cart based on language subdir
+                const path = window.location.pathname;
+                const inSubdir = /^\/(en|de|nl)\//.test(path);
                 const cartPath = inSubdir ? '../api/cart.php' : '/api/cart.php';
-                await fetch(cartPath, {
-                    method: 'POST',
-            credentials: 'include',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams({ action: 'sync', session_token: token })
-                });
+                
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 5000);
+                    
+                    await fetch(cartPath, {
+                        method: 'POST',
+                        credentials: 'include',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams({ action: 'sync', session_token: token }),
+                        signal: controller.signal
+                    });
+                    
+                    clearTimeout(timeoutId);
+                } catch (syncErr) {
+                    console.warn('Synchronisation du panier échouée (connexion non bloquée):', syncErr);
+                }
             }
         }
         return res;
