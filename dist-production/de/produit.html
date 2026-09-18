@@ -299,20 +299,33 @@
 
                         const urlParams = new URLSearchParams(window.location.search);
                         const productId = urlParams.get('id') || 'hetre-etuve';
+                        const urlLength = urlParams.get('length');
 
                         try {
-                            const resProducts = await fetch('../data/products.json?v=' + Date.now());
+                            const resProducts = await fetch('./data/products.json?v=' + Date.now());
                             const products = await resProducts.json();
                             const product = products.find(p => p.id === productId) || products[0];
 
                             if (product) {
+                                const isBuche = product.subgroup_id === 1 && product.prices_by_length;
+                                // For Bûches: if no length in URL, show page but disable Commander
+                                // currentLength starts empty if no URL param → user must select explicitly
+                                let lengthFromUrl = (isBuche && urlLength && product.prices_by_length[urlLength]) ? urlLength : null;
+                                // If the user came from catalogue with a valid ?length=XX, treat it as an explicit selection
+                                if (lengthFromUrl) {
+                                    window._userSelectedLength = lengthFromUrl;
+                                    window.currentProductLength = lengthFromUrl;
+                                }
+                                // currentLength is declared below in the pricing block
+
                                 document.getElementById('product-title').textContent = product.name;
                                 document.getElementById('product-ref').textContent = `Ref: ${product.id.toUpperCase()}-PAL`;
                                 const displayHumidity = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
                                 document.getElementById('product-desc').textContent = `${product.species_material} - Humidité: ${displayHumidity}. Origine: ${product.origin}. Idéal pour professionnels.`;
                                 document.getElementById('product-stock').textContent = 'En Stock';
-                                document.getElementById('product-img-1').src = product.image_product;
-                                document.getElementById('product-img-2').src = product.image_packaging;
+                                const imgPrefix = relPath === '.' ? '' : relPath;
+                                document.getElementById('product-img-1').src = imgPrefix + product.image_product;
+                                document.getElementById('product-img-2').src = imgPrefix + product.image_packaging;
 
                                 document.getElementById('spec-essence').textContent = product.species_material;
                                 document.getElementById('spec-longueur').textContent = product.format;
@@ -386,19 +399,117 @@
 
                                 const formatCurrency = (val) => val.toFixed(2) + ' €';
 
+                                let currentLength = '';
+
+                                if (product.prices_by_length) {
+                                    const lenContainer = document.getElementById('length-selector-container');
+                                    const lenOptions = document.getElementById('length-options');
+                                    lenContainer.style.display = 'flex';
+                                    lenOptions.innerHTML = '';
+                                    const lengths = Object.keys(product.prices_by_length).sort();
+
+                                    // For Bûches: currentLength = URL param if valid, else empty (no silent default)
+                                    currentLength = lengthFromUrl || '';
+                                    // displayLength is used for initial price display (50 if nothing selected)
+                                    const defaultDisplayLength = '50';
+
+                                    lengths.forEach(l => {
+                                        const btn = document.createElement('button');
+                                        const isActive = l === currentLength;
+                                        btn.className = `px-4 py-2 border rounded-md font-data-mono text-body-sm transition-colors ${isActive ? 'bg-primary text-on-primary border-primary' : 'bg-surface text-on-surface border-outline/30 hover:border-primary/50'}`;
+                                        btn.textContent = l + ' cm';
+                                        btn.onclick = () => {
+                                            currentLength = l;
+                                            window._userSelectedLength = l; // track explicit user choice
+                                            window.currentProductLength = l;
+                                            const newUrl = new URL(window.location);
+                                            newUrl.searchParams.set('length', l);
+                                            window.history.replaceState({}, '', newUrl);
+
+                                            Array.from(lenOptions.children).forEach(c => {
+                                                c.className = `px-4 py-2 border rounded-md font-data-mono text-body-sm transition-colors bg-surface text-on-surface border-outline/30 hover:border-primary/50`;
+                                            });
+                                            btn.className = `px-4 py-2 border rounded-md font-data-mono text-body-sm transition-colors bg-primary text-on-primary border-primary`;
+                                            // Hide the "no format" warning if shown
+                                            const warn = document.getElementById('no-format-warning');
+                                            if (warn) warn.classList.add('hidden');
+                                            // Enable Commander button
+                                            const cmdBtn = document.getElementById('btn-commander');
+                                            if (cmdBtn) {
+                                                cmdBtn.disabled = false;
+                                                cmdBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                                            }
+                                            updatePricing();
+                                        };
+                                        lenOptions.appendChild(btn);
+                                    });
+
+                                    // If no length selected, show warning banner and disable Commander
+                                    if (!currentLength) {
+                                        // Show informational banner
+                                        let warn = document.getElementById('no-format-warning');
+                                        if (!warn) {
+                                            warn = document.createElement('div');
+                                            warn.id = 'no-format-warning';
+                                            warn.className = 'flex items-start gap-3 bg-amber-50 border border-amber-300 text-amber-900 rounded-lg px-4 py-3 text-body-sm mt-2';
+                                            warn.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0" style="font-variation-settings:'FILL' 1">info</span><span>Veuillez sélectionner un format ci-dessus avant de commander.</span>`;
+                                            lenContainer.after(warn);
+                                        }
+                                        // Disable Commander button
+                                        const cmdBtn = document.getElementById('btn-commander');
+                                        if (cmdBtn) {
+                                            cmdBtn.disabled = true;
+                                            cmdBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                                        }
+                                        // Use displayLength for initial price preview
+                                        currentLength = defaultDisplayLength;
+                                    }
+                                }
+
                                 function updatePricing() {
                                     let qty = parseInt(qtyInput.value) || 1;
                                     if (qty < 1) { qty = 1; qtyInput.value = 1; }
                                     
-                                    const calc = calculateVolumeDiscount(product.wholesale_price, qty);
+                                    let basePrice = product.wholesale_price || 0;
+                                    let hasVolumeDiscount = true; // Toujours vrai car les remises sont globales
+
+                                    if (product.prices_by_length && currentLength) {
+                                        basePrice = product.prices_by_length[currentLength];
+                                        document.getElementById('spec-longueur').textContent = currentLength + ' cm';
+                                    }
                                     
-                                    const subtotalTtc = (product.wholesale_price * qty) * 1.20;
-                                    const totalTtc = calc.totalPrice * 1.20;
-                                    const taxAmt = totalTtc - calc.totalPrice;
+                                    let tier = 1;
+                                    let discountPercentage = 0;
+                                    let palettesNeededForNextTier = 0;
+                                    let nextTierPercentage = 0;
+
+                                    if (hasVolumeDiscount) {
+                                        if (qty < 2) {
+                                            tier = 1; discountPercentage = 0; palettesNeededForNextTier = 2 - qty; nextTierPercentage = 4;
+                                        } else if (qty >= 2 && qty <= 4) {
+                                            tier = 2; discountPercentage = 4; palettesNeededForNextTier = 5 - qty; nextTierPercentage = 6;
+                                        } else if (qty >= 5 && qty <= 9) {
+                                            tier = 3; discountPercentage = 6; palettesNeededForNextTier = 10 - qty; nextTierPercentage = 8;
+                                        } else if (qty >= 10 && qty <= 19) {
+                                            tier = 4; discountPercentage = 8; palettesNeededForNextTier = 20 - qty; nextTierPercentage = 10;
+                                        } else {
+                                            tier = 5; discountPercentage = 10; palettesNeededForNextTier = 0; nextTierPercentage = 10;
+                                        }
+                                        document.getElementById('discount-progress-ui').style.display = 'block';
+                                    } else {
+                                        document.getElementById('discount-progress-ui').style.display = 'none';
+                                    }
+
+                                    const discountedUnitPrice = basePrice * (1 - discountPercentage / 100);
+                                    const totalPrice = discountedUnitPrice * qty;
+                                    
+                                    const subtotalTtc = (basePrice * qty) * 1.20;
+                                    const totalTtc = totalPrice * 1.20;
+                                    const taxAmt = totalTtc - totalPrice;
                                     
                                     const unitPriceTtcEl = document.getElementById('unit-price-ttc');
-                                    if (unitPriceTtcEl) unitPriceTtcEl.textContent = formatCurrency(calc.discountedUnitPrice * 1.20);
-                                    if (unitPriceEl) unitPriceEl.textContent = formatCurrency(calc.discountedUnitPrice);
+                                    if (unitPriceTtcEl) unitPriceTtcEl.textContent = formatCurrency(discountedUnitPrice * 1.20);
+                                    if (unitPriceEl) unitPriceEl.textContent = formatCurrency(discountedUnitPrice);
 
                                     subtotalEl.textContent = formatCurrency(subtotalTtc);
                                     totalEl.textContent = formatCurrency(totalTtc); // totalEl is now the main Total TTC
@@ -406,36 +517,41 @@
                                     const taxEl = document.getElementById('tax-amt');
                                     const totalHtEl = document.getElementById('total-ht');
                                     if (taxEl) taxEl.textContent = formatCurrency(taxAmt);
-                                    if (totalHtEl) totalHtEl.textContent = formatCurrency(calc.totalPrice);
+                                    if (totalHtEl) totalHtEl.textContent = formatCurrency(totalPrice);
 
-                                    if (calc.discountPercentage > 0) {
+                                    if (discountPercentage > 0) {
                                         discountRow.classList.remove('hidden');
-                                        discountAmtEl.textContent = '-' + formatCurrency(product.wholesale_price * qty * (calc.discountPercentage / 100) * 1.20);
+                                        discountAmtEl.textContent = '-' + formatCurrency(basePrice * qty * (discountPercentage / 100) * 1.20);
                                         discountBadge.classList.remove('hidden');
                                     } else {
                                         discountRow.classList.add('hidden');
                                         discountBadge.classList.add('hidden');
                                     }
 
-                                    let tierName = "Standard";
-                                    let progress = 5;
-                                    if (calc.tier === 2) { tierName = "Pro Initial"; progress = 25; }
-                                    else if (calc.tier === 3) { tierName = "Revendeur"; progress = 50; }
-                                    else if (calc.tier === 4) { tierName = "Volume Pro"; progress = 75; }
-                                    else if (calc.tier === 5) { tierName = pr.full_truckload || "Camion Complet"; progress = 100; }
+                                    if (hasVolumeDiscount) {
+                                        let tierName = "Standard";
+                                        let progress = 5;
+                                        if (tier === 2) { tierName = "Pro Initial"; progress = 25; }
+                                        else if (tier === 3) { tierName = "Revendeur"; progress = 50; }
+                                        else if (tier === 4) { tierName = "Volume Pro"; progress = 75; }
+                                        else if (tier === 5) { tierName = pr.full_truckload || "Camion Complet"; progress = 100; }
 
-                                    tierStatusEl.textContent = `${pr.tier_level} ${tierName}`;
-                                    discountPctEl.textContent = `-${calc.discountPercentage}%`;
-                                    progressBar.style.width = `${progress}%`;
+                                        tierStatusEl.textContent = `${pr.tier_level} ${tierName}`;
+                                        discountPctEl.textContent = `-${discountPercentage}%`;
+                                        progressBar.style.width = `${progress}%`;
 
-                                    if (calc.palettesNeededForNextTier > 0) {
-                                        let msg = pr.next_tier_incentive || "Ajoutez {count} palette(s) pour -{pct}%";
-                                        msg = msg.replace('{count}', calc.palettesNeededForNextTier).replace('{pct}', calc.nextTierPercentage);
-                                        nextTierMsg.innerHTML = msg;
-                                        nextTierMsg.classList.remove('hidden');
-                                    } else {
-                                        nextTierMsg.innerHTML = `<span class="text-primary font-bold">Remise maximale atteinte !</span>`;
+                                        if (palettesNeededForNextTier > 0) {
+                                            let msg = pr.next_tier_incentive || "Ajoutez {count} palette(s) pour -{pct}%";
+                                            msg = msg.replace('{count}', palettesNeededForNextTier).replace('{pct}', nextTierPercentage);
+                                            nextTierMsg.innerHTML = msg;
+                                            nextTierMsg.classList.remove('hidden');
+                                        } else {
+                                            nextTierMsg.innerHTML = `<span class="text-primary font-bold">Remise maximale atteinte !</span>`;
+                                        }
                                     }
+                                    
+                                    // Make currentLength available globally for handleCommanderClick
+                                    window.currentProductLength = currentLength;
                                 }
 
                                 btnDecrease.addEventListener('click', () => {
@@ -460,27 +576,61 @@ updatePricing();
                                 const btnCommander = document.getElementById('btn-commander');
                                 if (btnCommander) {
                                     btnCommander.addEventListener('click', async () => {
+                                        // Block if no real format selected (Bûches)
+                                        if (isBuche && !lengthFromUrl && !window._userSelectedLength) {
+                                            alert('Veuillez sélectionner un format avant de commander.');
+                                            return;
+                                        }
                                         const qty = parseInt(qtyInput.value) || 1;
                                         if (window.CartAPI) {
                                             const originalText = btnCommander.innerHTML;
                                             btnCommander.innerHTML = '<span class="material-symbols-outlined animate-spin">autorenew</span>';
                                             try {
-                                                await window.CartAPI.update(product.id, qty); // fix: use update to avoid cumulation
+                                                await window.CartAPI.add(product.id, qty, window.currentProductLength || '');
                                                 window.location.href = './panier.html';
-                                            } catch (e) {
-                                                console.error(e);
+                                            } catch (ex) {
+                                                console.error(ex);
                                                 btnCommander.innerHTML = originalText;
                                             }
                                         }
                                     });
                                 }
-
+                                
                                 const btnDevis = document.getElementById('btn-devis');
                                 if (btnDevis) {
                                     btnDevis.addEventListener('click', () => {
                                         window.location.href = './devis.html?product=' + product.id;
                                     });
                                 }
+
+                                window.handleCommanderClick = (btn) => {
+                                    // Guard: Bûches need a real selected length
+                                    if (isBuche && !window._userSelectedLength) {
+                                        alert('Veuillez sélectionner un format avant de commander.');
+                                        return;
+                                    }
+                                    if (btn.disabled) return;
+                                    btn.disabled = true;
+                                    btn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> Ajout...`;
+                                    
+                                    const qty = parseInt(qtyInput.value) || 1;
+                                    CartAPI.add(product.id, qty, currentLength).then(res => {
+                                        if (res && res.success) {
+                                            btn.innerHTML = `<span class="material-symbols-outlined">check</span> Ajouté !`;
+                                            btn.classList.replace('bg-primary', 'bg-green-600');
+                                            setTimeout(() => {
+                                                window.location.href = './panier.html';
+                                            }, 800);
+                                        } else {
+                                            throw new Error("Add to cart failed");
+                                        }
+                                    }).catch(err => {
+                                        console.error(err);
+                                        btn.disabled = false;
+                                        btn.innerHTML = `<span class="material-symbols-outlined">shopping_cart_checkout</span> Commander`;
+                                        alert("Erreur lors de l'ajout au panier");
+                                    });
+                                };
                             }
                         } catch (err) {
                             console.error('Error loading product details:', err);

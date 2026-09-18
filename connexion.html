@@ -187,8 +187,19 @@
             <!-- Register Link -->
             <div class="text-center text-body-sm text-on-surface-variant pt-2">
                 <span>Pas encore de compte ?</span>
-                <a href="./inscription.html" class="text-[#752614] font-semibold hover:underline ml-1">S'inscrire</a>
+                <a href="./inscription.html" id="register-link" class="text-[#752614] font-semibold hover:underline ml-1">S'inscrire</a>
             </div>
+            
+            <script>
+                // Forward the redirect param to the registration link
+                const currentUrlParams = new URLSearchParams(window.location.search);
+                if (currentUrlParams.has('redirect')) {
+                    const regLink = document.getElementById('register-link');
+                    if (regLink) {
+                        regLink.href = './inscription.html?redirect=' + encodeURIComponent(currentUrlParams.get('redirect'));
+                    }
+                }
+            </script>
         </div>
     </div>
 </div>
@@ -214,9 +225,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Check if already logged in
+    const urlParams = new URLSearchParams(window.location.search);
+    let redirectUrl = urlParams.get('redirect') || './tableau-de-bord.html';
+    // If someone passes a redirect like recapitulatif-commande.html we want to use it
+
     const user = typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.getUser() : null;
     if (user) {
-        window.location.href = './tableau-de-bord.html';
+        window.location.href = redirectUrl;
     }
 
     const form = document.getElementById('login-form');
@@ -238,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const res = await (typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.login(email, password) : AuthAPI.login(email, password));
                 if (res.success) {
-                    window.location.href = './tableau-de-bord.html';
+                    window.location.href = redirectUrl;
                 } else {
                     errorDiv.textContent = res.message || 'Erreur de connexion';
                     errorDiv.classList.remove('hidden');

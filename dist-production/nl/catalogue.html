@@ -265,6 +265,26 @@
                                         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                                             ${sg.products.map(p => {
                                                 const showBadge = p.positioning && p.positioning !== '';
+                                                let displayPrice = p.wholesale_price || 0;
+                                                let pricePrefix = '';
+                                                if (p.prices_by_length) {
+                                                    let relevantPrices = [];
+                                                    if (selectedFormats && selectedFormats.length > 0) {
+                                                        selectedFormats.forEach(f => {
+                                                            if (p.prices_by_length[f]) relevantPrices.push(Number(p.prices_by_length[f]));
+                                                        });
+                                                    }
+                                                    if (relevantPrices.length === 0) {
+                                                        relevantPrices = Object.values(p.prices_by_length).map(Number);
+                                                    }
+                                                    
+                                                    if (relevantPrices.length > 0) {
+                                                        displayPrice = Math.min(...relevantPrices);
+                                                        if (relevantPrices.length > 1 || !selectedFormats || selectedFormats.length !== 1) {
+                                                            pricePrefix = `<span class="text-body-sm mr-1 text-on-surface-variant">${t.pricing && t.pricing.from ? t.pricing.from : 'vanaf'}</span>`;
+                                                        }
+                                                    }
+                                                }
                                                 const badgeHtml = showBadge ? `
                                                     <div class="absolute top-3 left-3 bg-surface text-primary px-2 py-1 rounded text-label-md font-label-md flex items-center gap-1 shadow-sm">
                                                         <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>

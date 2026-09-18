@@ -106,7 +106,7 @@
             </div>
         </div>
 
-        <a href="./connexion.html" class="mt-6 bg-primary hover:bg-primary-container text-white font-label-md text-label-md py-4 px-8 rounded-md transition-colors shadow-sm">
+        <a href="./connexion.html" id="connexion-btn" class="mt-6 bg-primary hover:bg-primary-container text-white font-label-md text-label-md py-4 px-8 rounded-md transition-colors shadow-sm">
             <span data-i18n="merci.inscription_cta">Aller à la connexion</span>
         </a>
     </div>
@@ -127,6 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const notice = document.getElementById('spam-notice-container');
             if (notice) notice.classList.remove('hidden');
         });
+    }
+
+    if (urlParams.has('redirect')) {
+        const connexionBtn = document.getElementById('connexion-btn');
+        if (connexionBtn) {
+            connexionBtn.href = './connexion.html?redirect=' + encodeURIComponent(urlParams.get('redirect'));
+        }
     }
 });
 </script>

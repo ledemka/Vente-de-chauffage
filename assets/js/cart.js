@@ -2,7 +2,7 @@
  * B2B Cart & Auth Frontend logic
  */
 
-const CartAPI = {
+var CartAPI = {
     _ensureToken() {
         let token = localStorage.getItem('cart_session_token');
         if (!token) {
@@ -22,8 +22,8 @@ const CartAPI = {
         }
 
         // Use proper API path depending on current location
-        const inSubdir = /^\/(en|de|nl)\//.test(window.location.pathname);
-        const apiPath = inSubdir ? '../api/cart.php' : '/api/cart.php';
+        const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
+        const apiPath = inSubdir ? '../api/cart.php' : './api/cart.php';
 
         const res = await fetch(apiPath, {
             method: 'POST',
@@ -36,18 +36,18 @@ const CartAPI = {
         return await res.json();
     },
 
-    async add(productId, quantity = 1) {
-        const res = await this.request('add', { product_id: productId, quantity });
+    async add(productId, quantity = 1, length = '') {
+        const res = await this.request('add', { product_id: productId, quantity, length });
         if(window.updateCartBadge) window.updateCartBadge();
         return res;
     },
-    async update(productId, quantity) {
-        const res = await this.request('update', { product_id: productId, quantity });
+    async update(productId, quantity, length = '') {
+        const res = await this.request('update', { product_id: productId, quantity, length });
         if(window.updateCartBadge) window.updateCartBadge();
         return res;
     },
-    async remove(productId) {
-        const res = await this.request('remove', { product_id: productId });
+    async remove(productId, length = '') {
+        const res = await this.request('remove', { product_id: productId, length });
         if(window.updateCartBadge) window.updateCartBadge();
         return res;
     },
@@ -71,7 +71,10 @@ const OrderAPI = {
             formData.append(key, data[key]);
         }
 
-        const res = await fetch('/api/order.php', {
+        const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
+        const apiPath = inSubdir ? '../api/order.php' : './api/order.php';
+
+        const res = await fetch(apiPath, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -90,7 +93,7 @@ window.OrderAPI = OrderAPI;
 
 // --- UI Rendering Logic ---
 
-const CartUI = {
+var CartUI = {
     products: null,
     
     // Grille de remise stricte
@@ -142,8 +145,8 @@ const CartUI = {
     },
 
     calculateDiscount(totalQuantity, subtotal) {
-        const { currentTier } = this.getCurrentTier(totalQuantity);
-        return subtotal * currentTier.pct;
+        // Obsolete function, discount is now calculated server-side per item
+        return 0;
     },
 
     async renderCartPage() {
@@ -175,6 +178,7 @@ const CartUI = {
         let html = '<div class="flex flex-col gap-4">';
         
         let subtotal = 0;
+        let rawSubtotal = 0;
         let totalQuantity = 0;
         
         let subgroupCounts = {};
@@ -184,44 +188,56 @@ const CartUI = {
             const prod = this.getProduct(item.product_id);
             if (!prod) return;
             
-            const lineTotalHT = prod.wholesale_price * item.quantity;
+            const lineTotalHT = item.total;
             const lineTotalTTC = lineTotalHT * 1.20;
             subtotal += lineTotalHT;
+            rawSubtotal += (item.wholesale_price * item.quantity);
             totalQuantity += item.quantity;
             
             if (!firstSubgroup) firstSubgroup = prod.subgroup_id;
             subgroupCounts[prod.subgroup_id] = (subgroupCounts[prod.subgroup_id] || 0) + item.quantity;
 
+            const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
+            const relPath = inSubdir ? '..' : '.';
+            const imgPrefix = relPath === '.' ? '' : relPath;
+
             html += `
             <div class="bg-surface-container rounded-xl p-5 border border-outline/10 shadow-sm flex flex-col md:flex-row items-center gap-6">
-                <img src="${prod.image_product}" class="w-24 h-24 object-cover rounded-lg border border-outline/20 flex-shrink-0" alt="">
+                <img src="${imgPrefix}${prod.image_product}" class="w-24 h-24 object-cover rounded-lg border border-outline/20 flex-shrink-0" alt="">
                 
                 <div class="flex-grow">
                     <div class="text-label-md uppercase text-outline-variant tracking-wider font-bold mb-1">RÉF: ${prod.id}</div>
                     <h3 class="text-body-lg font-bold text-on-surface mb-2">${prod.name}</h3>
                     <div class="text-body-sm text-on-surface-variant flex items-center gap-2">
                         <span class="material-symbols-outlined text-[16px]">inventory_2</span>
-                        Format : ${prod.format} / ${prod.palette_weight}
+                        Format : ${item.format} / ${prod.palette_weight}
                     </div>
                 </div>
                 
                 <div class="flex flex-col items-center gap-3">
                     <div class="inline-flex items-center border border-outline-variant rounded-md overflow-hidden bg-surface-container-highest shadow-sm">
-                        <button onclick="CartUI.updateItem('${item.product_id}', ${item.quantity - 1})" class="w-10 h-10 flex items-center justify-center hover:bg-surface-dim transition-colors border-r border-outline-variant">
+                        <button onclick="CartUI.updateItem('${item.product_id}', ${item.quantity - 1}, '${item.length || ''}')" class="w-10 h-10 flex items-center justify-center hover:bg-surface-dim transition-colors border-r border-outline-variant">
                             <span class="material-symbols-outlined text-[20px]">remove</span>
                         </button>
                         <input type="number" min="1" value="${item.quantity}" readonly class="w-14 h-10 text-center bg-transparent focus:outline-none font-data-mono font-bold text-on-surface">
-                        <button onclick="CartUI.updateItem('${item.product_id}', ${item.quantity + 1})" class="w-10 h-10 flex items-center justify-center hover:bg-surface-dim transition-colors border-l border-outline-variant">
+                        <button onclick="CartUI.updateItem('${item.product_id}', ${item.quantity + 1}, '${item.length || ''}')" class="w-10 h-10 flex items-center justify-center hover:bg-surface-dim transition-colors border-l border-outline-variant">
                             <span class="material-symbols-outlined text-[20px]">add</span>
                         </button>
                     </div>
-                    <div class="text-right">
-                        <div class="text-headline-md font-data-mono font-bold text-on-surface">${this.formatPrice(lineTotalTTC)} TTC</div>
+                    <div class="text-right flex flex-col items-end">
+                        ${item.discount_percent > 0 ? `
+                            <div class="text-body-sm text-outline-variant line-through">${this.formatPrice(item.wholesale_price)} HT</div>
+                            <div class="text-body-sm font-bold text-primary">-${item.discount_percent}%</div>
+                            <div class="text-label-lg font-bold">${this.formatPrice(item.unit_price)} HT / pal</div>
+                        ` : `
+                            <div class="text-label-lg font-bold">${this.formatPrice(item.unit_price)} HT / pal</div>
+                        `}
+                        <div class="text-headline-md font-data-mono font-bold text-on-surface mt-1">${this.formatPrice(lineTotalTTC)} TTC</div>
                     </div>
                 </div>
                 
                 <div class="pl-4 border-l border-outline/10">
-                    <button onclick="CartUI.removeItem('${item.product_id}')" class="text-error hover:text-on-error-container p-2 rounded-full hover:bg-error-container transition-colors" title="Supprimer">
+                    <button onclick="CartUI.removeItem('${item.product_id}', '${item.length || ''}')" class="text-error hover:text-on-error-container p-2 rounded-full hover:bg-error-container transition-colors" title="Supprimer">
                         <span class="material-symbols-outlined text-[24px]">delete</span>
                     </button>
                 </div>
@@ -268,20 +284,43 @@ const CartUI = {
             recProducts = shuffleArray(recProducts).slice(0, 3);
             
             const renderProductCards = (prodList) => {
+                const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
+                const relPath = inSubdir ? '..' : '.';
+                const imgPrefix = relPath === '.' ? '' : relPath;
+                const basePath = relPath + '/';
                 let phtml = '<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">';
                 prodList.forEach(p => {
+                    const isBuche = p.subgroup_id === 1 && p.prices_by_length;
+                    // For Bûches: show price at 50cm by default (display only)
+                    const displayPrice = isBuche
+                        ? (p.prices_by_length['50'] || Math.min(...Object.values(p.prices_by_length).map(Number)))
+                        : (p.wholesale_price || 0);
+
+                    // For Bûches: redirect to catalogue format selector instead of adding directly
+                    const actionBtn = isBuche
+                        ? `<a href="${relPath}/catalogue.html?subgroup=1" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-label-md py-2 rounded-md transition-colors flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">straighten</span>
+                                <span>Choisir le format</span>
+                           </a>`
+                        : `<button onclick="CartUI.addRecommended('${p.id}')" class="w-full bg-surface-container-highest hover:bg-surface-dim text-on-surface font-label-md py-2 rounded-md transition-colors border border-outline-variant flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                <span data-i18n="product.add_to_cart">Ajouter</span>
+                           </button>`;
+
+                    const formatLabel = isBuche
+                        ? `<div class="text-body-sm text-amber-700 mb-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> Sélectionnez un format</div>`
+                        : `<div class="text-body-sm text-on-surface-variant mb-2">${p.format}</div>`;
+
                     phtml += `
                         <div class="bg-surface-container rounded-xl p-4 border border-outline/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                             <div>
-                                <img src="${p.image_product}" class="w-full h-32 object-cover rounded-lg mb-4" alt="">
+                                <img src="${imgPrefix}${p.image_product}" class="w-full h-32 object-cover rounded-lg mb-4" alt="">
                                 <h4 class="text-label-lg font-bold text-on-surface mb-1 line-clamp-2">${p.name}</h4>
-                                <div class="text-body-sm text-on-surface-variant mb-2">${p.format}</div>
+                                ${formatLabel}
                             </div>
                             <div>
-                                <div class="text-label-lg font-data-mono font-bold text-primary">${this.formatPrice(p.wholesale_price * 1.20)} TTC</div>
-                                <button onclick="CartUI.addRecommended('${p.id}')" class="w-full bg-surface-container-highest hover:bg-surface-dim text-on-surface font-label-md py-2 rounded-md transition-colors border border-outline-variant flex items-center justify-center gap-2">
-                                    <span class="material-symbols-outlined text-[18px]">add</span> <span data-i18n="product.add_to_cart">Ajouter</span>
-                                </button>
+                                <div class="text-label-lg font-data-mono font-bold text-primary mb-2">${this.formatPrice(displayPrice * 1.20)} TTC${isBuche ? '<span class="text-[10px] text-amber-700 font-normal ml-1">prix 50cm</span>' : ''}</div>
+                                ${actionBtn}
                             </div>
                         </div>
                     `;
@@ -316,10 +355,10 @@ const CartUI = {
         container.innerHTML = html;
 
         // Rendu de la Sidebar (Tarif Dégressif & Livraison)
-        const discount = this.calculateDiscount(totalQuantity, subtotal);
-        const totalHT = subtotal - discount;
+        const discount = Math.max(0, rawSubtotal - subtotal);
+        const totalHT = subtotal;
         const totalTTC = totalHT * 1.20;
-        const subtotalTTC = subtotal * 1.20;
+        const rawSubtotalTTC = rawSubtotal * 1.20;
         const discountTTC = discount * 1.20;
         
         const { currentTier, nextTier } = this.getCurrentTier(totalQuantity);
@@ -379,7 +418,7 @@ const CartUI = {
                         <div class="flex justify-between text-body-sm text-on-surface-variant">
                             <span>Sous-total TTC</span>
                               <div class="text-right">
-                                  <span class="font-data-mono">${this.formatPrice(subtotalTTC)}</span>
+                                  <span class="font-data-mono">${this.formatPrice(rawSubtotalTTC)}</span>
                               </div>
                         </div>
                         <div class="flex justify-between text-body-sm font-bold text-primary">
@@ -414,6 +453,17 @@ const CartUI = {
     },
 
     async renderCheckoutPage() {
+        // Enforce login for checkout
+        const checkoutUser = typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.getUser() : null;
+        if (!checkoutUser) {
+            const authModal = document.getElementById('auth-modal');
+            if (authModal) {
+                authModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+            return;
+        }
+
         const itemsContainer = document.getElementById('checkout-items');
         if (!itemsContainer) return;
 
@@ -470,25 +520,31 @@ const CartUI = {
         updateCheckoutTotal = updateCheckoutTotal.bind(this);
 
         let subtotal = 0;
+        let rawSubtotal = 0;
         let totalQuantity = 0;
 
         items.forEach(item => {
             const prod = this.getProduct(item.product_id);
             if (!prod) return;
-            const lineTotal = prod.wholesale_price * item.quantity;
-            const lineTotalHT = lineTotal;
+            const lineTotal = item.total;
             const lineTotalTTC = lineTotal * 1.20;
             subtotal += lineTotal;
+            rawSubtotal += (item.wholesale_price * item.quantity);
             totalQuantity += item.quantity;
 
             html += `<tr class="border-b border-outline/20">
                 <td class="py-3 pr-2 text-body-sm">
                     <span class="font-bold text-on-surface block">${prod.name}</span>
+                    <span class="text-body-sm text-on-surface-variant block">${item.format}</span>
                     <span class="text-label-md uppercase text-outline-variant mt-1 block">RÉF: ${prod.id}</span>
                 </td>
-                <td class="py-3 px-2 text-center text-body-sm font-data-mono">${item.quantity}</td>
+                <td class="py-3 px-2 text-center text-body-sm font-data-mono">
+                    ${item.quantity}<br>
+                    <span class="text-xs text-outline-variant">${this.formatPrice(item.unit_price)} HT</span>
+                </td>
                 <td class="py-3 pl-2 text-right text-body-sm font-data-mono font-bold text-primary">
                     ${this.formatPrice(lineTotalTTC)} TTC
+                    ${item.discount_percent > 0 ? `<span class="text-xs text-primary font-bold block">-${item.discount_percent}% remisé</span>` : ''}
                 </td>
             </tr>`;
         });
@@ -496,12 +552,12 @@ const CartUI = {
         html += '</tbody></table></div>';
         itemsContainer.innerHTML = html;
 
-        const discount = this.calculateDiscount(totalQuantity, subtotal);
+        const discount = Math.max(0, rawSubtotal - subtotal);
         
-        checkoutSubtotal = subtotal;
+        checkoutSubtotal = rawSubtotal;
         checkoutTotalQty = totalQuantity;
         checkoutDiscountAmt = discount;
-        const subtotalTTC = subtotal * 1.20;
+        const subtotalTTC = rawSubtotal * 1.20;
         const discountTTC = discount * 1.20;
         
         document.getElementById('checkout-subtotal').innerHTML = `${this.formatPrice(subtotalTTC)}`;
@@ -511,12 +567,11 @@ const CartUI = {
         updateCheckoutTotal();
 
         // Pre-fill user data if logged in
-        const user = AuthAPI.getUser();
-        if (user) {
-            if(document.getElementById('company')) document.getElementById('company').value = user.company || '';
-            if(document.getElementById('contact_name')) document.getElementById('contact_name').value = user.contact_name || '';
-            if(document.getElementById('email')) document.getElementById('email').value = user.email || '';
-            if(document.getElementById('phone')) document.getElementById('phone').value = user.phone || '';
+        if (checkoutUser) {
+            if(document.getElementById('company')) document.getElementById('company').value = checkoutUser.company || '';
+            if(document.getElementById('contact_name')) document.getElementById('contact_name').value = checkoutUser.contact_name || '';
+            if(document.getElementById('email')) document.getElementById('email').value = checkoutUser.email || '';
+            if(document.getElementById('phone')) document.getElementById('phone').value = checkoutUser.phone || '';
         }
 
         
@@ -754,19 +809,28 @@ const CartUI = {
         if (container) container.style.opacity = '1';
     },
 
-    async updateItem(productId, qty) {
+    async updateItem(productId, qty, length = '') {
         if (qty < 1) return;
         const container = document.getElementById('cart-items-container');
         if (container) container.style.opacity = '0.5';
-        await CartAPI.update(productId, qty);
+        await CartAPI.update(productId, qty, length);
         await this.renderCartPage();
         if (container) container.style.opacity = '1';
     },
 
-    async removeItem(productId) {
+    async removeItem(productId, length = '') {
         const container = document.getElementById('cart-items-container');
         if (container) container.style.opacity = '0.5';
-        await CartAPI.remove(productId);
+        await CartAPI.remove(productId, length);
+        await this.renderCartPage();
+        if (container) container.style.opacity = '1';
+    },
+
+    async clearCart() {
+        if (!confirm('Vider le panier ?')) return;
+        const container = document.getElementById('cart-items-container');
+        if (container) container.style.opacity = '0.5';
+        await CartAPI.clear();
         await this.renderCartPage();
         if (container) container.style.opacity = '1';
     },

@@ -41,62 +41,26 @@ try {
     // 1. Cleanup guest carts older than 30 days
     $pdo->exec("DELETE FROM cart_items WHERE client_id IS NULL AND session_token IS NOT NULL AND updated_at < NOW() - INTERVAL 30 DAY");
 
-    // Helper: get products data
-    function getProductsData() {
-        $json = @file_get_contents(__DIR__ . '/../data/products.json');
-        if (!$json) return [];
-        return json_decode($json, true) ?: [];
-    }
-
-    function calculateVolumeDiscountPHP($wholesalePrice, $quantity) {
-        $qty = max(1, (int)$quantity);
-        $basePrice = (float)$wholesalePrice;
-        $tier = 1;
-        $discountPercentage = 0;
-        
-        if ($qty < 2) {
-            $tier = 1; $discountPercentage = 0;
-        } elseif ($qty >= 2 && $qty <= 4) {
-            $tier = 2; $discountPercentage = 4;
-        } elseif ($qty >= 5 && $qty <= 9) {
-            $tier = 3; $discountPercentage = 6;
-        } elseif ($qty >= 10 && $qty <= 19) {
-            $tier = 4; $discountPercentage = 8;
-        } else {
-            $tier = 5; $discountPercentage = 10;
-        }
-        
-        $discountedUnitPrice = $basePrice * (1 - $discountPercentage / 100);
-        $totalPrice = $discountedUnitPrice * $qty;
-        
-        return [
-            'quantity' => $qty,
-            'tier' => $tier,
-            'discountPercentage' => $discountPercentage,
-            'wholesaleBasePrice' => $basePrice,
-            'discountedUnitPrice' => round($discountedUnitPrice, 2),
-            'totalPrice' => round($totalPrice, 2)
-        ];
-    }
+    require_once __DIR__ . '/pricing.php';
 
     if ($action === 'sync' && $client_id && $session_token) {
         // User just logged in, merge guest cart into client cart
-        $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE session_token = ? AND client_id IS NULL");
+        $stmt = $pdo->prepare("SELECT product_id, length, quantity FROM cart_items WHERE session_token = ? AND client_id IS NULL");
         $stmt->execute([$session_token]);
         $guestItems = $stmt->fetchAll();
 
         foreach ($guestItems as $item) {
-            // Check if user already has this product
-            $chk = $pdo->prepare("SELECT id, quantity FROM cart_items WHERE client_id = ? AND product_id = ?");
-            $chk->execute([$client_id, $item['product_id']]);
+            // Check if user already has this product and length
+            $chk = $pdo->prepare("SELECT id, quantity FROM cart_items WHERE client_id = ? AND product_id = ? AND (length = ? OR (length IS NULL AND ? IS NULL))");
+            $chk->execute([$client_id, $item['product_id'], $item['length'], $item['length']]);
             $existing = $chk->fetch();
 
             if ($existing) {
                 $upd = $pdo->prepare("UPDATE cart_items SET quantity = quantity + ? WHERE id = ?");
                 $upd->execute([$item['quantity'], $existing['id']]);
             } else {
-                $ins = $pdo->prepare("INSERT INTO cart_items (client_id, product_id, quantity) VALUES (?, ?, ?)");
-                $ins->execute([$client_id, $item['product_id'], $item['quantity']]);
+                $ins = $pdo->prepare("INSERT INTO cart_items (client_id, product_id, length, quantity) VALUES (?, ?, ?, ?)");
+                $ins->execute([$client_id, $item['product_id'], $item['length'], $item['quantity']]);
             }
         }
         // Delete guest cart items
@@ -107,17 +71,19 @@ try {
     }
     elseif ($action === 'add' || $action === 'update') {
         $product_id = $input['product_id'] ?? '';
+        $length = $input['length'] ?? null;
+        if ($length === '') $length = null;
         $quantity = max(1, (int)($input['quantity'] ?? 1));
         
         if (!$product_id) respondError(400, 'Produit manquant');
         
         // Find existing
         if ($client_id) {
-            $stmt = $pdo->prepare("SELECT id, quantity FROM cart_items WHERE client_id = ? AND product_id = ?");
-            $stmt->execute([$client_id, $product_id]);
+            $stmt = $pdo->prepare("SELECT id, quantity FROM cart_items WHERE client_id = ? AND product_id = ? AND (length = ? OR (length IS NULL AND ? IS NULL))");
+            $stmt->execute([$client_id, $product_id, $length, $length]);
         } else {
-            $stmt = $pdo->prepare("SELECT id, quantity FROM cart_items WHERE session_token = ? AND product_id = ? AND client_id IS NULL");
-            $stmt->execute([$session_token, $product_id]);
+            $stmt = $pdo->prepare("SELECT id, quantity FROM cart_items WHERE session_token = ? AND product_id = ? AND client_id IS NULL AND (length = ? OR (length IS NULL AND ? IS NULL))");
+            $stmt->execute([$session_token, $product_id, $length, $length]);
         }
         $existing = $stmt->fetch();
 
@@ -126,9 +92,9 @@ try {
             $pdo->prepare("UPDATE cart_items SET quantity = ? WHERE id = ?")->execute([$newQty, $existing['id']]);
         } else {
             if ($client_id) {
-                $pdo->prepare("INSERT INTO cart_items (client_id, product_id, quantity) VALUES (?, ?, ?)")->execute([$client_id, $product_id, $quantity]);
+                $pdo->prepare("INSERT INTO cart_items (client_id, product_id, length, quantity) VALUES (?, ?, ?, ?)")->execute([$client_id, $product_id, $length, $quantity]);
             } else {
-                $pdo->prepare("INSERT INTO cart_items (session_token, product_id, quantity) VALUES (?, ?, ?)")->execute([$session_token, $product_id, $quantity]);
+                $pdo->prepare("INSERT INTO cart_items (session_token, product_id, length, quantity) VALUES (?, ?, ?, ?)")->execute([$session_token, $product_id, $length, $quantity]);
             }
         }
         
@@ -137,10 +103,13 @@ try {
     }
     elseif ($action === 'remove') {
         $product_id = $input['product_id'] ?? '';
+        $length = $input['length'] ?? null;
+        if ($length === '') $length = null;
+
         if ($client_id) {
-            $pdo->prepare("DELETE FROM cart_items WHERE client_id = ? AND product_id = ?")->execute([$client_id, $product_id]);
+            $pdo->prepare("DELETE FROM cart_items WHERE client_id = ? AND product_id = ? AND (length = ? OR (length IS NULL AND ? IS NULL))")->execute([$client_id, $product_id, $length, $length]);
         } else {
-            $pdo->prepare("DELETE FROM cart_items WHERE session_token = ? AND product_id = ? AND client_id IS NULL")->execute([$session_token, $product_id]);
+            $pdo->prepare("DELETE FROM cart_items WHERE session_token = ? AND product_id = ? AND client_id IS NULL AND (length = ? OR (length IS NULL AND ? IS NULL))")->execute([$session_token, $product_id, $length, $length]);
         }
         echo json_encode(['success' => true]);
         exit;
@@ -156,10 +125,10 @@ try {
     }
     elseif ($action === 'get') {
         if ($client_id) {
-            $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE client_id = ?");
+            $stmt = $pdo->prepare("SELECT product_id, length, quantity FROM cart_items WHERE client_id = ?");
             $stmt->execute([$client_id]);
         } else {
-            $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE session_token = ? AND client_id IS NULL");
+            $stmt = $pdo->prepare("SELECT product_id, length, quantity FROM cart_items WHERE session_token = ? AND client_id IS NULL");
             $stmt->execute([$session_token]);
         }
         $items = $stmt->fetchAll();
@@ -170,6 +139,16 @@ try {
             $productsMap[$p['id']] = $p;
         }
 
+        // 1. Calculate total palettes
+        $totalPalettes = 0;
+        foreach ($items as $item) {
+            $totalPalettes += max(1, (int)$item['quantity']);
+        }
+        
+        // 2. Get global discount
+        $globalDiscount = calculateGlobalDiscount($totalPalettes);
+        $globalDiscountPercent = $globalDiscount['discount_percent'];
+
         $cartData = [];
         $subtotal = 0;
         
@@ -177,20 +156,28 @@ try {
             $pid = $item['product_id'];
             if (isset($productsMap[$pid])) {
                 $p = $productsMap[$pid];
-                $calc = calculateVolumeDiscountPHP($p['wholesale_price'] ?? 0, $item['quantity']);
+                $len = $item['length'];
                 
+                // If a length was requested but the product doesn't support it or the length doesn't exist, we skip it
+                if ($len !== null && (!isset($p['prices_by_length']) || !isset($p['prices_by_length'][$len]))) {
+                    continue; // Skip invalid lengths added maliciously
+                }
+                
+                $calc = calculateLinePrice($p, $len, (int)$item['quantity'], (float)$globalDiscountPercent);
+
                 $cartData[] = [
                     'product_id' => $pid,
                     'name' => $p['name'],
-                    'format' => $p['format'],
+                    'length' => $len,
+                    'format' => $len ? $len . ' cm' : $p['format'],
                     'image' => $p['image_product'] ?? '',
                     'quantity' => $calc['quantity'],
-                    'wholesale_price' => $calc['wholesaleBasePrice'],
-                    'discount_percent' => $calc['discountPercentage'],
-                    'unit_price' => $calc['discountedUnitPrice'],
-                    'total' => $calc['totalPrice']
+                    'wholesale_price' => $calc['unit_price_catalog_ht'],
+                    'discount_percent' => $calc['discount_percent'],
+                    'unit_price' => $calc['unit_price_net_ht'],
+                    'total' => $calc['total_ht']
                 ];
-                $subtotal += $calc['totalPrice'];
+                $subtotal += $calc['total_ht'];
             }
         }
         

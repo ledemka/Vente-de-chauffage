@@ -3,7 +3,7 @@
  * Shared across all pages of the site.
  */
 
-const AuthAPI = {
+var AuthAPI = {
     _apiPath: null,
 
     /**

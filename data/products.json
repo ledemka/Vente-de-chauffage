@@ -4,12 +4,10 @@
     "subgroup_id": 1,
     "subgroup_name": "Bûches de bois",
     "name": "Hêtre étuvé / séché au four",
-    "format": "25 / 30 / 33 / 40 / 50 cm",
+    "format": "20 / 30 / 33 / 40 / 50 cm",
     "unit_weight": "25 kg",
     "units_per_palette": 40,
     "palette_weight": "1000 kg",
-    "wholesale_price": 415.83,
-    "recommended_price": 479.17,
     "positioning": "Bon prix – sous marché",
     "species_material": "Hêtre séché au four (< 20% humidité)",
     "origin": "À préciser",
@@ -17,19 +15,24 @@
     "image_packaging": "/assets/images/products/hetre-etuve-packaging.jpg",
     "humidity_bucket": "<20%",
     "available": true,
-    "volume_m3": 2.16
+    "volume_m3": 2.16,
+    "prices_by_length": {
+      "20": 305,
+      "30": 295,
+      "33": 285,
+      "40": 270,
+      "50": 255
+    }
   },
   {
     "id": "hetre-demi-sec",
     "subgroup_id": 1,
     "subgroup_name": "Bûches de bois",
     "name": "Hêtre demi-sec",
-    "format": "25 / 30 / 33 / 40 / 50 cm",
+    "format": "20 / 30 / 33 / 40 / 50 cm",
     "unit_weight": "25 kg",
     "units_per_palette": 40,
     "palette_weight": "1000 kg",
-    "wholesale_price": 315.83,
-    "recommended_price": 354.17,
     "positioning": "Très bon prix",
     "species_material": "Hêtre demi-sec",
     "origin": "À préciser",
@@ -37,19 +40,24 @@
     "image_packaging": "/assets/images/products/hetre-demi-sec-packaging.jpg",
     "humidity_bucket": "20-25%",
     "available": true,
-    "volume_m3": 2.16
+    "volume_m3": 2.16,
+    "prices_by_length": {
+      "20": 250,
+      "30": 240,
+      "33": 230,
+      "40": 220,
+      "50": 210
+    }
   },
   {
     "id": "chene-etuve",
     "subgroup_id": 1,
     "subgroup_name": "Bûches de bois",
     "name": "Chêne étuvé / séché au four",
-    "format": "25 / 30 / 33 / 40 / 50 cm",
+    "format": "20 / 30 / 33 / 40 / 50 cm",
     "unit_weight": "25 kg",
     "units_per_palette": 40,
     "palette_weight": "1000 kg",
-    "wholesale_price": 449.17,
-    "recommended_price": 520.83,
     "positioning": "Bon prix – sous marché",
     "species_material": "Chêne séché au four (< 20% humidité)",
     "origin": "À préciser",
@@ -57,19 +65,24 @@
     "image_packaging": "/assets/images/products/chene-etuve-packaging.jpg",
     "humidity_bucket": "<20%",
     "available": true,
-    "volume_m3": 2.16
+    "volume_m3": 2.16,
+    "prices_by_length": {
+      "20": 310,
+      "30": 300,
+      "33": 290,
+      "40": 275,
+      "50": 260
+    }
   },
   {
     "id": "chene-sec-air",
     "subgroup_id": 1,
     "subgroup_name": "Bûches de bois",
     "name": "Chêne sec à l'air",
-    "format": "25 / 30 / 33 / 40 / 50 cm",
+    "format": "20 / 30 / 33 / 40 / 50 cm",
     "unit_weight": "25 kg",
     "units_per_palette": 40,
     "palette_weight": "1000 kg",
-    "wholesale_price": 382.5,
-    "recommended_price": 437.5,
     "positioning": "Bon prix",
     "species_material": "Chêne séché à l'air libre",
     "origin": "À préciser",
@@ -77,19 +90,24 @@
     "image_packaging": "/assets/images/products/chene-sec-air-packaging.jpg",
     "humidity_bucket": "non spécifié",
     "available": true,
-    "volume_m3": 2.16
+    "volume_m3": 2.16,
+    "prices_by_length": {
+      "20": 280,
+      "30": 270,
+      "33": 260,
+      "40": 245,
+      "50": 230
+    }
   },
   {
     "id": "melange-essences",
     "subgroup_id": 1,
     "subgroup_name": "Bûches de bois",
     "name": "Mélange d'essences séché au four",
-    "format": "25 / 30 / 33 / 40 / 50 cm",
+    "format": "20 / 30 / 33 / 40 / 50 cm",
     "unit_weight": "25 kg",
     "units_per_palette": 40,
     "palette_weight": "1000 kg",
-    "wholesale_price": 365.83,
-    "recommended_price": 416.67,
     "positioning": "Très bon prix",
     "species_material": "Mélange d'essences feuillues dures",
     "origin": "À préciser",
@@ -97,7 +115,14 @@
     "image_packaging": "/assets/images/products/melange-essences-packaging.jpg",
     "humidity_bucket": "<20%",
     "available": true,
-    "volume_m3": 2.16
+    "volume_m3": 2.16,
+    "prices_by_length": {
+      "20": 290,
+      "30": 280,
+      "33": 270,
+      "40": 255,
+      "50": 240
+    }
   },
   {
     "id": "jour-premium-cylindrique",

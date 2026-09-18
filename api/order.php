@@ -77,55 +77,64 @@ try {
 
     // 1. Get Cart Items
     if ($client_id) {
-        $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE client_id = ?");
+        $stmt = $pdo->prepare("SELECT product_id, length, quantity FROM cart_items WHERE client_id = ?");
         $stmt->execute([$client_id]);
     } else {
-        $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE session_token = ? AND client_id IS NULL");
+        $stmt = $pdo->prepare("SELECT product_id, length, quantity FROM cart_items WHERE session_token = ? AND client_id IS NULL");
         $stmt->execute([$session_token]);
     }
     $cartItems = $stmt->fetchAll();
     if (empty($cartItems)) respondError(400, 'Votre panier est vide.');
 
+    require_once __DIR__ . '/pricing.php';
+
     // 2. Fetch products and calculate prices securely
-    $json = @file_get_contents(__DIR__ . '/../data/products.json');
-    $productsRaw = json_decode($json, true) ?: [];
+    $productsRaw = getProductsData();
     $productsMap = [];
     foreach ($productsRaw as $p) {
         $productsMap[$p['id']] = $p;
     }
+
+    // Calculate total palettes
+    $totalPalettes = 0;
+    foreach ($cartItems as $item) {
+        $totalPalettes += max(1, (int)$item['quantity']);
+    }
+    
+    // Get global discount
+    $globalDiscount = calculateGlobalDiscount($totalPalettes);
+    $globalDiscountPercent = $globalDiscount['discount_percent'];
+    $globalTier = $globalDiscount['tier'];
 
     $orderItems = [];
     $subtotal = 0;
     
     foreach ($cartItems as $item) {
         $pid = $item['product_id'];
+        $len = $item['length'];
+        
         if (isset($productsMap[$pid])) {
             $p = $productsMap[$pid];
-            $qty = max(1, (int)$item['quantity']);
-            $basePrice = (float)$p['wholesale_price'];
             
-            // Calculate tier discount
-            $tier = 1; $discountPercentage = 0;
-            if ($qty < 2) { $tier = 1; $discountPercentage = 0; }
-            elseif ($qty >= 2 && $qty <= 4) { $tier = 2; $discountPercentage = 4; }
-            elseif ($qty >= 5 && $qty <= 9) { $tier = 3; $discountPercentage = 6; }
-            elseif ($qty >= 10 && $qty <= 19) { $tier = 4; $discountPercentage = 8; }
-            else { $tier = 5; $discountPercentage = 10; }
+            // If a length was requested but the product doesn't support it or the length doesn't exist, we skip it
+            if ($len !== null && (!isset($p['prices_by_length']) || !isset($p['prices_by_length'][$len]))) {
+                continue; 
+            }
             
-            $discountedUnitPrice = $basePrice * (1 - $discountPercentage / 100);
-            $totalPrice = $discountedUnitPrice * $qty;
+            $calc = calculateLinePrice($p, $len, (int)$item['quantity'], (float)$globalDiscountPercent);
             
             $orderItems[] = [
                 'product_id' => $pid,
                 'name' => $p['name'],
-                'format' => $p['format'],
-                'quantity' => $qty,
-                'wholesale_price' => $basePrice,
-                'discount_percent' => $discountPercentage,
-                'unit_price' => round($discountedUnitPrice, 2),
-                'total' => round($totalPrice, 2)
+                'length' => $len,
+                'format' => $len ? $len . ' cm' : $p['format'],
+                'quantity' => $calc['quantity'],
+                'unit_price_catalog_ht' => $calc['unit_price_catalog_ht'],
+                'discount_percent' => $calc['discount_percent'],
+                'unit_price_net_ht' => $calc['unit_price_net_ht'],
+                'total_ht' => $calc['total_ht']
             ];
-            $subtotal += $totalPrice;
+            $subtotal += $calc['total_ht'];
         }
     }
 
@@ -140,19 +149,6 @@ try {
         delivery_address, truck_access, items, subtotal, discount_tier, 
         discount_percent, total, payment_method, status, lang
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'virement', 'pending_payment', ?)");
-    
-    // Simplification for global discount tier logging based on max tier in cart
-    $maxTier = 1; $maxDiscountPct = 0;
-    foreach ($orderItems as $item) {
-        if ($item['discount_percent'] > $maxDiscountPct) {
-            $maxDiscountPct = $item['discount_percent'];
-            // Re-derive tier approximately
-            if ($maxDiscountPct == 4) $maxTier = 2;
-            elseif ($maxDiscountPct == 6) $maxTier = 3;
-            elseif ($maxDiscountPct == 8) $maxTier = 4;
-            elseif ($maxDiscountPct == 10) $maxTier = 5;
-        }
-    }
 
     $stmt->execute([
         $orderRef,
@@ -166,8 +162,8 @@ try {
         $truck_access,
         json_encode($orderItems, JSON_UNESCAPED_UNICODE),
         round($subtotal, 2),
-        $maxTier,
-        $maxDiscountPct,
+        $globalTier,
+        $globalDiscountPercent,
         round($subtotal, 2), // Total is same as subtotal here since discounts are per-item
         $lang
     ]);
@@ -230,17 +226,24 @@ try {
   </td>
 </tr></table>
 <table class="items"><thead><tr>
-  <th>Désignation</th><th>Format</th><th class="center">Qté</th><th class="right">P.U. HT</th><th class="right">Total HT</th>
+  <th>Désignation</th><th>Format</th><th class="center">Qté</th><th class="right">Prix cat. HT</th><th class="right">Remise</th><th class="right">Prix net HT</th><th class="right">Total HT</th>
 </tr></thead><tbody>';
 
         foreach ($orderItems as $oi) {
-            $pu_ht    = floatval($oi['unit_price']);
+            $pu_ht    = floatval($oi['unit_price_net_ht'] ?? 0);
+            $catalog_ht = floatval($oi['unit_price_catalog_ht'] ?? 0);
+            $discount = floatval($oi['discount_percent'] ?? 0);
             $oi_qty   = intval($oi['quantity']);
-            $line_ht  = $pu_ht * $oi_qty;
+            $line_ht  = floatval($oi['total_ht'] ?? 0);
+            
+            $discountStr = $discount > 0 ? "-{$discount}%" : '';
+            
             $pdfHtml .= '<tr>
   <td><strong>' . htmlspecialchars($oi['name']) . '</strong></td>
   <td>' . htmlspecialchars($oi['format'] ?? '') . '</td>
   <td class="center">' . $oi_qty . '</td>
+  <td class="right">' . number_format($catalog_ht, 2, ',', ' ') . ' €</td>
+  <td class="right">' . $discountStr . '</td>
   <td class="right">' . number_format($pu_ht, 2, ',', ' ') . ' €</td>
   <td class="right">' . number_format($line_ht, 2, ',', ' ') . ' €</td>
 </tr>';

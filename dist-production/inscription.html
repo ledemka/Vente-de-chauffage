@@ -320,7 +320,12 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const res = await (typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.register(data) : AuthAPI.register(data));
                 if (res.success) {
-                    window.location.href = './merci-inscription.html?email=' + encodeURIComponent(data.email);
+                    const urlParams = new URLSearchParams(window.location.search);
+                    let redirectUrl = './merci-inscription.html?email=' + encodeURIComponent(data.email);
+                    if (urlParams.has('redirect')) {
+                        redirectUrl += '&redirect=' + encodeURIComponent(urlParams.get('redirect'));
+                    }
+                    window.location.href = redirectUrl;
                 } else {
                     errorDiv.textContent = res.message || 'Erreur lors de la création';
                     errorDiv.classList.remove('hidden');

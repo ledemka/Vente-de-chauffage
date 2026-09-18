@@ -82,6 +82,7 @@ class Database {
                 client_id INT NULL,
                 session_token VARCHAR(64) NULL,
                 product_id VARCHAR(50) NOT NULL,
+                length VARCHAR(10) NULL,
                 quantity INT NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -89,6 +90,13 @@ class Database {
                 INDEX idx_session (session_token)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
             $this->conn->exec($sql);
+
+            // Migration: Add length column to cart_items if it doesn't exist
+            try {
+                $this->conn->exec("ALTER TABLE cart_items ADD COLUMN length VARCHAR(10) NULL AFTER product_id;");
+            } catch (PDOException $e) {
+                // Column already exists or other duplicate error, ignore
+            }
 
             // Create orders table
             $sql = "CREATE TABLE IF NOT EXISTS orders (

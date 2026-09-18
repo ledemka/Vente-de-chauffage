@@ -117,7 +117,7 @@
         <h1 class="text-headline-xl font-headline-xl text-on-surface" data-i18n="cart.title">Panier Professionnel</h1>
         <div class="flex items-center gap-4">
             <span class="text-body-lg text-on-surface font-bold" id="cart-items-count">Articles sélectionnés (0)</span>
-            <button onclick="if(confirm('Vider le panier ?')) CartAPI.clear().then(() => CartUI.renderCartPage())" class="text-error hover:text-error/80 text-label-md font-bold flex items-center gap-1 transition-colors">
+            <button onclick="CartUI.clearCart()" class="text-error hover:text-error/80 text-label-md font-bold flex items-center gap-1 transition-colors">
                 <span class="material-symbols-outlined text-[18px]">delete</span>
                 Vider le panier
             </button>

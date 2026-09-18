@@ -150,17 +150,7 @@
                         <span class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Charbon / Allume-feu / Bûches de torche</span>
                     </label>
                 </div>
-            </div>
-            <!-- Format Filter -->
-            <div class="flex flex-col gap-3">
-                <h3 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Format</h3>
-                <div class="flex flex-wrap gap-2">
-                    <button class="px-3 py-1.5 rounded bg-surface-container border border-outline text-on-surface text-body-sm font-body-sm hover:border-primary hover:text-primary transition-colors filter-format" data-format="25">25 cm</button>
-                    <button class="px-3 py-1.5 rounded bg-surface-container border border-outline text-on-surface text-body-sm font-body-sm hover:border-primary hover:text-primary transition-colors filter-format" data-format="33">33 cm</button>
-                    <button class="px-3 py-1.5 rounded bg-surface-container border border-outline text-on-surface text-body-sm font-body-sm hover:border-primary hover:text-primary transition-colors filter-format" data-format="40">40 cm</button>
-                    <button class="px-3 py-1.5 rounded bg-surface-container border border-outline text-on-surface text-body-sm font-body-sm hover:border-primary hover:text-primary transition-colors filter-format" data-format="50">50 cm</button>
-                </div>
-            </div>
+                    <!-- Format Filter REMOVED from sidebar — now integrated in Bûches section -->
             <!-- Moisture Filter -->
             <div class="flex flex-col gap-3" id="moisture-filter-section">
                 <h3 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Humidité (H2O)</h3>
@@ -224,25 +214,71 @@
                             // DOM Elements
                             const container = document.getElementById('catalog-container');
                             const categoryInputs = document.querySelectorAll('.filter-category');
-                            const formatButtons = document.querySelectorAll('.filter-format');
                             const humiditySlider = document.getElementById('humidity-slider');
                             const moistureSection = document.getElementById('moisture-filter-section');
                             const resetButton = document.getElementById('reset-filters');
 
-                            // State Variables
-                            let selectedFormats = [];
+                            // -------------------------------------------------------
+                            // STATE: two separate variables for Bûches format
+                            // selectedFormat = "" → no format actually chosen by user
+                            // displayFormat  = "50" → used only for price display
+                            // -------------------------------------------------------
+                            let selectedFormat = '';   // empty = not yet chosen
+                            const displayFormat = '50'; // default display price
 
-                            // Render function
+                            // Helper: get effective price for a Bûche product
+                            function getBuchePrice(p, fmt) {
+                                if (p.prices_by_length && p.prices_by_length[fmt]) {
+                                    return Number(p.prices_by_length[fmt]);
+                                }
+                                // Fallback: minimum price
+                                if (p.prices_by_length) {
+                                    return Math.min(...Object.values(p.prices_by_length).map(Number));
+                                }
+                                return p.wholesale_price || 0;
+                            }
+
+                            // Handler for clicking a Bûche product card
+                            window.handleBucheClick = function(productId) {
+                                if (!selectedFormat) {
+                                    // Scroll to format selector and highlight it
+                                    const formatContainer = document.getElementById('buche-format-selector');
+                                    if (formatContainer) {
+                                        formatContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                                        formatContainer.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+                                        setTimeout(() => formatContainer.classList.remove('ring-2', 'ring-primary', 'ring-offset-2'), 2000);
+                                    }
+                                    // Show toast
+                                    showToast('Veuillez sélectionner un format avant de choisir votre bois.');
+                                    return;
+                                }
+                                const basePath = lang === 'fr' ? './' : `../${lang}/`;
+                                window.location.href = `${basePath}produit.html?id=${productId}&length=${selectedFormat}`;
+                            };
+
+                            // Simple toast notification
+                            function showToast(message) {
+                                let toast = document.getElementById('catalogue-toast');
+                                if (!toast) {
+                                    toast = document.createElement('div');
+                                    toast.id = 'catalogue-toast';
+                                    toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] bg-inverse-surface text-inverse-on-surface px-6 py-3 rounded-xl shadow-2xl text-body-sm font-bold flex items-center gap-3 transition-all duration-300 opacity-0 translate-y-4';
+                                    toast.innerHTML = `<span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1">straighten</span><span id="catalogue-toast-msg"></span>`;
+                                    document.body.appendChild(toast);
+                                }
+                                document.getElementById('catalogue-toast-msg').textContent = message;
+                                toast.classList.remove('opacity-0', 'translate-y-4');
+                                setTimeout(() => toast.classList.add('opacity-0', 'translate-y-4'), 3000);
+                            }
+
+                            // Render catalog
                             function renderCatalog(filteredProducts) {
                                 container.innerHTML = '';
-                                
-                                // Filter subgroups array so we only render subgroups that actually have products
-                                const visibleSubGroups = subGroups.map(sg => {
-                                    return {
-                                        ...sg,
-                                        products: filteredProducts.filter(p => p.subgroup_id === sg.id)
-                                    };
-                                }).filter(sg => sg.products.length > 0);
+
+                                const visibleSubGroups = subGroups.map(sg => ({
+                                    ...sg,
+                                    products: filteredProducts.filter(p => p.subgroup_id === sg.id)
+                                })).filter(sg => sg.products.length > 0);
 
                                 if (visibleSubGroups.length === 0) {
                                     container.innerHTML = `<div class="text-center py-20 text-on-surface-variant font-body-lg">Aucun produit ne correspond à ces critères.</div>`;
@@ -250,9 +286,33 @@
                                 }
 
                                 visibleSubGroups.forEach((sg, idx) => {
+                                    const isBuche = sg.id === 1;
                                     const section = document.createElement('section');
                                     section.className = 'flex flex-col gap-6';
                                     section.id = `subgroup-${sg.id}`;
+
+                                    // Build format selector HTML (only for Bûches)
+                                    const formatSelectorHtml = isBuche ? `
+                                        <div id="buche-format-selector" class="flex flex-col gap-3 bg-surface-container-high rounded-xl p-5 border border-outline/20 transition-all duration-300">
+                                            <!-- Informational banner — shown only when no format is selected -->
+                                            <div id="buche-format-banner" class="${selectedFormat ? 'hidden' : ''} flex items-start gap-3 bg-amber-50 border border-amber-300 text-amber-900 rounded-lg px-4 py-3 text-body-sm">
+                                                <span class="material-symbols-outlined text-amber-600 shrink-0" style="font-variation-settings:'FILL' 1">info</span>
+                                                <span>Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 flex-wrap">
+                                                <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider shrink-0">Format :</span>
+                                                <div class="flex flex-wrap gap-2" id="buche-format-buttons">
+                                                    ${['20','30','33','40','50'].map(f => `
+                                                        <button onclick="selectBucheFormat('${f}')" id="fmt-btn-${f}"
+                                                            class="px-4 py-2 rounded-md font-data-mono text-body-sm transition-all border ${selectedFormat === f ? 'bg-primary text-on-primary border-primary font-bold' : 'bg-surface text-on-surface border-outline/40 hover:border-primary hover:text-primary'}">
+                                                            ${f} cm
+                                                        </button>
+                                                    `).join('')}
+                                                </div>
+                                                ${selectedFormat ? `<span class="text-body-sm text-primary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1">check_circle</span> Format ${selectedFormat} cm sélectionné</span>` : ''}
+                                            </div>
+                                        </div>
+                                    ` : '';
 
                                     section.innerHTML = `
                                         <div class="flex items-end justify-between border-b-2 border-outline pb-4">
@@ -262,6 +322,7 @@
                                             </div>
                                             <span class="text-body-sm font-body-sm text-on-surface-variant">${sg.products.length} Références</span>
                                         </div>
+                                        ${formatSelectorHtml}
                                         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                                             ${sg.products.map(p => {
                                                 const showBadge = p.positioning && p.positioning !== '';
@@ -272,11 +333,32 @@
                                                     </div>
                                                 ` : '';
 
+                                                let displayPrice = 0;
+                                                let priceNote = '';
+
+                                                if (isBuche) {
+                                                    // For Bûches: always show the displayFormat price (50 if not selected, else selected)
+                                                    const effectiveFmt = selectedFormat || displayFormat;
+                                                    displayPrice = getBuchePrice(p, effectiveFmt);
+                                                    // Note about what format is being shown
+                                                    if (!selectedFormat) {
+                                                        priceNote = `<div class="text-[11px] text-amber-700 font-medium mt-0.5">Prix pour 50 cm</div>`;
+                                                    }
+                                                } else {
+                                                    displayPrice = p.wholesale_price || 0;
+                                                }
+
+                                                const imgPrefix = relPath === '.' ? '' : relPath;
+                                                const clickHandler = isBuche
+                                                    ? `handleBucheClick('${p.id}')`
+                                                    : `window.location.href='./${lang === 'fr' ? '' : lang + '/'}produit.html?id=${p.id}'`;
+
                                                 return `
-                                                    <article onclick="window.location.href='./${lang === 'fr' ? '' : lang + '/'}produit.html?id=${p.id}'" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group">
+                                                    <article onclick="${clickHandler}" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group ${isBuche && !selectedFormat ? 'opacity-80' : ''}">
                                                         <div class="relative w-full h-48 rounded bg-surface-container overflow-hidden">
-                                                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${p.image_product}" alt="${p.name}"/>
+                                                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${imgPrefix}${p.image_product}" alt="${p.name}"/>
                                                             ${badgeHtml}
+                                                            ${isBuche && !selectedFormat ? `<div class="absolute inset-0 bg-black/10 flex items-end justify-center pb-3"><span class="bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">Sélectionnez un format ↑</span></div>` : ''}
                                                         </div>
                                                         <div class="flex flex-col gap-2">
                                                             <h3 class="text-headline-md font-headline-md text-on-surface leading-tight">${p.name}</h3>
@@ -285,7 +367,7 @@
                                                         <div class="flex flex-col gap-2 mt-auto">
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span class="text-label-md font-label-md text-on-surface-variant">FORMAT</span>
-                                                                <span class="text-data-mono font-data-mono text-on-surface">${p.format}</span>
+                                                                <span class="text-data-mono font-data-mono text-on-surface">${isBuche ? (selectedFormat ? selectedFormat + ' cm' : '50 cm*') : p.format}</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span class="text-label-md font-label-md text-on-surface-variant">UNITE / PALETTE</span>
@@ -300,11 +382,12 @@
                                                             <div class="flex flex-col">
                                                                 <span class="text-label-md font-label-md text-on-surface-variant">PRIX GROS / PALETTE</span>
                                                                 <div class="flex items-baseline gap-1">
-                                                                    <span class="text-headline-lg font-headline-lg text-primary">${(p.wholesale_price * 1.2).toFixed(2)}</span>
-                                                                      <span class="text-body-md font-body-md text-primary">€ TTC</span>
+                                                                    <span class="text-headline-lg font-headline-lg text-primary">${(displayPrice * 1.2).toFixed(2)}</span>
+                                                                    <span class="text-body-md font-body-md text-primary">€ TTC</span>
                                                                 </div>
+                                                                ${priceNote}
                                                             </div>
-                                                            <button class="w-12 h-12 bg-primary text-on-primary rounded flex items-center justify-center hover:bg-primary/90 transition-colors">
+                                                            <button class="w-12 h-12 ${isBuche && !selectedFormat ? 'bg-outline/40 cursor-not-allowed' : 'bg-primary hover:bg-primary/90'} text-on-primary rounded flex items-center justify-center transition-colors">
                                                                 <span class="material-symbols-outlined">add_shopping_cart</span>
                                                             </button>
                                                         </div>
@@ -325,38 +408,39 @@
                                 });
                             }
 
+                            // Handle format selection for Bûches
+                            window.selectBucheFormat = function(fmt) {
+                                if (selectedFormat === fmt) {
+                                    // Toggle off
+                                    selectedFormat = '';
+                                } else {
+                                    selectedFormat = fmt;
+                                }
+                                applyFilters();
+                            };
+
                             // Filter logic
                             function applyFilters() {
-                                // 1. Gather active categories
                                 const checkedBoxes = Array.from(categoryInputs).filter(input => input.checked);
                                 const selectedSubgroupIds = checkedBoxes.map(input => parseInt(input.dataset.subgroup));
 
-                                // Moisture slider visibility logic:
-                                // Hide if categories are selected, but subgroup 1 is NOT among them (so only 2, 3, 4, or 5 are selected).
-                                // If no categories are selected at all, subgroup 1 is implicitly active, so we show it.
-                                const isSubgroup1Selected = selectedSubgroupIds.length === 0 || selectedSubgroupIds.includes(1);
-                                if (isSubgroup1Selected) {
+                                const isBucheVisible = selectedSubgroupIds.length === 0 || selectedSubgroupIds.includes(1);
+
+                                // Show/hide moisture filter based on Bûche visibility
+                                if (isBucheVisible) {
                                     moistureSection.classList.remove('hidden');
                                 } else {
                                     moistureSection.classList.add('hidden');
                                 }
 
-                                // 2. Filter products
+                                // Filter products
                                 const filtered = allProducts.filter(p => {
                                     // Category filter
-                                    if (selectedSubgroupIds.length > 0) {
-                                        if (!selectedSubgroupIds.includes(p.subgroup_id)) {
-                                            return false;
-                                        }
+                                    if (selectedSubgroupIds.length > 0 && !selectedSubgroupIds.includes(p.subgroup_id)) {
+                                        return false;
                                     }
 
-                                    // Format filter (multi-selection)
-                                    if (selectedFormats.length > 0) {
-                                        const matches = selectedFormats.some(f => p.format.includes(f));
-                                        if (!matches) return false;
-                                    }
-
-                                    // Humidity filter (only applies to subgroup 1 products)
+                                    // Humidity filter (Bûches only)
                                     if (p.subgroup_id === 1 && p.humidity_bucket) {
                                         const hVal = parseInt(humiditySlider.value);
                                         if (hVal === 1 && p.humidity_bucket !== '<20%') return false;
@@ -375,39 +459,16 @@
                                 input.addEventListener('change', applyFilters);
                             });
 
-                            formatButtons.forEach(btn => {
-                                btn.addEventListener('click', () => {
-                                    const formatVal = btn.dataset.format;
-                                    if (selectedFormats.includes(formatVal)) {
-                                        // Deselect
-                                        selectedFormats = selectedFormats.filter(f => f !== formatVal);
-                                        btn.className = 'px-3 py-1.5 rounded bg-surface-container border border-outline text-on-surface text-body-sm font-body-sm hover:border-primary hover:text-primary transition-colors filter-format';
-                                    } else {
-                                        // Select
-                                        selectedFormats.push(formatVal);
-                                        btn.className = 'px-3 py-1.5 rounded bg-primary text-on-primary text-body-sm font-body-sm hover:opacity-90 transition-opacity filter-format';
-                                    }
-                                    applyFilters();
-                                });
-                            });
-
                             humiditySlider.addEventListener('input', applyFilters);
 
                             resetButton.addEventListener('click', () => {
-                                // Reset categories
                                 categoryInputs.forEach(input => input.checked = false);
-                                // Reset formats
-                                selectedFormats = [];
-                                formatButtons.forEach(btn => {
-                                    btn.className = 'px-3 py-1.5 rounded bg-surface-container border border-outline text-on-surface text-body-sm font-body-sm hover:border-primary hover:text-primary transition-colors filter-format';
-                                });
-                                // Reset humidity
+                                selectedFormat = '';
                                 humiditySlider.value = 0;
-                                
                                 applyFilters();
                             });
 
-                            // Initial load
+                            // Initial load — check URL param
                             const subgroupParam = new URLSearchParams(window.location.search).get('subgroup');
                             if (subgroupParam && parseInt(subgroupParam) >= 1 && parseInt(subgroupParam) <= 5) {
                                 const targetCheckbox = document.querySelector(`.filter-category[data-subgroup="${parseInt(subgroupParam)}"]`);
@@ -426,4 +487,3 @@
 <script src="./assets/js/user-menu.js"></script>
 <script src="./assets/js/lang-selector.js"></script>
 </body></html>
-

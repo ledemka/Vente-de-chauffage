@@ -66,38 +66,55 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(err => console.error('Error loading SEO metadata:', err));
 
+    // Helper to dynamically load cart.js if missing on page
+    const ensureCartAPI = () => {
+        if (typeof CartAPI !== 'undefined') return Promise.resolve(window.CartAPI);
+        return new Promise((resolve) => {
+            const inSubdir = /^\/(en|de|nl)\//.test(window.location.pathname);
+            const scriptPath = inSubdir ? '../assets/js/cart.js' : './assets/js/cart.js';
+            const script = document.createElement('script');
+            script.src = scriptPath;
+            script.onload = () => resolve(window.CartAPI);
+            script.onerror = () => resolve(null);
+            document.head.appendChild(script);
+        });
+    };
+
     // 3. Cart Badge Logic
     const updateCartBadge = async () => {
         try {
+            if (typeof CartAPI === 'undefined') {
+                await ensureCartAPI();
+            }
             if (typeof CartAPI === 'undefined') return;
             const res = await CartAPI.get();
+            if (!res || !res.success) return;
             const items = res.items || [];
             const count = items.reduce((acc, item) => acc + (parseInt(item.quantity) || 0), 0);
             
-            let badge = document.getElementById('cart-badge');
-            
-            if (!badge) {
-                const cartLinks = Array.from(document.querySelectorAll('a')).filter(a => a.getAttribute('href') && a.getAttribute('href').endsWith('panier.html'));
-                if (cartLinks.length > 0) {
-                    // Header link is usually the first one
-                    const headerCartLink = cartLinks.find(a => a.innerHTML.includes('shopping_cart')) || cartLinks[0];
+            const cartLinks = Array.from(document.querySelectorAll('a')).filter(a => a.getAttribute('href') && a.getAttribute('href').includes('panier.html'));
+            if (cartLinks.length > 0) {
+                const headerCartLink = cartLinks.find(a => a.innerHTML.includes('shopping_cart')) || cartLinks[0];
+                if (headerCartLink) {
                     headerCartLink.classList.add('relative');
-                    badge = document.createElement('span');
-                    badge.id = 'cart-badge';
-                    badge.className = 'absolute -top-1 -right-2 bg-[#802813] text-white text-[10px] font-bold w-[18px] h-[18px] rounded-full flex items-center justify-center';
-                    headerCartLink.appendChild(badge);
+                    let badge = headerCartLink.querySelector('#cart-badge') || document.getElementById('cart-badge');
+                    if (!badge) {
+                        badge = document.createElement('span');
+                        badge.id = 'cart-badge';
+                        badge.className = 'absolute -top-1.5 -right-2.5 bg-[#802813] text-white text-[11px] font-bold min-w-[18px] h-[18px] px-1 rounded-full flex items-center justify-center z-10 shadow-sm pointer-events-none';
+                        headerCartLink.appendChild(badge);
+                    }
+                    if (count > 0) {
+                        badge.textContent = count > 99 ? '99+' : count;
+                        badge.style.display = 'flex';
+                    } else {
+                        badge.style.display = 'none';
+                    }
                 }
             }
-            
-            if (badge) {
-                if (count > 0) {
-                    badge.textContent = count > 99 ? '99+' : count;
-                    badge.style.display = 'flex';
-                } else {
-                    badge.style.display = 'none';
-                }
-            }
-        } catch(e) {}
+        } catch(e) {
+            console.error('Cart badge error:', e);
+        }
     };
     
     updateCartBadge();
