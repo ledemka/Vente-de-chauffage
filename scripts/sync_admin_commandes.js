@@ -8,6 +8,17 @@ const fileToSync = 'admin-commandes.html';
 
 const srcHtml = fs.readFileSync(path.join(projectRoot, fileToSync), 'utf8');
 
+// GUARD: Detect corrupted escape sequences in source before syncing.
+const badBackticks = (srcHtml.match(/\\`/g) || []).length;
+const badInterp = (srcHtml.match(/\\\$\{/g) || []).length;
+if (badBackticks > 0 || badInterp > 0) {
+    console.error('[ABORT] Source file contains corrupted JS escape sequences:');
+    console.error('  \\` occurrences: ' + badBackticks);
+    console.error('  \\${ occurrences: ' + badInterp);
+    console.error('Run scripts/fix_escape_sequences.js first before syncing.');
+    process.exit(1);
+}
+
 langs.forEach(lang => {
     // Check if lang directory exists, if not, create it
     const langDir = path.join(projectRoot, lang);
