@@ -168,5 +168,78 @@
     "depots": {
         "title": "Present at the heart of Europe's wood industry",
         "body": "Our strength is our network. Established in 8 countries and 24 cities across Europe, we work hand in hand with local producers, sawmills, and wholesalers to guarantee you high-quality firewood, available year-round at a controlled price. This proximity to our partners allows us to secure our supplies even during periods of high demand, control quality at the source, and offer you competitive rates without unnecessary intermediaries."
+    },
+    "dashboard": {
+        "title": "My Dashboard",
+        "logout": "Logout",
+        "my_orders": "My Orders",
+        "loading": "Loading...",
+        "no_orders": "No orders at the moment.",
+        "stat_total": "Total orders",
+        "stat_pending": "Pending payment",
+        "stat_paid": "Paid",
+        "stat_shipped": "Shipped",
+        "stat_delivered": "Delivered",
+        "profile": {
+            "company": "Company",
+            "contact": "Contact",
+            "email": "Email",
+            "phone": "Phone",
+            "address": "Address",
+            "postal_code": "Postal Code",
+            "city": "City",
+            "edit_btn": "Edit my information",
+            "cancel_btn": "Cancel",
+            "save_btn": "Save"
+        }
+    },
+    "admin": {
+        "orders_title": "Orders Management",
+        "filter_all": "All",
+        "search_placeholder": "Ref, Name, Email...",
+        "loading": "Loading...",
+        "no_orders": "No orders found.",
+        "table": {
+            "ref": "Ref",
+            "date": "Date",
+            "client": "Client",
+            "total": "Total incl. tax",
+            "status": "Status (current)",
+            "action": "Action"
+        },
+        "select_status": "Change status...",
+        "confirm_status": "Change status to: ",
+        "update_error": "Update error",
+        "network_error": "Network error"
+    },
+    "order": {
+        "filter_all": "All",
+        "status_pending": "Pending payment",
+        "status_paid": "Paid",
+        "status_shipped": "Shipped",
+        "status_delivered": "Delivered",
+        "table": {
+            "ref": "Reference",
+            "date": "Date",
+            "status": "Status",
+            "total": "Total incl. tax"
+        }
+    },
+    "modal": {
+        "title": "Order ",
+        "download": "Download order form",
+        "date": "Date:",
+        "status": "Status:",
+        "client": "Client:",
+        "delivery": "Delivery:",
+        "table": {
+            "article": "Item",
+            "details": "Details",
+            "qty": "Qty",
+            "pu": "U.P.",
+            "total": "Total"
+        },
+        "total_ttc": "Total incl. tax",
+        "not_specified": "Not specified"
     }
 }

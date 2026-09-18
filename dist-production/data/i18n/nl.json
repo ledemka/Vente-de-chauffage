@@ -168,5 +168,78 @@
     "depots": {
         "title": "Aanwezig in het hart van de Europese houtindustrie",
         "body": "Onze kracht is ons netwerk. Gevestigd in 8 landen en 24 steden in heel Europa, werken wij hand in hand met lokale producenten, zagerijen en groothandelaren om u het hele jaar door brandhout van hoge kwaliteit te garanderen tegen een beheerste prijs. Deze nabijheid tot onze partners stelt ons in staat onze bevoorrading veilig te stellen, zelfs in periodes van grote vraag, de kwaliteit bij de bron te controleren en u concurrerende tarieven aan te bieden zonder overbodige tussenpersonen."
+    },
+    "dashboard": {
+        "title": "Mijn Dashboard",
+        "logout": "Uitloggen",
+        "my_orders": "Mijn Bestellingen",
+        "loading": "Laden...",
+        "no_orders": "Momenteel geen bestellingen.",
+        "stat_total": "Totaal bestellingen",
+        "stat_pending": "In afwachting van betaling",
+        "stat_paid": "Betaald",
+        "stat_shipped": "Verzonden",
+        "stat_delivered": "Geleverd",
+        "profile": {
+            "company": "Bedrijf",
+            "contact": "Contact",
+            "email": "E-mail",
+            "phone": "Telefoon",
+            "address": "Adres",
+            "postal_code": "Postcode",
+            "city": "Plaats",
+            "edit_btn": "Mijn gegevens bewerken",
+            "cancel_btn": "Annuleren",
+            "save_btn": "Opslaan"
+        }
+    },
+    "admin": {
+        "orders_title": "Orderbeheer",
+        "filter_all": "Alle",
+        "search_placeholder": "Ref, Naam, E-mail...",
+        "loading": "Laden...",
+        "no_orders": "Geen bestellingen gevonden.",
+        "table": {
+            "ref": "Ref",
+            "date": "Datum",
+            "client": "Klant",
+            "total": "Totaal incl. btw",
+            "status": "Status (huidig)",
+            "action": "Actie"
+        },
+        "select_status": "Status wijzigen...",
+        "confirm_status": "Status wijzigen naar: ",
+        "update_error": "Fout bij bijwerken",
+        "network_error": "Netwerkfout"
+    },
+    "order": {
+        "filter_all": "Alle",
+        "status_pending": "In afwachting van betaling",
+        "status_paid": "Betaald",
+        "status_shipped": "Verzonden",
+        "status_delivered": "Geleverd",
+        "table": {
+            "ref": "Referentie",
+            "date": "Datum",
+            "status": "Status",
+            "total": "Totaal incl. btw"
+        }
+    },
+    "modal": {
+        "title": "Bestelling ",
+        "download": "Bestelformulier downloaden",
+        "date": "Datum:",
+        "status": "Status:",
+        "client": "Klant:",
+        "delivery": "Levering:",
+        "table": {
+            "article": "Artikel",
+            "details": "Details",
+            "qty": "Aant",
+            "pu": "E.P.",
+            "total": "Totaal"
+        },
+        "total_ttc": "Totaal incl. btw",
+        "not_specified": "Niet gespecificeerd"
     }
 }

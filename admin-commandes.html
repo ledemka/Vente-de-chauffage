@@ -95,16 +95,16 @@
         </div>
 
         <div class="bg-surface-container p-6 rounded-xl border border-outline/10 shadow-sm mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
-            <div class="flex flex-wrap gap-2" id="status-filters">
-                <button class="px-4 py-2 rounded-full bg-primary text-on-primary text-body-sm font-bold transition-colors" data-filter="all">Toutes</button>
-                <button class="px-4 py-2 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-body-sm font-bold transition-colors" data-filter="pending_payment">En attente de payement</button>
-                <button class="px-4 py-2 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-body-sm font-bold transition-colors" data-filter="paid">Payé</button>
-                <button class="px-4 py-2 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-body-sm font-bold transition-colors" data-filter="shipped">En cour de Livraison</button>
-                <button class="px-4 py-2 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-body-sm font-bold transition-colors" data-filter="delivered">Livrée</button>
+            <div class="flex flex-wrap gap-2 mb-6" id="admin-status-filters">
+                <button class="px-4 py-1.5 rounded-full bg-primary text-on-primary text-[13px] font-bold transition-colors shadow-sm" data-filter="all" data-i18n="admin.filter_all">Toutes</button>
+                <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="pending_payment" data-i18n="order.status_pending">En attente de payement</button>
+                <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="paid" data-i18n="order.status_paid">Payé</button>
+                <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="shipped" data-i18n="order.status_shipped">En cour de Livraison</button>
+                <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="delivered" data-i18n="order.status_delivered">Livrée</button>
             </div>
             <div class="relative w-full md:w-64">
-                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant text-[20px]">search</span>
-                <input type="text" id="admin-search" placeholder="Réf, Nom, Email..." class="w-full pl-10 pr-4 py-2 rounded-lg bg-surface border border-outline/30 focus:outline-none focus:border-primary text-body-sm">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+                <input type="text" id="admin-search-input" data-i18n="admin.search_placeholder" placeholder="Réf, Nom, Email..." class="w-full max-w-sm bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 pl-10 pr-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
             </div>
         </div>
 
@@ -126,17 +126,17 @@
             </button>
             
             <div class="border-b border-outline/20 pb-4 relative">
-                <h3 class="text-headline-md font-headline-md text-on-surface pr-24">Commande <span id="modal-ref" class="text-primary"></span></h3>
+                <h3 class="text-headline-md font-headline-md text-on-surface pr-24"><span data-i18n="modal.title">Commande </span><span id="modal-ref" class="text-primary"></span></h3>
                 <a id="modal-download-btn" href="#" class="absolute top-0 right-8 flex items-center gap-1.5 text-body-sm bg-primary text-on-primary px-3 py-1.5 rounded-lg hover:bg-primary/90 transition-colors shadow-sm">
                     <span class="material-symbols-outlined text-[18px]">download</span>
-                    <span class="hidden sm:inline font-semibold">Télécharger le bon de commande</span>
+                    <span class="hidden sm:inline font-semibold" data-i18n="modal.download">Télécharger le bon de commande</span>
                 </a>
                 <div class="flex gap-4 mt-2 text-body-sm text-on-surface-variant">
-                    <span>Date : <span id="modal-date"></span></span>
-                    <span>Client : <span id="modal-client-name" class="font-semibold text-on-surface"></span></span>
+                    <span><span data-i18n="modal.date">Date :</span> <span id="modal-date"></span></span>
+                    <span><span data-i18n="modal.client">Client :</span> <span id="modal-client" class="font-semibold text-on-surface"></span></span>
                 </div>
                 <div class="mt-2 text-body-sm text-on-surface-variant">
-                    Livraison : <span id="modal-address" class="font-semibold text-on-surface"></span>
+                    <span data-i18n="modal.delivery">Livraison :</span> <span id="modal-address" class="font-semibold text-on-surface"></span>
                 </div>
             </div>
             
@@ -144,11 +144,11 @@
                 <table class="w-full text-left border-collapse min-w-[500px]">
                     <thead class="border-b border-outline/20 text-label-md font-label-md text-on-surface-variant">
                         <tr>
-                            <th class="py-2 pr-2 w-16">Article</th>
-                            <th class="py-2 px-2">Détails</th>
-                            <th class="py-2 px-2 text-center">Qté</th>
-                            <th class="py-2 px-2 text-right">P.U.</th>
-                            <th class="py-2 pl-2 text-right">Total</th>
+                            <th class="py-2 pr-2 w-16" data-i18n="modal.table.article">Article</th>
+                            <th class="py-2 px-2" data-i18n="modal.table.details">Détails</th>
+                            <th class="py-2 px-2 text-center" data-i18n="modal.table.qty">Qté</th>
+                            <th class="py-2 px-2 text-right" data-i18n="modal.table.pu">P.U.</th>
+                            <th class="py-2 pl-2 text-right" data-i18n="modal.table.total">Total</th>
                         </tr>
                     </thead>
                     <tbody id="modal-items-container">
@@ -158,13 +158,29 @@
             </div>
             
             <div class="border-t border-outline/20 pt-4 flex justify-between items-center text-headline-md font-headline-md">
-                <span>Total TTC</span>
+                <span data-i18n="modal.total_ttc">Total TTC</span>
                 <span id="modal-total" class="text-primary font-data-mono"></span>
             </div>
         </div>
     </dialog>
 </main>
 <script>
+let windowTranslations = null;
+document.addEventListener('i18nLoaded', (e) => {
+    windowTranslations = e.detail.translations;
+    // re-render dynamic parts
+    if(typeof renderOrders === 'function' && allOrders.length > 0) renderOrders();
+});
+function t(key, defaultText) {
+    if (!windowTranslations) return defaultText;
+    const keys = key.split('.');
+    let val = windowTranslations;
+    for (const k of keys) {
+        if (val) val = val[k];
+    }
+    return val || defaultText;
+}
+
 let productsData = {};
 let allOrders = [];
 let currentFilter = 'all';
@@ -201,27 +217,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Filters
-    document.querySelectorAll('#status-filters button').forEach(btn => {
+    document.querySelectorAll('#admin-status-filters button').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            document.querySelectorAll('#status-filters button').forEach(b => {
-                b.classList.remove('bg-primary', 'text-on-primary');
+            document.querySelectorAll('#admin-status-filters button').forEach(b => {
+                b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm', 'text-[13px]');
                 b.classList.add('bg-surface', 'text-on-surface');
             });
             const target = e.target;
             target.classList.remove('bg-surface', 'text-on-surface');
-            target.classList.add('bg-primary', 'text-on-primary');
+            target.classList.add('bg-primary', 'text-on-primary', 'shadow-sm', 'text-[13px]');
             currentFilter = target.getAttribute('data-filter');
             renderOrders();
         });
     });
 
     // Search
-    document.getElementById('admin-search').addEventListener('input', renderOrders);
+    document.getElementById('admin-search-input').addEventListener('input', renderOrders);
 });
 
 function renderOrders() {
     const container = document.getElementById('admin-orders-container');
-    const searchVal = document.getElementById('admin-search').value.toLowerCase();
+    const searchVal = document.getElementById('admin-search-input').value.toLowerCase();
     
     let filtered = allOrders.filter(o => {
         if (currentFilter !== 'all' && o.status !== currentFilter) return false;
@@ -238,32 +254,43 @@ function renderOrders() {
     });
 
     if (filtered.length === 0) {
-        container.innerHTML = '<div class="text-center py-10 text-on-surface-variant">Aucune commande trouvée.</div>';
+        container.innerHTML = `<div class="text-center py-10 text-on-surface-variant">${t('admin.no_orders', 'Aucune commande trouvée.')}</div>`;
         return;
     }
 
     const statusMap = {
-                    'pending_payment': { label: 'En attente de payement', icon: 'schedule', class: 'text-orange-500 border-orange-300 bg-orange-50' },
-                    'paid': { label: 'Payé', icon: 'check_circle', class: 'text-[#0ea5e9] border-[#0ea5e9] bg-[#f0f9ff]' },
-                    'shipped': { label: 'En cour de Livraison', icon: 'local_shipping', class: 'text-blue-500 border-blue-300 bg-blue-50' },
-                    'delivered': { label: 'Livrée', icon: 'check_circle', class: 'text-emerald-600 border-emerald-300 bg-emerald-50' }
-                };
+        'pending_payment': { label: t('order.status_pending', 'En attente de payement'), icon: 'schedule', 'class': 'text-orange-500 border-orange-300 bg-orange-50' },
+        'paid': { label: t('order.status_paid', 'Payé'), icon: 'check_circle', 'class': 'text-[#0ea5e9] border-[#0ea5e9] bg-[#f0f9ff]' },
+        'shipped': { label: t('order.status_shipped', 'En cour de Livraison'), icon: 'local_shipping', 'class': 'text-blue-500 border-blue-300 bg-blue-50' },
+        'delivered': { label: t('order.status_delivered', 'Livrée'), icon: 'check_circle', 'class': 'text-emerald-600 border-emerald-300 bg-emerald-50' }
+    };
 
-    let html = '<table class="w-full text-left border-collapse min-w-[800px]"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">Réf</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Client</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant text-right">Total TTC</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut (actuel)</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Action</th></tr></thead><tbody>';
+    let html = `<table class="w-full text-left border-collapse min-w-[800px]">
+        <thead class="border-b border-outline/20">
+            <tr>
+                <th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">${t('admin.table.ref', 'Réf')}</th>
+                <th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">${t('admin.table.date', 'Date')}</th>
+                <th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">${t('admin.table.client', 'Client')}</th>
+                <th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant text-right">${t('admin.table.total', 'Total TTC')}</th>
+                <th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">${t('admin.table.status', 'Statut (actuel)')}</th>
+                <th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">${t('admin.table.action', 'Action')}</th>
+            </tr>
+        </thead>
+        <tbody>`;
     
     filtered.forEach(order => {
         const dateObj = new Date(order.created_at);
         const dateStr = dateObj.toLocaleDateString();
         const totalFmt = parseFloat(order.total).toFixed(2) + ' €';
-        const stInfo = statusMap[order.status] || { label: order.status, class: 'bg-surface-container-highest' };
+        const stInfo = statusMap[order.status] || { label: order.status, 'class': 'bg-surface-container-highest' };
         
         // For modal data
         const orderData = {
             ref: order.order_reference,
             date: dateStr,
-            client_name: order.contact_name + ' (' + order.email + ')',
+            client_name: order.company || order.contact_name || order.email || 'Inconnu',
             total: totalFmt,
-            delivery_address: order.delivery_address || 'Non spécifiée',
+            delivery_address: order.delivery_address || t('modal.not_specified', 'Non spécifiée'),
             items: typeof order.items === 'string' ? JSON.parse(order.items || '[]') : (order.items || [])
         };
         const orderDataStr = JSON.stringify(orderData).replace(/"/g, '&quot;');
@@ -278,12 +305,12 @@ function renderOrders() {
             <td class="py-4 px-2 text-right text-body-md font-data-mono font-bold text-on-surface">${totalFmt}</td>
             <td class="py-4 px-2 text-body-sm"><div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border ${stInfo.class} uppercase tracking-wide" id="badge-${order.order_reference}"><span class="material-symbols-outlined text-[14px]">${stInfo.icon}</span>${stInfo.label}</div></td>
             <td class="py-4 pl-2 text-right">
-                <select class="bg-surface border border-outline/30 rounded py-1 px-2 text-body-sm focus:outline-none focus:border-primary" onchange="updateOrderStatus('${order.order_reference}', this.value)">
-                    <option value="" disabled selected>Changer statut...</option>
-                    <option value="pending_payment">En attente de payement</option>
-                    <option value="paid">Payé</option>
-                    <option value="shipped">En cour de Livraison</option>
-                    <option value="delivered">Livrée</option>
+                <select onchange="updateOrderStatus('${order.order_reference}', this.value)" onclick="event.stopPropagation()" class="bg-surface-container border border-outline/30 rounded-md py-1 px-2 text-body-sm text-on-surface focus:outline-none focus:border-primary">
+                    <option value="" disabled selected>${t('admin.select_status', 'Changer statut...')}</option>
+                    <option value="pending_payment">${t('order.status_pending', 'En attente de payement')}</option>
+                    <option value="paid">${t('order.status_paid', 'Payé')}</option>
+                    <option value="shipped">${t('order.status_shipped', 'En cour de Livraison')}</option>
+                    <option value="delivered">${t('order.status_delivered', 'Livrée')}</option>
                 </select>
             </td>
         </tr>`;
@@ -293,8 +320,8 @@ function renderOrders() {
     container.innerHTML = html;
 }
 
-async function updateOrderStatus(ref, newStatus) {
-    if (!confirm('Changer le statut en : ' + newStatus + ' ?')) return;
+window.updateOrderStatus = async function(ref, newStatus) {
+    if (!confirm(t('admin.confirm_status', 'Changer le statut en : ') + newStatus + ' ?')) return;
     
     try {
         const formData = new URLSearchParams();
@@ -316,12 +343,14 @@ async function updateOrderStatus(ref, newStatus) {
             if (o) o.status = newStatus;
             renderOrders(); // Re-render to update badge and optionally filter out
         } else {
-            alert(data.message || 'Erreur lors de la mise à jour');
+            alert(data.message || t('admin.update_error', 'Erreur lors de la mise à jour'));
+            renderOrders();
         }
     } catch(err) {
-        alert('Erreur réseau');
+        alert(t('admin.network_error', 'Erreur réseau'));
+        renderOrders();
     }
-}
+};
 
 // Modal Logic
 window.openAdminModal = function(el) {

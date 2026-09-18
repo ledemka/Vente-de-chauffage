@@ -168,5 +168,78 @@
     "depots": {
         "title": "Präsent im Herzen von Europas Holzindustrie",
         "body": "Unsere Stärke ist unser Netzwerk. Mit Standorten in 8 Ländern und 24 Städten in ganz Europa arbeiten wir Hand in Hand mit lokalen Produzenten, Sägewerken und Großhändlern, um Ihnen ganzjährig hochwertiges Brennholz zu kontrollierten Preisen zu garantieren. Diese Nähe zu unseren Partnern ermöglicht es uns, unsere Versorgung auch in Zeiten hoher Nachfrage zu sichern, die Qualität an der Quelle zu kontrollieren und Ihnen wettbewerbsfähige Preise ohne überflüssige Zwischenhändler anzubieten."
+    },
+    "dashboard": {
+        "title": "Mein Dashboard",
+        "logout": "Abmelden",
+        "my_orders": "Meine Bestellungen",
+        "loading": "Laden...",
+        "no_orders": "Zurzeit keine Bestellungen.",
+        "stat_total": "Gesamte Bestellungen",
+        "stat_pending": "Ausstehende Zahlung",
+        "stat_paid": "Bezahlt",
+        "stat_shipped": "Versendet",
+        "stat_delivered": "Geliefert",
+        "profile": {
+            "company": "Firma",
+            "contact": "Kontakt",
+            "email": "E-Mail",
+            "phone": "Telefon",
+            "address": "Adresse",
+            "postal_code": "Postleitzahl",
+            "city": "Stadt",
+            "edit_btn": "Meine Daten bearbeiten",
+            "cancel_btn": "Abbrechen",
+            "save_btn": "Speichern"
+        }
+    },
+    "admin": {
+        "orders_title": "Bestellverwaltung",
+        "filter_all": "Alle",
+        "search_placeholder": "Ref, Name, E-Mail...",
+        "loading": "Laden...",
+        "no_orders": "Keine Bestellungen gefunden.",
+        "table": {
+            "ref": "Ref",
+            "date": "Datum",
+            "client": "Kunde",
+            "total": "Gesamt inkl. MwSt",
+            "status": "Status (aktuell)",
+            "action": "Aktion"
+        },
+        "select_status": "Status ändern...",
+        "confirm_status": "Status ändern in: ",
+        "update_error": "Fehler bei der Aktualisierung",
+        "network_error": "Netzwerkfehler"
+    },
+    "order": {
+        "filter_all": "Alle",
+        "status_pending": "Ausstehende Zahlung",
+        "status_paid": "Bezahlt",
+        "status_shipped": "Versendet",
+        "status_delivered": "Geliefert",
+        "table": {
+            "ref": "Referenz",
+            "date": "Datum",
+            "status": "Status",
+            "total": "Gesamt inkl. MwSt"
+        }
+    },
+    "modal": {
+        "title": "Bestellung ",
+        "download": "Bestellformular herunterladen",
+        "date": "Datum:",
+        "status": "Status:",
+        "client": "Kunde:",
+        "delivery": "Lieferung:",
+        "table": {
+            "article": "Artikel",
+            "details": "Details",
+            "qty": "Menge",
+            "pu": "E.P.",
+            "total": "Gesamt"
+        },
+        "total_ttc": "Gesamt inkl. MwSt",
+        "not_specified": "Nicht angegeben"
     }
 }

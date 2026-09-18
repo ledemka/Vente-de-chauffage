@@ -1,4 +1,4 @@
-<html lang="fr" translate="no"><head>\n    <script>if(!localStorage.getItem("user")){window.location.href="./connexion.html";}</script>
+<html lang="de" translate="no"><head>\n    <script>if(!localStorage.getItem("user")){window.location.href="./connexion.html";}</script>
     <meta charset="utf-8"/>
     <meta name="google" content="notranslate"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -107,45 +107,45 @@
                     </h2>
                     
                     <div class="flex flex-wrap gap-2 mb-6" id="dashboard-status-filters">
-                        <button class="px-4 py-1.5 rounded-full bg-primary text-on-primary text-[13px] font-bold transition-colors shadow-sm" data-filter="all">Toutes</button>
-                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="pending_payment">En attente de payement</button>
-                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="paid">Payé</button>
-                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="shipped">En cour de Livraison</button>
-                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="delivered">Livrée</button>
+                        <button class="px-4 py-1.5 rounded-full bg-primary text-on-primary text-[13px] font-bold transition-colors shadow-sm" data-filter="all" data-i18n="order.filter_all">Toutes</button>
+                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="pending_payment" data-i18n="order.status_pending">En attente de payement</button>
+                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="paid" data-i18n="order.status_paid">Payé</button>
+                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="shipped" data-i18n="order.status_shipped">En cour de Livraison</button>
+                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="delivered" data-i18n="order.status_delivered">Livrée</button>
                     </div>
                     
                     <div id="profile-view" class="flex flex-col gap-4">
                         <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Société</span>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.company">Société</span>
                             <span id="view-company" class="text-body-md text-on-surface font-bold">-</span>
                         </div>
                         <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Contact</span>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.contact">Contact</span>
                             <span id="view-contact" class="text-body-md text-on-surface">-</span>
                         </div>
                         <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Email</span>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.email">Email</span>
                             <span id="view-email" class="text-body-md text-on-surface">-</span>
                         </div>
                         <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Téléphone</span>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.phone">Téléphone</span>
                             <span id="view-phone" class="text-body-md text-on-surface">-</span>
                         </div>
                         <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Adresse</span>
+                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.address">Adresse</span>
                             <span id="view-address" class="text-body-md text-on-surface">-</span>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <span class="text-label-md font-label-md text-outline-variant block mb-1">Code Postal</span>
+                                <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.postal_code">Code Postal</span>
                                 <span id="view-postal" class="text-body-md text-on-surface">-</span>
                             </div>
                             <div>
-                                <span class="text-label-md font-label-md text-outline-variant block mb-1">Ville</span>
+                                <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.city">Ville</span>
                                 <span id="view-city" class="text-body-md text-on-surface">-</span>
                             </div>
                         </div>
-                        <button type="button" id="btn-edit-profile" class="mt-2 w-full border border-primary text-primary hover:bg-primary/5 py-2 rounded-lg font-label-md transition-colors">
+                        <button type="button" id="btn-edit-profile" class="mt-2 w-full border border-primary text-primary hover:bg-primary/5 py-2 rounded-lg font-label-md transition-colors" data-i18n="dashboard.profile.edit_btn">
                             Modifier mes informations
                         </button>
                     </div>
@@ -153,40 +153,40 @@
                     <form id="profile-form" class="hidden flex-col gap-4">
                         <div id="profile-msg" class="text-body-sm font-bold hidden px-4 py-2 rounded"></div>
                         <div>
-                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Société</label>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.company">Société</label>
                             <input type="text" id="info-company" name="company" class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
                         </div>
                         <div>
-                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Contact</label>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.contact">Contact</label>
                             <input type="text" id="info-contact" name="contact_name" class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
                         </div>
                         <div>
-                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Email</label>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.email">Email</label>
                             <input type="email" id="info-email" name="email" class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
                         </div>
                         <div>
-                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Téléphone</label>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.phone">Téléphone</label>
                             <input type="text" id="info-phone" name="phone" class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
                         </div>
                         <div>
-                            <label class="text-label-md font-label-md text-outline-variant block mb-1">Adresse <span class="text-error">*</span></label>
+                            <label class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.address">Adresse <span class="text-error">*</span></label>
                             <input type="text" id="info-address" name="address" required class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="text-label-md font-label-md text-outline-variant block mb-1">Code Postal <span class="text-error">*</span></label>
+                                <label class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.postal_code">Code Postal <span class="text-error">*</span></label>
                                 <input type="text" id="info-postal" name="postal_code" required class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
                             </div>
                             <div>
-                                <label class="text-label-md font-label-md text-outline-variant block mb-1">Ville <span class="text-error">*</span></label>
+                                <label class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.city">Ville <span class="text-error">*</span></label>
                                 <input type="text" id="info-city" name="city" required class="w-full bg-surface-container-highest/10 border border-outline/30 rounded-lg py-2 px-4 text-body-sm text-on-surface focus:outline-none focus:border-primary" />
                             </div>
                         </div>
                         <div class="flex gap-4 mt-2">
-                            <button type="button" id="btn-cancel-edit" class="flex-1 border border-outline text-on-surface hover:bg-surface-container py-2 rounded-lg font-label-md transition-colors">
+                            <button type="button" id="btn-cancel-edit" class="flex-1 border border-outline text-on-surface hover:bg-surface-container py-2 rounded-lg font-label-md transition-colors" data-i18n="dashboard.profile.cancel_btn">
                                 Annuler
                             </button>
-                            <button type="submit" class="flex-1 bg-primary hover:bg-primary/90 text-on-primary py-2 rounded-lg font-label-md transition-colors">
+                            <button type="submit" class="flex-1 bg-primary hover:bg-primary/90 text-on-primary py-2 rounded-lg font-label-md transition-colors" data-i18n="dashboard.profile.save_btn">
                                 Enregistrer
                             </button>
                         </div>
@@ -220,17 +220,17 @@
             </button>
             
             <div class="border-b border-outline/20 pb-4 relative">
-                <h3 class="text-headline-md font-headline-md text-on-surface pr-24">Commande <span id="modal-ref" class="text-primary"></span></h3>
+                <h3 class="text-headline-md font-headline-md text-on-surface pr-24"><span data-i18n="modal.title">Commande </span><span id="modal-ref" class="text-primary"></span></h3>
                 <a id="modal-download-btn" href="#" class="absolute top-0 right-8 flex items-center gap-1.5 text-body-sm bg-primary text-on-primary px-3 py-1.5 rounded-lg hover:bg-primary/90 transition-colors shadow-sm">
                     <span class="material-symbols-outlined text-[18px]">download</span>
-                    <span class="hidden sm:inline font-semibold">Télécharger le bon de commande</span>
+                    <span class="hidden sm:inline font-semibold" data-i18n="modal.download">Télécharger le bon de commande</span>
                 </a>
                 <div class="flex gap-4 mt-2 text-body-sm text-on-surface-variant">
-                    <span>Date : <span id="modal-date"></span></span>
-                    <span>Statut : <span id="modal-status" class="px-2 py-0.5 bg-surface-container-highest rounded font-semibold"></span></span>
+                    <span><span data-i18n="modal.date">Date :</span> <span id="modal-date"></span></span>
+                    <span><span data-i18n="modal.status">Statut :</span> <span id="modal-status" class="px-2 py-0.5 bg-surface-container-highest rounded font-semibold"></span></span>
                 </div>
                 <div class="mt-2 text-body-sm text-on-surface-variant">
-                    Livraison : <span id="modal-address" class="font-semibold text-on-surface"></span>
+                    <span data-i18n="modal.delivery">Livraison :</span> <span id="modal-address" class="font-semibold text-on-surface"></span>
                 </div>
             </div>
             
@@ -238,11 +238,11 @@
                 <table class="w-full text-left border-collapse min-w-[500px]">
                     <thead class="border-b border-outline/20 text-label-md font-label-md text-on-surface-variant">
                         <tr>
-                            <th class="py-2 pr-2 w-16">Article</th>
-                            <th class="py-2 px-2">Détails</th>
-                            <th class="py-2 px-2 text-center">Qté</th>
-                            <th class="py-2 px-2 text-right">P.U.</th>
-                            <th class="py-2 pl-2 text-right">Total</th>
+                            <th class="py-2 pr-2 w-16" data-i18n="modal.table.article">Article</th>
+                            <th class="py-2 px-2" data-i18n="modal.table.details">Détails</th>
+                            <th class="py-2 px-2 text-center" data-i18n="modal.table.qty">Qté</th>
+                            <th class="py-2 px-2 text-right" data-i18n="modal.table.pu">P.U.</th>
+                            <th class="py-2 pl-2 text-right" data-i18n="modal.table.total">Total</th>
                         </tr>
                     </thead>
                     <tbody id="modal-items-container">
@@ -252,13 +252,31 @@
             </div>
             
             <div class="border-t border-outline/20 pt-4 flex justify-between items-center text-headline-md font-headline-md">
-                <span>Total TTC</span>
+                <span data-i18n="modal.total_ttc">Total TTC</span>
                 <span id="modal-total" class="text-primary font-data-mono"></span>
             </div>
         </div>
     </dialog>
 </main>
 <script>
+let windowTranslations = null;
+document.addEventListener('i18nLoaded', (e) => {
+    windowTranslations = e.detail.translations;
+    // re-render dynamic parts
+    if(typeof renderClientOrders === 'function' && allOrders.length > 0) renderClientOrders();
+    if(typeof renderStatsCards === 'function') renderStatsCards();
+    if(typeof renderOrders === 'function' && allOrders.length > 0) renderOrders();
+});
+function t(key, defaultText) {
+    if (!windowTranslations) return defaultText;
+    const keys = key.split('.');
+    let val = windowTranslations;
+    for (const k of keys) {
+        if (val) val = val[k];
+    }
+    return val || defaultText;
+}
+
 function fillProfileForm(user) {
     if (!user) return;
     
@@ -417,38 +435,38 @@ function renderStatsCards() {
                 <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-gray-100 text-gray-500">
                     <span class="material-symbols-outlined text-[18px]">dashboard_customize</span>
                 </div>
-                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Total commandes</span>
-                <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.total).padStart(2, '0')}</span>
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">\${t('dashboard.stat_total', 'Total commandes')}</span>
+                <span class="text-headline-md font-headline-md text-on-surface leading-none">\${String(stats.total).padStart(2, '0')}</span>
             </div>
             <div class="bg-[#fadcd5] p-4 rounded-xl border border-outline/10 shadow-sm flex flex-col items-start cursor-pointer hover:shadow-md transition-shadow" onclick="document.querySelector('#dashboard-status-filters button[data-filter=pending_payment]').click()">
                 <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-orange-50 text-orange-400">
                     <span class="material-symbols-outlined text-[18px]">schedule</span>
                 </div>
-                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">En attente payement</span>
-                <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.pending).padStart(2, '0')}</span>
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">\${t('dashboard.stat_pending', 'En attente payement')}</span>
+                <span class="text-headline-md font-headline-md text-on-surface leading-none">\${String(stats.pending).padStart(2, '0')}</span>
             </div>
             <div class="bg-[#fadcd5] p-4 rounded-xl border border-outline/10 shadow-sm flex flex-col items-start cursor-pointer hover:shadow-md transition-shadow" onclick="document.querySelector('#dashboard-status-filters button[data-filter=paid]').click()">
                 <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-blue-50 text-blue-500">
                     <span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
                 </div>
-                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Payé</span>
-                <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.paid || 0).padStart(2, '0')}</span>
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">\${t('dashboard.stat_paid', 'Payé')}</span>
+                <span class="text-headline-md font-headline-md text-on-surface leading-none">\${String(stats.paid || 0).padStart(2, '0')}</span>
             </div>
             <div class="bg-[#fadcd5] p-4 rounded-xl border border-outline/10 shadow-sm flex flex-col items-start cursor-pointer hover:shadow-md transition-shadow" onclick="document.querySelector('#dashboard-status-filters button[data-filter=shipped]').click()">
                 <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-blue-50 text-blue-500">
                     <span class="material-symbols-outlined text-[18px]">local_shipping</span>
                 </div>
-                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">En cour Livraison</span>
-                <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.delivery).padStart(2, '0')}</span>
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">\${t('dashboard.stat_shipped', 'En cour Livraison')}</span>
+                <span class="text-headline-md font-headline-md text-on-surface leading-none">\${String(stats.delivery).padStart(2, '0')}</span>
             </div>
             <div class="bg-[#fadcd5] p-4 rounded-xl border border-outline/10 shadow-sm flex flex-col items-start cursor-pointer hover:shadow-md transition-shadow" onclick="document.querySelector('#dashboard-status-filters button[data-filter=delivered]').click()">
                 <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-emerald-50 text-emerald-500">
                     <span class="material-symbols-outlined text-[18px]">check_circle</span>
                 </div>
-                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Livrées</span>
-                <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.delivered).padStart(2, '0')}</span>
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">\${t('dashboard.stat_delivered', 'Livrées')}</span>
+                <span class="text-headline-md font-headline-md text-on-surface leading-none">\${String(stats.delivered).padStart(2, '0')}</span>
             </div>
-        `;
+        \`;
     }
 }
 
@@ -462,19 +480,19 @@ function renderClientOrders() {
         return;
     }
 
-    let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">Référence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total TTC</th></tr></thead><tbody>';
+    let html = \`<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">\${t('order.table.ref', 'Référence')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">\${t('order.table.date', 'Date')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">\${t('order.table.status', 'Statut')}</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right" data-i18n="modal.total_ttc">\${t('order.table.total', 'Total TTC')}</th></tr></thead><tbody>\`;
     
     filtered.forEach(order => {
         const dateObj = new Date(order.created_at);
         const dateStr = dateObj.toLocaleDateString();
         const statusMap = {
-            'pending_payment': { label: 'En attente de payement', icon: 'schedule', class: 'text-orange-500 border-orange-300 bg-orange-50' },
-            'paid': { label: 'Payé', icon: 'check_circle', class: 'text-[#0ea5e9] border-[#0ea5e9] bg-[#f0f9ff]' },
-            'shipped': { label: 'En cour de Livraison', icon: 'local_shipping', class: 'text-blue-500 border-blue-300 bg-blue-50' },
-            'delivered': { label: 'Livrée', icon: 'check_circle', class: 'text-emerald-600 border-emerald-300 bg-emerald-50' }
+            'pending_payment': { label: t('order.status_pending', 'En attente de payement'), icon: 'schedule', 'class': 'text-orange-500 border-orange-300 bg-orange-50' },
+            'paid': { label: t('order.status_paid', 'Payé'), icon: 'check_circle', 'class': 'text-[#0ea5e9] border-[#0ea5e9] bg-[#f0f9ff]' },
+            'shipped': { label: t('order.status_shipped', 'En cour de Livraison'), icon: 'local_shipping', 'class': 'text-blue-500 border-blue-300 bg-blue-50' },
+            'delivered': { label: t('order.status_delivered', 'Livrée'), icon: 'check_circle', 'class': 'text-emerald-600 border-emerald-300 bg-emerald-50' }
         };
         
-        const statusInfo = statusMap[order.status] || { label: order.status, class: 'bg-surface-container-highest text-on-surface-variant' };
+        const statusInfo = statusMap[order.status] || { label: order.status, 'class': 'bg-surface-container-highest text-on-surface-variant' };
         const totalFmt = parseFloat(order.total).toFixed(2) + ' €';
         
         const orderData = {
@@ -482,7 +500,7 @@ function renderClientOrders() {
             date: dateStr,
             status: statusInfo.label,
             total: totalFmt,
-            delivery_address: order.delivery_address || 'Non spécifiée',
+            delivery_address: order.delivery_address || t('modal.not_specified', 'Non spécifiée'),
             items: typeof order.items === 'string' ? JSON.parse(order.items || '[]') : (order.items || [])
         };
         const orderDataStr = JSON.stringify(orderData).replace(/"/g, '&quot;');

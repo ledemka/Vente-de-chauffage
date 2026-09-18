@@ -168,5 +168,78 @@
     "depots": {
         "title": "Présents au cœur de l'Europe du bois",
         "body": "Notre force, c'est notre réseau. Implantés dans 8 pays et 24 villes à travers l'Europe, nous travaillons main dans la main avec des producteurs, scieries et grossistes locaux pour vous garantir un bois de chauffage de qualité, disponible toute l'année et à un prix maîtrisé. Cette proximité avec nos partenaires nous permet de sécuriser nos approvisionnements même en période de forte demande, de contrôler la qualité à la source, et de vous proposer des tarifs compétitifs sans intermédiaire superflu."
+    },
+    "dashboard": {
+        "title": "Mon Tableau de Bord",
+        "logout": "Déconnexion",
+        "my_orders": "Mes Commandes",
+        "loading": "Chargement...",
+        "no_orders": "Aucune commande pour le moment.",
+        "stat_total": "Total commandes",
+        "stat_pending": "En attente payement",
+        "stat_paid": "Payé",
+        "stat_shipped": "En cour Livraison",
+        "stat_delivered": "Livrées",
+        "profile": {
+            "company": "Société",
+            "contact": "Contact",
+            "email": "Email",
+            "phone": "Téléphone",
+            "address": "Adresse",
+            "postal_code": "Code Postal",
+            "city": "Ville",
+            "edit_btn": "Modifier mes informations",
+            "cancel_btn": "Annuler",
+            "save_btn": "Enregistrer"
+        }
+    },
+    "admin": {
+        "orders_title": "Gestion des commandes",
+        "filter_all": "Toutes",
+        "search_placeholder": "Réf, Nom, Email...",
+        "loading": "Chargement...",
+        "no_orders": "Aucune commande trouvée.",
+        "table": {
+            "ref": "Réf",
+            "date": "Date",
+            "client": "Client",
+            "total": "Total TTC",
+            "status": "Statut (actuel)",
+            "action": "Action"
+        },
+        "select_status": "Changer statut...",
+        "confirm_status": "Changer le statut en : ",
+        "update_error": "Erreur lors de la mise à jour",
+        "network_error": "Erreur réseau"
+    },
+    "order": {
+        "filter_all": "Toutes",
+        "status_pending": "En attente de payement",
+        "status_paid": "Payé",
+        "status_shipped": "En cour de Livraison",
+        "status_delivered": "Livrée",
+        "table": {
+            "ref": "Référence",
+            "date": "Date",
+            "status": "Statut",
+            "total": "Total TTC"
+        }
+    },
+    "modal": {
+        "title": "Commande ",
+        "download": "Télécharger le bon de commande",
+        "date": "Date :",
+        "status": "Statut :",
+        "client": "Client :",
+        "delivery": "Livraison :",
+        "table": {
+            "article": "Article",
+            "details": "Détails",
+            "qty": "Qté",
+            "pu": "P.U.",
+            "total": "Total"
+        },
+        "total_ttc": "Total TTC",
+        "not_specified": "Non spécifiée"
     }
 }
