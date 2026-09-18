@@ -30,9 +30,18 @@ try {
     $pdo = $db->getConnection();
     if ($pdo === null) throw new Exception("DB error");
 
-    // Vérifier l'appartenance de la commande au client
-    $stmt = $pdo->prepare("SELECT * FROM orders WHERE order_reference = ? AND client_id = ?");
-    $stmt->execute([$ref, $client_id]);
+    // Vérifie si la session appartient à un admin
+    $stmtAdmin = $pdo->prepare("SELECT is_admin FROM clients WHERE id = ?");
+    $stmtAdmin->execute([$client_id]);
+    $isAdmin = (bool)($stmtAdmin->fetchColumn());
+
+    if ($isAdmin) {
+        $stmt = $pdo->prepare("SELECT * FROM orders WHERE order_reference = ?");
+        $stmt->execute([$ref]);
+    } else {
+        $stmt = $pdo->prepare("SELECT * FROM orders WHERE order_reference = ? AND client_id = ?");
+        $stmt->execute([$ref, $client_id]);
+    }
     $order = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$order) {
@@ -42,7 +51,7 @@ try {
 
     // Récupérer les infos détaillées du client pour l'adresse de facturation/livraison complète
     $stmt = $pdo->prepare("SELECT * FROM clients WHERE id = ?");
-    $stmt->execute([$client_id]);
+    $stmt->execute([$order['client_id']]);
     $client = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Données de la commande

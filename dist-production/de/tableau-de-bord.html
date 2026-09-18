@@ -94,13 +94,25 @@
             </button>
         </div>
 
+        
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8" id="dashboard-stats">
+            <!-- Injected by JS -->
+        </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-1">
                 <div class="bg-surface-container p-6 rounded-xl border border-outline/10 shadow-sm h-full">
-                    <h2 class="text-headline-md font-headline-md text-on-surface mb-6 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary">badge</span>
-                        <span data-i18n="dashboard.my_info">Mes Informations</span>
+                    <h2 class="text-headline-md font-headline-md text-on-surface mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">list_alt</span>
+                        <span data-i18n="dashboard.my_orders">Mes Commandes</span>
                     </h2>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6" id="dashboard-status-filters">
+                        <button class="px-4 py-1.5 rounded-full bg-primary text-on-primary text-[13px] font-bold transition-colors shadow-sm" data-filter="all">Toutes</button>
+                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="pending_payment">En attente de payement</button>
+                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="paid">Payé</button>
+                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="shipped">En cour de Livraison</button>
+                        <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="delivered">Livrée</button>
+                    </div>
                     
                     <div class="flex flex-col gap-4">
                         <div>
@@ -160,6 +172,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         const checkRes = await fetch('../api/auth.php', { 
             method: 'POST',
+            credentials: 'include',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: formData.toString()
         });
@@ -189,36 +202,100 @@ document.addEventListener('DOMContentLoaded', async () => {
         formData.append('action', 'list');
         const res = await fetch('../api/orders.php', {
             method: 'POST',
+            credentials: 'include',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: formData.toString()
         });
         const data = await res.json();
         
-        if (data.success && data.orders && data.orders.length > 0) {
-            let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">RǸfǸrence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total TTC</th></tr></thead><tbody>';
+        if (data.success && data.orders) {
+            let stats = { total: data.orders.length, delivery: 0, delivered: 0, pending: 0, paid: 0 };
+            
+            let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">Référence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total TTC</th></tr></thead><tbody>';
             
             data.orders.forEach(order => {
                 const dateObj = new Date(order.created_at);
                 const dateStr = dateObj.toLocaleDateString();
                 const statusMap = {
-                    'pending_payment': 'En attente de virement',
-                    'paid': 'PayǸe',
-                    'shipped': 'ExpǸdiǸe',
-                    'delivered': 'LivrǸe',
-                    'cancelled': 'AnnulǸe'
+                    'pending_payment': { label: 'En attente de payement', icon: 'schedule', class: 'text-orange-500 border-orange-300 bg-orange-50' },
+                    'paid': { label: 'Payé', icon: 'check_circle', class: 'text-[#0ea5e9] border-[#0ea5e9] bg-[#f0f9ff]' },
+                    'shipped': { label: 'En cour de Livraison', icon: 'local_shipping', class: 'text-blue-500 border-blue-300 bg-blue-50' },
+                    'delivered': { label: 'Livrée', icon: 'check_circle', class: 'text-emerald-600 border-emerald-300 bg-emerald-50' }
                 };
-                const statusTxt = statusMap[order.status] || order.status;
+                
+                if (order.status === 'shipped') stats.delivery++;
+                else if (order.status === 'delivered') stats.delivered++;
+                else if (order.status === 'pending_payment') stats.pending++;
+                else if (order.status === 'paid') stats.paid++;
+
+                const statusInfo = statusMap[order.status] || { label: order.status, class: 'bg-surface-container-highest text-on-surface-variant' };
                 const totalFmt = parseFloat(order.total).toFixed(2) + ' €';
                 
-                html += `<tr class="border-b border-outline/10">
+                const orderData = {
+                    ref: order.order_reference,
+                    date: dateStr,
+                    status: statusInfo.label,
+                    total: totalFmt,
+                    delivery_address: order.delivery_address || 'Non spécifiée',
+                    items: typeof order.items === 'string' ? JSON.parse(order.items || '[]') : (order.items || [])
+                };
+                const orderDataStr = JSON.stringify(orderData).replace(/"/g, '&quot;');
+                
+                html += `<tr class="order-row border-b border-outline/10 cursor-pointer hover:bg-surface-container-highest/20 transition-colors" data-order="${orderDataStr}">
                     <td class="py-4 pr-2 text-body-md font-bold text-on-surface">${order.order_reference}</td>
                     <td class="py-4 px-2 text-body-sm text-on-surface-variant">${dateStr}</td>
-                    <td class="py-4 px-2 text-body-sm"><span class="px-2 py-1 bg-surface-container-highest rounded text-on-surface-variant">${statusTxt}</span></td>
+                    <td class="py-4 px-2 text-body-sm"><div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border ${statusInfo.class} uppercase tracking-wide"><span class="material-symbols-outlined text-[14px]">${statusInfo.icon}</span>${statusInfo.label}</div></td>
                     <td class="py-4 pl-2 text-right text-body-md font-data-mono font-bold text-primary">${totalFmt}</td>
                 </tr>`;
             });
             html += '</tbody></table>';
-            ordersContainer.innerHTML = html;
+            
+            if (data.orders.length > 0) {
+                ordersContainer.innerHTML = html;
+            } else {
+                ordersContainer.innerHTML = '<div class="text-center py-10 text-on-surface-variant"><span class="material-symbols-outlined text-[48px] opacity-50 mb-4 block">inventory_2</span><p data-i18n="dashboard.no_orders">Aucune commande pour le moment.</p></div>';
+            }
+
+            const statsContainer = document.getElementById('dashboard-stats');
+            if (statsContainer) {
+                statsContainer.innerHTML = `
+                    <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col items-start border-2 border-[#1a2b3c]">
+                        <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-gray-100 text-gray-500">
+                            <span class="material-symbols-outlined text-[18px]">dashboard_customize</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Total commandes</span>
+                        <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.total).padStart(2, '0')}</span>
+                    </div>
+                    <div class="bg-surface-container-lowest p-4 rounded-xl border border-outline/10 shadow-sm flex flex-col items-start">
+                        <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-orange-50 text-orange-400">
+                            <span class="material-symbols-outlined text-[18px]">schedule</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">En attente payement</span>
+                        <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.pending).padStart(2, '0')}</span>
+                    </div>
+                    <div class="bg-surface-container-lowest p-4 rounded-xl border border-outline/10 shadow-sm flex flex-col items-start">
+                        <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-blue-50 text-blue-500">
+                            <span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Payé</span>
+                        <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.paid || 0).padStart(2, '0')}</span>
+                    </div>
+                    <div class="bg-surface-container-lowest p-4 rounded-xl border border-outline/10 shadow-sm flex flex-col items-start">
+                        <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-blue-50 text-blue-500">
+                            <span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">En cour Livraison</span>
+                        <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.delivery).padStart(2, '0')}</span>
+                    </div>
+                    <div class="bg-surface-container-lowest p-4 rounded-xl border border-outline/10 shadow-sm flex flex-col items-start">
+                        <div class="w-8 h-8 rounded-md flex items-center justify-center mb-3 bg-emerald-50 text-emerald-500">
+                            <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Livrées</span>
+                        <span class="text-headline-md font-headline-md text-on-surface leading-none">${String(stats.delivered).padStart(2, '0')}</span>
+                    </div>
+                `;
+            }
         } else {
             ordersContainer.innerHTML = '<div class="text-center py-10 text-on-surface-variant"><span class="material-symbols-outlined text-[48px] opacity-50 mb-4 block">inventory_2</span><p data-i18n="dashboard.no_orders">Aucune commande pour le moment.</p></div>';
         }

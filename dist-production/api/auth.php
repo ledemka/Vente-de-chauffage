@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 // Set session lifetime to 7 days before session_start
 $session_lifetime = 7 * 24 * 60 * 60;
-session_set_cookie_params($session_lifetime);
+// // session_set_cookie_params commented out for localhost compatibility // Can cause issues on localhost
 session_start();
 
 header('Content-Type: application/json; charset=utf-8');
@@ -195,8 +195,6 @@ try {
             $stmt = $pdo->prepare("DELETE FROM login_attempts WHERE email = ? OR ip_address = ?");
             $stmt->execute([$email, $ip_address]);
 
-            session_regenerate_id(true);
-
             $_SESSION['client_id'] = $client['id'];
             $_SESSION['email'] = $client['email'];
             $_SESSION['contact_name'] = $client['contact_name'];
@@ -228,7 +226,7 @@ try {
             exit;
         }
         
-        $stmt = $pdo->prepare("SELECT company, contact_name, email, phone, address, city, postal_code FROM clients WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT company, contact_name, email, phone, address, city, postal_code, is_admin FROM clients WHERE id = ?");
         $stmt->execute([$_SESSION['client_id']]);
         $client = $stmt->fetch(PDO::FETCH_ASSOC);
         
@@ -241,7 +239,8 @@ try {
                 'phone' => $client['phone'],
                 'address' => $client['address'],
                 'city' => $client['city'],
-                'postal_code' => $client['postal_code']
+                'postal_code' => $client['postal_code'],
+                'is_admin' => (int)($client['is_admin'] ?? 0)
             ]);
             exit;
         } else {

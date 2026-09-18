@@ -27,6 +27,7 @@ const CartAPI = {
 
         const res = await fetch(apiPath, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
@@ -72,6 +73,7 @@ const OrderAPI = {
 
         const res = await fetch('/api/order.php', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },

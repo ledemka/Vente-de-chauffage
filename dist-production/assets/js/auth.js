@@ -28,6 +28,7 @@ const AuthAPI = {
 
         const res = await fetch(this._getApiPath(), {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
@@ -47,6 +48,7 @@ const AuthAPI = {
                 const cartPath = inSubdir ? '../api/cart.php' : '/api/cart.php';
                 await fetch(cartPath, {
                     method: 'POST',
+            credentials: 'include',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: new URLSearchParams({ action: 'sync', session_token: token })
                 });
@@ -64,6 +66,7 @@ const AuthAPI = {
                 const cartPath = inSubdir ? '../api/cart.php' : '/api/cart.php';
                 await fetch(cartPath, {
                     method: 'POST',
+            credentials: 'include',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: new URLSearchParams({ action: 'sync', session_token: token })
                 });

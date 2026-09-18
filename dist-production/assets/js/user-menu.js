@@ -43,6 +43,12 @@
 
                 <!-- Dropdown menu -->
                 <div id="user-dropdown" class="hidden absolute right-0 top-full mt-2 w-52 bg-surface-container-lowest shadow-md rounded-md overflow-hidden z-[100] border border-outline/10">
+                    ${user.is_admin ? `
+                    <a href="${base}admin-commandes.html" class="flex items-center gap-3 px-4 py-3 text-body-sm text-primary bg-primary/5 hover:bg-primary/10 transition-colors" id="user-menu-admin">
+                        <span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>
+                        <span class="font-bold">Administration</span>
+                    </a>
+                    ` : ''}
                     <a href="${base}tableau-de-bord.html" class="flex items-center gap-3 px-4 py-3 text-body-sm text-on-surface hover:bg-surface-container transition-colors" id="user-menu-dashboard">
                         <span class="material-symbols-outlined text-[18px] text-primary">dashboard</span>
                         <span>Mon tableau de bord</span>
