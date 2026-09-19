@@ -76,6 +76,16 @@ if (fs.existsSync(rootFavicon)) {
     console.log(`[Copied File]: favicon.ico -> dist-production/favicon.ico`);
 }
 
+// Copy sitemap.xml and robots.txt if present
+['sitemap.xml', 'robots.txt'].forEach(file => {
+    const src = path.join(ROOT_DIR, file);
+    if (fs.existsSync(src)) {
+        fs.copyFileSync(src, path.join(DIST_DIR, file));
+        console.log(`[Copied File]: ${file} -> dist-production/${file}`);
+    }
+});
+
+
 let totalCopied = 0;
 
 LANGS.forEach(lang => {

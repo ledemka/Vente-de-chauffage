@@ -344,7 +344,7 @@
                                 }
 
                                 // 1. Dynamic SEO
-                                document.title = `${getProductName(product)} – Bois de Chauffage PRO`;
+                                document.title = `${getProductName(product)} – Haardhout PRO`;
                                 
                                 let metaDesc = document.querySelector('meta[name="description"]');
                                 if (!metaDesc) {
@@ -352,7 +352,7 @@
                                     metaDesc.name = "description";
                                     document.head.appendChild(metaDesc);
                                 }
-                                metaDesc.content = `Découvrez ${getProductName(product)} (${product.species_material}, ${product.format}). Prix public conseillé: ${product.recommended_price}€ TTC. Idéal pour professionnels.`;
+                                metaDesc.content = `${getProductName(product)} (${product.species_material}, ${product.format}). Aanbevolen verkoopprijs: ${product.recommended_price}€ incl. btw. Ideaal voor professionele kopers.`;
 
                                 // 2. Product JSON-LD
                                 const productJsonLd = {
