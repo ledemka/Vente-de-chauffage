@@ -449,7 +449,7 @@
                                 if (!opt) {
                                     opt = document.createElement('option');
                                     opt.value = p.id;
-                                    opt.textContent = p.name;
+                                    opt.textContent = getProductName(p);
                                     selectProd.appendChild(opt);
                                 }
                                 selectProd.value = p.id;

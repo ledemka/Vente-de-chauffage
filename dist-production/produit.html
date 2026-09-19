@@ -323,7 +323,7 @@
                                 }
                                 // currentLength is declared below in the pricing block
 
-                                document.getElementById('product-title').textContent = product.name;
+                                document.getElementById('product-title').textContent = getProductName(product);
                                 document.getElementById('product-ref').textContent = `Ref: ${product.id.toUpperCase()}-PAL`;
                                 const displayHumidity = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
                                 document.getElementById('product-desc').textContent = `${product.species_material} - Humidité: ${displayHumidity}. Origine: ${product.origin}. Idéal pour professionnels.`;
@@ -349,7 +349,7 @@
                                 }
 
                                 // 1. Dynamic SEO
-                                document.title = `${product.name} – Bois de Chauffage PRO`;
+                                document.title = `${getProductName(product)} – Bois de Chauffage PRO`;
                                 
                                 let metaDesc = document.querySelector('meta[name="description"]');
                                 if (!metaDesc) {
@@ -357,13 +357,13 @@
                                     metaDesc.name = "description";
                                     document.head.appendChild(metaDesc);
                                 }
-                                metaDesc.content = `Découvrez ${product.name} (${product.species_material}, ${product.format}). Prix public conseillé: ${product.recommended_price}€ TTC. Idéal pour professionnels.`;
+                                metaDesc.content = `Découvrez ${getProductName(product)} (${product.species_material}, ${product.format}). Prix public conseillé: ${product.recommended_price}€ TTC. Idéal pour professionnels.`;
 
                                 // 2. Product JSON-LD
                                 const productJsonLd = {
                                     "@context": "https://schema.org/",
                                     "@type": "Product",
-                                    "name": product.name,
+                                    "name": getProductName(product),
                                     "description": `${product.species_material} B2B Wholesale Palette. ${product.format}`,
                                     "sku": product.id,
                                     "image": "https://www.sotramsbois.com" + product.image_product.replace('.', ''),

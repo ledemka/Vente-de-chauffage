@@ -2,6 +2,13 @@
  * B2B Cart & Auth Frontend logic
  */
 
+if (typeof window.getProductName === 'undefined') {
+    window.getProductName = (p) => {
+        const lang = document.documentElement.lang || 'fr';
+        return p ? (typeof p.name === 'string' ? p.name : (p.name[lang] || p.name.fr)) : '';
+    };
+}
+
 var CartAPI = {
     _ensureToken() {
         let token = localStorage.getItem('cart_session_token');
@@ -207,7 +214,7 @@ var CartUI = {
                 
                 <div class="flex-grow">
                     <div class="text-label-md uppercase text-outline-variant tracking-wider font-bold mb-1">RÉF: ${prod.id}</div>
-                    <h3 class="text-body-lg font-bold text-on-surface mb-2">${prod.name}</h3>
+                    <h3 class="text-body-lg font-bold text-on-surface mb-2">${getProductName(prod)}</h3>
                     <div class="text-body-sm text-on-surface-variant flex items-center gap-2">
                         <span class="material-symbols-outlined text-[16px]">inventory_2</span>
                         Format : ${item.format} / ${prod.palette_weight}
@@ -315,7 +322,7 @@ var CartUI = {
                         <div class="bg-surface-container rounded-xl p-4 border border-outline/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                             <div>
                                 <img src="${imgPrefix}${p.image_product}" class="w-full h-32 object-cover rounded-lg mb-4" alt="">
-                                <h4 class="text-label-lg font-bold text-on-surface mb-1 line-clamp-2">${p.name}</h4>
+                                <h4 class="text-label-lg font-bold text-on-surface mb-1 line-clamp-2">${getProductName(p)}</h4>
                                 ${formatLabel}
                             </div>
                             <div>
@@ -534,7 +541,7 @@ var CartUI = {
 
             html += `<tr class="border-b border-outline/20">
                 <td class="py-3 pr-2 text-body-sm">
-                    <span class="font-bold text-on-surface block">${prod.name}</span>
+                    <span class="font-bold text-on-surface block">${getProductName(prod)}</span>
                     <span class="text-body-sm text-on-surface-variant block">${item.format}</span>
                     <span class="text-label-md uppercase text-outline-variant mt-1 block">RÉF: ${prod.id}</span>
                 </td>

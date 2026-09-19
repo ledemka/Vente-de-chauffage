@@ -210,6 +210,14 @@
                         const relPath = lang === 'fr' ? '.' : '..';
 
                         try {
+                        // Injected getProductName helper
+                        if (typeof window.getProductName === 'undefined') {
+                            window.getProductName = (p) => {
+                                const l = document.documentElement.lang || 'fr';
+                                return p ? (typeof p.name === 'string' ? p.name : (p.name[l] || p.name.fr)) : '';
+                            };
+                        }
+
                             const res = await fetch('../data/products.json?v=' + Date.now());
                             const allProducts = await res.json();
 
@@ -275,11 +283,11 @@
                                                 return `
                                                     <article onclick="window.location.href='./${lang === 'fr' ? '' : lang + '/'}produit.html?id=${p.id}'" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group">
                                                         <div class="relative w-full h-48 rounded bg-surface-container overflow-hidden">
-                                                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${p.image_product}" alt="${p.name}"/>
+                                                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${p.image_product}" alt="${getProductName(p)}"/>
                                                             ${badgeHtml}
                                                         </div>
                                                         <div class="flex flex-col gap-2">
-                                                            <h3 class="text-headline-md font-headline-md text-on-surface leading-tight">${p.name}</h3>
+                                                            <h3 class="text-headline-md font-headline-md text-on-surface leading-tight">${getProductName(p)}</h3>
                                                             <p class="text-body-sm font-body-sm text-on-surface-variant">${p.species_material}</p>
                                                         </div>
                                                         <div class="flex flex-col gap-2 mt-auto">
