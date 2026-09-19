@@ -46,5 +46,42 @@
   "politique-confidentialite.html": {
     "title": "Privacybeleid | Bois de Chauffage PRO",
     "description": "Meer informatie over onze verwerking van uw persoonsgegevens in overeenstemming met de AVG-regelgeving voor onze B2B-klanten."
+  },
+  "depots.html": {
+    "title": "Brandhout inkoopnetwerk in heel Europa | sotramsbois",
+    "description": "Groothandel brandhout met vestigingen in 8 landen en 24 steden in Europa — Polen, Letland, Litouwen, Roemenië, Tsjechië, Kroatië, Bosnië, Frankrijk. Betrouwbare B2B-bevoorrading."
+  },
+  "tableau-de-bord.html": {
+    "title": "Dashboard | sotramsbois"
+  },
+  "admin-commandes.html": {
+    "title": "Bestellingen Beheer | sotramsbois"
+  },
+  "connexion.html": {
+    "title": "Inloggen | sotramsbois"
+  },
+  "inscription.html": {
+    "title": "Registreren | sotramsbois"
+  },
+  "panier.html": {
+    "title": "Winkelwagen | sotramsbois"
+  },
+  "recapitulatif-commande.html": {
+    "title": "Besteloverzicht | sotramsbois"
+  },
+  "merci-contact.html": {
+    "title": "Bericht verzonden | sotramsbois"
+  },
+  "merci-devis.html": {
+    "title": "Offerteaanvraag verzonden | sotramsbois"
+  },
+  "merci-inscription.html": {
+    "title": "Registratie succesvol | sotramsbois"
+  },
+  "confirmation-commande.html": {
+    "title": "Bestelling bevestigd | sotramsbois"
+  },
+  "activation.html": {
+    "title": "Account activatie | sotramsbois"
   }
 }

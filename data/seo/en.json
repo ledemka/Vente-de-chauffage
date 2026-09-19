@@ -46,5 +46,42 @@
   "politique-confidentialite.html": {
     "title": "Privacy Policy | Bois de Chauffage PRO",
     "description": "Learn more about our handling of your personal data in accordance with GDPR regulations for our B2B clients."
+  },
+  "depots.html": {
+    "title": "Firewood Wholesale Sourcing Network Across Europe | sotramsbois",
+    "description": "B2B firewood supplier network spanning 8 countries and 24 cities in Europe — Poland, Latvia, Lithuania, Romania, Czechia, Croatia, Bosnia, France. Reliable bulk firewood sourcing."
+  },
+  "tableau-de-bord.html": {
+    "title": "Dashboard | sotramsbois"
+  },
+  "admin-commandes.html": {
+    "title": "Order Administration | sotramsbois"
+  },
+  "connexion.html": {
+    "title": "Login | sotramsbois"
+  },
+  "inscription.html": {
+    "title": "Register | sotramsbois"
+  },
+  "panier.html": {
+    "title": "Cart | sotramsbois"
+  },
+  "recapitulatif-commande.html": {
+    "title": "Order Summary | sotramsbois"
+  },
+  "merci-contact.html": {
+    "title": "Message Sent | sotramsbois"
+  },
+  "merci-devis.html": {
+    "title": "Quote Request Sent | sotramsbois"
+  },
+  "merci-inscription.html": {
+    "title": "Registration Successful | sotramsbois"
+  },
+  "confirmation-commande.html": {
+    "title": "Order Confirmed | sotramsbois"
+  },
+  "activation.html": {
+    "title": "Account Activation | sotramsbois"
   }
 }

@@ -46,5 +46,42 @@
   "politique-confidentialite.html": {
     "title": "Politique de Confidentialité | Bois de Chauffage PRO",
     "description": "En savoir plus sur notre gestion de vos données personnelles, conformément au RGPD pour nos clients B2B."
+  },
+  "depots.html": {
+    "title": "Réseau d'approvisionnement bois de chauffage en Europe | sotramsbois",
+    "description": "Grossiste bois de chauffage implanté dans 8 pays et 24 villes d'Europe : Pologne, Lettonie, Lituanie, Roumanie, Tchéquie, Croatie, Bosnie, France. Sécurisez votre approvisionnement B2B."
+  },
+  "tableau-de-bord.html": {
+    "title": "Tableau de bord | sotramsbois"
+  },
+  "admin-commandes.html": {
+    "title": "Administration des commandes | sotramsbois"
+  },
+  "connexion.html": {
+    "title": "Connexion | sotramsbois"
+  },
+  "inscription.html": {
+    "title": "Inscription | sotramsbois"
+  },
+  "panier.html": {
+    "title": "Panier | sotramsbois"
+  },
+  "recapitulatif-commande.html": {
+    "title": "Récapitulatif de commande | sotramsbois"
+  },
+  "merci-contact.html": {
+    "title": "Message envoyé | sotramsbois"
+  },
+  "merci-devis.html": {
+    "title": "Demande de devis envoyée | sotramsbois"
+  },
+  "merci-inscription.html": {
+    "title": "Inscription réussie | sotramsbois"
+  },
+  "confirmation-commande.html": {
+    "title": "Commande confirmée | sotramsbois"
+  },
+  "activation.html": {
+    "title": "Activation du compte | sotramsbois"
   }
 }

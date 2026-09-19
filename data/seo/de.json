@@ -46,5 +46,42 @@
   "politique-confidentialite.html": {
     "title": "Datenschutzerklärung | Bois de Chauffage PRO",
     "description": "Erfahren Sie mehr über unseren Umgang mit Ihren personenbezogenen Daten gemäß der DSGVO für unsere B2B-Kunden."
+  },
+  "depots.html": {
+    "title": "Brennholz-Beschaffungsnetzwerk in Europa | sotramsbois",
+    "description": "Brennholz-Großhändler mit Standorten in 8 Ländern und 24 Städten Europas — Polen, Lettland, Litauen, Rumänien, Tschechien, Kroatien, Bosnien, Frankreich. Zuverlässige B2B-Beschaffung."
+  },
+  "tableau-de-bord.html": {
+    "title": "Dashboard | sotramsbois"
+  },
+  "admin-commandes.html": {
+    "title": "Bestellverwaltung | sotramsbois"
+  },
+  "connexion.html": {
+    "title": "Anmelden | sotramsbois"
+  },
+  "inscription.html": {
+    "title": "Registrieren | sotramsbois"
+  },
+  "panier.html": {
+    "title": "Warenkorb | sotramsbois"
+  },
+  "recapitulatif-commande.html": {
+    "title": "Bestellübersicht | sotramsbois"
+  },
+  "merci-contact.html": {
+    "title": "Nachricht gesendet | sotramsbois"
+  },
+  "merci-devis.html": {
+    "title": "Angebotsanfrage gesendet | sotramsbois"
+  },
+  "merci-inscription.html": {
+    "title": "Registrierung erfolgreich | sotramsbois"
+  },
+  "confirmation-commande.html": {
+    "title": "Bestellung bestätigt | sotramsbois"
+  },
+  "activation.html": {
+    "title": "Kontoaktivierung | sotramsbois"
   }
 }
