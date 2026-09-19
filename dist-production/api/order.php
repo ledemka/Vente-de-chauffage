@@ -109,6 +109,8 @@ try {
     $orderItems = [];
     $subtotal = 0;
     
+    $lang = strtolower(trim((string)($input['lang'] ?? 'fr')));
+    
     foreach ($cartItems as $item) {
         $pid = $item['product_id'];
         $len = $item['length'];
@@ -125,7 +127,7 @@ try {
             
             $orderItems[] = [
                 'product_id' => $pid,
-                'name' => $p['name'],
+                'name' => is_array($p['name']) ? ($p['name'][$lang] ?? $p['name']['fr']) : $p['name'],
                 'length' => $len,
                 'format' => $len ? $len . ' cm' : $p['format'],
                 'quantity' => $calc['quantity'],
@@ -141,7 +143,6 @@ try {
     // 3. Insert Order
     $orderRef = 'TF-' . date('Y') . '-' . strtoupper(bin2hex(random_bytes(3))); // e.g. TF-2026-A1B2C3
     
-    $lang = strtolower(trim((string)($input['lang'] ?? 'fr')));
     $truck_access = trim((string)($input['truck_access'] ?? 'non_specifie'));
     
     $stmt = $pdo->prepare("INSERT INTO orders (
