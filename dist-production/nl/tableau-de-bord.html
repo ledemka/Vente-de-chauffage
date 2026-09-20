@@ -574,7 +574,9 @@ window.openOrderModal = (data) => {
             const product = productsData[item.product_id] || {};
             const img = product.image_product ? `<img src="${product.image_product}" class="w-12 h-12 object-cover rounded" />` : '<div class="w-12 h-12 bg-surface-container rounded flex items-center justify-center"><span class="material-symbols-outlined text-outline-variant">image</span></div>';
             
-            const lineTotal = (item.quantity * item.unit_price).toFixed(2);
+            const puHT = item.unit_price_net_ht !== undefined ? parseFloat(item.unit_price_net_ht) : parseFloat(item.unit_price || 0);
+            const puTTC = puHT * 1.20;
+            const lineTotal = (item.quantity * puTTC).toFixed(2);
             
             container.innerHTML += `
                 <tr class="border-b border-outline/10">
@@ -584,7 +586,7 @@ window.openOrderModal = (data) => {
                         <div class="text-body-sm text-outline-variant">${item.format}</div>
                     </td>
                     <td class="py-3 px-2 text-center text-body-md">${item.quantity}</td>
-                    <td class="py-3 px-2 text-right text-body-sm">${parseFloat(item.unit_price).toFixed(2)} €</td>
+                    <td class="py-3 px-2 text-right text-body-sm">${puTTC.toFixed(2)} €</td>
                     <td class="py-3 pl-2 text-right font-data-mono font-bold text-primary">${lineTotal} €</td>
                 </tr>
             `;
