@@ -352,7 +352,14 @@
                                     metaDesc.name = "description";
                                     document.head.appendChild(metaDesc);
                                 }
-                                metaDesc.content = `${getProductName(product)} (${product.species_material}, ${product.format}). Recommended retail price: ${product.recommended_price}€ incl. VAT. Ideal for professionals.`;
+                                const descTemplates = {
+                                    fr: (p) => `Découvrez ${getProductName(p)} (${p.species_material}, ${p.format}). Prix conseillé : ${p.recommended_price}€ TTC. Livraison palette ou camion complet pour professionnels.`,
+                                    en: (p) => `Explore ${getProductName(p)} (${p.species_material}, ${p.format}). Recommended retail price: €${p.recommended_price} incl. VAT. Pallet or full truckload delivery for trade buyers.`,
+                                    de: (p) => `Entdecken Sie ${getProductName(p)} (${p.species_material}, ${p.format}). Empfohlener Verkaufspreis: ${p.recommended_price}€ inkl. MwSt. Lieferung per Palette oder Komplettladung für Gewerbekunden.`,
+                                    nl: (p) => `Ontdek ${getProductName(p)} (${p.species_material}, ${p.format}). Aanbevolen verkoopprijs: €${p.recommended_price} incl. btw. Levering per pallet of volle vracht voor zakelijke klanten.`
+                                };
+                                const descLang = document.documentElement.lang || 'fr';
+                                metaDesc.content = (descTemplates[descLang] || descTemplates.fr)(product);
 
                                 // 2. Product JSON-LD
                                 const productJsonLd = {
