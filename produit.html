@@ -585,28 +585,7 @@
                                 
 updatePricing();
 
-                                const btnCommander = document.getElementById('btn-commander');
-                                if (btnCommander) {
-                                    btnCommander.addEventListener('click', async () => {
-                                        // Block if no real format selected (Bûches)
-                                        if (isBuche && !lengthFromUrl && !window._userSelectedLength) {
-                                            alert('Veuillez sélectionner un format avant de commander.');
-                                            return;
-                                        }
-                                        const qty = parseInt(qtyInput.value) || 1;
-                                        if (window.CartAPI) {
-                                            const originalText = btnCommander.innerHTML;
-                                            btnCommander.innerHTML = '<span class="material-symbols-outlined animate-spin">autorenew</span>';
-                                            try {
-                                                await window.CartAPI.add(product.id, qty, window.currentProductLength || '');
-                                                window.location.href = './panier.html';
-                                            } catch (ex) {
-                                                console.error(ex);
-                                                btnCommander.innerHTML = originalText;
-                                            }
-                                        }
-                                    });
-                                }
+                                
                                 
                                 const btnDevis = document.getElementById('btn-devis');
                                 if (btnDevis) {
