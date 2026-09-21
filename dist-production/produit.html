@@ -324,14 +324,14 @@ window.resolveAssetPath = function(pathStr) {
                             if (product) {
                                 const isBuche = product.subgroup_id === 1 && product.prices_by_length;
                                 // For Bûches: if no length in URL, show page but disable Commander
-                                // currentLength starts empty if no URL param → user must select explicitly
+                                // selectedLength starts empty if no URL param → user must select explicitly
                                 let lengthFromUrl = (isBuche && urlLength && product.prices_by_length[urlLength]) ? urlLength : null;
                                 // If the user came from catalogue with a valid ?length=XX, treat it as an explicit selection
                                 if (lengthFromUrl) {
                                     window._userSelectedLength = lengthFromUrl;
                                     window.currentProductLength = lengthFromUrl;
                                 }
-                                // currentLength is declared below in the pricing block
+                                // selectedLength is declared below in the pricing block
 
                                 document.getElementById('product-title').textContent = getProductName(product);
                                 document.getElementById('product-ref').textContent = `Ref: ${product.id.toUpperCase()}-PAL`;
@@ -431,7 +431,7 @@ window.resolveAssetPath = function(pathStr) {
                                     lenOptions.innerHTML = '';
                                     const lengths = Object.keys(product.prices_by_length).sort();
 
-                                    // For Bûches: currentLength = URL param if valid, else empty (no silent default)
+                                    // For Bûches: selectedLength = URL param if valid, else empty (no silent default)
                                     
 
                                     lengths.forEach(l => {
@@ -466,7 +466,7 @@ window.resolveAssetPath = function(pathStr) {
                                     });
 
                                     // If no length selected, show warning banner and disable Commander
-                                    if (!currentLength) {
+                                    if (!selectedLength) {
                                         // Show informational banner
                                         let warn = document.getElementById('no-format-warning');
                                         if (!warn) {
@@ -482,6 +482,7 @@ window.resolveAssetPath = function(pathStr) {
                                             cmdBtn.disabled = true;
                                             cmdBtn.classList.add('opacity-50', 'cursor-not-allowed');
                                         }
+                                        
                                     }
                                 }
 

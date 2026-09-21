@@ -70,6 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const ensureCartAPI = () => {
         if (typeof CartAPI !== 'undefined') return Promise.resolve(window.CartAPI);
         return new Promise((resolve) => {
+            const existingScript = Array.from(document.scripts).find(s => s.src && s.src.includes('cart.js'));
+            if (existingScript) {
+                existingScript.addEventListener('load', () => resolve(window.CartAPI));
+                existingScript.addEventListener('error', () => resolve(null));
+                return;
+            }
             const inSubdir = /^\/(en|de|nl)\//.test(window.location.pathname);
             const scriptPath = inSubdir ? '../assets/js/cart.js' : './assets/js/cart.js';
             const script = document.createElement('script');

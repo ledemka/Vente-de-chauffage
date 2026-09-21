@@ -1,20 +1,21 @@
 const fs = require('fs');
 const path = require('path');
+
 const rootDir = path.join(__dirname, '..');
 
 const replaceLogic = (content) => {
-    // 1. Replace currentLength init
+    // Replace the currentLength init block
     content = content.replace(
-        /let currentLength = '';[\s\S]*?if \(product\.prices_by_length\) \{/g,
+        /let\s+currentLength\s*=\s*'';\s*if\s*\(product\.prices_by_length\)\s*\{/g,
         `let selectedLength = lengthFromUrl || '';
                                 const defaultDisplayLength = '50';
 
                                 if (product.prices_by_length) {`
     );
 
-    // 2. Replace currentLength usage in btn.onclick
+    // Remove the defaultDisplayLength assignment
     content = content.replace(
-        /currentLength = lengthFromUrl \|\| '';\s*\/\/\s*displayLength is used for initial price display \(50 if nothing selected\)\s*const defaultDisplayLength = '50';/g,
+        /currentLength\s*=\s*lengthFromUrl\s*\|\|\s*'';\s*\/\/\s*displayLength is used for initial price display \(50 if nothing selected\)\s*const defaultDisplayLength = '50';/g,
         ``
     );
 
@@ -27,37 +28,17 @@ const replaceLogic = (content) => {
         /currentLength = l;/g,
         `selectedLength = l;`
     );
-    
-    // 3. Replace the block that sets currentLength to defaultDisplayLength when empty
-    const warningBlock = `// Disable Commander button
-                                        const cmdBtn = document.getElementById('btn-commander');
-                                        if (cmdBtn) {
-                                            cmdBtn.disabled = true;
-                                            cmdBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                                        }
-                                        // Use displayLength for initial price preview
-                                        currentLength = defaultDisplayLength;`;
-    
-    const newWarningBlock = `// Disable Commander button
-                                        const cmdBtn = document.getElementById('btn-commander');
-                                        if (cmdBtn) {
-                                            cmdBtn.disabled = true;
-                                            cmdBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                                        }`;
-    
-    content = content.replace(warningBlock, newWarningBlock);
 
-    // 4. Update the updatePricing function completely
-    const oldUpdatePricingStart = `function updatePricing() {`;
-    const oldUpdatePricingEnd = `// Make currentLength available globally for handleCommanderClick
-                                    window.currentProductLength = currentLength;
-                                }`;
+    // Replace warning block setting currentLength
+    content = content.replace(
+        /\/\/\s*Use displayLength for initial price preview\s*currentLength\s*=\s*defaultDisplayLength;/g,
+        ``
+    );
+
+    // Now, replace the entire updatePricing function accurately using a RegExp
+    const updatePricingRegex = /function\s+updatePricing\(\)\s*\{[\s\S]*?\/\/\s*Make\s+currentLength\s+available\s+globally\s+for\s+handleCommanderClick\s*window\.currentProductLength\s*=\s*currentLength;\s*\}/g;
     
-    const startIdx = content.indexOf(oldUpdatePricingStart);
-    const endIdx = content.indexOf(oldUpdatePricingEnd) + oldUpdatePricingEnd.length;
-    
-    if (startIdx !== -1 && endIdx !== -1) {
-        const newUpdatePricing = `function updatePricing() {
+    const newUpdatePricing = `function updatePricing() {
                                     let qty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
                                     if (qty < 1) { qty = 1; if (qtyInput) qtyInput.value = 1; }
                                     
@@ -154,19 +135,16 @@ const replaceLogic = (content) => {
                                     // Make selectedLength available globally for handleCommanderClick
                                     window.currentProductLength = selectedLength;
                                 }`;
-        content = content.substring(0, startIdx) + newUpdatePricing + content.substring(endIdx);
+    
+    if (updatePricingRegex.test(content)) {
+        content = content.replace(updatePricingRegex, newUpdatePricing);
     } else {
-        console.error("Could not find updatePricing block to replace.");
+        console.error("Could not find updatePricing block to replace using regex!");
     }
 
-    // 5. Update Commander logic
-    const oldCommanderLogic = `if (isBuche && !window._userSelectedLength) {`;
-    const newCommanderLogic = `if (isBuche && !selectedLength) {`;
-    content = content.replace(oldCommanderLogic, newCommanderLogic);
-
-    const oldCartAPIAdd = `CartAPI.add(product.id, qty, currentLength).then(res => {`;
-    const newCartAPIAdd = `CartAPI.add(product.id, qty, selectedLength).then(res => {`;
-    content = content.replace(oldCartAPIAdd, newCartAPIAdd);
+    // Replace Commander Logic
+    content = content.replace(/if\s*\(isBuche\s*&&\s*!window\._userSelectedLength\)/g, `if (isBuche && !selectedLength)`);
+    content = content.replace(/CartAPI\.add\(product\.id,\s*qty,\s*currentLength\)/g, `CartAPI.add(product.id, qty, selectedLength)`);
 
     return content;
 };
