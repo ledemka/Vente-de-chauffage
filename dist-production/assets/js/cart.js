@@ -116,13 +116,9 @@ var CartUI = {
     async loadProducts() {
         if (!this.products) {
             try {
-                const res = await fetch('/data/products.json?v=' + Date.now());
-                if(!res.ok) {
-                    const res2 = await fetch('../data/products.json?v=' + Date.now());
-                    this.products = await res2.json();
-                } else {
-                    this.products = await res.json();
-                }
+                const res = await fetch(window.resolveDataPath('data/products.json?v=' + Date.now()));
+                if(!res.ok) throw new Error('HTTP error ' + res.status);
+                this.products = await res.json();
             } catch (e) {
                 console.error('Could not load products', e);
                 this.products = [];

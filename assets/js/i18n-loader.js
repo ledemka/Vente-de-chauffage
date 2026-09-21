@@ -5,6 +5,12 @@
  * based on the active language and applies them to the DOM.
  */
 
+window.resolveDataPath = function(pathStr) {
+    const isSubdir = /^\/(en|de|nl)(\/|$)/.test(window.location.pathname);
+    const depth = isSubdir ? '../' : './';
+    return depth + pathStr.replace(/^\/+/, '');
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const lang = document.documentElement.lang || 'fr';
     const relPath = lang === 'fr' ? '.' : '..';

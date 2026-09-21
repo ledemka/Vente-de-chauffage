@@ -319,7 +319,7 @@ let currentFilter = 'all';
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Fetch Products for images
     try {
-        const prodRes = await fetch('./data/products.json');
+        const prodRes = await fetch(window.resolveDataPath('data/products.json'));
         const prods = await prodRes.json();
         prods.forEach(p => productsData[p.id] = p);
     } catch(e) { console.error('Error loading products'); }

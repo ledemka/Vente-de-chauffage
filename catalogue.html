@@ -247,7 +247,7 @@ window.resolveAssetPath = function(pathStr) {
                             };
                         }
 
-                            const res = await fetch('./data/products.json?v=' + Date.now());
+                            const res = await fetch(window.resolveDataPath('data/products.json?v=' + Date.now()));
                             const allProducts = await res.json();
 
                             const subGroups = [

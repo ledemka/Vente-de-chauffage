@@ -317,7 +317,7 @@ window.resolveAssetPath = function(pathStr) {
                         const urlLength = urlParams.get('length');
 
                         try {
-                            const resProducts = await fetch('../data/products.json?v=' + Date.now());
+                            const resProducts = await fetch(window.resolveDataPath('data/products.json?v=' + Date.now()));
                             const products = await resProducts.json();
                             const product = products.find(p => p.id === productId) || products[0];
 
