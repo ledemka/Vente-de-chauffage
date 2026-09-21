@@ -159,6 +159,9 @@ function processHtml(filePath, lang) {
   
   const pageItems = tableData.filter(t => t.file === path.basename(filePath));
   
+  // Fix html lang attribute if it was copied from French
+  content = content.replace(/<html([^>]*)lang=["']fr["']([^>]*)>/g, `<html$1lang="${lang}"$2>`);
+  
   pageItems.forEach(item => {
     const textToReplace = item[lang];
     const key = item.key;
