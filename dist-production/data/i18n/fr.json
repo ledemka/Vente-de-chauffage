@@ -24,7 +24,8 @@
         "briquettes_compressed": "Bûches Compressées",
         "briquettes": "Briquettes",
         "pellets": "Granulés (Pellets)",
-        "coal_starters": "Charbon & Acc."
+        "coal_starters": "Charbon & Acc.",
+        "coal_acc": "Charbon & Acc."
     },
     "catalog_discount_note": "Tarifs dégressifs dès 2 palettes — voir le détail sur chaque fiche produit",
     "rating_badge": "4,8/5 — Plus de 1 000 clients B2B satisfaits en Europe",
@@ -241,5 +242,145 @@
         },
         "total_ttc": "Total TTC",
         "not_specified": "Non spécifiée"
+    },
+    "index": {
+        "hero": {
+            "tagline": "Grossiste Biomasse & Bois Énergie",
+            "rating_badge": "Plus de 1 000 clients B2B satisfaits en Europe",
+            "subtitle": "Solutions de chauffage au bois adaptées aux besoins industriels et à la revente. Rendement calorifique optimal et taux d'humidité contrôlé."
+        }
+    },
+    "catalog": {
+        "filters": {
+            "title": "Filtres",
+            "category": "Catégorie",
+            "moisture": "Humidité (H2O)",
+            "all": "Tout",
+            "unspecified": "Non spécifié",
+            "format": "Format :",
+            "format_select": "Sélectionnez un format ↑"
+        },
+        "table": {
+            "format": "FORMAT",
+            "unit_pallet": "UNITE / PALETTE",
+            "weight": "POIDS PALETTE",
+            "price": "PRIX GROS / PALETTE",
+            "currency": "€ TTC"
+        }
+    },
+    "contact": {
+        "info": {
+            "hq": "Siège Social & Dépôt",
+            "phone": "Téléphone",
+            "b2b_line": "Ligne directe B2B",
+            "email": "Email",
+            "response_time": "Réponse sous 24h ouvrées",
+            "hours": "Heures d'Ouverture",
+            "mon_thu": "Lundi - Jeudi",
+            "fri": "Vendredi",
+            "weekend": "Week-end",
+            "closed": "Fermé"
+        },
+        "form": {
+            "title": "Demande de devis / Renseignements",
+            "subtitle": "Remplissez le formulaire ci-dessous, notre service commercial vous recontactera rapidement.",
+            "honeypot": "Laissez ce champ vide",
+            "company": "Société",
+            "siret": "SIRET / TVA Intracom.",
+            "name": "Nom & Prénom *",
+            "job": "Fonction",
+            "email_pro": "Email professionnel *",
+            "phone_req": "Téléphone *",
+            "need_type": "Type de besoin *",
+            "comment": "Commentaire",
+            "submit": "ENVOYER LA DEMANDE"
+        },
+        "logistics": {
+            "title": "Plateforme Logistique",
+            "desc": "Accès direct pour les camions de livraison. Un pont-bascule de 50T est disponible sur site pour la pesée des véhicules.",
+            "directions": "Calculer l'itinéraire"
+        }
+    },
+    "quote": {
+        "title": "Cotation",
+        "assistance": "Assistance Directe",
+        "specs": {
+            "title": "Spécifications Produit",
+            "type": "TYPE DE PRODUIT *",
+            "format": "FORMAT / CONDITIONNEMENT *",
+            "volume": "VOLUME ESTIMÉ *",
+            "units": "Unités",
+            "min_order": "Minimum de commande: 1 palette / unité de vrac."
+        },
+        "logistics": {
+            "title": "Informations Logistiques",
+            "date": "DATE SOUHAITÉE",
+            "truck": "ACCÈS POIDS LOURD *",
+            "address": "ADRESSE DE LIVRAISON COMPLÈTE *"
+        },
+        "contact": {
+            "title": "Coordonnées",
+            "company": "ENTREPRISE / RAISON SOCIALE *",
+            "siret": "SIRET / TVA INTRA (Optionnel)",
+            "name": "NOM DU CONTACT *",
+            "email": "EMAIL *",
+            "phone": "TÉLÉPHONE *",
+            "notes": "NOTES COMPLÉMENTAIRES (Optionnel)"
+        },
+        "submit": "ENVOYER LA DEMANDE",
+        "why": {
+            "title": "Pourquoi nous choisir ?",
+            "quality_title": "Qualité Certifiée",
+            "quality_desc": "Bois de qualité certifiée, taux d'humidité garanti <20%.",
+            "speed_title": "Réactivité B2B",
+            "speed_desc": "Devis sous 24h, livraison prioritaire sur chantiers ou dépôts.",
+            "volume_title": "Volume Adaptable",
+            "volume_desc": "De la palette isolée au semi-remorque complet en vrac."
+        },
+        "processing": "TRAITEMENT..."
+    },
+    "register": {
+        "benefits": {
+            "title": "Portail B2B Exclusif",
+            "delivery_title": "Livraison semi-remorque & vrac",
+            "delivery_desc": "Acheminement direct sur plateforme ou site de production avec hayon et transpalette.",
+            "pricing_title": "Tarifs professionnels TTC",
+            "pricing_desc": "Visualisation immédiate des remises quantitatives et facturation centralisée.",
+            "advisor_title": "Conseiller dédié",
+            "advisor_desc": "Un interlocuteur unique pour le suivi de vos commandes et contrats annuels.",
+            "approval_notice": "Les comptes professionnels sont validés sous 24h ouvrées après vérification des informations légales."
+        },
+        "form": {
+            "title": "Formulaire d'inscription",
+            "subtitle": "Renseignez vos coordonnées professionnelles pour créer votre accès.",
+            "type_pro": "Vous êtes professionnel (entreprise, revendeur, artisan...)",
+            "section_business": "Informations professionnelles",
+            "optional": "(Optionnel)",
+            "cgv": "Conditions Générales de Vente (CGV)",
+            "already_account": "Déjà un compte ?",
+            "login": "Se connecter",
+            "submit": "Créer mon compte"
+        }
+    },
+    "login": {
+        "benefits": {
+            "title": "Espace Professionnel B2B",
+            "delivery_title": "Livraison Palette",
+            "delivery_desc": "Suivi logistique précis sur toute la France.",
+            "invoice_title": "Facturation Pro",
+            "invoice_desc": "Gestion centralisée et bons de livraison dématérialisés."
+        },
+        "form": {
+            "title": "Connexion B2B",
+            "subtitle": "Entrez vos identifiants professionnels pour accéder à votre espace.",
+            "email": "Email Professionnel",
+            "password": "Mot de passe",
+            "forgot": "Mot de passe oublié ?",
+            "remember": "Rester connecté",
+            "submit": "Se connecter",
+            "guest": "Continuer en tant qu'invité",
+            "no_account": "Pas encore de compte ?",
+            "signup": "S'inscrire"
+        }
     }
 }

@@ -75,7 +75,7 @@
             <div class="flex flex-col gap-4">
                 <div class="flex items-center gap-2 text-primary font-label-md text-label-md uppercase tracking-wider">
                     <span class="material-symbols-outlined text-[18px]">verified</span>
-                    <span>Portail B2B Exclusif</span>
+                    <span data-i18n="register.benefits.title">Exklusives B2B-Portal</span>
                 </div>
                 <h1 class="text-[40px] leading-[1.2] font-headline-xl text-on-surface">
                     Ouvrez votre compte professionnel sotramsbois
@@ -92,8 +92,8 @@
                         <span class="material-symbols-outlined text-[20px]">local_shipping</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <h3 class="font-headline-md text-label-md text-on-surface">Livraison semi-remorque & vrac</h3>
-                        <p class="text-body-sm text-on-surface-variant">Acheminement direct sur plateforme ou site de production avec hayon et transpalette.</p>
+                        <h3 data-i18n="register.benefits.delivery_title" class="font-headline-md text-label-md text-on-surface">Sattelzug- & Schüttgutlieferung</h3>
+                        <p data-i18n="register.benefits.delivery_desc" class="text-body-sm text-on-surface-variant">Direkte Anlieferung auf Plattform oder Produktionsstätte mit Ladebordwand und Hubwagen.</p>
                     </div>
                 </div>
                 
@@ -103,8 +103,8 @@
                         <span class="material-symbols-outlined text-[20px]">percent</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <h3 class="font-headline-md text-label-md text-on-surface">Tarifs professionnels TTC</h3>
-                        <p class="text-body-sm text-on-surface-variant">Visualisation immédiate des remises quantitatives et facturation centralisée.</p>
+                        <h3 data-i18n="register.benefits.pricing_title" class="font-headline-md text-label-md text-on-surface">Gewerbepreise (inkl. MwSt)</h3>
+                        <p data-i18n="register.benefits.pricing_desc" class="text-body-sm text-on-surface-variant">Sofortige Anzeige von Mengenrabatten und zentralisierte Rechnungsstellung.</p>
                     </div>
                 </div>
 
@@ -114,23 +114,23 @@
                         <span class="material-symbols-outlined text-[20px]">support_agent</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <h3 class="font-headline-md text-label-md text-on-surface">Conseiller dédié</h3>
-                        <p class="text-body-sm text-on-surface-variant">Un interlocuteur unique pour le suivi de vos commandes et contrats annuels.</p>
+                        <h3 data-i18n="register.benefits.advisor_title" class="font-headline-md text-label-md text-on-surface">Persönlicher Ansprechpartner</h3>
+                        <p data-i18n="register.benefits.advisor_desc" class="text-body-sm text-on-surface-variant">Ein fester Ansprechpartner für Ihre Bestellungen und Jahresverträge.</p>
                     </div>
                 </div>
             </div>
 
             <div class="bg-surface-container-high rounded-xl p-4 flex gap-3 items-center border border-outline/10">
                 <span class="material-symbols-outlined text-primary text-[20px] shrink-0">info</span>
-                <p class="text-body-sm text-on-surface-variant">Les comptes professionnels sont validés sous 24h ouvrées après vérification des informations légales.</p>
+                <p data-i18n="register.benefits.approval_notice" class="text-body-sm text-on-surface-variant">Geschäftskonten werden innerhalb von 24 Werkstunden nach Prüfung der rechtlichen Angaben freigeschaltet.</p>
             </div>
         </div>
 
         <!-- Right Side: Form -->
         <div class="bg-surface-container rounded-2xl p-8 shadow-sm border border-outline/10 h-fit">
             <div class="mb-8">
-                <h2 class="text-headline-md font-headline-md text-on-surface mb-2">Formulaire d'inscription</h2>
-                <p class="text-body-sm text-on-surface-variant">Renseignez vos coordonnées professionnelles pour créer votre accès.</p>
+                <h2 data-i18n="register.form.title" class="text-headline-md font-headline-md text-on-surface mb-2">Registrierungsformular</h2>
+                <p data-i18n="register.form.subtitle" class="text-body-sm text-on-surface-variant">Geben Sie Ihre Geschäftsdaten ein, um Ihren Zugang zu erstellen.</p>
             </div>
 
             <form id="register-form" class="flex flex-col gap-6">
@@ -142,7 +142,7 @@
                         <input type="text" id="company" required placeholder="Ex: SAS Bois Énergie Grand Est" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
                     </div>
                     <div class="flex flex-col gap-2">
-                        <label for="siret" class="text-label-md font-label-md text-on-surface">Numéro SIRET <span class="text-outline-variant font-normal">(Optionnel)</span></label>
+                        <label for="siret" class="text-label-md font-label-md text-on-surface">Numéro SIRET <span data-i18n="register.form.optional" class="text-outline-variant font-normal">(Optional)</span></label>
                         <input type="text" id="siret" placeholder="Ex: 823 456 789 00012" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
                     </div>
                 </div>
@@ -193,17 +193,17 @@
                 <div class="flex items-start gap-3 mt-2">
                     <input type="checkbox" id="cgv" required class="mt-1 w-4 h-4 text-primary bg-surface-container-lowest border-outline rounded focus:ring-primary focus:ring-2">
                     <label for="cgv" class="text-body-sm text-on-surface-variant leading-tight">
-                        J'accepte les <a href="../cgv.html" class="text-primary hover:underline">Conditions Générales de Vente (CGV)</a> ainsi que la politique de confidentialité de sotramsbois. <span class="text-primary">*</span>
+                        J'accepte les <a data-i18n="register.form.cgv" href="../cgv.html" class="text-primary hover:underline">Allgemeine Geschäftsbedingungen (AGB)</a> ainsi que la politique de confidentialité de sotramsbois. <span class="text-primary">*</span>
                     </label>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 pt-6 border-t border-outline/10">
                     <div class="text-body-sm text-on-surface-variant">
-                        <span>Déjà un compte ?</span>
-                        <a href="../inscription.html" class="text-primary font-bold hover:underline ml-1">Se connecter</a>
+                        <span data-i18n="register.form.already_account">Bereits ein Konto?</span>
+                        <a data-i18n="register.form.login" href="../inscription.html" class="text-primary font-bold hover:underline ml-1">Anmelden</a>
                     </div>
                     <button type="submit" class="w-full sm:w-auto bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-3 px-8 rounded-md transition-colors flex items-center justify-center gap-2 shadow-sm">
-                        <span>Créer mon compte</span>
+                        <span data-i18n="register.form.submit">Konto erstellen</span>
                         <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
                     </button>
                 </div>

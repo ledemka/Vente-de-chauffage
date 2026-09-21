@@ -122,7 +122,7 @@
 <div class="flex flex-col md:flex-row gap-8 justify-between items-start">
 <div class="max-w-2xl">
 <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">
-                    Demande de <br/><span class="text-primary italic font-serif pr-2">Cotation</span> Industrielle
+                    Demande de <br/><span data-i18n="quote.title" class="text-primary italic font-serif pr-2">Offerte</span> Industrielle
                 </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
                     Obtenez une tarification sur-mesure pour vos volumes de biomasse et bois de chauffage professionnel. Notre équipe logistique s'engage à vous répondre sous 24h avec un plan d'approvisionnement optimisé.
@@ -131,7 +131,7 @@
 <div class="hidden md:flex flex-col gap-4 min-w-[280px] bg-surface-container p-6 rounded-xl border-l-4 border-primary">
 <div class="flex items-center gap-3">
 <span 1;'="" class="material-symbols-outlined text-primary text-[28px] style='font-variation-settings: \" fill\"="">support_agent</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">Assistance Directe</h3>
+<h3 data-i18n="quote.assistance" class="font-headline-md text-headline-md text-on-surface">Directe ondersteuning</h3>
 </div>
 <div class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
 <p class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> <span data-i18n="footer.phone">[Telefoonnummer door de klant in te vullen]</span></p>
@@ -151,12 +151,12 @@
 <div class="flex flex-col gap-6">
 <div class="flex items-center gap-4 mb-2 pb-4 border-b-2 border-surface-container-highest">
 <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-label-md text-label-md text-on-secondary-container">1</div>
-<h2 class="font-headline-md text-headline-md text-on-surface">Spécifications Produit</h2>
+<h2 data-i18n="quote.specs.title" class="font-headline-md text-headline-md text-on-surface">Productspecificaties</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <!-- Product Dropdown -->
 <div class="relative flex flex-col gap-2 group">
-<label class="font-label-md text-label-md text-on-surface-variant" for="product_type">TYPE DE PRODUIT *</label>
+<label data-i18n="quote.specs.type" class="font-label-md text-label-md text-on-surface-variant" for="product_type">PRODUCTTYPE *</label>
 <div class="relative">
 <select class="w-full appearance-none bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 pl-4 pr-12 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer" id="product_type" required="">
 <option disabled="" selected="" value="">Sélectionnez un produit...</option>
@@ -171,7 +171,7 @@
 </div>
 <!-- Format Selection -->
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="format">FORMAT / CONDITIONNEMENT *</label>
+<label data-i18n="quote.specs.format" class="font-label-md text-label-md text-on-surface-variant" for="format">FORMAAT / VERPAKKING *</label>
 <div class="relative">
 <select class="w-full appearance-none bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 pl-4 pr-12 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer" id="format" required="">
 <option disabled="" selected="" value="">Sélectionnez un format...</option>
@@ -187,37 +187,37 @@
 </div>
 <!-- Quantity Selector (Industrial Style) -->
 <div class="flex flex-col gap-2 mt-2">
-<label class="font-label-md text-label-md text-on-surface-variant">VOLUME ESTIMÉ *</label>
+<label data-i18n="quote.specs.volume" class="font-label-md text-label-md text-on-surface-variant">GESCHAT VOLUME *</label>
 <div class="flex items-center gap-4 bg-surface-container border border-outline/40 rounded-lg p-2 max-w-sm">
 <button class="w-12 h-12 bg-surface-container-highest hover:bg-surface-variant rounded flex items-center justify-center text-on-surface transition-colors focus:outline-none focus:ring-2 focus:ring-primary" id="qty-decrease" type="button">
 <span class="material-symbols-outlined">remove</span>
 </button>
 <div class="flex-1 text-center">
 <input class="w-full text-center bg-transparent font-headline-lg text-headline-lg text-on-surface focus:outline-none" id="quantity" max="999" min="1" required="" type="number" value="1"/>
-<span class="font-data-mono text-data-mono text-on-surface-variant uppercase text-[10px]">Unités</span>
+<span data-i18n="quote.specs.units" class="font-data-mono text-data-mono text-on-surface-variant uppercase text-[10px]">Eenheden</span>
 </div>
 <button class="w-12 h-12 bg-surface-container-highest hover:bg-surface-variant rounded flex items-center justify-center text-on-surface transition-colors focus:outline-none focus:ring-2 focus:ring-primary" id="qty-increase" type="button">
 <span class="material-symbols-outlined">add</span>
 </button>
 </div>
-<p class="font-body-sm text-body-sm text-outline-variant mt-1 italic">Minimum de commande: 1 palette / unité de vrac.</p>
+<p data-i18n="quote.specs.min_order" class="font-body-sm text-body-sm text-outline-variant mt-1 italic">Minimumbestelling: 1 pallet / bulkeenheid.</p>
 </div>
 </div>
 <!-- Section 2: Logistics -->
 <div class="flex flex-col gap-6">
 <div class="flex items-center gap-4 mb-2 pb-4 border-b-2 border-surface-container-highest">
 <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-label-md text-label-md text-on-secondary-container">2</div>
-<h2 class="font-headline-md text-headline-md text-on-surface">Informations Logistiques</h2>
+<h2 data-i18n="quote.logistics.title" class="font-headline-md text-headline-md text-on-surface">Logistieke informatie</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="delivery_date">DATE SOUHAITÉE</label>
+<label data-i18n="quote.logistics.date" class="font-label-md text-label-md text-on-surface-variant" for="delivery_date">GEWENSTE DATUM</label>
 <div class="relative">
 <input class="w-full bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="delivery_date" type="date"/>
 </div>
 </div>
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="truck_access">ACCÈS POIDS LOURD *</label>
+<label data-i18n="quote.logistics.truck" class="font-label-md text-label-md text-on-surface-variant" for="truck_access">VRACHTWAGENTOEGANG *</label>
 <div class="relative">
 <select class="w-full appearance-none bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 pl-4 pr-12 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer" id="truck_access" required="">
 <option disabled="" selected="" value="">Sélectionnez une option...</option>
@@ -231,7 +231,7 @@
 </div>
 </div>
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="delivery_address">ADRESSE DE LIVRAISON COMPLÈTE *</label>
+<label data-i18n="quote.logistics.address" class="font-label-md text-label-md text-on-surface-variant" for="delivery_address">VOLLEDIG LEVERINGSADRES *</label>
 <textarea class="w-full bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none" id="delivery_address" placeholder="N°, Rue, Code Postal, Ville, Pays" required="" rows="2"></textarea>
 </div>
 </div>
@@ -239,32 +239,32 @@
 <div class="flex flex-col gap-6">
 <div class="flex items-center gap-4 mb-2 pb-4 border-b-2 border-surface-container-highest">
 <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-label-md text-label-md text-on-secondary-container">3</div>
-<h2 class="font-headline-md text-headline-md text-on-surface">Coordonnées</h2>
+<h2 data-i18n="quote.contact.title" class="font-headline-md text-headline-md text-on-surface">Contactgegevens</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="company">ENTREPRISE / RAISON SOCIALE *</label>
+<label data-i18n="quote.contact.company" class="font-label-md text-label-md text-on-surface-variant" for="company">BEDRIJF / HANDELSNAAM *</label>
 <input class="w-full bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="company" required="" type="text"/>
 </div>
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="siret">SIRET / TVA INTRA (Optionnel)</label>
+<label data-i18n="quote.contact.siret" class="font-label-md text-label-md text-on-surface-variant" for="siret">KVK-nummer / btw-nummer (Optioneel)</label>
 <input class="w-full bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="siret" type="text"/>
 </div>
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="contact_name">NOM DU CONTACT *</label>
+<label data-i18n="quote.contact.name" class="font-label-md text-label-md text-on-surface-variant" for="contact_name">CONTACTPERSOON *</label>
 <input class="w-full bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="contact_name" required="" type="text"/>
 </div>
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="email">EMAIL *</label>
+<label data-i18n="quote.contact.email" class="font-label-md text-label-md text-on-surface-variant" for="email">E-MAIL *</label>
 <input class="w-full bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="email" required="" type="email"/>
 </div>
 <div class="flex flex-col gap-2 md:col-span-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="phone">TÉLÉPHONE *</label>
+<label data-i18n="quote.contact.phone" class="font-label-md text-label-md text-on-surface-variant" for="phone">TELEFOON *</label>
 <input class="w-full bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="phone" required="" type="tel"/>
 </div>
 </div>
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="message">NOTES COMPLÉMENTAIRES (Optionnel)</label>
+<label data-i18n="quote.contact.notes" class="font-label-md text-label-md text-on-surface-variant" for="message">AANVULLENDE OPMERKINGEN (Optioneel)</label>
 <textarea class="w-full bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none" id="message" placeholder="Précisions sur l'accès, horaires de réception, contraintes spécifiques..." rows="4"></textarea>
 </div>
 </div>
@@ -280,7 +280,7 @@
                             </span>
 </label>
 <button class="w-full md:w-auto bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-4 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group whitespace-nowrap" type="submit">
-<span>ENVOYER LA DEMANDE</span>
+<span data-i18n="quote.submit">AANVRAAG VERZENDEN</span>
 <span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
 </button>
 </div>
@@ -293,14 +293,14 @@
 <div class="absolute -right-8 -bottom-8 opacity-5">
 <span 1;'="" class="material-symbols-outlined text-[160px] style='font-variation-settings: \" fill\"="">local_shipping</span>
 </div>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mb-6 relative z-10">Pourquoi nous choisir ?</h3>
+<h3 data-i18n="quote.why.title" class="font-headline-lg text-headline-lg text-on-surface mb-6 relative z-10">Waarom voor ons kiezen?</h3>
 <ul class="flex flex-col gap-6 relative z-10">
 <li class="flex gap-4">
 <div class="w-10 h-10 rounded-full bg-primary-fixed/20 flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-primary text-[20px]">verified</span>
 </div>
 <div>
-<h4 class="font-headline-md text-headline-md text-on-surface text-[18px]">Qualité Certifiée</h4>
+<h4 data-i18n="quote.why.quality_title" class="font-headline-md text-headline-md text-on-surface text-[18px]">Gecertificeerde kwaliteit</h4>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Gecertificeerd hout van hoge kwaliteit, gegarandeerd vochtgehalte &lt;20%.</p>
 </div>
 </li>
@@ -309,8 +309,8 @@
 <span class="material-symbols-outlined text-primary text-[20px]">speed</span>
 </div>
 <div>
-<h4 class="font-headline-md text-headline-md text-on-surface text-[18px]">Réactivité B2B</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Devis sous 24h, livraison prioritaire sur chantiers ou dépôts.</p>
+<h4 data-i18n="quote.why.speed_title" class="font-headline-md text-headline-md text-on-surface text-[18px]">B2B-Reactiesnelheid</h4>
+<p data-i18n="quote.why.speed_desc" class="font-body-sm text-body-sm text-on-surface-variant mt-1">Offerte binnen 24u, prioritaire levering op bouwplaatsen of depots.</p>
 </div>
 </li>
 <li class="flex gap-4">
@@ -318,8 +318,8 @@
 <span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
 </div>
 <div>
-<h4 class="font-headline-md text-headline-md text-on-surface text-[18px]">Volume Adaptable</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">De la palette isolée au semi-remorque complet en vrac.</p>
+<h4 data-i18n="quote.why.volume_title" class="font-headline-md text-headline-md text-on-surface text-[18px]">Aanpasbaar volume</h4>
+<p data-i18n="quote.why.volume_desc" class="font-body-sm text-body-sm text-on-surface-variant mt-1">Van een losse pallet tot een volledige bulkoplegger.</p>
 </div>
 </li>
 </ul>
@@ -372,7 +372,7 @@
             errorContainer.textContent = '';
             
             // Button loading state
-            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span><span>VERWERKEN...</span>';
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span><span data-i18n="quote.processing">VERWERKEN...</span>';
             submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
             submitBtn.disabled = true;
 

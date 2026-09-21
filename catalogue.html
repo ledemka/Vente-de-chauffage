@@ -138,58 +138,58 @@
 <!-- Sidebar Filters -->
 <aside class="hidden lg:flex w-64 flex-col gap-8 shrink-0">
 <div class="flex flex-col gap-6">
-<h2 class="text-headline-md font-headline-md text-on-surface">Filtres</h2>
+<h2 data-i18n="catalog.filters.title" class="text-headline-md font-headline-md text-on-surface">Filtres</h2>
 <!-- Category Filter -->
             <div class="flex flex-col gap-3">
-                <h3 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Catégorie</h3>
+                <h3 data-i18n="catalog.filters.category" class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Catégorie</h3>
                 <div class="flex flex-col gap-2">
                     <label class="flex items-center gap-3 cursor-pointer group">
                         <input type="checkbox" class="sr-only peer filter-category" data-subgroup="1">
                         <div class="w-5 h-5 rounded border border-outline group-hover:border-primary flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary transition-colors">
                             <span class="material-symbols-outlined text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">check</span>
                         </div>
-                        <span class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Bûches de bois</span>
+                        <span data-i18n="categories.1" class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Bûches de bois</span>
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer group">
                         <input type="checkbox" class="sr-only peer filter-category" data-subgroup="2">
                         <div class="w-5 h-5 rounded border border-outline group-hover:border-primary flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary transition-colors">
                             <span class="material-symbols-outlined text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">check</span>
                         </div>
-                        <span class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Bûches compressées / briquettes de bois</span>
+                        <span data-i18n="categories.2" class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Bûches compressées / briquettes de bois</span>
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer group">
                         <input type="checkbox" class="sr-only peer filter-category" data-subgroup="3">
                         <div class="w-5 h-5 rounded border border-outline group-hover:border-primary flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary transition-colors">
                             <span class="material-symbols-outlined text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">check</span>
                         </div>
-                        <span class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Briquettes</span>
+                        <span data-i18n="categories.3" class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Briquettes</span>
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer group">
                         <input type="checkbox" class="sr-only peer filter-category" data-subgroup="4">
                         <div class="w-5 h-5 rounded border border-outline group-hover:border-primary flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary transition-colors">
                             <span class="material-symbols-outlined text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">check</span>
                         </div>
-                        <span class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Granulés / Pellets</span>
+                        <span data-i18n="categories.4" class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Granulés / Pellets</span>
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer group">
                         <input type="checkbox" class="sr-only peer filter-category" data-subgroup="5">
                         <div class="w-5 h-5 rounded border border-outline group-hover:border-primary flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary transition-colors">
                             <span class="material-symbols-outlined text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">check</span>
                         </div>
-                        <span class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Charbon / Allume-feu / Bûches de torche</span>
+                        <span data-i18n="categories.5" class="text-body-sm font-body-sm text-on-surface-variant peer-checked:text-on-surface">Charbon / Allume-feu / Bûches de torche</span>
                     </label>
                 </div>
                     <!-- Format Filter REMOVED from sidebar — now integrated in Bûches section -->
             <!-- Moisture Filter -->
             <div class="flex flex-col gap-3" id="moisture-filter-section">
-                <h3 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Humidité (H2O)</h3>
+                <h3 data-i18n="catalog.filters.moisture" class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Humidité (H2O)</h3>
                 <div class="flex flex-col gap-2 px-1">
                     <input type="range" id="humidity-slider" min="0" max="3" value="0" class="w-full accent-primary h-1 bg-outline-variant rounded-lg appearance-none cursor-pointer">
                     <div class="flex justify-between text-data-mono font-data-mono text-outline text-[12px]">
-                        <span class="cursor-pointer" onclick="document.getElementById('humidity-slider').value=0; document.getElementById('humidity-slider').dispatchEvent(new Event('input'))">Tout</span>
+                        <span data-i18n="catalog.filters.all" class="cursor-pointer" onclick="document.getElementById('humidity-slider').value=0; document.getElementById('humidity-slider').dispatchEvent(new Event('input'))">Tout</span>
                         <span class="cursor-pointer" onclick="document.getElementById('humidity-slider').value=1; document.getElementById('humidity-slider').dispatchEvent(new Event('input'))">&lt; 20%</span>
                         <span class="cursor-pointer" onclick="document.getElementById('humidity-slider').value=2; document.getElementById('humidity-slider').dispatchEvent(new Event('input'))">20-25%</span>
-                        <span class="cursor-pointer" onclick="document.getElementById('humidity-slider').value=3; document.getElementById('humidity-slider').dispatchEvent(new Event('input'))">Non spécifié</span>
+                        <span data-i18n="catalog.filters.unspecified" class="cursor-pointer" onclick="document.getElementById('humidity-slider').value=3; document.getElementById('humidity-slider').dispatchEvent(new Event('input'))">Non spécifié</span>
                     </div>
                 </div>
             </div>
@@ -337,7 +337,7 @@
                                                 <span>Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.</span>
                                             </div>
                                             <div class="flex items-center gap-4 flex-wrap">
-                                                <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider shrink-0">Format :</span>
+                                                <span data-i18n="catalog.filters.format" class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider shrink-0">Format :</span>
                                                 <div class="flex flex-wrap gap-2" id="buche-format-buttons">
                                                     ${['20','30','33','40','50'].map(f => `
                                                         <button onclick="selectBucheFormat('${f}')" id="fmt-btn-${f}"
@@ -395,7 +395,7 @@
                                                         <div class="relative w-full h-48 rounded bg-surface-container overflow-hidden">
                                                             <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${imgPrefix}${p.image_product}" alt="${getProductName(p)}"/>
                                                             ${badgeHtml}
-                                                            ${isBuche && !selectedFormat ? `<div class="absolute inset-0 bg-black/10 flex items-end justify-center pb-3"><span class="bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">Sélectionnez un format ↑</span></div>` : ''}
+                                                            ${isBuche && !selectedFormat ? `<div class="absolute inset-0 bg-black/10 flex items-end justify-center pb-3"><span data-i18n="catalog.filters.format_select" class="bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">Sélectionnez un format ↑</span></div>` : ''}
                                                         </div>
                                                         <div class="flex flex-col gap-2">
                                                             <h3 class="text-headline-md font-headline-md text-on-surface leading-tight">${getProductName(p)}</h3>
@@ -403,24 +403,24 @@
                                                         </div>
                                                         <div class="flex flex-col gap-2 mt-auto">
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
-                                                                <span class="text-label-md font-label-md text-on-surface-variant">FORMAT</span>
+                                                                <span data-i18n="catalog.table.format" class="text-label-md font-label-md text-on-surface-variant">FORMAT</span>
                                                                 <span class="text-data-mono font-data-mono text-on-surface">${isBuche ? (selectedFormat ? selectedFormat + ' cm' : '50 cm*') : p.format}</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
-                                                                <span class="text-label-md font-label-md text-on-surface-variant">UNITE / PALETTE</span>
+                                                                <span data-i18n="catalog.table.unit_pallet" class="text-label-md font-label-md text-on-surface-variant">UNITE / PALETTE</span>
                                                                 <span class="text-data-mono font-data-mono text-on-surface">${p.units_per_palette} U / Palette</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
-                                                                <span class="text-label-md font-label-md text-on-surface-variant">POIDS PALETTE</span>
+                                                                <span data-i18n="catalog.table.weight" class="text-label-md font-label-md text-on-surface-variant">POIDS PALETTE</span>
                                                                 <span class="text-data-mono font-data-mono text-on-surface">${p.palette_weight}</span>
                                                             </div>
                                                         </div>
                                                         <div class="flex items-end justify-between mt-2">
                                                             <div class="flex flex-col">
-                                                                <span class="text-label-md font-label-md text-on-surface-variant">PRIX GROS / PALETTE</span>
+                                                                <span data-i18n="catalog.table.price" class="text-label-md font-label-md text-on-surface-variant">PRIX GROS / PALETTE</span>
                                                                 <div class="flex items-baseline gap-1">
                                                                     <span class="text-headline-lg font-headline-lg text-primary">${(displayPrice * 1.2).toFixed(2)}</span>
-                                                                    <span class="text-body-md font-body-md text-primary">€ TTC</span>
+                                                                    <span data-i18n="catalog.table.currency" class="text-body-md font-body-md text-primary">€ TTC</span>
                                                                 </div>
                                                                 ${priceNote}
                                                             </div>

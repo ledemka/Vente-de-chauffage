@@ -15,16 +15,17 @@
         "depots": "Depots"
     },
     "categories": {
-        "1": "Brandhout",
-        "2": "Geperst Hout / Houtbriketten",
+        "1": "Houtblokken",
+        "2": "Geperste blokken / Houtbriketten",
         "3": "Briketten",
         "4": "Houtpellets",
-        "5": "Houtskool / Aanmaakblokjes / Fakkels",
+        "5": "Houtskool / Aanmaakblokjes / Zweedse fakkels",
         "logs": "Haardhout",
         "briquettes_compressed": "Houtbriketten",
         "briquettes": "Briketten",
         "pellets": "Houtpellets",
-        "coal_starters": "Kool & Acc."
+        "coal_starters": "Kool & Acc.",
+        "coal_acc": "Houtskool & Acc."
     },
     "catalog_discount_note": "Volumekortingen vanaf 2 pallets — details op elke productpagina",
     "rating_badge": "4,8/5 — Meer dan 1.000 tevreden B2B-klanten in Europa",
@@ -241,5 +242,145 @@
         },
         "total_ttc": "Totaal incl. btw",
         "not_specified": "Niet gespecificeerd"
+    },
+    "index": {
+        "hero": {
+            "tagline": "Groothandel Biomassa & Houtenergie",
+            "rating_badge": "Meer dan 1.000 tevreden B2B-klanten in Europa",
+            "subtitle": "Houtverwarmingsoplossingen op maat voor industriële behoeften en doorverkoop. Optimaal warmterendement en gecontroleerd vochtgehalte."
+        }
+    },
+    "catalog": {
+        "filters": {
+            "title": "Filters",
+            "category": "Categorie",
+            "moisture": "Vochtgehalte (H2O)",
+            "all": "Alle",
+            "unspecified": "Niet gespecificeerd",
+            "format": "Formaat:",
+            "format_select": "Selecteer een formaat ↑"
+        },
+        "table": {
+            "format": "FORMAAT",
+            "unit_pallet": "EENHEID / PALLET",
+            "weight": "PALLETGEWICHT",
+            "price": "GROOTHANDELSPRIJS / PALLET",
+            "currency": "€ incl. btw"
+        }
+    },
+    "contact": {
+        "info": {
+            "hq": "Hoofdkantoor & Depot",
+            "phone": "Telefoon",
+            "b2b_line": "B2B-rechtstreekse lijn",
+            "email": "E-mail",
+            "response_time": "Reactie binnen 24 werkuren",
+            "hours": "Openingstijden",
+            "mon_thu": "Maandag - Donderdag",
+            "fri": "Vrijdag",
+            "weekend": "Weekend",
+            "closed": "Gesloten"
+        },
+        "form": {
+            "title": "Offerteaanvraag / Inlichtingen",
+            "subtitle": "Vul onderstaand formulier in, ons verkoopteam neemt snel contact met u op.",
+            "honeypot": "Laat dit veld leeg",
+            "company": "Bedrijf",
+            "siret": "KVK-nummer / btw-nummer",
+            "name": "Voor- en achternaam *",
+            "job": "Functie",
+            "email_pro": "Zakelijk e-mailadres *",
+            "phone_req": "Telefoon *",
+            "need_type": "Type behoefte *",
+            "comment": "Opmerking",
+            "submit": "AANVRAAG VERZENDEN"
+        },
+        "logistics": {
+            "title": "Logistiek platform",
+            "desc": "Directe toegang voor vrachtwagens. Een weegbrug van 50T is ter plaatse beschikbaar voor het wegen van voertuigen.",
+            "directions": "Route berekenen"
+        }
+    },
+    "quote": {
+        "title": "Offerte",
+        "assistance": "Directe ondersteuning",
+        "specs": {
+            "title": "Productspecificaties",
+            "type": "PRODUCTTYPE *",
+            "format": "FORMAAT / VERPAKKING *",
+            "volume": "GESCHAT VOLUME *",
+            "units": "Eenheden",
+            "min_order": "Minimumbestelling: 1 pallet / bulkeenheid."
+        },
+        "logistics": {
+            "title": "Logistieke informatie",
+            "date": "GEWENSTE DATUM",
+            "truck": "VRACHTWAGENTOEGANG *",
+            "address": "VOLLEDIG LEVERINGSADRES *"
+        },
+        "contact": {
+            "title": "Contactgegevens",
+            "company": "BEDRIJF / HANDELSNAAM *",
+            "siret": "KVK-nummer / btw-nummer (Optioneel)",
+            "name": "CONTACTPERSOON *",
+            "email": "E-MAIL *",
+            "phone": "TELEFOON *",
+            "notes": "AANVULLENDE OPMERKINGEN (Optioneel)"
+        },
+        "submit": "AANVRAAG VERZENDEN",
+        "why": {
+            "title": "Waarom voor ons kiezen?",
+            "quality_title": "Gecertificeerde kwaliteit",
+            "quality_desc": "Hout van gecertificeerde kwaliteit, gegarandeerd vochtgehalte <20%.",
+            "speed_title": "B2B-Reactiesnelheid",
+            "speed_desc": "Offerte binnen 24u, prioritaire levering op bouwplaatsen of depots.",
+            "volume_title": "Aanpasbaar volume",
+            "volume_desc": "Van een losse pallet tot een volledige bulkoplegger."
+        },
+        "processing": "VERWERKEN..."
+    },
+    "register": {
+        "benefits": {
+            "title": "Exclusief B2B-portaal",
+            "delivery_title": "Oplegger- & bulklevering",
+            "delivery_desc": "Directe levering aan platform of productielocatie met laadklep en pompwagen.",
+            "pricing_title": "Zakelijke tarieven (incl. btw)",
+            "pricing_desc": "Direct zicht op volumekortingen en gecentraliseerde facturatie.",
+            "advisor_title": "Vaste accountmanager",
+            "advisor_desc": "Eén vast aanspreekpunt voor uw bestellingen en jaarcontracten.",
+            "approval_notice": "Zakelijke accounts worden binnen 24 werkuren goedgekeurd na verificatie van de juridische gegevens."
+        },
+        "form": {
+            "title": "Registratieformulier",
+            "subtitle": "Vul uw zakelijke gegevens in om uw account aan te maken.",
+            "type_pro": "Ik ben een zakelijke klant (bedrijf, wederverkoper, vakman...)",
+            "section_business": "Zakelijke gegevens",
+            "optional": "(Optioneel)",
+            "cgv": "Algemene verkoopvoorwaarden",
+            "already_account": "Al een account?",
+            "login": "Inloggen",
+            "submit": "Account aanmaken"
+        }
+    },
+    "login": {
+        "benefits": {
+            "title": "B2B-zakelijke omgeving",
+            "delivery_title": "Palletlevering",
+            "delivery_desc": "Nauwkeurige logistieke tracking in heel Frankrijk.",
+            "invoice_title": "Zakelijke facturatie",
+            "invoice_desc": "Gecentraliseerd beheer en digitale afleverbonnen."
+        },
+        "form": {
+            "title": "B2B-inloggen",
+            "subtitle": "Voer uw zakelijke gegevens in om toegang te krijgen tot uw account.",
+            "email": "Zakelijk e-mailadres",
+            "password": "Wachtwoord",
+            "forgot": "Wachtwoord vergeten?",
+            "remember": "Ingelogd blijven",
+            "submit": "Inloggen",
+            "guest": "Doorgaan als gast",
+            "no_account": "Nog geen account?",
+            "signup": "Registreren"
+        }
     }
 }

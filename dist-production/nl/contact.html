@@ -126,7 +126,7 @@
 <span class="material-symbols-outlined text-primary text-[24px] group-hover:text-on-primary transition-colors">location_on</span>
 </div>
 <div class="flex flex-col gap-1">
-<h3 class="text-headline-md font-headline-md text-on-surface">Siège Social & Dépôt</h3>
+<h3 data-i18n="contact.info.hq" class="text-headline-md font-headline-md text-on-surface">Hoofdkantoor & Depot</h3>
 <p class="text-body-md font-body-md text-on-surface-variant"><span data-i18n="footer.address">[Adres door de klant in te vullen]</span></p>
 </div>
 </div>
@@ -135,9 +135,9 @@
 <span class="material-symbols-outlined text-primary text-[24px] group-hover:text-on-primary transition-colors">call</span>
 </div>
 <div class="flex flex-col gap-1">
-<h3 class="text-headline-md font-headline-md text-on-surface">Téléphone</h3>
+<h3 data-i18n="contact.info.phone" class="text-headline-md font-headline-md text-on-surface">Telefoon</h3>
 <p class="text-body-md font-body-md text-on-surface-variant"><span data-i18n="footer.phone">[Telefoonnummer door de klant in te vullen]</span></p>
-<span class="text-label-md font-label-md text-outline-variant mt-1 uppercase">Ligne directe B2B</span>
+<span data-i18n="contact.info.b2b_line" class="text-label-md font-label-md text-outline-variant mt-1 uppercase">B2B-rechtstreekse lijn</span>
 </div>
 </div>
 <div class="flex gap-4 items-start group">
@@ -145,9 +145,9 @@
 <span class="material-symbols-outlined text-primary text-[24px] group-hover:text-on-primary transition-colors">mail</span>
 </div>
 <div class="flex flex-col gap-1">
-<h3 class="text-headline-md font-headline-md text-on-surface">Email</h3>
+<h3 data-i18n="contact.info.email" class="text-headline-md font-headline-md text-on-surface">E-mail</h3>
 <a class="text-body-md font-body-md text-primary hover:text-primary-container transition-colors" href="mailto:[E-mailadresse door de klant in te vullen]">[E-mailadresse door de klant in te vullen]</a>
-<span class="text-label-md font-label-md text-outline-variant mt-1 uppercase">Réponse sous 24h ouvrées</span>
+<span data-i18n="contact.info.response_time" class="text-label-md font-label-md text-outline-variant mt-1 uppercase">Reactie binnen 24 werkuren</span>
 </div>
 </div>
 <div class="flex gap-4 items-start group">
@@ -155,18 +155,18 @@
 <span class="material-symbols-outlined text-primary text-[24px] group-hover:text-on-primary transition-colors">schedule</span>
 </div>
 <div class="flex flex-col gap-1 w-full">
-<h3 class="text-headline-md font-headline-md text-on-surface">Heures d'Ouverture</h3>
+<h3 data-i18n="contact.info.hours" class="text-headline-md font-headline-md text-on-surface">Openingstijden</h3>
 <div class="flex justify-between items-center py-2 border-b border-outline-variant/30 w-full mt-2">
-<span class="text-body-md font-body-md text-on-surface-variant">Lundi - Jeudi</span>
+<span data-i18n="contact.info.mon_thu" class="text-body-md font-body-md text-on-surface-variant">Maandag - Donderdag</span>
 <span class="text-data-mono font-data-mono text-on-surface">07:30 - 17:00</span>
 </div>
 <div class="flex justify-between items-center py-2 border-b border-outline-variant/30 w-full">
-<span class="text-body-md font-body-md text-on-surface-variant">Vendredi</span>
+<span data-i18n="contact.info.fri" class="text-body-md font-body-md text-on-surface-variant">Vrijdag</span>
 <span class="text-data-mono font-data-mono text-on-surface">07:30 - 16:00</span>
 </div>
 <div class="flex justify-between items-center py-2 w-full">
-<span class="text-body-md font-body-md text-on-surface-variant">Week-end</span>
-<span class="text-data-mono font-data-mono text-outline">Fermé</span>
+<span data-i18n="contact.info.weekend" class="text-body-md font-body-md text-on-surface-variant">Weekend</span>
+<span data-i18n="contact.info.closed" class="text-data-mono font-data-mono text-outline">Gesloten</span>
 </div>
 </div>
 </div>
@@ -176,42 +176,42 @@
 <div class="bg-surface-container-lowest rounded-xl p-8 lg:p-12 shadow-md relative overflow-hidden">
 <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 <div class="flex flex-col gap-2 mb-8">
-<h2 class="text-headline-lg font-headline-lg text-on-surface">Demande de devis / Renseignements</h2>
-<p class="text-body-md font-body-md text-on-surface-variant">Remplissez le formulaire ci-dessous, notre service commercial vous recontactera rapidement.</p>
+<h2 data-i18n="contact.form.title" class="text-headline-lg font-headline-lg text-on-surface">Offerteaanvraag / Inlichtingen</h2>
+<p data-i18n="contact.form.subtitle" class="text-body-md font-body-md text-on-surface-variant">Vul onderstaand formulier in, ons verkoopteam neemt snel contact met u op.</p>
 </div>
 <form class="flex flex-col gap-6" onsubmit="event.preventDefault(); alert('Formulaire envoyé avec succès. Nous vous contacterons dans les plus brefs délais.');">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="flex flex-col gap-2 relative">
-<label class="text-label-md font-label-md text-on-surface uppercase" for="societe">Société</label>
+<label data-i18n="contact.form.company" class="text-label-md font-label-md text-on-surface uppercase" for="societe">Bedrijf</label>
 <input class="w-full bg-surface-container border border-outline-variant rounded-md py-3 px-4 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="societe" type="text"/>
 </div>
 <div class="flex flex-col gap-2 relative">
-<label class="text-label-md font-label-md text-on-surface uppercase" for="siret">SIRET / TVA Intracom.</label>
+<label data-i18n="contact.form.siret" class="text-label-md font-label-md text-on-surface uppercase" for="siret">KVK-nummer / btw-nummer</label>
 <input class="w-full bg-surface-container border border-outline-variant rounded-md py-3 px-4 text-data-mono font-data-mono text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="siret" type="text"/>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="flex flex-col gap-2 relative">
-<label class="text-label-md font-label-md text-on-surface uppercase" for="nom">Nom & Prénom *</label>
+<label data-i18n="contact.form.name" class="text-label-md font-label-md text-on-surface uppercase" for="nom">Voor- en achternaam *</label>
 <input class="w-full bg-surface-container border border-outline-variant rounded-md py-3 px-4 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="nom" required="" type="text"/>
 </div>
 <div class="flex flex-col gap-2 relative">
-<label class="text-label-md font-label-md text-on-surface uppercase" for="fonction">Fonction</label>
+<label data-i18n="contact.form.job" class="text-label-md font-label-md text-on-surface uppercase" for="fonction">Functie</label>
 <input class="w-full bg-surface-container border border-outline-variant rounded-md py-3 px-4 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="fonction" type="text"/>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="flex flex-col gap-2 relative">
-<label class="text-label-md font-label-md text-on-surface uppercase" for="email">Email professionnel *</label>
+<label data-i18n="contact.form.email_pro" class="text-label-md font-label-md text-on-surface uppercase" for="email">Zakelijk e-mailadres *</label>
 <input class="w-full bg-surface-container border border-outline-variant rounded-md py-3 px-4 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="email" required="" type="email"/>
 </div>
 <div class="flex flex-col gap-2 relative">
-<label class="text-label-md font-label-md text-on-surface uppercase" for="telephone">Téléphone *</label>
+<label data-i18n="contact.form.phone_req" class="text-label-md font-label-md text-on-surface uppercase" for="telephone">Telefoon *</label>
 <input class="w-full bg-surface-container border border-outline-variant rounded-md py-3 px-4 text-data-mono font-data-mono text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="telephone" required="" type="tel"/>
 </div>
 </div>
 <div class="flex flex-col gap-2 relative">
-<label class="text-label-md font-label-md text-on-surface uppercase" for="besoin">Type de besoin *</label>
+<label data-i18n="contact.form.need_type" class="text-label-md font-label-md text-on-surface uppercase" for="besoin">Type behoefte *</label>
 <div class="relative">
 <select class="w-full bg-surface-container border border-outline-variant rounded-md py-3 pl-4 pr-10 text-body-md font-body-md text-on-surface appearance-none focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="besoin" required="">
 <option disabled="" selected="" value="">Sélectionnez votre type de demande...</option>
@@ -224,7 +224,7 @@
 </div>
 </div>
 <div class="flex flex-col gap-2 relative">
-<label class="text-label-md font-label-md text-on-surface uppercase" for="message">Commentaire</label>
+<label data-i18n="contact.form.comment" class="text-label-md font-label-md text-on-surface uppercase" for="message">Opmerking</label>
 <textarea class="w-full bg-surface-container border border-outline-variant rounded-md py-3 px-4 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none" id="message" rows="4"></textarea>
 </div>
 <div class="flex items-start gap-3 mt-2">
@@ -234,7 +234,7 @@
             </label>
 </div>
 <button class="mt-6 bg-primary hover:bg-primary-container text-on-primary text-label-md font-label-md py-4 px-8 rounded-md transition-colors flex items-center justify-center gap-2 group w-full md:w-auto self-start" type="submit">
-<span>ENVOYER LA DEMANDE</span>
+<span data-i18n="contact.form.submit">AANVRAAG VERZENDEN</span>
 <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
 </form>
@@ -247,11 +247,11 @@
 <div class="absolute bottom-8 left-8 bg-surface-container-lowest p-6 rounded-lg shadow-xl border border-outline-variant/30 flex flex-col gap-3 max-w-sm">
 <div class="flex items-center gap-3 mb-2">
 <span class="material-symbols-outlined text-primary text-[28px]">portable_wifi_off</span>
-<h3 class="text-headline-md font-headline-md text-on-surface">Plateforme Logistique</h3>
+<h3 data-i18n="contact.logistics.title" class="text-headline-md font-headline-md text-on-surface">Logistiek platform</h3>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant">Accès direct pour les camions de livraison. Un pont-bascule de 50T est disponible sur site pour la pesée des véhicules.</p>
+<p data-i18n="contact.logistics.desc" class="text-body-sm font-body-sm text-on-surface-variant">Directe toegang voor vrachtwagens. Een weegbrug van 50T is ter plaatse beschikbaar voor het wegen van voertuigen.</p>
 <div class="mt-4 flex items-center gap-2 text-primary font-label-md text-label-md uppercase cursor-pointer hover:text-primary-container transition-colors group">
-<span>Calculer l'itinéraire</span>
+<span data-i18n="contact.logistics.directions">Route berekenen</span>
 <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">open_in_new</span>
 </div>
 </div>

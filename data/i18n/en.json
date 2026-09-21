@@ -19,12 +19,13 @@
         "2": "Compressed Logs / Wood Briquettes",
         "3": "Briquettes",
         "4": "Wood Pellets",
-        "5": "Charcoal / Firestarters / Torch Logs",
+        "5": "Charcoal / Firelighters / Torch Logs",
         "logs": "Firewood Logs",
         "briquettes_compressed": "Compressed Logs",
         "briquettes": "Wood Briquettes",
         "pellets": "Wood Pellets",
-        "coal_starters": "Charcoal & Acc."
+        "coal_starters": "Charcoal & Acc.",
+        "coal_acc": "Charcoal & Acc."
     },
     "catalog_discount_note": "Volume discounts starting from 2 pallets — see details on each product page",
     "rating_badge": "4.8/5 — Over 1,000 satisfied B2B clients in Europe",
@@ -241,5 +242,145 @@
         },
         "total_ttc": "Total incl. tax",
         "not_specified": "Not specified"
+    },
+    "index": {
+        "hero": {
+            "tagline": "Biomass & Wood Energy Wholesaler",
+            "rating_badge": "Over 1,000 satisfied B2B customers across Europe",
+            "subtitle": "Wood heating solutions tailored for industrial needs and resale. Optimal heat output and controlled moisture level."
+        }
+    },
+    "catalog": {
+        "filters": {
+            "title": "Filters",
+            "category": "Category",
+            "moisture": "Moisture (H2O)",
+            "all": "All",
+            "unspecified": "Unspecified",
+            "format": "Format:",
+            "format_select": "Select a format ↑"
+        },
+        "table": {
+            "format": "FORMAT",
+            "unit_pallet": "UNIT / PALLET",
+            "weight": "PALLET WEIGHT",
+            "price": "WHOLESALE PRICE / PALLET",
+            "currency": "€ incl. VAT"
+        }
+    },
+    "contact": {
+        "info": {
+            "hq": "Head Office & Depot",
+            "phone": "Phone",
+            "b2b_line": "B2B direct line",
+            "email": "Email",
+            "response_time": "Response within 24 business hours",
+            "hours": "Opening Hours",
+            "mon_thu": "Monday - Thursday",
+            "fri": "Friday",
+            "weekend": "Weekend",
+            "closed": "Closed"
+        },
+        "form": {
+            "title": "Quote Request / Enquiries",
+            "subtitle": "Fill in the form below, our sales team will get back to you promptly.",
+            "honeypot": "Leave this field empty",
+            "company": "Company",
+            "siret": "Company Reg. No. / VAT Number",
+            "name": "Full Name *",
+            "job": "Job Title",
+            "email_pro": "Business Email *",
+            "phone_req": "Phone *",
+            "need_type": "Type of Need *",
+            "comment": "Comment",
+            "submit": "SEND REQUEST"
+        },
+        "logistics": {
+            "title": "Logistics Platform",
+            "desc": "Direct access for delivery trucks. A 50T weighbridge is available on-site for vehicle weighing.",
+            "directions": "Get directions"
+        }
+    },
+    "quote": {
+        "title": "Quote",
+        "assistance": "Direct Assistance",
+        "specs": {
+            "title": "Product Specifications",
+            "type": "PRODUCT TYPE *",
+            "format": "FORMAT / PACKAGING *",
+            "volume": "ESTIMATED VOLUME *",
+            "units": "Units",
+            "min_order": "Minimum order: 1 pallet / bulk unit."
+        },
+        "logistics": {
+            "title": "Logistics Information",
+            "date": "DESIRED DATE",
+            "truck": "TRUCK ACCESS *",
+            "address": "FULL DELIVERY ADDRESS *"
+        },
+        "contact": {
+            "title": "Contact Details",
+            "company": "COMPANY / BUSINESS NAME *",
+            "siret": "Company Reg. No. / VAT Number (Optional)",
+            "name": "CONTACT NAME *",
+            "email": "EMAIL *",
+            "phone": "PHONE *",
+            "notes": "ADDITIONAL NOTES (Optional)"
+        },
+        "submit": "SEND REQUEST",
+        "why": {
+            "title": "Why choose us?",
+            "quality_title": "Certified Quality",
+            "quality_desc": "Certified quality wood, guaranteed moisture level <20%.",
+            "speed_title": "B2B Responsiveness",
+            "speed_desc": "Quote within 24h, priority delivery to job sites or depots.",
+            "volume_title": "Flexible Volumes",
+            "volume_desc": "From a single pallet to a full bulk trailer load."
+        },
+        "processing": "PROCESSING..."
+    },
+    "register": {
+        "benefits": {
+            "title": "Exclusive B2B Portal",
+            "delivery_title": "Full-trailer & bulk delivery",
+            "delivery_desc": "Direct delivery to platform or production site with tail lift and pallet truck.",
+            "pricing_title": "Trade pricing (incl. VAT)",
+            "pricing_desc": "Instant view of volume discounts and centralized invoicing.",
+            "advisor_title": "Dedicated Account Manager",
+            "advisor_desc": "A single point of contact for your orders and annual contracts.",
+            "approval_notice": "Business accounts are approved within 24 business hours after verification of legal information."
+        },
+        "form": {
+            "title": "Registration Form",
+            "subtitle": "Enter your business details to create your account.",
+            "type_pro": "I am a business (company, reseller, tradesperson...)",
+            "section_business": "Business Information",
+            "optional": "(Optional)",
+            "cgv": "Terms and Conditions of Sale",
+            "already_account": "Already have an account?",
+            "login": "Log in",
+            "submit": "Create my account"
+        }
+    },
+    "login": {
+        "benefits": {
+            "title": "B2B Professional Area",
+            "delivery_title": "Pallet Delivery",
+            "delivery_desc": "Precise logistics tracking across France.",
+            "invoice_title": "Business Invoicing",
+            "invoice_desc": "Centralized management and paperless delivery notes."
+        },
+        "form": {
+            "title": "B2B Login",
+            "subtitle": "Enter your business credentials to access your account.",
+            "email": "Business Email",
+            "password": "Password",
+            "forgot": "Forgot password?",
+            "remember": "Stay logged in",
+            "submit": "Log in",
+            "guest": "Continue as guest",
+            "no_account": "No account yet?",
+            "signup": "Sign up"
+        }
     }
 }

@@ -16,15 +16,16 @@
     },
     "categories": {
         "1": "Brennholzscheite",
-        "2": "Pressholz / Holzbriketts",
+        "2": "Presslinge / Holzbriketts",
         "3": "Briketts",
         "4": "Holzpellets",
-        "5": "Holzkohle / Anzünder / Fackeln",
+        "5": "Kohle / Anzünder / Schwedenfackeln",
         "logs": "Brennholz",
         "briquettes_compressed": "Holzbriketts",
         "briquettes": "Briketts",
         "pellets": "Holzpellets",
-        "coal_starters": "Kohle & Zubehör"
+        "coal_starters": "Kohle & Zubehör",
+        "coal_acc": "Kohle & Zub."
     },
     "catalog_discount_note": "Mengenrabatte ab 2 Paletten — Details auf jeder Produktseite",
     "rating_badge": "4,8/5 — Über 1.000 zufriedene B2B-Kunden in Europa",
@@ -241,5 +242,145 @@
         },
         "total_ttc": "Gesamt inkl. MwSt",
         "not_specified": "Nicht angegeben"
+    },
+    "index": {
+        "hero": {
+            "tagline": "Großhändler für Biomasse & Holzenergie",
+            "rating_badge": "Über 1.000 zufriedene B2B-Kunden in Europa",
+            "subtitle": "Holzheizlösungen für Industriebedarf und Weiterverkauf. Optimale Heizleistung und kontrollierter Feuchtigkeitsgehalt."
+        }
+    },
+    "catalog": {
+        "filters": {
+            "title": "Filter",
+            "category": "Kategorie",
+            "moisture": "Feuchtigkeit (H2O)",
+            "all": "Alle",
+            "unspecified": "Nicht angegeben",
+            "format": "Format:",
+            "format_select": "Format auswählen ↑"
+        },
+        "table": {
+            "format": "FORMAT",
+            "unit_pallet": "EINHEIT / PALETTE",
+            "weight": "PALETTENGEWICHT",
+            "price": "GROSSPREIS / PALETTE",
+            "currency": "€ inkl. MwSt"
+        }
+    },
+    "contact": {
+        "info": {
+            "hq": "Hauptsitz & Lager",
+            "phone": "Telefon",
+            "b2b_line": "B2B-Durchwahl",
+            "email": "E-Mail",
+            "response_time": "Antwort innerhalb von 24 Werkstunden",
+            "hours": "Öffnungszeiten",
+            "mon_thu": "Montag - Donnerstag",
+            "fri": "Freitag",
+            "weekend": "Wochenende",
+            "closed": "Geschlossen"
+        },
+        "form": {
+            "title": "Angebotsanfrage / Auskünfte",
+            "subtitle": "Füllen Sie das untenstehende Formular aus, unser Vertriebsteam meldet sich zeitnah bei Ihnen.",
+            "honeypot": "Dieses Feld leer lassen",
+            "company": "Firma",
+            "siret": "Handelsregisternr. / USt-IdNr.",
+            "name": "Vor- und Nachname *",
+            "job": "Funktion",
+            "email_pro": "Geschäftliche E-Mail *",
+            "phone_req": "Telefon *",
+            "need_type": "Bedarfsart *",
+            "comment": "Kommentar",
+            "submit": "ANFRAGE SENDEN"
+        },
+        "logistics": {
+            "title": "Logistikplattform",
+            "desc": "Direkter Zugang für Lieferfahrzeuge. Vor Ort steht eine 50-t-Fahrzeugwaage zur Verfügung.",
+            "directions": "Route berechnen"
+        }
+    },
+    "quote": {
+        "title": "Angebot",
+        "assistance": "Direkte Unterstützung",
+        "specs": {
+            "title": "Produktspezifikationen",
+            "type": "PRODUKTTYP *",
+            "format": "FORMAT / VERPACKUNG *",
+            "volume": "GESCHÄTZTES VOLUMEN *",
+            "units": "Einheiten",
+            "min_order": "Mindestbestellung: 1 Palette / Schüttguteinheit."
+        },
+        "logistics": {
+            "title": "Logistikinformationen",
+            "date": "GEWÜNSCHTES DATUM",
+            "truck": "LKW-ZUFAHRT *",
+            "address": "VOLLSTÄNDIGE LIEFERADRESSE *"
+        },
+        "contact": {
+            "title": "Kontaktdaten",
+            "company": "UNTERNEHMEN / FIRMENNAME *",
+            "siret": "Handelsregisternr. / USt-IdNr. (Optional)",
+            "name": "ANSPRECHPARTNER *",
+            "email": "E-MAIL *",
+            "phone": "TELEFON *",
+            "notes": "ZUSÄTZLICHE ANMERKUNGEN (Optional)"
+        },
+        "submit": "ANFRAGE SENDEN",
+        "why": {
+            "title": "Warum uns wählen?",
+            "quality_title": "Zertifizierte Qualität",
+            "quality_desc": "Holz zertifizierter Qualität, garantierter Feuchtigkeitsgehalt <20%.",
+            "speed_title": "B2B-Reaktionsschnelligkeit",
+            "speed_desc": "Angebot innerhalb von 24 Std., bevorzugte Lieferung zu Baustellen oder Lagern.",
+            "volume_title": "Anpassbares Volumen",
+            "volume_desc": "Von der Einzelpalette bis zur kompletten Sattelzugladung lose."
+        },
+        "processing": "WIRD VERARBEITET..."
+    },
+    "register": {
+        "benefits": {
+            "title": "Exklusives B2B-Portal",
+            "delivery_title": "Sattelzug- & Schüttgutlieferung",
+            "delivery_desc": "Direkte Anlieferung auf Plattform oder Produktionsstätte mit Ladebordwand und Hubwagen.",
+            "pricing_title": "Gewerbepreise (inkl. MwSt)",
+            "pricing_desc": "Sofortige Anzeige von Mengenrabatten und zentralisierte Rechnungsstellung.",
+            "advisor_title": "Persönlicher Ansprechpartner",
+            "advisor_desc": "Ein fester Ansprechpartner für Ihre Bestellungen und Jahresverträge.",
+            "approval_notice": "Geschäftskonten werden innerhalb von 24 Werkstunden nach Prüfung der rechtlichen Angaben freigeschaltet."
+        },
+        "form": {
+            "title": "Registrierungsformular",
+            "subtitle": "Geben Sie Ihre Geschäftsdaten ein, um Ihren Zugang zu erstellen.",
+            "type_pro": "Ich bin gewerblich tätig (Unternehmen, Wiederverkäufer, Handwerker...)",
+            "section_business": "Geschäftsangaben",
+            "optional": "(Optional)",
+            "cgv": "Allgemeine Geschäftsbedingungen (AGB)",
+            "already_account": "Bereits ein Konto?",
+            "login": "Anmelden",
+            "submit": "Konto erstellen"
+        }
+    },
+    "login": {
+        "benefits": {
+            "title": "B2B-Geschäftsbereich",
+            "delivery_title": "Palettenlieferung",
+            "delivery_desc": "Präzise Sendungsverfolgung in ganz Frankreich.",
+            "invoice_title": "Geschäftliche Rechnungsstellung",
+            "invoice_desc": "Zentralisierte Verwaltung und digitale Lieferscheine."
+        },
+        "form": {
+            "title": "B2B-Anmeldung",
+            "subtitle": "Geben Sie Ihre Geschäftsdaten ein, um auf Ihren Bereich zuzugreifen.",
+            "email": "Geschäftliche E-Mail",
+            "password": "Passwort",
+            "forgot": "Passwort vergessen?",
+            "remember": "Angemeldet bleiben",
+            "submit": "Anmelden",
+            "guest": "Als Gast fortfahren",
+            "no_account": "Noch kein Konto?",
+            "signup": "Registrieren"
+        }
     }
 }
