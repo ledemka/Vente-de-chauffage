@@ -7,11 +7,31 @@
 declare(strict_types=1);
 
 class Database {
-    private string $host = '127.0.0.1';
-    private string $db_name = 'bois_chauffage_b2b';
-    private string $username = 'root';
-    private string $password = '';
+    private string $host;
+    private string $db_name;
+    private string $username;
+    private string $password;
     private ?PDO $conn = null;
+
+    public function __construct() {
+        if (getenv('DB_HOST') === false) {
+            $envPath = __DIR__ . '/../.env';
+            if (file_exists($envPath)) {
+                $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                foreach ($lines as $line) {
+                    if (strpos(trim($line), '#') === 0) continue;
+                    if (strpos($line, '=') === false) continue;
+                    [$key, $value] = explode('=', $line, 2);
+                    putenv(trim($key) . '=' . trim($value));
+                }
+            }
+        }
+
+        $this->host = getenv('DB_HOST') ?: '127.0.0.1';
+        $this->db_name = getenv('DB_NAME') ?: 'bois_chauffage_b2b';
+        $this->username = getenv('DB_USER') ?: 'root';
+        $this->password = getenv('DB_PASS') ?: '';
+    }
 
     public function getConnection(): ?PDO {
         if ($this->conn !== null) {
