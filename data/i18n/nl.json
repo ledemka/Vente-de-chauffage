@@ -91,7 +91,30 @@
         "article_2_title": "De Toekomst van Industriële Houtpellets",
         "article_3_title": "Welk Hout Kiezen voor Professioneel Koken?",
         "article_4_title": "Anticiperen op Leveringsonderbrekingen",
-        "article_5_title": "Ontcijfering van de ISO 17225-2 Norm"
+        "article_5_title": "Ontcijfering van de ISO 17225-2 Norm",
+        "hero": {
+            "title": "Expertise & Nieuws",
+            "subtitle": "De wetenschap van houtenergie."
+        },
+        "filter": {
+            "all": "ALLE ARTIKELEN",
+            "trends": "B2B-TRENDS",
+            "guide": "TECHNISCHE GIDS"
+        },
+        "draft": "Concept — artikel in voorbereiding",
+        "read_article": "ARTIKEL LEZEN",
+        "tag": {
+            "industry": "INDUSTRIE",
+            "gastronomy": "GASTRONOMIE",
+            "logistics": "LOGISTIEK",
+            "science": "WETENSCHAP & NORMEN"
+        },
+        "discover": "ONTDEKKEN",
+        "newsletter": {
+            "title": "Marktinzichten.",
+            "desc": "Ontvang onze maandelijkse marktanalyses, regelgevingsupdates en tips voor energieoptimalisatie rechtstreeks in uw inbox.",
+            "placeholder": "ZAKELIJK E-MAILADRES"
+        }
     },
     "delivery_promo": {
         "title": "Veilige industriële levering",
@@ -168,7 +191,10 @@
     },
     "depots": {
         "title": "Aanwezig in het hart van de Europese houtindustrie",
-        "body": "Onze kracht is ons netwerk. Gevestigd in 8 landen en 24 steden in heel Europa, werken wij hand in hand met lokale producenten, zagerijen en groothandelaren om u het hele jaar door brandhout van hoge kwaliteit te garanderen tegen een beheerste prijs. Deze nabijheid tot onze partners stelt ons in staat onze bevoorrading veilig te stellen, zelfs in periodes van grote vraag, de kwaliteit bij de bron te controleren en u concurrerende tarieven aan te bieden zonder overbodige tussenpersonen."
+        "body": "Onze kracht is ons netwerk. Gevestigd in 8 landen en 24 steden in heel Europa, werken wij hand in hand met lokale producenten, zagerijen en groothandelaren om u het hele jaar door brandhout van hoge kwaliteit te garanderen tegen een beheerste prijs. Deze nabijheid tot onze partners stelt ons in staat onze bevoorrading veilig te stellen, zelfs in periodes van grote vraag, de kwaliteit bij de bron te controleren en u concurrerende tarieven aan te bieden zonder overbodige tussenpersonen.",
+        "countries": "Partnerlanden",
+        "local": "Lokale depots",
+        "presence": "Onze aanwezigheid"
     },
     "dashboard": {
         "title": "Mijn Dashboard",
@@ -382,5 +408,98 @@
             "no_account": "Nog geen account?",
             "signup": "Registreren"
         }
+    },
+    "guide": {
+        "hero": {
+            "title": "Expertise & Advies"
+        },
+        "nav": {
+            "species": "HOUTSOORT",
+            "moisture": "VOCHTGEHALTE",
+            "dimensions": "AFMETINGEN",
+            "storage": "OPSLAG"
+        },
+        "species": {
+            "title": "De juiste houtsoort kiezen",
+            "desc": "Niet alle houtsoorten zijn gelijk voor verwarming. Kies voor hardhout voor een langzame verbranding en hoge calorische waarde.",
+            "g1_title": "G1 - Hardhout",
+            "g1_desc": "Eik, Beuk, Es, Haagbeuk",
+            "calorific": "Calorische waarde",
+            "excellent": "Uitstekend",
+            "g2_title": "G2 - Zachter hardhout",
+            "g2_desc": "Kastanje, Acacia, Wilde kers",
+            "g3_title": "G3 - Naaldhout & Overige",
+            "g3_desc": "Den, Grove den, Spar, Berk",
+            "medium": "Gemiddeld"
+        },
+        "moisture": {
+            "title": "Het belang van het vochtgehalte",
+            "desc": "Droog hout (H1) geeft meer warmte af, vervuilt uw schoorsteen minder en vervuilt minder. Ontdek het efficiëntieverschil afhankelijk van de droogmethode.",
+            "h1_desc": "Direct klaar voor gebruik. Biedt het beste energierendement. Natuurlijke droging van 18 tot 24 maanden of kunstmatig gedroogd.",
+            "h2_desc": "Moet vóór gebruik 6 tot 12 maanden op een droge, geventileerde plaats worden opgeslagen. Voordeliger in aanschaf.",
+            "h3_desc": "Vers gekapt hout. Niet direct bruikbaar. Vereist minstens 2 jaar opslag voordat het verbrand kan worden.",
+            "yield_title": "Vergelijking energierendement",
+            "yield_desc": "Het verbranden van vochtig hout verspilt energie aan het verdampen van water voordat bruikbare warmte ontstaat."
+        },
+        "dimensions": {
+            "title": "De juiste lengte kiezen",
+            "desc": "De lengte van uw houtblokken moet passen bij de grootte van uw stookruimte. Meet de binnenkant van uw toestel en trek voor de veiligheid 5cm af.",
+            "small": "Kleine houtkachels, fornuizen. Zeer snelle droging.",
+            "standard": "Standaard voor de meeste moderne kachels en inzethaarden.",
+            "medium": "Tussenmaat voor middelgrote inzethaarden.",
+            "large": "Grote inzethaarden, traditionele open haarden."
+        },
+        "storage": {
+            "title": "Gouden regels voor opslag",
+            "desc": "Goed hout kan al zijn kwaliteiten verliezen bij verkeerde opslag. Bescherm uw investering door deze eenvoudige regels te volgen.",
+            "ventilation_title": "Ventilatie",
+            "vent_1": "Zet de houtstapel niet direct tegen een muur (laat ~10cm ruimte).",
+            "vent_2": "Kruis de houtblokken aan de uiteinden voor stabiliteit en ventilatie.",
+            "vent_3": "Kies een plek die is blootgesteld aan de overheersende wind en zon.",
+            "protection_title": "Bescherming",
+            "prot_1": "Isoleer van de grond met pallets of balken.",
+            "prot_2": "Bedek alleen de bovenkant met plaatstaal of een dekzeil (laat de zijkanten open).",
+            "prot_3": "Vermijd opslag in een gesloten kelder (risico op schimmel)."
+        }
+    },
+    "livraison": {
+        "process": {
+            "title": "Leveringsproces",
+            "validation": "Bevestiging",
+            "preparation": "Voorbereiding",
+            "scheduling": "Planning",
+            "delivery": "Ontvangst"
+        },
+        "fleet": {
+            "title": "Vloot- & toegangsspecificaties",
+            "tautliner_title": "44T huifopleggercombinatie",
+            "tautliner_desc": "Maximale capaciteit van 32 pallets. Ideaal voor grootvolume-leveringen aan locaties met laadperrons.",
+            "tail_lift": "Laadklep-afmetingen",
+            "clearance": "Min. doorrijhoogte",
+            "gate": "Min. poortbreedte",
+            "turning": "Draaicirkel",
+            "crane_title": "Kraanwagen",
+            "crane_desc": "Lossen over obstakels heen (muren, hagen). Reikwijdte tot 6m."
+        },
+        "area": {
+            "title": "Interventiegebied",
+            "zone1": "Zone 1 (D+1 / D+2)",
+            "zone2": "Zone 2 (D+3 / D+5)"
+        },
+        "constraints": "Terreinbeperkingen"
+    },
+    "reviews": {
+        "trust": {
+            "title": "Vertrouwensscore",
+            "subtitle": "vertrouwd door professionals.",
+            "customers": "+1k klanten"
+        },
+        "filter": {
+            "all": "ALLE",
+            "hospitality": "HORECA",
+            "industry": "INDUSTRIE",
+            "resellers": "WEDERVERKOPERS"
+        },
+        "commitments": "Onze kwaliteitsbeloften"
     }
 }

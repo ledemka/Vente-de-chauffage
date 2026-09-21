@@ -91,7 +91,30 @@
         "article_2_title": "The Future of Industrial Wood Pellets",
         "article_3_title": "Which Wood to Choose for Professional Cooking?",
         "article_4_title": "Anticipating Supply Chain Disruptions",
-        "article_5_title": "Decoding the ISO 17225-2 Standard"
+        "article_5_title": "Decoding the ISO 17225-2 Standard",
+        "hero": {
+            "title": "Expertise & News",
+            "subtitle": "The science of wood energy."
+        },
+        "filter": {
+            "all": "ALL ARTICLES",
+            "trends": "B2B TRENDS",
+            "guide": "TECHNICAL GUIDE"
+        },
+        "draft": "Draft — article to be written",
+        "read_article": "READ ARTICLE",
+        "tag": {
+            "industry": "INDUSTRY",
+            "gastronomy": "CULINARY",
+            "logistics": "LOGISTICS",
+            "science": "SCIENCE & STANDARDS"
+        },
+        "discover": "DISCOVER",
+        "newsletter": {
+            "title": "Market Intelligence.",
+            "desc": "Get our monthly market analysis, regulatory updates, and energy optimization tips straight to your inbox.",
+            "placeholder": "BUSINESS EMAIL ADDRESS"
+        }
     },
     "delivery_promo": {
         "title": "Secure Industrial Delivery",
@@ -168,7 +191,10 @@
     },
     "depots": {
         "title": "Present at the heart of Europe's wood industry",
-        "body": "Our strength is our network. Established in 8 countries and 24 cities across Europe, we work hand in hand with local producers, sawmills, and wholesalers to guarantee you high-quality firewood, available year-round at a controlled price. This proximity to our partners allows us to secure our supplies even during periods of high demand, control quality at the source, and offer you competitive rates without unnecessary intermediaries."
+        "body": "Our strength is our network. Established in 8 countries and 24 cities across Europe, we work hand in hand with local producers, sawmills, and wholesalers to guarantee you high-quality firewood, available year-round at a controlled price. This proximity to our partners allows us to secure our supplies even during periods of high demand, control quality at the source, and offer you competitive rates without unnecessary intermediaries.",
+        "countries": "Partner Countries",
+        "local": "Local Depots",
+        "presence": "Our Presence"
     },
     "dashboard": {
         "title": "My Dashboard",
@@ -382,5 +408,98 @@
             "no_account": "No account yet?",
             "signup": "Sign up"
         }
+    },
+    "guide": {
+        "hero": {
+            "title": "Expertise & Advice"
+        },
+        "nav": {
+            "species": "WOOD SPECIES",
+            "moisture": "MOISTURE CONTENT",
+            "dimensions": "DIMENSIONS",
+            "storage": "STORAGE"
+        },
+        "species": {
+            "title": "Choosing the right species",
+            "desc": "Not all wood species are equal for heating. Choose hardwoods for slow combustion and high calorific value.",
+            "g1_title": "G1 - Hardwoods",
+            "g1_desc": "Oak, Beech, Ash, Hornbeam",
+            "calorific": "Calorific value",
+            "excellent": "Excellent",
+            "g2_title": "G2 - Softer Hardwoods",
+            "g2_desc": "Chestnut, Acacia, Wild Cherry",
+            "g3_title": "G3 - Softwoods & Other",
+            "g3_desc": "Fir, Pine, Spruce, Birch",
+            "medium": "Medium"
+        },
+        "moisture": {
+            "title": "The importance of moisture content",
+            "desc": "Dry wood (H1) releases more heat, clogs your flue less, and pollutes less. Discover the efficiency difference based on drying method.",
+            "h1_desc": "Ready to use. Offers the best energy yield. Natural drying over 18 to 24 months or kiln-dried.",
+            "h2_desc": "Needs to be stored in a dry, ventilated place for 6 to 12 months before use. More economical to purchase.",
+            "h3_desc": "Freshly cut wood. Not usable as is. Requires at least 2 years of storage before it can be burned.",
+            "yield_title": "Compared Energy Yield",
+            "yield_desc": "Burning wet wood wastes energy evaporating water before producing usable heat."
+        },
+        "dimensions": {
+            "title": "Choosing the right length",
+            "desc": "Log length should match the size of your firebox. Measure the inside of your appliance and subtract 5cm for safety.",
+            "small": "Small wood stoves, cookers. Very fast drying.",
+            "standard": "Standard for most modern stoves and inserts.",
+            "medium": "Intermediate size for medium inserts.",
+            "large": "Large inserts, traditional open fireplaces."
+        },
+        "storage": {
+            "title": "Golden rules of storage",
+            "desc": "Good wood can lose all its qualities if poorly stored. Protect your investment by following these simple rules.",
+            "ventilation_title": "Ventilation",
+            "vent_1": "Do not stack the woodpile directly against a wall (leave ~10cm).",
+            "vent_2": "Cross the logs at the ends to stabilize and ventilate the stack.",
+            "vent_3": "Choose a spot exposed to prevailing winds and sunlight.",
+            "protection_title": "Protection",
+            "prot_1": "Insulate from the ground using pallets or battens.",
+            "prot_2": "Cover only the top with sheet metal or a tarp (leave the sides open).",
+            "prot_3": "Avoid storing in a closed cellar (risk of mould)."
+        }
+    },
+    "livraison": {
+        "process": {
+            "title": "Delivery Process",
+            "validation": "Confirmation",
+            "preparation": "Preparation",
+            "scheduling": "Scheduling",
+            "delivery": "Delivery"
+        },
+        "fleet": {
+            "title": "Fleet & Access Specifications",
+            "tautliner_title": "44T Curtainside Trailer",
+            "tautliner_desc": "Maximum capacity of 32 pallets. Ideal for high-volume deliveries to sites with loading docks.",
+            "tail_lift": "Tail Lift Dimensions",
+            "clearance": "Min. clearance height",
+            "gate": "Min. gate width",
+            "turning": "Turning radius",
+            "crane_title": "Crane Truck",
+            "crane_desc": "Over-obstacle unloading (walls, hedges). Reach up to 6m."
+        },
+        "area": {
+            "title": "Service Area",
+            "zone1": "Zone 1 (D+1 / D+2)",
+            "zone2": "Zone 2 (D+3 / D+5)"
+        },
+        "constraints": "Site Constraints"
+    },
+    "reviews": {
+        "trust": {
+            "title": "Trust Score",
+            "subtitle": "trusted by professionals.",
+            "customers": "+1k customers"
+        },
+        "filter": {
+            "all": "ALL",
+            "hospitality": "HOSPITALITY",
+            "industry": "INDUSTRY",
+            "resellers": "RESELLERS"
+        },
+        "commitments": "Our quality commitments"
     }
 }

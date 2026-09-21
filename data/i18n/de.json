@@ -91,7 +91,30 @@
         "article_2_title": "Die Zukunft von Industrie-Holzpellets",
         "article_3_title": "Welches Holz für professionelles Kochen?",
         "article_4_title": "Lieferengpässe antizipieren und vermeiden",
-        "article_5_title": "Entschlüsselung der Norm ISO 17225-2"
+        "article_5_title": "Entschlüsselung der Norm ISO 17225-2",
+        "hero": {
+            "title": "Expertise & Neuigkeiten",
+            "subtitle": "Die Wissenschaft der Holzenergie."
+        },
+        "filter": {
+            "all": "ALLE ARTIKEL",
+            "trends": "B2B-TRENDS",
+            "guide": "TECHNISCHER LEITFADEN"
+        },
+        "draft": "Entwurf — Artikel in Vorbereitung",
+        "read_article": "ARTIKEL LESEN",
+        "tag": {
+            "industry": "INDUSTRIE",
+            "gastronomy": "GASTRONOMIE",
+            "logistics": "LOGISTIK",
+            "science": "WISSENSCHAFT & NORMEN"
+        },
+        "discover": "ENTDECKEN",
+        "newsletter": {
+            "title": "Markt-Insights.",
+            "desc": "Erhalten Sie unsere monatlichen Marktanalysen, regulatorische Updates und Tipps zur Energieoptimierung direkt in Ihr Postfach.",
+            "placeholder": "GESCHÄFTLICHE E-MAIL-ADRESSE"
+        }
     },
     "delivery_promo": {
         "title": "Sichere industrielle Lieferung",
@@ -168,7 +191,10 @@
     },
     "depots": {
         "title": "Präsent im Herzen von Europas Holzindustrie",
-        "body": "Unsere Stärke ist unser Netzwerk. Mit Standorten in 8 Ländern und 24 Städten in ganz Europa arbeiten wir Hand in Hand mit lokalen Produzenten, Sägewerken und Großhändlern, um Ihnen ganzjährig hochwertiges Brennholz zu kontrollierten Preisen zu garantieren. Diese Nähe zu unseren Partnern ermöglicht es uns, unsere Versorgung auch in Zeiten hoher Nachfrage zu sichern, die Qualität an der Quelle zu kontrollieren und Ihnen wettbewerbsfähige Preise ohne überflüssige Zwischenhändler anzubieten."
+        "body": "Unsere Stärke ist unser Netzwerk. Mit Standorten in 8 Ländern und 24 Städten in ganz Europa arbeiten wir Hand in Hand mit lokalen Produzenten, Sägewerken und Großhändlern, um Ihnen ganzjährig hochwertiges Brennholz zu kontrollierten Preisen zu garantieren. Diese Nähe zu unseren Partnern ermöglicht es uns, unsere Versorgung auch in Zeiten hoher Nachfrage zu sichern, die Qualität an der Quelle zu kontrollieren und Ihnen wettbewerbsfähige Preise ohne überflüssige Zwischenhändler anzubieten.",
+        "countries": "Partnerländer",
+        "local": "Lokale Lager",
+        "presence": "Unsere Präsenz"
     },
     "dashboard": {
         "title": "Mein Dashboard",
@@ -382,5 +408,98 @@
             "no_account": "Noch kein Konto?",
             "signup": "Registrieren"
         }
+    },
+    "guide": {
+        "hero": {
+            "title": "Expertise & Beratung"
+        },
+        "nav": {
+            "species": "HOLZART",
+            "moisture": "FEUCHTIGKEITSGEHALT",
+            "dimensions": "ABMESSUNGEN",
+            "storage": "LAGERUNG"
+        },
+        "species": {
+            "title": "Die richtige Holzart wählen",
+            "desc": "Nicht alle Holzarten eignen sich gleichermaßen zum Heizen. Bevorzugen Sie Hartlaubholz für eine langsame Verbrennung und hohen Heizwert.",
+            "g1_title": "G1 - Harthölzer",
+            "g1_desc": "Eiche, Buche, Esche, Hainbuche",
+            "calorific": "Heizwert",
+            "excellent": "Ausgezeichnet",
+            "g2_title": "G2 - Weiche Laubhölzer",
+            "g2_desc": "Kastanie, Robinie, Wildkirsche",
+            "g3_title": "G3 - Nadelhölzer & Sonstige",
+            "g3_desc": "Tanne, Kiefer, Fichte, Birke",
+            "medium": "Mittel"
+        },
+        "moisture": {
+            "title": "Die Bedeutung des Feuchtigkeitsgehalts",
+            "desc": "Trockenes Holz (H1) gibt mehr Wärme ab, verrußt Ihren Schornstein weniger und verursacht weniger Emissionen. Entdecken Sie den Effizienzunterschied je nach Trocknungsart.",
+            "h1_desc": "Sofort einsatzbereit. Bietet die beste Energieausbeute. Natürliche Trocknung über 18 bis 24 Monate oder künstliche Trocknung.",
+            "h2_desc": "Muss vor Gebrauch 6 bis 12 Monate an einem trockenen, belüfteten Ort gelagert werden. Günstiger im Einkauf.",
+            "h3_desc": "Frisch geschlagenes Holz. So nicht verwendbar. Erfordert mindestens 2 Jahre Lagerung vor dem Verbrennen.",
+            "yield_title": "Vergleich der Energieausbeute",
+            "yield_desc": "Das Verbrennen von feuchtem Holz verschwendet Energie zum Verdampfen von Wasser, bevor nutzbare Wärme entsteht."
+        },
+        "dimensions": {
+            "title": "Die richtige Länge wählen",
+            "desc": "Die Länge Ihrer Scheite sollte zur Größe Ihres Feuerraums passen. Messen Sie das Innere Ihres Geräts und ziehen Sie sicherheitshalber 5cm ab.",
+            "small": "Kleine Holzöfen, Herde. Sehr schnelle Trocknung.",
+            "standard": "Standard für die meisten modernen Öfen und Kamineinsätze.",
+            "medium": "Mittlere Größe für mittelgroße Kamineinsätze.",
+            "large": "Große Kamineinsätze, traditionelle offene Kamine."
+        },
+        "storage": {
+            "title": "Goldene Regeln der Lagerung",
+            "desc": "Gutes Holz kann bei falscher Lagerung alle seine Eigenschaften verlieren. Schützen Sie Ihre Investition, indem Sie diese einfachen Regeln befolgen.",
+            "ventilation_title": "Belüftung",
+            "vent_1": "Stellen Sie den Holzstapel nicht direkt an eine Wand (ca. 10cm Abstand lassen).",
+            "vent_2": "Kreuzen Sie die Scheite an den Enden zur Stabilisierung und Belüftung.",
+            "vent_3": "Wählen Sie einen Standort, der den vorherrschenden Winden und der Sonne ausgesetzt ist.",
+            "protection_title": "Schutz",
+            "prot_1": "Vom Boden isolieren mit Paletten oder Kanthölzern.",
+            "prot_2": "Nur die Oberseite mit Blech oder einer Plane abdecken (Seiten offen lassen).",
+            "prot_3": "Lagerung in einem geschlossenen Keller vermeiden (Schimmelgefahr)."
+        }
+    },
+    "livraison": {
+        "process": {
+            "title": "Lieferprozess",
+            "validation": "Bestätigung",
+            "preparation": "Vorbereitung",
+            "scheduling": "Terminplanung",
+            "delivery": "Anlieferung"
+        },
+        "fleet": {
+            "title": "Flotten- & Zufahrtsspezifikationen",
+            "tautliner_title": "44t Planensattelzug",
+            "tautliner_desc": "Maximale Kapazität von 32 Paletten. Ideal für Großlieferungen an Standorte mit Laderampen.",
+            "tail_lift": "Ladebordwand-Abmessungen",
+            "clearance": "Mindestdurchfahrtshöhe",
+            "gate": "Mindestbreite Einfahrt",
+            "turning": "Wenderadius",
+            "crane_title": "Kranfahrzeug",
+            "crane_desc": "Entladung über Hindernisse (Mauern, Hecken). Reichweite bis 6m."
+        },
+        "area": {
+            "title": "Einsatzgebiet",
+            "zone1": "Zone 1 (T+1 / T+2)",
+            "zone2": "Zone 2 (T+3 / T+5)"
+        },
+        "constraints": "Standortbeschränkungen"
+    },
+    "reviews": {
+        "trust": {
+            "title": "Vertrauensindex",
+            "subtitle": "von Profis bestätigt.",
+            "customers": "+1.000 Kunden"
+        },
+        "filter": {
+            "all": "ALLE",
+            "hospitality": "GASTRONOMIE",
+            "industry": "INDUSTRIE",
+            "resellers": "WIEDERVERKÄUFER"
+        },
+        "commitments": "Unsere Qualitätsversprechen"
     }
 }

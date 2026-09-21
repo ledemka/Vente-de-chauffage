@@ -91,7 +91,30 @@
         "article_2_title": "L'Avenir du Pellet Industriel",
         "article_3_title": "Quel bois choisir pour la cuisson professionnelle ?",
         "article_4_title": "Anticiper les ruptures d'approvisionnement",
-        "article_5_title": "Décryptage : La norme ISO 17225-2"
+        "article_5_title": "Décryptage : La norme ISO 17225-2",
+        "hero": {
+            "title": "Expertise & Actualités",
+            "subtitle": "La science du bois énergie."
+        },
+        "filter": {
+            "all": "TOUS LES ARTICLES",
+            "trends": "TENDANCES B2B",
+            "guide": "GUIDE TECHNIQUE"
+        },
+        "draft": "Brouillon — article à rédiger",
+        "read_article": "LIRE L'ARTICLE",
+        "tag": {
+            "industry": "INDUSTRIE",
+            "gastronomy": "GASTRONOMIE",
+            "logistics": "LOGISTIQUE",
+            "science": "SCIENCES & NORMES"
+        },
+        "discover": "DÉCOUVRIR",
+        "newsletter": {
+            "title": "Veille Stratégique.",
+            "desc": "Recevez nos analyses de marché mensuelles, les évolutions réglementaires et les conseils d'optimisation énergétique directement dans votre boîte mail.",
+            "placeholder": "ADRESSE EMAIL PROFESSIONNELLE"
+        }
     },
     "delivery_promo": {
         "title": "Livraison Industrielle Sécurisée",
@@ -168,7 +191,10 @@
     },
     "depots": {
         "title": "Présents au cœur de l'Europe du bois",
-        "body": "Notre force, c'est notre réseau. Implantés dans 8 pays et 24 villes à travers l'Europe, nous travaillons main dans la main avec des producteurs, scieries et grossistes locaux pour vous garantir un bois de chauffage de qualité, disponible toute l'année et à un prix maîtrisé. Cette proximité avec nos partenaires nous permet de sécuriser nos approvisionnements même en période de forte demande, de contrôler la qualité à la source, et de vous proposer des tarifs compétitifs sans intermédiaire superflu."
+        "body": "Notre force, c'est notre réseau. Implantés dans 8 pays et 24 villes à travers l'Europe, nous travaillons main dans la main avec des producteurs, scieries et grossistes locaux pour vous garantir un bois de chauffage de qualité, disponible toute l'année et à un prix maîtrisé. Cette proximité avec nos partenaires nous permet de sécuriser nos approvisionnements même en période de forte demande, de contrôler la qualité à la source, et de vous proposer des tarifs compétitifs sans intermédiaire superflu.",
+        "countries": "Pays partenaires",
+        "local": "Dépôts locaux",
+        "presence": "Notre présence"
     },
     "dashboard": {
         "title": "Mon Tableau de Bord",
@@ -382,5 +408,98 @@
             "no_account": "Pas encore de compte ?",
             "signup": "S'inscrire"
         }
+    },
+    "guide": {
+        "hero": {
+            "title": "Expertise & Conseil"
+        },
+        "nav": {
+            "species": "ESSENCE DU BOIS",
+            "moisture": "TAUX D'HUMIDITÉ",
+            "dimensions": "DIMENSIONS",
+            "storage": "STOCKAGE"
+        },
+        "species": {
+            "title": "Choisir la bonne essence",
+            "desc": "Toutes les essences ne se valent pas pour le chauffage. Privilégiez les feuillus durs pour une combustion lente et un pouvoir calorifique élevé.",
+            "g1_title": "G1 - Feuillus Durs",
+            "g1_desc": "Chêne, Hêtre, Frêne, Charme",
+            "calorific": "Pouvoir calorifique",
+            "excellent": "Excellent",
+            "g2_title": "G2 - Feuillus Tendres",
+            "g2_desc": "Châtaignier, Acacia, Merisier",
+            "g3_title": "G3 - Résineux & Autres",
+            "g3_desc": "Sapin, Pin, Épicéa, Bouleau",
+            "medium": "Moyen"
+        },
+        "moisture": {
+            "title": "L'importance du taux d'humidité",
+            "desc": "Un bois sec (H1) dégage plus de chaleur, encrasse moins votre conduit et pollue moins. Découvrez la différence d'efficacité selon le séchage.",
+            "h1_desc": "Prêt à l'emploi. Offre le meilleur rendement énergétique. Séchage naturel de 18 à 24 mois ou séchage artificiel.",
+            "h2_desc": "Nécessite d'être stocké dans un endroit sec et ventilé pendant 6 à 12 mois avant utilisation. Plus économique à l'achat.",
+            "h3_desc": "Bois fraîchement coupé. Inutilisable en l'état. Nécessite un stockage de 2 ans minimum avant de pouvoir être brûlé.",
+            "yield_title": "Rendement Énergétique Comparé",
+            "yield_desc": "Brûler du bois humide dissipe l'énergie pour évaporer l'eau avant de produire de la chaleur utile."
+        },
+        "dimensions": {
+            "title": "Choisir la bonne longueur",
+            "desc": "La longueur de vos bûches doit être adaptée à la taille de votre foyer. Mesurez l'intérieur de votre appareil en retranchant 5cm par sécurité.",
+            "small": "Petits poêles à bois, cuisinières. Séchage très rapide.",
+            "standard": "Standard pour la majorité des poêles modernes et inserts.",
+            "medium": "Taille intermédiaire pour inserts moyens.",
+            "large": "Grands inserts, cheminées ouvertes traditionnelles."
+        },
+        "storage": {
+            "title": "Règles d'or du stockage",
+            "desc": "Un bon bois peut perdre toutes ses qualités s'il est mal stocké. Protégez votre investissement en suivant ces règles simples.",
+            "ventilation_title": "Ventilation",
+            "vent_1": "Ne pas coller le tas de bois directement contre un mur (laisser ~10cm).",
+            "vent_2": "Croiser les bûches aux extrémités pour stabiliser et aérer.",
+            "vent_3": "Privilégier un endroit exposé aux vents dominants et au soleil.",
+            "protection_title": "Protection",
+            "prot_1": "Isoler du sol à l'aide de palettes ou de chevrons.",
+            "prot_2": "Couvrir uniquement le dessus avec une tôle ou une bâche (laisser les côtés libres).",
+            "prot_3": "Éviter le stockage en cave fermée (risque de moisissures)."
+        }
+    },
+    "livraison": {
+        "process": {
+            "title": "Processus de Livraison",
+            "validation": "Validation",
+            "preparation": "Préparation",
+            "scheduling": "Planification",
+            "delivery": "Réception"
+        },
+        "fleet": {
+            "title": "Spécifications Flotte & Accès",
+            "tautliner_title": "Plateau Tautliner 44T",
+            "tautliner_desc": "Capacité maximale de 32 palettes. Idéal pour les livraisons en gros volume sur sites équipés de quais de déchargement.",
+            "tail_lift": "Gabarit Hayon",
+            "clearance": "Hauteur mini de passage",
+            "gate": "Largeur mini portail",
+            "turning": "Rayon braquage",
+            "crane_title": "Porteur Grue",
+            "crane_desc": "Déchargement par dessus obstacle (murs, haies). Portée jusqu'à 6m."
+        },
+        "area": {
+            "title": "Zone d'Intervention",
+            "zone1": "Zone 1 (J+1 / J+2)",
+            "zone2": "Zone 2 (J+3 / J+5)"
+        },
+        "constraints": "Contraintes Terrain"
+    },
+    "reviews": {
+        "trust": {
+            "title": "Indice de confiance",
+            "subtitle": "validée par les pros.",
+            "customers": "+1k clients"
+        },
+        "filter": {
+            "all": "TOUS",
+            "hospitality": "RESTAURATION",
+            "industry": "INDUSTRIE",
+            "resellers": "REVENDEURS"
+        },
+        "commitments": "Nos engagements qualité"
     }
 }

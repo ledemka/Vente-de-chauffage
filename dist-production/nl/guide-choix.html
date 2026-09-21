@@ -121,7 +121,7 @@
 <div class="flex-1 flex flex-col gap-6">
 <div class="inline-flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full w-fit">
 <span class="material-symbols-outlined text-primary text-[18px]">menu_book</span>
-<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Expertise & Conseil</span>
+<span data-i18n="guide.hero.title" class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Expertise & Advies</span>
 </div>
 <h1 class="text-headline-xl font-headline-xl text-on-surface max-w-2xl">
           Le guide complet pour choisir votre bois de chauffage.
@@ -139,10 +139,10 @@
 <!-- Navigation Tabs (JS driven) -->
 <section class="w-full bg-surface-container sticky top-[80px] z-40 border-b border-outline-variant/30 shadow-sm">
 <div class="max-w-max-width mx-auto px-margin-desktop flex overflow-x-auto hide-scrollbar gap-8" id="guide-tabs">
-<button class="py-4 text-label-md font-label-md text-primary border-b-2 border-primary whitespace-nowrap" data-target="essence">ESSENCE DU BOIS</button>
-<button class="py-4 text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" data-target="humidite">TAUX D'HUMIDITÉ</button>
-<button class="py-4 text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" data-target="dimension">DIMENSIONS</button>
-<button class="py-4 text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" data-target="stockage">STOCKAGE</button>
+<button data-i18n="guide.nav.species" class="py-4 text-label-md font-label-md text-primary border-b-2 border-primary whitespace-nowrap" data-target="essence">HOUTSOORT</button>
+<button data-i18n="guide.nav.moisture" class="py-4 text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" data-target="humidite">VOCHTGEHALTE</button>
+<button data-i18n="guide.nav.dimensions" class="py-4 text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" data-target="dimension">AFMETINGEN</button>
+<button data-i18n="guide.nav.storage" class="py-4 text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" data-target="stockage">OPSLAG</button>
 </div>
 </section>
 <!-- Content Sections -->
@@ -150,8 +150,8 @@
 <!-- Essence Section -->
 <div class="guide-section flex flex-col gap-16 transition-opacity duration-500 opacity-100" id="essence">
 <div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-<h2 class="text-headline-lg font-headline-lg text-on-surface">Choisir la bonne essence</h2>
-<p class="text-body-md font-body-md text-on-surface-variant">Toutes les essences ne se valent pas pour le chauffage. Privilégiez les feuillus durs pour une combustion lente et un pouvoir calorifique élevé.</p>
+<h2 data-i18n="guide.species.title" class="text-headline-lg font-headline-lg text-on-surface">De juiste houtsoort kiezen</h2>
+<p data-i18n="guide.species.desc" class="text-body-md font-body-md text-on-surface-variant">Niet alle houtsoorten zijn gelijk voor verwarming. Kies voor hardhout voor een langzame verbranding en hoge calorische waarde.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <!-- Card 1 -->
@@ -161,18 +161,18 @@
 </div>
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary font-headline-md">1</div>
-<h3 class="text-headline-md font-headline-md text-on-surface">G1 - Feuillus Durs</h3>
+<h3 data-i18n="guide.species.g1_title" class="text-headline-md font-headline-md text-on-surface">G1 - Hardhout</h3>
 </div>
 <div class="flex flex-col gap-2">
-<span class="text-label-md font-label-md text-primary uppercase tracking-widest">Chêne, Hêtre, Frêne, Charme</span>
+<span data-i18n="guide.species.g1_desc" class="text-label-md font-label-md text-primary uppercase tracking-widest">Eik, Beuk, Es, Haagbeuk</span>
 </div>
 <p class="text-body-md font-body-md text-on-surface-variant flex-grow">
             Le choix par excellence. Ils offrent un pouvoir calorifique très élevé et une combustion lente. Idéal pour un chauffage principal continu.
           </p>
 <div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
 <div class="flex justify-between items-center text-body-sm font-body-sm">
-<span class="text-on-surface-variant">Pouvoir calorifique</span>
-<span class="text-on-surface font-semibold">Excellent</span>
+<span data-i18n="guide.species.calorific" class="text-on-surface-variant">Calorische waarde</span>
+<span data-i18n="guide.species.excellent" class="text-on-surface font-semibold">Uitstekend</span>
 </div>
 <div class="w-full bg-surface h-2 rounded-full overflow-hidden">
 <div class="bg-primary w-[95%] h-full rounded-full"></div>
@@ -186,17 +186,17 @@
 </div>
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-on-secondary font-headline-md">2</div>
-<h3 class="text-headline-md font-headline-md text-on-surface">G2 - Feuillus Tendres</h3>
+<h3 data-i18n="guide.species.g2_title" class="text-headline-md font-headline-md text-on-surface">G2 - Zachter hardhout</h3>
 </div>
 <div class="flex flex-col gap-2">
-<span class="text-label-md font-label-md text-secondary uppercase tracking-widest">Châtaignier, Acacia, Merisier</span>
+<span data-i18n="guide.species.g2_desc" class="text-label-md font-label-md text-secondary uppercase tracking-widest">Kastanje, Acacia, Wilde kers</span>
 </div>
 <p class="text-body-md font-body-md text-on-surface-variant flex-grow">
             Bon pouvoir calorifique mais combustion plus rapide. Le châtaignier a tendance à éclater, nécessite un foyer fermé.
           </p>
 <div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
 <div class="flex justify-between items-center text-body-sm font-body-sm">
-<span class="text-on-surface-variant">Pouvoir calorifique</span>
+<span data-i18n="guide.species.calorific" class="text-on-surface-variant">Calorische waarde</span>
 <span class="text-on-surface font-semibold">Bon</span>
 </div>
 <div class="w-full bg-surface h-2 rounded-full overflow-hidden">
@@ -211,18 +211,18 @@
 </div>
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 bg-tertiary rounded-full flex items-center justify-center text-on-tertiary font-headline-md">3</div>
-<h3 class="text-headline-md font-headline-md text-on-surface">G3 - Résineux & Autres</h3>
+<h3 data-i18n="guide.species.g3_title" class="text-headline-md font-headline-md text-on-surface">G3 - Naaldhout & Overige</h3>
 </div>
 <div class="flex flex-col gap-2">
-<span class="text-label-md font-label-md text-tertiary uppercase tracking-widest">Sapin, Pin, Épicéa, Bouleau</span>
+<span data-i18n="guide.species.g3_desc" class="text-label-md font-label-md text-tertiary uppercase tracking-widest">Den, Grove den, Spar, Berk</span>
 </div>
 <p class="text-body-md font-body-md text-on-surface-variant flex-grow">
             Montent très vite en température. Idéal pour allumer le feu, mais s'encrassent rapidement. À utiliser avec parcimonie.
           </p>
 <div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
 <div class="flex justify-between items-center text-body-sm font-body-sm">
-<span class="text-on-surface-variant">Pouvoir calorifique</span>
-<span class="text-on-surface font-semibold">Moyen</span>
+<span data-i18n="guide.species.calorific" class="text-on-surface-variant">Calorische waarde</span>
+<span data-i18n="guide.species.medium" class="text-on-surface font-semibold">Gemiddeld</span>
 </div>
 <div class="w-full bg-surface h-2 rounded-full overflow-hidden">
 <div class="bg-tertiary w-[50%] h-full rounded-full"></div>
@@ -235,8 +235,8 @@
 <div class="guide-section hidden flex-col gap-16 transition-opacity duration-500 opacity-0" id="humidite">
 <!-- Content for humidite would go here, similar structure to essence -->
 <div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-<h2 class="text-headline-lg font-headline-lg text-on-surface">L'importance du taux d'humidité</h2>
-<p class="text-body-md font-body-md text-on-surface-variant">Un bois sec (H1) dégage plus de chaleur, encrasse moins votre conduit et pollue moins. Découvrez la différence d'efficacité selon le séchage.</p>
+<h2 data-i18n="guide.moisture.title" class="text-headline-lg font-headline-lg text-on-surface">Het belang van het vochtgehalte</h2>
+<p data-i18n="guide.moisture.desc" class="text-body-md font-body-md text-on-surface-variant">Droog hout (H1) geeft meer warmte af, vervuilt uw schoorsteen minder en vervuilt minder. Ontdek het efficiëntieverschil afhankelijk van de droogmethode.</p>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 <div class="flex flex-col gap-8">
@@ -247,7 +247,7 @@
 </div>
 <div>
 <h3 class="text-headline-md font-headline-md text-on-surface mb-2">Bois Sec (H1) <span class="text-primary text-body-md">< 20% d'humidité</span></h3>
-<p class="text-body-md font-body-md text-on-surface-variant">Prêt à l'emploi. Offre le meilleur rendement énergétique. Séchage naturel de 18 à 24 mois ou séchage artificiel.</p>
+<p data-i18n="guide.moisture.h1_desc" class="text-body-md font-body-md text-on-surface-variant">Direct klaar voor gebruik. Biedt het beste energierendement. Natuurlijke droging van 18 tot 24 maanden of kunstmatig gedroogd.</p>
 </div>
 </div>
 <!-- H2 -->
@@ -257,7 +257,7 @@
 </div>
 <div>
 <h3 class="text-headline-md font-headline-md text-on-surface mb-2">Bois Demi-sec (H2) <span class="text-secondary text-body-md">20% à 35%</span></h3>
-<p class="text-body-md font-body-md text-on-surface-variant">Nécessite d'être stocké dans un endroit sec et ventilé pendant 6 à 12 mois avant utilisation. Plus économique à l'achat.</p>
+<p data-i18n="guide.moisture.h2_desc" class="text-body-md font-body-md text-on-surface-variant">Moet vóór gebruik 6 tot 12 maanden op een droge, geventileerde plaats worden opgeslagen. Voordeliger in aanschaf.</p>
 </div>
 </div>
 <!-- H3 -->
@@ -267,12 +267,12 @@
 </div>
 <div>
 <h3 class="text-headline-md font-headline-md text-on-surface mb-2">Bois Vert (H3) <span class="text-tertiary text-body-md">> 35%</span></h3>
-<p class="text-body-md font-body-md text-on-surface-variant">Bois fraîchement coupé. Inutilisable en l'état. Nécessite un stockage de 2 ans minimum avant de pouvoir être brûlé.</p>
+<p data-i18n="guide.moisture.h3_desc" class="text-body-md font-body-md text-on-surface-variant">Vers gekapt hout. Niet direct bruikbaar. Vereist minstens 2 jaar opslag voordat het verbrand kan worden.</p>
 </div>
 </div>
 </div>
 <div class="bg-surface-container rounded-2xl p-8 shadow-sm flex flex-col justify-center h-full relative">
-<h4 class="text-headline-md font-headline-md text-on-surface mb-6 text-center">Rendement Énergétique Comparé</h4>
+<h4 data-i18n="guide.moisture.yield_title" class="text-headline-md font-headline-md text-on-surface mb-6 text-center">Vergelijking energierendement</h4>
 <!-- Abstract visual representation of energy yield -->
 <div class="flex flex-col gap-6 relative z-10">
 <div class="flex items-center gap-4">
@@ -300,15 +300,15 @@
 </div>
 </div>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant text-center mt-8 mt-auto">Brûler du bois humide dissipe l'énergie pour évaporer l'eau avant de produire de la chaleur utile.</p>
+<p data-i18n="guide.moisture.yield_desc" class="text-body-sm font-body-sm text-on-surface-variant text-center mt-8 mt-auto">Het verbranden van vochtig hout verspilt energie aan het verdampen van water voordat bruikbare warmte ontstaat.</p>
 </div>
 </div>
 </div>
 <!-- Dimension Section (Hidden by default) -->
 <div class="guide-section hidden flex-col gap-16 transition-opacity duration-500 opacity-0" id="dimension">
 <div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-<h2 class="text-headline-lg font-headline-lg text-on-surface">Choisir la bonne longueur</h2>
-<p class="text-body-md font-body-md text-on-surface-variant">La longueur de vos bûches doit être adaptée à la taille de votre foyer. Mesurez l'intérieur de votre appareil en retranchant 5cm par sécurité.</p>
+<h2 data-i18n="guide.dimensions.title" class="text-headline-lg font-headline-lg text-on-surface">De juiste lengte kiezen</h2>
+<p data-i18n="guide.dimensions.desc" class="text-body-md font-body-md text-on-surface-variant">De lengte van uw houtblokken moet passen bij de grootte van uw stookruimte. Meet de binnenkant van uw toestel en trek voor de veiligheid 5cm af.</p>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 <!-- 25cm -->
@@ -317,7 +317,7 @@
 <span class="absolute -right-12 top-1/2 -translate-y-1/2 text-label-md font-label-md text-on-surface-variant rotate-90">25cm</span>
 </div>
 <h3 class="text-headline-md font-headline-md text-on-surface text-center">25 cm</h3>
-<p class="text-body-sm font-body-sm text-on-surface-variant text-center">Petits poêles à bois, cuisinières. Séchage très rapide.</p>
+<p data-i18n="guide.dimensions.small" class="text-body-sm font-body-sm text-on-surface-variant text-center">Kleine houtkachels, fornuizen. Zeer snelle droging.</p>
 </div>
 <!-- 33cm -->
 <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center gap-4 shadow-sm hover:shadow-md transition-shadow hover:ring-2 hover:ring-primary/50 cursor-pointer">
@@ -325,7 +325,7 @@
 <span class="absolute -right-12 top-1/2 -translate-y-1/2 text-label-md font-label-md text-on-surface-variant rotate-90">33cm</span>
 </div>
 <h3 class="text-headline-md font-headline-md text-on-surface text-center">33 cm</h3>
-<p class="text-body-sm font-body-sm text-on-surface-variant text-center">Standard pour la majorité des poêles modernes et inserts.</p>
+<p data-i18n="guide.dimensions.standard" class="text-body-sm font-body-sm text-on-surface-variant text-center">Standaard voor de meeste moderne kachels en inzethaarden.</p>
 </div>
 <!-- 40cm -->
 <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center gap-4 shadow-sm hover:shadow-md transition-shadow hover:ring-2 hover:ring-primary/50 cursor-pointer">
@@ -333,7 +333,7 @@
 <span class="absolute -right-12 top-1/2 -translate-y-1/2 text-label-md font-label-md text-on-surface-variant rotate-90">40cm</span>
 </div>
 <h3 class="text-headline-md font-headline-md text-on-surface text-center">40 cm</h3>
-<p class="text-body-sm font-body-sm text-on-surface-variant text-center">Taille intermédiaire pour inserts moyens.</p>
+<p data-i18n="guide.dimensions.medium" class="text-body-sm font-body-sm text-on-surface-variant text-center">Tussenmaat voor middelgrote inzethaarden.</p>
 </div>
 <!-- 50cm -->
 <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center gap-4 shadow-sm hover:shadow-md transition-shadow hover:ring-2 hover:ring-primary/50 cursor-pointer">
@@ -341,15 +341,15 @@
 <span class="absolute -right-12 top-1/2 -translate-y-1/2 text-label-md font-label-md text-on-surface-variant rotate-90">50cm</span>
 </div>
 <h3 class="text-headline-md font-headline-md text-on-surface text-center">50 cm</h3>
-<p class="text-body-sm font-body-sm text-on-surface-variant text-center">Grands inserts, cheminées ouvertes traditionnelles.</p>
+<p data-i18n="guide.dimensions.large" class="text-body-sm font-body-sm text-on-surface-variant text-center">Grote inzethaarden, traditionele open haarden.</p>
 </div>
 </div>
 </div>
 <!-- Stockage Section (Hidden by default) -->
 <div class="guide-section hidden flex-col gap-16 transition-opacity duration-500 opacity-0" id="stockage">
 <div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-<h2 class="text-headline-lg font-headline-lg text-on-surface">Règles d'or du stockage</h2>
-<p class="text-body-md font-body-md text-on-surface-variant">Un bon bois peut perdre toutes ses qualités s'il est mal stocké. Protégez votre investissement en suivant ces règles simples.</p>
+<h2 data-i18n="guide.storage.title" class="text-headline-lg font-headline-lg text-on-surface">Gouden regels voor opslag</h2>
+<p data-i18n="guide.storage.desc" class="text-body-md font-body-md text-on-surface-variant">Goed hout kan al zijn kwaliteiten verliezen bij verkeerde opslag. Bescherm uw investering door deze eenvoudige regels te volgen.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <div class="bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
@@ -357,12 +357,12 @@
 <div class="p-8 flex flex-col gap-4">
 <div class="flex items-center gap-3 text-primary">
 <span class="material-symbols-outlined text-[24px]">air</span>
-<h3 class="text-headline-md font-headline-md text-on-surface">Ventilation</h3>
+<h3 data-i18n="guide.storage.ventilation_title" class="text-headline-md font-headline-md text-on-surface">Ventilatie</h3>
 </div>
 <ul class="flex flex-col gap-3 text-body-md font-body-md text-on-surface-variant">
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span>Ne pas coller le tas de bois directement contre un mur (laisser ~10cm).</span></li>
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span>Croiser les bûches aux extrémités pour stabiliser et aérer.</span></li>
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span>Privilégier un endroit exposé aux vents dominants et au soleil.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.vent_1">Zet de houtstapel niet direct tegen een muur (laat ~10cm ruimte).</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.vent_2">Kruis de houtblokken aan de uiteinden voor stabiliteit en ventilatie.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.vent_3">Kies een plek die is blootgesteld aan de overheersende wind en zon.</span></li>
 </ul>
 </div>
 </div>
@@ -382,12 +382,12 @@
 <div class="p-8 flex flex-col gap-4">
 <div class="flex items-center gap-3 text-primary">
 <span class="material-symbols-outlined text-[24px]">shield</span>
-<h3 class="text-headline-md font-headline-md text-on-surface">Protection</h3>
+<h3 data-i18n="guide.storage.protection_title" class="text-headline-md font-headline-md text-on-surface">Bescherming</h3>
 </div>
 <ul class="flex flex-col gap-3 text-body-md font-body-md text-on-surface-variant">
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span>Isoler du sol à l'aide de palettes ou de chevrons.</span></li>
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span>Couvrir uniquement le dessus avec une tôle ou une bâche (laisser les côtés libres).</span></li>
-<li class="flex gap-3"><span class="material-symbols-outlined text-error text-[20px]">cancel</span> <span class="text-on-surface">Éviter le stockage en cave fermée (risque de moisissures).</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.prot_1">Isoleer van de grond met pallets of balken.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.prot_2">Bedek alleen de bovenkant met plaatstaal of een dekzeil (laat de zijkanten open).</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-error text-[20px]">cancel</span> <span data-i18n="guide.storage.prot_3" class="text-on-surface">Vermijd opslag in een gesloten kelder (risico op schimmel).</span></li>
 </ul>
 </div>
 </div>
