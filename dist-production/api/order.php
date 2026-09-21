@@ -59,12 +59,14 @@ if ($rawBody) {
 }
 $input = array_merge($input, $_POST);
 
-// Validation
-$required = ['delivery_address', 'company', 'contact_name', 'email', 'phone'];
+// Validation — "company" est facultatif (utile pour les particuliers, obligatoire seulement côté pro à l'inscription)
+$required = ['delivery_address', 'contact_name', 'email', 'phone'];
 foreach ($required as $req) {
     if (empty($input[$req])) respondError(400, "Le champ {$req} est obligatoire.");
 }
 if (!filter_var($input['email'], FILTER_VALIDATE_EMAIL)) respondError(400, 'Email invalide.');
+
+$company = trim((string)($input['company'] ?? ''));
 
 $client_id = $_SESSION['client_id'] ?? null;
 $session_token = $input['session_token'] ?? '';
@@ -100,7 +102,7 @@ try {
     foreach ($cartItems as $item) {
         $totalPalettes += max(1, (int)$item['quantity']);
     }
-    
+
     // Get global discount
     $globalDiscount = calculateGlobalDiscount($totalPalettes);
     $globalDiscountPercent = $globalDiscount['discount_percent'];
@@ -108,23 +110,22 @@ try {
 
     $orderItems = [];
     $subtotal = 0;
-    
+
     $lang = strtolower(trim((string)($input['lang'] ?? 'fr')));
-    
+
     foreach ($cartItems as $item) {
         $pid = $item['product_id'];
         $len = $item['length'];
-        
+
         if (isset($productsMap[$pid])) {
             $p = $productsMap[$pid];
-            
-            // If a length was requested but the product doesn't support it or the length doesn't exist, we skip it
+
             if ($len !== null && (!isset($p['prices_by_length']) || !isset($p['prices_by_length'][$len]))) {
-                continue; 
+                continue;
             }
-            
+
             $calc = calculateLinePrice($p, $len, (int)$item['quantity'], (float)$globalDiscountPercent);
-            
+
             $orderItems[] = [
                 'product_id' => $pid,
                 'name' => is_array($p['name']) ? ($p['name'][$lang] ?? $p['name']['fr']) : $p['name'],
@@ -141,10 +142,10 @@ try {
     }
 
     // 3. Insert Order
-    $orderRef = 'TF-' . date('Y') . '-' . strtoupper(bin2hex(random_bytes(3))); // e.g. TF-2026-A1B2C3
-    
+    $orderRef = 'TF-' . date('Y') . '-' . strtoupper(bin2hex(random_bytes(3)));
+
     $truck_access = trim((string)($input['truck_access'] ?? 'non_specifie'));
-    
+
     $stmt = $pdo->prepare("INSERT INTO orders (
         order_reference, client_id, company, siret, contact_name, email, phone, 
         delivery_address, truck_access, items, subtotal, discount_tier, 
@@ -154,7 +155,7 @@ try {
     $stmt->execute([
         $orderRef,
         $client_id,
-        trim((string)$input['company']),
+        $company,
         trim((string)($input['siret'] ?? '')),
         trim((string)$input['contact_name']),
         trim((string)$input['email']),
@@ -165,7 +166,7 @@ try {
         round($subtotal, 2),
         $globalTier,
         $globalDiscountPercent,
-        round($subtotal, 2), // Total is same as subtotal here since discounts are per-item
+        round($subtotal, 2),
         $lang
     ]);
     $orderId = $pdo->lastInsertId();
@@ -178,6 +179,8 @@ try {
         $total_tva = round($total_ht * $tva_rate, 2);
         $total_ttc = round($total_ht + $total_tva, 2);
         $date      = date('d/m/Y');
+
+        $clientBlockName = $company !== '' ? $company : trim((string)$input['contact_name']);
 
         $pdfHtml = '<!DOCTYPE html>
 <html lang="fr"><head><meta charset="UTF-8"><title>Bon de commande - ' . htmlspecialchars($orderRef) . '</title>
@@ -213,7 +216,7 @@ try {
 <table class="addresses"><tr>
   <td class="address-box" valign="top">
     <h3>Facturé / Livré à</h3>
-    <p><strong>' . htmlspecialchars(trim((string)$input['company'])) . '</strong></p>
+    <p><strong>' . htmlspecialchars($clientBlockName) . '</strong></p>
     <p>' . htmlspecialchars(trim((string)$input['contact_name'])) . '</p>
     <p>' . nl2br(htmlspecialchars(trim((string)$input['delivery_address']))) . '</p>
     <p>Tél: ' . htmlspecialchars(trim((string)$input['phone'])) . '</p>
@@ -236,9 +239,9 @@ try {
             $discount = floatval($oi['discount_percent'] ?? 0);
             $oi_qty   = intval($oi['quantity']);
             $line_ht  = floatval($oi['total_ht'] ?? 0);
-            
+
             $discountStr = $discount > 0 ? "-{$discount}%" : '';
-            
+
             $pdfHtml .= '<tr>
   <td><strong>' . htmlspecialchars($oi['name']) . '</strong></td>
   <td>' . htmlspecialchars($oi['format'] ?? '') . '</td>
@@ -278,10 +281,9 @@ try {
         $dom->loadHtml($pdfHtml);
         $dom->setPaper('A4', 'portrait');
         $dom->render();
-        $pdfBytes = $dom->output(); // raw binary — no stream
+        $pdfBytes = $dom->output();
     } catch (Exception $pdfEx) {
         error_log('PDF attachment generation failed: ' . $pdfEx->getMessage());
-        // Non-blocking: email will still be sent without attachment
     }
 
     // 4. Clear Cart
@@ -314,7 +316,7 @@ try {
         if (isset($i18n['total_label'])) {
             $i18n['total_label'] = str_replace('HT', 'TTC', $i18n['total_label']);
         }
-        if (empty($i18n)) { // Fallback just in case
+        if (empty($i18n)) {
             $i18n = [
                 'subject' => "Confirmation de commande {$orderRef}",
                 'title' => "Merci pour votre commande !",
@@ -330,7 +332,7 @@ try {
 
         $templatePath = __DIR__ . '/templates/emails/order_confirmation.html';
         $clientHtml = file_exists($templatePath) ? file_get_contents($templatePath) : "";
-        
+
         if (!empty($clientHtml)) {
             $clientHtml = str_replace(
                 ['{{title}}', '{{intro}}', '{{order_ref}}', '{{total}}', '{{sepa_notice}}', '{{cta_account}}', '{{ref_label}}', '{{total_label}}', '{{app_url}}', '{{year}}', '{{pdf_url}}'],
@@ -355,10 +357,9 @@ try {
 
         $clientText = strip_tags(str_replace(['<br>', '<h2>', '</h2>', '<p>', '</p>'], ["\n", "\n\n", "\n\n", "", "\n\n"], $clientHtml));
 
-        // Internal Notif
         $internalHtml = "<h2>Nouvelle Commande B2B: {$orderRef}</h2>
         <p>Montant: {$totalTtcFmt} TTC (soit {$totalFmt} HT)</p>
-        <p>Client: " . htmlspecialchars(trim((string)$input['company'])) . " ({$contactNameHtml})</p>
+        <p>Client: " . htmlspecialchars($clientBlockName) . " ({$contactNameHtml})</p>
         <p>Email: " . htmlspecialchars(trim((string)$input['email'])) . "</p>";
 
         function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text, array $attachments = []): void {
@@ -376,7 +377,6 @@ try {
             curl_close($ch);
         }
 
-        // Build attachment array if PDF was generated successfully
         $emailAttachments = [];
         if ($pdfBytes !== null) {
             $emailAttachments[] = [
@@ -392,7 +392,7 @@ try {
     echo json_encode(['success' => true, 'order_reference' => $orderRef]);
     exit;
 
-} catch (Exception $e) {
+} catch (\Throwable $e) {
     error_log("Order Error: " . $e->getMessage());
     respondError(500, "Erreur interne lors de la commande.");
 }

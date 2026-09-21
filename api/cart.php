@@ -29,7 +29,6 @@ $session_token = $input['session_token'] ?? '';
 $client_id = $_SESSION['client_id'] ?? null;
 
 if (!$client_id && !$session_token) {
-    // Generate a session token if none exists for guest
     $session_token = bin2hex(random_bytes(32));
 }
 
@@ -38,19 +37,16 @@ try {
     $pdo = $db->getConnection();
     if ($pdo === null) throw new Exception("DB Connection failed");
 
-    // 1. Cleanup guest carts older than 30 days
     $pdo->exec("DELETE FROM cart_items WHERE client_id IS NULL AND session_token IS NOT NULL AND updated_at < NOW() - INTERVAL 30 DAY");
 
     require_once __DIR__ . '/pricing.php';
 
     if ($action === 'sync' && $client_id && $session_token) {
-        // User just logged in, merge guest cart into client cart
         $stmt = $pdo->prepare("SELECT product_id, length, quantity FROM cart_items WHERE session_token = ? AND client_id IS NULL");
         $stmt->execute([$session_token]);
         $guestItems = $stmt->fetchAll();
 
         foreach ($guestItems as $item) {
-            // Check if user already has this product and length
             $chk = $pdo->prepare("SELECT id, quantity FROM cart_items WHERE client_id = ? AND product_id = ? AND (length = ? OR (length IS NULL AND ? IS NULL))");
             $chk->execute([$client_id, $item['product_id'], $item['length'], $item['length']]);
             $existing = $chk->fetch();
@@ -63,9 +59,8 @@ try {
                 $ins->execute([$client_id, $item['product_id'], $item['length'], $item['quantity']]);
             }
         }
-        // Delete guest cart items
         $pdo->prepare("DELETE FROM cart_items WHERE session_token = ? AND client_id IS NULL")->execute([$session_token]);
-        
+
         echo json_encode(['success' => true, 'message' => 'Cart synced']);
         exit;
     }
@@ -74,10 +69,9 @@ try {
         $length = $input['length'] ?? null;
         if ($length === '') $length = null;
         $quantity = max(1, (int)($input['quantity'] ?? 1));
-        
+
         if (!$product_id) respondError(400, 'Produit manquant');
-        
-        // Find existing
+
         if ($client_id) {
             $stmt = $pdo->prepare("SELECT id, quantity FROM cart_items WHERE client_id = ? AND product_id = ? AND (length = ? OR (length IS NULL AND ? IS NULL))");
             $stmt->execute([$client_id, $product_id, $length, $length]);
@@ -97,7 +91,7 @@ try {
                 $pdo->prepare("INSERT INTO cart_items (session_token, product_id, length, quantity) VALUES (?, ?, ?, ?)")->execute([$session_token, $product_id, $length, $quantity]);
             }
         }
-        
+
         echo json_encode(['success' => true, 'session_token' => $session_token]);
         exit;
     }
@@ -132,37 +126,34 @@ try {
             $stmt->execute([$session_token]);
         }
         $items = $stmt->fetchAll();
-        
+
         $products = getProductsData();
         $productsMap = [];
         foreach ($products as $p) {
             $productsMap[$p['id']] = $p;
         }
 
-        // 1. Calculate total palettes
         $totalPalettes = 0;
         foreach ($items as $item) {
             $totalPalettes += max(1, (int)$item['quantity']);
         }
-        
-        // 2. Get global discount
+
         $globalDiscount = calculateGlobalDiscount($totalPalettes);
         $globalDiscountPercent = $globalDiscount['discount_percent'];
 
         $cartData = [];
         $subtotal = 0;
-        
+
         foreach ($items as $item) {
             $pid = $item['product_id'];
             if (isset($productsMap[$pid])) {
                 $p = $productsMap[$pid];
                 $len = $item['length'];
-                
-                // If a length was requested but the product doesn't support it or the length doesn't exist, we skip it
+
                 if ($len !== null && (!isset($p['prices_by_length']) || !isset($p['prices_by_length'][$len]))) {
-                    continue; // Skip invalid lengths added maliciously
+                    continue;
                 }
-                
+
                 $calc = calculateLinePrice($p, $len, (int)$item['quantity'], (float)$globalDiscountPercent);
 
                 $cartData[] = [
@@ -180,7 +171,7 @@ try {
                 $subtotal += $calc['total_ht'];
             }
         }
-        
+
         echo json_encode([
             'success' => true,
             'items' => $cartData,
@@ -193,7 +184,7 @@ try {
         respondError(400, 'Action invalide');
     }
 
-} catch (Exception $e) {
+} catch (\Throwable $e) {
     error_log("Cart Error: " . $e->getMessage());
     respondError(500, "Erreur interne.");
 }
