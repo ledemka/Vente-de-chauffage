@@ -342,7 +342,7 @@ window.resolveAssetPath = function(pathStr) {
                                 document.getElementById('product-title').textContent = getProductName(product);
                                 document.getElementById('product-ref').textContent = `Ref: ${product.id.toUpperCase()}-PAL`;
                                 const displayHumidity = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
-                                document.getElementById('product-desc').textContent = `${getProductField(product, 'species_material')} - Humidité: ${displayHumidity}. Origine: ${product.origin}. Idéal pour professionnels.`;
+                                document.getElementById('product-desc').textContent = `${getProductField(product, 'species_material')} - Humidité: ${displayHumidity}`;
                                 document.getElementById('product-stock').textContent = 'En Stock';
                                 const imgPrefix = relPath === '.' ? '' : relPath;
                                 document.getElementById('product-img-1').src = resolveAssetPath(product.image_product);
