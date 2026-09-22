@@ -410,7 +410,7 @@ window.resolveAssetPath = function(pathStr) {
 
                                 document.getElementById('spec-conditionnement').textContent = product.units_per_palette + ' unités par palette';
 
-                                document.getElementById('ppc-price').textContent = (product.recommended_price * 1.2).toFixed(2) + ' € TTC';
+                                // Removed ppc-price update
 
                                 const qtyInput = document.getElementById('qty-input');
                                 const btnDecrease = document.getElementById('btn-decrease');
