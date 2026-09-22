@@ -176,9 +176,11 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <!-- Card 1 -->
-<div class="bg-surface-container p-8 rounded-xl flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+<div class="bg-surface-container rounded-xl flex flex-col shadow-sm hover:shadow-md transition-shadow group overflow-hidden">
+<img class="w-full h-48 object-cover" src="./assets/images/guide/guide-g1.jpg" alt="Bois feuillu dur" />
+<div class="p-8 flex flex-col gap-6 relative flex-grow">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-[100px] text-primary">forest</span>
+<span class="material-symbols-outlined text-[80px] text-primary">forest</span>
 </div>
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary font-headline-md">1</div>
@@ -188,7 +190,7 @@
 <span data-i18n="guide.species.g1_desc" class="text-label-md font-label-md text-primary uppercase tracking-widest">Chêne, Hêtre, Frêne, Charme</span>
 </div>
 <p class="text-body-md font-body-md text-on-surface-variant flex-grow">
-            Le choix par excellence. Ils offrent un pouvoir calorifique très élevé et une combustion lente. Idéal pour un chauffage principal continu.
+            Le choix par excellence pour un rendement industriel. Ces essences denses offrent un pouvoir calorifique très élevé et une combustion lente, garantissant une chaleur continue avec moins de rechargements. Idéal pour les boulangeries, pizzerias et chaufferies professionnelles.
           </p>
 <div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
 <div class="flex justify-between items-center text-body-sm font-body-sm">
@@ -200,10 +202,13 @@
 </div>
 </div>
 </div>
+</div>
 <!-- Card 2 -->
-<div class="bg-surface-container p-8 rounded-xl flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+<div class="bg-surface-container rounded-xl flex flex-col shadow-sm hover:shadow-md transition-shadow group overflow-hidden">
+<img class="w-full h-48 object-cover" src="./assets/images/guide/guide-g2.jpg" alt="Bois feuillu tendre" />
+<div class="p-8 flex flex-col gap-6 relative flex-grow">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-[100px] text-secondary">park</span>
+<span class="material-symbols-outlined text-[80px] text-secondary">park</span>
 </div>
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-on-secondary font-headline-md">2</div>
@@ -213,7 +218,7 @@
 <span data-i18n="guide.species.g2_desc" class="text-label-md font-label-md text-secondary uppercase tracking-widest">Châtaignier, Acacia, Merisier</span>
 </div>
 <p class="text-body-md font-body-md text-on-surface-variant flex-grow">
-            Bon pouvoir calorifique mais combustion plus rapide. Le châtaignier a tendance à éclater, nécessite un foyer fermé.
+            Bon pouvoir calorifique mais combustion plus rapide. Faciles à fendre et à allumer. Attention, le châtaignier a tendance à éclater et projeter des escarbilles, il nécessite impérativement un foyer fermé. Très utiles pour les relances rapides de température.
           </p>
 <div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
 <div class="flex justify-between items-center text-body-sm font-body-sm">
@@ -225,10 +230,13 @@
 </div>
 </div>
 </div>
+</div>
 <!-- Card 3 -->
-<div class="bg-surface-container p-8 rounded-xl flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+<div class="bg-surface-container rounded-xl flex flex-col shadow-sm hover:shadow-md transition-shadow group overflow-hidden">
+<img class="w-full h-48 object-cover" src="./assets/images/guide/guide-g3.jpg" alt="Bois résineux" />
+<div class="p-8 flex flex-col gap-6 relative flex-grow">
 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-[100px] text-tertiary">nature</span>
+<span class="material-symbols-outlined text-[80px] text-tertiary">nature</span>
 </div>
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 bg-tertiary rounded-full flex items-center justify-center text-on-tertiary font-headline-md">3</div>
@@ -238,7 +246,7 @@
 <span data-i18n="guide.species.g3_desc" class="text-label-md font-label-md text-tertiary uppercase tracking-widest">Sapin, Pin, Épicéa, Bouleau</span>
 </div>
 <p class="text-body-md font-body-md text-on-surface-variant flex-grow">
-            Montent très vite en température. Idéal pour allumer le feu, mais s'encrassent rapidement. À utiliser avec parcimonie.
+            Montent très vite en température. Idéal pour allumer le feu ou pour les fours nécessitant une montée en chauffe fulgurante. Cependant, leur résine a tendance à encrasser rapidement les conduits. À utiliser avec parcimonie ou bien mélangés.
           </p>
 <div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
 <div class="flex justify-between items-center text-body-sm font-body-sm">
@@ -252,13 +260,15 @@
 </div>
 </div>
 </div>
+</div>
 <!-- Humidité Section (Hidden by default) -->
 <div class="guide-section hidden flex-col gap-16 transition-opacity duration-500 opacity-0" id="humidite">
 <!-- Content for humidite would go here, similar structure to essence -->
 <div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-<h2 data-i18n="guide.moisture.title" class="text-headline-lg font-headline-lg text-on-surface">L'importance du taux d'humidité</h2>
-<p data-i18n="guide.moisture.desc" class="text-body-md font-body-md text-on-surface-variant">Un bois sec (H1) dégage plus de chaleur, encrasse moins votre conduit et pollue moins. Découvrez la différence d'efficacité selon le séchage.</p>
+<h2 data-i18n="guide.moisture.title" class="text-headline-lg font-headline-lg text-on-surface">L'importance capitale du taux d'humidité</h2>
+<p data-i18n="guide.moisture.desc" class="text-body-md font-body-md text-on-surface-variant">Un bois sec (H1) dégage nettement plus de chaleur, encrasse beaucoup moins votre conduit de cheminée et pollue beaucoup moins. Découvrons ensemble l'impact direct du séchage sur votre rentabilité énergétique.</p>
 </div>
+<img class="w-full h-80 object-cover rounded-xl shadow-md" src="./assets/images/guide/guide-carousel-2.jpg" alt="Mesure du taux d'humidité" />
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 <div class="flex flex-col gap-8">
 <!-- H1 -->
@@ -328,9 +338,10 @@
 <!-- Dimension Section (Hidden by default) -->
 <div class="guide-section hidden flex-col gap-16 transition-opacity duration-500 opacity-0" id="dimension">
 <div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-<h2 data-i18n="guide.dimensions.title" class="text-headline-lg font-headline-lg text-on-surface">Choisir la bonne longueur</h2>
-<p data-i18n="guide.dimensions.desc" class="text-body-md font-body-md text-on-surface-variant">La longueur de vos bûches doit être adaptée à la taille de votre foyer. Mesurez l'intérieur de votre appareil en retranchant 5cm par sécurité.</p>
+<h2 data-i18n="guide.dimensions.title" class="text-headline-lg font-headline-lg text-on-surface">Choisir la bonne longueur de bûche</h2>
+<p data-i18n="guide.dimensions.desc" class="text-body-md font-body-md text-on-surface-variant">La longueur de vos bûches doit être parfaitement adaptée à la taille de votre foyer pour assurer une circulation d'air optimale. En règle générale, mesurez l'intérieur de votre appareil en retranchant 5 cm par sécurité pour éviter que les bûches ne touchent les parois vitrées.</p>
 </div>
+<img class="w-full h-80 object-cover rounded-xl shadow-md" src="./assets/images/guide/guide-dimensions.jpg" alt="Mesure de bûche professionnelle" />
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 <!-- 25cm -->
 <div class="bg-surface-container rounded-xl p-6 flex flex-col items-center gap-4 shadow-sm hover:shadow-md transition-shadow hover:ring-2 hover:ring-primary/50 cursor-pointer">
@@ -369,46 +380,35 @@
 <!-- Stockage Section (Hidden by default) -->
 <div class="guide-section hidden flex-col gap-16 transition-opacity duration-500 opacity-0" id="stockage">
 <div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-<h2 data-i18n="guide.storage.title" class="text-headline-lg font-headline-lg text-on-surface">Règles d'or du stockage</h2>
-<p data-i18n="guide.storage.desc" class="text-body-md font-body-md text-on-surface-variant">Un bon bois peut perdre toutes ses qualités s'il est mal stocké. Protégez votre investissement en suivant ces règles simples.</p>
+<h2 data-i18n="guide.storage.title" class="text-headline-lg font-headline-lg text-on-surface">Les règles d'or du stockage professionnel</h2>
+<p data-i18n="guide.storage.desc" class="text-body-md font-body-md text-on-surface-variant">Même le bois de la plus haute qualité peut perdre toutes ses vertus énergétiques s'il est mal stocké. Protégez votre investissement et préservez un taux d'humidité optimal en suivant ces consignes strictes applicables aussi bien aux particuliers qu'aux professionnels.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <div class="bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
-<img class="w-full h-64 object-cover" data-alt="A close up of firewood stacked perfectly outdoors under a lean-to roof. The wood is elevated on pallets off the ground. Air flows between the logs. Sunlight hits the front of the stack. Warm colors, industrial yet rustic feel." src="./assets/images/guide/guide-stockage-bois.jpg"/>
+<img class="w-full h-64 object-cover" data-alt="Stockage aéré" src="./assets/images/guide/guide-stockage-bois.jpg"/>
 <div class="p-8 flex flex-col gap-4">
 <div class="flex items-center gap-3 text-primary">
 <span class="material-symbols-outlined text-[24px]">air</span>
 <h3 data-i18n="guide.storage.ventilation_title" class="text-headline-md font-headline-md text-on-surface">Ventilation</h3>
 </div>
 <ul class="flex flex-col gap-3 text-body-md font-body-md text-on-surface-variant">
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.vent_1">Ne pas coller le tas de bois directement contre un mur (laisser ~10cm).</span></li>
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.vent_2">Croiser les bûches aux extrémités pour stabiliser et aérer.</span></li>
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.vent_3">Privilégier un endroit exposé aux vents dominants et au soleil.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.vent_1">Ne jamais coller le tas de bois directement contre un mur extérieur (laisser un minimum de 10cm pour la circulation de l'air).</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.vent_2">Croiser les bûches aux extrémités pour stabiliser l'ensemble et maximiser l'aération naturelle.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.vent_3">Privilégier un endroit ouvert, exposé aux vents dominants et si possible au soleil.</span></li>
 </ul>
 </div>
 </div>
 <div class="bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
-<div class="w-full h-64 bg-surface flex items-center justify-center p-8 relative">
-<!-- Abstract diagram of a wood shed -->
-<div class="w-3/4 h-3/4 border-4 border-outline-variant border-b-0 relative">
-<div class="absolute -top-4 -left-4 -right-4 h-4 bg-primary/80 rotate-[-2deg] origin-left rounded-sm"></div> <!-- Roof -->
-<div class="absolute bottom-0 w-full h-4 bg-secondary flex justify-around items-end"> <!-- Pallet base -->
-<div class="w-2 h-4 bg-outline-variant"></div>
-<div class="w-2 h-4 bg-outline-variant"></div>
-<div class="w-2 h-4 bg-outline-variant"></div>
-</div>
-<div class="absolute inset-x-4 top-8 bottom-6 border-2 border-dashed border-outline-variant/50 flex items-center justify-center text-label-md text-on-surface-variant uppercase">Espace de stockage</div>
-</div>
-</div>
+<img class="w-full h-64 object-cover" data-alt="Bâche de protection supérieure" src="./assets/images/guide/guide-protection.jpg"/>
 <div class="p-8 flex flex-col gap-4">
 <div class="flex items-center gap-3 text-primary">
 <span class="material-symbols-outlined text-[24px]">shield</span>
 <h3 data-i18n="guide.storage.protection_title" class="text-headline-md font-headline-md text-on-surface">Protection</h3>
 </div>
 <ul class="flex flex-col gap-3 text-body-md font-body-md text-on-surface-variant">
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.prot_1">Isoler du sol à l'aide de palettes ou de chevrons.</span></li>
-<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.prot_2">Couvrir uniquement le dessus avec une tôle ou une bâche (laisser les côtés libres).</span></li>
-<li class="flex gap-3"><span class="material-symbols-outlined text-error text-[20px]">cancel</span> <span data-i18n="guide.storage.prot_3" class="text-on-surface">Éviter le stockage en cave fermée (risque de moisissures).</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.prot_1">Isoler impérativement du sol à l'aide de palettes ou de chevrons robustes pour bloquer les remontées d'humidité.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="guide.storage.prot_2">Couvrir uniquement le dessus avec une tôle inclinée ou une bâche (laisser impérativement les côtés libres).</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-error text-[20px]">cancel</span> <span data-i18n="guide.storage.prot_3" class="text-on-surface">Bannir totalement le stockage en cave fermée ou sous un film plastique étanche enveloppant (risque élevé de moisissures).</span></li>
 </ul>
 </div>
 </div>
