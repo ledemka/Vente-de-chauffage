@@ -147,6 +147,15 @@
 
     <script src="./assets/js/i18n-loader.js"></script>
     <script>
+// Resolves absolute /assets/... paths to relative paths based on language
+window.resolveAssetPath = function(pathStr) {
+    if (!pathStr) return '';
+    const cleanPath = String(pathStr).replace(/^\/+/, '');
+    const lang = document.documentElement.lang || 'fr';
+    return (lang === 'fr' ? './' : '../') + cleanPath;
+};
+</script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const btn = document.getElementById('mobile-menu-btn');
             const drawer = document.getElementById('mobile-menu-drawer');
