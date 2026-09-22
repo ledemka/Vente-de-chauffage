@@ -569,7 +569,7 @@ function renderClientOrders() {
             <td class="py-4 pr-2 text-body-md font-bold text-on-surface">${order.order_reference}</td>
             <td class="py-4 px-2 text-body-sm text-on-surface-variant">${dateStr}</td>
             <td class="py-4 px-2 text-body-sm">
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border ${statusInfo.class} uppercase tracking-wide cursor-pointer hover:shadow-md hover:scale-105 transition-transform" onclick="event.stopPropagation(); document.querySelector('#dashboard-status-filters button[data-filter=${order.status}]').click()">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border ${statusInfo.class} uppercase tracking-wide cursor-default select-none">
                     <span class="material-symbols-outlined text-[14px]">${statusInfo.icon}</span>${statusInfo.label}
                 </div>
             </td>
