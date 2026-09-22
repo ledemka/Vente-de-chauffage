@@ -1,4 +1,4 @@
-﻿<html lang="fr" translate="no"><head>
+<html lang="fr" translate="no"><head>
     <meta charset="utf-8"/>
     <meta name="google" content="notranslate"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -130,9 +130,30 @@
           Essence, humidité, longueur... Optimisez votre rendement thermique et la durée de vie de votre installation grâce à nos recommandations professionnelles.
         </p>
 </div>
-<div class="flex-1 w-full relative">
+<div class="flex-1 w-full relative" id="guide-carousel-section">
 <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl -m-4"></div>
-<img class="w-full aspect-[4/3] object-cover rounded-xl shadow-lg relative z-10" data-alt="A meticulously stacked pile of premium, split firewood outdoors. The wood is a mix of oak and beech, showing clean cuts and a dry texture. Warm, natural sunlight highlights the grain of the wood, creating a sense of quality and reliability. Modern industrial aesthetic, high contrast, warm earthy tones." src="./assets/images/guide/guide-choisir-bois.jpg"/>
+<div class="relative w-full aspect-[4/3] rounded-xl shadow-lg z-10 overflow-hidden" id="guide-carousel-slides">
+    <img class="guide-slide absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out opacity-100 scale-100" src="./assets/images/guide/guide-carousel-1.jpg" alt="Bois empilé"/>
+    <img class="guide-slide absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out opacity-0 scale-105 pointer-events-none" src="./assets/images/guide/guide-carousel-2.jpg" alt="Mesure d'humidité"/>
+    <img class="guide-slide absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out opacity-0 scale-105 pointer-events-none" src="./assets/images/guide/guide-carousel-3.jpg" alt="Broyage industriel"/>
+    <img class="guide-slide absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out opacity-0 scale-105 pointer-events-none" src="./assets/images/guide/guide-carousel-4.jpg" alt="Entrepôt de palettes"/>
+    <img class="guide-slide absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out opacity-0 scale-105 pointer-events-none" src="./assets/images/guide/guide-carousel-5.jpg" alt="Chaufferie biomasse"/>
+    
+    <button id="guide-prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors cursor-pointer border border-white/30 z-20">
+        <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <button id="guide-next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors cursor-pointer border border-white/30 z-20">
+        <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+    
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20" id="guide-carousel-dots">
+        <button class="guide-dot w-8 h-2 rounded-full bg-primary transition-all duration-300 cursor-pointer"></button>
+        <button class="guide-dot w-3 h-2 rounded-full bg-white/50 transition-all duration-300 cursor-pointer"></button>
+        <button class="guide-dot w-3 h-2 rounded-full bg-white/50 transition-all duration-300 cursor-pointer"></button>
+        <button class="guide-dot w-3 h-2 rounded-full bg-white/50 transition-all duration-300 cursor-pointer"></button>
+        <button class="guide-dot w-3 h-2 rounded-full bg-white/50 transition-all duration-300 cursor-pointer"></button>
+    </div>
+</div>
 </div>
 </div>
 </section>
@@ -447,6 +468,74 @@
                 }
                 if (close && drawer) {
                     close.addEventListener('click', () => drawer.classList.add('hidden'));
+                }
+
+                // Guide Carousel Logic
+                const slides = document.querySelectorAll('#guide-carousel-slides .guide-slide');
+                const dots = document.querySelectorAll('#guide-carousel-dots .guide-dot');
+                const prevBtn = document.getElementById('guide-prev-btn');
+                const nextBtn = document.getElementById('guide-next-btn');
+                const carouselSection = document.getElementById('guide-carousel-section');
+
+                if (slides.length > 0) {
+                    let currentSlide = 0;
+                    let slideInterval = null;
+
+                    function showSlide(index) {
+                        currentSlide = (index + slides.length) % slides.length;
+                        slides.forEach((slide, i) => {
+                            if (i === currentSlide) {
+                                slide.classList.remove('opacity-0', 'scale-105', 'pointer-events-none');
+                                slide.classList.add('opacity-100', 'scale-100');
+                            } else {
+                                slide.classList.remove('opacity-100', 'scale-100');
+                                slide.classList.add('opacity-0', 'scale-105', 'pointer-events-none');
+                            }
+                        });
+                        dots.forEach((dot, i) => {
+                            if (i === currentSlide) {
+                                dot.classList.remove('w-3', 'bg-white/50');
+                                dot.classList.add('w-8', 'bg-primary');
+                            } else {
+                                dot.classList.remove('w-8', 'bg-primary');
+                                dot.classList.add('w-3', 'bg-white/50');
+                            }
+                        });
+                    }
+
+                    function nextSlide() { showSlide(currentSlide + 1); }
+                    function prevSlide() { showSlide(currentSlide - 1); }
+
+                    function startAutoPlay() {
+                        if (!slideInterval) {
+                            slideInterval = setInterval(nextSlide, 5000);
+                        }
+                    }
+
+                    function stopAutoPlay() {
+                        if (slideInterval) {
+                            clearInterval(slideInterval);
+                            slideInterval = null;
+                        }
+                    }
+
+                    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); stopAutoPlay(); startAutoPlay(); });
+                    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); stopAutoPlay(); startAutoPlay(); });
+
+                    dots.forEach((dot, i) => {
+                        dot.addEventListener('click', () => {
+                            showSlide(i);
+                            stopAutoPlay();
+                            startAutoPlay();
+                        });
+                    });
+
+                    if (carouselSection) {
+                        carouselSection.addEventListener('mouseenter', stopAutoPlay);
+                        carouselSection.addEventListener('mouseleave', startAutoPlay);
+                    }
+
+                    startAutoPlay();
                 }
             });
         </script>
