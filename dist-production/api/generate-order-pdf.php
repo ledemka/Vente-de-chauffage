@@ -195,7 +195,11 @@ try {
                 </tr>
                 <tr>
                     <td style="padding: 4px 0;"><strong>Bénéficiaire :</strong></td>
-                    <td style="padding: 4px 0;">CAMARA LANSANA - Responsable légale sotramsbois</td>
+                    <td style="padding: 4px 0;">CAMARA LANSANA</td>
+                </tr>
+                <tr>
+                    <td style="padding: 4px 0;"><strong>Pour :</strong></td>
+                    <td style="padding: 4px 0;">SOTRAMSBOIS</td>
                 </tr>
                 <tr>
                     <td style="padding: 4px 0;"><strong>Banque :</strong></td>

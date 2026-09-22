@@ -659,10 +659,11 @@
         "awaiting_transfer": "En attente de virement",
         "transfer_reminder": "Rappel Virement",
         "beneficiary": "Bénéficiaire :",
-        "reference": "Référence :",
+        "reference": "Référence obligatoire à rappeler :",
         "bank": "Banque :",
         "iban": "IBAN :",
-        "bic": "BIC :"
+        "bic": "BIC :",
+        "for": "Pour :"
     },
     "activation": {
         "wait": "Veuillez patienter pendant que nous vérifions votre compte.",

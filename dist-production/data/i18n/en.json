@@ -659,10 +659,11 @@
         "awaiting_transfer": "Awaiting bank transfer",
         "transfer_reminder": "Bank Transfer Reminder",
         "beneficiary": "Beneficiary:",
-        "reference": "Reference:",
+        "reference": "Mandatory reference to quote:",
         "bank": "Bank:",
         "iban": "IBAN:",
-        "bic": "BIC:"
+        "bic": "BIC:",
+        "for": "For:"
     },
     "activation": {
         "wait": "Please wait while we verify your account.",

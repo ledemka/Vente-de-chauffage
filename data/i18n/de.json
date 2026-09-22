@@ -659,10 +659,11 @@
         "awaiting_transfer": "Überweisung ausstehend",
         "transfer_reminder": "Erinnerung Überweisung",
         "beneficiary": "Empfänger:",
-        "reference": "Referenz:",
+        "reference": "Zwingend anzugebende Referenz:",
         "bank": "Bank:",
         "iban": "IBAN:",
-        "bic": "BIC:"
+        "bic": "BIC:",
+        "for": "Für:"
     },
     "activation": {
         "wait": "Bitte warten Sie, während wir Ihr Konto überprüfen.",

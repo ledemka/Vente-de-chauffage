@@ -659,10 +659,11 @@
         "awaiting_transfer": "In afwachting van overschrijving",
         "transfer_reminder": "Herinnering overschrijving",
         "beneficiary": "Begunstigde:",
-        "reference": "Referentie:",
+        "reference": "Verplichte vermelding referentie:",
         "bank": "Bank:",
         "iban": "IBAN:",
-        "bic": "BIC:"
+        "bic": "BIC:",
+        "for": "Voor:"
     },
     "activation": {
         "wait": "Even geduld terwijl we uw account verifiëren.",
