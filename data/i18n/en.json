@@ -184,7 +184,9 @@
         "subtotal": "Sous-total HT",
         "discount": "Remise Volume",
         "total": "Total HT",
-        "remove": "Supprimer"
+        "remove": "Supprimer",
+        "selected_items": "Selected items (0)",
+        "order_area": "ORDER AREA"
     },
     "checkout": {
         "title": "Récapitulatif de commande",
@@ -195,7 +197,13 @@
         "bank_transfer_only": "Virement bancaire uniquement",
         "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
         "confirm_btn": "Confirmer la commande",
-        "shipping_calculating": "Calculating..."
+        "shipping_calculating": "Calculating...",
+        "custom_quote": "Please submit a custom quote request.",
+        "cgv": "terms and conditions of sale",
+        "request_quote": "Request a Quote",
+        "bank_transfer": "Bank Transfer (SEPA)",
+        "delivery_fee": "Delivery Fee",
+        "to_be_calculated": "To be calculated"
     },
     "confirmation": {
         "title": "Order confirmed",
@@ -618,5 +626,52 @@
         "version": "Version: 2.1",
         "toc": "Table of Contents",
         "legal": "Legal"
-    }
+    },
+    "produit": {},
+    "product": {
+        "delivery_desc": "Delivery by curtainside truck (max 26 pallets/truck). Unloading by forklift, buyer's responsibility. On-site collection also available.",
+        "select_format": "Please select a format above before ordering.",
+        "max_discount": "Maximum discount reached!",
+        "logistics_info": "Logistics Information",
+        "discount_applied": "Volume Discount Applied",
+        "calorific": "CALORIFIC VALUE",
+        "log_length": "Log Length",
+        "quantity_pallets": "Quantity (Pallets)",
+        "pallet_dimensions": "PALLET DIMENSIONS",
+        "firewood": "Firewood",
+        "packaging": "PACKAGING",
+        "recommended_price": "Recommended Price",
+        "wholesale_price": "Wholesale Price",
+        "subtotal": "Subtotal (incl. VAT)",
+        "pallet_weight": "PALLET WEIGHT",
+        "discount": "Volume Discount",
+        "catalog": "Catalogue",
+        "length": "LENGTH",
+        "species": "SPECIES",
+        "volume": "VOLUME",
+        "total": "Total"
+    },
+    "panier": {},
+    "confirm": {
+        "order_shipped": "Your order will be confirmed and shipped upon receipt of your bank transfer.",
+        "transfer_instruction": "Please make your bank transfer to the following account:",
+        "order_number": "Your order number",
+        "awaiting_transfer": "Awaiting bank transfer",
+        "transfer_reminder": "Bank Transfer Reminder",
+        "beneficiary": "Beneficiary:",
+        "reference": "Reference:",
+        "bank": "Bank:",
+        "iban": "IBAN:",
+        "bic": "BIC:"
+    },
+    "activation": {
+        "wait": "Please wait while we verify your account.",
+        "invalid_desc": "This activation link is no longer valid.",
+        "success_desc": "Your account has been successfully activated.",
+        "invalid": "Invalid or expired link",
+        "activating": "Activating your account...",
+        "success": "Account activated!"
+    },
+    "tableau-de-bord": {},
+    "admin-commandes": {}
 }

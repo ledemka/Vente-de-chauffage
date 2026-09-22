@@ -91,7 +91,7 @@
             <div class="flex flex-col gap-6">
                 <div class="inline-flex items-center gap-2 bg-surface-container-high border border-outline/10 text-primary font-label-md text-label-md uppercase tracking-wider py-2 px-4 rounded-full w-fit">
                     <span class="material-symbols-outlined text-[18px]">verified</span>
-                    <span>Espace Professionnel B2B</span>
+                    <span data-i18n="login.benefits.title">Espace Professionnel B2B</span>
                 </div>
                 <h1 class="text-[48px] leading-[1.1] font-headline-xl text-on-surface">
                     Optimisez vos approvisionnements en biomasse.
@@ -108,8 +108,8 @@
                         <span class="material-symbols-outlined text-[28px]">local_shipping</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <h3 class="font-headline-md text-[18px] font-semibold text-on-surface">Livraison Palette</h3>
-                        <p class="text-body-sm text-on-surface-variant">Suivi logistique précis sur toute la France.</p>
+                        <h3 class="font-headline-md text-[18px] font-semibold text-on-surface" data-i18n="login.benefits.delivery_title">Livraison Palette</h3>
+                        <p class="text-body-sm text-on-surface-variant" data-i18n="login.benefits.delivery_desc">Suivi logistique précis sur toute la France.</p>
                     </div>
                 </div>
                 
@@ -119,8 +119,8 @@
                         <span class="material-symbols-outlined text-[28px]">receipt_long</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <h3 class="font-headline-md text-[18px] font-semibold text-on-surface">Facturation Pro</h3>
-                        <p class="text-body-sm text-on-surface-variant">Gestion centralisée et bons de livraison dématérialisés.</p>
+                        <h3 class="font-headline-md text-[18px] font-semibold text-on-surface" data-i18n="login.benefits.invoice_title">Facturation Pro</h3>
+                        <p class="text-body-sm text-on-surface-variant" data-i18n="login.benefits.invoice_desc">Gestion centralisée et bons de livraison dématérialisés.</p>
                     </div>
                 </div>
             </div>
@@ -128,21 +128,21 @@
         <div class="bg-surface-container rounded-2xl p-8 shadow-md border border-outline/10 max-w-lg ml-auto w-full text-center">
             <div id="activation-loading">
                 <span class="material-symbols-outlined animate-spin text-[48px] text-primary mb-4">autorenew</span>
-                <h2 class="text-[24px] font-headline-lg text-on-surface mb-2">Activation en cours...</h2>
-                <p class="text-body-sm text-on-surface-variant">Veuillez patienter pendant que nous vérifions votre compte.</p>
+                <h2 class="text-[24px] font-headline-lg text-on-surface mb-2" data-i18n="activation.activating">Activation en cours...</h2>
+                <p class="text-body-sm text-on-surface-variant" data-i18n="activation.wait">Veuillez patienter pendant que nous vérifions votre compte.</p>
             </div>
             
             <div id="activation-success" class="hidden">
                 <span class="material-symbols-outlined text-[48px] text-green-600 mb-4">check_circle</span>
-                <h2 class="text-[24px] font-headline-lg text-on-surface mb-2">Compte activé !</h2>
-                <p id="success-msg" class="text-body-sm text-on-surface-variant mb-6">Votre compte a été activé avec succès.</p>
-                <a href="./connexion.html" class="inline-block w-full bg-primary hover:bg-primary-container text-on-primary font-label-lg py-3 rounded-md transition-colors shadow-sm">Se connecter</a>
+                <h2 class="text-[24px] font-headline-lg text-on-surface mb-2" data-i18n="activation.success">Compte activé !</h2>
+                <p id="success-msg" class="text-body-sm text-on-surface-variant mb-6" data-i18n="activation.success_desc">Votre compte a été activé avec succès.</p>
+                <a href="./connexion.html" class="inline-block w-full bg-primary hover:bg-primary-container text-on-primary font-label-lg py-3 rounded-md transition-colors shadow-sm" data-i18n="login.form.submit">Se connecter</a>
             </div>
 
             <div id="activation-error" class="hidden flex flex-col items-center">
                 <span class="material-symbols-outlined text-[48px] text-error mb-4">error</span>
-                <h2 class="text-[24px] font-headline-lg text-on-surface mb-2">Lien invalide ou expiré</h2>
-                <p id="error-msg" class="text-body-sm text-on-surface-variant mb-6">Ce lien d'activation n'est plus valide.</p>
+                <h2 class="text-[24px] font-headline-lg text-on-surface mb-2" data-i18n="activation.invalid">Lien invalide ou expiré</h2>
+                <p id="error-msg" class="text-body-sm text-on-surface-variant mb-6" data-i18n="activation.invalid_desc">Ce lien d'activation n'est plus valide.</p>
                 
                 <button id="resend-btn" class="hidden w-full bg-surface-dim hover:bg-surface-variant text-on-surface font-label-lg py-3 rounded-md border border-outline transition-colors mb-4 flex justify-center items-center gap-2">
                     <span class="material-symbols-outlined text-[20px]">send</span> Renvoyer le lien d'activation

@@ -184,7 +184,9 @@
         "subtotal": "Sous-total HT",
         "discount": "Remise Volume",
         "total": "Total HT",
-        "remove": "Supprimer"
+        "remove": "Supprimer",
+        "selected_items": "Ausgewählte Artikel (0)",
+        "order_area": "BESTELLBEREICH"
     },
     "checkout": {
         "title": "Récapitulatif de commande",
@@ -195,7 +197,13 @@
         "bank_transfer_only": "Nur Banküberweisung",
         "bank_transfer_desc": "Unsere Bankverbindung wird Ihnen nach der Bestellbestätigung mitgeteilt.",
         "confirm_btn": "Bestellung bestätigen",
-        "shipping_calculating": "Wird berechnet..."
+        "shipping_calculating": "Wird berechnet...",
+        "custom_quote": "Bitte stellen Sie eine individuelle Angebotsanfrage.",
+        "cgv": "Allgemeinen Geschäftsbedingungen",
+        "request_quote": "Angebot anfordern",
+        "bank_transfer": "Banküberweisung (SEPA)",
+        "delivery_fee": "Lieferkosten",
+        "to_be_calculated": "Wird berechnet"
     },
     "confirmation": {
         "title": "Bestellung bestätigt",
@@ -231,7 +239,7 @@
         "title": "Mein Dashboard",
         "logout": "Abmelden",
         "my_orders": "Meine Bestellungen",
-        "loading": "Laden...",
+        "loading": "Wird geladen...",
         "no_orders": "Zurzeit keine Bestellungen.",
         "stat_total": "Gesamte Bestellungen",
         "stat_pending": "Ausstehende Zahlung",
@@ -618,5 +626,52 @@
         "version": "Version: 2.1",
         "toc": "Inhaltsverzeichnis",
         "legal": "Recht"
-    }
+    },
+    "produit": {},
+    "product": {
+        "delivery_desc": "Lieferung per Planensattelzug (max. 26 Paletten/LKW). Entladung per Gabelstapler auf Kosten des Kunden. Selbstabholung vor Ort möglich.",
+        "select_format": "Bitte wählen Sie oben ein Format aus, bevor Sie bestellen.",
+        "max_discount": "Maximaler Rabatt erreicht!",
+        "logistics_info": "Logistikinformationen",
+        "discount_applied": "Angewandter Mengenrabatt",
+        "calorific": "HEIZWERT",
+        "log_length": "Scheitlänge",
+        "quantity_pallets": "Menge (Paletten)",
+        "pallet_dimensions": "PALETTENABMESSUNGEN",
+        "firewood": "Brennholz",
+        "packaging": "VERPACKUNG",
+        "recommended_price": "Empfohlener Preis",
+        "wholesale_price": "Großhandelspreis",
+        "subtotal": "Zwischensumme (inkl. MwSt)",
+        "pallet_weight": "PALETTENGEWICHT",
+        "discount": "Mengenrabatt",
+        "catalog": "Katalog",
+        "length": "LÄNGE",
+        "species": "HOLZART",
+        "volume": "VOLUMEN",
+        "total": "Gesamt"
+    },
+    "panier": {},
+    "confirm": {
+        "order_shipped": "Ihre Bestellung wird nach Zahlungseingang bestätigt und versendet.",
+        "transfer_instruction": "Bitte überweisen Sie auf folgendes Konto:",
+        "order_number": "Ihre Bestellnummer",
+        "awaiting_transfer": "Überweisung ausstehend",
+        "transfer_reminder": "Erinnerung Überweisung",
+        "beneficiary": "Empfänger:",
+        "reference": "Referenz:",
+        "bank": "Bank:",
+        "iban": "IBAN:",
+        "bic": "BIC:"
+    },
+    "activation": {
+        "wait": "Bitte warten Sie, während wir Ihr Konto überprüfen.",
+        "invalid_desc": "Dieser Aktivierungslink ist nicht mehr gültig.",
+        "success_desc": "Ihr Konto wurde erfolgreich aktiviert.",
+        "invalid": "Ungültiger oder abgelaufener Link",
+        "activating": "Konto wird aktiviert...",
+        "success": "Konto aktiviert!"
+    },
+    "tableau-de-bord": {},
+    "admin-commandes": {}
 }

@@ -194,8 +194,8 @@
                         </div>
                         <div id="shipping-error" class="hidden bg-error-container text-on-error-container p-4 rounded-lg text-body-sm flex flex-col gap-2">
                             <span class="font-bold flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">warning</span> Hors limite</span>
-                            <span id="shipping-error-msg">Veuillez effectuer une demande de devis sur mesure.</span>
-                            <a href="./devis.html" class="underline font-bold mt-1">Faire une demande de devis</a>
+                            <span id="shipping-error-msg" data-i18n="checkout.custom_quote">Veuillez effectuer une demande de devis sur mesure.</span>
+                            <a href="./devis.html" class="underline font-bold mt-1" data-i18n="checkout.request_quote">Faire une demande de devis</a>
                         </div>
 
 
@@ -208,7 +208,7 @@
                             </div>
                             <div class="flex flex-col pt-0.5">
                                 <span class="text-label-md font-label-md text-on-surface transition-colors mt-1">
-                                    J'accepte les <a href="./cgv.html" class="text-primary hover:underline" target="_blank">conditions générales de vente</a> et je reconnais que ma commande implique une obligation de paiement.
+                                    J'accepte les <a href="./cgv.html" class="text-primary hover:underline" target="_blank" data-i18n="checkout.cgv">conditions générales de vente</a> et je reconnais que ma commande implique une obligation de paiement.
                                 </span>
                             </div>
                         </label>
@@ -225,7 +225,7 @@
                     <div class="bg-surface-container-highest border-l-4 border-primary rounded-r-md p-5 flex flex-col gap-2 shadow-sm">
                         <div class="flex items-center gap-2 text-on-surface font-bold">
                               <span class="material-symbols-outlined text-primary">verified</span>
-                              <span>Virement Bancaire (SEPA)</span>
+                              <span data-i18n="checkout.bank_transfer">Virement Bancaire (SEPA)</span>
                           </div>
                           <p class="text-body-sm text-on-surface-variant ml-8">
                               Le RIB de Conteneur Pro vous sera transmis immédiatement après la validation. Votre commande sera traitée dès réception des fonds (généralement 24-48h).
@@ -257,8 +257,8 @@
                     <span class="font-data-mono font-bold" id="checkout-discount">-0.00€</span>
                 </div>
                                 <div class="flex justify-between mb-4">
-                    <span class="text-body-md text-on-surface-variant">Frais de livraison</span>
-                    <span class="font-data-mono font-medium text-on-surface" id="checkout-shipping">À calculer</span>
+                    <span class="text-body-md text-on-surface-variant" data-i18n="checkout.delivery_fee">Frais de livraison</span>
+                    <span class="font-data-mono font-medium text-on-surface" id="checkout-shipping" data-i18n="checkout.to_be_calculated">À calculer</span>
                 </div>
 <div class="flex justify-between mb-8 text-headline-md text-on-surface border-t border-outline/30 pt-4">
                     <span data-i18n="cart.total">Total TTC</span>

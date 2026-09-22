@@ -184,7 +184,9 @@
         "subtotal": "Sous-total HT",
         "discount": "Remise Volume",
         "total": "Total HT",
-        "remove": "Supprimer"
+        "remove": "Supprimer",
+        "selected_items": "Geselecteerde artikelen (0)",
+        "order_area": "BESTELGEBIED"
     },
     "checkout": {
         "title": "Récapitulatif de commande",
@@ -195,7 +197,13 @@
         "bank_transfer_only": "Alleen bankoverschrijving",
         "bank_transfer_desc": "Onze bankgegevens worden u toegestuurd na bevestiging van de bestelling.",
         "confirm_btn": "Bestelling bevestigen",
-        "shipping_calculating": "Bezig met berekenen..."
+        "shipping_calculating": "Bezig met berekenen...",
+        "custom_quote": "Dien een offerteaanvraag op maat in.",
+        "cgv": "algemene verkoopvoorwaarden",
+        "request_quote": "Offerte aanvragen",
+        "bank_transfer": "Bankoverschrijving (SEPA)",
+        "delivery_fee": "Verzendkosten",
+        "to_be_calculated": "Te berekenen"
     },
     "confirmation": {
         "title": "Bestelling bevestigd",
@@ -618,5 +626,52 @@
         "version": "Versie: 2.1",
         "toc": "Inhoudsopgave",
         "legal": "Juridisch"
-    }
+    },
+    "produit": {},
+    "product": {
+        "delivery_desc": "Levering per huifopleggercombinatie (max. 26 pallets/vrachtwagen). Lossen met vorkheftruck, voor rekening van de klant. Ophalen ter plaatse ook mogelijk.",
+        "select_format": "Selecteer hierboven een formaat voordat u bestelt.",
+        "max_discount": "Maximale korting bereikt!",
+        "logistics_info": "Logistieke informatie",
+        "discount_applied": "Toegepaste volumekorting",
+        "calorific": "CALORISCHE WAARDE",
+        "log_length": "Houtlengte",
+        "quantity_pallets": "Aantal (Pallets)",
+        "pallet_dimensions": "PALLETAFMETINGEN",
+        "firewood": "Brandhout",
+        "packaging": "VERPAKKING",
+        "recommended_price": "Aanbevolen prijs",
+        "wholesale_price": "Groothandelsprijs",
+        "subtotal": "Subtotaal (incl. btw)",
+        "pallet_weight": "PALLETGEWICHT",
+        "discount": "Volumekorting",
+        "catalog": "Catalogus",
+        "length": "LENGTE",
+        "species": "HOUTSOORT",
+        "volume": "VOLUME",
+        "total": "Totaal"
+    },
+    "panier": {},
+    "confirm": {
+        "order_shipped": "Uw bestelling wordt bevestigd en verzonden zodra uw overschrijving is ontvangen.",
+        "transfer_instruction": "Gelieve uw overschrijving te doen naar de volgende rekening:",
+        "order_number": "Uw bestelnummer",
+        "awaiting_transfer": "In afwachting van overschrijving",
+        "transfer_reminder": "Herinnering overschrijving",
+        "beneficiary": "Begunstigde:",
+        "reference": "Referentie:",
+        "bank": "Bank:",
+        "iban": "IBAN:",
+        "bic": "BIC:"
+    },
+    "activation": {
+        "wait": "Even geduld terwijl we uw account verifiëren.",
+        "invalid_desc": "Deze activatielink is niet meer geldig.",
+        "success_desc": "Uw account is succesvol geactiveerd.",
+        "invalid": "Ongeldige of verlopen link",
+        "activating": "Account wordt geactiveerd...",
+        "success": "Account geactiveerd!"
+    },
+    "tableau-de-bord": {},
+    "admin-commandes": {}
 }

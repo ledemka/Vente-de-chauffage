@@ -184,7 +184,9 @@
         "subtotal": "Sous-total HT",
         "discount": "Remise Volume",
         "total": "Total HT",
-        "remove": "Supprimer"
+        "remove": "Supprimer",
+        "selected_items": "Articles sélectionnés (0)",
+        "order_area": "ESPACE COMMANDE"
     },
     "checkout": {
         "title": "Récapitulatif de commande",
@@ -195,7 +197,13 @@
         "bank_transfer_only": "Virement bancaire uniquement",
         "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
         "confirm_btn": "Confirmer la commande",
-        "shipping_calculating": "Calcul en cours..."
+        "shipping_calculating": "Calcul en cours...",
+        "custom_quote": "Veuillez effectuer une demande de devis sur mesure.",
+        "cgv": "conditions générales de vente",
+        "request_quote": "Faire une demande de devis",
+        "bank_transfer": "Virement Bancaire (SEPA)",
+        "delivery_fee": "Frais de livraison",
+        "to_be_calculated": "À calculer"
     },
     "confirmation": {
         "title": "Commande confirmée",
@@ -618,5 +626,52 @@
         "version": "Version: 2.1",
         "toc": "Sommaire",
         "legal": "Légal"
-    }
+    },
+    "produit": {},
+    "product": {
+        "delivery_desc": "Livraison par camion plateau bâché (max 26 palettes/camion). Déchargement par chariot élévateur à la charge du client. Possibilité d'enlèvement sur site.",
+        "select_format": "Veuillez sélectionner un format ci-dessus avant de commander.",
+        "max_discount": "Remise maximale atteinte !",
+        "logistics_info": "Informations Logistiques",
+        "discount_applied": "Remise Volume Appliquée",
+        "calorific": "POUVOIR CALORIFIQUE",
+        "log_length": "Longueur des Bûches",
+        "quantity_pallets": "Quantité (Palettes)",
+        "pallet_dimensions": "DIMENSIONS PALETTE",
+        "firewood": "Bois de chauffage",
+        "packaging": "CONDITIONNEMENT",
+        "recommended_price": "Prix Conseillé",
+        "wholesale_price": "Prix Grossiste",
+        "subtotal": "Sous-total TTC",
+        "pallet_weight": "POIDS PALETTE",
+        "discount": "Remise Volume",
+        "catalog": "Catalogue",
+        "length": "LONGUEUR",
+        "species": "ESSENCE",
+        "volume": "VOLUME",
+        "total": "Total"
+    },
+    "panier": {},
+    "confirm": {
+        "order_shipped": "Votre commande sera validée et expédiée dès réception de votre virement.",
+        "transfer_instruction": "Veuillez effectuer votre virement sur le compte suivant :",
+        "order_number": "Votre numéro de commande",
+        "awaiting_transfer": "En attente de virement",
+        "transfer_reminder": "Rappel Virement",
+        "beneficiary": "Bénéficiaire :",
+        "reference": "Référence :",
+        "bank": "Banque :",
+        "iban": "IBAN :",
+        "bic": "BIC :"
+    },
+    "activation": {
+        "wait": "Veuillez patienter pendant que nous vérifions votre compte.",
+        "invalid_desc": "Ce lien d'activation n'est plus valide.",
+        "success_desc": "Votre compte a été activé avec succès.",
+        "invalid": "Lien invalide ou expiré",
+        "activating": "Activation en cours...",
+        "success": "Compte activé !"
+    },
+    "tableau-de-bord": {},
+    "admin-commandes": {}
 }

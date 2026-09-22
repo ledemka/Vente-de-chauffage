@@ -87,9 +87,9 @@
 <!-- Breadcrumbs & Header -->
 <div class="flex flex-col gap-4">
 <nav class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant">
-<a class="hover:text-primary transition-colors" href="./catalogue.html">Catalogue</a>
+<a class="hover:text-primary transition-colors" href="./catalogue.html" data-i18n="product.catalog">Catalogue</a>
 <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-<a class="hover:text-primary transition-colors" href="#" id="breadcrumb-category">Bois de chauffage</a>
+<a class="hover:text-primary transition-colors" href="#" id="breadcrumb-category" data-i18n="product.firewood">Bois de chauffage</a>
 <span class="material-symbols-outlined text-[16px]">chevron_right</span>
 <span class="text-on-surface">Palettes Bûches 33cm</span>
 </nav>
@@ -128,11 +128,11 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
 <!-- Row 1 -->
 <div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant">ESSENCE</span>
+<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.species">ESSENCE</span>
 <span class="text-body-md font-data-mono text-on-surface text-right" id="spec-essence">Chêne (100%)</span>
 </div>
 <div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant">LONGUEUR</span>
+<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.length">LONGUEUR</span>
 <span class="text-body-md font-data-mono text-on-surface text-right" id="spec-longueur">33 cm (± 2cm)</span>
 </div>
 <!-- Row 2 -->
@@ -141,23 +141,23 @@
 <span class="text-body-md font-data-mono text-on-surface text-right" id="spec-humidite">< 20% (Séchoir)</span>
 </div>
 <div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant">POUVOIR CALORIFIQUE</span>
+<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.calorific">POUVOIR CALORIFIQUE</span>
 <span class="text-body-md font-data-mono text-on-surface text-right" id="spec-pouvoir">~ 2000 kWh/stère</span>
 </div>
 <!-- Row 3 -->
 <div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant">POIDS PALETTE</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-poids">~ 450 kg</span>
+<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.pallet_weight">POIDS PALETTE</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-poids">~ 450 kg</span>
 </div>
 <div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant">VOLUME</span>
+<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.volume">VOLUME</span>
 <span class="text-body-md font-data-mono text-on-surface text-right" id="spec-volume-m3"></span>
 </div>
 <!-- Row 4 -->
 <div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant">DIMENSIONS PALETTE</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-dimensions">100 x 120 x 120 cm</span>
+<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.pallet_dimensions">DIMENSIONS PALETTE</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-dimensions">100 x 120 x 120 cm</span>
 </div>
 <div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant">CONDITIONNEMENT</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-conditionnement">Cerclage fil d'acier</span>
+<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.packaging">CONDITIONNEMENT</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-conditionnement">Cerclage fil d'acier</span>
 </div>
 <div class="flex justify-between py-3 border-b border-outline/30">
 <span class="text-label-md font-label-md text-on-surface-variant" data-i18n="specs.origin">ORIGINE</span>
@@ -171,8 +171,8 @@
 <span class="material-symbols-outlined">local_shipping</span>
 </div>
 <div>
-<h3 class="text-body-lg font-headline-md text-on-surface mb-1">Informations Logistiques</h3>
-<p class="text-body-sm text-on-surface-variant">Livraison par camion plateau bâché (max 26 palettes/camion). Déchargement par chariot élévateur à la charge du client. Possibilité d'enlèvement sur site.</p>
+<h3 class="text-body-lg font-headline-md text-on-surface mb-1" data-i18n="product.logistics_info">Informations Logistiques</h3>
+<p class="text-body-sm text-on-surface-variant" data-i18n="product.delivery_desc">Livraison par camion plateau bâché (max 26 palettes/camion). Déchargement par chariot élévateur à la charge du client. Possibilité d'enlèvement sur site.</p>
 </div>
 </div>
 </div>
@@ -183,7 +183,7 @@
 <!-- Pricing Header -->
 <div class="flex justify-between items-end pb-6 border-b border-outline/30">
 <div class="flex flex-col">
-<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider mb-1">Prix Conseillé</span>
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider mb-1" data-i18n="product.recommended_price">Prix Conseillé</span>
 <div class="flex items-baseline gap-2">
 <span class="text-headline-xl font-headline-xl text-primary" id="unit-price-ttc"></span>
     <span class="text-body-sm text-on-surface-variant">TTC</span>
@@ -191,20 +191,20 @@
 
 </div>
 <div class="text-right flex flex-col items-end">
-<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider mb-1">Prix Grossiste</span>
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider mb-1" data-i18n="product.wholesale_price">Prix Grossiste</span>
 <span class="text-body-lg font-data-mono text-on-surface line-through decoration-outline/50"><span id="ppc-price">249.00€ TTC</span></span>
 </div>
 </div>
 <!-- Interactive Quantity Selector & Discount Widget -->
 <div class="flex flex-col gap-4">
 <div class="flex flex-col gap-4" id="length-selector-container" style="display: none;">
-<label class="text-label-md font-label-md text-on-surface uppercase tracking-wider">Longueur des Bûches</label>
+<label class="text-label-md font-label-md text-on-surface uppercase tracking-wider" data-i18n="product.log_length">Longueur des Bûches</label>
 <div class="flex gap-2 flex-wrap" id="length-options">
 </div>
 </div>
 <label class="text-label-md font-label-md text-on-surface uppercase tracking-wider flex justify-between">
-<span>Quantité (Palettes)</span>
-<span class="text-primary bg-primary/10 px-2 py-0.5 rounded text-xs hidden" id="discount-badge">Remise Volume Appliquée</span>
+<span data-i18n="product.quantity_pallets">Quantité (Palettes)</span>
+<span class="text-primary bg-primary/10 px-2 py-0.5 rounded text-xs hidden" id="discount-badge" data-i18n="product.discount_applied">Remise Volume Appliquée</span>
 </label>
 <div class="flex items-center gap-4 bg-surface rounded-lg p-2 border border-outline/30 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
 <button class="w-12 h-12 rounded bg-surface-container flex items-center justify-center hover:bg-outline-variant/30 text-on-surface transition-colors" id="btn-decrease" type="button">
@@ -232,14 +232,14 @@
 <p class="text-xs text-on-surface-variant text-center" id="next-tier-msg">Ajoutez <span class="font-bold text-on-surface">1</span> palette pour débloquer -4%</p>
 </div>
 </div>
-<!-- Total Calculation -->
+<!-- Total Calculation -- data-i18n="product.total">
 <div class="bg-surface rounded-xl p-6 border border-primary/20 flex flex-col gap-2">
 <div class="flex justify-between items-center text-body-sm text-on-surface-variant">
-<span>Sous-total TTC</span>
+<span data-i18n="product.subtotal">Sous-total TTC</span>
 <span class="font-data-mono" id="subtotal"><span id="total-ref-wholesale">185.00€</span></span>
 </div>
 <div class="flex justify-between items-center text-body-sm text-primary hidden" id="discount-row">
-<span>Remise Volume</span>
+<span data-i18n="product.discount">Remise Volume</span>
 <span class="font-data-mono" id="discount-amt">-0.00€</span>
 </div>
 <div class="h-[1px] w-full bg-outline/20 my-2"></div>
@@ -253,7 +253,7 @@
                           </div>
                           <div class="h-[1px] w-full bg-outline/20 my-2"></div>
                           <div class="flex justify-between items-end">
-                              <span class="text-label-md font-label-md text-on-surface uppercase text-outline-variant">Total</span>
+                              <span class="text-label-md font-label-md text-on-surface uppercase text-outline-variant" data-i18n="product.total">Total</span>
                               <span class="text-headline-sm font-data-mono font-bold text-outline-variant" id="total-ht">0.00€</span>
                           </div>
 </div>
@@ -473,7 +473,7 @@ window.resolveAssetPath = function(pathStr) {
                                             warn = document.createElement('div');
                                             warn.id = 'no-format-warning';
                                             warn.className = 'flex items-start gap-3 bg-amber-50 border border-amber-300 text-amber-900 rounded-lg px-4 py-3 text-body-sm mt-2';
-                                            warn.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0" style="font-variation-settings:'FILL' 1">info</span><span>Veuillez sélectionner un format ci-dessus avant de commander.</span>`;
+                                            warn.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0" style="font-variation-settings:'FILL' 1">info</span><span data-i18n="product.select_format">Veuillez sélectionner un format ci-dessus avant de commander.</span>`;
                                             lenContainer.after(warn);
                                         }
                                         // Disable Commander button
@@ -575,7 +575,7 @@ window.resolveAssetPath = function(pathStr) {
                                                 nextTierMsg.innerHTML = msg;
                                                 nextTierMsg.classList.remove('hidden');
                                             } else {
-                                                nextTierMsg.innerHTML = `<span class="text-primary font-bold">Remise maximale atteinte !</span>`;
+                                                nextTierMsg.innerHTML = `<span class="text-primary font-bold" data-i18n="product.max_discount">Remise maximale atteinte !</span>`;
                                             }
                                         }
                                     }
