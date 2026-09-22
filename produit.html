@@ -336,13 +336,13 @@ window.resolveAssetPath = function(pathStr) {
                                 document.getElementById('product-title').textContent = getProductName(product);
                                 document.getElementById('product-ref').textContent = `Ref: ${product.id.toUpperCase()}-PAL`;
                                 const displayHumidity = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
-                                document.getElementById('product-desc').textContent = `${product.species_material} - Humidité: ${displayHumidity}. Origine: ${product.origin}. Idéal pour professionnels.`;
+                                document.getElementById('product-desc').textContent = `${getProductField(product, 'species_material')} - Humidité: ${displayHumidity}. Origine: ${product.origin}. Idéal pour professionnels.`;
                                 document.getElementById('product-stock').textContent = 'En Stock';
                                 const imgPrefix = relPath === '.' ? '' : relPath;
                                 document.getElementById('product-img-1').src = resolveAssetPath(product.image_product);
                                 document.getElementById('product-img-2').src = resolveAssetPath(product.image_packaging);
 
-                                document.getElementById('spec-essence').textContent = product.species_material;
+                                document.getElementById('spec-essence').textContent = getProductField(product, 'species_material');
                                 document.getElementById('spec-longueur').textContent = product.format;
                                 document.getElementById('spec-humidite').textContent = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
                                 document.getElementById('spec-origine').textContent = product.origin;
@@ -368,10 +368,10 @@ window.resolveAssetPath = function(pathStr) {
                                     document.head.appendChild(metaDesc);
                                 }
                                 const descTemplates = {
-                                    fr: (p) => `Découvrez ${getProductName(p)} (${p.species_material}, ${p.format}). Prix conseillé : ${p.recommended_price}€ TTC. Livraison palette ou camion complet pour professionnels.`,
-                                    en: (p) => `Explore ${getProductName(p)} (${p.species_material}, ${p.format}). Recommended retail price: €${p.recommended_price} incl. VAT. Pallet or full truckload delivery for trade buyers.`,
-                                    de: (p) => `Entdecken Sie ${getProductName(p)} (${p.species_material}, ${p.format}). Empfohlener Verkaufspreis: ${p.recommended_price}€ inkl. MwSt. Lieferung per Palette oder Komplettladung für Gewerbekunden.`,
-                                    nl: (p) => `Ontdek ${getProductName(p)} (${p.species_material}, ${p.format}). Aanbevolen verkoopprijs: €${p.recommended_price} incl. btw. Levering per pallet of volle vracht voor zakelijke klanten.`
+                                    fr: (p) => `Découvrez ${getProductName(p)} (${getProductField(p, 'species_material')}, ${p.format}). Prix conseillé : ${p.recommended_price}€ TTC. Livraison palette ou camion complet pour professionnels.`,
+                                    en: (p) => `Explore ${getProductName(p)} (${getProductField(p, 'species_material')}, ${p.format}). Recommended retail price: €${p.recommended_price} incl. VAT. Pallet or full truckload delivery for trade buyers.`,
+                                    de: (p) => `Entdecken Sie ${getProductName(p)} (${getProductField(p, 'species_material')}, ${p.format}). Empfohlener Verkaufspreis: ${p.recommended_price}€ inkl. MwSt. Lieferung per Palette oder Komplettladung für Gewerbekunden.`,
+                                    nl: (p) => `Ontdek ${getProductName(p)} (${getProductField(p, 'species_material')}, ${p.format}). Aanbevolen verkoopprijs: €${p.recommended_price} incl. btw. Levering per pallet of volle vracht voor zakelijke klanten.`
                                 };
                                 const descLang = document.documentElement.lang || 'fr';
                                 metaDesc.content = (descTemplates[descLang] || descTemplates.fr)(product);
@@ -381,7 +381,7 @@ window.resolveAssetPath = function(pathStr) {
                                     "@context": "https://schema.org/",
                                     "@type": "Product",
                                     "name": getProductName(product),
-                                    "description": `${product.species_material} B2B Wholesale Palette. ${product.format}`,
+                                    "description": `${getProductField(product, 'species_material')} B2B Wholesale Palette. ${product.format}`,
                                     "sku": product.id,
                                     "image": "https://www.sotramsbois.com/" + String(product.image_product).replace(/^\/+/, ''),
                                     "offers": {
