@@ -49,11 +49,6 @@ try {
         die('Commande introuvable ou accès refusé.');
     }
 
-    // Récupérer les infos détaillées du client pour l'adresse de facturation/livraison complète
-    $stmt = $pdo->prepare("SELECT * FROM clients WHERE id = ?");
-    $stmt->execute([$order['client_id']]);
-    $client = $stmt->fetch(PDO::FETCH_ASSOC);
-
     // Données de la commande
     $items = json_decode($order['items'], true);
     if (!is_array($items)) $items = [];
@@ -66,7 +61,16 @@ try {
     $total_tva = $total_ht * $tva_rate;
     $total_ttc = $total_ht + $total_tva;
 
-    // HTML Structure inspirée de sotramsbois, chartée sotramsbois
+    $fullName = !empty($order['first_name']) ? htmlspecialchars($order['first_name']) . ' ' . htmlspecialchars($order['contact_name']) : htmlspecialchars($order['contact_name']);
+    $siretHtml = !empty($order['siret']) ? '<p>SIRET: ' . htmlspecialchars($order['siret']) . '</p>' : '';
+    
+    $cpCity = '';
+    if (!empty($order['postal_code']) || !empty($order['city'])) {
+        $cpCity = htmlspecialchars(trim(($order['postal_code'] ?? '') . ' ' . ($order['city'] ?? '')));
+    }
+    
+    $cpCityHtml = $cpCity !== '' ? '<p>' . $cpCity . '</p>' : '';
+
     $html = '<!DOCTYPE html>
     <html lang="fr">
     <head>
@@ -123,12 +127,13 @@ try {
             <tr>
                 <td class="address-box" valign="top">
                     <h3>Facturé / Livré à</h3>
-                    <p><strong>' . htmlspecialchars($client['company'] ?? $order['company']) . '</strong></p>
-                    <p>' . htmlspecialchars($client['contact_name'] ?? $order['contact_name']) . '</p>
-                    <p>' . nl2br(htmlspecialchars($order['delivery_address'] ?? $client['address'])) . '</p>
-                    <p>' . htmlspecialchars(($client['postal_code'] ?? '') . ' ' . ($client['city'] ?? '')) . '</p>
-                    <p>Tél: ' . htmlspecialchars($client['phone'] ?? $order['phone']) . '</p>
-                    <p>Email: ' . htmlspecialchars($client['email'] ?? $order['email']) . '</p>
+                    <p><strong>' . htmlspecialchars($order['company']) . '</strong></p>
+                    <p>' . $fullName . '</p>
+                    <p>' . nl2br(htmlspecialchars($order['delivery_address'])) . '</p>
+                    ' . $cpCityHtml . '
+                    <p>Tél: ' . htmlspecialchars($order['phone']) . '</p>
+                    <p>Email: ' . htmlspecialchars($order['email']) . '</p>
+                    ' . $siretHtml . '
                 </td>
                 <td width="10%"></td>
                 <td class="address-box" valign="top">

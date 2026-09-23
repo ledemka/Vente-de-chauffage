@@ -146,11 +146,26 @@ try {
 
     $truck_access = trim((string)($input['truck_access'] ?? 'non_specifie'));
 
+    $client_first_name = null;
+    $client_postal_code = null;
+    $client_city = null;
+
+    if ($client_id) {
+        $stmtClient = $pdo->prepare("SELECT first_name, postal_code, city FROM clients WHERE id = ?");
+        $stmtClient->execute([$client_id]);
+        $cData = $stmtClient->fetch(PDO::FETCH_ASSOC);
+        if ($cData) {
+            $client_first_name = $cData['first_name'];
+            $client_postal_code = $cData['postal_code'];
+            $client_city = $cData['city'];
+        }
+    }
+
     $stmt = $pdo->prepare("INSERT INTO orders (
-        order_reference, client_id, company, siret, contact_name, email, phone, 
-        delivery_address, truck_access, items, subtotal, discount_tier, 
+        order_reference, client_id, company, siret, contact_name, first_name, email, phone, 
+        delivery_address, postal_code, city, truck_access, items, subtotal, discount_tier, 
         discount_percent, total, payment_method, status, lang
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'virement', 'pending_payment', ?)");
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'virement', 'pending_payment', ?)");
 
     $stmt->execute([
         $orderRef,
@@ -158,9 +173,12 @@ try {
         $company,
         trim((string)($input['siret'] ?? '')),
         trim((string)$input['contact_name']),
+        $client_first_name,
         trim((string)$input['email']),
         trim((string)$input['phone']),
         trim((string)$input['delivery_address']),
+        $client_postal_code,
+        $client_city,
         $truck_access,
         json_encode($orderItems, JSON_UNESCAPED_UNICODE),
         round($subtotal, 2),
