@@ -28,6 +28,13 @@
         "coal_acc": "Houtskool & Acc."
     },
     "catalog_discount_note": "Volumekortingen vanaf 2 pallets — details op elke productpagina",
+    "catalog": {
+        "category_label": "CATEGORIE",
+        "references_label": "Items"
+    },
+    "index": {
+        "view_range": "BEKIJK ASSORTIMENT"
+    },
     "rating_badge": "4,8/5 — Meer dan 1.000 tevreden B2B-klanten in Europa",
     "pricing": {
         "discount_title": "UW VOLUMEKORTING",
@@ -674,5 +681,10 @@
         "success": "Account geactiveerd!"
     },
     "tableau-de-bord": {},
-    "admin-commandes": {}
+    "admin-commandes": {
+        "not_specified": "Niet opgegeven",
+        "unknown": "Onbekend",
+        "error": "Fout",
+        "load_error": "Fout bij het laden van bestellingen."
+    }
 }

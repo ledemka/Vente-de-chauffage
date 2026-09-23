@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             allOrders = data.orders;
             renderOrders();
         } else {
-            container.innerHTML = `<div class="text-center py-10 text-error">${data.message || 'Erreur'}</div>`;
+            container.innerHTML = `<div class="text-center py-10 text-error">${data.message || t('admin-commandes.error', 'Erreur')}</div>`;
         }
     } catch (err) {
         container.innerHTML = '<div class="text-center py-10 text-error">Erreur lors du chargement des commandes.</div>';
@@ -289,7 +289,7 @@ function renderOrders() {
         const orderData = {
             ref: order.order_reference,
             date: dateStr,
-            client_name: order.company || order.contact_name || order.email || 'Inconnu',
+            client_name: order.company || order.contact_name || order.email || t('admin-commandes.unknown', 'Inconnu'),
             total: totalFmt,
             delivery_address: order.delivery_address || t('modal.not_specified', 'Non spécifiée'),
             items: typeof order.items === 'string' ? JSON.parse(order.items || '[]') : (order.items || [])
@@ -362,7 +362,7 @@ window.openAdminModal = function(el) {
         document.getElementById('modal-client-name').textContent = data.client_name;
         document.getElementById('modal-total').textContent = data.total;
         if (document.getElementById('modal-address')) {
-            document.getElementById('modal-address').textContent = data.delivery_address || 'Non spécifiée';
+            document.getElementById('modal-address').textContent = data.delivery_address || t('admin-commandes.not_specified', 'Non spécifiée');
         }
         
         const btn = document.getElementById('modal-download-btn');

@@ -28,6 +28,13 @@
         "coal_acc": "Charcoal & Acc."
     },
     "catalog_discount_note": "Volume discounts starting from 2 pallets — see details on each product page",
+    "catalog": {
+        "category_label": "CATEGORY",
+        "references_label": "Items"
+    },
+    "index": {
+        "view_range": "VIEW RANGE"
+    },
     "rating_badge": "4.8/5 — Over 1,000 satisfied B2B clients in Europe",
     "pricing": {
         "discount_title": "YOUR VOLUME DISCOUNT",
@@ -674,5 +681,10 @@
         "success": "Account activated!"
     },
     "tableau-de-bord": {},
-    "admin-commandes": {}
+    "admin-commandes": {
+        "not_specified": "Not specified",
+        "unknown": "Unknown",
+        "error": "Error",
+        "load_error": "Error loading orders."
+    }
 }

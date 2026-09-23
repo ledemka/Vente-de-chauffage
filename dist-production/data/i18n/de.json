@@ -28,6 +28,13 @@
         "coal_acc": "Kohle & Zub."
     },
     "catalog_discount_note": "Mengenrabatte ab 2 Paletten — Details auf jeder Produktseite",
+    "catalog": {
+        "category_label": "KATEGORIE",
+        "references_label": "Artikel"
+    },
+    "index": {
+        "view_range": "SORTIMENT ANSEHEN"
+    },
     "rating_badge": "4,8/5 — Über 1.000 zufriedene B2B-Kunden in Europa",
     "pricing": {
         "discount_title": "IHR MENGENRABATT",
@@ -674,5 +681,10 @@
         "success": "Konto aktiviert!"
     },
     "tableau-de-bord": {},
-    "admin-commandes": {}
+    "admin-commandes": {
+        "not_specified": "Nicht angegeben",
+        "unknown": "Unbekannt",
+        "error": "Fehler",
+        "load_error": "Fehler beim Laden der Bestellungen."
+    }
 }

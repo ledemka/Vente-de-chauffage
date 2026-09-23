@@ -193,7 +193,7 @@ function buildNewCatalogueScript(lang) {
                                                 <span class="text-label-md font-label-md text-primary tracking-widest uppercase">CATÉGORIE 0\${sg.id}</span>
                                                 <h2 class="text-headline-lg font-headline-lg text-on-surface">\${sg.name}</h2>
                                             </div>
-                                            <span class="text-body-sm font-body-sm text-on-surface-variant">\${sg.products.length} Références</span>
+                                            <span class="text-body-sm font-body-sm text-on-surface-variant">\${sg.products.length} </span>
                                         </div>
                                         \${formatSelectorHtml}
                                         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">

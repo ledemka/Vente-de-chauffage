@@ -28,6 +28,13 @@
         "coal_acc": "Charbon & Acc."
     },
     "catalog_discount_note": "Tarifs dégressifs dès 2 palettes — voir le détail sur chaque fiche produit",
+    "catalog": {
+        "category_label": "CATÉGORIE",
+        "references_label": "Références"
+    },
+    "index": {
+        "view_range": "VOIR LA GAMME"
+    },
     "rating_badge": "4,8/5 — Plus de 1 000 clients B2B satisfaits en Europe",
     "pricing": {
         "discount_title": "VOTRE TARIF DÉGRESSIF",
@@ -674,5 +681,10 @@
         "success": "Compte activé !"
     },
     "tableau-de-bord": {},
-    "admin-commandes": {}
+    "admin-commandes": {
+        "not_specified": "Non spécifiée",
+        "unknown": "Inconnu",
+        "error": "Erreur",
+        "load_error": "Erreur lors du chargement des commandes."
+    }
 }
