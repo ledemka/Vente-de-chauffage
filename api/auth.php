@@ -83,6 +83,12 @@ try {
         $contact_name = trim((string)($input['contact_name'] ?? ''));
         $phone = trim((string)($input['phone'] ?? ''));
         $siret = trim((string)($input['siret'] ?? ''));
+        $address = trim((string)($input['address'] ?? ''));
+        $postal_code = trim((string)($input['postal_code'] ?? ''));
+        $city = trim((string)($input['city'] ?? ''));
+        $address_complement = trim((string)($input['address_complement'] ?? ''));
+        $fonction = trim((string)($input['fonction'] ?? ''));
+        $tva_intra = trim((string)($input['tva_intra'] ?? ''));
         $lang = strtolower(trim((string)($input['lang'] ?? 'fr')));
         $is_professional = !empty($input['is_professional']) && $input['is_professional'] !== '0';
 
@@ -90,10 +96,16 @@ try {
         if (!$password) respondError(400, 'Le mot de passe est obligatoire.');
         if (!$contact_name) respondError(400, 'Le nom du contact est obligatoire.');
         if (!$phone) respondError(400, 'Le numéro de téléphone est obligatoire.');
+        if (!$address || !$postal_code || !$city) respondError(400, 'L\'adresse complète (rue, code postal, ville) est obligatoire.');
         if ($is_professional && !$company) respondError(400, 'Le nom de la société est obligatoire pour un compte professionnel.');
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            respondError(400, 'Adresse e-mail invalide.');
-        }
+        
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) respondError(400, 'Adresse e-mail invalide.');
+        if (!preg_match('/^\d{5}$/', $postal_code)) respondError(400, 'Le code postal doit contenir exactement 5 chiffres.');
+        
+        $cleanPhone = preg_replace('/[\s\-\+]/', '', $phone);
+        if (strlen($cleanPhone) < 6) respondError(400, 'Le numéro de téléphone est invalide.');
+        
+        if ($siret !== '' && !preg_match('/^\d{14}$/', $siret)) respondError(400, 'Le SIRET doit contenir exactement 14 chiffres.');
         
         $stmt = $pdo->prepare("SELECT id FROM clients WHERE email = ?");
         $stmt->execute([$email]);
@@ -105,8 +117,8 @@ try {
         $token = bin2hex(random_bytes(32));
         $expiresAt = date('Y-m-d H:i:s', strtotime('+24 hours'));
 
-        $stmt = $pdo->prepare("INSERT INTO clients (first_name, company, siret, contact_name, email, phone, password_hash, lang, is_active, activation_token, token_expires_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)");
-        $stmt->execute([$first_name, $company, $siret ?: null, $contact_name, $email, $phone, $password_hash, $lang, $token, $expiresAt]);
+        $stmt = $pdo->prepare("INSERT INTO clients (first_name, company, siret, contact_name, email, phone, address, postal_code, city, address_complement, fonction, tva_intra, password_hash, lang, is_active, activation_token, token_expires_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)");
+        $stmt->execute([$first_name, $company, $siret ?: null, $contact_name, $email, $phone, $address, $postal_code, $city, $address_complement ?: null, $fonction ?: null, $tva_intra ?: null, $password_hash, $lang, $token, $expiresAt]);
         
         $client_id = $pdo->lastInsertId();
         
@@ -226,20 +238,25 @@ try {
             exit;
         }
         
-        $stmt = $pdo->prepare("SELECT company, contact_name, email, phone, address, city, postal_code, is_admin FROM clients WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT first_name, company, siret, contact_name, email, phone, address, city, postal_code, address_complement, fonction, tva_intra, is_admin FROM clients WHERE id = ?");
         $stmt->execute([$_SESSION['client_id']]);
         $client = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if ($client) {
             echo json_encode([
                 'authenticated' => true,
+                'first_name' => $client['first_name'],
                 'company' => $client['company'],
+                'siret' => $client['siret'],
                 'contact_name' => $client['contact_name'],
                 'email' => $client['email'],
                 'phone' => $client['phone'],
                 'address' => $client['address'],
                 'city' => $client['city'],
                 'postal_code' => $client['postal_code'],
+                'address_complement' => $client['address_complement'],
+                'fonction' => $client['fonction'],
+                'tva_intra' => $client['tva_intra'],
                 'is_admin' => (int)($client['is_admin'] ?? 0)
             ]);
             exit;
@@ -254,20 +271,31 @@ try {
             respondError(401, 'Non autorisé.');
         }
 
+        $first_name = trim((string)($input['first_name'] ?? ''));
         $company = trim((string)($input['company'] ?? ''));
+        $siret = trim((string)($input['siret'] ?? ''));
         $contact_name = trim((string)($input['contact_name'] ?? ''));
         $email = trim((string)($input['email'] ?? ''));
         $phone = trim((string)($input['phone'] ?? ''));
         $address = trim((string)($input['address'] ?? ''));
         $city = trim((string)($input['city'] ?? ''));
         $postal_code = trim((string)($input['postal_code'] ?? ''));
+        $address_complement = trim((string)($input['address_complement'] ?? ''));
+        $fonction = trim((string)($input['fonction'] ?? ''));
+        $tva_intra = trim((string)($input['tva_intra'] ?? ''));
 
-        if (!$address || !$city || !$postal_code || !$company || !$contact_name || !$email || !$phone) {
+        if (!$first_name || !$address || !$city || !$postal_code || !$contact_name || !$email || !$phone) {
             respondError(400, 'Tous les champs obligatoires doivent être remplis.');
         }
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             respondError(400, 'Adresse e-mail invalide.');
         }
+        if (!preg_match('/^\d{5}$/', $postal_code)) respondError(400, 'Le code postal doit contenir exactement 5 chiffres.');
+        
+        $cleanPhone = preg_replace('/[\s\-\+]/', '', $phone);
+        if (strlen($cleanPhone) < 6) respondError(400, 'Le numéro de téléphone est invalide.');
+        
+        if ($siret !== '' && !preg_match('/^\d{14}$/', $siret)) respondError(400, 'Le SIRET doit contenir exactement 14 chiffres.');
 
         if ($email !== $_SESSION['email']) {
             $stmt = $pdo->prepare("SELECT id FROM clients WHERE email = ? AND id != ?");
@@ -277,8 +305,8 @@ try {
             }
         }
 
-        $stmt = $pdo->prepare("UPDATE clients SET company = ?, contact_name = ?, email = ?, phone = ?, address = ?, city = ?, postal_code = ? WHERE id = ?");
-        $stmt->execute([$company, $contact_name, $email, $phone, $address, $city, $postal_code, $_SESSION['client_id']]);
+        $stmt = $pdo->prepare("UPDATE clients SET first_name = ?, company = ?, siret = ?, contact_name = ?, email = ?, phone = ?, address = ?, city = ?, postal_code = ?, address_complement = ?, fonction = ?, tva_intra = ? WHERE id = ?");
+        $stmt->execute([$first_name, $company ?: null, $siret ?: null, $contact_name, $email, $phone, $address, $city, $postal_code, $address_complement ?: null, $fonction ?: null, $tva_intra ?: null, $_SESSION['client_id']]);
 
         $_SESSION['email'] = $email;
         $_SESSION['contact_name'] = $contact_name;
@@ -287,13 +315,18 @@ try {
             'success' => true, 
             'message' => 'Profil mis à jour.',
             'client' => [
+                'first_name' => $first_name,
                 'company' => $company,
+                'siret' => $siret,
                 'contact_name' => $contact_name,
                 'email' => $email,
                 'phone' => $phone,
                 'address' => $address,
                 'city' => $city,
-                'postal_code' => $postal_code
+                'postal_code' => $postal_code,
+                'address_complement' => $address_complement,
+                'fonction' => $fonction,
+                'tva_intra' => $tva_intra
             ]
         ]);
         exit;

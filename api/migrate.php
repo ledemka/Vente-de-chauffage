@@ -19,9 +19,18 @@ try {
     $pdo->exec("ALTER TABLE clients ADD COLUMN token_expires_at DATETIME DEFAULT NULL");
     echo "Added activation token columns.\n";
 
-    // 4. Add first_name column
+    // 4. Add additional client profile columns
     $pdo->exec("ALTER TABLE clients ADD COLUMN first_name VARCHAR(255) NOT NULL DEFAULT ''");
-    echo "Added first_name column.\n";
+    $pdo->exec("ALTER TABLE clients ADD COLUMN address_complement VARCHAR(255) DEFAULT NULL");
+    $pdo->exec("ALTER TABLE clients ADD COLUMN fonction VARCHAR(255) DEFAULT NULL");
+    $pdo->exec("ALTER TABLE clients ADD COLUMN tva_intra VARCHAR(50) DEFAULT NULL");
+    echo "Added new profile columns to clients.\n";
+
+    // 5. Add order snapshot columns
+    $pdo->exec("ALTER TABLE orders ADD COLUMN first_name VARCHAR(255) DEFAULT NULL");
+    $pdo->exec("ALTER TABLE orders ADD COLUMN postal_code VARCHAR(20) DEFAULT NULL");
+    $pdo->exec("ALTER TABLE orders ADD COLUMN city VARCHAR(100) DEFAULT NULL");
+    echo "Added snapshot columns to orders.\n";
 
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage() . "\n";
