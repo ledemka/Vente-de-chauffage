@@ -6,31 +6,44 @@ try {
     $pdo = $db->getConnection();
     if (!$pdo) die("Failed to connect");
 
+    function addColumn($pdo, $table, $columnDef, $desc) {
+        try {
+            $pdo->exec("ALTER TABLE $table ADD COLUMN $columnDef");
+            echo "Added $desc.\n";
+        } catch (PDOException $e) {
+            if (strpos($e->getMessage(), 'Duplicate column name') !== false || strpos($e->getMessage(), 'already exists') !== false) {
+                echo "Column $desc already exists. Skipping.\n";
+            } else {
+                echo "Error adding $desc: " . $e->getMessage() . "\n";
+            }
+        }
+    }
+
     // 1. Add columns
-    $pdo->exec("ALTER TABLE clients ADD COLUMN is_active TINYINT(1) NOT NULL DEFAULT 0");
-    echo "Added is_active column.\n";
+    addColumn($pdo, 'clients', 'is_active TINYINT(1) NOT NULL DEFAULT 0', 'is_active column to clients');
     
     // 2. Grandfather existing accounts
-    $stmt = $pdo->query("UPDATE clients SET is_active = 1");
-    echo "Grandfathered existing accounts: " . $stmt->rowCount() . " row(s) updated.\n";
+    try {
+        $stmt = $pdo->query("UPDATE clients SET is_active = 1 WHERE is_active = 0");
+        echo "Grandfathered existing accounts: " . $stmt->rowCount() . " row(s) updated.\n";
+    } catch (PDOException $e) {
+        echo "Error updating is_active: " . $e->getMessage() . "\n";
+    }
     
     // 3. Add token columns
-    $pdo->exec("ALTER TABLE clients ADD COLUMN activation_token VARCHAR(64) DEFAULT NULL");
-    $pdo->exec("ALTER TABLE clients ADD COLUMN token_expires_at DATETIME DEFAULT NULL");
-    echo "Added activation token columns.\n";
+    addColumn($pdo, 'clients', 'activation_token VARCHAR(64) DEFAULT NULL', 'activation_token column to clients');
+    addColumn($pdo, 'clients', 'token_expires_at DATETIME DEFAULT NULL', 'token_expires_at column to clients');
 
     // 4. Add additional client profile columns
-    $pdo->exec("ALTER TABLE clients ADD COLUMN first_name VARCHAR(255) NOT NULL DEFAULT ''");
-    $pdo->exec("ALTER TABLE clients ADD COLUMN address_complement VARCHAR(255) DEFAULT NULL");
-    $pdo->exec("ALTER TABLE clients ADD COLUMN fonction VARCHAR(255) DEFAULT NULL");
-    $pdo->exec("ALTER TABLE clients ADD COLUMN tva_intra VARCHAR(50) DEFAULT NULL");
-    echo "Added new profile columns to clients.\n";
+    addColumn($pdo, 'clients', 'first_name VARCHAR(255) NOT NULL DEFAULT \'\'', 'first_name column to clients');
+    addColumn($pdo, 'clients', 'address_complement VARCHAR(255) DEFAULT NULL', 'address_complement column to clients');
+    addColumn($pdo, 'clients', 'fonction VARCHAR(255) DEFAULT NULL', 'fonction column to clients');
+    addColumn($pdo, 'clients', 'tva_intra VARCHAR(50) DEFAULT NULL', 'tva_intra column to clients');
 
     // 5. Add order snapshot columns
-    $pdo->exec("ALTER TABLE orders ADD COLUMN first_name VARCHAR(255) DEFAULT NULL");
-    $pdo->exec("ALTER TABLE orders ADD COLUMN postal_code VARCHAR(20) DEFAULT NULL");
-    $pdo->exec("ALTER TABLE orders ADD COLUMN city VARCHAR(100) DEFAULT NULL");
-    echo "Added snapshot columns to orders.\n";
+    addColumn($pdo, 'orders', 'first_name VARCHAR(255) DEFAULT NULL', 'first_name column to orders');
+    addColumn($pdo, 'orders', 'postal_code VARCHAR(20) DEFAULT NULL', 'postal_code column to orders');
+    addColumn($pdo, 'orders', 'city VARCHAR(100) DEFAULT NULL', 'city column to orders');
 
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage() . "\n";
