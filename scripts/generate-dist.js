@@ -85,6 +85,14 @@ LANGS.forEach(lang => {
                 // but ONLY when followed by assets, data, or api to avoid breaking inner-page relative links if they exist.
                 content = content.replace(/(href|src)=".\/(assets|data|api)\//g, `$1="../$2/`);
                 
+                // 4. Fix language switcher links
+                // Language links do not use ./, they are written as href="page.html" or href="en/page.html"
+                // To work from within a language subdir, they must point back to root.
+                content = content.replace(new RegExp(`href="${page}"`, 'g'), `href="../${page}"`);
+                content = content.replace(new RegExp(`href="en/${page}"`, 'g'), `href="../en/${page}"`);
+                content = content.replace(new RegExp(`href="de/${page}"`, 'g'), `href="../de/${page}"`);
+                content = content.replace(new RegExp(`href="nl/${page}"`, 'g'), `href="../nl/${page}"`);
+                
                 fs.writeFileSync(distPath, content);
             }
             totalCopied++;
