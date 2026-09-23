@@ -241,7 +241,7 @@ function buildNewCatalogueScript(lang) {
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span data-i18n="catalog.table.unit_pallet" class="text-label-md font-label-md text-on-surface-variant">${tx.unitPalette}</span>
-                                                                <span class="text-data-mono font-data-mono text-on-surface">\${p.units_per_palette} U / Palette</span>
+                                                                <span class="text-data-mono font-data-mono text-on-surface">\${p.units_per_palette} unités/palette</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span data-i18n="catalog.table.weight" class="text-label-md font-label-md text-on-surface-variant">${tx.palletWeight}</span>
