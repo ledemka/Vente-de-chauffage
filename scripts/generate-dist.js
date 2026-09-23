@@ -94,6 +94,12 @@ LANGS.forEach(lang => {
                 content = content.replace(new RegExp(`href="nl/${page}"`, 'g'), `href="../nl/${page}"`);
                 
                 fs.writeFileSync(distPath, content);
+                
+                // ALSO write to the root for local development convenience (e.g. localhost/en/index.html)
+                // These root folders (en, de, nl) are gitignored.
+                const localDevPath = path.join(ROOT_DIR, lang, page);
+                fs.mkdirSync(path.dirname(localDevPath), { recursive: true });
+                fs.writeFileSync(localDevPath, content);
             }
             totalCopied++;
         } else {

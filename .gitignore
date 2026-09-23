@@ -11,3 +11,8 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Localized dev folders (generated dynamically for localhost)
+en/
+de/
+nl/
