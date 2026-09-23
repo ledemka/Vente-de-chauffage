@@ -1,4 +1,4 @@
-﻿<html lang="fr" translate="no"><head>
+<html lang="fr" translate="no"><head>
     <meta charset="utf-8"/>
     <meta name="google" content="notranslate"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -614,7 +614,12 @@ updatePricing();
                                 const btnDevis = document.getElementById('btn-devis');
                                 if (btnDevis) {
                                     btnDevis.addEventListener('click', () => {
-                                        window.location.href = './devis.html?product=' + product.id;
+                                        let url = './devis.html?product=' + product.id;
+                                        if (selectedLength) {
+                                            url += '&length=' + selectedLength;
+                                        }
+                                        url += '&qty=' + (parseInt(qtyInput.value) || 1);
+                                        window.location.href = url;
                                     });
                                 }
 

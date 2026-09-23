@@ -48,14 +48,12 @@ function getEnvVar(string $name, string $default = ''): string {
     return $envData[$name] ?? $default;
 }
 
-// Allowed product mapping
-$productsMap = [
-    'buches_chene' => 'Bûches de Chêne - Premium',
-    'buches_hetre' => 'Bûches de Hêtre - Densité',
-    'pellets_din' => 'Granulés (Pellets) - DINplus',
-    'bois_cuisson' => 'Bois de Cuisson Pro',
-    'bois_allumage' => "Bois d'Allumage"
-];
+// Load products mapping
+$productsJson = file_get_contents(__DIR__ . '/../data/products.json');
+$productsList = json_decode($productsJson, true);
+if (!is_array($productsList)) {
+    respondError(500, 'Erreur de chargement du catalogue.');
+}
 
 // Helper to return JSON error response
 function respondError(int $statusCode, string $message, array $details = []): void {
@@ -111,10 +109,17 @@ if (!empty($errors)) {
 
 // Validate specific fields
 $productType = trim((string)$input['product_type']);
-if (!array_key_exists($productType, $productsMap)) {
+$productInfo = null;
+foreach ($productsList as $p) {
+    if ($p['id'] === $productType) {
+        $productInfo = $p;
+        break;
+    }
+}
+if (!$productInfo) {
     respondError(400, 'Type de produit invalide.');
 }
-$productName = $productsMap[$productType];
+$productName = $productInfo['name']['fr'] ?? $productType;
 
 $quantity = intval($input['quantity']);
 if ($quantity <= 0) {
@@ -285,7 +290,7 @@ if (!empty($clientHtml)) {
             $i18n['cta_product'],
             $appUrl,
             date('Y'),
-            $appUrl . '/produit.html?product=' . urlencode((string)$productType)
+            $appUrl . ($lang === 'fr' ? '' : '/' . $lang) . '/produit.html?product=' . urlencode((string)$productType)
         ],
         $clientHtml
     );

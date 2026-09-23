@@ -24,5 +24,6 @@
     "intro": "Thank you for contacting us. Here is a summary of your request:",
     "delay_info": "Our customer service will reply to you as soon as possible.",
     "cta_home": "Return to the site"
-  }
+  },
+  "qty_label": "Requested quantity (pallets):"
 }

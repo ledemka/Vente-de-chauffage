@@ -1,692 +1,693 @@
 {
-    "site_name": "sotramsbois",
-    "tagline": "Groothandel in brandhout, houtpellets en houtbriketten B2B",
-    "search_placeholder": "Product zoeken...",
-    "nav": {
-        "home": "Home",
-        "catalog": "Catalogus",
-        "delivery": "Levering",
-        "reviews": "Beoordelingen",
-        "guide": "Keuzehulp",
-        "quote": "Offerte",
-        "returns": "Retourbeleid",
-        "blog": "Blog",
-        "contact": "Contact",
-        "depots": "Depots"
+  "site_name": "sotramsbois",
+  "tagline": "Groothandel in brandhout, houtpellets en houtbriketten B2B",
+  "search_placeholder": "Product zoeken...",
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalogus",
+    "delivery": "Levering",
+    "reviews": "Beoordelingen",
+    "guide": "Keuzehulp",
+    "quote": "Offerte",
+    "returns": "Retourbeleid",
+    "blog": "Blog",
+    "contact": "Contact",
+    "depots": "Depots"
+  },
+  "categories": {
+    "1": "Houtblokken",
+    "2": "Geperste blokken / Houtbriketten",
+    "3": "Briketten",
+    "4": "Houtpellets",
+    "5": "Houtskool / Aanmaakblokjes / Zweedse fakkels",
+    "logs": "Haardhout",
+    "briquettes_compressed": "Houtbriketten",
+    "briquettes": "Briketten",
+    "pellets": "Houtpellets",
+    "coal_starters": "Kool & Acc.",
+    "coal_acc": "Houtskool & Acc."
+  },
+  "catalog_discount_note": "Volumekortingen vanaf 2 pallets — details op elke productpagina",
+  "catalog": {
+    "filters": {
+      "title": "Filters",
+      "category": "Categorie",
+      "moisture": "Vochtgehalte (H2O)",
+      "all": "Alle",
+      "unspecified": "Niet gespecificeerd",
+      "format": "Formaat:",
+      "format_select": "Selecteer een formaat ↑"
     },
-    "categories": {
-        "1": "Houtblokken",
-        "2": "Geperste blokken / Houtbriketten",
-        "3": "Briketten",
-        "4": "Houtpellets",
-        "5": "Houtskool / Aanmaakblokjes / Zweedse fakkels",
-        "logs": "Haardhout",
-        "briquettes_compressed": "Houtbriketten",
-        "briquettes": "Briketten",
-        "pellets": "Houtpellets",
-        "coal_starters": "Kool & Acc.",
-        "coal_acc": "Houtskool & Acc."
+    "table": {
+      "format": "FORMAAT",
+      "unit_pallet": "EENHEID / PALLET",
+      "weight": "PALLETGEWICHT",
+      "price": "GROOTHANDELSPRIJS / PALLET",
+      "currency": "€ incl. btw"
     },
-    "catalog_discount_note": "Volumekortingen vanaf 2 pallets — details op elke productpagina",
-    "catalog": {
-        "filters": {
-            "title": "Filters",
-            "category": "Categorie",
-            "moisture": "Vochtgehalte (H2O)",
-            "all": "Alle",
-            "unspecified": "Niet gespecificeerd",
-            "format": "Formaat:",
-            "format_select": "Selecteer een formaat ↑"
-        },
-        "table": {
-            "format": "FORMAAT",
-            "unit_pallet": "EENHEID / PALLET",
-            "weight": "PALLETGEWICHT",
-            "price": "GROOTHANDELSPRIJS / PALLET",
-            "currency": "€ incl. btw"
-        },
-        "category_label": "CATEGORIE",
-        "references_label": "Artikelen",
-        "reset_filters": "RESET",
-        "toast_select_format": "Selecteer een formaat voordat u uw hout kiest.",
-        "no_products": "Geen producten komen overeen met deze criteria.",
-        "format_warning": "De weergegeven prijzen komen overeen met het <strong>50 cm</strong> formaat. Selecteer uw formaat voordat u uw hout kiest.",
-        "format_selected": "geselecteerd",
-        "units_per_pallet": "eenheden/pallet",
-        "unspecified": "niet gespecificeerd"
-    },
-    "index": {
-        "hero": {
-            "tagline": "Groothandel Biomassa & Houtenergie",
-            "rating_badge": "Meer dan 1.000 tevreden B2B-klanten in Europa",
-            "subtitle": "Houtverwarmingsoplossingen op maat voor industriële behoeften en doorverkoop. Optimaal warmterendement en gecontroleerd vochtgehalte."
-        }
-    },
-    "rating_badge": "4,8/5 — Meer dan 1.000 tevreden B2B-klanten in Europa",
-    "pricing": {
-        "discount_title": "UW VOLUMEKORTING",
-        "select_quantity": "Aantal (Pallets):",
-        "tier_level": "Niveau:",
-        "full_truckload": "Volledig vrachtwagentarief (-10%)",
-        "discount_rate": "Toegepaste korting:",
-        "unit_price_after_discount": "Stukprijs na korting:",
-        "total_price": "Totale orderprijs HT:",
-        "next_tier_incentive": "Voeg {count} extra palette(s) toe om -{pct}% korting te ontgrendelen!"
-    },
+    "category_label": "CATEGORIE",
+    "references_label": "Artikelen",
+    "reset_filters": "RESET",
+    "toast_select_format": "Selecteer een formaat voordat u uw hout kiest.",
+    "no_products": "Geen producten komen overeen met deze criteria.",
+    "format_warning": "De weergegeven prijzen komen overeen met het <strong>50 cm</strong> formaat. Selecteer uw formaat voordat u uw hout kiest.",
+    "format_selected": "geselecteerd",
+    "units_per_pallet": "eenheden/pallet",
+    "unspecified": "niet gespecificeerd"
+  },
+  "index": {
     "hero": {
-        "tagline": "Groothandel in biomassa & houtenergie",
-        "title_html": "Thermische uitmuntendheid<br/>ten dienste van professionals.",
-        "subtitle": "Gegarandeerde levering van hoogwaardig haardhout, pellets en briketten. Premium kwaliteit, gecertificeerde traceerbaarheid en geoptimaliseerde logistiek voor wederverkopers en industrieën.",
-        "cta_catalog": "ONTDEK CATALOGUS",
-        "cta_quote": "OFFERTE AANVRAGEN"
+      "tagline": "Groothandel Biomassa & Houtenergie",
+      "rating_badge": "Meer dan 1.000 tevreden B2B-klanten in Europa",
+      "subtitle": "Houtverwarmingsoplossingen op maat voor industriële behoeften en doorverkoop. Optimaal warmterendement en gecontroleerd vochtgehalte."
+    }
+  },
+  "rating_badge": "4,8/5 — Meer dan 1.000 tevreden B2B-klanten in Europa",
+  "pricing": {
+    "discount_title": "UW VOLUMEKORTING",
+    "select_quantity": "Aantal (Pallets):",
+    "tier_level": "Niveau:",
+    "full_truckload": "Volledig vrachtwagentarief (-10%)",
+    "discount_rate": "Toegepaste korting:",
+    "unit_price_after_discount": "Stukprijs na korting:",
+    "total_price": "Totale orderprijs HT:",
+    "next_tier_incentive": "Voeg {count} extra palette(s) toe om -{pct}% korting te ontgrendelen!"
+  },
+  "hero": {
+    "tagline": "Groothandel in biomassa & houtenergie",
+    "title_html": "Thermische uitmuntendheid<br/>ten dienste van professionals.",
+    "subtitle": "Gegarandeerde levering van hoogwaardig haardhout, pellets en briketten. Premium kwaliteit, gecertificeerde traceerbaarheid en geoptimaliseerde logistiek voor wederverkopers en industrieën.",
+    "cta_catalog": "ONTDEK CATALOGUS",
+    "cta_quote": "OFFERTE AANVRAGEN"
+  },
+  "metrics": {
+    "metric_1_val": "15k+",
+    "metric_1_label": "Geleverde tonnen / jaar",
+    "metric_2_val": "100%",
+    "metric_2_label": "Gecertificeerd hout",
+    "metric_3_val": "48u",
+    "metric_3_label": "Verzendtijd"
+  },
+  "categories_section": {
+    "title": "Brandstofassortiment",
+    "subtitle": "Houtverwarmingsoplossingen op maat voor industriële behoeften en wederverkoop. Optimale warmteafgifte en gecontroleerd vochtgehalte.",
+    "logs_desc": "Gedroogd hardhout, klaar voor gebruik. Vochtigheid < 20%.",
+    "briquettes_compressed_desc": "Hoge calorische waarde. Dag en nacht.",
+    "briquettes_desc": "Ideaal voor professionals. Geoptimaliseerde opslag.",
+    "pellets_desc": "DINplus / ENplus A1 gecertificeerd. Bulk en pallets.",
+    "coal_starters_desc": "Houtskool van restaurantkwaliteit, aanmaakblokjes.",
+    "cta_view": "BEKIJK ASSORTIMENT"
+  },
+  "footer": {
+    "desc": "Professionele biomassa en hoogwaardige brandhoutoplossingen.",
+    "services_title": "PRODUCTEN & DIENSTEN",
+    "service_1": "Hardhouten blokken",
+    "service_2": "Houtpellets",
+    "service_3": "Profi-kookhout",
+    "service_4": "Groothandels- & B2B-tarieven",
+    "coords_title": "CONTACTGEGEVENS",
+    "address": "[Adres in te vullen door klant]",
+    "phone": "[Telefoon in te vullen door klant]",
+    "email": "contact@sotramsbois.com",
+    "legal": "Juridische kennisgeving",
+    "cgv": "Algemene Voorwaarden",
+    "privacy": "Privacybeleid",
+    "reassurance_title": "Kwaliteitsverplichting voor de groothandel",
+    "reassurance_1": "Gecertificeerd hout van hoge kwaliteit",
+    "reassurance_2": "DINplus / ENplus A1 gecertificeerde pellets",
+    "reassurance_3": "Levering met laadklep & pompwagen",
+    "reassurance_4": "B2B Betalingsvoorwaarden",
+    "service_5": "Levering",
+    "return_policy": "Retourbeleid"
+  },
+  "blog": {
+    "article_1_title": "Winteropslag Optimaliseren: Vochtgehalte Onder 15% Houden",
+    "article_2_title": "De Toekomst van Industriële Houtpellets",
+    "article_3_title": "Welk Hout Kiezen voor Professioneel Koken?",
+    "article_4_title": "Anticiperen op Leveringsonderbrekingen",
+    "article_5_title": "Ontcijfering van de ISO 17225-2 Norm",
+    "hero": {
+      "title": "Expertise & Nieuws",
+      "subtitle": "De wetenschap van houtenergie."
     },
-    "metrics": {
-        "metric_1_val": "15k+",
-        "metric_1_label": "Geleverde tonnen / jaar",
-        "metric_2_val": "100%",
-        "metric_2_label": "Gecertificeerd hout",
-        "metric_3_val": "48u",
-        "metric_3_label": "Verzendtijd"
+    "filter": {
+      "all": "ALLE ARTIKELEN",
+      "trends": "B2B-TRENDS",
+      "guide": "TECHNISCHE GIDS"
     },
-    "categories_section": {
-        "title": "Brandstofassortiment",
-        "subtitle": "Houtverwarmingsoplossingen op maat voor industriële behoeften en wederverkoop. Optimale warmteafgifte en gecontroleerd vochtgehalte.",
-        "logs_desc": "Gedroogd hardhout, klaar voor gebruik. Vochtigheid < 20%.",
-        "briquettes_compressed_desc": "Hoge calorische waarde. Dag en nacht.",
-        "briquettes_desc": "Ideaal voor professionals. Geoptimaliseerde opslag.",
-        "pellets_desc": "DINplus / ENplus A1 gecertificeerd. Bulk en pallets.",
-        "coal_starters_desc": "Houtskool van restaurantkwaliteit, aanmaakblokjes.",
-        "cta_view": "BEKIJK ASSORTIMENT"
+    "draft": "Concept — artikel in voorbereiding",
+    "read_article": "ARTIKEL LEZEN",
+    "tag": {
+      "industry": "INDUSTRIE",
+      "gastronomy": "GASTRONOMIE",
+      "logistics": "LOGISTIEK",
+      "science": "WETENSCHAP & NORMEN"
     },
-    "footer": {
-        "desc": "Professionele biomassa en hoogwaardige brandhoutoplossingen.",
-        "services_title": "PRODUCTEN & DIENSTEN",
-        "service_1": "Hardhouten blokken",
-        "service_2": "Houtpellets",
-        "service_3": "Profi-kookhout",
-        "service_4": "Groothandels- & B2B-tarieven",
-        "coords_title": "CONTACTGEGEVENS",
-        "address": "[Adres in te vullen door klant]",
-        "phone": "[Telefoon in te vullen door klant]",
-        "email": "contact@sotramsbois.com",
-        "legal": "Juridische kennisgeving",
-        "cgv": "Algemene Voorwaarden",
-        "privacy": "Privacybeleid",
-        "reassurance_title": "Kwaliteitsverplichting voor de groothandel",
-        "reassurance_1": "Gecertificeerd hout van hoge kwaliteit",
-        "reassurance_2": "DINplus / ENplus A1 gecertificeerde pellets",
-        "reassurance_3": "Levering met laadklep & pompwagen",
-        "reassurance_4": "B2B Betalingsvoorwaarden",
-        "service_5": "Levering",
-        "return_policy": "Retourbeleid"
+    "discover": "ONTDEKKEN",
+    "newsletter": {
+      "title": "Marktinzichten.",
+      "desc": "Ontvang onze maandelijkse marktanalyses, regelgevingsupdates en tips voor energieoptimalisatie rechtstreeks in uw inbox.",
+      "placeholder": "ZAKELIJK E-MAILADRES"
+    }
+  },
+  "delivery_promo": {
+    "title": "Veilige industriële levering",
+    "desc": "Van duurzaam beheerde bossen tot op uw locatie. Onze vloot garandeert een constante aanvoer voor professionele volumes, met een gemiddelde verzendtijd van 48 uur.",
+    "cta": "Meer info over levering"
+  },
+  "specs": {
+    "humidity": "VOCHTGEHALTE",
+    "origin": "OORSPRONG",
+    "humidity_unavailable": "Niet gespecificeerd"
+  },
+  "cgv": {
+    "payment_method_title": "BETAALMETHODE",
+    "payment_method_desc": "Betaling geschiedt <strong>uitsluitend per bankoverschrijving</strong>. Andere betaalmethoden (creditcard, cheque, SEPA-incasso) worden niet geaccepteerd.",
+    "payment_terms_title": "BETALINGSTERMIJNEN",
+    "payment_terms_desc": "Volgens de voorwaarden die met uw accountmanager zijn overeengekomen.",
+    "legal_label": "Juridisch &amp; Compliance",
+    "page_title": "Algemene Verkoopvoorwaarden",
+    "toc_title": "Inhoudsopgave",
+    "b2b_title": "B2B-service",
+    "b2b_desc": "Voor vragen over onze groothandelsvoorwaarden kunt u contact opnemen met uw accountmanager.",
+    "art1_title": "Artikel 1 - Doel en toepassingsgebied",
+    "art1_p1": "Deze Algemene Verkoopvoorwaarden vormen de basis van de commerciële onderhandeling en worden systematisch aan elke koper verstrekt om een bestelling te kunnen plaatsen.",
+    "art1_info": "sotramsbois behoudt zich het recht voor om, afhankelijk van de onderhandelingen met de koper, van bepaalde bepalingen van deze voorwaarden af te wijken door middel van bijzondere verkoopvoorwaarden.",
+    "art2_title": "Artikel 2 - Producteigenschappen",
+    "art2_p1": "De te koop aangeboden producten zijn die welke op het moment van raadpleging in de B2B-catalogus van sotramsbois staan vermeld. De thermische en dimensionale eigenschappen worden gegarandeerd binnen de gebruikelijke industriële toleranties.",
+    "moisture_label": "GEGARANDEERD VOCHTGEHALTE",
+    "species_label": "HOUTSOORTEN",
+    "species_value": "Eik, Beuk, Haagbeuk (100% hardhout)",
+    "art2_p2": "De illustratieve foto’s in de catalogus zijn louter indicatief en vormen geen contractueel document. Aangezien hout een natuurlijk materiaal is, zijn variaties in uiterlijk, kleur of scheurvorming normaal en hebben deze geen enkele invloed op de gecertificeerde calorische waarde.",
+    "art3_title": "Artikel 3 - Prijzen en bestelling",
+    "art3_p1": "De prijzen zijn exclusief belastingen en exclusief leveringskosten (af fabriek of FCA), tenzij anders specifiek overeengekomen (DAP). De toepasselijke btw is die welke geldt op de dag van bestelling.",
+    "art4_title": "Artikel 4 - Logistiek en levering",
+    "art4_p1": "Gezien de zware aard van de producten is de logistiek onderworpen aan strikte regels om de veiligheid en het naleven van de termijnen te waarborgen. De levertermijnen zijn indicatief en een vertraging rechtvaardigt geen annulering van de bestelling of boetes.",
+    "pack_label": "1. VERPAKKING",
+    "pack_value": "UV-beschermde omwikkelde pallets",
+    "ship_label": "2. VERZENDING",
+    "ship_value": "19T-vrachtwagen of oplegger",
+    "unload_label": "3. LOSSEN",
+    "unload_value": "Boordheftruck vereist",
+    "access_title": "VERPLICHTE TOEGANGSVOORWAARDEN",
+    "access_desc": "De koper moet de toegankelijkheid van de leveringslocatie voor zware voertuigen (tot 44 ton) garanderen. Indien levering onmogelijk blijkt door een niet-gemelde toegangsbeperking, worden wachttijd- en retourkosten volledig aan de koper doorberekend.",
+    "art5_title": "Artikel 5 - Betalingsvoorwaarden",
+    "art5_p1": "Tenzij anders specifiek overeengekomen in de bijzondere voorwaarden, vindt de betaling plaats onder de volgende voorwaarden:",
+    "art6_title": "Artikel 6 - Geen herroepingsrecht",
+    "art6_p1": "Overeenkomstig de bepalingen van de Franse Consumentenwet is het herroepingsrecht niet van toepassing op overeenkomsten tussen ondernemingen (B2B) die handelen in het kader van hun commerciële, industriële, ambachtelijke of vrije beroepsactiviteit.",
+    "art6_p2": "Geleverde producten die conform de leveringsbon zijn, worden niet teruggenomen of geruild. Bij bewezen non-conformiteit bij levering (zichtbare gebreken) moet de koper duidelijke en nauwkeurige voorbehouden vermelden op het vervoersdocument en deze binnen 3 werkdagen na ontvangst per aangetekende brief met ontvangstbevestiging aan de vervoerder bevestigen, met kopie aan sotramsbois."
+  },
+  "auth": {
+    "login_title": "Connexion",
+    "register_title": "Création de compte",
+    "email": "Adresse Email",
+    "password": "Mot de passe",
+    "company": "Société",
+    "siret": "SIRET (Optionnel)",
+    "contact_name": "Nom du contact",
+    "phone": "Téléphone",
+    "login_btn": "Se connecter",
+    "register_btn": "Créer mon compte",
+    "guest_btn": "Continuer sans compte",
+    "logout": "Se déconnecter"
+  },
+  "cart": {
+    "title": "Votre Panier",
+    "empty": "Votre panier est vide",
+    "checkout_btn": "Valider la commande",
+    "subtotal": "Sous-total HT",
+    "discount": "Remise Volume",
+    "total": "Total HT",
+    "remove": "Supprimer",
+    "selected_items": "Geselecteerde artikelen (0)",
+    "order_area": "BESTELGEBIED"
+  },
+  "checkout": {
+    "title": "Récapitulatif de commande",
+    "delivery_details": "Détails de livraison",
+    "address": "Adresse de livraison",
+    "truck_access": "Accès Poids Lourd",
+    "payment_method": "Mode de paiement",
+    "bank_transfer_only": "Alleen bankoverschrijving",
+    "bank_transfer_desc": "Onze bankgegevens worden u toegestuurd na bevestiging van de bestelling.",
+    "confirm_btn": "Bestelling bevestigen",
+    "shipping_calculating": "Bezig met berekenen...",
+    "custom_quote": "Dien een offerteaanvraag op maat in.",
+    "cgv": "algemene verkoopvoorwaarden",
+    "request_quote": "Offerte aanvragen",
+    "bank_transfer": "Bankoverschrijving (SEPA)",
+    "delivery_fee": "Verzendkosten",
+    "to_be_calculated": "Te berekenen"
+  },
+  "confirmation": {
+    "title": "Bestelling bevestigd",
+    "ref": "Uw bestelnummer:",
+    "msg1": "Uw bestelling is succesvol geregistreerd.",
+    "msg2": "Alleen bankoverschrijving. Een e-mail met onze bankgegevens is verzonden naar {{email}}.",
+    "back_home": "Terug naar home",
+    "spam_notice_title": "Controleer uw spam",
+    "spam_notice": "Als u deze niet binnen enkele minuten ziet, controleer dan uw spammap."
+  },
+  "footer.client_space_title": "KLANTENZONE & WINKELWAGEN",
+  "footer.client_link_1": "Mijn Winkelwagen",
+  "footer.client_link_2": "Inloggen / Registreren",
+  "footer.client_link_3": "Levering Volgen",
+  "footer.client_link_4": "Verkoopafdeling",
+  "merci": {
+    "contact": "Bericht verzonden",
+    "contact_body": "Uw bericht is succesvol verzonden. Er is een ontvangstbevestiging verzonden naar {{email}}. We zullen zo snel mogelijk antwoorden.",
+    "devis": "Offerteaanvraag verzonden",
+    "devis_body": "Uw aanvraag is doorgestuurd naar ons team. Er is een bevestiging verzonden naar {{email}}.",
+    "inscription": "Registratie geslaagd",
+    "inscription_body": "Er is een activeringsmail verzonden naar {{email}}. U moet uw account activeren voordat u kunt inloggen.",
+    "inscription_cta": "Naar inloggen"
+  },
+  "depots": {
+    "title": "Aanwezig in het hart van de Europese houtindustrie",
+    "body": "Onze kracht is ons netwerk. Gevestigd in 8 landen en 24 steden in heel Europa, werken wij hand in hand met lokale producenten, zagerijen en groothandelaren om u het hele jaar door brandhout van hoge kwaliteit te garanderen tegen een beheerste prijs. Deze nabijheid tot onze partners stelt ons in staat onze bevoorrading veilig te stellen, zelfs in periodes van grote vraag, de kwaliteit bij de bron te controleren en u concurrerende tarieven aan te bieden zonder overbodige tussenpersonen.",
+    "countries": "Partnerlanden",
+    "local": "Lokale depots",
+    "presence": "Onze aanwezigheid"
+  },
+  "dashboard": {
+    "title": "Mijn Dashboard",
+    "logout": "Uitloggen",
+    "my_orders": "Mijn Bestellingen",
+    "loading": "Laden...",
+    "no_orders": "Momenteel geen bestellingen.",
+    "stat_total": "Totaal bestellingen",
+    "stat_pending": "In afwachting van betaling",
+    "stat_paid": "Betaald",
+    "stat_shipped": "Verzonden",
+    "stat_delivered": "Geleverd",
+    "profile": {
+      "company": "Bedrijf",
+      "contact": "Contact",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "address": "Adres",
+      "postal_code": "Postcode",
+      "city": "Plaats",
+      "edit_btn": "Mijn gegevens bewerken",
+      "cancel_btn": "Annuleren",
+      "save_btn": "Opslaan"
+    }
+  },
+  "admin": {
+    "orders_title": "Orderbeheer",
+    "filter_all": "Alle",
+    "search_placeholder": "Ref, Naam, E-mail...",
+    "loading": "Laden...",
+    "no_orders": "Geen bestellingen gevonden.",
+    "table": {
+      "ref": "Ref",
+      "date": "Datum",
+      "client": "Klant",
+      "total": "Totaal incl. btw",
+      "status": "Status (huidig)",
+      "action": "Actie"
     },
-    "blog": {
-        "article_1_title": "Winteropslag Optimaliseren: Vochtgehalte Onder 15% Houden",
-        "article_2_title": "De Toekomst van Industriële Houtpellets",
-        "article_3_title": "Welk Hout Kiezen voor Professioneel Koken?",
-        "article_4_title": "Anticiperen op Leveringsonderbrekingen",
-        "article_5_title": "Ontcijfering van de ISO 17225-2 Norm",
-        "hero": {
-            "title": "Expertise & Nieuws",
-            "subtitle": "De wetenschap van houtenergie."
-        },
-        "filter": {
-            "all": "ALLE ARTIKELEN",
-            "trends": "B2B-TRENDS",
-            "guide": "TECHNISCHE GIDS"
-        },
-        "draft": "Concept — artikel in voorbereiding",
-        "read_article": "ARTIKEL LEZEN",
-        "tag": {
-            "industry": "INDUSTRIE",
-            "gastronomy": "GASTRONOMIE",
-            "logistics": "LOGISTIEK",
-            "science": "WETENSCHAP & NORMEN"
-        },
-        "discover": "ONTDEKKEN",
-        "newsletter": {
-            "title": "Marktinzichten.",
-            "desc": "Ontvang onze maandelijkse marktanalyses, regelgevingsupdates en tips voor energieoptimalisatie rechtstreeks in uw inbox.",
-            "placeholder": "ZAKELIJK E-MAILADRES"
-        }
+    "select_status": "Status wijzigen...",
+    "confirm_status": "Status wijzigen naar: ",
+    "update_error": "Fout bij bijwerken",
+    "network_error": "Netwerkfout"
+  },
+  "order": {
+    "filter_all": "Alle",
+    "status_pending": "In afwachting van betaling",
+    "status_paid": "Betaald",
+    "status_shipped": "Verzonden",
+    "status_delivered": "Geleverd",
+    "table": {
+      "ref": "Referentie",
+      "date": "Datum",
+      "status": "Status",
+      "total": "Totaal incl. btw"
+    }
+  },
+  "modal": {
+    "title": "Bestelling ",
+    "download": "Bestelformulier downloaden",
+    "date": "Datum:",
+    "status": "Status:",
+    "client": "Klant:",
+    "delivery": "Levering:",
+    "table": {
+      "article": "Artikel",
+      "details": "Details",
+      "qty": "Aant",
+      "pu": "E.P.",
+      "total": "Totaal"
     },
-    "delivery_promo": {
-        "title": "Veilige industriële levering",
-        "desc": "Van duurzaam beheerde bossen tot op uw locatie. Onze vloot garandeert een constante aanvoer voor professionele volumes, met een gemiddelde verzendtijd van 48 uur.",
-        "cta": "Meer info over levering"
+    "total_ttc": "Totaal incl. btw",
+    "not_specified": "Niet gespecificeerd"
+  },
+  "contact": {
+    "info": {
+      "hq": "Hoofdkantoor & Depot",
+      "phone": "Telefoon",
+      "b2b_line": "B2B-rechtstreekse lijn",
+      "email": "E-mail",
+      "response_time": "Reactie binnen 24 werkuren",
+      "hours": "Openingstijden",
+      "mon_thu": "Maandag - Donderdag",
+      "fri": "Vrijdag",
+      "weekend": "Weekend",
+      "closed": "Gesloten"
     },
+    "form": {
+      "title": "Offerteaanvraag / Inlichtingen",
+      "subtitle": "Vul onderstaand formulier in, ons verkoopteam neemt snel contact met u op.",
+      "honeypot": "Laat dit veld leeg",
+      "company": "Bedrijf",
+      "siret": "KVK-nummer / btw-nummer",
+      "name": "Voor- en achternaam *",
+      "job": "Functie",
+      "email_pro": "Zakelijk e-mailadres *",
+      "phone_req": "Telefoon *",
+      "need_type": "Type behoefte *",
+      "comment": "Opmerking",
+      "submit": "AANVRAAG VERZENDEN"
+    },
+    "logistics": {
+      "title": "Logistiek platform",
+      "desc": "Directe toegang voor vrachtwagens. Een weegbrug van 50T is ter plaatse beschikbaar voor het wegen van voertuigen.",
+      "directions": "Route berekenen"
+    }
+  },
+  "quote": {
+    "title": "Offerte",
+    "assistance": "Directe ondersteuning",
     "specs": {
-        "humidity": "VOCHTGEHALTE",
-        "origin": "OORSPRONG",
-        "humidity_unavailable": "Niet gespecificeerd"
+      "title": "Productspecificaties",
+      "type": "PRODUCTTYPE *",
+      "format": "FORMAAT / VERPAKKING *",
+      "volume": "GESCHAT VOLUME *",
+      "units": "Pallets",
+      "min_order": "Minimumbestelling: 1 pallet / bulkeenheid.",
+      "recap_units": "1 pallet = "
     },
-    "cgv": {
-        "payment_method_title": "BETAALMETHODE",
-        "payment_method_desc": "Betaling geschiedt <strong>uitsluitend per bankoverschrijving</strong>. Andere betaalmethoden (creditcard, cheque, SEPA-incasso) worden niet geaccepteerd.",
-        "payment_terms_title": "BETALINGSTERMIJNEN",
-        "payment_terms_desc": "Volgens de voorwaarden die met uw accountmanager zijn overeengekomen.",
-        "legal_label": "Juridisch &amp; Compliance",
-        "page_title": "Algemene Verkoopvoorwaarden",
-        "toc_title": "Inhoudsopgave",
-        "b2b_title": "B2B-service",
-        "b2b_desc": "Voor vragen over onze groothandelsvoorwaarden kunt u contact opnemen met uw accountmanager.",
-        "art1_title": "Artikel 1 - Doel en toepassingsgebied",
-        "art1_p1": "Deze Algemene Verkoopvoorwaarden vormen de basis van de commerciële onderhandeling en worden systematisch aan elke koper verstrekt om een bestelling te kunnen plaatsen.",
-        "art1_info": "sotramsbois behoudt zich het recht voor om, afhankelijk van de onderhandelingen met de koper, van bepaalde bepalingen van deze voorwaarden af te wijken door middel van bijzondere verkoopvoorwaarden.",
-        "art2_title": "Artikel 2 - Producteigenschappen",
-        "art2_p1": "De te koop aangeboden producten zijn die welke op het moment van raadpleging in de B2B-catalogus van sotramsbois staan vermeld. De thermische en dimensionale eigenschappen worden gegarandeerd binnen de gebruikelijke industriële toleranties.",
-        "moisture_label": "GEGARANDEERD VOCHTGEHALTE",
-        "species_label": "HOUTSOORTEN",
-        "species_value": "Eik, Beuk, Haagbeuk (100% hardhout)",
-        "art2_p2": "De illustratieve foto’s in de catalogus zijn louter indicatief en vormen geen contractueel document. Aangezien hout een natuurlijk materiaal is, zijn variaties in uiterlijk, kleur of scheurvorming normaal en hebben deze geen enkele invloed op de gecertificeerde calorische waarde.",
-        "art3_title": "Artikel 3 - Prijzen en bestelling",
-        "art3_p1": "De prijzen zijn exclusief belastingen en exclusief leveringskosten (af fabriek of FCA), tenzij anders specifiek overeengekomen (DAP). De toepasselijke btw is die welke geldt op de dag van bestelling.",
-        "art4_title": "Artikel 4 - Logistiek en levering",
-        "art4_p1": "Gezien de zware aard van de producten is de logistiek onderworpen aan strikte regels om de veiligheid en het naleven van de termijnen te waarborgen. De levertermijnen zijn indicatief en een vertraging rechtvaardigt geen annulering van de bestelling of boetes.",
-        "pack_label": "1. VERPAKKING",
-        "pack_value": "UV-beschermde omwikkelde pallets",
-        "ship_label": "2. VERZENDING",
-        "ship_value": "19T-vrachtwagen of oplegger",
-        "unload_label": "3. LOSSEN",
-        "unload_value": "Boordheftruck vereist",
-        "access_title": "VERPLICHTE TOEGANGSVOORWAARDEN",
-        "access_desc": "De koper moet de toegankelijkheid van de leveringslocatie voor zware voertuigen (tot 44 ton) garanderen. Indien levering onmogelijk blijkt door een niet-gemelde toegangsbeperking, worden wachttijd- en retourkosten volledig aan de koper doorberekend.",
-        "art5_title": "Artikel 5 - Betalingsvoorwaarden",
-        "art5_p1": "Tenzij anders specifiek overeengekomen in de bijzondere voorwaarden, vindt de betaling plaats onder de volgende voorwaarden:",
-        "art6_title": "Artikel 6 - Geen herroepingsrecht",
-        "art6_p1": "Overeenkomstig de bepalingen van de Franse Consumentenwet is het herroepingsrecht niet van toepassing op overeenkomsten tussen ondernemingen (B2B) die handelen in het kader van hun commerciële, industriële, ambachtelijke of vrije beroepsactiviteit.",
-        "art6_p2": "Geleverde producten die conform de leveringsbon zijn, worden niet teruggenomen of geruild. Bij bewezen non-conformiteit bij levering (zichtbare gebreken) moet de koper duidelijke en nauwkeurige voorbehouden vermelden op het vervoersdocument en deze binnen 3 werkdagen na ontvangst per aangetekende brief met ontvangstbevestiging aan de vervoerder bevestigen, met kopie aan sotramsbois."
-    },
-    "auth": {
-        "login_title": "Connexion",
-        "register_title": "Création de compte",
-        "email": "Adresse Email",
-        "password": "Mot de passe",
-        "company": "Société",
-        "siret": "SIRET (Optionnel)",
-        "contact_name": "Nom du contact",
-        "phone": "Téléphone",
-        "login_btn": "Se connecter",
-        "register_btn": "Créer mon compte",
-        "guest_btn": "Continuer sans compte",
-        "logout": "Se déconnecter"
-    },
-    "cart": {
-        "title": "Votre Panier",
-        "empty": "Votre panier est vide",
-        "checkout_btn": "Valider la commande",
-        "subtotal": "Sous-total HT",
-        "discount": "Remise Volume",
-        "total": "Total HT",
-        "remove": "Supprimer",
-        "selected_items": "Geselecteerde artikelen (0)",
-        "order_area": "BESTELGEBIED"
-    },
-    "checkout": {
-        "title": "Récapitulatif de commande",
-        "delivery_details": "Détails de livraison",
-        "address": "Adresse de livraison",
-        "truck_access": "Accès Poids Lourd",
-        "payment_method": "Mode de paiement",
-        "bank_transfer_only": "Alleen bankoverschrijving",
-        "bank_transfer_desc": "Onze bankgegevens worden u toegestuurd na bevestiging van de bestelling.",
-        "confirm_btn": "Bestelling bevestigen",
-        "shipping_calculating": "Bezig met berekenen...",
-        "custom_quote": "Dien een offerteaanvraag op maat in.",
-        "cgv": "algemene verkoopvoorwaarden",
-        "request_quote": "Offerte aanvragen",
-        "bank_transfer": "Bankoverschrijving (SEPA)",
-        "delivery_fee": "Verzendkosten",
-        "to_be_calculated": "Te berekenen"
-    },
-    "confirmation": {
-        "title": "Bestelling bevestigd",
-        "ref": "Uw bestelnummer:",
-        "msg1": "Uw bestelling is succesvol geregistreerd.",
-        "msg2": "Alleen bankoverschrijving. Een e-mail met onze bankgegevens is verzonden naar {{email}}.",
-        "back_home": "Terug naar home",
-        "spam_notice_title": "Controleer uw spam",
-        "spam_notice": "Als u deze niet binnen enkele minuten ziet, controleer dan uw spammap."
-    },
-    "footer.client_space_title": "KLANTENZONE & WINKELWAGEN",
-    "footer.client_link_1": "Mijn Winkelwagen",
-    "footer.client_link_2": "Inloggen / Registreren",
-    "footer.client_link_3": "Levering Volgen",
-    "footer.client_link_4": "Verkoopafdeling",
-    "merci": {
-        "contact": "Bericht verzonden",
-        "contact_body": "Uw bericht is succesvol verzonden. Er is een ontvangstbevestiging verzonden naar {{email}}. We zullen zo snel mogelijk antwoorden.",
-        "devis": "Offerteaanvraag verzonden",
-        "devis_body": "Uw aanvraag is doorgestuurd naar ons team. Er is een bevestiging verzonden naar {{email}}.",
-        "inscription": "Registratie geslaagd",
-        "inscription_body": "Er is een activeringsmail verzonden naar {{email}}. U moet uw account activeren voordat u kunt inloggen.",
-        "inscription_cta": "Naar inloggen"
-    },
-    "depots": {
-        "title": "Aanwezig in het hart van de Europese houtindustrie",
-        "body": "Onze kracht is ons netwerk. Gevestigd in 8 landen en 24 steden in heel Europa, werken wij hand in hand met lokale producenten, zagerijen en groothandelaren om u het hele jaar door brandhout van hoge kwaliteit te garanderen tegen een beheerste prijs. Deze nabijheid tot onze partners stelt ons in staat onze bevoorrading veilig te stellen, zelfs in periodes van grote vraag, de kwaliteit bij de bron te controleren en u concurrerende tarieven aan te bieden zonder overbodige tussenpersonen.",
-        "countries": "Partnerlanden",
-        "local": "Lokale depots",
-        "presence": "Onze aanwezigheid"
-    },
-    "dashboard": {
-        "title": "Mijn Dashboard",
-        "logout": "Uitloggen",
-        "my_orders": "Mijn Bestellingen",
-        "loading": "Laden...",
-        "no_orders": "Momenteel geen bestellingen.",
-        "stat_total": "Totaal bestellingen",
-        "stat_pending": "In afwachting van betaling",
-        "stat_paid": "Betaald",
-        "stat_shipped": "Verzonden",
-        "stat_delivered": "Geleverd",
-        "profile": {
-            "company": "Bedrijf",
-            "contact": "Contact",
-            "email": "E-mail",
-            "phone": "Telefoon",
-            "address": "Adres",
-            "postal_code": "Postcode",
-            "city": "Plaats",
-            "edit_btn": "Mijn gegevens bewerken",
-            "cancel_btn": "Annuleren",
-            "save_btn": "Opslaan"
-        }
-    },
-    "admin": {
-        "orders_title": "Orderbeheer",
-        "filter_all": "Alle",
-        "search_placeholder": "Ref, Naam, E-mail...",
-        "loading": "Laden...",
-        "no_orders": "Geen bestellingen gevonden.",
-        "table": {
-            "ref": "Ref",
-            "date": "Datum",
-            "client": "Klant",
-            "total": "Totaal incl. btw",
-            "status": "Status (huidig)",
-            "action": "Actie"
-        },
-        "select_status": "Status wijzigen...",
-        "confirm_status": "Status wijzigen naar: ",
-        "update_error": "Fout bij bijwerken",
-        "network_error": "Netwerkfout"
-    },
-    "order": {
-        "filter_all": "Alle",
-        "status_pending": "In afwachting van betaling",
-        "status_paid": "Betaald",
-        "status_shipped": "Verzonden",
-        "status_delivered": "Geleverd",
-        "table": {
-            "ref": "Referentie",
-            "date": "Datum",
-            "status": "Status",
-            "total": "Totaal incl. btw"
-        }
-    },
-    "modal": {
-        "title": "Bestelling ",
-        "download": "Bestelformulier downloaden",
-        "date": "Datum:",
-        "status": "Status:",
-        "client": "Klant:",
-        "delivery": "Levering:",
-        "table": {
-            "article": "Artikel",
-            "details": "Details",
-            "qty": "Aant",
-            "pu": "E.P.",
-            "total": "Totaal"
-        },
-        "total_ttc": "Totaal incl. btw",
-        "not_specified": "Niet gespecificeerd"
+    "logistics": {
+      "title": "Logistieke informatie",
+      "date": "GEWENSTE DATUM",
+      "truck": "VRACHTWAGENTOEGANG *",
+      "address": "VOLLEDIG LEVERINGSADRES *"
     },
     "contact": {
-        "info": {
-            "hq": "Hoofdkantoor & Depot",
-            "phone": "Telefoon",
-            "b2b_line": "B2B-rechtstreekse lijn",
-            "email": "E-mail",
-            "response_time": "Reactie binnen 24 werkuren",
-            "hours": "Openingstijden",
-            "mon_thu": "Maandag - Donderdag",
-            "fri": "Vrijdag",
-            "weekend": "Weekend",
-            "closed": "Gesloten"
-        },
-        "form": {
-            "title": "Offerteaanvraag / Inlichtingen",
-            "subtitle": "Vul onderstaand formulier in, ons verkoopteam neemt snel contact met u op.",
-            "honeypot": "Laat dit veld leeg",
-            "company": "Bedrijf",
-            "siret": "KVK-nummer / btw-nummer",
-            "name": "Voor- en achternaam *",
-            "job": "Functie",
-            "email_pro": "Zakelijk e-mailadres *",
-            "phone_req": "Telefoon *",
-            "need_type": "Type behoefte *",
-            "comment": "Opmerking",
-            "submit": "AANVRAAG VERZENDEN"
-        },
-        "logistics": {
-            "title": "Logistiek platform",
-            "desc": "Directe toegang voor vrachtwagens. Een weegbrug van 50T is ter plaatse beschikbaar voor het wegen van voertuigen.",
-            "directions": "Route berekenen"
-        }
+      "title": "Contactgegevens",
+      "company": "BEDRIJF / HANDELSNAAM *",
+      "siret": "KVK-nummer / btw-nummer (Optioneel)",
+      "name": "CONTACTPERSOON *",
+      "email": "E-MAIL *",
+      "phone": "TELEFOON *",
+      "notes": "AANVULLENDE OPMERKINGEN (Optioneel)"
     },
-    "quote": {
-        "title": "Offerte",
-        "assistance": "Directe ondersteuning",
-        "specs": {
-            "title": "Productspecificaties",
-            "type": "PRODUCTTYPE *",
-            "format": "FORMAAT / VERPAKKING *",
-            "volume": "GESCHAT VOLUME *",
-            "units": "Eenheden",
-            "min_order": "Minimumbestelling: 1 pallet / bulkeenheid."
-        },
-        "logistics": {
-            "title": "Logistieke informatie",
-            "date": "GEWENSTE DATUM",
-            "truck": "VRACHTWAGENTOEGANG *",
-            "address": "VOLLEDIG LEVERINGSADRES *"
-        },
-        "contact": {
-            "title": "Contactgegevens",
-            "company": "BEDRIJF / HANDELSNAAM *",
-            "siret": "KVK-nummer / btw-nummer (Optioneel)",
-            "name": "CONTACTPERSOON *",
-            "email": "E-MAIL *",
-            "phone": "TELEFOON *",
-            "notes": "AANVULLENDE OPMERKINGEN (Optioneel)"
-        },
-        "submit": "AANVRAAG VERZENDEN",
-        "why": {
-            "title": "Waarom voor ons kiezen?",
-            "quality_title": "Gecertificeerde kwaliteit",
-            "quality_desc": "Hout van gecertificeerde kwaliteit, gegarandeerd vochtgehalte <20%.",
-            "speed_title": "B2B-Reactiesnelheid",
-            "speed_desc": "Offerte binnen 24u, prioritaire levering op bouwplaatsen of depots.",
-            "volume_title": "Aanpasbaar volume",
-            "volume_desc": "Van een losse pallet tot een volledige bulkoplegger."
-        },
-        "processing": "VERWERKEN..."
+    "submit": "AANVRAAG VERZENDEN",
+    "why": {
+      "title": "Waarom voor ons kiezen?",
+      "quality_title": "Gecertificeerde kwaliteit",
+      "quality_desc": "Hout van gecertificeerde kwaliteit, gegarandeerd vochtgehalte <20%.",
+      "speed_title": "B2B-Reactiesnelheid",
+      "speed_desc": "Offerte binnen 24u, prioritaire levering op bouwplaatsen of depots.",
+      "volume_title": "Aanpasbaar volume",
+      "volume_desc": "Van een losse pallet tot een volledige bulkoplegger."
     },
-    "register": {
-        "benefits": {
-            "title": "Exclusief B2B-portaal",
-            "delivery_title": "Oplegger- & bulklevering",
-            "delivery_desc": "Directe levering aan platform of productielocatie met laadklep en pompwagen.",
-            "pricing_title": "Zakelijke tarieven (incl. btw)",
-            "pricing_desc": "Direct zicht op volumekortingen en gecentraliseerde facturatie.",
-            "advisor_title": "Vaste accountmanager",
-            "advisor_desc": "Eén vast aanspreekpunt voor uw bestellingen en jaarcontracten.",
-            "approval_notice": "Zakelijke accounts worden binnen 24 werkuren goedgekeurd na verificatie van de juridische gegevens."
-        },
-        "form": {
-            "title": "Registratieformulier",
-            "subtitle": "Vul uw zakelijke gegevens in om uw account aan te maken.",
-            "type_pro": "Ik ben een zakelijke klant (bedrijf, wederverkoper, vakman...)",
-            "section_business": "Zakelijke gegevens",
-            "optional": "(Optioneel)",
-            "cgv": "Algemene verkoopvoorwaarden",
-            "already_account": "Al een account?",
-            "login": "Inloggen",
-            "submit": "Account aanmaken"
-        }
+    "processing": "VERWERKEN..."
+  },
+  "register": {
+    "benefits": {
+      "title": "Exclusief B2B-portaal",
+      "delivery_title": "Oplegger- & bulklevering",
+      "delivery_desc": "Directe levering aan platform of productielocatie met laadklep en pompwagen.",
+      "pricing_title": "Zakelijke tarieven (incl. btw)",
+      "pricing_desc": "Direct zicht op volumekortingen en gecentraliseerde facturatie.",
+      "advisor_title": "Vaste accountmanager",
+      "advisor_desc": "Eén vast aanspreekpunt voor uw bestellingen en jaarcontracten.",
+      "approval_notice": "Zakelijke accounts worden binnen 24 werkuren goedgekeurd na verificatie van de juridische gegevens."
     },
-    "login": {
-        "benefits": {
-            "title": "B2B-zakelijke omgeving",
-            "delivery_title": "Palletlevering",
-            "delivery_desc": "Nauwkeurige logistieke tracking in heel Frankrijk.",
-            "invoice_title": "Zakelijke facturatie",
-            "invoice_desc": "Gecentraliseerd beheer en digitale afleverbonnen."
-        },
-        "form": {
-            "title": "B2B-inloggen",
-            "subtitle": "Voer uw zakelijke gegevens in om toegang te krijgen tot uw account.",
-            "email": "Zakelijk e-mailadres",
-            "password": "Wachtwoord",
-            "forgot": "Wachtwoord vergeten?",
-            "remember": "Ingelogd blijven",
-            "submit": "Inloggen",
-            "guest": "Doorgaan als gast",
-            "no_account": "Nog geen account?",
-            "signup": "Registreren"
-        }
-    },
-    "guide": {
-        "hero": {
-            "title": "Expertise & Advies"
-        },
-        "nav": {
-            "species": "HOUTSOORT",
-            "moisture": "VOCHTGEHALTE",
-            "dimensions": "AFMETINGEN",
-            "storage": "OPSLAG"
-        },
-        "species": {
-            "title": "De juiste houtsoort kiezen",
-            "desc": "Niet alle houtsoorten zijn gelijk voor verwarming. Kies voor hardhout voor een langzame verbranding en hoge calorische waarde.",
-            "g1_title": "G1 - Hardhout",
-            "g1_desc": "Eik, Beuk, Es, Haagbeuk",
-            "calorific": "Calorische waarde",
-            "excellent": "Uitstekend",
-            "g2_title": "G2 - Zachter hardhout",
-            "g2_desc": "Kastanje, Acacia, Wilde kers",
-            "g3_title": "G3 - Naaldhout & Overige",
-            "g3_desc": "Den, Grove den, Spar, Berk",
-            "medium": "Gemiddeld"
-        },
-        "moisture": {
-            "title": "Het belang van het vochtgehalte",
-            "desc": "Droog hout (H1) geeft meer warmte af, vervuilt uw schoorsteen minder en vervuilt minder. Ontdek het efficiëntieverschil afhankelijk van de droogmethode.",
-            "h1_desc": "Direct klaar voor gebruik. Biedt het beste energierendement. Natuurlijke droging van 18 tot 24 maanden of kunstmatig gedroogd.",
-            "h2_desc": "Moet vóór gebruik 6 tot 12 maanden op een droge, geventileerde plaats worden opgeslagen. Voordeliger in aanschaf.",
-            "h3_desc": "Vers gekapt hout. Niet direct bruikbaar. Vereist minstens 2 jaar opslag voordat het verbrand kan worden.",
-            "yield_title": "Vergelijking energierendement",
-            "yield_desc": "Het verbranden van vochtig hout verspilt energie aan het verdampen van water voordat bruikbare warmte ontstaat."
-        },
-        "dimensions": {
-            "title": "De juiste lengte kiezen",
-            "desc": "De lengte van uw houtblokken moet passen bij de grootte van uw stookruimte. Meet de binnenkant van uw toestel en trek voor de veiligheid 5cm af.",
-            "small": "Kleine houtkachels, fornuizen. Zeer snelle droging.",
-            "standard": "Standaard voor de meeste moderne kachels en inzethaarden.",
-            "medium": "Tussenmaat voor middelgrote inzethaarden.",
-            "large": "Grote inzethaarden, traditionele open haarden."
-        },
-        "storage": {
-            "title": "Gouden regels voor opslag",
-            "desc": "Goed hout kan al zijn kwaliteiten verliezen bij verkeerde opslag. Bescherm uw investering door deze eenvoudige regels te volgen.",
-            "ventilation_title": "Ventilatie",
-            "vent_1": "Zet de houtstapel niet direct tegen een muur (laat ~10cm ruimte).",
-            "vent_2": "Kruis de houtblokken aan de uiteinden voor stabiliteit en ventilatie.",
-            "vent_3": "Kies een plek die is blootgesteld aan de overheersende wind en zon.",
-            "protection_title": "Bescherming",
-            "prot_1": "Isoleer van de grond met pallets of balken.",
-            "prot_2": "Bedek alleen de bovenkant met plaatstaal of een dekzeil (laat de zijkanten open).",
-            "prot_3": "Vermijd opslag in een gesloten kelder (risico op schimmel)."
-        }
-    },
-    "livraison": {
-        "process": {
-            "title": "Leveringsproces",
-            "validation": "Bevestiging",
-            "preparation": "Voorbereiding",
-            "scheduling": "Planning",
-            "delivery": "Ontvangst"
-        },
-        "fleet": {
-            "title": "Vloot- & toegangsspecificaties",
-            "tautliner_title": "44T huifopleggercombinatie",
-            "tautliner_desc": "Maximale capaciteit van 32 pallets. Ideaal voor grootvolume-leveringen aan locaties met laadperrons.",
-            "tail_lift": "Laadklep-afmetingen",
-            "clearance": "Min. doorrijhoogte",
-            "gate": "Min. poortbreedte",
-            "turning": "Draaicirkel",
-            "crane_title": "Kraanwagen",
-            "crane_desc": "Lossen over obstakels heen (muren, hagen). Reikwijdte tot 6m."
-        },
-        "area": {
-            "title": "Interventiegebied",
-            "zone1": "Zone 1 (D+1 / D+2)",
-            "zone2": "Zone 2 (D+3 / D+5)"
-        },
-        "constraints": "Terreinbeperkingen"
-    },
-    "reviews": {
-        "trust": {
-            "title": "Vertrouwensscore",
-            "subtitle": "vertrouwd door professionals.",
-            "customers": "+1k klanten"
-        },
-        "filter": {
-            "all": "ALLE",
-            "hospitality": "HORECA",
-            "industry": "INDUSTRIE",
-            "resellers": "WEDERVERKOPERS"
-        },
-        "commitments": "Onze kwaliteitsbeloften"
-    },
-    "mentions": {
-        "right_erasure": "Recht op wissing (\"recht om vergeten te worden\") en op beperking van de verwerking.",
-        "right_object": "Recht van bezwaar tegen de verwerking van uw gegevens om gegronde redenen.",
-        "right_access": "Recht op inzage en rectificatie van uw gegevens.",
-        "right_portability": "Recht op overdraagbaarheid van uw gegevens.",
-        "sec6": "6. Aansprakelijkheidsbeperking",
-        "sec3": "3. Intellectueel eigendom",
-        "pub_director": "DIRECTEUR VAN DE PUBLICATIE",
-        "data_gdpr": "Persoonsgegevens & AVG",
-        "ip": "Intellectueel eigendom",
-        "sec1": "1. Uitgeversinformatie",
-        "sec4": "4. Persoonsgegevens",
-        "sec5": "5. Cookiebeheer",
-        "vat_number": "INTRACOMMUNAUTAIR BTW-NUMMER",
-        "data_retention": "Bewaartermijn",
-        "last_updated": "Laatst bijgewerkt",
-        "pub_info": "Uitgeversinformatie",
-        "data_purpose": "Doel van de gegevensverwerking",
-        "page_title": "Wettelijke vermeldingen",
-        "trademarks": "Merken en logo's",
-        "sec2": "2. Hosting",
-        "company_name": "BEDRIJFSNAAM",
-        "share_capital": "MAATSCHAPPELIJK KAPITAAL",
-        "registered_office": "MAATSCHAPPELIJKE ZETEL",
-        "hosting": "Hosting",
-        "your_rights": "Uw rechten",
-        "contact": "CONTACT"
-    },
-    "privacy": {
-        "right_erasure_desc": "De verwijdering van uw gegevens eisen (\"recht om vergeten te worden\") binnen de wettelijke grenzen.",
-        "right_access_desc": "Bevestiging krijgen dat uw gegevens worden verwerkt en er een kopie van ontvangen.",
-        "right_portability_desc": "Uw gegevens ontvangen in een gestructureerd, machineleesbaar formaat.",
-        "dpo": "Onze Functionaris voor Gegevensbescherming staat tot uw beschikking.",
-        "right_rectification_desc": "De correctie van onjuiste of onvolledige informatie aanvragen.",
-        "page_title": "Privacybeleid",
-        "sec2": "2. Gebruik van gegevens",
-        "business_data": "Zakelijke gegevens",
-        "performance": "Prestaties & Analyse",
-        "sec1": "1. Gegevensverzameling",
-        "use_data": "Gebruik van gegevens",
-        "necessary": "Strikt noodzakelijk",
-        "data_protection": "Gegevensbescherming",
-        "sec3": "3. Cookiebeheer",
-        "right_rectification": "Recht op rectificatie",
-        "right_portability": "Recht op overdraagbaarheid",
-        "browsing_data": "Navigatiegegevens",
-        "last_updated": "LAATST BIJGEWERKT",
-        "sec4": "4. Uw rechten (AVG)",
-        "collection": "Gegevensverzameling",
-        "contract": "Uitvoering van de overeenkomst",
-        "right_erasure": "Recht op wissing",
-        "cookies": "Cookiebeheer",
-        "targeting": "Targeting & Reclame",
-        "gdpr": "AVG / EU 2016/679",
-        "exercise": "Uw rechten uitoefenen",
-        "rights": "Uw rechten (AVG)",
-        "legitimate": "Gerechtvaardigd belang",
-        "active": "Altijd actief",
-        "question": "Een vraag?",
-        "right_access": "Recht op inzage",
-        "consent": "Toestemming",
-        "compliance": "CONFORMITEIT",
-        "toc": "Inhoudsopgave"
-    },
-    "return": {
-        "cond1": "Producten moeten zich in de originele verpakking bevinden, ongeopend en onbeschadigd (palletfolie intact, pelletzakken verzegeld).",
-        "cond2": "Het hout mag niet zijn blootgesteld aan weersomstandigheden of zijn opgeslagen onder ongeschikte omstandigheden die het oorspronkelijke vochtgehalte wijzigen.",
-        "cond3": "De geretourneerde partij moet exact overeenkomen met de partijnummers vermeld op de leveringsbon.",
-        "last_updated": "Laatst bijgewerkt: 15 oktober 2023",
-        "general_cond": "Algemene Retourvoorwaarden",
-        "logistics": "Logistiek & Retourtransport",
-        "refund": "Terugbetalingsproces",
-        "dock_fee": "Kosten laadperronbehandeling",
-        "step1": "1. Ontvangst & Inspectie",
-        "step2": "2. Dossiervalidatie",
-        "pallet_fee": "Vast tarief pallet-ophaling",
-        "step3": "3. Uitbetaling",
-        "assistance": "Hulp nodig?",
-        "pallet_price": "(d.w.z. €150,00 excl. btw)",
-        "onsite": "Ophaling ter plaatse",
-        "dock_price": "(d.w.z. €35,00 excl. btw)",
-        "self_return": "Zelf retourneren",
-        "version": "Versie: 2.1",
-        "toc": "Inhoudsopgave",
-        "legal": "Juridisch"
-    },
-    "produit": {},
-    "product": {
-        "delivery_desc": "Levering per huifopleggercombinatie (max. 26 pallets/vrachtwagen). Lossen met vorkheftruck, voor rekening van de klant. Ophalen ter plaatse ook mogelijk.",
-        "select_format": "Selecteer hierboven een formaat voordat u bestelt.",
-        "max_discount": "Maximale korting bereikt!",
-        "logistics_info": "Logistieke informatie",
-        "discount_applied": "Toegepaste volumekorting",
-        "calorific": "CALORISCHE WAARDE",
-        "log_length": "Houtlengte",
-        "quantity_pallets": "Aantal (Pallets)",
-        "pallet_dimensions": "PALLETAFMETINGEN",
-        "firewood": "Brandhout",
-        "packaging": "VERPAKKING",
-        "recommended_price": "Aanbevolen prijs",
-        "wholesale_price": "Groothandelsprijs",
-        "subtotal": "Subtotaal (incl. btw)",
-        "pallet_weight": "PALLETGEWICHT",
-        "discount": "Volumekorting",
-        "catalog": "Catalogus",
-        "length": "LENGTE",
-        "species": "HOUTSOORT",
-        "volume": "VOLUME",
-        "total": "Totaal"
-    },
-    "panier": {},
-    "confirm": {
-        "order_shipped": "Uw bestelling wordt bevestigd en verzonden zodra uw overschrijving is ontvangen.",
-        "transfer_instruction": "Gelieve uw overschrijving te doen naar de volgende rekening:",
-        "order_number": "Uw bestelnummer",
-        "awaiting_transfer": "In afwachting van overschrijving",
-        "transfer_reminder": "Herinnering overschrijving",
-        "beneficiary": "Begunstigde:",
-        "reference": "Verplichte vermelding referentie:",
-        "bank": "Bank:",
-        "iban": "IBAN:",
-        "bic": "BIC:",
-        "for": "Voor:"
-    },
-    "activation": {
-        "wait": "Even geduld terwijl we uw account verifiëren.",
-        "invalid_desc": "Deze activatielink is niet meer geldig.",
-        "success_desc": "Uw account is succesvol geactiveerd.",
-        "invalid": "Ongeldige of verlopen link",
-        "activating": "Account wordt geactiveerd...",
-        "success": "Account geactiveerd!"
-    },
-    "tableau-de-bord": {},
-    "admin-commandes": {
-        "not_specified": "Niet opgegeven",
-        "unknown": "Onbekend",
-        "error": "Fout",
-        "load_error": "Fout bij het laden van bestellingen."
+    "form": {
+      "title": "Registratieformulier",
+      "subtitle": "Vul uw zakelijke gegevens in om uw account aan te maken.",
+      "type_pro": "Ik ben een zakelijke klant (bedrijf, wederverkoper, vakman...)",
+      "section_business": "Zakelijke gegevens",
+      "optional": "(Optioneel)",
+      "cgv": "Algemene verkoopvoorwaarden",
+      "already_account": "Al een account?",
+      "login": "Inloggen",
+      "submit": "Account aanmaken"
     }
+  },
+  "login": {
+    "benefits": {
+      "title": "B2B-zakelijke omgeving",
+      "delivery_title": "Palletlevering",
+      "delivery_desc": "Nauwkeurige logistieke tracking in heel Frankrijk.",
+      "invoice_title": "Zakelijke facturatie",
+      "invoice_desc": "Gecentraliseerd beheer en digitale afleverbonnen."
+    },
+    "form": {
+      "title": "B2B-inloggen",
+      "subtitle": "Voer uw zakelijke gegevens in om toegang te krijgen tot uw account.",
+      "email": "Zakelijk e-mailadres",
+      "password": "Wachtwoord",
+      "forgot": "Wachtwoord vergeten?",
+      "remember": "Ingelogd blijven",
+      "submit": "Inloggen",
+      "guest": "Doorgaan als gast",
+      "no_account": "Nog geen account?",
+      "signup": "Registreren"
+    }
+  },
+  "guide": {
+    "hero": {
+      "title": "Expertise & Advies"
+    },
+    "nav": {
+      "species": "HOUTSOORT",
+      "moisture": "VOCHTGEHALTE",
+      "dimensions": "AFMETINGEN",
+      "storage": "OPSLAG"
+    },
+    "species": {
+      "title": "De juiste houtsoort kiezen",
+      "desc": "Niet alle houtsoorten zijn gelijk voor verwarming. Kies voor hardhout voor een langzame verbranding en hoge calorische waarde.",
+      "g1_title": "G1 - Hardhout",
+      "g1_desc": "Eik, Beuk, Es, Haagbeuk",
+      "calorific": "Calorische waarde",
+      "excellent": "Uitstekend",
+      "g2_title": "G2 - Zachter hardhout",
+      "g2_desc": "Kastanje, Acacia, Wilde kers",
+      "g3_title": "G3 - Naaldhout & Overige",
+      "g3_desc": "Den, Grove den, Spar, Berk",
+      "medium": "Gemiddeld"
+    },
+    "moisture": {
+      "title": "Het belang van het vochtgehalte",
+      "desc": "Droog hout (H1) geeft meer warmte af, vervuilt uw schoorsteen minder en vervuilt minder. Ontdek het efficiëntieverschil afhankelijk van de droogmethode.",
+      "h1_desc": "Direct klaar voor gebruik. Biedt het beste energierendement. Natuurlijke droging van 18 tot 24 maanden of kunstmatig gedroogd.",
+      "h2_desc": "Moet vóór gebruik 6 tot 12 maanden op een droge, geventileerde plaats worden opgeslagen. Voordeliger in aanschaf.",
+      "h3_desc": "Vers gekapt hout. Niet direct bruikbaar. Vereist minstens 2 jaar opslag voordat het verbrand kan worden.",
+      "yield_title": "Vergelijking energierendement",
+      "yield_desc": "Het verbranden van vochtig hout verspilt energie aan het verdampen van water voordat bruikbare warmte ontstaat."
+    },
+    "dimensions": {
+      "title": "De juiste lengte kiezen",
+      "desc": "De lengte van uw houtblokken moet passen bij de grootte van uw stookruimte. Meet de binnenkant van uw toestel en trek voor de veiligheid 5cm af.",
+      "small": "Kleine houtkachels, fornuizen. Zeer snelle droging.",
+      "standard": "Standaard voor de meeste moderne kachels en inzethaarden.",
+      "medium": "Tussenmaat voor middelgrote inzethaarden.",
+      "large": "Grote inzethaarden, traditionele open haarden."
+    },
+    "storage": {
+      "title": "Gouden regels voor opslag",
+      "desc": "Goed hout kan al zijn kwaliteiten verliezen bij verkeerde opslag. Bescherm uw investering door deze eenvoudige regels te volgen.",
+      "ventilation_title": "Ventilatie",
+      "vent_1": "Zet de houtstapel niet direct tegen een muur (laat ~10cm ruimte).",
+      "vent_2": "Kruis de houtblokken aan de uiteinden voor stabiliteit en ventilatie.",
+      "vent_3": "Kies een plek die is blootgesteld aan de overheersende wind en zon.",
+      "protection_title": "Bescherming",
+      "prot_1": "Isoleer van de grond met pallets of balken.",
+      "prot_2": "Bedek alleen de bovenkant met plaatstaal of een dekzeil (laat de zijkanten open).",
+      "prot_3": "Vermijd opslag in een gesloten kelder (risico op schimmel)."
+    }
+  },
+  "livraison": {
+    "process": {
+      "title": "Leveringsproces",
+      "validation": "Bevestiging",
+      "preparation": "Voorbereiding",
+      "scheduling": "Planning",
+      "delivery": "Ontvangst"
+    },
+    "fleet": {
+      "title": "Vloot- & toegangsspecificaties",
+      "tautliner_title": "44T huifopleggercombinatie",
+      "tautliner_desc": "Maximale capaciteit van 32 pallets. Ideaal voor grootvolume-leveringen aan locaties met laadperrons.",
+      "tail_lift": "Laadklep-afmetingen",
+      "clearance": "Min. doorrijhoogte",
+      "gate": "Min. poortbreedte",
+      "turning": "Draaicirkel",
+      "crane_title": "Kraanwagen",
+      "crane_desc": "Lossen over obstakels heen (muren, hagen). Reikwijdte tot 6m."
+    },
+    "area": {
+      "title": "Interventiegebied",
+      "zone1": "Zone 1 (D+1 / D+2)",
+      "zone2": "Zone 2 (D+3 / D+5)"
+    },
+    "constraints": "Terreinbeperkingen"
+  },
+  "reviews": {
+    "trust": {
+      "title": "Vertrouwensscore",
+      "subtitle": "vertrouwd door professionals.",
+      "customers": "+1k klanten"
+    },
+    "filter": {
+      "all": "ALLE",
+      "hospitality": "HORECA",
+      "industry": "INDUSTRIE",
+      "resellers": "WEDERVERKOPERS"
+    },
+    "commitments": "Onze kwaliteitsbeloften"
+  },
+  "mentions": {
+    "right_erasure": "Recht op wissing (\"recht om vergeten te worden\") en op beperking van de verwerking.",
+    "right_object": "Recht van bezwaar tegen de verwerking van uw gegevens om gegronde redenen.",
+    "right_access": "Recht op inzage en rectificatie van uw gegevens.",
+    "right_portability": "Recht op overdraagbaarheid van uw gegevens.",
+    "sec6": "6. Aansprakelijkheidsbeperking",
+    "sec3": "3. Intellectueel eigendom",
+    "pub_director": "DIRECTEUR VAN DE PUBLICATIE",
+    "data_gdpr": "Persoonsgegevens & AVG",
+    "ip": "Intellectueel eigendom",
+    "sec1": "1. Uitgeversinformatie",
+    "sec4": "4. Persoonsgegevens",
+    "sec5": "5. Cookiebeheer",
+    "vat_number": "INTRACOMMUNAUTAIR BTW-NUMMER",
+    "data_retention": "Bewaartermijn",
+    "last_updated": "Laatst bijgewerkt",
+    "pub_info": "Uitgeversinformatie",
+    "data_purpose": "Doel van de gegevensverwerking",
+    "page_title": "Wettelijke vermeldingen",
+    "trademarks": "Merken en logo's",
+    "sec2": "2. Hosting",
+    "company_name": "BEDRIJFSNAAM",
+    "share_capital": "MAATSCHAPPELIJK KAPITAAL",
+    "registered_office": "MAATSCHAPPELIJKE ZETEL",
+    "hosting": "Hosting",
+    "your_rights": "Uw rechten",
+    "contact": "CONTACT"
+  },
+  "privacy": {
+    "right_erasure_desc": "De verwijdering van uw gegevens eisen (\"recht om vergeten te worden\") binnen de wettelijke grenzen.",
+    "right_access_desc": "Bevestiging krijgen dat uw gegevens worden verwerkt en er een kopie van ontvangen.",
+    "right_portability_desc": "Uw gegevens ontvangen in een gestructureerd, machineleesbaar formaat.",
+    "dpo": "Onze Functionaris voor Gegevensbescherming staat tot uw beschikking.",
+    "right_rectification_desc": "De correctie van onjuiste of onvolledige informatie aanvragen.",
+    "page_title": "Privacybeleid",
+    "sec2": "2. Gebruik van gegevens",
+    "business_data": "Zakelijke gegevens",
+    "performance": "Prestaties & Analyse",
+    "sec1": "1. Gegevensverzameling",
+    "use_data": "Gebruik van gegevens",
+    "necessary": "Strikt noodzakelijk",
+    "data_protection": "Gegevensbescherming",
+    "sec3": "3. Cookiebeheer",
+    "right_rectification": "Recht op rectificatie",
+    "right_portability": "Recht op overdraagbaarheid",
+    "browsing_data": "Navigatiegegevens",
+    "last_updated": "LAATST BIJGEWERKT",
+    "sec4": "4. Uw rechten (AVG)",
+    "collection": "Gegevensverzameling",
+    "contract": "Uitvoering van de overeenkomst",
+    "right_erasure": "Recht op wissing",
+    "cookies": "Cookiebeheer",
+    "targeting": "Targeting & Reclame",
+    "gdpr": "AVG / EU 2016/679",
+    "exercise": "Uw rechten uitoefenen",
+    "rights": "Uw rechten (AVG)",
+    "legitimate": "Gerechtvaardigd belang",
+    "active": "Altijd actief",
+    "question": "Een vraag?",
+    "right_access": "Recht op inzage",
+    "consent": "Toestemming",
+    "compliance": "CONFORMITEIT",
+    "toc": "Inhoudsopgave"
+  },
+  "return": {
+    "cond1": "Producten moeten zich in de originele verpakking bevinden, ongeopend en onbeschadigd (palletfolie intact, pelletzakken verzegeld).",
+    "cond2": "Het hout mag niet zijn blootgesteld aan weersomstandigheden of zijn opgeslagen onder ongeschikte omstandigheden die het oorspronkelijke vochtgehalte wijzigen.",
+    "cond3": "De geretourneerde partij moet exact overeenkomen met de partijnummers vermeld op de leveringsbon.",
+    "last_updated": "Laatst bijgewerkt: 15 oktober 2023",
+    "general_cond": "Algemene Retourvoorwaarden",
+    "logistics": "Logistiek & Retourtransport",
+    "refund": "Terugbetalingsproces",
+    "dock_fee": "Kosten laadperronbehandeling",
+    "step1": "1. Ontvangst & Inspectie",
+    "step2": "2. Dossiervalidatie",
+    "pallet_fee": "Vast tarief pallet-ophaling",
+    "step3": "3. Uitbetaling",
+    "assistance": "Hulp nodig?",
+    "pallet_price": "(d.w.z. €150,00 excl. btw)",
+    "onsite": "Ophaling ter plaatse",
+    "dock_price": "(d.w.z. €35,00 excl. btw)",
+    "self_return": "Zelf retourneren",
+    "version": "Versie: 2.1",
+    "toc": "Inhoudsopgave",
+    "legal": "Juridisch"
+  },
+  "produit": {},
+  "product": {
+    "delivery_desc": "Levering per huifopleggercombinatie (max. 26 pallets/vrachtwagen). Lossen met vorkheftruck, voor rekening van de klant. Ophalen ter plaatse ook mogelijk.",
+    "select_format": "Selecteer hierboven een formaat voordat u bestelt.",
+    "max_discount": "Maximale korting bereikt!",
+    "logistics_info": "Logistieke informatie",
+    "discount_applied": "Toegepaste volumekorting",
+    "calorific": "CALORISCHE WAARDE",
+    "log_length": "Houtlengte",
+    "quantity_pallets": "Aantal (Pallets)",
+    "pallet_dimensions": "PALLETAFMETINGEN",
+    "firewood": "Brandhout",
+    "packaging": "VERPAKKING",
+    "recommended_price": "Aanbevolen prijs",
+    "wholesale_price": "Groothandelsprijs",
+    "subtotal": "Subtotaal (incl. btw)",
+    "pallet_weight": "PALLETGEWICHT",
+    "discount": "Volumekorting",
+    "catalog": "Catalogus",
+    "length": "LENGTE",
+    "species": "HOUTSOORT",
+    "volume": "VOLUME",
+    "total": "Totaal"
+  },
+  "panier": {},
+  "confirm": {
+    "order_shipped": "Uw bestelling wordt bevestigd en verzonden zodra uw overschrijving is ontvangen.",
+    "transfer_instruction": "Gelieve uw overschrijving te doen naar de volgende rekening:",
+    "order_number": "Uw bestelnummer",
+    "awaiting_transfer": "In afwachting van overschrijving",
+    "transfer_reminder": "Herinnering overschrijving",
+    "beneficiary": "Begunstigde:",
+    "reference": "Verplichte vermelding referentie:",
+    "bank": "Bank:",
+    "iban": "IBAN:",
+    "bic": "BIC:",
+    "for": "Voor:"
+  },
+  "activation": {
+    "wait": "Even geduld terwijl we uw account verifiëren.",
+    "invalid_desc": "Deze activatielink is niet meer geldig.",
+    "success_desc": "Uw account is succesvol geactiveerd.",
+    "invalid": "Ongeldige of verlopen link",
+    "activating": "Account wordt geactiveerd...",
+    "success": "Account geactiveerd!"
+  },
+  "tableau-de-bord": {},
+  "admin-commandes": {
+    "not_specified": "Niet opgegeven",
+    "unknown": "Onbekend",
+    "error": "Fout",
+    "load_error": "Fout bij het laden van bestellingen."
+  }
 }

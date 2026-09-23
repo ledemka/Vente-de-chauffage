@@ -24,5 +24,6 @@
     "intro": "Merci de nous avoir contactés. Voici un récapitulatif de votre demande :",
     "delay_info": "Notre service client vous répondra dans les plus brefs délais.",
     "cta_home": "Retourner sur le site"
-  }
+  },
+  "qty_label": "Quantité demandée (palettes) :"
 }

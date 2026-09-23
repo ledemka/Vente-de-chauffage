@@ -1,692 +1,693 @@
 {
-    "site_name": "sotramsbois",
-    "tagline": "Vente en Gros & Demi-Gros de Bois de Chauffage, Pellets et Briquettes B2B",
-    "search_placeholder": "Rechercher un produit...",
-    "nav": {
-        "home": "Accueil",
-        "catalog": "Catalogue",
-        "delivery": "Livraison",
-        "reviews": "Avis Clients",
-        "guide": "Guide de Choix",
-        "quote": "Devis",
-        "returns": "Politique de Retour",
-        "blog": "Blog",
-        "contact": "Contact",
-        "depots": "Dépôts"
+  "site_name": "sotramsbois",
+  "tagline": "Vente en Gros & Demi-Gros de Bois de Chauffage, Pellets et Briquettes B2B",
+  "search_placeholder": "Rechercher un produit...",
+  "nav": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "delivery": "Livraison",
+    "reviews": "Avis Clients",
+    "guide": "Guide de Choix",
+    "quote": "Devis",
+    "returns": "Politique de Retour",
+    "blog": "Blog",
+    "contact": "Contact",
+    "depots": "Dépôts"
+  },
+  "categories": {
+    "1": "Bûches de bois",
+    "2": "Bûches compressées / briquettes de bois",
+    "3": "Briquettes",
+    "4": "Granulés / Pellets",
+    "5": "Charbon / Allume-feu / Bûches de torche",
+    "logs": "Bûches",
+    "briquettes_compressed": "Bûches Compressées",
+    "briquettes": "Briquettes",
+    "pellets": "Granulés (Pellets)",
+    "coal_starters": "Charbon & Acc.",
+    "coal_acc": "Charbon & Acc."
+  },
+  "catalog_discount_note": "Tarifs dégressifs dès 2 palettes — voir le détail sur chaque fiche produit",
+  "catalog": {
+    "filters": {
+      "title": "Filtres",
+      "category": "Catégorie",
+      "moisture": "Humidité (H2O)",
+      "all": "Tout",
+      "unspecified": "Non spécifié",
+      "format": "Format :",
+      "format_select": "Sélectionnez un format ↑"
     },
-    "categories": {
-        "1": "Bûches de bois",
-        "2": "Bûches compressées / briquettes de bois",
-        "3": "Briquettes",
-        "4": "Granulés / Pellets",
-        "5": "Charbon / Allume-feu / Bûches de torche",
-        "logs": "Bûches",
-        "briquettes_compressed": "Bûches Compressées",
-        "briquettes": "Briquettes",
-        "pellets": "Granulés (Pellets)",
-        "coal_starters": "Charbon & Acc.",
-        "coal_acc": "Charbon & Acc."
+    "table": {
+      "format": "FORMAT",
+      "unit_pallet": "UNITE / PALETTE",
+      "weight": "POIDS PALETTE",
+      "price": "PRIX GROS / PALETTE",
+      "currency": "€ TTC"
     },
-    "catalog_discount_note": "Tarifs dégressifs dès 2 palettes — voir le détail sur chaque fiche produit",
-    "catalog": {
-        "filters": {
-            "title": "Filtres",
-            "category": "Catégorie",
-            "moisture": "Humidité (H2O)",
-            "all": "Tout",
-            "unspecified": "Non spécifié",
-            "format": "Format :",
-            "format_select": "Sélectionnez un format ↑"
-        },
-        "table": {
-            "format": "FORMAT",
-            "unit_pallet": "UNITE / PALETTE",
-            "weight": "POIDS PALETTE",
-            "price": "PRIX GROS / PALETTE",
-            "currency": "€ TTC"
-        },
-        "category_label": "CATÉGORIE",
-        "references_label": "Références",
-        "reset_filters": "RÉINITIALISER",
-        "toast_select_format": "Veuillez sélectionner un format avant de choisir votre bois.",
-        "no_products": "Aucun produit ne correspond à ces critères.",
-        "format_warning": "Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.",
-        "format_selected": "sélectionné",
-        "units_per_pallet": "unités/palette",
-        "unspecified": "non spécifié"
-    },
-    "index": {
-        "hero": {
-            "tagline": "Grossiste Biomasse & Bois Énergie",
-            "rating_badge": "Plus de 1 000 clients B2B satisfaits en Europe",
-            "subtitle": "Solutions de chauffage au bois adaptées aux besoins industriels et à la revente. Rendement calorifique optimal et taux d'humidité contrôlé."
-        }
-    },
-    "rating_badge": "4,8/5 — Plus de 1 000 clients B2B satisfaits en Europe",
-    "pricing": {
-        "discount_title": "VOTRE TARIF DÉGRESSIF",
-        "select_quantity": "Quantité (Palettes) :",
-        "tier_level": "Palier :",
-        "full_truckload": "Tarif Camion Complet (-10%)",
-        "discount_rate": "Réduction appliquée :",
-        "unit_price_after_discount": "Prix unitaire après remise :",
-        "total_price": "Prix total de la commande HT :",
-        "next_tier_incentive": "Ajoutez {count} palette(s) supplémentaire(s) pour bénéficier de -{pct}% !"
-    },
+    "category_label": "CATÉGORIE",
+    "references_label": "Références",
+    "reset_filters": "RÉINITIALISER",
+    "toast_select_format": "Veuillez sélectionner un format avant de choisir votre bois.",
+    "no_products": "Aucun produit ne correspond à ces critères.",
+    "format_warning": "Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.",
+    "format_selected": "sélectionné",
+    "units_per_pallet": "unités/palette",
+    "unspecified": "non spécifié"
+  },
+  "index": {
     "hero": {
-        "tagline": "Grossiste Biomasse & Bois Énergie",
-        "title_html": "L'Exigence Thermique<br/>au Service des Professionnels.",
-        "subtitle": "Approvisionnement garanti en bois de chauffage, granulés et briquettes haute performance. Qualité premium, traçabilité certifiée et logistique optimisée pour les revendeurs et les industries.",
-        "cta_catalog": "DÉCOUVRIR LE CATALOGUE",
-        "cta_quote": "DEMANDER UN DEVIS"
+      "tagline": "Grossiste Biomasse & Bois Énergie",
+      "rating_badge": "Plus de 1 000 clients B2B satisfaits en Europe",
+      "subtitle": "Solutions de chauffage au bois adaptées aux besoins industriels et à la revente. Rendement calorifique optimal et taux d'humidité contrôlé."
+    }
+  },
+  "rating_badge": "4,8/5 — Plus de 1 000 clients B2B satisfaits en Europe",
+  "pricing": {
+    "discount_title": "VOTRE TARIF DÉGRESSIF",
+    "select_quantity": "Quantité (Palettes) :",
+    "tier_level": "Palier :",
+    "full_truckload": "Tarif Camion Complet (-10%)",
+    "discount_rate": "Réduction appliquée :",
+    "unit_price_after_discount": "Prix unitaire après remise :",
+    "total_price": "Prix total de la commande HT :",
+    "next_tier_incentive": "Ajoutez {count} palette(s) supplémentaire(s) pour bénéficier de -{pct}% !"
+  },
+  "hero": {
+    "tagline": "Grossiste Biomasse & Bois Énergie",
+    "title_html": "L'Exigence Thermique<br/>au Service des Professionnels.",
+    "subtitle": "Approvisionnement garanti en bois de chauffage, granulés et briquettes haute performance. Qualité premium, traçabilité certifiée et logistique optimisée pour les revendeurs et les industries.",
+    "cta_catalog": "DÉCOUVRIR LE CATALOGUE",
+    "cta_quote": "DEMANDER UN DEVIS"
+  },
+  "metrics": {
+    "metric_1_val": "15k+",
+    "metric_1_label": "Tonnes Livrées / An",
+    "metric_2_val": "100%",
+    "metric_2_label": "Bois Certifié",
+    "metric_3_val": "48h",
+    "metric_3_label": "Délais d'Expédition"
+  },
+  "categories_section": {
+    "title": "Gamme de Combustibles",
+    "subtitle": "Solutions de chauffage au bois adaptées aux besoins industriels et à la revente. Rendement calorifique optimal et taux d'humidité contrôlé.",
+    "logs_desc": "Bois dur séché, prêt à l'emploi. Humidité < 20%.",
+    "briquettes_compressed_desc": "Haut pouvoir calorifique. Jour et nuit.",
+    "briquettes_desc": "Idéal professionnels. Stockage optimisé.",
+    "pellets_desc": "Certifiés DINplus / ENplus A1. Vrac et palettes.",
+    "coal_starters_desc": "Charbon de bois restauration, allume-feux.",
+    "cta_view": "VOIR LA GAMME"
+  },
+  "footer": {
+    "desc": "Solutions professionnelles de biomasse et bois de chauffage haute performance.",
+    "services_title": "PRODUITS & SERVICES",
+    "service_1": "Bûches de bois franc",
+    "service_2": "Granulés (Pellets)",
+    "service_3": "Bois de cuisson pro",
+    "service_4": "Tarifs Gros & B2B",
+    "coords_title": "COORDONNÉES",
+    "address": "[Adresse à compléter par le client]",
+    "phone": "[Téléphone à compléter par le client]",
+    "email": "contact@sotramsbois.com",
+    "legal": "Mentions Légales",
+    "cgv": "CGV",
+    "privacy": "Confidentialité",
+    "reassurance_title": "Engagement Qualité Grossiste",
+    "reassurance_1": "Bois de Qualité Certifiée",
+    "reassurance_2": "Granulés DINplus / ENplus A1",
+    "reassurance_3": "Livraison avec Haillon & Transpalette",
+    "reassurance_4": "Conditions de Règlement B2B",
+    "service_5": "Livraison",
+    "return_policy": "Politique de Retour"
+  },
+  "blog": {
+    "article_1_title": "Optimisation du Stockage Hivernal : Maintenir un Taux d'Humidité Inférieur à 15%",
+    "article_2_title": "L'Avenir du Pellet Industriel",
+    "article_3_title": "Quel bois choisir pour la cuisson professionnelle ?",
+    "article_4_title": "Anticiper les ruptures d'approvisionnement",
+    "article_5_title": "Décryptage : La norme ISO 17225-2",
+    "hero": {
+      "title": "Expertise & Actualités",
+      "subtitle": "La science du bois énergie."
     },
-    "metrics": {
-        "metric_1_val": "15k+",
-        "metric_1_label": "Tonnes Livrées / An",
-        "metric_2_val": "100%",
-        "metric_2_label": "Bois Certifié",
-        "metric_3_val": "48h",
-        "metric_3_label": "Délais d'Expédition"
+    "filter": {
+      "all": "TOUS LES ARTICLES",
+      "trends": "TENDANCES B2B",
+      "guide": "GUIDE TECHNIQUE"
     },
-    "categories_section": {
-        "title": "Gamme de Combustibles",
-        "subtitle": "Solutions de chauffage au bois adaptées aux besoins industriels et à la revente. Rendement calorifique optimal et taux d'humidité contrôlé.",
-        "logs_desc": "Bois dur séché, prêt à l'emploi. Humidité < 20%.",
-        "briquettes_compressed_desc": "Haut pouvoir calorifique. Jour et nuit.",
-        "briquettes_desc": "Idéal professionnels. Stockage optimisé.",
-        "pellets_desc": "Certifiés DINplus / ENplus A1. Vrac et palettes.",
-        "coal_starters_desc": "Charbon de bois restauration, allume-feux.",
-        "cta_view": "VOIR LA GAMME"
+    "draft": "Brouillon — article à rédiger",
+    "read_article": "LIRE L'ARTICLE",
+    "tag": {
+      "industry": "INDUSTRIE",
+      "gastronomy": "GASTRONOMIE",
+      "logistics": "LOGISTIQUE",
+      "science": "SCIENCES & NORMES"
     },
-    "footer": {
-        "desc": "Solutions professionnelles de biomasse et bois de chauffage haute performance.",
-        "services_title": "PRODUITS & SERVICES",
-        "service_1": "Bûches de bois franc",
-        "service_2": "Granulés (Pellets)",
-        "service_3": "Bois de cuisson pro",
-        "service_4": "Tarifs Gros & B2B",
-        "coords_title": "COORDONNÉES",
-        "address": "[Adresse à compléter par le client]",
-        "phone": "[Téléphone à compléter par le client]",
-        "email": "contact@sotramsbois.com",
-        "legal": "Mentions Légales",
-        "cgv": "CGV",
-        "privacy": "Confidentialité",
-        "reassurance_title": "Engagement Qualité Grossiste",
-        "reassurance_1": "Bois de Qualité Certifiée",
-        "reassurance_2": "Granulés DINplus / ENplus A1",
-        "reassurance_3": "Livraison avec Haillon & Transpalette",
-        "reassurance_4": "Conditions de Règlement B2B",
-        "service_5": "Livraison",
-        "return_policy": "Politique de Retour"
+    "discover": "DÉCOUVRIR",
+    "newsletter": {
+      "title": "Veille Stratégique.",
+      "desc": "Recevez nos analyses de marché mensuelles, les évolutions réglementaires et les conseils d'optimisation énergétique directement dans votre boîte mail.",
+      "placeholder": "ADRESSE EMAIL PROFESSIONNELLE"
+    }
+  },
+  "delivery_promo": {
+    "title": "Livraison Industrielle Sécurisée",
+    "desc": "Des forêts gérées durablement jusqu'à votre site. Notre flotte garantit un approvisionnement constant pour les volumes professionnels, avec un délai d'expédition moyen de 48h.",
+    "cta": "En savoir plus sur la livraison"
+  },
+  "specs": {
+    "humidity": "TAUX D'HUMIDITÉ",
+    "origin": "ORIGINE",
+    "humidity_unavailable": "Non communiqué"
+  },
+  "cgv": {
+    "payment_method_title": "MODE DE PAIEMENT",
+    "payment_method_desc": "Le règlement s'effectue <strong>exclusivement par virement bancaire</strong>. Aucun autre moyen de paiement (carte bancaire, chèque, prélèvement SEPA) n'est accepté.",
+    "payment_terms_title": "DÉLAIS DE PAIEMENT",
+    "payment_terms_desc": "Selon les modalités convenues avec votre chargé de compte.",
+    "legal_label": "Juridique &amp; Conformité",
+    "page_title": "Conditions Générales de Vente",
+    "toc_title": "Sommaire",
+    "b2b_title": "Service B2B",
+    "b2b_desc": "Pour toute question concernant nos conditions de vente en gros, contactez votre chargé de compte.",
+    "art1_title": "Article 1 - Objet et Champ d’Application",
+    "art1_p1": "Les présentes Conditions Générales de Vente (CGV) constituent le socle de la négociation commerciale et sont systématiquement adressées ou remises à chaque acheteur pour lui permettre de passer commande.",
+    "art1_info": "sotramsbois se réserve le droit de déroger à certaines clauses des présentes CGV, en fonction des négociations menées avec l’acheteur, par l’établissement de Conditions Particulières de Vente.",
+    "art2_title": "Article 2 - Caractéristiques des Produits",
+    "art2_p1": "Les produits proposés à la vente sont ceux figurant sur le catalogue B2B de sotramsbois au jour de la consultation. Les caractéristiques thermiques et dimensionnelles sont garanties dans les limites des tolérances industrielles.",
+    "moisture_label": "TAUX D’HUMIDITÉ GARANTI",
+    "species_label": "ESSENCES",
+    "species_value": "Chêne, Hêtre, Charme (Bois Dur 100%)",
+    "art2_p2": "Les photographies d’illustration du catalogue n’ont qu’une valeur indicative et ne constituent pas un document contractuel. Le bois étant un matériau naturel, des variations d’aspect, de couleur ou de fente sont normales et n’affectent en rien le pouvoir calorifique certifié.",
+    "art3_title": "Article 3 - Prix et Commande",
+    "art3_p1": "Les prix sont stipulés Hors Taxes (HT) et hors frais de livraison (Départ Entrepôt ou FCA), sauf accord spécifique (DAP). La TVA applicable est celle en vigueur au jour de la commande.",
+    "art4_title": "Article 4 - Logistique et Livraison",
+    "art4_p1": "Compte tenu de la nature pondéreuse des produits, la logistique obéit à des règles strictes pour garantir la sécurité et le respect des délais. Les délais de livraison sont donnés à titre indicatif et un retard ne saurait justifier l’annulation de la commande ou des pénalités.",
+    "pack_label": "1. CONDITIONNEMENT",
+    "pack_value": "Palettes filmées anti-UV",
+    "ship_label": "2. EXPÉDITION",
+    "ship_value": "Camion 19T ou Semi-remorque",
+    "unload_label": "3. DÉCHARGEMENT",
+    "unload_value": "Chariot embarqué requis",
+    "access_title": "CONDITIONS D’ACCÈS OBLIGATOIRES",
+    "access_desc": "L’acheteur doit garantir l’accessibilité du site de livraison aux véhicules lourds (jusqu’à 44 tonnes). En cas d’impossibilité de livraison due à un défaut d’accès non signalé, les frais de souffrance et de retour seront intégralement facturés à l’acheteur.",
+    "art5_title": "Article 5 - Modalités de Paiement",
+    "art5_p1": "Sauf accord spécifique consigné dans les conditions particulières, le règlement s’effectue dans les conditions suivantes :",
+    "art6_title": "Article 6 - Absence de Droit de Rétractation",
+    "art6_p1": "Conformément aux dispositions du Code de la consommation, le droit de rétractation n’est pas applicable aux contrats conclus entre professionnels (B2B) agissant dans le cadre de leur activité commerciale, industrielle, artisanale ou libérale.",
+    "art6_p2": "Les produits livrés et conformes au bon de livraison ne sont ni repris ni échangés. En cas de non-conformité avérée lors de la livraison (vices apparents), l’acheteur doit émettre des réserves claires et précises sur le bordereau de transport et les confirmer par lettre recommandée avec AR au transporteur dans les 3 jours ouvrables suivant la réception, avec copie à sotramsbois."
+  },
+  "auth": {
+    "login_title": "Connexion",
+    "register_title": "Création de compte",
+    "email": "Adresse Email",
+    "password": "Mot de passe",
+    "company": "Société",
+    "siret": "SIRET (Optionnel)",
+    "contact_name": "Nom du contact",
+    "phone": "Téléphone",
+    "login_btn": "Se connecter",
+    "register_btn": "Créer mon compte",
+    "guest_btn": "Continuer sans compte",
+    "logout": "Se déconnecter"
+  },
+  "cart": {
+    "title": "Votre Panier",
+    "empty": "Votre panier est vide",
+    "checkout_btn": "Valider la commande",
+    "subtotal": "Sous-total HT",
+    "discount": "Remise Volume",
+    "total": "Total HT",
+    "remove": "Supprimer",
+    "selected_items": "Articles sélectionnés (0)",
+    "order_area": "ESPACE COMMANDE"
+  },
+  "checkout": {
+    "title": "Récapitulatif de commande",
+    "delivery_details": "Détails de livraison",
+    "address": "Adresse de livraison",
+    "truck_access": "Accès Poids Lourd",
+    "payment_method": "Mode de paiement",
+    "bank_transfer_only": "Virement bancaire uniquement",
+    "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
+    "confirm_btn": "Confirmer la commande",
+    "shipping_calculating": "Calcul en cours...",
+    "custom_quote": "Veuillez effectuer une demande de devis sur mesure.",
+    "cgv": "conditions générales de vente",
+    "request_quote": "Faire une demande de devis",
+    "bank_transfer": "Virement Bancaire (SEPA)",
+    "delivery_fee": "Frais de livraison",
+    "to_be_calculated": "À calculer"
+  },
+  "confirmation": {
+    "title": "Commande confirmée",
+    "ref": "Référence de votre commande :",
+    "msg1": "Votre commande a bien été enregistrée.",
+    "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires a été envoyé à {{email}}.",
+    "back_home": "Retour à l'accueil",
+    "spam_notice_title": "Vérifiez vos spams",
+    "spam_notice": "Si vous ne le voyez pas d'ici quelques minutes, vérifiez votre dossier spam."
+  },
+  "footer.client_space_title": "ESPACE CLIENT & PANIER",
+  "footer.client_link_1": "Mon Panier",
+  "footer.client_link_2": "Connexion / Inscription",
+  "footer.client_link_3": "Suivi de livraison",
+  "footer.client_link_4": "Service commercial",
+  "merci": {
+    "contact": "Message envoyé",
+    "contact_body": "Votre message a bien été envoyé. Un accusé de réception a été envoyé à {{email}}. Nous vous répondrons dans les plus brefs délais.",
+    "devis": "Demande de devis envoyée",
+    "devis_body": "Votre demande a bien été transmise à notre équipe. Une confirmation a été envoyée à {{email}}.",
+    "inscription": "Inscription réussie",
+    "inscription_body": "Un email d'activation a été envoyé à {{email}}. Vous devez activer votre compte avant de pouvoir vous connecter.",
+    "inscription_cta": "Aller à la connexion"
+  },
+  "depots": {
+    "title": "Présents au cœur de l'Europe du bois",
+    "body": "Notre force, c'est notre réseau. Implantés dans 8 pays et 24 villes à travers l'Europe, nous travaillons main dans la main avec des producteurs, scieries et grossistes locaux pour vous garantir un bois de chauffage de qualité, disponible toute l'année et à un prix maîtrisé. Cette proximité avec nos partenaires nous permet de sécuriser nos approvisionnements même en période de forte demande, de contrôler la qualité à la source, et de vous proposer des tarifs compétitifs sans intermédiaire superflu.",
+    "countries": "Pays partenaires",
+    "local": "Dépôts locaux",
+    "presence": "Notre présence"
+  },
+  "dashboard": {
+    "title": "Mon Tableau de Bord",
+    "logout": "Déconnexion",
+    "my_orders": "Mes Commandes",
+    "loading": "Chargement...",
+    "no_orders": "Aucune commande pour le moment.",
+    "stat_total": "Total commandes",
+    "stat_pending": "En attente payement",
+    "stat_paid": "Payé",
+    "stat_shipped": "En cour Livraison",
+    "stat_delivered": "Livrées",
+    "profile": {
+      "company": "Société",
+      "contact": "Contact",
+      "email": "Email",
+      "phone": "Téléphone",
+      "address": "Adresse",
+      "postal_code": "Code Postal",
+      "city": "Ville",
+      "edit_btn": "Modifier mes informations",
+      "cancel_btn": "Annuler",
+      "save_btn": "Enregistrer"
+    }
+  },
+  "admin": {
+    "orders_title": "Gestion des commandes",
+    "filter_all": "Toutes",
+    "search_placeholder": "Réf, Nom, Email...",
+    "loading": "Chargement...",
+    "no_orders": "Aucune commande trouvée.",
+    "table": {
+      "ref": "Réf",
+      "date": "Date",
+      "client": "Client",
+      "total": "Total TTC",
+      "status": "Statut (actuel)",
+      "action": "Action"
     },
-    "blog": {
-        "article_1_title": "Optimisation du Stockage Hivernal : Maintenir un Taux d'Humidité Inférieur à 15%",
-        "article_2_title": "L'Avenir du Pellet Industriel",
-        "article_3_title": "Quel bois choisir pour la cuisson professionnelle ?",
-        "article_4_title": "Anticiper les ruptures d'approvisionnement",
-        "article_5_title": "Décryptage : La norme ISO 17225-2",
-        "hero": {
-            "title": "Expertise & Actualités",
-            "subtitle": "La science du bois énergie."
-        },
-        "filter": {
-            "all": "TOUS LES ARTICLES",
-            "trends": "TENDANCES B2B",
-            "guide": "GUIDE TECHNIQUE"
-        },
-        "draft": "Brouillon — article à rédiger",
-        "read_article": "LIRE L'ARTICLE",
-        "tag": {
-            "industry": "INDUSTRIE",
-            "gastronomy": "GASTRONOMIE",
-            "logistics": "LOGISTIQUE",
-            "science": "SCIENCES & NORMES"
-        },
-        "discover": "DÉCOUVRIR",
-        "newsletter": {
-            "title": "Veille Stratégique.",
-            "desc": "Recevez nos analyses de marché mensuelles, les évolutions réglementaires et les conseils d'optimisation énergétique directement dans votre boîte mail.",
-            "placeholder": "ADRESSE EMAIL PROFESSIONNELLE"
-        }
+    "select_status": "Changer statut...",
+    "confirm_status": "Changer le statut en : ",
+    "update_error": "Erreur lors de la mise à jour",
+    "network_error": "Erreur réseau"
+  },
+  "order": {
+    "filter_all": "Toutes",
+    "status_pending": "En attente de payement",
+    "status_paid": "Payé",
+    "status_shipped": "En cour de Livraison",
+    "status_delivered": "Livrée",
+    "table": {
+      "ref": "Référence",
+      "date": "Date",
+      "status": "Statut",
+      "total": "Total TTC"
+    }
+  },
+  "modal": {
+    "title": "Commande ",
+    "download": "Télécharger le bon de commande",
+    "date": "Date :",
+    "status": "Statut :",
+    "client": "Client :",
+    "delivery": "Livraison :",
+    "table": {
+      "article": "Article",
+      "details": "Détails",
+      "qty": "Qté",
+      "pu": "P.U.",
+      "total": "Total"
     },
-    "delivery_promo": {
-        "title": "Livraison Industrielle Sécurisée",
-        "desc": "Des forêts gérées durablement jusqu'à votre site. Notre flotte garantit un approvisionnement constant pour les volumes professionnels, avec un délai d'expédition moyen de 48h.",
-        "cta": "En savoir plus sur la livraison"
+    "total_ttc": "Total TTC",
+    "not_specified": "Non spécifiée"
+  },
+  "contact": {
+    "info": {
+      "hq": "Siège Social & Dépôt",
+      "phone": "Téléphone",
+      "b2b_line": "Ligne directe B2B",
+      "email": "Email",
+      "response_time": "Réponse sous 24h ouvrées",
+      "hours": "Heures d'Ouverture",
+      "mon_thu": "Lundi - Jeudi",
+      "fri": "Vendredi",
+      "weekend": "Week-end",
+      "closed": "Fermé"
     },
+    "form": {
+      "title": "Demande de devis / Renseignements",
+      "subtitle": "Remplissez le formulaire ci-dessous, notre service commercial vous recontactera rapidement.",
+      "honeypot": "Laissez ce champ vide",
+      "company": "Société",
+      "siret": "SIRET / TVA Intracom.",
+      "name": "Nom & Prénom *",
+      "job": "Fonction",
+      "email_pro": "Email professionnel *",
+      "phone_req": "Téléphone *",
+      "need_type": "Type de besoin *",
+      "comment": "Commentaire",
+      "submit": "ENVOYER LA DEMANDE"
+    },
+    "logistics": {
+      "title": "Plateforme Logistique",
+      "desc": "Accès direct pour les camions de livraison. Un pont-bascule de 50T est disponible sur site pour la pesée des véhicules.",
+      "directions": "Calculer l'itinéraire"
+    }
+  },
+  "quote": {
+    "title": "Cotation",
+    "assistance": "Assistance Directe",
     "specs": {
-        "humidity": "TAUX D'HUMIDITÉ",
-        "origin": "ORIGINE",
-        "humidity_unavailable": "Non communiqué"
+      "title": "Spécifications Produit",
+      "type": "TYPE DE PRODUIT *",
+      "format": "FORMAT / CONDITIONNEMENT *",
+      "volume": "VOLUME ESTIMÉ *",
+      "units": "Palettes",
+      "min_order": "Minimum de commande: 1 palette / unité de vrac.",
+      "recap_units": "1 palette = "
     },
-    "cgv": {
-        "payment_method_title": "MODE DE PAIEMENT",
-        "payment_method_desc": "Le règlement s'effectue <strong>exclusivement par virement bancaire</strong>. Aucun autre moyen de paiement (carte bancaire, chèque, prélèvement SEPA) n'est accepté.",
-        "payment_terms_title": "DÉLAIS DE PAIEMENT",
-        "payment_terms_desc": "Selon les modalités convenues avec votre chargé de compte.",
-        "legal_label": "Juridique &amp; Conformité",
-        "page_title": "Conditions Générales de Vente",
-        "toc_title": "Sommaire",
-        "b2b_title": "Service B2B",
-        "b2b_desc": "Pour toute question concernant nos conditions de vente en gros, contactez votre chargé de compte.",
-        "art1_title": "Article 1 - Objet et Champ d’Application",
-        "art1_p1": "Les présentes Conditions Générales de Vente (CGV) constituent le socle de la négociation commerciale et sont systématiquement adressées ou remises à chaque acheteur pour lui permettre de passer commande.",
-        "art1_info": "sotramsbois se réserve le droit de déroger à certaines clauses des présentes CGV, en fonction des négociations menées avec l’acheteur, par l’établissement de Conditions Particulières de Vente.",
-        "art2_title": "Article 2 - Caractéristiques des Produits",
-        "art2_p1": "Les produits proposés à la vente sont ceux figurant sur le catalogue B2B de sotramsbois au jour de la consultation. Les caractéristiques thermiques et dimensionnelles sont garanties dans les limites des tolérances industrielles.",
-        "moisture_label": "TAUX D’HUMIDITÉ GARANTI",
-        "species_label": "ESSENCES",
-        "species_value": "Chêne, Hêtre, Charme (Bois Dur 100%)",
-        "art2_p2": "Les photographies d’illustration du catalogue n’ont qu’une valeur indicative et ne constituent pas un document contractuel. Le bois étant un matériau naturel, des variations d’aspect, de couleur ou de fente sont normales et n’affectent en rien le pouvoir calorifique certifié.",
-        "art3_title": "Article 3 - Prix et Commande",
-        "art3_p1": "Les prix sont stipulés Hors Taxes (HT) et hors frais de livraison (Départ Entrepôt ou FCA), sauf accord spécifique (DAP). La TVA applicable est celle en vigueur au jour de la commande.",
-        "art4_title": "Article 4 - Logistique et Livraison",
-        "art4_p1": "Compte tenu de la nature pondéreuse des produits, la logistique obéit à des règles strictes pour garantir la sécurité et le respect des délais. Les délais de livraison sont donnés à titre indicatif et un retard ne saurait justifier l’annulation de la commande ou des pénalités.",
-        "pack_label": "1. CONDITIONNEMENT",
-        "pack_value": "Palettes filmées anti-UV",
-        "ship_label": "2. EXPÉDITION",
-        "ship_value": "Camion 19T ou Semi-remorque",
-        "unload_label": "3. DÉCHARGEMENT",
-        "unload_value": "Chariot embarqué requis",
-        "access_title": "CONDITIONS D’ACCÈS OBLIGATOIRES",
-        "access_desc": "L’acheteur doit garantir l’accessibilité du site de livraison aux véhicules lourds (jusqu’à 44 tonnes). En cas d’impossibilité de livraison due à un défaut d’accès non signalé, les frais de souffrance et de retour seront intégralement facturés à l’acheteur.",
-        "art5_title": "Article 5 - Modalités de Paiement",
-        "art5_p1": "Sauf accord spécifique consigné dans les conditions particulières, le règlement s’effectue dans les conditions suivantes :",
-        "art6_title": "Article 6 - Absence de Droit de Rétractation",
-        "art6_p1": "Conformément aux dispositions du Code de la consommation, le droit de rétractation n’est pas applicable aux contrats conclus entre professionnels (B2B) agissant dans le cadre de leur activité commerciale, industrielle, artisanale ou libérale.",
-        "art6_p2": "Les produits livrés et conformes au bon de livraison ne sont ni repris ni échangés. En cas de non-conformité avérée lors de la livraison (vices apparents), l’acheteur doit émettre des réserves claires et précises sur le bordereau de transport et les confirmer par lettre recommandée avec AR au transporteur dans les 3 jours ouvrables suivant la réception, avec copie à sotramsbois."
-    },
-    "auth": {
-        "login_title": "Connexion",
-        "register_title": "Création de compte",
-        "email": "Adresse Email",
-        "password": "Mot de passe",
-        "company": "Société",
-        "siret": "SIRET (Optionnel)",
-        "contact_name": "Nom du contact",
-        "phone": "Téléphone",
-        "login_btn": "Se connecter",
-        "register_btn": "Créer mon compte",
-        "guest_btn": "Continuer sans compte",
-        "logout": "Se déconnecter"
-    },
-    "cart": {
-        "title": "Votre Panier",
-        "empty": "Votre panier est vide",
-        "checkout_btn": "Valider la commande",
-        "subtotal": "Sous-total HT",
-        "discount": "Remise Volume",
-        "total": "Total HT",
-        "remove": "Supprimer",
-        "selected_items": "Articles sélectionnés (0)",
-        "order_area": "ESPACE COMMANDE"
-    },
-    "checkout": {
-        "title": "Récapitulatif de commande",
-        "delivery_details": "Détails de livraison",
-        "address": "Adresse de livraison",
-        "truck_access": "Accès Poids Lourd",
-        "payment_method": "Mode de paiement",
-        "bank_transfer_only": "Virement bancaire uniquement",
-        "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
-        "confirm_btn": "Confirmer la commande",
-        "shipping_calculating": "Calcul en cours...",
-        "custom_quote": "Veuillez effectuer une demande de devis sur mesure.",
-        "cgv": "conditions générales de vente",
-        "request_quote": "Faire une demande de devis",
-        "bank_transfer": "Virement Bancaire (SEPA)",
-        "delivery_fee": "Frais de livraison",
-        "to_be_calculated": "À calculer"
-    },
-    "confirmation": {
-        "title": "Commande confirmée",
-        "ref": "Référence de votre commande :",
-        "msg1": "Votre commande a bien été enregistrée.",
-        "msg2": "Virement bancaire uniquement. Un email contenant nos coordonnées bancaires a été envoyé à {{email}}.",
-        "back_home": "Retour à l'accueil",
-        "spam_notice_title": "Vérifiez vos spams",
-        "spam_notice": "Si vous ne le voyez pas d'ici quelques minutes, vérifiez votre dossier spam."
-    },
-    "footer.client_space_title": "ESPACE CLIENT & PANIER",
-    "footer.client_link_1": "Mon Panier",
-    "footer.client_link_2": "Connexion / Inscription",
-    "footer.client_link_3": "Suivi de livraison",
-    "footer.client_link_4": "Service commercial",
-    "merci": {
-        "contact": "Message envoyé",
-        "contact_body": "Votre message a bien été envoyé. Un accusé de réception a été envoyé à {{email}}. Nous vous répondrons dans les plus brefs délais.",
-        "devis": "Demande de devis envoyée",
-        "devis_body": "Votre demande a bien été transmise à notre équipe. Une confirmation a été envoyée à {{email}}.",
-        "inscription": "Inscription réussie",
-        "inscription_body": "Un email d'activation a été envoyé à {{email}}. Vous devez activer votre compte avant de pouvoir vous connecter.",
-        "inscription_cta": "Aller à la connexion"
-    },
-    "depots": {
-        "title": "Présents au cœur de l'Europe du bois",
-        "body": "Notre force, c'est notre réseau. Implantés dans 8 pays et 24 villes à travers l'Europe, nous travaillons main dans la main avec des producteurs, scieries et grossistes locaux pour vous garantir un bois de chauffage de qualité, disponible toute l'année et à un prix maîtrisé. Cette proximité avec nos partenaires nous permet de sécuriser nos approvisionnements même en période de forte demande, de contrôler la qualité à la source, et de vous proposer des tarifs compétitifs sans intermédiaire superflu.",
-        "countries": "Pays partenaires",
-        "local": "Dépôts locaux",
-        "presence": "Notre présence"
-    },
-    "dashboard": {
-        "title": "Mon Tableau de Bord",
-        "logout": "Déconnexion",
-        "my_orders": "Mes Commandes",
-        "loading": "Chargement...",
-        "no_orders": "Aucune commande pour le moment.",
-        "stat_total": "Total commandes",
-        "stat_pending": "En attente payement",
-        "stat_paid": "Payé",
-        "stat_shipped": "En cour Livraison",
-        "stat_delivered": "Livrées",
-        "profile": {
-            "company": "Société",
-            "contact": "Contact",
-            "email": "Email",
-            "phone": "Téléphone",
-            "address": "Adresse",
-            "postal_code": "Code Postal",
-            "city": "Ville",
-            "edit_btn": "Modifier mes informations",
-            "cancel_btn": "Annuler",
-            "save_btn": "Enregistrer"
-        }
-    },
-    "admin": {
-        "orders_title": "Gestion des commandes",
-        "filter_all": "Toutes",
-        "search_placeholder": "Réf, Nom, Email...",
-        "loading": "Chargement...",
-        "no_orders": "Aucune commande trouvée.",
-        "table": {
-            "ref": "Réf",
-            "date": "Date",
-            "client": "Client",
-            "total": "Total TTC",
-            "status": "Statut (actuel)",
-            "action": "Action"
-        },
-        "select_status": "Changer statut...",
-        "confirm_status": "Changer le statut en : ",
-        "update_error": "Erreur lors de la mise à jour",
-        "network_error": "Erreur réseau"
-    },
-    "order": {
-        "filter_all": "Toutes",
-        "status_pending": "En attente de payement",
-        "status_paid": "Payé",
-        "status_shipped": "En cour de Livraison",
-        "status_delivered": "Livrée",
-        "table": {
-            "ref": "Référence",
-            "date": "Date",
-            "status": "Statut",
-            "total": "Total TTC"
-        }
-    },
-    "modal": {
-        "title": "Commande ",
-        "download": "Télécharger le bon de commande",
-        "date": "Date :",
-        "status": "Statut :",
-        "client": "Client :",
-        "delivery": "Livraison :",
-        "table": {
-            "article": "Article",
-            "details": "Détails",
-            "qty": "Qté",
-            "pu": "P.U.",
-            "total": "Total"
-        },
-        "total_ttc": "Total TTC",
-        "not_specified": "Non spécifiée"
+    "logistics": {
+      "title": "Informations Logistiques",
+      "date": "DATE SOUHAITÉE",
+      "truck": "ACCÈS POIDS LOURD *",
+      "address": "ADRESSE DE LIVRAISON COMPLÈTE *"
     },
     "contact": {
-        "info": {
-            "hq": "Siège Social & Dépôt",
-            "phone": "Téléphone",
-            "b2b_line": "Ligne directe B2B",
-            "email": "Email",
-            "response_time": "Réponse sous 24h ouvrées",
-            "hours": "Heures d'Ouverture",
-            "mon_thu": "Lundi - Jeudi",
-            "fri": "Vendredi",
-            "weekend": "Week-end",
-            "closed": "Fermé"
-        },
-        "form": {
-            "title": "Demande de devis / Renseignements",
-            "subtitle": "Remplissez le formulaire ci-dessous, notre service commercial vous recontactera rapidement.",
-            "honeypot": "Laissez ce champ vide",
-            "company": "Société",
-            "siret": "SIRET / TVA Intracom.",
-            "name": "Nom & Prénom *",
-            "job": "Fonction",
-            "email_pro": "Email professionnel *",
-            "phone_req": "Téléphone *",
-            "need_type": "Type de besoin *",
-            "comment": "Commentaire",
-            "submit": "ENVOYER LA DEMANDE"
-        },
-        "logistics": {
-            "title": "Plateforme Logistique",
-            "desc": "Accès direct pour les camions de livraison. Un pont-bascule de 50T est disponible sur site pour la pesée des véhicules.",
-            "directions": "Calculer l'itinéraire"
-        }
+      "title": "Coordonnées",
+      "company": "ENTREPRISE / RAISON SOCIALE *",
+      "siret": "SIRET / TVA INTRA (Optionnel)",
+      "name": "NOM DU CONTACT *",
+      "email": "EMAIL *",
+      "phone": "TÉLÉPHONE *",
+      "notes": "NOTES COMPLÉMENTAIRES (Optionnel)"
     },
-    "quote": {
-        "title": "Cotation",
-        "assistance": "Assistance Directe",
-        "specs": {
-            "title": "Spécifications Produit",
-            "type": "TYPE DE PRODUIT *",
-            "format": "FORMAT / CONDITIONNEMENT *",
-            "volume": "VOLUME ESTIMÉ *",
-            "units": "Unités",
-            "min_order": "Minimum de commande: 1 palette / unité de vrac."
-        },
-        "logistics": {
-            "title": "Informations Logistiques",
-            "date": "DATE SOUHAITÉE",
-            "truck": "ACCÈS POIDS LOURD *",
-            "address": "ADRESSE DE LIVRAISON COMPLÈTE *"
-        },
-        "contact": {
-            "title": "Coordonnées",
-            "company": "ENTREPRISE / RAISON SOCIALE *",
-            "siret": "SIRET / TVA INTRA (Optionnel)",
-            "name": "NOM DU CONTACT *",
-            "email": "EMAIL *",
-            "phone": "TÉLÉPHONE *",
-            "notes": "NOTES COMPLÉMENTAIRES (Optionnel)"
-        },
-        "submit": "ENVOYER LA DEMANDE",
-        "why": {
-            "title": "Pourquoi nous choisir ?",
-            "quality_title": "Qualité Certifiée",
-            "quality_desc": "Bois de qualité certifiée, taux d'humidité garanti <20%.",
-            "speed_title": "Réactivité B2B",
-            "speed_desc": "Devis sous 24h, livraison prioritaire sur chantiers ou dépôts.",
-            "volume_title": "Volume Adaptable",
-            "volume_desc": "De la palette isolée au semi-remorque complet en vrac."
-        },
-        "processing": "TRAITEMENT..."
+    "submit": "ENVOYER LA DEMANDE",
+    "why": {
+      "title": "Pourquoi nous choisir ?",
+      "quality_title": "Qualité Certifiée",
+      "quality_desc": "Bois de qualité certifiée, taux d'humidité garanti <20%.",
+      "speed_title": "Réactivité B2B",
+      "speed_desc": "Devis sous 24h, livraison prioritaire sur chantiers ou dépôts.",
+      "volume_title": "Volume Adaptable",
+      "volume_desc": "De la palette isolée au semi-remorque complet en vrac."
     },
-    "register": {
-        "benefits": {
-            "title": "Portail B2B Exclusif",
-            "delivery_title": "Livraison semi-remorque & vrac",
-            "delivery_desc": "Acheminement direct sur plateforme ou site de production avec hayon et transpalette.",
-            "pricing_title": "Tarifs professionnels TTC",
-            "pricing_desc": "Visualisation immédiate des remises quantitatives et facturation centralisée.",
-            "advisor_title": "Conseiller dédié",
-            "advisor_desc": "Un interlocuteur unique pour le suivi de vos commandes et contrats annuels.",
-            "approval_notice": "Les comptes professionnels sont validés sous 24h ouvrées après vérification des informations légales."
-        },
-        "form": {
-            "title": "Formulaire d'inscription",
-            "subtitle": "Renseignez vos coordonnées professionnelles pour créer votre accès.",
-            "type_pro": "Vous êtes professionnel (entreprise, revendeur, artisan...)",
-            "section_business": "Informations professionnelles",
-            "optional": "(Optionnel)",
-            "cgv": "Conditions Générales de Vente (CGV)",
-            "already_account": "Déjà un compte ?",
-            "login": "Se connecter",
-            "submit": "Créer mon compte"
-        }
+    "processing": "TRAITEMENT..."
+  },
+  "register": {
+    "benefits": {
+      "title": "Portail B2B Exclusif",
+      "delivery_title": "Livraison semi-remorque & vrac",
+      "delivery_desc": "Acheminement direct sur plateforme ou site de production avec hayon et transpalette.",
+      "pricing_title": "Tarifs professionnels TTC",
+      "pricing_desc": "Visualisation immédiate des remises quantitatives et facturation centralisée.",
+      "advisor_title": "Conseiller dédié",
+      "advisor_desc": "Un interlocuteur unique pour le suivi de vos commandes et contrats annuels.",
+      "approval_notice": "Les comptes professionnels sont validés sous 24h ouvrées après vérification des informations légales."
     },
-    "login": {
-        "benefits": {
-            "title": "Espace Professionnel B2B",
-            "delivery_title": "Livraison Palette",
-            "delivery_desc": "Suivi logistique précis sur toute la France.",
-            "invoice_title": "Facturation Pro",
-            "invoice_desc": "Gestion centralisée et bons de livraison dématérialisés."
-        },
-        "form": {
-            "title": "Connexion B2B",
-            "subtitle": "Entrez vos identifiants professionnels pour accéder à votre espace.",
-            "email": "Email Professionnel",
-            "password": "Mot de passe",
-            "forgot": "Mot de passe oublié ?",
-            "remember": "Rester connecté",
-            "submit": "Se connecter",
-            "guest": "Continuer en tant qu'invité",
-            "no_account": "Pas encore de compte ?",
-            "signup": "S'inscrire"
-        }
-    },
-    "guide": {
-        "hero": {
-            "title": "Expertise & Conseil"
-        },
-        "nav": {
-            "species": "ESSENCE DU BOIS",
-            "moisture": "TAUX D'HUMIDITÉ",
-            "dimensions": "DIMENSIONS",
-            "storage": "STOCKAGE"
-        },
-        "species": {
-            "title": "Choisir la bonne essence",
-            "desc": "Toutes les essences ne se valent pas pour le chauffage. Privilégiez les feuillus durs pour une combustion lente et un pouvoir calorifique élevé.",
-            "g1_title": "G1 - Feuillus Durs",
-            "g1_desc": "Chêne, Hêtre, Frêne, Charme",
-            "calorific": "Pouvoir calorifique",
-            "excellent": "Excellent",
-            "g2_title": "G2 - Feuillus Tendres",
-            "g2_desc": "Châtaignier, Acacia, Merisier",
-            "g3_title": "G3 - Résineux & Autres",
-            "g3_desc": "Sapin, Pin, Épicéa, Bouleau",
-            "medium": "Moyen"
-        },
-        "moisture": {
-            "title": "L'importance du taux d'humidité",
-            "desc": "Un bois sec (H1) dégage plus de chaleur, encrasse moins votre conduit et pollue moins. Découvrez la différence d'efficacité selon le séchage.",
-            "h1_desc": "Prêt à l'emploi. Offre le meilleur rendement énergétique. Séchage naturel de 18 à 24 mois ou séchage artificiel.",
-            "h2_desc": "Nécessite d'être stocké dans un endroit sec et ventilé pendant 6 à 12 mois avant utilisation. Plus économique à l'achat.",
-            "h3_desc": "Bois fraîchement coupé. Inutilisable en l'état. Nécessite un stockage de 2 ans minimum avant de pouvoir être brûlé.",
-            "yield_title": "Rendement Énergétique Comparé",
-            "yield_desc": "Brûler du bois humide dissipe l'énergie pour évaporer l'eau avant de produire de la chaleur utile."
-        },
-        "dimensions": {
-            "title": "Choisir la bonne longueur",
-            "desc": "La longueur de vos bûches doit être adaptée à la taille de votre foyer. Mesurez l'intérieur de votre appareil en retranchant 5cm par sécurité.",
-            "small": "Petits poêles à bois, cuisinières. Séchage très rapide.",
-            "standard": "Standard pour la majorité des poêles modernes et inserts.",
-            "medium": "Taille intermédiaire pour inserts moyens.",
-            "large": "Grands inserts, cheminées ouvertes traditionnelles."
-        },
-        "storage": {
-            "title": "Règles d'or du stockage",
-            "desc": "Un bon bois peut perdre toutes ses qualités s'il est mal stocké. Protégez votre investissement en suivant ces règles simples.",
-            "ventilation_title": "Ventilation",
-            "vent_1": "Ne pas coller le tas de bois directement contre un mur (laisser ~10cm).",
-            "vent_2": "Croiser les bûches aux extrémités pour stabiliser et aérer.",
-            "vent_3": "Privilégier un endroit exposé aux vents dominants et au soleil.",
-            "protection_title": "Protection",
-            "prot_1": "Isoler du sol à l'aide de palettes ou de chevrons.",
-            "prot_2": "Couvrir uniquement le dessus avec une tôle ou une bâche (laisser les côtés libres).",
-            "prot_3": "Éviter le stockage en cave fermée (risque de moisissures)."
-        }
-    },
-    "livraison": {
-        "process": {
-            "title": "Processus de Livraison",
-            "validation": "Validation",
-            "preparation": "Préparation",
-            "scheduling": "Planification",
-            "delivery": "Réception"
-        },
-        "fleet": {
-            "title": "Spécifications Flotte & Accès",
-            "tautliner_title": "Plateau Tautliner 44T",
-            "tautliner_desc": "Capacité maximale de 32 palettes. Idéal pour les livraisons en gros volume sur sites équipés de quais de déchargement.",
-            "tail_lift": "Gabarit Hayon",
-            "clearance": "Hauteur mini de passage",
-            "gate": "Largeur mini portail",
-            "turning": "Rayon braquage",
-            "crane_title": "Porteur Grue",
-            "crane_desc": "Déchargement par dessus obstacle (murs, haies). Portée jusqu'à 6m."
-        },
-        "area": {
-            "title": "Zone d'Intervention",
-            "zone1": "Zone 1 (J+1 / J+2)",
-            "zone2": "Zone 2 (J+3 / J+5)"
-        },
-        "constraints": "Contraintes Terrain"
-    },
-    "reviews": {
-        "trust": {
-            "title": "Indice de confiance",
-            "subtitle": "validée par les pros.",
-            "customers": "+1k clients"
-        },
-        "filter": {
-            "all": "TOUS",
-            "hospitality": "RESTAURATION",
-            "industry": "INDUSTRIE",
-            "resellers": "REVENDEURS"
-        },
-        "commitments": "Nos engagements qualité"
-    },
-    "mentions": {
-        "right_erasure": "Droit à l'effacement (« droit à l'oubli ») et à la limitation du traitement.",
-        "right_object": "Droit d'opposition au traitement de vos données pour des motifs légitimes.",
-        "right_access": "Droit d'accès et de rectification de vos données.",
-        "right_portability": "Droit à la portabilité de vos données.",
-        "sec6": "6. Limitation de Responsabilité",
-        "sec3": "3. Propriété Intellectuelle",
-        "pub_director": "DIRECTEUR DE LA PUBLICATION",
-        "data_gdpr": "Données Personnelles & RGPD",
-        "ip": "Propriété Intellectuelle",
-        "sec1": "1. Informations Éditeur",
-        "sec4": "4. Données Personnelles",
-        "sec5": "5. Gestion des Cookies",
-        "vat_number": "TVA INTRACOMMUNAUTAIRE",
-        "data_retention": "Durée de conservation",
-        "last_updated": "Dernière mise à jour",
-        "pub_info": "Informations Éditeur",
-        "data_purpose": "Finalité des données",
-        "page_title": "Mentions Légales",
-        "trademarks": "Marques et Logos",
-        "sec2": "2. Hébergement",
-        "company_name": "RAISON SOCIALE",
-        "share_capital": "CAPITAL SOCIAL",
-        "registered_office": "SIÈGE SOCIAL",
-        "hosting": "Hébergement",
-        "your_rights": "Vos droits",
-        "contact": "CONTACT"
-    },
-    "privacy": {
-        "right_erasure_desc": "Exiger la suppression de vos données (\"droit à l'oubli\") dans les limites légales.",
-        "right_access_desc": "Obtenir la confirmation que vos données sont traitées et en recevoir une copie.",
-        "right_portability_desc": "Recevoir vos données dans un format structuré et lisible par machine.",
-        "dpo": "Notre Délégué à la Protection des Données est à votre disposition.",
-        "right_rectification_desc": "Demander la correction d'informations inexactes ou incomplètes.",
-        "page_title": "Politique de Confidentialité",
-        "sec2": "2. Utilisation des données",
-        "business_data": "Données professionnelles",
-        "performance": "Performance & Analytique",
-        "sec1": "1. Collecte des données",
-        "use_data": "Utilisation des données",
-        "necessary": "Strictement nécessaires",
-        "data_protection": "Protection des données",
-        "sec3": "3. Gestion des Cookies",
-        "right_rectification": "Droit de rectification",
-        "right_portability": "Droit à la portabilité",
-        "browsing_data": "Données de navigation",
-        "last_updated": "DERNIÈRE MISE À JOUR",
-        "sec4": "4. Vos droits (RGPD)",
-        "collection": "Collecte des données",
-        "contract": "Exécution du contrat",
-        "right_erasure": "Droit à l'effacement",
-        "cookies": "Gestion des Cookies",
-        "targeting": "Ciblage & Publicité",
-        "gdpr": "RGPD / EU 2016/679",
-        "exercise": "Exercer vos droits",
-        "rights": "Vos droits (RGPD)",
-        "legitimate": "Intérêt légitime",
-        "active": "Toujours actifs",
-        "question": "Une question ?",
-        "right_access": "Droit d'accès",
-        "consent": "Consentement",
-        "compliance": "CONFORMITÉ",
-        "toc": "Sommaire"
-    },
-    "return": {
-        "cond1": "Les produits doivent être dans leur emballage d'origine, non ouverts et non endommagés (film de palette intact, sacs de granulés scellés).",
-        "cond2": "Le bois ne doit pas avoir été exposé aux intempéries ou stocké dans des conditions inadéquates modifiant son taux d'humidité initial.",
-        "cond3": "Le lot retourné doit correspondre exactement aux numéros de lot mentionnés sur le bon de livraison.",
-        "last_updated": "Dernière mise à jour: 15 Octobre 2023",
-        "general_cond": "Conditions Générales de Retour",
-        "logistics": "Logistique & Transport Inverse",
-        "refund": "Processus de Remboursement",
-        "dock_fee": "Frais de Manutention Quai",
-        "step1": "1. Réception & Inspection",
-        "step2": "2. Validation du dossier",
-        "pallet_fee": "Forfait Reprise Palette",
-        "step3": "3. Émission du paiement",
-        "assistance": "Besoin d'assistance ?",
-        "pallet_price": "(soit 150.00€ HT)",
-        "onsite": "Reprise sur site",
-        "dock_price": "(soit 35.00€ HT)",
-        "self_return": "Retour autonome",
-        "version": "Version: 2.1",
-        "toc": "Sommaire",
-        "legal": "Légal"
-    },
-    "produit": {},
-    "product": {
-        "delivery_desc": "Livraison par camion plateau bâché (max 26 palettes/camion). Déchargement par chariot élévateur à la charge du client. Possibilité d'enlèvement sur site.",
-        "select_format": "Veuillez sélectionner un format ci-dessus avant de commander.",
-        "max_discount": "Remise maximale atteinte !",
-        "logistics_info": "Informations Logistiques",
-        "discount_applied": "Remise Volume Appliquée",
-        "calorific": "POUVOIR CALORIFIQUE",
-        "log_length": "Longueur des Bûches",
-        "quantity_pallets": "Quantité (Palettes)",
-        "pallet_dimensions": "DIMENSIONS PALETTE",
-        "firewood": "Bois de chauffage",
-        "packaging": "CONDITIONNEMENT",
-        "recommended_price": "Prix Conseillé",
-        "wholesale_price": "Prix Grossiste",
-        "subtotal": "Sous-total TTC",
-        "pallet_weight": "POIDS PALETTE",
-        "discount": "Remise Volume",
-        "catalog": "Catalogue",
-        "length": "LONGUEUR",
-        "species": "ESSENCE",
-        "volume": "VOLUME",
-        "total": "Total"
-    },
-    "panier": {},
-    "confirm": {
-        "order_shipped": "Votre commande sera validée et expédiée dès réception de votre virement.",
-        "transfer_instruction": "Veuillez effectuer votre virement sur le compte suivant :",
-        "order_number": "Votre numéro de commande",
-        "awaiting_transfer": "En attente de virement",
-        "transfer_reminder": "Rappel Virement",
-        "beneficiary": "Bénéficiaire :",
-        "reference": "Référence obligatoire à rappeler :",
-        "bank": "Banque :",
-        "iban": "IBAN :",
-        "bic": "BIC :",
-        "for": "Pour :"
-    },
-    "activation": {
-        "wait": "Veuillez patienter pendant que nous vérifions votre compte.",
-        "invalid_desc": "Ce lien d'activation n'est plus valide.",
-        "success_desc": "Votre compte a été activé avec succès.",
-        "invalid": "Lien invalide ou expiré",
-        "activating": "Activation en cours...",
-        "success": "Compte activé !"
-    },
-    "tableau-de-bord": {},
-    "admin-commandes": {
-        "not_specified": "Non spécifiée",
-        "unknown": "Inconnu",
-        "error": "Erreur",
-        "load_error": "Erreur lors du chargement des commandes."
+    "form": {
+      "title": "Formulaire d'inscription",
+      "subtitle": "Renseignez vos coordonnées professionnelles pour créer votre accès.",
+      "type_pro": "Vous êtes professionnel (entreprise, revendeur, artisan...)",
+      "section_business": "Informations professionnelles",
+      "optional": "(Optionnel)",
+      "cgv": "Conditions Générales de Vente (CGV)",
+      "already_account": "Déjà un compte ?",
+      "login": "Se connecter",
+      "submit": "Créer mon compte"
     }
+  },
+  "login": {
+    "benefits": {
+      "title": "Espace Professionnel B2B",
+      "delivery_title": "Livraison Palette",
+      "delivery_desc": "Suivi logistique précis sur toute la France.",
+      "invoice_title": "Facturation Pro",
+      "invoice_desc": "Gestion centralisée et bons de livraison dématérialisés."
+    },
+    "form": {
+      "title": "Connexion B2B",
+      "subtitle": "Entrez vos identifiants professionnels pour accéder à votre espace.",
+      "email": "Email Professionnel",
+      "password": "Mot de passe",
+      "forgot": "Mot de passe oublié ?",
+      "remember": "Rester connecté",
+      "submit": "Se connecter",
+      "guest": "Continuer en tant qu'invité",
+      "no_account": "Pas encore de compte ?",
+      "signup": "S'inscrire"
+    }
+  },
+  "guide": {
+    "hero": {
+      "title": "Expertise & Conseil"
+    },
+    "nav": {
+      "species": "ESSENCE DU BOIS",
+      "moisture": "TAUX D'HUMIDITÉ",
+      "dimensions": "DIMENSIONS",
+      "storage": "STOCKAGE"
+    },
+    "species": {
+      "title": "Choisir la bonne essence",
+      "desc": "Toutes les essences ne se valent pas pour le chauffage. Privilégiez les feuillus durs pour une combustion lente et un pouvoir calorifique élevé.",
+      "g1_title": "G1 - Feuillus Durs",
+      "g1_desc": "Chêne, Hêtre, Frêne, Charme",
+      "calorific": "Pouvoir calorifique",
+      "excellent": "Excellent",
+      "g2_title": "G2 - Feuillus Tendres",
+      "g2_desc": "Châtaignier, Acacia, Merisier",
+      "g3_title": "G3 - Résineux & Autres",
+      "g3_desc": "Sapin, Pin, Épicéa, Bouleau",
+      "medium": "Moyen"
+    },
+    "moisture": {
+      "title": "L'importance du taux d'humidité",
+      "desc": "Un bois sec (H1) dégage plus de chaleur, encrasse moins votre conduit et pollue moins. Découvrez la différence d'efficacité selon le séchage.",
+      "h1_desc": "Prêt à l'emploi. Offre le meilleur rendement énergétique. Séchage naturel de 18 à 24 mois ou séchage artificiel.",
+      "h2_desc": "Nécessite d'être stocké dans un endroit sec et ventilé pendant 6 à 12 mois avant utilisation. Plus économique à l'achat.",
+      "h3_desc": "Bois fraîchement coupé. Inutilisable en l'état. Nécessite un stockage de 2 ans minimum avant de pouvoir être brûlé.",
+      "yield_title": "Rendement Énergétique Comparé",
+      "yield_desc": "Brûler du bois humide dissipe l'énergie pour évaporer l'eau avant de produire de la chaleur utile."
+    },
+    "dimensions": {
+      "title": "Choisir la bonne longueur",
+      "desc": "La longueur de vos bûches doit être adaptée à la taille de votre foyer. Mesurez l'intérieur de votre appareil en retranchant 5cm par sécurité.",
+      "small": "Petits poêles à bois, cuisinières. Séchage très rapide.",
+      "standard": "Standard pour la majorité des poêles modernes et inserts.",
+      "medium": "Taille intermédiaire pour inserts moyens.",
+      "large": "Grands inserts, cheminées ouvertes traditionnelles."
+    },
+    "storage": {
+      "title": "Règles d'or du stockage",
+      "desc": "Un bon bois peut perdre toutes ses qualités s'il est mal stocké. Protégez votre investissement en suivant ces règles simples.",
+      "ventilation_title": "Ventilation",
+      "vent_1": "Ne pas coller le tas de bois directement contre un mur (laisser ~10cm).",
+      "vent_2": "Croiser les bûches aux extrémités pour stabiliser et aérer.",
+      "vent_3": "Privilégier un endroit exposé aux vents dominants et au soleil.",
+      "protection_title": "Protection",
+      "prot_1": "Isoler du sol à l'aide de palettes ou de chevrons.",
+      "prot_2": "Couvrir uniquement le dessus avec une tôle ou une bâche (laisser les côtés libres).",
+      "prot_3": "Éviter le stockage en cave fermée (risque de moisissures)."
+    }
+  },
+  "livraison": {
+    "process": {
+      "title": "Processus de Livraison",
+      "validation": "Validation",
+      "preparation": "Préparation",
+      "scheduling": "Planification",
+      "delivery": "Réception"
+    },
+    "fleet": {
+      "title": "Spécifications Flotte & Accès",
+      "tautliner_title": "Plateau Tautliner 44T",
+      "tautliner_desc": "Capacité maximale de 32 palettes. Idéal pour les livraisons en gros volume sur sites équipés de quais de déchargement.",
+      "tail_lift": "Gabarit Hayon",
+      "clearance": "Hauteur mini de passage",
+      "gate": "Largeur mini portail",
+      "turning": "Rayon braquage",
+      "crane_title": "Porteur Grue",
+      "crane_desc": "Déchargement par dessus obstacle (murs, haies). Portée jusqu'à 6m."
+    },
+    "area": {
+      "title": "Zone d'Intervention",
+      "zone1": "Zone 1 (J+1 / J+2)",
+      "zone2": "Zone 2 (J+3 / J+5)"
+    },
+    "constraints": "Contraintes Terrain"
+  },
+  "reviews": {
+    "trust": {
+      "title": "Indice de confiance",
+      "subtitle": "validée par les pros.",
+      "customers": "+1k clients"
+    },
+    "filter": {
+      "all": "TOUS",
+      "hospitality": "RESTAURATION",
+      "industry": "INDUSTRIE",
+      "resellers": "REVENDEURS"
+    },
+    "commitments": "Nos engagements qualité"
+  },
+  "mentions": {
+    "right_erasure": "Droit à l'effacement (« droit à l'oubli ») et à la limitation du traitement.",
+    "right_object": "Droit d'opposition au traitement de vos données pour des motifs légitimes.",
+    "right_access": "Droit d'accès et de rectification de vos données.",
+    "right_portability": "Droit à la portabilité de vos données.",
+    "sec6": "6. Limitation de Responsabilité",
+    "sec3": "3. Propriété Intellectuelle",
+    "pub_director": "DIRECTEUR DE LA PUBLICATION",
+    "data_gdpr": "Données Personnelles & RGPD",
+    "ip": "Propriété Intellectuelle",
+    "sec1": "1. Informations Éditeur",
+    "sec4": "4. Données Personnelles",
+    "sec5": "5. Gestion des Cookies",
+    "vat_number": "TVA INTRACOMMUNAUTAIRE",
+    "data_retention": "Durée de conservation",
+    "last_updated": "Dernière mise à jour",
+    "pub_info": "Informations Éditeur",
+    "data_purpose": "Finalité des données",
+    "page_title": "Mentions Légales",
+    "trademarks": "Marques et Logos",
+    "sec2": "2. Hébergement",
+    "company_name": "RAISON SOCIALE",
+    "share_capital": "CAPITAL SOCIAL",
+    "registered_office": "SIÈGE SOCIAL",
+    "hosting": "Hébergement",
+    "your_rights": "Vos droits",
+    "contact": "CONTACT"
+  },
+  "privacy": {
+    "right_erasure_desc": "Exiger la suppression de vos données (\"droit à l'oubli\") dans les limites légales.",
+    "right_access_desc": "Obtenir la confirmation que vos données sont traitées et en recevoir une copie.",
+    "right_portability_desc": "Recevoir vos données dans un format structuré et lisible par machine.",
+    "dpo": "Notre Délégué à la Protection des Données est à votre disposition.",
+    "right_rectification_desc": "Demander la correction d'informations inexactes ou incomplètes.",
+    "page_title": "Politique de Confidentialité",
+    "sec2": "2. Utilisation des données",
+    "business_data": "Données professionnelles",
+    "performance": "Performance & Analytique",
+    "sec1": "1. Collecte des données",
+    "use_data": "Utilisation des données",
+    "necessary": "Strictement nécessaires",
+    "data_protection": "Protection des données",
+    "sec3": "3. Gestion des Cookies",
+    "right_rectification": "Droit de rectification",
+    "right_portability": "Droit à la portabilité",
+    "browsing_data": "Données de navigation",
+    "last_updated": "DERNIÈRE MISE À JOUR",
+    "sec4": "4. Vos droits (RGPD)",
+    "collection": "Collecte des données",
+    "contract": "Exécution du contrat",
+    "right_erasure": "Droit à l'effacement",
+    "cookies": "Gestion des Cookies",
+    "targeting": "Ciblage & Publicité",
+    "gdpr": "RGPD / EU 2016/679",
+    "exercise": "Exercer vos droits",
+    "rights": "Vos droits (RGPD)",
+    "legitimate": "Intérêt légitime",
+    "active": "Toujours actifs",
+    "question": "Une question ?",
+    "right_access": "Droit d'accès",
+    "consent": "Consentement",
+    "compliance": "CONFORMITÉ",
+    "toc": "Sommaire"
+  },
+  "return": {
+    "cond1": "Les produits doivent être dans leur emballage d'origine, non ouverts et non endommagés (film de palette intact, sacs de granulés scellés).",
+    "cond2": "Le bois ne doit pas avoir été exposé aux intempéries ou stocké dans des conditions inadéquates modifiant son taux d'humidité initial.",
+    "cond3": "Le lot retourné doit correspondre exactement aux numéros de lot mentionnés sur le bon de livraison.",
+    "last_updated": "Dernière mise à jour: 15 Octobre 2023",
+    "general_cond": "Conditions Générales de Retour",
+    "logistics": "Logistique & Transport Inverse",
+    "refund": "Processus de Remboursement",
+    "dock_fee": "Frais de Manutention Quai",
+    "step1": "1. Réception & Inspection",
+    "step2": "2. Validation du dossier",
+    "pallet_fee": "Forfait Reprise Palette",
+    "step3": "3. Émission du paiement",
+    "assistance": "Besoin d'assistance ?",
+    "pallet_price": "(soit 150.00€ HT)",
+    "onsite": "Reprise sur site",
+    "dock_price": "(soit 35.00€ HT)",
+    "self_return": "Retour autonome",
+    "version": "Version: 2.1",
+    "toc": "Sommaire",
+    "legal": "Légal"
+  },
+  "produit": {},
+  "product": {
+    "delivery_desc": "Livraison par camion plateau bâché (max 26 palettes/camion). Déchargement par chariot élévateur à la charge du client. Possibilité d'enlèvement sur site.",
+    "select_format": "Veuillez sélectionner un format ci-dessus avant de commander.",
+    "max_discount": "Remise maximale atteinte !",
+    "logistics_info": "Informations Logistiques",
+    "discount_applied": "Remise Volume Appliquée",
+    "calorific": "POUVOIR CALORIFIQUE",
+    "log_length": "Longueur des Bûches",
+    "quantity_pallets": "Quantité (Palettes)",
+    "pallet_dimensions": "DIMENSIONS PALETTE",
+    "firewood": "Bois de chauffage",
+    "packaging": "CONDITIONNEMENT",
+    "recommended_price": "Prix Conseillé",
+    "wholesale_price": "Prix Grossiste",
+    "subtotal": "Sous-total TTC",
+    "pallet_weight": "POIDS PALETTE",
+    "discount": "Remise Volume",
+    "catalog": "Catalogue",
+    "length": "LONGUEUR",
+    "species": "ESSENCE",
+    "volume": "VOLUME",
+    "total": "Total"
+  },
+  "panier": {},
+  "confirm": {
+    "order_shipped": "Votre commande sera validée et expédiée dès réception de votre virement.",
+    "transfer_instruction": "Veuillez effectuer votre virement sur le compte suivant :",
+    "order_number": "Votre numéro de commande",
+    "awaiting_transfer": "En attente de virement",
+    "transfer_reminder": "Rappel Virement",
+    "beneficiary": "Bénéficiaire :",
+    "reference": "Référence obligatoire à rappeler :",
+    "bank": "Banque :",
+    "iban": "IBAN :",
+    "bic": "BIC :",
+    "for": "Pour :"
+  },
+  "activation": {
+    "wait": "Veuillez patienter pendant que nous vérifions votre compte.",
+    "invalid_desc": "Ce lien d'activation n'est plus valide.",
+    "success_desc": "Votre compte a été activé avec succès.",
+    "invalid": "Lien invalide ou expiré",
+    "activating": "Activation en cours...",
+    "success": "Compte activé !"
+  },
+  "tableau-de-bord": {},
+  "admin-commandes": {
+    "not_specified": "Non spécifiée",
+    "unknown": "Inconnu",
+    "error": "Erreur",
+    "load_error": "Erreur lors du chargement des commandes."
+  }
 }

@@ -1,692 +1,693 @@
 {
-    "site_name": "sotramsbois",
-    "tagline": "Wholesale & Bulk Firewood, Wood Pellets and Compressed Briquettes B2B",
-    "search_placeholder": "Search a product...",
-    "nav": {
-        "home": "Home",
-        "catalog": "Catalog",
-        "delivery": "Delivery",
-        "reviews": "Reviews",
-        "guide": "Buying Guide",
-        "quote": "Quote",
-        "returns": "Return Policy",
-        "blog": "Blog",
-        "contact": "Contact",
-        "depots": "Depots"
+  "site_name": "sotramsbois",
+  "tagline": "Wholesale & Bulk Firewood, Wood Pellets and Compressed Briquettes B2B",
+  "search_placeholder": "Search a product...",
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "delivery": "Delivery",
+    "reviews": "Reviews",
+    "guide": "Buying Guide",
+    "quote": "Quote",
+    "returns": "Return Policy",
+    "blog": "Blog",
+    "contact": "Contact",
+    "depots": "Depots"
+  },
+  "categories": {
+    "1": "Firewood Logs",
+    "2": "Compressed Logs / Wood Briquettes",
+    "3": "Briquettes",
+    "4": "Wood Pellets",
+    "5": "Charcoal / Firelighters / Torch Logs",
+    "logs": "Firewood Logs",
+    "briquettes_compressed": "Compressed Logs",
+    "briquettes": "Wood Briquettes",
+    "pellets": "Wood Pellets",
+    "coal_starters": "Charcoal & Acc.",
+    "coal_acc": "Charcoal & Acc."
+  },
+  "catalog_discount_note": "Volume discounts starting from 2 pallets — see details on each product page",
+  "catalog": {
+    "filters": {
+      "title": "Filters",
+      "category": "Category",
+      "moisture": "Moisture (H2O)",
+      "all": "All",
+      "unspecified": "Unspecified",
+      "format": "Format:",
+      "format_select": "Select a format ↑"
     },
-    "categories": {
-        "1": "Firewood Logs",
-        "2": "Compressed Logs / Wood Briquettes",
-        "3": "Briquettes",
-        "4": "Wood Pellets",
-        "5": "Charcoal / Firelighters / Torch Logs",
-        "logs": "Firewood Logs",
-        "briquettes_compressed": "Compressed Logs",
-        "briquettes": "Wood Briquettes",
-        "pellets": "Wood Pellets",
-        "coal_starters": "Charcoal & Acc.",
-        "coal_acc": "Charcoal & Acc."
+    "table": {
+      "format": "FORMAT",
+      "unit_pallet": "UNIT / PALLET",
+      "weight": "PALLET WEIGHT",
+      "price": "WHOLESALE PRICE / PALLET",
+      "currency": "€ incl. VAT"
     },
-    "catalog_discount_note": "Volume discounts starting from 2 pallets — see details on each product page",
-    "catalog": {
-        "filters": {
-            "title": "Filters",
-            "category": "Category",
-            "moisture": "Moisture (H2O)",
-            "all": "All",
-            "unspecified": "Unspecified",
-            "format": "Format:",
-            "format_select": "Select a format ↑"
-        },
-        "table": {
-            "format": "FORMAT",
-            "unit_pallet": "UNIT / PALLET",
-            "weight": "PALLET WEIGHT",
-            "price": "WHOLESALE PRICE / PALLET",
-            "currency": "€ incl. VAT"
-        },
-        "category_label": "CATEGORY",
-        "references_label": "Items",
-        "reset_filters": "RESET",
-        "toast_select_format": "Please select a format before choosing your wood.",
-        "no_products": "No products match these criteria.",
-        "format_warning": "The prices displayed correspond to the <strong>50 cm</strong> format. Please select your format before choosing your wood.",
-        "format_selected": "selected",
-        "units_per_pallet": "units/pallet",
-        "unspecified": "unspecified"
-    },
-    "index": {
-        "hero": {
-            "tagline": "Biomass & Wood Energy Wholesaler",
-            "rating_badge": "Over 1,000 satisfied B2B customers across Europe",
-            "subtitle": "Wood heating solutions tailored for industrial needs and resale. Optimal heat output and controlled moisture level."
-        }
-    },
-    "rating_badge": "4.8/5 — Over 1,000 satisfied B2B clients in Europe",
-    "pricing": {
-        "discount_title": "YOUR VOLUME DISCOUNT",
-        "select_quantity": "Quantity (Pallets):",
-        "tier_level": "Tier:",
-        "full_truckload": "Full Truckload Rate (-10%)",
-        "discount_rate": "Applied discount:",
-        "unit_price_after_discount": "Unit price after discount:",
-        "total_price": "Total order price HT:",
-        "next_tier_incentive": "Add {count} more pallet(s) to unlock -{pct}% discount!"
-    },
+    "category_label": "CATEGORY",
+    "references_label": "Items",
+    "reset_filters": "RESET",
+    "toast_select_format": "Please select a format before choosing your wood.",
+    "no_products": "No products match these criteria.",
+    "format_warning": "The prices displayed correspond to the <strong>50 cm</strong> format. Please select your format before choosing your wood.",
+    "format_selected": "selected",
+    "units_per_pallet": "units/pallet",
+    "unspecified": "unspecified"
+  },
+  "index": {
     "hero": {
-        "tagline": "Biomass & Wood Energy Wholesaler",
-        "title_html": "Thermal Excellence<br/>at the Service of Professionals.",
-        "subtitle": "Guaranteed supply of high-performance firewood, pellets, and briquettes. Premium quality, certified traceability, and optimized logistics for resellers and industries.",
-        "cta_catalog": "DISCOVER CATALOG",
-        "cta_quote": "REQUEST QUOTE"
+      "tagline": "Biomass & Wood Energy Wholesaler",
+      "rating_badge": "Over 1,000 satisfied B2B customers across Europe",
+      "subtitle": "Wood heating solutions tailored for industrial needs and resale. Optimal heat output and controlled moisture level."
+    }
+  },
+  "rating_badge": "4.8/5 — Over 1,000 satisfied B2B clients in Europe",
+  "pricing": {
+    "discount_title": "YOUR VOLUME DISCOUNT",
+    "select_quantity": "Quantity (Pallets):",
+    "tier_level": "Tier:",
+    "full_truckload": "Full Truckload Rate (-10%)",
+    "discount_rate": "Applied discount:",
+    "unit_price_after_discount": "Unit price after discount:",
+    "total_price": "Total order price HT:",
+    "next_tier_incentive": "Add {count} more pallet(s) to unlock -{pct}% discount!"
+  },
+  "hero": {
+    "tagline": "Biomass & Wood Energy Wholesaler",
+    "title_html": "Thermal Excellence<br/>at the Service of Professionals.",
+    "subtitle": "Guaranteed supply of high-performance firewood, pellets, and briquettes. Premium quality, certified traceability, and optimized logistics for resellers and industries.",
+    "cta_catalog": "DISCOVER CATALOG",
+    "cta_quote": "REQUEST QUOTE"
+  },
+  "metrics": {
+    "metric_1_val": "15k+",
+    "metric_1_label": "Tons Delivered / Year",
+    "metric_2_val": "100%",
+    "metric_2_label": "Certified Wood",
+    "metric_3_val": "48h",
+    "metric_3_label": "Dispatch Time"
+  },
+  "categories_section": {
+    "title": "Fuel Range",
+    "subtitle": "Wood heating solutions tailored for industrial needs and resale. Optimal heat output and controlled moisture level.",
+    "logs_desc": "Dried hardwood, ready to burn. Moisture < 20%.",
+    "briquettes_compressed_desc": "High calorific value. Day and night.",
+    "briquettes_desc": "Ideal for professionals. Optimized storage.",
+    "pellets_desc": "DINplus / ENplus A1 certified. Bulk and pallets.",
+    "coal_starters_desc": "Restaurant grade charcoal, firestarters.",
+    "cta_view": "VIEW RANGE"
+  },
+  "footer": {
+    "desc": "Professional biomass and high-performance firewood solutions.",
+    "services_title": "PRODUCTS & SERVICES",
+    "service_1": "Hardwood Logs",
+    "service_2": "Wood Pellets",
+    "service_3": "Pro Cooking Wood",
+    "service_4": "Wholesale & B2B Rates",
+    "coords_title": "CONTACT DETAILS",
+    "address": "[Address to be completed by client]",
+    "phone": "[Phone to be completed by client]",
+    "email": "contact@sotramsbois.com",
+    "legal": "Legal Notice",
+    "cgv": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "reassurance_title": "Wholesale Quality Commitment",
+    "reassurance_1": "Certified High-Quality Wood",
+    "reassurance_2": "DINplus / ENplus A1 Certified Pellets",
+    "reassurance_3": "Tail-lift & Pallet Jack Delivery",
+    "reassurance_4": "B2B Payment Terms",
+    "service_5": "Delivery",
+    "return_policy": "Return Policy"
+  },
+  "blog": {
+    "article_1_title": "Optimizing Winter Storage: Maintaining Moisture Levels Below 15%",
+    "article_2_title": "The Future of Industrial Wood Pellets",
+    "article_3_title": "Which Wood to Choose for Professional Cooking?",
+    "article_4_title": "Anticipating Supply Chain Disruptions",
+    "article_5_title": "Decoding the ISO 17225-2 Standard",
+    "hero": {
+      "title": "Expertise & News",
+      "subtitle": "The science of wood energy."
     },
-    "metrics": {
-        "metric_1_val": "15k+",
-        "metric_1_label": "Tons Delivered / Year",
-        "metric_2_val": "100%",
-        "metric_2_label": "Certified Wood",
-        "metric_3_val": "48h",
-        "metric_3_label": "Dispatch Time"
+    "filter": {
+      "all": "ALL ARTICLES",
+      "trends": "B2B TRENDS",
+      "guide": "TECHNICAL GUIDE"
     },
-    "categories_section": {
-        "title": "Fuel Range",
-        "subtitle": "Wood heating solutions tailored for industrial needs and resale. Optimal heat output and controlled moisture level.",
-        "logs_desc": "Dried hardwood, ready to burn. Moisture < 20%.",
-        "briquettes_compressed_desc": "High calorific value. Day and night.",
-        "briquettes_desc": "Ideal for professionals. Optimized storage.",
-        "pellets_desc": "DINplus / ENplus A1 certified. Bulk and pallets.",
-        "coal_starters_desc": "Restaurant grade charcoal, firestarters.",
-        "cta_view": "VIEW RANGE"
+    "draft": "Draft — article to be written",
+    "read_article": "READ ARTICLE",
+    "tag": {
+      "industry": "INDUSTRY",
+      "gastronomy": "CULINARY",
+      "logistics": "LOGISTICS",
+      "science": "SCIENCE & STANDARDS"
     },
-    "footer": {
-        "desc": "Professional biomass and high-performance firewood solutions.",
-        "services_title": "PRODUCTS & SERVICES",
-        "service_1": "Hardwood Logs",
-        "service_2": "Wood Pellets",
-        "service_3": "Pro Cooking Wood",
-        "service_4": "Wholesale & B2B Rates",
-        "coords_title": "CONTACT DETAILS",
-        "address": "[Address to be completed by client]",
-        "phone": "[Phone to be completed by client]",
-        "email": "contact@sotramsbois.com",
-        "legal": "Legal Notice",
-        "cgv": "Terms & Conditions",
-        "privacy": "Privacy Policy",
-        "reassurance_title": "Wholesale Quality Commitment",
-        "reassurance_1": "Certified High-Quality Wood",
-        "reassurance_2": "DINplus / ENplus A1 Certified Pellets",
-        "reassurance_3": "Tail-lift & Pallet Jack Delivery",
-        "reassurance_4": "B2B Payment Terms",
-        "service_5": "Delivery",
-        "return_policy": "Return Policy"
+    "discover": "DISCOVER",
+    "newsletter": {
+      "title": "Market Intelligence.",
+      "desc": "Get our monthly market analysis, regulatory updates, and energy optimization tips straight to your inbox.",
+      "placeholder": "BUSINESS EMAIL ADDRESS"
+    }
+  },
+  "delivery_promo": {
+    "title": "Secure Industrial Delivery",
+    "desc": "From sustainably managed forests to your site. Our fleet guarantees a constant supply for professional volumes, with an average dispatch time of 48 hours.",
+    "cta": "Learn more about delivery"
+  },
+  "specs": {
+    "humidity": "MOISTURE CONTENT",
+    "origin": "ORIGIN",
+    "humidity_unavailable": "Not specified"
+  },
+  "cgv": {
+    "payment_method_title": "PAYMENT METHOD",
+    "payment_method_desc": "Payment is made <strong>exclusively by bank transfer</strong>. No other payment methods (credit card, check, SEPA direct debit) are accepted.",
+    "payment_terms_title": "PAYMENT TERMS",
+    "payment_terms_desc": "According to the terms agreed upon with your account manager.",
+    "legal_label": "Legal &amp; Compliance",
+    "page_title": "General Terms and Conditions of Sale",
+    "toc_title": "Table of Contents",
+    "b2b_title": "B2B Service",
+    "b2b_desc": "For any questions regarding our wholesale terms of sale, please contact your account manager.",
+    "art1_title": "Article 1 - Purpose and Scope",
+    "art1_p1": "These General Terms and Conditions of Sale (“GTC”) form the basis of the commercial negotiation and are systematically provided to each buyer to enable them to place an order.",
+    "art1_info": "sotramsbois reserves the right to depart from certain clauses of these GTC, based on negotiations held with the buyer, through the establishment of Special Conditions of Sale.",
+    "art2_title": "Article 2 - Product Characteristics",
+    "art2_p1": "The products offered for sale are those listed in sotramsbois’s B2B catalogue at the time of consultation. Thermal and dimensional characteristics are guaranteed within standard industrial tolerances.",
+    "moisture_label": "GUARANTEED MOISTURE CONTENT",
+    "species_label": "WOOD SPECIES",
+    "species_value": "Oak, Beech, Hornbeam (100% Hardwood)",
+    "art2_p2": "Catalogue photographs are for illustrative purposes only and do not constitute a contractual document. As wood is a natural material, variations in appearance, colour or splitting are normal and do not affect the certified calorific value in any way.",
+    "art3_title": "Article 3 - Price and Order",
+    "art3_p1": "Prices are stated exclusive of tax (net) and exclusive of delivery costs (Ex Works or FCA), unless otherwise specifically agreed (DAP). The applicable VAT is that in force on the day of the order.",
+    "art4_title": "Article 4 - Logistics and Delivery",
+    "art4_p1": "Given the heavy nature of the products, logistics are subject to strict rules to ensure safety and adherence to schedules. Delivery times are provided for guidance only, and a delay shall not justify order cancellation or penalties.",
+    "pack_label": "1. PACKAGING",
+    "pack_value": "UV-protected shrink-wrapped pallets",
+    "ship_label": "2. SHIPPING",
+    "ship_value": "19T truck or semi-trailer",
+    "unload_label": "3. UNLOADING",
+    "unload_value": "On-board forklift required",
+    "access_title": "MANDATORY ACCESS CONDITIONS",
+    "access_desc": "The buyer must guarantee that the delivery site is accessible to heavy vehicles (up to 44 tonnes). Should delivery prove impossible due to an unreported access issue, demurrage and return costs will be charged in full to the buyer.",
+    "art5_title": "Article 5 - Payment Terms",
+    "art5_p1": "Unless otherwise specifically agreed in the special conditions, payment shall be made under the following terms:",
+    "art6_title": "Article 6 - No Right of Withdrawal",
+    "art6_p1": "In accordance with the provisions of the French Consumer Code, the right of withdrawal does not apply to contracts concluded between businesses (B2B) acting within the scope of their commercial, industrial, craft or professional activity.",
+    "art6_p2": "Products delivered in conformity with the delivery note are neither returnable nor exchangeable. In the event of proven non-conformity upon delivery (apparent defects), the buyer must record clear and precise reservations on the transport document and confirm them by registered letter with acknowledgement of receipt to the carrier within 3 business days of receipt, with a copy to sotramsbois."
+  },
+  "auth": {
+    "login_title": "Connexion",
+    "register_title": "Création de compte",
+    "email": "Adresse Email",
+    "password": "Mot de passe",
+    "company": "Société",
+    "siret": "SIRET (Optionnel)",
+    "contact_name": "Nom du contact",
+    "phone": "Téléphone",
+    "login_btn": "Se connecter",
+    "register_btn": "Créer mon compte",
+    "guest_btn": "Continuer sans compte",
+    "logout": "Se déconnecter"
+  },
+  "cart": {
+    "title": "Votre Panier",
+    "empty": "Votre panier est vide",
+    "checkout_btn": "Valider la commande",
+    "subtotal": "Sous-total HT",
+    "discount": "Remise Volume",
+    "total": "Total HT",
+    "remove": "Supprimer",
+    "selected_items": "Selected items (0)",
+    "order_area": "ORDER AREA"
+  },
+  "checkout": {
+    "title": "Récapitulatif de commande",
+    "delivery_details": "Détails de livraison",
+    "address": "Adresse de livraison",
+    "truck_access": "Accès Poids Lourd",
+    "payment_method": "Mode de paiement",
+    "bank_transfer_only": "Virement bancaire uniquement",
+    "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
+    "confirm_btn": "Confirmer la commande",
+    "shipping_calculating": "Calculating...",
+    "custom_quote": "Please submit a custom quote request.",
+    "cgv": "terms and conditions of sale",
+    "request_quote": "Request a Quote",
+    "bank_transfer": "Bank Transfer (SEPA)",
+    "delivery_fee": "Delivery Fee",
+    "to_be_calculated": "To be calculated"
+  },
+  "confirmation": {
+    "title": "Order confirmed",
+    "ref": "Your order reference:",
+    "msg1": "Your order has been successfully recorded.",
+    "msg2": "Bank transfer only. An email with our bank details has been sent to {{email}}.",
+    "back_home": "Back to home",
+    "spam_notice_title": "Check your spam",
+    "spam_notice": "If you don't see it within a few minutes, check your spam folder."
+  },
+  "footer.client_space_title": "CUSTOMER AREA & CART",
+  "footer.client_link_1": "My Cart",
+  "footer.client_link_2": "Login / Register",
+  "footer.client_link_3": "Delivery Tracking",
+  "footer.client_link_4": "Sales Department",
+  "merci": {
+    "contact": "Message sent",
+    "contact_body": "Your message has been successfully sent. An acknowledgment has been sent to {{email}}. We will reply as soon as possible.",
+    "devis": "Quote request sent",
+    "devis_body": "Your request has been forwarded to our team. A confirmation has been sent to {{email}}.",
+    "inscription": "Registration successful",
+    "inscription_body": "An activation email has been sent to {{email}}. You must activate your account before you can log in.",
+    "inscription_cta": "Go to login"
+  },
+  "depots": {
+    "title": "Present at the heart of Europe's wood industry",
+    "body": "Our strength is our network. Established in 8 countries and 24 cities across Europe, we work hand in hand with local producers, sawmills, and wholesalers to guarantee you high-quality firewood, available year-round at a controlled price. This proximity to our partners allows us to secure our supplies even during periods of high demand, control quality at the source, and offer you competitive rates without unnecessary intermediaries.",
+    "countries": "Partner Countries",
+    "local": "Local Depots",
+    "presence": "Our Presence"
+  },
+  "dashboard": {
+    "title": "My Dashboard",
+    "logout": "Logout",
+    "my_orders": "My Orders",
+    "loading": "Loading...",
+    "no_orders": "No orders at the moment.",
+    "stat_total": "Total orders",
+    "stat_pending": "Pending payment",
+    "stat_paid": "Paid",
+    "stat_shipped": "Shipped",
+    "stat_delivered": "Delivered",
+    "profile": {
+      "company": "Company",
+      "contact": "Contact",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "postal_code": "Postal Code",
+      "city": "City",
+      "edit_btn": "Edit my information",
+      "cancel_btn": "Cancel",
+      "save_btn": "Save"
+    }
+  },
+  "admin": {
+    "orders_title": "Orders Management",
+    "filter_all": "All",
+    "search_placeholder": "Ref, Name, Email...",
+    "loading": "Loading...",
+    "no_orders": "No orders found.",
+    "table": {
+      "ref": "Ref",
+      "date": "Date",
+      "client": "Client",
+      "total": "Total incl. tax",
+      "status": "Status (current)",
+      "action": "Action"
     },
-    "blog": {
-        "article_1_title": "Optimizing Winter Storage: Maintaining Moisture Levels Below 15%",
-        "article_2_title": "The Future of Industrial Wood Pellets",
-        "article_3_title": "Which Wood to Choose for Professional Cooking?",
-        "article_4_title": "Anticipating Supply Chain Disruptions",
-        "article_5_title": "Decoding the ISO 17225-2 Standard",
-        "hero": {
-            "title": "Expertise & News",
-            "subtitle": "The science of wood energy."
-        },
-        "filter": {
-            "all": "ALL ARTICLES",
-            "trends": "B2B TRENDS",
-            "guide": "TECHNICAL GUIDE"
-        },
-        "draft": "Draft — article to be written",
-        "read_article": "READ ARTICLE",
-        "tag": {
-            "industry": "INDUSTRY",
-            "gastronomy": "CULINARY",
-            "logistics": "LOGISTICS",
-            "science": "SCIENCE & STANDARDS"
-        },
-        "discover": "DISCOVER",
-        "newsletter": {
-            "title": "Market Intelligence.",
-            "desc": "Get our monthly market analysis, regulatory updates, and energy optimization tips straight to your inbox.",
-            "placeholder": "BUSINESS EMAIL ADDRESS"
-        }
+    "select_status": "Change status...",
+    "confirm_status": "Change status to: ",
+    "update_error": "Update error",
+    "network_error": "Network error"
+  },
+  "order": {
+    "filter_all": "All",
+    "status_pending": "Pending payment",
+    "status_paid": "Paid",
+    "status_shipped": "Shipped",
+    "status_delivered": "Delivered",
+    "table": {
+      "ref": "Reference",
+      "date": "Date",
+      "status": "Status",
+      "total": "Total incl. tax"
+    }
+  },
+  "modal": {
+    "title": "Order ",
+    "download": "Download order form",
+    "date": "Date:",
+    "status": "Status:",
+    "client": "Client:",
+    "delivery": "Delivery:",
+    "table": {
+      "article": "Item",
+      "details": "Details",
+      "qty": "Qty",
+      "pu": "U.P.",
+      "total": "Total"
     },
-    "delivery_promo": {
-        "title": "Secure Industrial Delivery",
-        "desc": "From sustainably managed forests to your site. Our fleet guarantees a constant supply for professional volumes, with an average dispatch time of 48 hours.",
-        "cta": "Learn more about delivery"
+    "total_ttc": "Total incl. tax",
+    "not_specified": "Not specified"
+  },
+  "contact": {
+    "info": {
+      "hq": "Head Office & Depot",
+      "phone": "Phone",
+      "b2b_line": "B2B direct line",
+      "email": "Email",
+      "response_time": "Response within 24 business hours",
+      "hours": "Opening Hours",
+      "mon_thu": "Monday - Thursday",
+      "fri": "Friday",
+      "weekend": "Weekend",
+      "closed": "Closed"
     },
+    "form": {
+      "title": "Quote Request / Enquiries",
+      "subtitle": "Fill in the form below, our sales team will get back to you promptly.",
+      "honeypot": "Leave this field empty",
+      "company": "Company",
+      "siret": "Company Reg. No. / VAT Number",
+      "name": "Full Name *",
+      "job": "Job Title",
+      "email_pro": "Business Email *",
+      "phone_req": "Phone *",
+      "need_type": "Type of Need *",
+      "comment": "Comment",
+      "submit": "SEND REQUEST"
+    },
+    "logistics": {
+      "title": "Logistics Platform",
+      "desc": "Direct access for delivery trucks. A 50T weighbridge is available on-site for vehicle weighing.",
+      "directions": "Get directions"
+    }
+  },
+  "quote": {
+    "title": "Quote",
+    "assistance": "Direct Assistance",
     "specs": {
-        "humidity": "MOISTURE CONTENT",
-        "origin": "ORIGIN",
-        "humidity_unavailable": "Not specified"
+      "title": "Product Specifications",
+      "type": "PRODUCT TYPE *",
+      "format": "FORMAT / PACKAGING *",
+      "volume": "ESTIMATED VOLUME *",
+      "units": "Pallets",
+      "min_order": "Minimum order: 1 pallet / bulk unit.",
+      "recap_units": "1 pallet = "
     },
-    "cgv": {
-        "payment_method_title": "PAYMENT METHOD",
-        "payment_method_desc": "Payment is made <strong>exclusively by bank transfer</strong>. No other payment methods (credit card, check, SEPA direct debit) are accepted.",
-        "payment_terms_title": "PAYMENT TERMS",
-        "payment_terms_desc": "According to the terms agreed upon with your account manager.",
-        "legal_label": "Legal &amp; Compliance",
-        "page_title": "General Terms and Conditions of Sale",
-        "toc_title": "Table of Contents",
-        "b2b_title": "B2B Service",
-        "b2b_desc": "For any questions regarding our wholesale terms of sale, please contact your account manager.",
-        "art1_title": "Article 1 - Purpose and Scope",
-        "art1_p1": "These General Terms and Conditions of Sale (“GTC”) form the basis of the commercial negotiation and are systematically provided to each buyer to enable them to place an order.",
-        "art1_info": "sotramsbois reserves the right to depart from certain clauses of these GTC, based on negotiations held with the buyer, through the establishment of Special Conditions of Sale.",
-        "art2_title": "Article 2 - Product Characteristics",
-        "art2_p1": "The products offered for sale are those listed in sotramsbois’s B2B catalogue at the time of consultation. Thermal and dimensional characteristics are guaranteed within standard industrial tolerances.",
-        "moisture_label": "GUARANTEED MOISTURE CONTENT",
-        "species_label": "WOOD SPECIES",
-        "species_value": "Oak, Beech, Hornbeam (100% Hardwood)",
-        "art2_p2": "Catalogue photographs are for illustrative purposes only and do not constitute a contractual document. As wood is a natural material, variations in appearance, colour or splitting are normal and do not affect the certified calorific value in any way.",
-        "art3_title": "Article 3 - Price and Order",
-        "art3_p1": "Prices are stated exclusive of tax (net) and exclusive of delivery costs (Ex Works or FCA), unless otherwise specifically agreed (DAP). The applicable VAT is that in force on the day of the order.",
-        "art4_title": "Article 4 - Logistics and Delivery",
-        "art4_p1": "Given the heavy nature of the products, logistics are subject to strict rules to ensure safety and adherence to schedules. Delivery times are provided for guidance only, and a delay shall not justify order cancellation or penalties.",
-        "pack_label": "1. PACKAGING",
-        "pack_value": "UV-protected shrink-wrapped pallets",
-        "ship_label": "2. SHIPPING",
-        "ship_value": "19T truck or semi-trailer",
-        "unload_label": "3. UNLOADING",
-        "unload_value": "On-board forklift required",
-        "access_title": "MANDATORY ACCESS CONDITIONS",
-        "access_desc": "The buyer must guarantee that the delivery site is accessible to heavy vehicles (up to 44 tonnes). Should delivery prove impossible due to an unreported access issue, demurrage and return costs will be charged in full to the buyer.",
-        "art5_title": "Article 5 - Payment Terms",
-        "art5_p1": "Unless otherwise specifically agreed in the special conditions, payment shall be made under the following terms:",
-        "art6_title": "Article 6 - No Right of Withdrawal",
-        "art6_p1": "In accordance with the provisions of the French Consumer Code, the right of withdrawal does not apply to contracts concluded between businesses (B2B) acting within the scope of their commercial, industrial, craft or professional activity.",
-        "art6_p2": "Products delivered in conformity with the delivery note are neither returnable nor exchangeable. In the event of proven non-conformity upon delivery (apparent defects), the buyer must record clear and precise reservations on the transport document and confirm them by registered letter with acknowledgement of receipt to the carrier within 3 business days of receipt, with a copy to sotramsbois."
-    },
-    "auth": {
-        "login_title": "Connexion",
-        "register_title": "Création de compte",
-        "email": "Adresse Email",
-        "password": "Mot de passe",
-        "company": "Société",
-        "siret": "SIRET (Optionnel)",
-        "contact_name": "Nom du contact",
-        "phone": "Téléphone",
-        "login_btn": "Se connecter",
-        "register_btn": "Créer mon compte",
-        "guest_btn": "Continuer sans compte",
-        "logout": "Se déconnecter"
-    },
-    "cart": {
-        "title": "Votre Panier",
-        "empty": "Votre panier est vide",
-        "checkout_btn": "Valider la commande",
-        "subtotal": "Sous-total HT",
-        "discount": "Remise Volume",
-        "total": "Total HT",
-        "remove": "Supprimer",
-        "selected_items": "Selected items (0)",
-        "order_area": "ORDER AREA"
-    },
-    "checkout": {
-        "title": "Récapitulatif de commande",
-        "delivery_details": "Détails de livraison",
-        "address": "Adresse de livraison",
-        "truck_access": "Accès Poids Lourd",
-        "payment_method": "Mode de paiement",
-        "bank_transfer_only": "Virement bancaire uniquement",
-        "bank_transfer_desc": "Nos coordonnées bancaires vous seront transmises après validation de la commande.",
-        "confirm_btn": "Confirmer la commande",
-        "shipping_calculating": "Calculating...",
-        "custom_quote": "Please submit a custom quote request.",
-        "cgv": "terms and conditions of sale",
-        "request_quote": "Request a Quote",
-        "bank_transfer": "Bank Transfer (SEPA)",
-        "delivery_fee": "Delivery Fee",
-        "to_be_calculated": "To be calculated"
-    },
-    "confirmation": {
-        "title": "Order confirmed",
-        "ref": "Your order reference:",
-        "msg1": "Your order has been successfully recorded.",
-        "msg2": "Bank transfer only. An email with our bank details has been sent to {{email}}.",
-        "back_home": "Back to home",
-        "spam_notice_title": "Check your spam",
-        "spam_notice": "If you don't see it within a few minutes, check your spam folder."
-    },
-    "footer.client_space_title": "CUSTOMER AREA & CART",
-    "footer.client_link_1": "My Cart",
-    "footer.client_link_2": "Login / Register",
-    "footer.client_link_3": "Delivery Tracking",
-    "footer.client_link_4": "Sales Department",
-    "merci": {
-        "contact": "Message sent",
-        "contact_body": "Your message has been successfully sent. An acknowledgment has been sent to {{email}}. We will reply as soon as possible.",
-        "devis": "Quote request sent",
-        "devis_body": "Your request has been forwarded to our team. A confirmation has been sent to {{email}}.",
-        "inscription": "Registration successful",
-        "inscription_body": "An activation email has been sent to {{email}}. You must activate your account before you can log in.",
-        "inscription_cta": "Go to login"
-    },
-    "depots": {
-        "title": "Present at the heart of Europe's wood industry",
-        "body": "Our strength is our network. Established in 8 countries and 24 cities across Europe, we work hand in hand with local producers, sawmills, and wholesalers to guarantee you high-quality firewood, available year-round at a controlled price. This proximity to our partners allows us to secure our supplies even during periods of high demand, control quality at the source, and offer you competitive rates without unnecessary intermediaries.",
-        "countries": "Partner Countries",
-        "local": "Local Depots",
-        "presence": "Our Presence"
-    },
-    "dashboard": {
-        "title": "My Dashboard",
-        "logout": "Logout",
-        "my_orders": "My Orders",
-        "loading": "Loading...",
-        "no_orders": "No orders at the moment.",
-        "stat_total": "Total orders",
-        "stat_pending": "Pending payment",
-        "stat_paid": "Paid",
-        "stat_shipped": "Shipped",
-        "stat_delivered": "Delivered",
-        "profile": {
-            "company": "Company",
-            "contact": "Contact",
-            "email": "Email",
-            "phone": "Phone",
-            "address": "Address",
-            "postal_code": "Postal Code",
-            "city": "City",
-            "edit_btn": "Edit my information",
-            "cancel_btn": "Cancel",
-            "save_btn": "Save"
-        }
-    },
-    "admin": {
-        "orders_title": "Orders Management",
-        "filter_all": "All",
-        "search_placeholder": "Ref, Name, Email...",
-        "loading": "Loading...",
-        "no_orders": "No orders found.",
-        "table": {
-            "ref": "Ref",
-            "date": "Date",
-            "client": "Client",
-            "total": "Total incl. tax",
-            "status": "Status (current)",
-            "action": "Action"
-        },
-        "select_status": "Change status...",
-        "confirm_status": "Change status to: ",
-        "update_error": "Update error",
-        "network_error": "Network error"
-    },
-    "order": {
-        "filter_all": "All",
-        "status_pending": "Pending payment",
-        "status_paid": "Paid",
-        "status_shipped": "Shipped",
-        "status_delivered": "Delivered",
-        "table": {
-            "ref": "Reference",
-            "date": "Date",
-            "status": "Status",
-            "total": "Total incl. tax"
-        }
-    },
-    "modal": {
-        "title": "Order ",
-        "download": "Download order form",
-        "date": "Date:",
-        "status": "Status:",
-        "client": "Client:",
-        "delivery": "Delivery:",
-        "table": {
-            "article": "Item",
-            "details": "Details",
-            "qty": "Qty",
-            "pu": "U.P.",
-            "total": "Total"
-        },
-        "total_ttc": "Total incl. tax",
-        "not_specified": "Not specified"
+    "logistics": {
+      "title": "Logistics Information",
+      "date": "DESIRED DATE",
+      "truck": "TRUCK ACCESS *",
+      "address": "FULL DELIVERY ADDRESS *"
     },
     "contact": {
-        "info": {
-            "hq": "Head Office & Depot",
-            "phone": "Phone",
-            "b2b_line": "B2B direct line",
-            "email": "Email",
-            "response_time": "Response within 24 business hours",
-            "hours": "Opening Hours",
-            "mon_thu": "Monday - Thursday",
-            "fri": "Friday",
-            "weekend": "Weekend",
-            "closed": "Closed"
-        },
-        "form": {
-            "title": "Quote Request / Enquiries",
-            "subtitle": "Fill in the form below, our sales team will get back to you promptly.",
-            "honeypot": "Leave this field empty",
-            "company": "Company",
-            "siret": "Company Reg. No. / VAT Number",
-            "name": "Full Name *",
-            "job": "Job Title",
-            "email_pro": "Business Email *",
-            "phone_req": "Phone *",
-            "need_type": "Type of Need *",
-            "comment": "Comment",
-            "submit": "SEND REQUEST"
-        },
-        "logistics": {
-            "title": "Logistics Platform",
-            "desc": "Direct access for delivery trucks. A 50T weighbridge is available on-site for vehicle weighing.",
-            "directions": "Get directions"
-        }
+      "title": "Contact Details",
+      "company": "COMPANY / BUSINESS NAME *",
+      "siret": "Company Reg. No. / VAT Number (Optional)",
+      "name": "CONTACT NAME *",
+      "email": "EMAIL *",
+      "phone": "PHONE *",
+      "notes": "ADDITIONAL NOTES (Optional)"
     },
-    "quote": {
-        "title": "Quote",
-        "assistance": "Direct Assistance",
-        "specs": {
-            "title": "Product Specifications",
-            "type": "PRODUCT TYPE *",
-            "format": "FORMAT / PACKAGING *",
-            "volume": "ESTIMATED VOLUME *",
-            "units": "Units",
-            "min_order": "Minimum order: 1 pallet / bulk unit."
-        },
-        "logistics": {
-            "title": "Logistics Information",
-            "date": "DESIRED DATE",
-            "truck": "TRUCK ACCESS *",
-            "address": "FULL DELIVERY ADDRESS *"
-        },
-        "contact": {
-            "title": "Contact Details",
-            "company": "COMPANY / BUSINESS NAME *",
-            "siret": "Company Reg. No. / VAT Number (Optional)",
-            "name": "CONTACT NAME *",
-            "email": "EMAIL *",
-            "phone": "PHONE *",
-            "notes": "ADDITIONAL NOTES (Optional)"
-        },
-        "submit": "SEND REQUEST",
-        "why": {
-            "title": "Why choose us?",
-            "quality_title": "Certified Quality",
-            "quality_desc": "Certified quality wood, guaranteed moisture level <20%.",
-            "speed_title": "B2B Responsiveness",
-            "speed_desc": "Quote within 24h, priority delivery to job sites or depots.",
-            "volume_title": "Flexible Volumes",
-            "volume_desc": "From a single pallet to a full bulk trailer load."
-        },
-        "processing": "PROCESSING..."
+    "submit": "SEND REQUEST",
+    "why": {
+      "title": "Why choose us?",
+      "quality_title": "Certified Quality",
+      "quality_desc": "Certified quality wood, guaranteed moisture level <20%.",
+      "speed_title": "B2B Responsiveness",
+      "speed_desc": "Quote within 24h, priority delivery to job sites or depots.",
+      "volume_title": "Flexible Volumes",
+      "volume_desc": "From a single pallet to a full bulk trailer load."
     },
-    "register": {
-        "benefits": {
-            "title": "Exclusive B2B Portal",
-            "delivery_title": "Full-trailer & bulk delivery",
-            "delivery_desc": "Direct delivery to platform or production site with tail lift and pallet truck.",
-            "pricing_title": "Trade pricing (incl. VAT)",
-            "pricing_desc": "Instant view of volume discounts and centralized invoicing.",
-            "advisor_title": "Dedicated Account Manager",
-            "advisor_desc": "A single point of contact for your orders and annual contracts.",
-            "approval_notice": "Business accounts are approved within 24 business hours after verification of legal information."
-        },
-        "form": {
-            "title": "Registration Form",
-            "subtitle": "Enter your business details to create your account.",
-            "type_pro": "I am a business (company, reseller, tradesperson...)",
-            "section_business": "Business Information",
-            "optional": "(Optional)",
-            "cgv": "Terms and Conditions of Sale",
-            "already_account": "Already have an account?",
-            "login": "Log in",
-            "submit": "Create my account"
-        }
+    "processing": "PROCESSING..."
+  },
+  "register": {
+    "benefits": {
+      "title": "Exclusive B2B Portal",
+      "delivery_title": "Full-trailer & bulk delivery",
+      "delivery_desc": "Direct delivery to platform or production site with tail lift and pallet truck.",
+      "pricing_title": "Trade pricing (incl. VAT)",
+      "pricing_desc": "Instant view of volume discounts and centralized invoicing.",
+      "advisor_title": "Dedicated Account Manager",
+      "advisor_desc": "A single point of contact for your orders and annual contracts.",
+      "approval_notice": "Business accounts are approved within 24 business hours after verification of legal information."
     },
-    "login": {
-        "benefits": {
-            "title": "B2B Professional Area",
-            "delivery_title": "Pallet Delivery",
-            "delivery_desc": "Precise logistics tracking across France.",
-            "invoice_title": "Business Invoicing",
-            "invoice_desc": "Centralized management and paperless delivery notes."
-        },
-        "form": {
-            "title": "B2B Login",
-            "subtitle": "Enter your business credentials to access your account.",
-            "email": "Business Email",
-            "password": "Password",
-            "forgot": "Forgot password?",
-            "remember": "Stay logged in",
-            "submit": "Log in",
-            "guest": "Continue as guest",
-            "no_account": "No account yet?",
-            "signup": "Sign up"
-        }
-    },
-    "guide": {
-        "hero": {
-            "title": "Expertise & Advice"
-        },
-        "nav": {
-            "species": "WOOD SPECIES",
-            "moisture": "MOISTURE CONTENT",
-            "dimensions": "DIMENSIONS",
-            "storage": "STORAGE"
-        },
-        "species": {
-            "title": "Choosing the right species",
-            "desc": "Not all wood species are equal for heating. Choose hardwoods for slow combustion and high calorific value.",
-            "g1_title": "G1 - Hardwoods",
-            "g1_desc": "Oak, Beech, Ash, Hornbeam",
-            "calorific": "Calorific value",
-            "excellent": "Excellent",
-            "g2_title": "G2 - Softer Hardwoods",
-            "g2_desc": "Chestnut, Acacia, Wild Cherry",
-            "g3_title": "G3 - Softwoods & Other",
-            "g3_desc": "Fir, Pine, Spruce, Birch",
-            "medium": "Medium"
-        },
-        "moisture": {
-            "title": "The importance of moisture content",
-            "desc": "Dry wood (H1) releases more heat, clogs your flue less, and pollutes less. Discover the efficiency difference based on drying method.",
-            "h1_desc": "Ready to use. Offers the best energy yield. Natural drying over 18 to 24 months or kiln-dried.",
-            "h2_desc": "Needs to be stored in a dry, ventilated place for 6 to 12 months before use. More economical to purchase.",
-            "h3_desc": "Freshly cut wood. Not usable as is. Requires at least 2 years of storage before it can be burned.",
-            "yield_title": "Compared Energy Yield",
-            "yield_desc": "Burning wet wood wastes energy evaporating water before producing usable heat."
-        },
-        "dimensions": {
-            "title": "Choosing the right length",
-            "desc": "Log length should match the size of your firebox. Measure the inside of your appliance and subtract 5cm for safety.",
-            "small": "Small wood stoves, cookers. Very fast drying.",
-            "standard": "Standard for most modern stoves and inserts.",
-            "medium": "Intermediate size for medium inserts.",
-            "large": "Large inserts, traditional open fireplaces."
-        },
-        "storage": {
-            "title": "Golden rules of storage",
-            "desc": "Good wood can lose all its qualities if poorly stored. Protect your investment by following these simple rules.",
-            "ventilation_title": "Ventilation",
-            "vent_1": "Do not stack the woodpile directly against a wall (leave ~10cm).",
-            "vent_2": "Cross the logs at the ends to stabilize and ventilate the stack.",
-            "vent_3": "Choose a spot exposed to prevailing winds and sunlight.",
-            "protection_title": "Protection",
-            "prot_1": "Insulate from the ground using pallets or battens.",
-            "prot_2": "Cover only the top with sheet metal or a tarp (leave the sides open).",
-            "prot_3": "Avoid storing in a closed cellar (risk of mould)."
-        }
-    },
-    "livraison": {
-        "process": {
-            "title": "Delivery Process",
-            "validation": "Confirmation",
-            "preparation": "Preparation",
-            "scheduling": "Scheduling",
-            "delivery": "Delivery"
-        },
-        "fleet": {
-            "title": "Fleet & Access Specifications",
-            "tautliner_title": "44T Curtainside Trailer",
-            "tautliner_desc": "Maximum capacity of 32 pallets. Ideal for high-volume deliveries to sites with loading docks.",
-            "tail_lift": "Tail Lift Dimensions",
-            "clearance": "Min. clearance height",
-            "gate": "Min. gate width",
-            "turning": "Turning radius",
-            "crane_title": "Crane Truck",
-            "crane_desc": "Over-obstacle unloading (walls, hedges). Reach up to 6m."
-        },
-        "area": {
-            "title": "Service Area",
-            "zone1": "Zone 1 (D+1 / D+2)",
-            "zone2": "Zone 2 (D+3 / D+5)"
-        },
-        "constraints": "Site Constraints"
-    },
-    "reviews": {
-        "trust": {
-            "title": "Trust Score",
-            "subtitle": "trusted by professionals.",
-            "customers": "+1k customers"
-        },
-        "filter": {
-            "all": "ALL",
-            "hospitality": "HOSPITALITY",
-            "industry": "INDUSTRY",
-            "resellers": "RESELLERS"
-        },
-        "commitments": "Our quality commitments"
-    },
-    "mentions": {
-        "right_erasure": "Right to erasure (\"right to be forgotten\") and to restriction of processing.",
-        "right_object": "Right to object to the processing of your data on legitimate grounds.",
-        "right_access": "Right of access and rectification of your data.",
-        "right_portability": "Right to portability of your data.",
-        "sec6": "6. Limitation of Liability",
-        "sec3": "3. Intellectual Property",
-        "pub_director": "PUBLICATION DIRECTOR",
-        "data_gdpr": "Personal Data & GDPR",
-        "ip": "Intellectual Property",
-        "sec1": "1. Publisher Information",
-        "sec4": "4. Personal Data",
-        "sec5": "5. Cookie Management",
-        "vat_number": "INTRA-EU VAT NUMBER",
-        "data_retention": "Retention period",
-        "last_updated": "Last updated",
-        "pub_info": "Publisher Information",
-        "data_purpose": "Purpose of data processing",
-        "page_title": "Legal Notice",
-        "trademarks": "Trademarks and Logos",
-        "sec2": "2. Hosting",
-        "company_name": "COMPANY NAME",
-        "share_capital": "SHARE CAPITAL",
-        "registered_office": "REGISTERED OFFICE",
-        "hosting": "Hosting",
-        "your_rights": "Your rights",
-        "contact": "CONTACT"
-    },
-    "privacy": {
-        "right_erasure_desc": "Require the deletion of your data (\"right to be forgotten\") within legal limits.",
-        "right_access_desc": "Obtain confirmation that your data is being processed and receive a copy of it.",
-        "right_portability_desc": "Receive your data in a structured, machine-readable format.",
-        "dpo": "Our Data Protection Officer is available to assist you.",
-        "right_rectification_desc": "Request the correction of inaccurate or incomplete information.",
-        "page_title": "Privacy Policy",
-        "sec2": "2. Use of Data",
-        "business_data": "Business Data",
-        "performance": "Performance & Analytics",
-        "sec1": "1. Data Collection",
-        "use_data": "Use of Data",
-        "necessary": "Strictly Necessary",
-        "data_protection": "Data Protection",
-        "sec3": "3. Cookie Management",
-        "right_rectification": "Right of Rectification",
-        "right_portability": "Right to Portability",
-        "browsing_data": "Browsing Data",
-        "last_updated": "LAST UPDATED",
-        "sec4": "4. Your Rights (GDPR)",
-        "collection": "Data Collection",
-        "contract": "Contract Performance",
-        "right_erasure": "Right to Erasure",
-        "cookies": "Cookie Management",
-        "targeting": "Targeting & Advertising",
-        "gdpr": "GDPR / EU 2016/679",
-        "exercise": "Exercise your rights",
-        "rights": "Your Rights (GDPR)",
-        "legitimate": "Legitimate Interest",
-        "active": "Always Active",
-        "question": "A question?",
-        "right_access": "Right of Access",
-        "consent": "Consent",
-        "compliance": "COMPLIANCE",
-        "toc": "Table of Contents"
-    },
-    "return": {
-        "cond1": "Products must be in their original packaging, unopened and undamaged (pallet wrap intact, pellet bags sealed).",
-        "cond2": "The wood must not have been exposed to weather conditions or stored under inadequate conditions altering its initial moisture content.",
-        "cond3": "The returned batch must exactly match the batch numbers stated on the delivery note.",
-        "last_updated": "Last updated: October 15, 2023",
-        "general_cond": "General Return Conditions",
-        "logistics": "Logistics & Reverse Transport",
-        "refund": "Refund Process",
-        "dock_fee": "Dock Handling Fee",
-        "step1": "1. Receipt & Inspection",
-        "step2": "2. File Validation",
-        "pallet_fee": "Pallet Collection Fee",
-        "step3": "3. Payment Issuance",
-        "assistance": "Need assistance?",
-        "pallet_price": "(i.e. €150.00 excl. VAT)",
-        "onsite": "On-site Collection",
-        "dock_price": "(i.e. €35.00 excl. VAT)",
-        "self_return": "Self-return",
-        "version": "Version: 2.1",
-        "toc": "Table of Contents",
-        "legal": "Legal"
-    },
-    "produit": {},
-    "product": {
-        "delivery_desc": "Delivery by curtainside truck (max 26 pallets/truck). Unloading by forklift, buyer's responsibility. On-site collection also available.",
-        "select_format": "Please select a format above before ordering.",
-        "max_discount": "Maximum discount reached!",
-        "logistics_info": "Logistics Information",
-        "discount_applied": "Volume Discount Applied",
-        "calorific": "CALORIFIC VALUE",
-        "log_length": "Log Length",
-        "quantity_pallets": "Quantity (Pallets)",
-        "pallet_dimensions": "PALLET DIMENSIONS",
-        "firewood": "Firewood",
-        "packaging": "PACKAGING",
-        "recommended_price": "Recommended Price",
-        "wholesale_price": "Wholesale Price",
-        "subtotal": "Subtotal (incl. VAT)",
-        "pallet_weight": "PALLET WEIGHT",
-        "discount": "Volume Discount",
-        "catalog": "Catalogue",
-        "length": "LENGTH",
-        "species": "SPECIES",
-        "volume": "VOLUME",
-        "total": "Total"
-    },
-    "panier": {},
-    "confirm": {
-        "order_shipped": "Your order will be confirmed and shipped upon receipt of your bank transfer.",
-        "transfer_instruction": "Please make your bank transfer to the following account:",
-        "order_number": "Your order number",
-        "awaiting_transfer": "Awaiting bank transfer",
-        "transfer_reminder": "Bank Transfer Reminder",
-        "beneficiary": "Beneficiary:",
-        "reference": "Mandatory reference to quote:",
-        "bank": "Bank:",
-        "iban": "IBAN:",
-        "bic": "BIC:",
-        "for": "For:"
-    },
-    "activation": {
-        "wait": "Please wait while we verify your account.",
-        "invalid_desc": "This activation link is no longer valid.",
-        "success_desc": "Your account has been successfully activated.",
-        "invalid": "Invalid or expired link",
-        "activating": "Activating your account...",
-        "success": "Account activated!"
-    },
-    "tableau-de-bord": {},
-    "admin-commandes": {
-        "not_specified": "Not specified",
-        "unknown": "Unknown",
-        "error": "Error",
-        "load_error": "Error loading orders."
+    "form": {
+      "title": "Registration Form",
+      "subtitle": "Enter your business details to create your account.",
+      "type_pro": "I am a business (company, reseller, tradesperson...)",
+      "section_business": "Business Information",
+      "optional": "(Optional)",
+      "cgv": "Terms and Conditions of Sale",
+      "already_account": "Already have an account?",
+      "login": "Log in",
+      "submit": "Create my account"
     }
+  },
+  "login": {
+    "benefits": {
+      "title": "B2B Professional Area",
+      "delivery_title": "Pallet Delivery",
+      "delivery_desc": "Precise logistics tracking across France.",
+      "invoice_title": "Business Invoicing",
+      "invoice_desc": "Centralized management and paperless delivery notes."
+    },
+    "form": {
+      "title": "B2B Login",
+      "subtitle": "Enter your business credentials to access your account.",
+      "email": "Business Email",
+      "password": "Password",
+      "forgot": "Forgot password?",
+      "remember": "Stay logged in",
+      "submit": "Log in",
+      "guest": "Continue as guest",
+      "no_account": "No account yet?",
+      "signup": "Sign up"
+    }
+  },
+  "guide": {
+    "hero": {
+      "title": "Expertise & Advice"
+    },
+    "nav": {
+      "species": "WOOD SPECIES",
+      "moisture": "MOISTURE CONTENT",
+      "dimensions": "DIMENSIONS",
+      "storage": "STORAGE"
+    },
+    "species": {
+      "title": "Choosing the right species",
+      "desc": "Not all wood species are equal for heating. Choose hardwoods for slow combustion and high calorific value.",
+      "g1_title": "G1 - Hardwoods",
+      "g1_desc": "Oak, Beech, Ash, Hornbeam",
+      "calorific": "Calorific value",
+      "excellent": "Excellent",
+      "g2_title": "G2 - Softer Hardwoods",
+      "g2_desc": "Chestnut, Acacia, Wild Cherry",
+      "g3_title": "G3 - Softwoods & Other",
+      "g3_desc": "Fir, Pine, Spruce, Birch",
+      "medium": "Medium"
+    },
+    "moisture": {
+      "title": "The importance of moisture content",
+      "desc": "Dry wood (H1) releases more heat, clogs your flue less, and pollutes less. Discover the efficiency difference based on drying method.",
+      "h1_desc": "Ready to use. Offers the best energy yield. Natural drying over 18 to 24 months or kiln-dried.",
+      "h2_desc": "Needs to be stored in a dry, ventilated place for 6 to 12 months before use. More economical to purchase.",
+      "h3_desc": "Freshly cut wood. Not usable as is. Requires at least 2 years of storage before it can be burned.",
+      "yield_title": "Compared Energy Yield",
+      "yield_desc": "Burning wet wood wastes energy evaporating water before producing usable heat."
+    },
+    "dimensions": {
+      "title": "Choosing the right length",
+      "desc": "Log length should match the size of your firebox. Measure the inside of your appliance and subtract 5cm for safety.",
+      "small": "Small wood stoves, cookers. Very fast drying.",
+      "standard": "Standard for most modern stoves and inserts.",
+      "medium": "Intermediate size for medium inserts.",
+      "large": "Large inserts, traditional open fireplaces."
+    },
+    "storage": {
+      "title": "Golden rules of storage",
+      "desc": "Good wood can lose all its qualities if poorly stored. Protect your investment by following these simple rules.",
+      "ventilation_title": "Ventilation",
+      "vent_1": "Do not stack the woodpile directly against a wall (leave ~10cm).",
+      "vent_2": "Cross the logs at the ends to stabilize and ventilate the stack.",
+      "vent_3": "Choose a spot exposed to prevailing winds and sunlight.",
+      "protection_title": "Protection",
+      "prot_1": "Insulate from the ground using pallets or battens.",
+      "prot_2": "Cover only the top with sheet metal or a tarp (leave the sides open).",
+      "prot_3": "Avoid storing in a closed cellar (risk of mould)."
+    }
+  },
+  "livraison": {
+    "process": {
+      "title": "Delivery Process",
+      "validation": "Confirmation",
+      "preparation": "Preparation",
+      "scheduling": "Scheduling",
+      "delivery": "Delivery"
+    },
+    "fleet": {
+      "title": "Fleet & Access Specifications",
+      "tautliner_title": "44T Curtainside Trailer",
+      "tautliner_desc": "Maximum capacity of 32 pallets. Ideal for high-volume deliveries to sites with loading docks.",
+      "tail_lift": "Tail Lift Dimensions",
+      "clearance": "Min. clearance height",
+      "gate": "Min. gate width",
+      "turning": "Turning radius",
+      "crane_title": "Crane Truck",
+      "crane_desc": "Over-obstacle unloading (walls, hedges). Reach up to 6m."
+    },
+    "area": {
+      "title": "Service Area",
+      "zone1": "Zone 1 (D+1 / D+2)",
+      "zone2": "Zone 2 (D+3 / D+5)"
+    },
+    "constraints": "Site Constraints"
+  },
+  "reviews": {
+    "trust": {
+      "title": "Trust Score",
+      "subtitle": "trusted by professionals.",
+      "customers": "+1k customers"
+    },
+    "filter": {
+      "all": "ALL",
+      "hospitality": "HOSPITALITY",
+      "industry": "INDUSTRY",
+      "resellers": "RESELLERS"
+    },
+    "commitments": "Our quality commitments"
+  },
+  "mentions": {
+    "right_erasure": "Right to erasure (\"right to be forgotten\") and to restriction of processing.",
+    "right_object": "Right to object to the processing of your data on legitimate grounds.",
+    "right_access": "Right of access and rectification of your data.",
+    "right_portability": "Right to portability of your data.",
+    "sec6": "6. Limitation of Liability",
+    "sec3": "3. Intellectual Property",
+    "pub_director": "PUBLICATION DIRECTOR",
+    "data_gdpr": "Personal Data & GDPR",
+    "ip": "Intellectual Property",
+    "sec1": "1. Publisher Information",
+    "sec4": "4. Personal Data",
+    "sec5": "5. Cookie Management",
+    "vat_number": "INTRA-EU VAT NUMBER",
+    "data_retention": "Retention period",
+    "last_updated": "Last updated",
+    "pub_info": "Publisher Information",
+    "data_purpose": "Purpose of data processing",
+    "page_title": "Legal Notice",
+    "trademarks": "Trademarks and Logos",
+    "sec2": "2. Hosting",
+    "company_name": "COMPANY NAME",
+    "share_capital": "SHARE CAPITAL",
+    "registered_office": "REGISTERED OFFICE",
+    "hosting": "Hosting",
+    "your_rights": "Your rights",
+    "contact": "CONTACT"
+  },
+  "privacy": {
+    "right_erasure_desc": "Require the deletion of your data (\"right to be forgotten\") within legal limits.",
+    "right_access_desc": "Obtain confirmation that your data is being processed and receive a copy of it.",
+    "right_portability_desc": "Receive your data in a structured, machine-readable format.",
+    "dpo": "Our Data Protection Officer is available to assist you.",
+    "right_rectification_desc": "Request the correction of inaccurate or incomplete information.",
+    "page_title": "Privacy Policy",
+    "sec2": "2. Use of Data",
+    "business_data": "Business Data",
+    "performance": "Performance & Analytics",
+    "sec1": "1. Data Collection",
+    "use_data": "Use of Data",
+    "necessary": "Strictly Necessary",
+    "data_protection": "Data Protection",
+    "sec3": "3. Cookie Management",
+    "right_rectification": "Right of Rectification",
+    "right_portability": "Right to Portability",
+    "browsing_data": "Browsing Data",
+    "last_updated": "LAST UPDATED",
+    "sec4": "4. Your Rights (GDPR)",
+    "collection": "Data Collection",
+    "contract": "Contract Performance",
+    "right_erasure": "Right to Erasure",
+    "cookies": "Cookie Management",
+    "targeting": "Targeting & Advertising",
+    "gdpr": "GDPR / EU 2016/679",
+    "exercise": "Exercise your rights",
+    "rights": "Your Rights (GDPR)",
+    "legitimate": "Legitimate Interest",
+    "active": "Always Active",
+    "question": "A question?",
+    "right_access": "Right of Access",
+    "consent": "Consent",
+    "compliance": "COMPLIANCE",
+    "toc": "Table of Contents"
+  },
+  "return": {
+    "cond1": "Products must be in their original packaging, unopened and undamaged (pallet wrap intact, pellet bags sealed).",
+    "cond2": "The wood must not have been exposed to weather conditions or stored under inadequate conditions altering its initial moisture content.",
+    "cond3": "The returned batch must exactly match the batch numbers stated on the delivery note.",
+    "last_updated": "Last updated: October 15, 2023",
+    "general_cond": "General Return Conditions",
+    "logistics": "Logistics & Reverse Transport",
+    "refund": "Refund Process",
+    "dock_fee": "Dock Handling Fee",
+    "step1": "1. Receipt & Inspection",
+    "step2": "2. File Validation",
+    "pallet_fee": "Pallet Collection Fee",
+    "step3": "3. Payment Issuance",
+    "assistance": "Need assistance?",
+    "pallet_price": "(i.e. €150.00 excl. VAT)",
+    "onsite": "On-site Collection",
+    "dock_price": "(i.e. €35.00 excl. VAT)",
+    "self_return": "Self-return",
+    "version": "Version: 2.1",
+    "toc": "Table of Contents",
+    "legal": "Legal"
+  },
+  "produit": {},
+  "product": {
+    "delivery_desc": "Delivery by curtainside truck (max 26 pallets/truck). Unloading by forklift, buyer's responsibility. On-site collection also available.",
+    "select_format": "Please select a format above before ordering.",
+    "max_discount": "Maximum discount reached!",
+    "logistics_info": "Logistics Information",
+    "discount_applied": "Volume Discount Applied",
+    "calorific": "CALORIFIC VALUE",
+    "log_length": "Log Length",
+    "quantity_pallets": "Quantity (Pallets)",
+    "pallet_dimensions": "PALLET DIMENSIONS",
+    "firewood": "Firewood",
+    "packaging": "PACKAGING",
+    "recommended_price": "Recommended Price",
+    "wholesale_price": "Wholesale Price",
+    "subtotal": "Subtotal (incl. VAT)",
+    "pallet_weight": "PALLET WEIGHT",
+    "discount": "Volume Discount",
+    "catalog": "Catalogue",
+    "length": "LENGTH",
+    "species": "SPECIES",
+    "volume": "VOLUME",
+    "total": "Total"
+  },
+  "panier": {},
+  "confirm": {
+    "order_shipped": "Your order will be confirmed and shipped upon receipt of your bank transfer.",
+    "transfer_instruction": "Please make your bank transfer to the following account:",
+    "order_number": "Your order number",
+    "awaiting_transfer": "Awaiting bank transfer",
+    "transfer_reminder": "Bank Transfer Reminder",
+    "beneficiary": "Beneficiary:",
+    "reference": "Mandatory reference to quote:",
+    "bank": "Bank:",
+    "iban": "IBAN:",
+    "bic": "BIC:",
+    "for": "For:"
+  },
+  "activation": {
+    "wait": "Please wait while we verify your account.",
+    "invalid_desc": "This activation link is no longer valid.",
+    "success_desc": "Your account has been successfully activated.",
+    "invalid": "Invalid or expired link",
+    "activating": "Activating your account...",
+    "success": "Account activated!"
+  },
+  "tableau-de-bord": {},
+  "admin-commandes": {
+    "not_specified": "Not specified",
+    "unknown": "Unknown",
+    "error": "Error",
+    "load_error": "Error loading orders."
+  }
 }

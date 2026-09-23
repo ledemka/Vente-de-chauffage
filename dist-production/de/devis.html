@@ -1,4 +1,4 @@
-﻿<html lang="de" translate="no"><head>
+<html lang="de" translate="no"><head>
     <meta charset="utf-8"/>
     <meta name="google" content="notranslate"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -158,13 +158,8 @@
 <div class="relative flex flex-col gap-2 group">
 <label data-i18n="quote.specs.type" class="font-label-md text-label-md text-on-surface-variant" for="product_type">TYPE DE PRODUIT *</label>
 <div class="relative">
-<select class="w-full appearance-none bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 pl-4 pr-12 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer" id="product_type" required="">
-<option disabled="" selected="" value="">Sélectionnez un produit...</option>
-<option value="buches_chene">Bûches de Chêne - Qualité Premium</option>
-<option value="buches_hetre">Bûches de Hêtre - Haute Densité</option>
-<option value="pellets_din"><span data-i18n="footer.service_2">Granulés (Pellets)</span> - DINplus</option>
-<option value="bois_cuisson">Bois de Cuisson Pro (Fours/Pizzerias)</option>
-<option value="bois_allumage">Bois d'allumage (vrac)</option>
+<select class="w-full appearance-none bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 pl-4 pr-12 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer" id="product_type" required>
+<option disabled selected value="" data-i18n="quote.specs.select_product">Sélectionnez un produit...</option>
 </select>
 <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none transition-transform group-focus-within:rotate-180">expand_more</span>
 </div>
@@ -173,17 +168,28 @@
 <div class="flex flex-col gap-2">
 <label data-i18n="quote.specs.format" class="font-label-md text-label-md text-on-surface-variant" for="format">FORMAT / CONDITIONNEMENT *</label>
 <div class="relative">
-<select class="w-full appearance-none bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 pl-4 pr-12 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer" id="format" required="">
-<option disabled="" selected="" value="">Sélectionnez un format...</option>
-<option value="palette_2m3">Palette 2 stères (2m³)</option>
-<option value="palette_3m3">Palette 3 stères (3m³)</option>
-<option value="vrac_camion">Vrac - Camion Complet</option>
-<option value="sac_15kg">Sacs 15kg (Palette de 65)</option>
-<option value="bigbag_1m3">Big Bag 1m³</option>
+<select class="w-full appearance-none bg-surface-container border border-outline/40 text-on-surface font-body-md text-body-md rounded-lg py-4 pl-4 pr-12 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer" id="format" required>
+<option disabled selected value="" data-i18n="quote.specs.select_format">Sélectionnez un format...</option>
 </select>
 <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none transition-transform group-focus-within:rotate-180">expand_more</span>
 </div>
 </div>
+</div>
+<!-- Product Recap UI -->
+<div id="product-recap" class="hidden mt-4 col-span-1 md:col-span-2 bg-surface-container-low border border-outline/20 rounded-xl p-4 flex gap-4 items-center">
+    <img id="recap-img" src="" alt="Produit" class="w-24 h-24 object-cover rounded-lg bg-surface-container-highest">
+    <div class="flex-1">
+        <h3 id="recap-name" class="font-headline-sm text-headline-sm text-on-surface mb-1"></h3>
+        <p id="recap-format" class="font-body-sm text-body-sm text-primary font-medium mb-2"></p>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 font-body-sm text-body-sm text-on-surface-variant">
+            <span id="recap-humidity-container" class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">water_drop</span> <span id="recap-humidity"></span></span>
+            <span id="recap-material-container" class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">forest</span> <span id="recap-material"></span></span>
+        </div>
+        <p id="recap-units" class="mt-2 font-body-sm text-body-sm text-outline-variant italic">
+            <span data-i18n="quote.specs.recap_units">1 palette = </span>
+            <span id="recap-units-val"></span>
+        </p>
+    </div>
 </div>
 <!-- Quantity Selector (Industrial Style) -->
 <div class="flex flex-col gap-2 mt-2">
@@ -461,41 +467,162 @@
         </script>
 
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const urlParams = new URLSearchParams(window.location.search);
-                const productId = urlParams.get('product');
-                if (productId) {
-                    fetch(window.resolveDataPath('data/products.json')).then(r => r.json()).then(products => {
-                        const p = products.find(x => x.id === productId);
-                        if (p) {
-                            const selectProd = document.getElementById('product_type');
-                            if (selectProd) {
-                                let opt = selectProd.querySelector(`option[value="${p.id}"]`);
-                                if (!opt) {
-                                    opt = document.createElement('option');
-                                    opt.value = p.id;
-                                    opt.textContent = getProductName(p);
-                                    selectProd.appendChild(opt);
-                                }
-                                selectProd.value = p.id;
-                            }
+    function getProductName(product, lang) {
+        if (!product.name) return product.id;
+        return product.name[lang] || product.name['fr'] || product.id;
+    }
 
-                            const selectFmt = document.getElementById('format');
-                            if (selectFmt) {
-                                let fmtOpt = selectFmt.querySelector(`option[value="${p.format}"]`);
-                                if (!fmtOpt) {
-                                    fmtOpt = document.createElement('option');
-                                    fmtOpt.value = p.format;
-                                    fmtOpt.textContent = p.format;
-                                    selectFmt.appendChild(fmtOpt);
-                                }
-                                selectFmt.value = p.format;
-                            }
-                        }
-                    }).catch(e => console.error('Erreur pré-remplissage devis:', e));
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlProduct = urlParams.get('product');
+        const urlLength = urlParams.get('length');
+        const urlQty = urlParams.get('qty');
+        const lang = document.documentElement.lang || 'fr';
+        
+        const selectProd = document.getElementById('product_type');
+        const selectFmt = document.getElementById('format');
+        const qtyInput = document.getElementById('quantity');
+        
+        const recapContainer = document.getElementById('product-recap');
+        const recapImg = document.getElementById('recap-img');
+        const recapName = document.getElementById('recap-name');
+        const recapFormat = document.getElementById('recap-format');
+        const recapHumidity = document.getElementById('recap-humidity');
+        const recapMaterial = document.getElementById('recap-material');
+        const recapUnitsVal = document.getElementById('recap-units-val');
+        const recapHumidityContainer = document.getElementById('recap-humidity-container');
+        const recapMaterialContainer = document.getElementById('recap-material-container');
+
+        if (urlQty) {
+            qtyInput.value = parseInt(urlQty) > 0 ? parseInt(urlQty) : 1;
+        }
+
+        let allProducts = [];
+
+        function updateFormatAndRecap() {
+            const pid = selectProd.value;
+            const product = allProducts.find(p => p.id === pid);
+            if (!product) {
+                recapContainer.classList.add('hidden');
+                return;
+            }
+
+            // Update Format
+            selectFmt.innerHTML = '<option disabled value="" data-i18n="quote.specs.select_format">Sélectionnez un format...</option>';
+            if (product.prices_by_length) {
+                Object.keys(product.prices_by_length).forEach(len => {
+                    const opt = document.createElement('option');
+                    opt.value = len + ' cm';
+                    opt.textContent = len + ' cm';
+                    selectFmt.appendChild(opt);
+                });
+                if (urlLength && product.prices_by_length[urlLength]) {
+                    selectFmt.value = urlLength + ' cm';
+                } else {
+                    selectFmt.selectedIndex = 0;
                 }
-            });
-        </script>
+            } else {
+                const opt = document.createElement('option');
+                let fmt = product.format || 'Standard';
+                if (fmt.length > 50) fmt = fmt.substring(0, 47) + '...';
+                opt.value = fmt;
+                opt.textContent = fmt;
+                selectFmt.appendChild(opt);
+                selectFmt.value = fmt;
+            }
+
+            // Update Recap
+            recapContainer.classList.remove('hidden');
+            recapImg.src = product.image_product || '';
+            recapName.textContent = getProductName(product, lang);
+            
+            const updateRecapFormatText = () => {
+                recapFormat.textContent = selectFmt.value || (product.prices_by_length ? 'Longueur à choisir' : (product.format || 'Standard'));
+            };
+            updateRecapFormatText();
+            selectFmt.addEventListener('change', updateRecapFormatText);
+            
+            if (product.humidity_bucket) {
+                recapHumidity.textContent = product.humidity_bucket;
+                recapHumidityContainer.classList.remove('hidden');
+            } else {
+                recapHumidityContainer.classList.add('hidden');
+            }
+            
+            if (product.species_material) {
+                recapMaterial.textContent = product.species_material[lang] || product.species_material['fr'];
+                recapMaterialContainer.classList.remove('hidden');
+            } else {
+                recapMaterialContainer.classList.add('hidden');
+            }
+
+            if (product.units_per_palette && product.unit_weight) {
+                recapUnitsVal.textContent = product.units_per_palette + ' unités de ' + product.unit_weight;
+            } else {
+                recapUnitsVal.textContent = '-';
+            }
+        }
+
+        fetch(window.resolveDataPath('data/products.json'))
+            .then(r => r.json())
+            .then(products => {
+                allProducts = products;
+                products.forEach(p => {
+                    if (p.available === false && p.id !== urlProduct) return;
+                    const opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.textContent = getProductName(p, lang);
+                    selectProd.appendChild(opt);
+                });
+
+                if (urlProduct && products.some(p => p.id === urlProduct)) {
+                    selectProd.value = urlProduct;
+                    updateFormatAndRecap();
+                }
+
+                selectProd.addEventListener('change', updateFormatAndRecap);
+            })
+            .catch(e => console.error('Erreur chargement produits:', e));
+
+        // Auto-fill contact info using AuthAPI
+        if (typeof AuthAPI !== 'undefined') {
+            (async () => {
+                try {
+                    const u = await AuthAPI.request('check');
+                    if (u && u.authenticated === true) {
+                        const fillIfEmpty = (id, val) => {
+                            const el = document.getElementById(id);
+                            if (el && !el.value && val) el.value = val;
+                        };
+
+                        fillIfEmpty('company', u.company);
+                        fillIfEmpty('siret', u.siret);
+                        
+                        let nameArr = [];
+                        if (u.first_name) nameArr.push(u.first_name);
+                        if (u.contact_name) nameArr.push(u.contact_name);
+                        fillIfEmpty('contact_name', nameArr.join(' '));
+                        
+                        fillIfEmpty('email', u.email);
+                        fillIfEmpty('phone', u.phone);
+
+                        let addrParts = [];
+                        if (u.address) addrParts.push(u.address);
+                        if (u.address_complement) addrParts.push(u.address_complement);
+                        if (u.postal_code || u.city) {
+                            addrParts.push((u.postal_code || '') + ' ' + (u.city || ''));
+                        }
+                        if (addrParts.length > 0) {
+                            fillIfEmpty('delivery_address', addrParts.join(', '));
+                        }
+                    }
+                } catch (err) {
+                    // Ignore, user just not logged in or network error
+                }
+            })();
+        }
+    });
+</script>
 <script src="../assets/js/user-menu.js"></script>
 <script src="../assets/js/lang-selector.js"></script>
 
