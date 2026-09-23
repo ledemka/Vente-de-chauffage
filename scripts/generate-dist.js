@@ -4,36 +4,7 @@ const path = require('path');
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DIST_DIR = path.join(ROOT_DIR, 'dist-production');
 
-const PAGES = [
-    'index.html',
-    'catalogue.html',
-    'produit.html',
-    'livraison.html',
-    'avis-clients.html',
-    'guide-choix.html',
-    'depots.html',
-    'devis.html',
-    'politique-retour.html',
-    'blog.html',
-    'article.html',
-    'contact.html',
-    'mentions-legales.html',
-    'cgv.html',
-    'politique-confidentialite.html',
-    // Auth & account
-    'connexion.html',
-    'inscription.html',
-    'activation.html',
-    'tableau-de-bord.html',
-    // Cart & order
-    'panier.html',
-    'recapitulatif-commande.html',
-    'confirmation-commande.html',
-    // Thank-you pages
-    'merci-contact.html',
-    'merci-devis.html',
-    'merci-inscription.html',
-];
+const PAGES = fs.readdirSync(ROOT_DIR).filter(f => f.endsWith('.html'));
 
 const LANGS = ['fr', 'en', 'de', 'nl'];
 
@@ -91,12 +62,31 @@ let totalCopied = 0;
 
 LANGS.forEach(lang => {
     PAGES.forEach(page => {
-        const srcPath = lang === 'fr' ? path.join(ROOT_DIR, page) : path.join(ROOT_DIR, lang, page);
+        // ALWAYS read from the FR root source file!
+        const srcPath = path.join(ROOT_DIR, page);
         const distPath = lang === 'fr' ? path.join(DIST_DIR, page) : path.join(DIST_DIR, lang, page);
 
         if (fs.existsSync(srcPath)) {
             fs.mkdirSync(path.dirname(distPath), { recursive: true });
-            fs.copyFileSync(srcPath, distPath);
+            
+            if (lang === 'fr') {
+                fs.copyFileSync(srcPath, distPath);
+            } else {
+                let content = fs.readFileSync(srcPath, 'utf8');
+                
+                // 1. Replace <html lang="fr"
+                content = content.replace(/<html[^>]*lang="[^"]*"[^>]*>/i, (match) => {
+                    return match.replace(/lang="[^"]*"/i, `lang="${lang}"`);
+                });
+                
+                // 3. Fix relative paths to assets, data, api
+                // Root files use href="./assets/css..." -> Subdirs use href="../assets/css..."
+                // Since this is a simple depth difference of 1, we replace ./ with ../ for src and href, 
+                // but ONLY when followed by assets, data, or api to avoid breaking inner-page relative links if they exist.
+                content = content.replace(/(href|src)=".\/(assets|data|api)\//g, `$1="../$2/`);
+                
+                fs.writeFileSync(distPath, content);
+            }
             totalCopied++;
         } else {
             console.warn(`[WARNING]: Missing page source: ${srcPath}`);
