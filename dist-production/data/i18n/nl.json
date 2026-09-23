@@ -29,11 +29,31 @@
     },
     "catalog_discount_note": "Volumekortingen vanaf 2 pallets — details op elke productpagina",
     "catalog": {
+        "filters": {
+            "title": "Filters",
+            "category": "Categorie",
+            "moisture": "Vochtgehalte (H2O)",
+            "all": "Alle",
+            "unspecified": "Niet gespecificeerd",
+            "format": "Formaat:",
+            "format_select": "Selecteer een formaat ↑"
+        },
+        "table": {
+            "format": "FORMAAT",
+            "unit_pallet": "EENHEID / PALLET",
+            "weight": "PALLETGEWICHT",
+            "price": "GROOTHANDELSPRIJS / PALLET",
+            "currency": "€ incl. btw"
+        },
         "category_label": "CATEGORIE",
-        "references_label": "Items"
+        "references_label": "Artikelen"
     },
     "index": {
-        "view_range": "BEKIJK ASSORTIMENT"
+        "hero": {
+            "tagline": "Groothandel Biomassa & Houtenergie",
+            "rating_badge": "Meer dan 1.000 tevreden B2B-klanten in Europa",
+            "subtitle": "Houtverwarmingsoplossingen op maat voor industriële behoeften en doorverkoop. Optimaal warmterendement en gecontroleerd vochtgehalte."
+        }
     },
     "rating_badge": "4,8/5 — Meer dan 1.000 tevreden B2B-klanten in Europa",
     "pricing": {
@@ -314,31 +334,6 @@
         },
         "total_ttc": "Totaal incl. btw",
         "not_specified": "Niet gespecificeerd"
-    },
-    "index": {
-        "hero": {
-            "tagline": "Groothandel Biomassa & Houtenergie",
-            "rating_badge": "Meer dan 1.000 tevreden B2B-klanten in Europa",
-            "subtitle": "Houtverwarmingsoplossingen op maat voor industriële behoeften en doorverkoop. Optimaal warmterendement en gecontroleerd vochtgehalte."
-        }
-    },
-    "catalog": {
-        "filters": {
-            "title": "Filters",
-            "category": "Categorie",
-            "moisture": "Vochtgehalte (H2O)",
-            "all": "Alle",
-            "unspecified": "Niet gespecificeerd",
-            "format": "Formaat:",
-            "format_select": "Selecteer een formaat ↑"
-        },
-        "table": {
-            "format": "FORMAAT",
-            "unit_pallet": "EENHEID / PALLET",
-            "weight": "PALLETGEWICHT",
-            "price": "GROOTHANDELSPRIJS / PALLET",
-            "currency": "€ incl. btw"
-        }
     },
     "contact": {
         "info": {

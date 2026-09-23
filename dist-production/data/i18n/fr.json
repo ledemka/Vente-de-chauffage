@@ -29,11 +29,31 @@
     },
     "catalog_discount_note": "Tarifs dégressifs dès 2 palettes — voir le détail sur chaque fiche produit",
     "catalog": {
+        "filters": {
+            "title": "Filtres",
+            "category": "Catégorie",
+            "moisture": "Humidité (H2O)",
+            "all": "Tout",
+            "unspecified": "Non spécifié",
+            "format": "Format :",
+            "format_select": "Sélectionnez un format ↑"
+        },
+        "table": {
+            "format": "FORMAT",
+            "unit_pallet": "UNITE / PALETTE",
+            "weight": "POIDS PALETTE",
+            "price": "PRIX GROS / PALETTE",
+            "currency": "€ TTC"
+        },
         "category_label": "CATÉGORIE",
         "references_label": "Références"
     },
     "index": {
-        "view_range": "VOIR LA GAMME"
+        "hero": {
+            "tagline": "Grossiste Biomasse & Bois Énergie",
+            "rating_badge": "Plus de 1 000 clients B2B satisfaits en Europe",
+            "subtitle": "Solutions de chauffage au bois adaptées aux besoins industriels et à la revente. Rendement calorifique optimal et taux d'humidité contrôlé."
+        }
     },
     "rating_badge": "4,8/5 — Plus de 1 000 clients B2B satisfaits en Europe",
     "pricing": {
@@ -314,31 +334,6 @@
         },
         "total_ttc": "Total TTC",
         "not_specified": "Non spécifiée"
-    },
-    "index": {
-        "hero": {
-            "tagline": "Grossiste Biomasse & Bois Énergie",
-            "rating_badge": "Plus de 1 000 clients B2B satisfaits en Europe",
-            "subtitle": "Solutions de chauffage au bois adaptées aux besoins industriels et à la revente. Rendement calorifique optimal et taux d'humidité contrôlé."
-        }
-    },
-    "catalog": {
-        "filters": {
-            "title": "Filtres",
-            "category": "Catégorie",
-            "moisture": "Humidité (H2O)",
-            "all": "Tout",
-            "unspecified": "Non spécifié",
-            "format": "Format :",
-            "format_select": "Sélectionnez un format ↑"
-        },
-        "table": {
-            "format": "FORMAT",
-            "unit_pallet": "UNITE / PALETTE",
-            "weight": "POIDS PALETTE",
-            "price": "PRIX GROS / PALETTE",
-            "currency": "€ TTC"
-        }
     },
     "contact": {
         "info": {

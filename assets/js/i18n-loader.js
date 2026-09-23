@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const relPath = lang === 'fr' ? '.' : '..';
 
     // 1. Load Translations
-    fetch(`${relPath}/data/i18n/${lang}.json`)
+    fetch(`${relPath}/data/i18n/${lang}.json?v=${Date.now()}`)
         .then(res => {
             if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
             return res.json();

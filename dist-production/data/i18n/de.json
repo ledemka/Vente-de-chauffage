@@ -29,11 +29,31 @@
     },
     "catalog_discount_note": "Mengenrabatte ab 2 Paletten — Details auf jeder Produktseite",
     "catalog": {
+        "filters": {
+            "title": "Filter",
+            "category": "Kategorie",
+            "moisture": "Feuchtigkeit (H2O)",
+            "all": "Alle",
+            "unspecified": "Nicht angegeben",
+            "format": "Format:",
+            "format_select": "Format auswählen ↑"
+        },
+        "table": {
+            "format": "FORMAT",
+            "unit_pallet": "EINHEIT / PALETTE",
+            "weight": "PALETTENGEWICHT",
+            "price": "GROSSPREIS / PALETTE",
+            "currency": "€ inkl. MwSt"
+        },
         "category_label": "KATEGORIE",
         "references_label": "Artikel"
     },
     "index": {
-        "view_range": "SORTIMENT ANSEHEN"
+        "hero": {
+            "tagline": "Großhändler für Biomasse & Holzenergie",
+            "rating_badge": "Über 1.000 zufriedene B2B-Kunden in Europa",
+            "subtitle": "Holzheizlösungen für Industriebedarf und Weiterverkauf. Optimale Heizleistung und kontrollierter Feuchtigkeitsgehalt."
+        }
     },
     "rating_badge": "4,8/5 — Über 1.000 zufriedene B2B-Kunden in Europa",
     "pricing": {
@@ -314,31 +334,6 @@
         },
         "total_ttc": "Gesamt inkl. MwSt",
         "not_specified": "Nicht angegeben"
-    },
-    "index": {
-        "hero": {
-            "tagline": "Großhändler für Biomasse & Holzenergie",
-            "rating_badge": "Über 1.000 zufriedene B2B-Kunden in Europa",
-            "subtitle": "Holzheizlösungen für Industriebedarf und Weiterverkauf. Optimale Heizleistung und kontrollierter Feuchtigkeitsgehalt."
-        }
-    },
-    "catalog": {
-        "filters": {
-            "title": "Filter",
-            "category": "Kategorie",
-            "moisture": "Feuchtigkeit (H2O)",
-            "all": "Alle",
-            "unspecified": "Nicht angegeben",
-            "format": "Format:",
-            "format_select": "Format auswählen ↑"
-        },
-        "table": {
-            "format": "FORMAT",
-            "unit_pallet": "EINHEIT / PALETTE",
-            "weight": "PALETTENGEWICHT",
-            "price": "GROSSPREIS / PALETTE",
-            "currency": "€ inkl. MwSt"
-        }
     },
     "contact": {
         "info": {

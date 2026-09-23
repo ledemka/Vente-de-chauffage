@@ -29,11 +29,31 @@
     },
     "catalog_discount_note": "Volume discounts starting from 2 pallets — see details on each product page",
     "catalog": {
+        "filters": {
+            "title": "Filters",
+            "category": "Category",
+            "moisture": "Moisture (H2O)",
+            "all": "All",
+            "unspecified": "Unspecified",
+            "format": "Format:",
+            "format_select": "Select a format ↑"
+        },
+        "table": {
+            "format": "FORMAT",
+            "unit_pallet": "UNIT / PALLET",
+            "weight": "PALLET WEIGHT",
+            "price": "WHOLESALE PRICE / PALLET",
+            "currency": "€ incl. VAT"
+        },
         "category_label": "CATEGORY",
         "references_label": "Items"
     },
     "index": {
-        "view_range": "VIEW RANGE"
+        "hero": {
+            "tagline": "Biomass & Wood Energy Wholesaler",
+            "rating_badge": "Over 1,000 satisfied B2B customers across Europe",
+            "subtitle": "Wood heating solutions tailored for industrial needs and resale. Optimal heat output and controlled moisture level."
+        }
     },
     "rating_badge": "4.8/5 — Over 1,000 satisfied B2B clients in Europe",
     "pricing": {
@@ -314,31 +334,6 @@
         },
         "total_ttc": "Total incl. tax",
         "not_specified": "Not specified"
-    },
-    "index": {
-        "hero": {
-            "tagline": "Biomass & Wood Energy Wholesaler",
-            "rating_badge": "Over 1,000 satisfied B2B customers across Europe",
-            "subtitle": "Wood heating solutions tailored for industrial needs and resale. Optimal heat output and controlled moisture level."
-        }
-    },
-    "catalog": {
-        "filters": {
-            "title": "Filters",
-            "category": "Category",
-            "moisture": "Moisture (H2O)",
-            "all": "All",
-            "unspecified": "Unspecified",
-            "format": "Format:",
-            "format_select": "Select a format ↑"
-        },
-        "table": {
-            "format": "FORMAT",
-            "unit_pallet": "UNIT / PALLET",
-            "weight": "PALLET WEIGHT",
-            "price": "WHOLESALE PRICE / PALLET",
-            "currency": "€ incl. VAT"
-        }
     },
     "contact": {
         "info": {
