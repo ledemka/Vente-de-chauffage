@@ -80,10 +80,10 @@ LANGS.forEach(lang => {
                 });
                 
                 // 3. Fix relative paths to assets, data, api
-                // Root files use href="./assets/css..." -> Subdirs use href="../assets/css..."
-                // Since this is a simple depth difference of 1, we replace ./ with ../ for src and href, 
-                // but ONLY when followed by assets, data, or api to avoid breaking inner-page relative links if they exist.
-                content = content.replace(/(href|src)=".\/(assets|data|api)\//g, `$1="../$2/`);
+                // Root files use href="./assets/css..." or fetch('./data/...') -> Subdirs use ../
+                // We match any string starting with ./assets/, ./data/, or ./api/ 
+                // and replace the ./ with ../
+                content = content.replace(/(['"]).\/(assets|data|api)\//g, `$1../$2/`);
                 
                 // 4. Fix language switcher links
                 // Language links do not use ./, they are written as href="page.html" or href="en/page.html"

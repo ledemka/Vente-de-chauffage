@@ -156,8 +156,8 @@
             const token = urlParams.get('token');
             const lang = localStorage.getItem('sotramsbois_lang') || 'fr';
             
-            const endpoint = lang === 'fr' ? './api/activate.php' : '../api/activate.php';
-            const resendEndpoint = lang === 'fr' ? './api/resend-activation.php' : '../api/resend-activation.php';
+            const endpoint = lang === 'fr' ? '../api/activate.php' : '../api/activate.php';
+            const resendEndpoint = lang === 'fr' ? '../api/resend-activation.php' : '../api/resend-activation.php';
 
             const loadingDiv = document.getElementById('activation-loading');
             const successDiv = document.getElementById('activation-success');

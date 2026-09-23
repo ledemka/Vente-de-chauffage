@@ -306,7 +306,7 @@
                         const lang = localStorage.getItem('sotramsbois_lang') || 'fr';
                         formData.lang = lang;
 
-                        const endpoint = lang === 'fr' ? './api/contact.php' : '../api/contact.php';
+                        const endpoint = lang === 'fr' ? '../api/contact.php' : '../api/contact.php';
 
                         fetch(endpoint, {
                             method: 'POST',

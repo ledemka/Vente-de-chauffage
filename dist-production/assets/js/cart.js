@@ -607,7 +607,8 @@ var CartUI = {
                 
                 debounceTimer = setTimeout(async () => {
                     try {
-                        const res = await fetch(`./api/shipping.php?action=autocomplete&q=${encodeURIComponent(q)}`);
+                        let shippingApi = inSubdir ? '../api/shipping.php' : './api/shipping.php';
+            const res = await fetch(`${shippingApi}?action=autocomplete&q=${encodeURIComponent(q)}`);
                         const data = await res.json();
                         if (data.items && data.items.length > 0) {
                             autocompleteResults.innerHTML = '';
@@ -712,7 +713,8 @@ var CartUI = {
             if (shippingLoading) shippingLoading.classList.remove('hidden');
             
             try {
-                const res = await fetch(`./api/shipping.php?action=calculate&address=${encodeURIComponent(address)}&quantity=${checkoutTotalQty}`);
+                let shippingApi = inSubdir ? '../api/shipping.php' : './api/shipping.php';
+            const res = await fetch(`${shippingApi}?action=calculate&address=${encodeURIComponent(address)}&quantity=${checkoutTotalQty}`);
                 const data = await res.json();
                 
                 if (shippingLoading) shippingLoading.classList.add('hidden');
