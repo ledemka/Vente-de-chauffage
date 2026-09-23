@@ -18,7 +18,7 @@ const targetFiles = [
     'mentions-legales.html', 'cgv.html', 'politique-confidentialite.html',
     'politique-retour.html', 'connexion.html', 'inscription.html',
     'panier.html', 'recapitulatif-commande.html', 'confirmation-commande.html',
-    'tableau-de-bord.html', 'produit.html', 'devis.html',
+    'tableau-de-bord.html', 'produit.html', 'devis.html', 'article.html'
 ];
 
 // Language config per page directory

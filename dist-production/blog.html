@@ -225,7 +225,7 @@ window.resolveAssetPath = function(pathStr) {
                 const articlesPerPage = 3;
 
                 try {
-                    const res = await fetch(window.resolveDataPath('data/articles.json?v=' + Date.now()));
+                    const res = await fetch(window.resolveAssetPath('data/articles.json?v=' + Date.now()));
                     allArticles = await res.json();
                     renderArticles();
                 } catch (err) {
