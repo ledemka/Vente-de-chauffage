@@ -46,7 +46,14 @@
             "currency": "€ incl. VAT"
         },
         "category_label": "CATEGORY",
-        "references_label": "Items"
+        "references_label": "Items",
+        "reset_filters": "RESET",
+        "toast_select_format": "Please select a format before choosing your wood.",
+        "no_products": "No products match these criteria.",
+        "format_warning": "The prices displayed correspond to the <strong>50 cm</strong> format. Please select your format before choosing your wood.",
+        "format_selected": "selected",
+        "units_per_pallet": "units/pallet",
+        "unspecified": "unspecified"
     },
     "index": {
         "hero": {

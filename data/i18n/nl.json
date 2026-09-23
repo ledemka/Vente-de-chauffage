@@ -46,7 +46,14 @@
             "currency": "€ incl. btw"
         },
         "category_label": "CATEGORIE",
-        "references_label": "Artikelen"
+        "references_label": "Artikelen",
+        "reset_filters": "RESET",
+        "toast_select_format": "Selecteer een formaat voordat u uw hout kiest.",
+        "no_products": "Geen producten komen overeen met deze criteria.",
+        "format_warning": "De weergegeven prijzen komen overeen met het <strong>50 cm</strong> formaat. Selecteer uw formaat voordat u uw hout kiest.",
+        "format_selected": "geselecteerd",
+        "units_per_pallet": "eenheden/pallet",
+        "unspecified": "niet gespecificeerd"
     },
     "index": {
         "hero": {

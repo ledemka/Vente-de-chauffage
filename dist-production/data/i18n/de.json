@@ -46,7 +46,14 @@
             "currency": "€ inkl. MwSt"
         },
         "category_label": "KATEGORIE",
-        "references_label": "Artikel"
+        "references_label": "Artikel",
+        "reset_filters": "ZURÜCKSETZEN",
+        "toast_select_format": "Bitte wählen Sie ein Format, bevor Sie Ihr Holz auswählen.",
+        "no_products": "Keine Produkte entsprechen diesen Kriterien.",
+        "format_warning": "Die angezeigten Preise beziehen sich auf das <strong>50 cm</strong> Format. Bitte wählen Sie Ihr Format, bevor Sie Ihr Holz auswählen.",
+        "format_selected": "ausgewählt",
+        "units_per_pallet": "Einheiten/Palette",
+        "unspecified": "nicht angegeben"
     },
     "index": {
         "hero": {

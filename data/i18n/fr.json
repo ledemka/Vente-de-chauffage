@@ -46,7 +46,14 @@
             "currency": "€ TTC"
         },
         "category_label": "CATÉGORIE",
-        "references_label": "Références"
+        "references_label": "Références",
+        "reset_filters": "RÉINITIALISER",
+        "toast_select_format": "Veuillez sélectionner un format avant de choisir votre bois.",
+        "no_products": "Aucun produit ne correspond à ces critères.",
+        "format_warning": "Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.",
+        "format_selected": "sélectionné",
+        "units_per_pallet": "unités/palette",
+        "unspecified": "non spécifié"
     },
     "index": {
         "hero": {

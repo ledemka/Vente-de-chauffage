@@ -194,7 +194,7 @@
                 </div>
             </div>
             <button id="reset-filters" class="w-full py-3 mt-4 border-2 border-primary text-primary text-label-md font-label-md rounded flex justify-center items-center gap-2 hover:bg-primary/5 transition-colors">
-                RÉINITIALISER
+                <span data-i18n="catalog.reset_filters">RÉINITIALISER</span>
             </button>
 </aside>
 
@@ -305,7 +305,7 @@ window.resolveAssetPath = function(pathStr) {
                                         setTimeout(() => formatContainer.classList.remove('ring-2', 'ring-primary', 'ring-offset-2'), 2000);
                                     }
                                     // Show toast
-                                    showToast('Veuillez sélectionner un format avant de choisir votre bois.');
+                                    showToast((typeof t !== 'undefined' && t.catalog && t.catalog.toast_select_format) ? t.catalog.toast_select_format : 'Veuillez sélectionner un format avant de choisir votre bois.');
                                     return;
                                 }
                                 const basePath = lang === 'fr' ? './' : `../${lang}/`;
@@ -337,7 +337,7 @@ window.resolveAssetPath = function(pathStr) {
                                 })).filter(sg => sg.products.length > 0);
 
                                 if (visibleSubGroups.length === 0) {
-                                    container.innerHTML = `<div class="text-center py-20 text-on-surface-variant font-body-lg">Aucun produit ne correspond à ces critères.</div>`;
+                                    container.innerHTML = `<div class="text-center py-20 text-on-surface-variant font-body-lg">${(typeof t !== 'undefined' && t.catalog && t.catalog.no_products) ? t.catalog.no_products : 'Aucun produit ne correspond à ces critères.'}</div>`;
                                     return;
                                 }
 
@@ -353,7 +353,7 @@ window.resolveAssetPath = function(pathStr) {
                                             <!-- Informational banner — shown only when no format is selected -->
                                             <div id="buche-format-banner" class="${selectedFormat ? 'hidden' : ''} flex items-start gap-3 bg-amber-50 border border-amber-300 text-amber-900 rounded-lg px-4 py-3 text-body-sm">
                                                 <span class="material-symbols-outlined text-amber-600 shrink-0" style="font-variation-settings:'FILL' 1">info</span>
-                                                <span>Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.</span>
+                                                <span>${(typeof t !== 'undefined' && t.catalog && t.catalog.format_warning) ? t.catalog.format_warning : 'Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.'}</span>
                                             </div>
                                             <div class="flex items-center gap-4 flex-wrap">
                                                 <span data-i18n="catalog.filters.format" class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider shrink-0">Format :</span>
@@ -365,7 +365,7 @@ window.resolveAssetPath = function(pathStr) {
                                                         </button>
                                                     `).join('')}
                                                 </div>
-                                                ${selectedFormat ? `<span class="text-body-sm text-primary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1">check_circle</span> Format ${selectedFormat} cm sélectionné</span>` : ''}
+                                                ${selectedFormat ? `<span class="text-body-sm text-primary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1">check_circle</span> Format ${selectedFormat} cm ${(typeof t !== 'undefined' && t.catalog && t.catalog.format_selected) ? t.catalog.format_selected : 'sélectionné'}</span>` : ''}
                                             </div>
                                         </div>
                                     ` : '';
@@ -427,7 +427,7 @@ window.resolveAssetPath = function(pathStr) {
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span data-i18n="catalog.table.unit_pallet" class="text-label-md font-label-md text-on-surface-variant">UNITE / PALETTE</span>
-                                                                <span class="text-data-mono font-data-mono text-on-surface">${p.units_per_palette} unités/palette</span>
+                                                                <span class="text-data-mono font-data-mono text-on-surface">${p.units_per_palette} ${(typeof t !== 'undefined' && t.catalog && t.catalog.units_per_pallet) ? t.catalog.units_per_pallet : 'unités/palette'}</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span data-i18n="catalog.table.weight" class="text-label-md font-label-md text-on-surface-variant">POIDS PALETTE</span>
@@ -501,7 +501,7 @@ window.resolveAssetPath = function(pathStr) {
                                         const hVal = parseInt(humiditySlider.value);
                                         if (hVal === 1 && p.humidity_bucket !== '<20%') return false;
                                         if (hVal === 2 && p.humidity_bucket !== '20-25%') return false;
-                                        if (hVal === 3 && p.humidity_bucket !== 'non spécifié') return false;
+                                        if (hVal === 3 && p.humidity_bucket !== 'non spécifié' && p.humidity_bucket !== ((typeof t !== 'undefined' && t.catalog && t.catalog.unspecified) ? t.catalog.unspecified : 'non spécifié')) return false;
                                     }
 
                                     return true;
