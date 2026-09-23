@@ -115,59 +115,43 @@
                         <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="delivered" data-i18n="order.status_delivered">Livrée</button>
                     </div>
                     
-                    <div id="profile-view" class="flex flex-col gap-4">
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.company">Société</span>
-                            <span id="view-company" class="text-body-md text-on-surface font-bold">-</span>
-                        </div>
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.contact">Contact</span>
-                            <span id="view-contact" class="text-body-md text-on-surface">-</span>
-                        </div>
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.email">Email</span>
-                            <span id="view-email" class="text-body-md text-on-surface">-</span>
-                        </div>
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.phone">Téléphone</span>
-                            <span id="view-phone" class="text-body-md text-on-surface">-</span>
-                        </div>
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.address">Adresse</span>
-                            <span id="view-address" class="text-body-md text-on-surface">-</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.postal_code">Code Postal</span>
-                                <span id="view-postal" class="text-body-md text-on-surface">-</span>
-                            </div>
-                            <div>
-                                <span class="text-label-md font-label-md text-outline-variant block mb-1" data-i18n="dashboard.profile.city">Ville</span>
-                                <span id="view-city" class="text-body-md text-on-surface">-</span>
+                                        <div id="profile-view" class="flex flex-col gap-6">
+                        <!-- IDENTITÉ -->
+                        <div id="section-identite">
+                            <h3 class="text-label-md font-bold text-on-surface-variant uppercase tracking-wider mb-2 border-b border-outline/20 pb-1" data-i18n="dashboard.profile.identity">Identité</h3>
+                            <div class="flex flex-col gap-1">
+                                <span id="view-identity-name" class="text-body-md text-on-surface font-bold"></span>
+                                <span id="view-identity-company" class="text-body-sm text-outline-variant hidden"></span>
                             </div>
                         </div>
-                        
-                        <div class="flex-1 h-px bg-outline/20 my-2"></div>
-                        <h4 class="text-label-md font-bold text-on-surface-variant uppercase tracking-wider mb-2">Informations complémentaires</h4>
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Prénom</span>
-                            <span id="view-first_name" class="text-body-md text-on-surface font-bold">-</span>
+
+                        <!-- COORDONNÉES -->
+                        <div id="section-coordonnees">
+                            <h3 class="text-label-md font-bold text-on-surface-variant uppercase tracking-wider mb-2 border-b border-outline/20 pb-1" data-i18n="dashboard.profile.contact_info">Coordonnées</h3>
+                            <div class="flex flex-col gap-1">
+                                <span id="view-contact-email" class="text-body-md text-on-surface"></span>
+                                <span id="view-contact-phone" class="text-body-md text-on-surface"></span>
+                            </div>
                         </div>
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">SIRET</span>
-                            <span id="view-siret" class="text-body-md text-on-surface">-</span>
+
+                        <!-- ADRESSE DE FACTURATION -->
+                        <div id="section-adresse">
+                            <h3 class="text-label-md font-bold text-on-surface-variant uppercase tracking-wider mb-2 border-b border-outline/20 pb-1" data-i18n="dashboard.profile.billing_address">Adresse de facturation</h3>
+                            <div class="flex flex-col gap-1">
+                                <span id="view-address-line1" class="text-body-md text-on-surface"></span>
+                                <span id="view-address-complement" class="text-body-md text-on-surface hidden"></span>
+                                <span id="view-address-city" class="text-body-md text-on-surface"></span>
+                            </div>
                         </div>
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Fonction</span>
-                            <span id="view-fonction" class="text-body-md text-on-surface">-</span>
-                        </div>
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">TVA Intracommunautaire</span>
-                            <span id="view-tva_intra" class="text-body-md text-on-surface">-</span>
-                        </div>
-                        <div>
-                            <span class="text-label-md font-label-md text-outline-variant block mb-1">Complément d'adresse</span>
-                            <span id="view-address_complement" class="text-body-md text-on-surface">-</span>
+
+                        <!-- INFORMATIONS PROFESSIONNELLES -->
+                        <div id="section-pro" class="hidden">
+                            <h3 class="text-label-md font-bold text-on-surface-variant uppercase tracking-wider mb-2 border-b border-outline/20 pb-1" data-i18n="dashboard.profile.pro_info">Informations professionnelles</h3>
+                            <div class="flex flex-col gap-1">
+                                <span id="view-pro-siret" class="text-body-md text-on-surface hidden"></span>
+                                <span id="view-pro-fonction" class="text-body-md text-on-surface hidden"></span>
+                                <span id="view-pro-tva" class="text-body-md text-on-surface hidden"></span>
+                            </div>
                         </div>
 
                         <button type="button" id="btn-edit-profile" class="mt-2 w-full border border-primary text-primary hover:bg-primary/5 py-2 rounded-lg font-label-md transition-colors" data-i18n="dashboard.profile.edit_btn">
