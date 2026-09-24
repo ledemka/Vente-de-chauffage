@@ -479,12 +479,6 @@
         const urlParams = new URLSearchParams(window.location.search);
         const urlProduct = urlParams.get('product');
         const urlLength = urlParams.get('length');
-            const urlQtyRaw = urlParams.get('qty');
-            if (urlQtyRaw) {
-                let urlQty = parseInt(urlQtyRaw, 10);
-                if (isNaN(urlQty)) urlQty = 1;
-                qtyInput.value = Math.max(1, Math.min(999, urlQty));
-            }
         const lang = document.documentElement.lang || 'fr';
         
         const selectProd = document.getElementById('product_type');
@@ -501,8 +495,11 @@
         const recapHumidityContainer = document.getElementById('recap-humidity-container');
         const recapMaterialContainer = document.getElementById('recap-material-container');
 
-        if (urlQty) {
-            qtyInput.value = parseInt(urlQty) > 0 ? parseInt(urlQty) : 1;
+        const urlQtyRaw = urlParams.get('qty');
+        if (urlQtyRaw) {
+            let parsedQty = parseInt(urlQtyRaw, 10);
+            if (isNaN(parsedQty) || parsedQty < 1) parsedQty = 1;
+            qtyInput.value = Math.max(1, Math.min(999, parsedQty));
         }
 
         let allProducts = [];

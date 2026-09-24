@@ -12,7 +12,6 @@ const i18nData = {};
     i18nData[lang] = JSON.parse(fs.readFileSync(path.join(i18nDir, lang + '.json'), 'utf8'));
 });
 
-// Helper to flatten i18n
 function flatten(obj, prefix = '') {
     let res = {};
     for (let k in obj) {
@@ -43,7 +42,7 @@ function getCanonicalUrl(lang, pageName) {
 
 function processSeo(html, lang, pageName) {
     const $ = cheerio.load(html, { decodeEntities: false });
-    const seoPage = pageName.replace('.html', '');
+    const seoPage = pageName; // keep '.html' because it's keyed with .html in json
     const metaData = seoData[lang][seoPage] || {};
 
     const canonicalUrl = getCanonicalUrl(lang, pageName);
@@ -65,7 +64,6 @@ function processSeo(html, lang, pageName) {
                 const textNodes = $(el).contents().filter(function() { return this.nodeType === 3; });
                 if (textNodes.length > 0) {
                     textNodes.first().replaceWith(trans[key]);
-                    // If there are other text nodes, clear them so we don't duplicate
                     for(let j=1; j<textNodes.length; j++) $(textNodes[j]).remove();
                 } else {
                     $(el).text(trans[key]);
@@ -95,6 +93,7 @@ function processSeo(html, lang, pageName) {
     }
 
     // 2. <title> and <meta name="description">
+    // "Si l'entrée est vide ou absente : ne rien injecter."
     if (metaData.title) {
         if ($('title').length === 0) $('head').append('<title></title>');
         $('title').text(metaData.title);
@@ -108,11 +107,7 @@ function processSeo(html, lang, pageName) {
     $('link[rel="canonical"]').remove();
     $('link[rel="alternate"][hreflang]').remove();
     
-    // We only set fixed canonical for pages that are not dynamic
-    // Wait, the prompt says "Canonical auto-référent par langue : https://www.sotramsbois.com/{lang}/{page}"
-    // But later "LOT 3: le canonical de produit.html est fixe". We will handle product.html dynamically in JS later.
-    // For now, inject standard canonical and hreflang for all EXCEPT produit.html maybe? The prompt says "Dans le bloc Dynamic SEO de produit.html, remplacer la valeur fixe".
-    // So we can put it statically here and JS will replace it.
+    // For produit.html and article.html, apply same rule (URL without params)
     $('head').append(`\n<link rel="canonical" href="${canonicalUrl}">`);
     
     ['fr', 'en', 'de', 'nl'].forEach(l => {
@@ -122,49 +117,95 @@ function processSeo(html, lang, pageName) {
 
     // 4. Open Graph & Twitter
     $('meta[property^="og:"], meta[name^="twitter:"]').remove();
-    if (metaData.title) {
+    const hasNoIndex = $('meta[name="robots"]').attr('content') && $('meta[name="robots"]').attr('content').includes('noindex');
+    if (metaData.title && metaData.description && !hasNoIndex) {
         $('head').append(`\n<meta property="og:title" content="${metaData.title}">`);
-    }
-    if (metaData.description) {
         $('head').append(`\n<meta property="og:description" content="${metaData.description}">`);
+        $('head').append(`\n<meta property="og:url" content="${canonicalUrl}">`);
+        $('head').append(`\n<meta property="og:site_name" content="sotramsbois">`);
+        $('head').append(`\n<meta property="og:type" content="website">`);
+        $('head').append(`\n<meta property="og:locale" content="${locales[lang]}">`);
+        ['fr', 'en', 'de', 'nl'].filter(l => l !== lang).forEach(l => {
+            $('head').append(`\n<meta property="og:locale:alternate" content="${locales[l]}">`);
+        });
+        
+        const heroImage = '/assets/images/hero/hero-carousel-1.jpg';
+        $('head').append(`\n<meta property="og:image" content="${MAIN_HOST}${heroImage}">`);
+        $('head').append(`\n<meta name="twitter:card" content="summary_large_image">`);
     }
-    $('head').append(`\n<meta property="og:url" content="${canonicalUrl}">`);
-    $('head').append(`\n<meta property="og:site_name" content="sotramsbois">`);
-    $('head').append(`\n<meta property="og:type" content="website">`);
-    $('head').append(`\n<meta property="og:locale" content="${locales[lang]}">`);
-    ['fr', 'en', 'de', 'nl'].filter(l => l !== lang).forEach(l => {
-        $('head').append(`\n<meta property="og:locale:alternate" content="${locales[l]}">`);
-    });
-    // Find hero carousel image for og:image
-    const heroImage = '/assets/images/briquette_ruf_pellets.jpg'; // just using one absolute
-    $('head').append(`\n<meta property="og:image" content="${MAIN_HOST}${heroImage}">`);
-    $('head').append(`\n<meta name="twitter:card" content="summary_large_image">`);
     
     // 5. Internal Links to Homepage
+    // "Les liens internes vers l'accueil ... pointent sur /, en/, de/, nl/ selon la page, avec les mêmes préfixes relatifs"
+    // So `./index.html` -> `./`
+    // `../index.html` -> `../`
     $('a').each((i, el) => {
         let href = $(el).attr('href');
-        if (href === 'index.html' || href === './index.html' || href === '../index.html') {
-            const prefix = lang === 'fr' ? './' : (href.startsWith('../') ? '../' : './');
-            // But wait, the prompt says "pointer sur / (ou /en/, /de/, /nl/) tous les liens internes vers l'accueil"
-            // Wait, if it's hosted, we can use absolute paths!
-            $(el).attr('href', lang === 'fr' ? '/' : `/${lang}/`);
+        if (href) {
+            if (href === 'index.html' || href === './index.html') {
+                $(el).attr('href', './');
+            } else if (href.endsWith('/index.html')) {
+                $(el).attr('href', href.replace(/\/index\.html$/, '/'));
+            } else if (href === '../index.html') {
+                $(el).attr('href', '../');
+            }
         }
     });
 
-    // JSON-LD fixing
+    // 6. JSON-LD fixing
     $('script[type="application/ld+json"]').each((i, el) => {
         let content = $(el).html();
         if (content.includes('BreadcrumbList') || content.includes('Organization')) {
-            // Very naive replacement of https://sotramsbois.com to https://www.sotramsbois.com
-            content = content.replace(/https:\/\/sotramsbois\.com/g, MAIN_HOST);
-            if (lang !== 'fr') {
-                content = content.replace(/"name"\s*:\s*"Accueil"/g, `"name": "${i18nFlat[lang]['nav.home'] || 'Home'}"`);
-                content = content.replace(/"name"\s*:\s*"Catalogue"/g, `"name": "${i18nFlat[lang]['nav.catalog'] || 'Catalog'}"`);
-                // update urls
-                content = content.replace(/https:\/\/www\.sotramsbois\.com\//g, getCanonicalUrl(lang, 'index.html'));
-                content = content.replace(/https:\/\/www\.sotramsbois\.com\/catalogue\.html/g, getCanonicalUrl(lang, 'catalogue.html'));
+            let json;
+            try {
+                json = JSON.parse(content);
+            } catch (e) {
+                return;
             }
-            $(el).html(content);
+            
+            // Fix URLs
+            const fixUrl = (url) => {
+                if (!url) return url;
+                if (url.includes('sotramsbois.com')) {
+                    url = url.replace(/https:\/\/sotramsbois\.com/g, MAIN_HOST);
+                    url = url.replace(/https:\/\/www\.sotramsbois\.com\/index\.html/g, MAIN_HOST + '/');
+                    if (lang !== 'fr') {
+                        // Very naive but we just replace the base with the lang base if we can match it
+                        // e.g. https://www.sotramsbois.com/catalogue.html -> https://www.sotramsbois.com/en/catalogue.html
+                        if (url.startsWith(MAIN_HOST + '/') && !url.startsWith(MAIN_HOST + '/' + lang + '/')) {
+                            const end = url.substring(MAIN_HOST.length + 1);
+                            if (end === '') {
+                                url = MAIN_HOST + '/' + lang + '/';
+                            } else {
+                                url = MAIN_HOST + '/' + lang + '/' + end;
+                            }
+                        }
+                    }
+                }
+                return url;
+            };
+
+            if (json['@type'] === 'Organization') {
+                json.url = fixUrl(json.url);
+                // "Aucun ajout d'adresse, téléphone, logo, AggregateRating ni Review"
+                delete json.address;
+                delete json.telephone;
+                delete json.logo;
+                delete json.aggregateRating;
+                delete json.review;
+            }
+            
+            if (json['@type'] === 'BreadcrumbList') {
+                if (json.itemListElement) {
+                    json.itemListElement.forEach(item => {
+                        if (item.item) {
+                            item.item = fixUrl(item.item);
+                            if (lang !== 'fr' && item.name === 'Accueil') item.name = i18nFlat[lang]['nav.home'] || 'Home';
+                            if (lang !== 'fr' && item.name === 'Catalogue') item.name = i18nFlat[lang]['nav.catalog'] || 'Catalog';
+                        }
+                    });
+                }
+            }
+            $(el).html(JSON.stringify(json, null, 2));
         }
     });
 
