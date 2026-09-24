@@ -244,7 +244,7 @@
                         <label for="password" class="text-label-md font-label-md text-on-surface"><span data-i18n="inscription.mot_de_passe">Mot de passe</span> <span class="text-primary" data-i18n="inscription.txt_772">*</span></label>
                         <div class="relative">
                             <input type="password" id="password" required="" minlength="8" placeholder="••••••••••••" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 pr-12 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" data-i18n-placeholder="inscription.ph_286">
-                            <button type="button" class="toggle-password absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant hover:text-primary transition-colors flex items-center justify-center p-1 rounded-full focus:outline-none" aria-label="Afficher le mot de passe">
+                            <button type="button" class="toggle-password absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant hover:text-primary transition-colors flex items-center justify-center p-1 rounded-full focus:outline-none" aria-label="Afficher le mot de passe" data-i18n-aria-label="auth.show_password">
                                 <span class="material-symbols-outlined text-[20px]">visibility</span>
                             </button>
                         </div>
@@ -253,7 +253,7 @@
                         <label for="password_confirm" class="text-label-md font-label-md text-on-surface"><span data-i18n="inscription.confirmer_le_mot_de_passe">Confirmer le mot de passe</span> <span class="text-primary" data-i18n="inscription.txt_969">*</span></label>
                         <div class="relative">
                             <input type="password" id="password_confirm" required="" minlength="8" placeholder="••••••••••••" class="w-full bg-surface-container-lowest border border-outline/20 rounded-md py-3 px-4 pr-12 text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" data-i18n-placeholder="inscription.ph_736">
-                            <button type="button" class="toggle-password absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant hover:text-primary transition-colors flex items-center justify-center p-1 rounded-full focus:outline-none" aria-label="Afficher le mot de passe">
+                            <button type="button" class="toggle-password absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant hover:text-primary transition-colors flex items-center justify-center p-1 rounded-full focus:outline-none" aria-label="Afficher le mot de passe" data-i18n-aria-label="auth.show_password">
                                 <span class="material-symbols-outlined text-[20px]">visibility</span>
                             </button>
                         </div>
@@ -292,11 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const icon = btn.querySelector('.material-symbols-outlined');
             if (input.type === 'password') {
                 input.type = 'text';
-                icon.textContent = 'visibility_off';
+                icon.textContent = 'visibility_off'; this.setAttribute('aria-label', window.i18n ? window.i18n.t('auth.hide_password', 'Masquer le mot de passe') : 'Masquer le mot de passe'); this.setAttribute('data-i18n-aria-label', 'auth.hide_password');
                 btn.setAttribute('aria-label', 'Masquer le mot de passe');
             } else {
                 input.type = 'password';
-                icon.textContent = 'visibility';
+                icon.textContent = 'visibility'; this.setAttribute('aria-label', window.i18n ? window.i18n.t('auth.show_password', 'Afficher le mot de passe') : 'Afficher le mot de passe'); this.setAttribute('data-i18n-aria-label', 'auth.show_password');
                 btn.setAttribute('aria-label', 'Afficher le mot de passe');
             }
         });

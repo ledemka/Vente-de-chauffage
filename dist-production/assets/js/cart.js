@@ -163,7 +163,7 @@ var CartUI = {
         // Mettre à jour le nombre d'articles
         const titleEl = document.getElementById('cart-items-count');
         if(titleEl) {
-            titleEl.textContent = `Articles sélectionnés (${items.length})`;
+            titleEl.textContent = (window.i18n ? window.i18n.t('cart.selected_items_count', `Articles sélectionnés (${items.length})`).replace('{count}', items.length) : `Articles sélectionnés (${items.length})`);
         }
 
         if (items.length === 0) {
@@ -213,7 +213,7 @@ var CartUI = {
                     <h3 class="text-body-lg font-bold text-on-surface mb-2">${getProductName(prod)}</h3>
                     <div class="text-body-sm text-on-surface-variant flex items-center gap-2">
                         <span class="material-symbols-outlined text-[16px]">inventory_2</span>
-                        Format : ${item.format} / ${prod.palette_weight}
+                        <span data-i18n="cart.format_weight">Format :</span> ${window.i18n ? window.i18n.t("formats." + item.format, item.format) : item.format} / ${prod.palette_weight}
                     </div>
                 </div>
                 
@@ -303,7 +303,7 @@ var CartUI = {
                     const actionBtn = isBuche
                         ? `<a href="${relPath}/catalogue.html?subgroup=1" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-label-md py-2 rounded-md transition-colors flex items-center justify-center gap-2">
                                 <span class="material-symbols-outlined text-[18px]">straighten</span>
-                                <span>Choisir le format</span>
+                                <span data-i18n="catalog.filters.format_select">Choisir le format</span>
                            </a>`
                         : `<button onclick="CartUI.addRecommended('${p.id}')" class="w-full bg-surface-container-highest hover:bg-surface-dim text-on-surface font-label-md py-2 rounded-md transition-colors border border-outline-variant flex items-center justify-center gap-2">
                                 <span class="material-symbols-outlined text-[18px]">add</span>
@@ -312,7 +312,7 @@ var CartUI = {
 
                     const formatLabel = isBuche
                         ? `<div class="text-body-sm text-amber-700 mb-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> Sélectionnez un format</div>`
-                        : `<div class="text-body-sm text-on-surface-variant mb-2">${p.format}</div>`;
+                        : `<div class="text-body-sm text-on-surface-variant mb-2">${window.i18n ? window.i18n.t("formats." + p.format, p.format) : p.format}</div>`;
 
                     phtml += `
                         <div class="bg-surface-container rounded-xl p-4 border border-outline/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
@@ -322,7 +322,7 @@ var CartUI = {
                                 ${formatLabel}
                             </div>
                             <div>
-                                <div class="text-label-lg font-data-mono font-bold text-primary mb-2">${this.formatPrice(displayPrice * 1.20)} TTC${isBuche ? '<span class="text-[10px] text-amber-700 font-normal ml-1">prix 50cm</span>' : ''}</div>
+                                <div class="text-label-lg font-data-mono font-bold text-primary mb-2">${this.formatPrice(displayPrice * 1.20)} TTC${isBuche ? '<span class="text-[10px] text-amber-700 font-normal ml-1" data-i18n="cart.price_50cm">prix 50cm</span>' : ''}</div>
                                 ${actionBtn}
                             </div>
                         </div>
@@ -374,21 +374,21 @@ var CartUI = {
             progressHtml = `
                 <div class="mt-4 mb-2">
                     <div class="flex justify-between text-body-sm text-on-surface font-bold mb-1">
-                        <span>Palier actuel (- ${currentTier.pct * 100}%)</span>
-                        <span>Prochain palier (- ${nextTier.pct * 100}%)</span>
+                        <span><span data-i18n="cart.current_tier">Palier actuel</span> (- ${currentTier.pct * 100}%)</span>
+                        <span><span data-i18n="cart.next_tier">Prochain palier</span> (- ${nextTier.pct * 100}%)</span>
                     </div>
                     <div class="w-full h-3 bg-surface-dim rounded-full overflow-hidden">
                         <div class="h-full bg-primary rounded-full transition-all duration-500" style="width: ${progressPct}%"></div>
                     </div>
                     <p class="text-body-sm text-on-surface-variant text-center mt-2 font-medium">
-                        Plus que <span class="font-bold text-primary">${palettesMissing} palette(s)</span> pour - ${nextTier.pct * 100}% !
+                        <span data-i18n="cart.more_than">Plus que</span> <span class="font-bold text-primary">${palettesMissing} <span data-i18n="cart.pallets">palette(s)</span></span> <span data-i18n="cart.for">pour</span> - ${nextTier.pct * 100}% !
                     </p>
                 </div>
             `;
         } else {
             progressHtml = `
                 <div class="mt-4 mb-2 p-3 bg-primary/10 rounded-lg text-center text-primary font-bold">
-                    🎉 Vous avez atteint la remise maximale (-10%) !
+                    <span data-i18n="cart.max_discount">🎉 Vous avez atteint la remise maximale (-10%) !</span>
                 </div>
             `;
         }
@@ -399,59 +399,60 @@ var CartUI = {
                 <div class="bg-surface-container rounded-xl p-4 mb-6 shadow-sm border border-outline/10 flex items-start gap-4">
                     <span class="material-symbols-outlined text-primary text-2xl mt-1">local_shipping</span>
                     <div>
-                        <h4 class="font-bold text-on-surface">Livraison estimée :</h4>
-                        <p class="text-body-sm text-on-surface-variant">3 à 5 jours ouvrés (France et limitrophe)</p>
+                        <h4 class="font-bold text-on-surface" data-i18n="cart.delivery_est_title">Livraison estimée :</h4>
+                        <p class="text-body-sm text-on-surface-variant" data-i18n="cart.delivery_est_desc">3 à 5 jours ouvrés (France et limitrophe)</p>
                     </div>
                 </div>
                 
                 <div class="bg-surface-container rounded-xl p-6 shadow-md border border-outline/20">
                     <h3 class="text-headline-md font-headline-md text-on-surface mb-6 flex items-center gap-2 border-b border-outline/20 pb-4">
                         <span class="material-symbols-outlined text-primary">trending_down</span>
-                        <span>Votre Tarif Dégressif</span>
+                        <span data-i18n="cart.discount_title">Votre Tarif Dégressif</span>
                     </h3>
                     
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-body-md text-on-surface-variant font-medium">Volume actuel :</span>
-                        <span class="font-bold text-on-surface">${totalQuantity} Palette(s)</span>
+                        <span class="text-body-md text-on-surface-variant font-medium" data-i18n="cart.current_volume">Volume actuel :</span>
+                        <span class="font-bold text-on-surface">${totalQuantity} <span data-i18n="cart.pallets">Palette(s)</span></span>
                     </div>
                     
                     ${progressHtml}
                     
                     <div class="border-t border-outline/20 mt-6 pt-6 flex flex-col gap-3">
                         <div class="flex justify-between text-body-sm text-on-surface-variant">
-                            <span>Sous-total TTC</span>
+                            <span data-i18n="cart.subtotal_ttc">Sous-total TTC</span>
                               <div class="text-right">
                                   <span class="font-data-mono">${this.formatPrice(rawSubtotalTTC)}</span>
                               </div>
                         </div>
                         <div class="flex justify-between text-body-sm font-bold text-primary">
-                            <span>Remise volume (-${currentTier.pct * 100}%)</span>
+                            <span><span data-i18n="cart.volume_discount">Remise volume</span> (-${currentTier.pct * 100}%)</span>
                               <span class="font-data-mono">-${this.formatPrice(discountTTC)}</span>
                         </div>
                         <div class="flex justify-between text-body-sm text-on-surface-variant">
-                            <span>Frais de livraison</span>
-                            <span class="font-bold">Calculés à la validation</span>
+                            <span data-i18n="cart.shipping_fees">Frais de livraison</span>
+                            <span class="font-bold" data-i18n="cart.calc_at_checkout">Calculés à la validation</span>
                         </div>
                         
                     </div>
                     
                     <div class="flex justify-between items-end mb-6 text-on-surface border-t border-outline/30 mt-4 pt-4">
-                        <span class="text-headline-md font-headline-md">Total TTC</span>
+                        <span class="text-headline-md font-headline-md" data-i18n="cart.total_ttc">Total TTC</span>
                         <span class="text-headline-lg font-data-mono font-bold text-primary">${this.formatPrice(totalTTC)}</span>
                     </div>
 
                     <a href="./recapitulatif-commande.html" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-4 rounded-md transition-colors flex items-center justify-center gap-2 shadow-sm">
-                        <span>Valider ma commande</span>
+                        <span data-i18n="cart.validate_order">Valider ma commande</span>
                         <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
                     </a>
                     <p class="text-center text-[11px] text-on-surface-variant mt-3 flex justify-center items-center gap-1">
-                        <span class="material-symbols-outlined text-[14px]">lock</span> Paiement sécurisé B2B par Virement
+                        <span class="material-symbols-outlined text-[14px]">lock</span> <span data-i18n="cart.secure_payment">Paiement sécurisé B2B par Virement</span>
                     </p>
                 </div>
             `;
         }
         
         if(window.i18n) window.i18n.translateDOM(container);
+        if(window.i18n && sidebar) window.i18n.translateDOM(sidebar);
         if(window.updateCartBadge) window.updateCartBadge();
     },
 
@@ -469,6 +470,8 @@ var CartUI = {
 
         const itemsContainer = document.getElementById('checkout-items');
         if (!itemsContainer) return;
+        
+        const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
 
         await this.loadProducts();
         const res = await CartAPI.get();
@@ -481,9 +484,9 @@ var CartUI = {
 
         let html = '<div class="overflow-x-auto"><table class="w-full text-left border-collapse">';
         html += '<thead><tr class="border-b border-outline/20">';
-        html += '<th class="py-3 pr-2 text-label-md font-label-md uppercase text-on-surface-variant">Produit</th>';
-        html += '<th class="py-3 px-2 text-label-md font-label-md uppercase text-on-surface-variant text-center">Qté</th>';
-        html += '<th class="py-3 pl-2 text-label-md font-label-md uppercase text-on-surface-variant text-right">Total TTC</th>';
+        html += '<th class="py-3 pr-2 text-label-md font-label-md uppercase text-on-surface-variant" data-i18n="checkout.product">Produit</th>';
+        html += '<th class="py-3 px-2 text-label-md font-label-md uppercase text-on-surface-variant text-center" data-i18n="checkout.qty">Qté</th>';
+        html += '<th class="py-3 pl-2 text-label-md font-label-md uppercase text-on-surface-variant text-right" data-i18n="checkout.total_ttc">Total TTC</th>';
         html += '</tr></thead><tbody>';
 
         let checkoutShippingCost = null;
@@ -538,7 +541,7 @@ var CartUI = {
             html += `<tr class="border-b border-outline/20">
                 <td class="py-3 pr-2 text-body-sm">
                     <span class="font-bold text-on-surface block">${getProductName(prod)}</span>
-                    <span class="text-body-sm text-on-surface-variant block">${item.format}</span>
+                    <span class="text-body-sm text-on-surface-variant block">${window.i18n ? window.i18n.t("formats." + item.format, item.format) : item.format}</span>
                     <span class="text-label-md uppercase text-outline-variant mt-1 block">RÉF: ${prod.id}</span>
                 </td>
                 <td class="py-3 px-2 text-center text-body-sm font-data-mono">
@@ -547,13 +550,14 @@ var CartUI = {
                 </td>
                 <td class="py-3 pl-2 text-right text-body-sm font-data-mono font-bold text-primary">
                     ${this.formatPrice(lineTotalTTC)} TTC
-                    ${item.discount_percent > 0 ? `<span class="text-xs text-primary font-bold block">-${item.discount_percent}% remisé</span>` : ''}
+                    ${item.discount_percent > 0 ? `<span class="text-xs text-primary font-bold block">-${item.discount_percent}% <span data-i18n="checkout.discounted">remisé</span></span>` : ''}
                 </td>
             </tr>`;
         });
 
         html += '</tbody></table></div>';
         itemsContainer.innerHTML = html;
+        if (window.i18n) window.i18n.translateDOM(itemsContainer);
 
         const discount = Math.max(0, rawSubtotal - subtotal);
         
@@ -565,7 +569,7 @@ var CartUI = {
         
         document.getElementById('checkout-subtotal').innerHTML = `${this.formatPrice(subtotalTTC)}`;
         document.getElementById('checkout-discount').textContent = '-' + this.formatPrice(discountTTC);
-        document.getElementById('checkout-shipping').textContent = 'À calculer';
+        document.getElementById('checkout-shipping').textContent = (window.i18n ? window.i18n.t('checkout.to_be_calculated', 'À calculer') : 'À calculer');
         
         updateCheckoutTotal();
 
@@ -579,6 +583,17 @@ var CartUI = {
 
         
         // Initialize shipping autocomplete
+        
+        const termsCheckbox = document.getElementById('truck_access');
+        if (termsCheckbox) {
+            termsCheckbox.oninvalid = function(e) {
+                e.target.setCustomValidity(window.i18n ? window.i18n.t('checkout.check_box_required', 'Veuillez cocher cette case si vous souhaitez continuer.') : 'Veuillez cocher cette case si vous souhaitez continuer.');
+            };
+            termsCheckbox.oninput = function(e) {
+                e.target.setCustomValidity('');
+            };
+        }
+
         const shippingAddress = document.getElementById('address');
         const autocompleteResults = document.getElementById('autocomplete-results');
         const shippingResult = document.getElementById('shipping-result');
@@ -596,7 +611,7 @@ var CartUI = {
                 isShippingCalculable = false;
                 shippingResult.classList.add('hidden');
                 shippingError.classList.add('hidden');
-                shippingCostEl.textContent = 'À calculer';
+                shippingCostEl.textContent = (window.i18n ? window.i18n.t('checkout.to_be_calculated', 'À calculer') : 'À calculer');
                 updateCheckoutTotal();
                 
                 const q = e.target.value;
@@ -629,33 +644,34 @@ var CartUI = {
                                                 <div class="p-6">
                                                     <h3 class="text-headline-sm font-bold text-on-surface flex items-center gap-2 mb-4">
                                                         <span class="material-symbols-outlined text-primary">location_on</span>
-                                                        Confirmer l'adresse
+                                                        <span data-i18n="checkout.confirm_address">Confirmer l'adresse</span>
                                                     </h3>
                                                     <div class="bg-surface p-4 rounded-xl border border-primary/20 mb-6">
                                                         <div class="mb-3">
-                                                            <span class="text-label-sm uppercase text-outline-variant tracking-wider">Adresse</span>
+                                                            <span class="text-label-sm uppercase text-outline-variant tracking-wider" data-i18n="checkout.address">Adresse</span>
                                                             <div class="text-body-lg font-bold text-on-surface mt-1">${street}</div>
                                                         </div>
                                                         <div class="flex gap-6">
                                                             <div>
-                                                                <span class="text-label-sm uppercase text-outline-variant tracking-wider">Code Postal</span>
+                                                                <span class="text-label-sm uppercase text-outline-variant tracking-wider" data-i18n="checkout.zip">Code Postal</span>
                                                                 <div class="text-body-lg font-bold text-on-surface mt-1">${zip}</div>
                                                             </div>
                                                             <div>
-                                                                <span class="text-label-sm uppercase text-outline-variant tracking-wider">Ville</span>
+                                                                <span class="text-label-sm uppercase text-outline-variant tracking-wider" data-i18n="checkout.city">Ville</span>
                                                                 <div class="text-body-lg font-bold text-on-surface mt-1">${city}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="flex gap-3">
-                                                        <button id="btn-modal-cancel" class="flex-1 py-3 border-2 border-outline hover:border-primary text-on-surface rounded-md font-label-md transition-colors shadow-sm">Modifier</button>
-                                                        <button id="btn-modal-confirm" class="flex-1 py-3 bg-primary hover:bg-primary-container text-on-primary rounded-md font-label-md transition-colors shadow-sm">Confirmer</button>
+                                                        <button id="btn-modal-cancel" class="flex-1 py-3 border-2 border-outline hover:border-primary text-on-surface rounded-md font-label-md transition-colors shadow-sm" data-i18n="checkout.edit">Modifier</button>
+                                                        <button id="btn-modal-confirm" class="flex-1 py-3 bg-primary hover:bg-primary-container text-on-primary rounded-md font-label-md transition-colors shadow-sm" data-i18n="checkout.confirm">Confirmer</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     `;
                                     document.body.insertAdjacentHTML('beforeend', modalHtml);
+                                    if (window.i18n) window.i18n.translateDOM(document.getElementById('address-confirm-modal'));
 
                                     document.getElementById('btn-modal-cancel').onclick = () => {
                                         document.getElementById('address-confirm-modal').remove();
@@ -677,12 +693,13 @@ var CartUI = {
                                         widget.innerHTML = `
                                             <span class="material-symbols-outlined text-[#802813]">check_circle</span>
                                             <div>
-                                                <div class="text-label-md font-bold text-[#802813] mb-1">Adresse validée</div>
+                                                <div class="text-label-md font-bold text-[#802813] mb-1" data-i18n="checkout.address_validated">Adresse validée</div>
                                                 <div class="text-body-sm text-on-surface">${street}</div>
                                                 <div class="text-body-sm text-on-surface font-medium">${zip} ${city}</div>
                                             </div>
                                         `;
                                         
+                                        if (window.i18n) window.i18n.translateDOM(widget);
                                         await calculateCheckoutShipping(item.address.label);
                                     };
                                 });

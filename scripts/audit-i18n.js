@@ -31,29 +31,68 @@ const excludedPages = [
     'tableau-de-bord.html'
 ];
 
-// Load FR JSON to check missing keys
-const frJsonPath = path.join(__dirname, '../data/i18n/fr.json');
-let frJson = {};
-if (fs.existsSync(frJsonPath)) {
-    frJson = JSON.parse(fs.readFileSync(frJsonPath, 'utf8'));
-}
-
-function hasNestedKey(obj, keyPath) {
-    const keys = keyPath.split('.');
-    let val = obj;
-    for (const k of keys) {
-        if (val && typeof val === 'object' && k in val) {
-            val = val[k];
+function flatten(obj, prefix = '') {
+    let res = {};
+    for (let k in obj) {
+        if (typeof obj[k] === 'object' && obj[k] !== null && !Array.isArray(obj[k])) {
+            Object.assign(res, flatten(obj[k], prefix + k + '.'));
         } else {
-            return false;
+            res[prefix + k] = obj[k];
         }
     }
-    return true;
+    return res;
+}
+
+const dir = path.join(__dirname, '..');
+const frJson = flatten(JSON.parse(fs.readFileSync(path.join(dir, 'data/i18n/fr.json'), 'utf8')));
+const enJson = flatten(JSON.parse(fs.readFileSync(path.join(dir, 'data/i18n/en.json'), 'utf8')));
+const deJson = flatten(JSON.parse(fs.readFileSync(path.join(dir, 'data/i18n/de.json'), 'utf8')));
+const nlJson = flatten(JSON.parse(fs.readFileSync(path.join(dir, 'data/i18n/nl.json'), 'utf8')));
+
+let allowlist = [];
+const allowlistPath = path.join(__dirname, 'i18n-allowlist.json');
+if (fs.existsSync(allowlistPath)) {
+    allowlist = JSON.parse(fs.readFileSync(allowlistPath, 'utf8'));
 }
 
 let totalErrors = 0;
+let jsonErrors = 0;
 
-const dir = path.join(__dirname, '..');
+// 1. JSON Keys Consistency Check
+const allKeys = new Set([...Object.keys(frJson), ...Object.keys(enJson), ...Object.keys(deJson), ...Object.keys(nlJson)]);
+for (const key of allKeys) {
+    if (!(key in frJson)) { console.error(`❌ Key ${key} missing in fr.json`); jsonErrors++; }
+    if (!(key in enJson)) { console.error(`❌ Key ${key} missing in en.json`); jsonErrors++; }
+    if (!(key in deJson)) { console.error(`❌ Key ${key} missing in de.json`); jsonErrors++; }
+    if (!(key in nlJson)) { console.error(`❌ Key ${key} missing in nl.json`); jsonErrors++; }
+}
+
+// 2. Untranslated values check
+for (const key in frJson) {
+    if (allowlist.includes(key)) continue;
+    if (key.startsWith('emails.')) continue; // ignore emails for this audit
+    
+    if (enJson[key] === frJson[key] && !allowlist.includes(key)) {
+        console.error(`❌ Untranslated in EN: ${key} = "${frJson[key]}"`);
+        jsonErrors++;
+    }
+    if (deJson[key] === frJson[key] && !allowlist.includes(key)) {
+        console.error(`❌ Untranslated in DE: ${key} = "${frJson[key]}"`);
+        jsonErrors++;
+    }
+    if (nlJson[key] === frJson[key] && !allowlist.includes(key)) {
+        console.error(`❌ Untranslated in NL: ${key} = "${frJson[key]}"`);
+        jsonErrors++;
+    }
+}
+
+if (jsonErrors > 0) {
+    totalErrors += jsonErrors;
+} else {
+    console.log("✅ JSON files have exactly the same keys and all non-allowlisted values are translated.");
+}
+
+// 3. HTML Pages Scan
 const files = fs.readdirSync(dir).filter(f => f.endsWith('.html'));
 
 for (const file of files) {
@@ -72,7 +111,7 @@ for (const file of files) {
         const attrs = ['data-i18n', 'data-i18n-html', 'data-i18n-placeholder', 'data-i18n-alt', 'data-i18n-title', 'data-i18n-aria-label'];
         for (const attr of attrs) {
             const val = $(el).attr(attr);
-            if (val && !hasNestedKey(frJson, val)) {
+            if (val && !frJson.hasOwnProperty(val)) {
                 console.error(`❌ MISSING KEY in JSON: ${val}`);
                 pageKeyErrors++;
             }
@@ -84,7 +123,7 @@ for (const file of files) {
             if (child.type === 'text') {
                 const text = child.data.trim();
                 // Ignore script, style tags, and empty text
-                if (text && !['script', 'style', 'svg'].includes(child.parent.name)) {
+                if (text && !['script', 'style', 'svg', 'noscript'].includes(child.parent.name)) {
                     // Check if parent has data-i18n or data-i18n-html
                     let parent = $(child.parent);
                     let hasI18n = false;
@@ -97,13 +136,9 @@ for (const file of files) {
                     }
                     if (!hasI18n) {
                         // Exclude banking data in confirmation-commande
-                        if (file === 'confirmation-commande.html' && (text.includes('SOTRAMSBOIS') || text.includes('FR76') || text.includes('Domiciliation'))) {
-                            return;
-                        }
+                        if (file === 'confirmation-commande.html' && (text.includes('SOTRAMSBOIS') || text.includes('FR76') || text.includes('Domiciliation'))) return;
                         // Exclude produit.html default labels replaced by JS
-                        if (file === 'produit.html' && (text.includes('Palettes Bûches') || text.includes('€') || text.includes('kg') || text.includes('Livraison sous') || text.includes('Ref:'))) {
-                            return;
-                        }
+                        if (file === 'produit.html' && (text.includes('Palettes Bûches') || text.includes('€') || text.includes('kg') || text.includes('Livraison sous') || text.includes('Ref:'))) return;
                         
                         // Exclude material icons
                         if ($(child.parent).hasClass('material-symbols-outlined')) return;
@@ -124,11 +159,10 @@ for (const file of files) {
         });
     };
     
-    // Check body
     checkTextNodes($('body'));
     
-    // Check hardcoded placeholders and alts
-    $('input[placeholder], textarea[placeholder]').each((_, el) => {
+    // Check hardcoded placeholders, alts, titles, aria-labels
+    $('[placeholder]').each((_, el) => {
         if (!$(el).attr('data-i18n-placeholder')) {
              console.error(`❌ HARDCODED PLACEHOLDER: "${$(el).attr('placeholder')}"`);
              pageTextErrors++;
@@ -143,6 +177,18 @@ for (const file of files) {
              }
         }
     });
+    $('[title]').each((_, el) => {
+        if (!$(el).attr('data-i18n-title')) {
+             console.error(`❌ HARDCODED TITLE: "${$(el).attr('title')}"`);
+             pageTextErrors++;
+        }
+    });
+    $('[aria-label]').each((_, el) => {
+        if (!$(el).attr('data-i18n-aria-label') && !$(el).attr('data-ignore-audit') && !$(el).attr('aria-label').includes('menu')) {
+             console.error(`❌ HARDCODED ARIA-LABEL: "${$(el).attr('aria-label')}"`);
+             pageTextErrors++;
+        }
+    });
     
     if (pageTextErrors === 0 && pageKeyErrors === 0) {
         console.log(`✅ OK (${file})`);
@@ -155,5 +201,5 @@ if (totalErrors > 0) {
     console.error(`\n🚨 FOUND ${totalErrors} ERRORS`);
     process.exit(1);
 } else {
-    console.log(`\n🎉 PERFECT! NO HARDCODED TEXT FOUND!`);
+    console.log(`\n🎉 PERFECT! NO HARDCODED TEXT FOUND AND TRANSLATIONS ARE COMPLETE!`);
 }

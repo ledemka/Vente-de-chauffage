@@ -308,7 +308,7 @@ window.resolveAssetPath = function(pathStr) {
                                     showToast((typeof t !== 'undefined' && t.catalog && t.catalog.toast_select_format) ? t.catalog.toast_select_format : 'Veuillez sélectionner un format avant de choisir votre bois.');
                                     return;
                                 }
-                                const basePath = lang === 'fr' ? './' : `../${lang}/`;
+                                const basePath = './';
                                 window.location.href = `${basePath}produit.html?id=${productId}&length=${selectedFormat}`;
                             };
 
@@ -407,7 +407,7 @@ window.resolveAssetPath = function(pathStr) {
                                                 const imgPrefix = relPath === '.' ? '' : relPath;
                                                 const clickHandler = isBuche
                                                     ? `handleBucheClick('${p.id}')`
-                                                    : `window.location.href='./${lang === 'fr' ? '' : lang + '/'}produit.html?id=${p.id}'`;
+                                                    : `window.location.href='./produit.html?id=${p.id}'`;
 
                                                 return `
                                                     <article onclick="${clickHandler}" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group ${isBuche && !selectedFormat ? 'opacity-80' : ''}">

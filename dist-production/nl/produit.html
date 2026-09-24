@@ -351,7 +351,12 @@ window.resolveAssetPath = function(pathStr) {
                                 document.getElementById('spec-essence').textContent = getProductField(product, 'species_material');
                                 document.getElementById('spec-longueur').textContent = product.format;
                                 document.getElementById('spec-humidite').textContent = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
-                                document.getElementById('spec-origine').textContent = product.origin;
+                                if (product.origin === 'À préciser') {
+            document.getElementById('spec-origine').setAttribute('data-i18n', 'product.origin_tbd');
+            document.getElementById('spec-origine').textContent = window.i18n ? window.i18n.t('product.origin_tbd', 'À préciser') : 'À préciser';
+        } else {
+            document.getElementById('spec-origine').textContent = product.origin;
+        }
                                 document.getElementById('spec-pouvoir').textContent = '~ 4.8 kWh/kg';
                                 document.getElementById('spec-poids').textContent = product.palette_weight;
                                 document.getElementById('spec-volume-m3').textContent = `${product.volume_m3} m³`;

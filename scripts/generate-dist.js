@@ -8,7 +8,20 @@ const PAGES = fs.readdirSync(ROOT_DIR).filter(f => f.endsWith('.html'));
 
 const LANGS = ['fr', 'en', 'de', 'nl'];
 
+function shouldExclude(filename) {
+    const base = path.basename(filename).toLowerCase();
+    if (base.startsWith('test_') || base.startsWith('test.') || 
+        base.startsWith('fix_') || base.startsWith('set_admin') || 
+        base.startsWith('scratch') || base.startsWith('check_status') || 
+        base.endsWith('.md')) {
+        return true;
+    }
+    return false;
+}
+
 function copyRecursiveSync(src, dest) {
+    if (shouldExclude(src)) return;
+
     const exists = fs.existsSync(src);
     const stats = exists && fs.statSync(src);
     const isDirectory = exists && stats.isDirectory();
