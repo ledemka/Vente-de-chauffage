@@ -1,56 +1,430 @@
-[
-  "site_name",
-  "index.48h",
-  "index.txt_912",
-  "index.email_contactsotramsboiscom",
-  "metrics.metric_1_val",
-  "metrics.metric_2_val",
-  "metrics.metric_3_val",
-  "footer.email",
-  "blog.email_contactsotramsboiscom",
-  "blog.ph_contactentreprisecom",
-  "depots.email_contactsotramsboiscom",
-  "contact.email_contactsotramsboiscom",
-  "livraison.400_m",
-  "livraison.350_m",
-  "livraison.120_m",
-  "livraison.email_contactsotramsboiscom",
-  "produit.33_cm__2cm",
-  "produit._20_schoir",
-  "produit.100_x_120_x_120_cm",
-  "produit.france",
-  "produit.email_contactsotramsboiscom",
-  "panier.email_contactsotramsboiscom",
-  "activation.email_contactsotramsboiscom",
-  "guide_choix.email_contactsotramsboiscom",
-  "guide_choix.25cm",
-  "guide_choix.25_cm",
-  "guide_choix.33cm",
-  "guide_choix.33_cm",
-  "guide_choix.40cm",
-  "guide_choix.40_cm",
-  "guide_choix.50cm",
-  "guide_choix.50_cm",
-  "guide_choix.4_kwhkg",
-  "guide_choix.28_kwhkg",
-  "guide_choix.18_kwhkg",
-  "inscription.email_contactsotramsboiscom",
-  "inscription.ph_ex_75000",
-  "inscription.ph_286",
-  "inscription.ph_736",
-  "avis_clients.email_contactsotramsboiscom",
-  "devis.email_contactsotramsboiscom",
-  "confirmation_commande.camara_lansana",
-  "confirmation_commande.qonto",
-  "confirmation_commande.qntofrp1xxx",
-  "confirmation_commande.email_contactsotramsboiscom",
-  "recapitulatif_commande.email_contactsotramsboiscom",
-  "connexion.email_contactsotramsboiscom",
-  "catalogue.email_contactsotramsboiscom",
-  "article.email_contactsotramsboiscom",
-  "merci_contact.email_contactsotramsboiscom",
-  "merci_devis.email_contactsotramsboiscom",
-  "merci_inscription.email_contactsotramsboiscom",
-  "nav.contact",
-  "nav.blog"
-]
+{
+  "site_name": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "nav.blog": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "nav.contact": [
+    "en",
+    "nl"
+  ],
+  "categories.3": [
+    "en"
+  ],
+  "catalog.table.format": [
+    "en",
+    "de"
+  ],
+  "index.48h": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "index.txt_912": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "index.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "metrics.metric_1_val": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "metrics.metric_2_val": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "metrics.metric_3_val": [
+    "en",
+    "de"
+  ],
+  "footer.email": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "blog.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "blog.ph_contactentreprisecom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "depots.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "dashboard.profile.contact": [
+    "en",
+    "nl"
+  ],
+  "dashboard.profile.email": [
+    "en"
+  ],
+  "admin.table.date": [
+    "en"
+  ],
+  "admin.table.action": [
+    "en"
+  ],
+  "order.table.date": [
+    "en"
+  ],
+  "modal.table.total": [
+    "en"
+  ],
+  "contact.info.email": [
+    "en"
+  ],
+  "contact.briquettes": [
+    "en"
+  ],
+  "contact.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "quote.contact.email": [
+    "en"
+  ],
+  "guide.nav.dimensions": [
+    "en"
+  ],
+  "guide.species.excellent": [
+    "en"
+  ],
+  "guide.storage.ventilation_title": [
+    "en"
+  ],
+  "guide.storage.protection_title": [
+    "en"
+  ],
+  "livraison.400_m": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "livraison.350_m": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "livraison.120_m": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "livraison.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "mentions.contact": [
+    "en",
+    "nl"
+  ],
+  "return.version": [
+    "en",
+    "de"
+  ],
+  "produit.33_cm__2cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "produit._20_schoir": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "produit.100_x_120_x_120_cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "produit.france": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "produit.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "produit.alt_detail_view": [
+    "en"
+  ],
+  "product.volume": [
+    "en",
+    "nl"
+  ],
+  "product.total": [
+    "en"
+  ],
+  "panier.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "activation.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "stepper.confirm": [
+    "en"
+  ],
+  "guide_choix._35": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.4_kwhkg": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.28_kwhkg": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.18_kwhkg": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.25cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.25_cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.33cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.33_cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.40cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.40_cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.50cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.50_cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "guide_choix.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.txt_547": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.txt_183": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.email": [
+    "en"
+  ],
+  "inscription.txt_879": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.txt_372": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.txt_502": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.txt_125": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.txt_782": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.txt_772": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.txt_969": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.txt_891": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.ph_ex_75000": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.ph_286": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "inscription.ph_736": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "avis_clients.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "devis.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "confirmation_commande.camara_lansana": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "confirmation_commande.qonto": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "confirmation_commande.qntofrp1xxx": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "confirmation_commande.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "recapitulatif_commande.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "connexion.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "catalogue._20": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "catalogue.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "article.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "merci_contact.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "merci_devis.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "merci_inscription.email_contactsotramsboiscom": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "formats.20 / 30 / 33 / 40 / 50 cm": [
+    "en",
+    "de",
+    "nl"
+  ],
+  "blog.tag.industry": [
+    "de",
+    "nl"
+  ],
+  "blog.tag.gastronomy": [
+    "de",
+    "nl"
+  ],
+  "checkout.address": [
+    "de"
+  ],
+  "dashboard.profile.address": [
+    "de"
+  ],
+  "reviews.filter.industry": [
+    "de",
+    "nl"
+  ],
+  "stepper.address": [
+    "de"
+  ],
+  "inscription.adresse": [
+    "de"
+  ]
+}

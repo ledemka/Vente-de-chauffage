@@ -210,7 +210,7 @@ $internalHtml = "
 <h3>Détails du produit</h3>
 <p><strong>Produit :</strong> " . htmlspecialchars($productName) . " (" . htmlspecialchars($productType) . ")</p>
 <p><strong>Format / Conditionnement :</strong> " . htmlspecialchars($format) . "</p>
-<p><strong>Quantité demandée :</strong> " . htmlspecialchars((string)$quantity) . " unité(s)</p>
+<p><strong>Quantité demandée :</strong> " . htmlspecialchars((string)$quantity) . " palette(s)</p>
 <hr/>
 <h3>Détails Logistiques</h3>
 <p><strong>Adresse de livraison :</strong><br/>" . nl2br(htmlspecialchars($deliveryAddress)) . "</p>

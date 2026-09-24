@@ -479,7 +479,12 @@
         const urlParams = new URLSearchParams(window.location.search);
         const urlProduct = urlParams.get('product');
         const urlLength = urlParams.get('length');
-        const urlQty = urlParams.get('qty');
+            const urlQtyRaw = urlParams.get('qty');
+            if (urlQtyRaw) {
+                let urlQty = parseInt(urlQtyRaw, 10);
+                if (isNaN(urlQty)) urlQty = 1;
+                qtyInput.value = Math.max(1, Math.min(999, urlQty));
+            }
         const lang = document.documentElement.lang || 'fr';
         
         const selectProd = document.getElementById('product_type');
