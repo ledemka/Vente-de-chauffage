@@ -15,6 +15,69 @@ document.addEventListener('DOMContentLoaded', () => {
     const lang = document.documentElement.lang || 'fr';
     const relPath = lang === 'fr' ? '.' : '..';
 
+    // Setup window.i18n globally
+    window.i18n = {
+        data: {},
+        t(key, fallback = '') {
+            if (!this.data) return fallback;
+            const keys = key.split('.');
+            let val = this.data;
+            for (const k of keys) {
+                if (val && typeof val === 'object' && k in val) {
+                    val = val[k];
+                } else {
+                    return fallback;
+                }
+            }
+            return typeof val === 'string' || typeof val === 'number' ? val : fallback;
+        },
+        translateDOM(root = document) {
+            root.querySelectorAll('[data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-alt], [data-i18n-title], [data-i18n-aria-label]').forEach(el => {
+                const textKey = el.getAttribute('data-i18n');
+                if (textKey) {
+                    const val = this.t(textKey);
+                    if (val) {
+                        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                            el.placeholder = val;
+                        } else {
+                            el.textContent = val;
+                        }
+                    }
+                }
+                
+                const htmlKey = el.getAttribute('data-i18n-html');
+                if (htmlKey) {
+                    const val = this.t(htmlKey);
+                    if (val) el.innerHTML = val;
+                }
+                
+                const phKey = el.getAttribute('data-i18n-placeholder');
+                if (phKey) {
+                    const val = this.t(phKey);
+                    if (val) el.placeholder = val;
+                }
+                
+                const altKey = el.getAttribute('data-i18n-alt');
+                if (altKey) {
+                    const val = this.t(altKey);
+                    if (val) el.setAttribute('alt', val);
+                }
+                
+                const titleKey = el.getAttribute('data-i18n-title');
+                if (titleKey) {
+                    const val = this.t(titleKey);
+                    if (val) el.setAttribute('title', val);
+                }
+                
+                const ariaKey = el.getAttribute('data-i18n-aria-label');
+                if (ariaKey) {
+                    const val = this.t(ariaKey);
+                    if (val) el.setAttribute('aria-label', val);
+                }
+            });
+        }
+    };
+
     // 1. Load Translations
     fetch(`${relPath}/data/i18n/${lang}.json?v=${Date.now()}`)
         .then(res => {
@@ -22,23 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return res.json();
         })
         .then(translations => {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                const keys = key.split('.');
-                let val = translations;
-                for (const k of keys) {
-                    if (val) val = val[k];
-                }
-                if (val) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholder = val;
-                    } else if (el.hasAttribute('data-i18n-html')) {
-                        el.innerHTML = val;
-                    } else {
-                        el.textContent = val;
-                    }
-                }
-            });
+            window.i18n.data = translations;
+            window.i18n.translateDOM(document);
+            
             // Fire event indicating translations are loaded
             document.dispatchEvent(new CustomEvent('i18nLoaded', { detail: { lang, translations } }));
         })

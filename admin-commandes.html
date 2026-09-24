@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             allOrders = data.orders;
             renderOrders();
         } else {
-            container.innerHTML = `<div class="text-center py-10 text-error">${data.message || t('admin-commandes.error', 'Erreur')}</div>`;
+            container.innerHTML = `<div class="text-center py-10 text-error">${data.message || (window.i18n ? window.i18n.t('admin-commandes.error', 'Erreur') : 'Erreur')}</div>`;
         }
     } catch (err) {
         container.innerHTML = '<div class="text-center py-10 text-error">Erreur lors du chargement des commandes.</div>';
@@ -255,7 +255,7 @@ function renderOrders() {
     });
 
     if (filtered.length === 0) {
-        container.innerHTML = `<div class="text-center py-10 text-on-surface-variant">${t('admin.no_orders', 'Aucune commande trouvée.')}</div>`;
+        container.innerHTML = `<div class="text-center py-10 text-on-surface-variant">${(window.i18n ? window.i18n.t('admin.no_orders', 'Aucune commande trouvée.') : 'Aucune commande trouvée.')}</div>`;
         return;
     }
 
@@ -344,11 +344,11 @@ window.updateOrderStatus = async function(ref, newStatus) {
             if (o) o.status = newStatus;
             renderOrders(); // Re-render to update badge and optionally filter out
         } else {
-            alert(data.message || t('admin.update_error', 'Erreur lors de la mise à jour'));
+            alert(data.message || (window.i18n ? window.i18n.t('admin.update_error', 'Erreur lors de la mise à jour') : 'Erreur lors de la mise à jour'));
             renderOrders();
         }
     } catch(err) {
-        alert(t('admin.network_error', 'Erreur réseau'));
+        alert((window.i18n ? window.i18n.t('admin.network_error', 'Erreur réseau') : 'Erreur réseau'));
         renderOrders();
     }
 };
@@ -362,7 +362,7 @@ window.openAdminModal = function(el) {
         document.getElementById('modal-client-name').textContent = data.client_name;
         document.getElementById('modal-total').textContent = data.total;
         if (document.getElementById('modal-address')) {
-            document.getElementById('modal-address').textContent = data.delivery_address || t('admin-commandes.not_specified', 'Non spécifiée');
+            document.getElementById('modal-address').textContent = data.delivery_address || (window.i18n ? window.i18n.t('admin-commandes.not_specified', 'Non spécifiée') : 'Non spécifiée');
         }
         
         const btn = document.getElementById('modal-download-btn');

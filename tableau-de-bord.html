@@ -498,11 +498,11 @@ document.getElementById('profile-form')?.addEventListener('submit', async (e) =>
                 document.getElementById('btn-cancel-edit').click();
             }, 1000);
         } else {
-            msg.textContent = data.message || 'Erreur lors de la mise à jour.';
+            msg.textContent = data.message || (window.i18n ? window.i18n.t('dashboard.update_error', 'Erreur lors de la mise à jour.') : 'Erreur lors de la mise à jour.');
             msg.className = 'text-body-sm font-bold block px-4 py-2 rounded bg-error-container text-on-error-container mb-4';
         }
     } catch(err) {
-        msg.textContent = 'Erreur réseau.';
+        msg.textContent = window.i18n ? window.i18n.t('dashboard.network_error', 'Erreur réseau.') : 'Erreur réseau.';
         msg.className = 'text-body-sm font-bold block px-4 py-2 rounded bg-error-container text-on-error-container mb-4';
     }
 });
@@ -740,7 +740,7 @@ window.openOrderModal = (data) => {
     document.getElementById('modal-status').textContent = data.status;
     document.getElementById('modal-total').textContent = data.total;
     if (document.getElementById('modal-address')) {
-        document.getElementById('modal-address').textContent = data.delivery_address || 'Non spécifiée';
+        document.getElementById('modal-address').textContent = data.delivery_address || (window.i18n ? window.i18n.t('dashboard.not_specified', 'Non spécifiée') : 'Non spécifiée');
     }
     if (document.getElementById('modal-download-btn')) {
         const btn = document.getElementById('modal-download-btn');

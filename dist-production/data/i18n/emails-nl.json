@@ -14,7 +14,7 @@
     "title": "Offerteaanvraag ontvangen",
     "intro": "Ons verkoopteam beoordeelt uw aanvraag voor het volgende product:",
     "product_label": "Product:",
-    "qty_label": "Gevraagde hoeveelheid:",
+    "qty_label": "Gevraagde hoeveelheid (pallets) :",
     "delay_info": "U ontvangt binnen 24 werkuren een prijsvoorstel.",
     "cta_product": "Bekijk product"
   },
@@ -24,6 +24,5 @@
     "intro": "Bedankt voor het contact opnemen. Hier is een samenvatting van uw aanvraag:",
     "delay_info": "Onze klantenservice zal u zo snel mogelijk antwoorden.",
     "cta_home": "Terug naar de site"
-  },
-  "qty_label": "Gevraagde hoeveelheid (pallets):"
+  }
 }

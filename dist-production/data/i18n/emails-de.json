@@ -14,7 +14,7 @@
     "title": "Angebotsanfrage erhalten",
     "intro": "Unser Vertriebsteam prüft Ihre Anfrage für das folgende Produkt:",
     "product_label": "Produkt:",
-    "qty_label": "Angeforderte Menge:",
+    "qty_label": "Gewünschte Menge (Paletten) :",
     "delay_info": "Sie erhalten innerhalb von 24 Geschäftsstunden ein Preisangebot.",
     "cta_product": "Produkt ansehen"
   },
@@ -24,6 +24,5 @@
     "intro": "Vielen Dank, dass Sie uns kontaktiert haben. Hier ist eine Zusammenfassung Ihrer Anfrage:",
     "delay_info": "Unser Kundenservice wird Ihnen so schnell wie möglich antworten.",
     "cta_home": "Zurück zur Website"
-  },
-  "qty_label": "Angefragte Menge (Paletten):"
+  }
 }

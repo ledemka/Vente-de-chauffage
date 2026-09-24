@@ -510,13 +510,13 @@ var CartUI = {
             if (btn && btn.id === 'submit-order-btn') {
                 if (!validatedAddress || checkoutShippingCost === null || isCalculating) {
                     btn.disabled = true;
-                    btn.innerHTML = 'Veuillez sélectionner une adresse valide';
+                    btn.innerHTML = window.i18n ? window.i18n.t('cart.address_invalid', 'Veuillez sélectionner une adresse valide') : 'Veuillez sélectionner une adresse valide';
                 } else if (!isShippingCalculable) {
                     btn.disabled = true;
-                    btn.innerHTML = 'Demande de devis requise';
+                    btn.innerHTML = window.i18n ? window.i18n.t('cart.quote_required', 'Demande de devis requise') : 'Demande de devis requise';
                 } else {
                     btn.disabled = false;
-                    btn.innerHTML = 'Confirmer la commande';
+                    btn.innerHTML = window.i18n ? window.i18n.t('cart.confirm_order', 'Confirmer la commande') : 'Confirmer la commande';
                 }
             }
         }
@@ -739,9 +739,9 @@ var CartUI = {
                     
                     shippingCostEl.textContent = '-';
                     if (data.reason === 'out_of_bounds_qty') {
-                        document.getElementById('shipping-error-msg').textContent = "Quantité supérieure à 24 palettes. Veuillez demander un devis.";
+                        document.getElementById('shipping-error-msg').textContent = window.i18n ? window.i18n.t('cart.qty_exceeded', 'Quantité supérieure à 24 palettes. Veuillez demander un devis.') : "Quantité supérieure à 24 palettes. Veuillez demander un devis.";
                     } else {
-                        document.getElementById('shipping-error-msg').textContent = "Distance supérieure à 1000km. Veuillez demander un devis.";
+                        document.getElementById('shipping-error-msg').textContent = window.i18n ? window.i18n.t('cart.dist_exceeded', 'Distance supérieure à 1000km. Veuillez demander un devis.') : "Distance supérieure à 1000km. Veuillez demander un devis.";
                     }
                 }
             } catch (err) {
@@ -788,18 +788,18 @@ var CartUI = {
                         window.location.href = newUrl;
                     } else {
                         if(errorDiv) {
-                            errorDiv.textContent = res.message || 'Erreur lors de la création de la commande';
+                            errorDiv.textContent = res.message || (window.i18n ? window.i18n.t('cart.order_error', 'Erreur lors de la création de la commande') : 'Erreur lors de la création de la commande');
                             errorDiv.classList.remove('hidden');
                         }
-                        btn.innerHTML = 'Confirmer la commande';
+                        btn.innerHTML = window.i18n ? window.i18n.t('cart.confirm_order', 'Confirmer la commande') : 'Confirmer la commande';
                         btn.disabled = false;
                     }
                 } catch(err) {
                     if(errorDiv) {
-                        errorDiv.textContent = 'Erreur réseau';
+                        errorDiv.textContent = window.i18n ? window.i18n.t('cart.network_error', 'Erreur réseau') : 'Erreur réseau';
                         errorDiv.classList.remove('hidden');
                     }
-                    btn.innerHTML = 'Confirmer la commande';
+                    btn.innerHTML = window.i18n ? window.i18n.t('cart.confirm_order', 'Confirmer la commande') : 'Confirmer la commande';
                     btn.disabled = false;
                 }
             });
@@ -832,7 +832,7 @@ var CartUI = {
     },
 
     async clearCart() {
-        if (!confirm('Vider le panier ?')) return;
+        if (!confirm(window.i18n ? window.i18n.t('cart.clear_confirm', 'Vider le panier ?') : 'Vider le panier ?')) return;
         const container = document.getElementById('cart-items-container');
         if (container) container.style.opacity = '0.5';
         await CartAPI.clear();
