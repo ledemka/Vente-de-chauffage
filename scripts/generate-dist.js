@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { processSeo } = require('./post_process_seo');
 const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
@@ -83,7 +84,7 @@ LANGS.forEach(lang => {
             fs.mkdirSync(path.dirname(distPath), { recursive: true });
             
             if (lang === 'fr') {
-                fs.copyFileSync(srcPath, distPath);
+                fs.writeFileSync(distPath, processSeo(fs.readFileSync(srcPath, 'utf8'), 'fr', page));
             } else {
                 let content = fs.readFileSync(srcPath, 'utf8');
                 
@@ -106,6 +107,7 @@ LANGS.forEach(lang => {
                 content = content.replace(new RegExp(`href="de/${page}"`, 'g'), `href="../de/${page}"`);
                 content = content.replace(new RegExp(`href="nl/${page}"`, 'g'), `href="../nl/${page}"`);
                 
+                content = processSeo(content, lang, page);
                 fs.writeFileSync(distPath, content);
                 
                 // ALSO write to the root for local development convenience (e.g. localhost/en/index.html)
