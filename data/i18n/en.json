@@ -807,7 +807,10 @@
     "total": "Total",
     "tax_included": "Incl. Tax",
     "total_ht": "Total (excl. VAT)",
-    "add_to_cart": "Add"
+    "add_to_cart": "Add",
+    "seo_title": "{name} – sotramsbois",
+    "seo_description": "{name} ({species}, {format}). {units} units/pallet, {palette_weight}. Request a free B2B quote.",
+    "units_per_pallet": "units per pallet"
   },
   "panier": {
     "vider_le_panier": "Empty cart",

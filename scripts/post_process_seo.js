@@ -107,13 +107,14 @@ function processSeo(html, lang, pageName) {
     $('link[rel="canonical"]').remove();
     $('link[rel="alternate"][hreflang]').remove();
     
-    // For produit.html and article.html, apply same rule (URL without params)
-    $('head').append(`\n<link rel="canonical" href="${canonicalUrl}">`);
-    
-    ['fr', 'en', 'de', 'nl'].forEach(l => {
-        $('head').append(`\n<link rel="alternate" hreflang="${l}" href="${getCanonicalUrl(l, pageName)}">`);
-    });
-    $('head').append(`\n<link rel="alternate" hreflang="x-default" href="${getCanonicalUrl('fr', pageName)}">`);
+    if (pageName !== 'produit.html') {
+        $('head').append(`\n<link rel="canonical" href="${canonicalUrl}">`);
+        
+        ['fr', 'en', 'de', 'nl'].forEach(l => {
+            $('head').append(`\n<link rel="alternate" hreflang="${l}" href="${getCanonicalUrl(l, pageName)}">`);
+        });
+        $('head').append(`\n<link rel="alternate" hreflang="x-default" href="${getCanonicalUrl('fr', pageName)}">`);
+    }
 
     // 4. Open Graph & Twitter
     $('meta[property^="og:"], meta[name^="twitter:"]').remove();
@@ -195,12 +196,28 @@ function processSeo(html, lang, pageName) {
             }
             
             if (json['@type'] === 'BreadcrumbList') {
+                const breadcrumbMap = {
+                    'Accueil': 'nav.home',
+                    'Catalogue': 'nav.catalog',
+                    'Livraison': 'nav.delivery',
+                    'Avis Clients': 'nav.reviews',
+                    'Guide de Choix': 'nav.guide',
+                    'Devis': 'nav.quote',
+                    'Politique de Retour': 'nav.returns',
+                    'Blog': 'nav.blog',
+                    'Contact': 'nav.contact',
+                    'Dépôts': 'nav.depots',
+                    'CGV': 'footer.cgv',
+                    'Politique de Confidentialité': 'footer.privacy',
+                    'Mentions Légales': 'mentions.page_title'
+                };
                 if (json.itemListElement) {
                     json.itemListElement.forEach(item => {
                         if (item.item) {
                             item.item = fixUrl(item.item);
-                            if (lang !== 'fr' && item.name === 'Accueil') item.name = i18nFlat[lang]['nav.home'] || 'Home';
-                            if (lang !== 'fr' && item.name === 'Catalogue') item.name = i18nFlat[lang]['nav.catalog'] || 'Catalog';
+                            if (lang !== 'fr' && breadcrumbMap[item.name]) {
+                                item.name = i18nFlat[lang][breadcrumbMap[item.name]] || item.name;
+                            }
                         }
                     });
                 }

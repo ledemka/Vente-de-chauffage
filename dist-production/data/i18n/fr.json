@@ -807,7 +807,10 @@
     "total": "Total",
     "tax_included": "TTC",
     "total_ht": "Total HT",
-    "add_to_cart": "Ajouter"
+    "add_to_cart": "Ajouter",
+    "seo_title": "{name} – sotramsbois",
+    "seo_description": "{name} ({species}, {format}). {units} unités/palette, {palette_weight}. Demandez un devis pro gratuit.",
+    "units_per_pallet": "unités par palette"
   },
   "panier": {
     "vider_le_panier": "Vider le panier",

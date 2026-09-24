@@ -1,4 +1,4 @@
-<html lang="fr" translate="no"><head>
+<!DOCTYPE html><html lang="fr" translate="no"><head>
     <meta charset="utf-8">
     <meta name="google" content="notranslate">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -52,24 +52,7 @@
   "name": "sotramsbois",
   "url": "https://www.sotramsbois.com"
 }</script>
-    <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Accueil",
-      "item": "https://www.sotramsbois.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Catalogue",
-      "item": "https://www.sotramsbois.com/catalogue.html"
-    }
-  ]
-}</script>
+    
 <title>Catalogue B2B Bois de Chauffage | sotramsbois</title><meta name="description" content="Découvrez nos 5 gammes professionnelles : bûches de bois, bûches compressées, briquettes, pellets et charbon/allume-feu.">
 <link rel="canonical" href="https://www.sotramsbois.com/catalogue.html">
 <link rel="alternate" hreflang="fr" href="https://www.sotramsbois.com/catalogue.html">
@@ -144,7 +127,9 @@
                     </div>
                 </div>
             </div>
-            <main class="w-full pt-[128px] bg-background"><div class="flex flex-col w-full">
+            <main class="w-full pt-[128px] bg-background">
+<h1 class="sr-only" data-i18n="nav.catalog">Catalogue</h1>
+<div class="flex flex-col w-full">
 <div class="max-w-[1440px] mx-auto w-full px-margin-desktop py-12 flex gap-gutter">
 <!-- Sidebar Filters -->
 <aside class="hidden lg:flex w-64 flex-col gap-8 shrink-0">
@@ -385,7 +370,7 @@ window.resolveAssetPath = function(pathStr) {
                                         <div class="flex items-end justify-between border-b-2 border-outline pb-4">
                                             <div class="flex flex-col gap-1">
                                                 <span class="text-label-md font-label-md text-primary tracking-widest uppercase">${(t.catalog && t.catalog.category_label) || 'CATÉGORIE'} 0${sg.id}</span>
-                                                <h1 class="text-headline-xlg font-headline-lg text-on-surface">${sg.name}</h1>
+                                                <h2 class="text-headline-xlg font-headline-lg text-on-surface">${sg.name}</h2>
                                             </div>
                                             <span class="text-body-sm font-body-sm text-on-surface-variant">${sg.products.length} ${(t.catalog && t.catalog.references_label) || 'Références'}</span>
                                         </div>
