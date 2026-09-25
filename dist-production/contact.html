@@ -281,14 +281,27 @@
                 }
 
                 // Pre-fill form if user is logged in
-                const user = JSON.parse(localStorage.getItem('user'));
-                if (user) {
-                    if (user.societe && document.getElementById('societe')) document.getElementById('societe').value = user.societe;
-                    if (user.siret && document.getElementById('siret')) document.getElementById('siret').value = user.siret;
-                    if (user.nom && document.getElementById('nom')) document.getElementById('nom').value = user.nom;
-                    if (user.prenom && user.nom && document.getElementById('nom')) document.getElementById('nom').value = user.prenom + ' ' + user.nom;
-                    if (user.email && document.getElementById('email')) document.getElementById('email').value = user.email;
-                    if (user.telephone && document.getElementById('telephone')) document.getElementById('telephone').value = user.telephone;
+                const userObj = localStorage.getItem('user');
+                if (userObj) {
+                    try {
+                        const user = JSON.parse(userObj);
+                        if (user.company && document.getElementById('societe')) document.getElementById('societe').value = user.company;
+                        if (user.siret && document.getElementById('siret')) document.getElementById('siret').value = user.siret;
+                        if (user.fonction && document.getElementById('fonction')) document.getElementById('fonction').value = user.fonction;
+                        
+                        let firstName = (user.first_name || '').trim();
+                        let lastName = (user.contact_name || '').trim();
+                        if (!firstName && lastName.includes(' ')) {
+                            const parts = lastName.split(' ');
+                            firstName = parts[0];
+                            lastName = parts.slice(1).join(' ');
+                        }
+                        const fullName = (firstName + ' ' + lastName).trim();
+                        if (fullName && document.getElementById('nom')) document.getElementById('nom').value = fullName;
+                        
+                        if (user.email && document.getElementById('email')) document.getElementById('email').value = user.email;
+                        if (user.phone && document.getElementById('telephone')) document.getElementById('telephone').value = user.phone;
+                    } catch(e) {}
                 }
 
                 // Form submission logic
