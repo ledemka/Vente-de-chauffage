@@ -206,7 +206,7 @@ var CartUI = {
 
             html += `
             <div class="bg-surface-container rounded-xl p-5 border border-outline/10 shadow-sm flex flex-col md:flex-row items-center gap-6">
-                <img src="${imgPrefix}${prod.image_product}" class="w-24 h-24 object-cover rounded-lg border border-outline/20 flex-shrink-0" alt="">
+                <img src="${imgPrefix}${prod.image_product}" class="w-24 h-24 object-cover rounded-lg border border-outline/20 flex-shrink-0" alt="" loading="lazy" decoding="async">
                 
                 <div class="flex-grow">
                     <div class="text-label-md uppercase text-outline-variant tracking-wider font-bold mb-1">RÉF: ${prod.id}</div>
@@ -317,7 +317,7 @@ var CartUI = {
                     phtml += `
                         <div class="bg-surface-container rounded-xl p-4 border border-outline/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                             <div>
-                                <img src="${imgPrefix}${p.image_product}" class="w-full h-32 object-cover rounded-lg mb-4" alt="">
+                                <img src="${imgPrefix}${p.image_product}" class="w-full h-32 object-cover rounded-lg mb-4" alt="" loading="lazy" decoding="async">
                                 <h4 class="text-label-lg font-bold text-on-surface mb-1 line-clamp-2">${getProductName(p)}</h4>
                                 ${formatLabel}
                             </div>

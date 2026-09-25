@@ -106,10 +106,10 @@
 <!-- Carousel Background Slides -->
 <div class="absolute inset-0 z-0 overflow-hidden" id="hero-carousel-slides">
   <div class="hero-slide active absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-100 opacity-70" style="background-image: url('./assets/images/hero/hero-carousel-1.jpg')"></div>
-  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105 opacity-0 pointer-events-none" style="background-image: url('./assets/images/hero/hero-carousel-2.jpg')"></div>
-  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105 opacity-0 pointer-events-none" style="background-image: url('./assets/images/hero/hero-carousel-3.jpg')"></div>
-  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105 opacity-0 pointer-events-none" style="background-image: url('./assets/images/hero/hero-carousel-4.jpg')"></div>
-  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105 opacity-0 pointer-events-none" style="background-image: url('./assets/images/hero/hero-carousel-5.jpg')"></div>
+  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105 opacity-0 pointer-events-none" data-bg="url('./assets/images/hero/hero-carousel-2.jpg')"></div>
+  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105 opacity-0 pointer-events-none" data-bg="url('./assets/images/hero/hero-carousel-3.jpg')"></div>
+  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105 opacity-0 pointer-events-none" data-bg="url('./assets/images/hero/hero-carousel-4.jpg')"></div>
+  <div class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105 opacity-0 pointer-events-none" data-bg="url('./assets/images/hero/hero-carousel-5.jpg')"></div>
   <!-- Deep High-Contrast Vignette & Gradient Overlay for perfect readability -->
   <div class="absolute inset-0 bg-gradient-to-r from-[#201a17]/95 via-[#201a17]/80 to-[#201a17]/35 z-10 pointer-events-none"></div>
   <div class="absolute inset-0 bg-gradient-to-t from-[#201a17] via-transparent to-[#201a17]/50 z-10 pointer-events-none"></div>
@@ -280,6 +280,17 @@
 
                 // Hero Carousel Logic
                 const slides = document.querySelectorAll('#hero-carousel-slides .hero-slide');
+
+                // Defer background image load for non-active slides
+                window.addEventListener('load', () => {
+                    slides.forEach(slide => {
+                        if (slide.hasAttribute('data-bg')) {
+                            slide.style.backgroundImage = slide.getAttribute('data-bg');
+                            slide.removeAttribute('data-bg');
+                        }
+                    });
+                });
+
                 const dots = document.querySelectorAll('#hero-carousel-dots .hero-dot');
                 const prevBtn = document.getElementById('hero-prev-btn');
                 const nextBtn = document.getElementById('hero-next-btn');
