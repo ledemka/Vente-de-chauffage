@@ -18,11 +18,46 @@ function getProductName(p, lang) {
     return getProductField(p, 'name', lang);
 }
 
+const SEO_KEYWORDS = {
+    fr: {
+        firewood: 'Bois de chauffage B2B, Grossiste',
+        pellets: 'Pellets Grossiste, B2B',
+        briquettes: 'Briquettes Grossiste, B2B',
+        default: 'Grossiste B2B'
+    },
+    en: {
+        firewood: 'Wholesale Firewood Supplier',
+        pellets: 'Wood Pellets Wholesale Supplier',
+        briquettes: 'Wholesale Wood Briquettes',
+        default: 'Wholesale B2B'
+    },
+    de: {
+        firewood: 'Brennholz Großhandel Lieferant',
+        pellets: 'Holzpellets Großhandel',
+        briquettes: 'Holzbriketts Großhandel',
+        default: 'Großhandel Lieferant'
+    },
+    nl: {
+        firewood: 'Brandhout Groothandel Leverancier',
+        pellets: 'Houtpellets Groothandel',
+        briquettes: 'Houtbriketten Groothandel',
+        default: 'Groothandel Leverancier'
+    }
+};
+
+function getSeoKeywords(subgroupId, lang) {
+    const k = SEO_KEYWORDS[lang] || SEO_KEYWORDS.fr;
+    if (subgroupId === 1) return k.firewood;
+    if (subgroupId === 4) return k.pellets;
+    if (subgroupId === 2 || subgroupId === 3) return k.briquettes;
+    return k.default;
+}
+
 const META_DESC_TEMPLATE = {
-    fr: (name, mat, fmt, price) => `Découvrez ${name} (${mat}, ${fmt}). Prix public conseillé: ${price}€ TTC. Idéal pour professionnels.`,
-    en: (name, mat, fmt, price) => `${name} (${mat}, ${fmt}). Recommended retail price: ${price}€ incl. VAT. Ideal for professionals.`,
-    de: (name, mat, fmt, price) => `${name} (${mat}, ${fmt}). Empfohlener Verkaufspreis: ${price}€ inkl. MwSt. Ideal für professionelle Käufer.`,
-    nl: (name, mat, fmt, price) => `${name} (${mat}, ${fmt}). Aanbevolen verkoopprijs: ${price}€ incl. btw. Ideaal voor professionele kopers.`,
+    fr: (name, kw, mat, fmt, price) => `${kw}. Découvrez ${name} (${mat}, ${fmt}) pour professionnels. Prix conseillé: ${price}€ TTC. Idéal pour l'achat en gros.`,
+    en: (name, kw, mat, fmt, price) => `${kw}. ${name} (${mat}, ${fmt}) for professionals. Retail price: ${price}€ incl. VAT. Ideal for bulk buyers.`,
+    de: (name, kw, mat, fmt, price) => `${kw}. ${name} (${mat}, ${fmt}) für Profis. Verkaufspreis: ${price}€ inkl. MwSt. Ideal für Großeinkäufer.`,
+    nl: (name, kw, mat, fmt, price) => `${kw}. ${name} (${mat}, ${fmt}) voor professionals. Verkoopprijs: ${price}€ incl. btw. Ideaal voor zakelijke kopers.`,
 };
 
 function buildProducts() {
@@ -71,8 +106,9 @@ function buildProducts() {
             const species = getProductField(product, 'species_material', lang);
             const format = product.format;
             const price = product.recommended_price || 0;
-            const desc = META_DESC_TEMPLATE[lang](name, species, format, price);
-            const title = `${name} – sotramsbois`;
+            const kw = getSeoKeywords(product.subgroup_id, lang);
+            const desc = META_DESC_TEMPLATE[lang](name, kw, species, format, price);
+            const title = `${name} – ${kw} | sotramsbois`;
             const canonUrl = lang === 'fr' ? `${MAIN_HOST}/produits/${product.id}.html` : `${MAIN_HOST}/${lang}/produits/${product.id}.html`;
 
             if ($('title').length === 0) $('head').append('<title></title>');
@@ -80,6 +116,31 @@ function buildProducts() {
 
             if ($('meta[name="description"]').length === 0) $('head').append('<meta name="description" content="">');
             $('meta[name="description"]').attr('content', desc);
+            
+            // Enhance H1
+            if ($('h1#product-name').length) {
+                $('h1#product-name').html(`${name} <span class="d-block fs-5 text-muted mt-2">${kw}</span>`);
+            } else if ($('h1').length) {
+                $('h1').first().html(`${name} <span class="d-block fs-5 text-muted mt-2">${kw}</span>`);
+            }
+            
+            // SEO Images
+            const imgPath1 = lang === 'fr' ? `../${product.image_product}` : `../../${product.image_product}`;
+            const imgPath2 = lang === 'fr' ? `../${product.image_packaging}` : `../../${product.image_packaging}`;
+            
+            $('#product-img-1')
+                .attr('src', imgPath1)
+                .attr('alt', `${name} - ${species}`)
+                .attr('width', '600')
+                .attr('height', '400')
+                .attr('fetchpriority', 'high');
+                
+            $('#product-img-2')
+                .attr('src', imgPath2)
+                .attr('alt', `Conditionnement de ${name}`)
+                .attr('width', '600')
+                .attr('height', '400')
+                .attr('loading', 'lazy');
 
             $('link[rel="canonical"]').remove();
             $('link[rel="alternate"][hreflang]').remove();

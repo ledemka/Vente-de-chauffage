@@ -12,10 +12,13 @@ var AuthAPI = {
      */
     _getApiPath() {
         if (this._apiPath) return this._apiPath;
-        // Detect if we are in a language subdir
-        const path = window.location.pathname;
-        const inSubdir = /^\/(en|de|nl)\//.test(path);
-        this._apiPath = inSubdir ? '../api/auth.php' : '/api/auth.php';
+        if (typeof window.resolveDataPath === 'function') {
+            this._apiPath = window.resolveDataPath('api/auth.php');
+        } else {
+            const path = window.location.pathname;
+            const inSubdir = /^\/(en|de|nl)\//.test(path);
+            this._apiPath = inSubdir ? '../api/auth.php' : './api/auth.php';
+        }
         return this._apiPath;
     },
 

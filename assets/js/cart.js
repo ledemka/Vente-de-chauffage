@@ -29,8 +29,15 @@ var CartAPI = {
         }
 
         // Use proper API path depending on current location
-        const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
-        const apiPath = inSubdir ? '../api/cart.php' : './api/cart.php';
+        let apiPath = './api/cart.php';
+        if (typeof window.resolveDataPath === 'function') {
+            apiPath = window.resolveDataPath('api/cart.php');
+        } else {
+            const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
+            const inProduits = window.location.pathname.includes('/produits/');
+            if (inSubdir && inProduits) apiPath = '../../api/cart.php';
+            else if (inSubdir || inProduits) apiPath = '../api/cart.php';
+        }
 
         const res = await fetch(apiPath, {
             method: 'POST',

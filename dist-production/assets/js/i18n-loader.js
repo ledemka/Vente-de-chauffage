@@ -6,14 +6,22 @@
  */
 
 window.resolveDataPath = function(pathStr) {
-    const isSubdir = /^\/(en|de|nl)(\/|$)/.test(window.location.pathname);
-    const depth = isSubdir ? '../' : './';
+    const isLangSubdir = /^\/?(en|de|nl)(\/|$)/.test(window.location.pathname);
+    const isProduitSubdir = window.location.pathname.includes('/produits/');
+    
+    let depth = './';
+    if (isLangSubdir && isProduitSubdir) depth = '../../';
+    else if (isLangSubdir || isProduitSubdir) depth = '../';
+    
     return depth + pathStr.replace(/^\/+/, '');
 };
 
 document.addEventListener('DOMContentLoaded', () => {
     const lang = document.documentElement.lang || 'fr';
-    const relPath = lang === 'fr' ? '.' : '..';
+    let relPath = lang === 'fr' ? '.' : '..';
+    if (window.location.pathname.includes('/produits/')) {
+        relPath = lang === 'fr' ? '..' : '../..';
+    }
 
     // Setup window.i18n globally
     window.i18n = {

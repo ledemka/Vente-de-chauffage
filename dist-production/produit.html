@@ -288,6 +288,9 @@
 // Resolves absolute /assets/... paths to relative paths based on language
 window.resolveAssetPath = function(pathStr) {
     if (!pathStr) return '';
+    if (typeof window.resolveDataPath === 'function') {
+        return window.resolveDataPath(pathStr);
+    }
     const cleanPath = String(pathStr).replace(/^\/+/, '');
     const lang = document.documentElement.lang || 'fr';
     return (lang === 'fr' ? './' : '../') + cleanPath;

@@ -1,0 +1,1048 @@
+{
+  "cgv.html": [
+    {
+      "tag": "span",
+      "text": "local_fire_department sotramsbois",
+      "html": "<span class=\"material-symbols-outlined\">local_fire_department</span> <span data-i18n=\"site_name\">sotramsbois</span>",
+      "class": "font-extrabold text-lg text-[#D97706] flex items-center gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "local_fire_department",
+      "html": "local_fire_department",
+      "class": "material-symbols-outlined"
+    },
+    {
+      "tag": "span",
+      "text": "close",
+      "html": "close",
+      "class": "material-symbols-outlined text-2xl"
+    },
+    {
+      "tag": "span",
+      "text": "Juridique & Conformité",
+      "html": "Juridique &amp; Conformité",
+      "class": "font-label-md text-label-md text-primary uppercase tracking-widest"
+    },
+    {
+      "tag": "p",
+      "text": "Applicables aux transactions entre professionnels. Dernière mise à jour : [Date à compléter à la mise en ligne]. Ces conditions régissent les standards de qualité, de logistique et de tarification de la biomasse sotramsbois.",
+      "html": "Applicables aux transactions entre professionnels. Dernière mise à jour : [Date à compléter à la mise en ligne]. Ces conditions régissent les standards de qualité, de logistique et de tarification de la biomasse sotramsbois.",
+      "class": "font-body-lg text-body-lg text-on-surface-variant max-w-2xl"
+    },
+    {
+      "tag": "span",
+      "text": "support_agent",
+      "html": "support_agent",
+      "class": "material-symbols-outlined text-[32px]"
+    },
+    {
+      "tag": "span",
+      "text": "01",
+      "html": "01",
+      "class": "absolute -right-4 -top-4 font-headline-xl text-[160px] leading-none text-surface-container-highest opacity-30 group-hover:text-secondary-fixed transition-colors duration-500 pointer-events-none select-none"
+    },
+    {
+      "tag": "p",
+      "text": "Elles régissent exclusivement les ventes de bois de chauffage, granulés, et autres produits de biomasse par sotramsbois aux acheteurs professionnels (B2B). Toute commande implique l'acceptation sans réserve de ces conditions par l'acheteur, nonobstant toute stipulation contraire figurant dans ses propres conditions générales d'achat.",
+      "html": "Elles régissent exclusivement les ventes de bois de chauffage, granulés, et autres produits de biomasse par <strong>sotramsbois</strong> aux acheteurs professionnels (B2B). Toute commande implique l'acceptation sans réserve de ces conditions par l'acheteur, nonobstant toute stipulation contraire figurant dans ses propres conditions générales d'achat.",
+      "class": ""
+    },
+    {
+      "tag": "strong",
+      "text": "sotramsbois",
+      "html": "sotramsbois",
+      "class": ""
+    },
+    {
+      "tag": "span",
+      "text": "info",
+      "html": "info",
+      "class": "material-symbols-outlined text-primary mt-1"
+    },
+    {
+      "tag": "span",
+      "text": "02",
+      "html": "02",
+      "class": "absolute -right-4 -top-4 font-headline-xl text-[160px] leading-none text-surface-container-highest opacity-30 group-hover:text-secondary-fixed transition-colors duration-500 pointer-events-none select-none"
+    },
+    {
+      "tag": "span",
+      "text": "TAUX D'HUMIDITÉ GARANTI",
+      "html": "TAUX D'HUMIDITÉ GARANTI",
+      "class": "font-label-md text-label-md text-outline"
+    },
+    {
+      "tag": "span",
+      "text": "< 20% (Classe H1)",
+      "html": "&lt; 20% (Classe H1)",
+      "class": "font-data-mono text-data-mono text-on-surface text-lg"
+    },
+    {
+      "tag": "span",
+      "text": "03",
+      "html": "03",
+      "class": "absolute -right-4 -top-4 font-headline-xl text-[160px] leading-none text-surface-container-highest opacity-30 group-hover:text-secondary-fixed transition-colors duration-500 pointer-events-none select-none"
+    },
+    {
+      "tag": "li",
+      "text": "Minimum de commande (MOQ) : La commande minimum est 1 palette, les paliers de remise s'appliquant ensuite selon la grille en place.",
+      "html": "<span class=\"w-1.5 h-1.5 rounded-full bg-primary shrink-0\"></span>\n<span><strong>Minimum de commande (MOQ) :</strong> La commande minimum est 1 palette, les paliers de remise s'appliquant ensuite selon la grille en place.</span>",
+      "class": "flex items-center gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "Minimum de commande (MOQ) : La commande minimum est 1 palette, les paliers de remise s'appliquant ensuite selon la grille en place.",
+      "html": "<strong>Minimum de commande (MOQ) :</strong> La commande minimum est 1 palette, les paliers de remise s'appliquant ensuite selon la grille en place.",
+      "class": ""
+    },
+    {
+      "tag": "strong",
+      "text": "Minimum de commande (MOQ) :",
+      "html": "Minimum de commande (MOQ) :",
+      "class": ""
+    },
+    {
+      "tag": "li",
+      "text": "Validité des devis : Les offres de prix sont valables [Durée de validité des devis à confirmer] à compter de leur émission.",
+      "html": "<span class=\"w-1.5 h-1.5 rounded-full bg-primary shrink-0\"></span>\n<span><strong>Validité des devis :</strong> Les offres de prix sont valables [Durée de validité des devis à confirmer] à compter de leur émission.</span>",
+      "class": "flex items-center gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "Validité des devis : Les offres de prix sont valables [Durée de validité des devis à confirmer] à compter de leur émission.",
+      "html": "<strong>Validité des devis :</strong> Les offres de prix sont valables [Durée de validité des devis à confirmer] à compter de leur émission.",
+      "class": ""
+    },
+    {
+      "tag": "strong",
+      "text": "Validité des devis :",
+      "html": "Validité des devis :",
+      "class": ""
+    },
+    {
+      "tag": "li",
+      "text": "Validation : La commande n'est définitive qu'après réception de l'acompte (si stipulé) et de l'accusé de réception de commande signé.",
+      "html": "<span class=\"w-1.5 h-1.5 rounded-full bg-primary shrink-0\"></span>\n<span><strong>Validation :</strong> La commande n'est définitive qu'après réception de l'acompte (si stipulé) et de l'accusé de réception de commande signé.</span>",
+      "class": "flex items-center gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "Validation : La commande n'est définitive qu'après réception de l'acompte (si stipulé) et de l'accusé de réception de commande signé.",
+      "html": "<strong>Validation :</strong> La commande n'est définitive qu'après réception de l'acompte (si stipulé) et de l'accusé de réception de commande signé.",
+      "class": ""
+    },
+    {
+      "tag": "strong",
+      "text": "Validation :",
+      "html": "Validation :",
+      "class": ""
+    },
+    {
+      "tag": "span",
+      "text": "04",
+      "html": "04",
+      "class": "absolute -right-4 -top-4 font-headline-xl text-[160px] leading-none text-surface-highest opacity-20 group-hover:text-surface-highest transition-colors duration-500 pointer-events-none select-none"
+    },
+    {
+      "tag": "span",
+      "text": "inventory_2",
+      "html": "inventory_2",
+      "class": "material-symbols-outlined text-outline text-[28px]"
+    },
+    {
+      "tag": "span",
+      "text": "local_shipping",
+      "html": "local_shipping",
+      "class": "material-symbols-outlined text-secondary text-[28px]"
+    },
+    {
+      "tag": "span",
+      "text": "forklift",
+      "html": "forklift",
+      "class": "material-symbols-outlined text-[28px]"
+    },
+    {
+      "tag": "span",
+      "text": "warning",
+      "html": "warning",
+      "class": "material-symbols-outlined mt-1"
+    },
+    {
+      "tag": "span",
+      "text": "05",
+      "html": "05",
+      "class": "absolute -right-4 -top-4 font-headline-xl text-[160px] leading-none text-surface-container-highest opacity-30 group-hover:text-secondary-fixed transition-colors duration-500 pointer-events-none select-none"
+    },
+    {
+      "tag": "p",
+      "text": "Retards de paiement : Tout retard de paiement entraîne de plein droit l'exigibilité d'une pénalité de retard calculée au taux de refinancement de la BCE majoré de 10 points, ainsi que l'indemnité forfaitaire de 40€ pour frais de recouvrement prévue par le Code de commerce.",
+      "html": "<strong>Retards de paiement :</strong> Tout retard de paiement entraîne de plein droit l'exigibilité d'une pénalité de retard calculée au taux de refinancement de la BCE majoré de 10 points, ainsi que l'indemnité forfaitaire de 40€ pour frais de recouvrement prévue par le Code de commerce.",
+      "class": "mt-4"
+    },
+    {
+      "tag": "strong",
+      "text": "Retards de paiement :",
+      "html": "Retards de paiement :",
+      "class": ""
+    },
+    {
+      "tag": "span",
+      "text": "06",
+      "html": "06",
+      "class": "absolute -right-4 -top-4 font-headline-xl text-[160px] leading-none text-surface-container-highest opacity-30 group-hover:text-secondary-fixed transition-colors duration-500 pointer-events-none select-none"
+    }
+  ],
+  "mentions-legales.html": [
+    {
+      "tag": "span",
+      "text": "local_fire_department sotramsbois",
+      "html": "<span class=\"material-symbols-outlined\">local_fire_department</span> <span data-i18n=\"site_name\">sotramsbois</span>",
+      "class": "font-extrabold text-lg text-[#D97706] flex items-center gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "local_fire_department",
+      "html": "local_fire_department",
+      "class": "material-symbols-outlined"
+    },
+    {
+      "tag": "span",
+      "text": "close",
+      "html": "close",
+      "class": "material-symbols-outlined text-2xl"
+    },
+    {
+      "tag": "h1",
+      "text": "Mentions Légales",
+      "html": "Mentions Légales",
+      "class": "text-headline-xl font-headline-xl text-on-surface mb-6"
+    },
+    {
+      "tag": "p",
+      "text": "Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, dite L.C.E.N., nous portons à la connaissance des utilisateurs et visiteurs du site sotramsbois les informations suivantes :",
+      "html": "Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, dite L.C.E.N., nous portons à la connaissance des utilisateurs et visiteurs du site sotramsbois les informations suivantes :",
+      "class": "text-body-lg font-body-lg text-on-surface-variant max-w-2xl"
+    },
+    {
+      "tag": "span",
+      "text": "01",
+      "html": "01",
+      "class": "text-headline-lg font-headline-lg text-outline-variant/50"
+    },
+    {
+      "tag": "span",
+      "text": "domain",
+      "html": "domain",
+      "class": "material-symbols-outlined text-[120px] -mr-8 -mb-8"
+    },
+    {
+      "tag": "span",
+      "text": "[Raison sociale à compléter]",
+      "html": "[Raison sociale à compléter]",
+      "class": "text-body-md font-body-md text-on-surface font-semibold"
+    },
+    {
+      "tag": "span",
+      "text": "[Capital social à compléter]",
+      "html": "[Capital social à compléter]",
+      "class": "text-body-md font-body-md text-on-surface"
+    },
+    {
+      "tag": "span",
+      "text": "[Adresse du siège social à compléter]",
+      "html": "[Adresse du siège social à compléter]",
+      "class": "text-body-md font-body-md text-on-surface"
+    },
+    {
+      "tag": "span",
+      "text": "RCS",
+      "html": "RCS",
+      "class": "text-label-md font-label-md text-outline"
+    },
+    {
+      "tag": "span",
+      "text": "[RCS à compléter]",
+      "html": "[RCS à compléter]",
+      "class": "text-body-md font-body-md text-on-surface"
+    },
+    {
+      "tag": "span",
+      "text": "[N° TVA intracommunautaire à compléter]",
+      "html": "[N° TVA intracommunautaire à compléter]",
+      "class": "text-body-md font-body-md text-on-surface"
+    },
+    {
+      "tag": "span",
+      "text": "[Nom du directeur de la publication à compléter]",
+      "html": "[Nom du directeur de la publication à compléter]",
+      "class": "text-body-md font-body-md text-on-surface"
+    },
+    {
+      "tag": "span",
+      "text": "CONTACT",
+      "html": "CONTACT",
+      "class": "text-label-md font-label-md text-outline"
+    },
+    {
+      "tag": "span",
+      "text": "mail",
+      "html": "mail",
+      "class": "material-symbols-outlined text-[20px]"
+    },
+    {
+      "tag": "span",
+      "text": "phone",
+      "html": "phone",
+      "class": "material-symbols-outlined text-[20px]"
+    },
+    {
+      "tag": "span",
+      "text": "02",
+      "html": "02",
+      "class": "text-headline-lg font-headline-lg text-outline-variant/50"
+    },
+    {
+      "tag": "p",
+      "text": "Le site sotramsbois est hébergé de manière sécurisée et éco-responsable. Les serveurs sont localisés sur le territoire européen, garantissant le respect strict du RGPD.",
+      "html": "Le site sotramsbois est hébergé de manière sécurisée et éco-responsable. Les serveurs sont localisés sur le territoire européen, garantissant le respect strict du RGPD.",
+      "class": "text-body-md font-body-md text-on-surface-variant mb-6 leading-relaxed"
+    },
+    {
+      "tag": "span",
+      "text": "dns",
+      "html": "dns",
+      "class": "material-symbols-outlined text-on-secondary-container"
+    },
+    {
+      "tag": "span",
+      "text": "03",
+      "html": "03",
+      "class": "text-headline-lg font-headline-lg text-outline-variant/50"
+    },
+    {
+      "tag": "p",
+      "text": "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.",
+      "html": "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.",
+      "class": ""
+    },
+    {
+      "tag": "p",
+      "text": "La reproduction de tout ou partie de ce site sur un support électronique ou papier quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.",
+      "html": "La reproduction de tout ou partie de ce site sur un support électronique ou papier quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.",
+      "class": ""
+    },
+    {
+      "tag": "p",
+      "text": "Les marques citées sur ce site sont déposées par les sociétés qui en sont propriétaires. La marque \"sotramsbois\" ainsi que le logo associé figurant sur le site sont des marques déposées. Toute reproduction totale ou partielle de ces marques ou de ces logos effectuée à partir des éléments du site sans l'autorisation expresse de l'éditeur est donc prohibée.",
+      "html": "Les marques citées sur ce site sont déposées par les sociétés qui en sont propriétaires. La marque \"sotramsbois\" ainsi que le logo associé figurant sur le site sont des marques déposées. Toute reproduction totale ou partielle de ces marques ou de ces logos effectuée à partir des éléments du site sans l'autorisation expresse de l'éditeur est donc prohibée.",
+      "class": "text-body-sm font-body-sm text-on-surface-variant"
+    },
+    {
+      "tag": "span",
+      "text": "04",
+      "html": "04",
+      "class": "text-headline-lg font-headline-lg text-outline-variant/50"
+    },
+    {
+      "tag": "p",
+      "text": "sotramsbois s'engage à ce que la collecte et le traitement de vos données, effectués à partir du site, soient conformes au règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés.",
+      "html": "sotramsbois s'engage à ce que la collecte et le traitement de vos données, effectués à partir du site, soient conformes au règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés.",
+      "class": "text-body-md font-body-md text-on-surface-variant leading-relaxed"
+    },
+    {
+      "tag": "span",
+      "text": "policy",
+      "html": "policy",
+      "class": "material-symbols-outlined text-primary"
+    },
+    {
+      "tag": "p",
+      "text": "Les données personnelles collectées via nos formulaires (contact, demande de devis) sont strictement nécessaires au traitement de votre demande et à la gestion commerciale de la relation client B2B.",
+      "html": "Les données personnelles collectées via nos formulaires (contact, demande de devis) sont strictement nécessaires au traitement de votre demande et à la gestion commerciale de la relation client B2B.",
+      "class": "text-body-sm font-body-sm text-on-surface-variant"
+    },
+    {
+      "tag": "span",
+      "text": "update",
+      "html": "update",
+      "class": "material-symbols-outlined text-primary"
+    },
+    {
+      "tag": "p",
+      "text": "Les données sont conservées pendant une durée de 3 ans à compter du dernier contact émanant de votre part, ou pendant la durée de la relation commerciale augmentée des prescriptions légales.",
+      "html": "Les données sont conservées pendant une durée de 3 ans à compter du dernier contact émanant de votre part, ou pendant la durée de la relation commerciale augmentée des prescriptions légales.",
+      "class": "text-body-sm font-body-sm text-on-surface-variant"
+    },
+    {
+      "tag": "p",
+      "text": "Conformément à la réglementation applicable, vous disposez des droits suivants :",
+      "html": "Conformément à la réglementation applicable, vous disposez des droits suivants :",
+      "class": "text-body-md font-body-md text-on-surface-variant mb-6"
+    },
+    {
+      "tag": "li",
+      "text": "check_circle\nDroit d'accès et de rectification de vos données.",
+      "html": "<span class=\"material-symbols-outlined text-primary shrink-0 mt-0.5\">check_circle</span>\n<span class=\"text-body-sm font-body-sm text-on-surface\" data-i18n=\"mentions.right_access\">Droit d'accès et de rectification de vos données.</span>",
+      "class": "flex items-start gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "check_circle",
+      "html": "check_circle",
+      "class": "material-symbols-outlined text-primary shrink-0 mt-0.5"
+    },
+    {
+      "tag": "li",
+      "text": "check_circle\nDroit à l'effacement (« droit à l'oubli ») et à la limitation du traitement.",
+      "html": "<span class=\"material-symbols-outlined text-primary shrink-0 mt-0.5\">check_circle</span>\n<span class=\"text-body-sm font-body-sm text-on-surface\" data-i18n=\"mentions.right_erasure\">Droit à l'effacement (« droit à l'oubli ») et à la limitation du traitement.</span>",
+      "class": "flex items-start gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "check_circle",
+      "html": "check_circle",
+      "class": "material-symbols-outlined text-primary shrink-0 mt-0.5"
+    },
+    {
+      "tag": "li",
+      "text": "check_circle\nDroit à la portabilité de vos données.",
+      "html": "<span class=\"material-symbols-outlined text-primary shrink-0 mt-0.5\">check_circle</span>\n<span class=\"text-body-sm font-body-sm text-on-surface\" data-i18n=\"mentions.right_portability\">Droit à la portabilité de vos données.</span>",
+      "class": "flex items-start gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "check_circle",
+      "html": "check_circle",
+      "class": "material-symbols-outlined text-primary shrink-0 mt-0.5"
+    },
+    {
+      "tag": "li",
+      "text": "check_circle\nDroit d'opposition au traitement de vos données pour des motifs légitimes.",
+      "html": "<span class=\"material-symbols-outlined text-primary shrink-0 mt-0.5\">check_circle</span>\n<span class=\"text-body-sm font-body-sm text-on-surface\" data-i18n=\"mentions.right_object\">Droit d'opposition au traitement de vos données pour des motifs légitimes.</span>",
+      "class": "flex items-start gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "check_circle",
+      "html": "check_circle",
+      "class": "material-symbols-outlined text-primary shrink-0 mt-0.5"
+    },
+    {
+      "tag": "p",
+      "text": "Pour exercer ces droits, vous pouvez contacter notre Délégué à la Protection des Données (DPO) par email à [Email du DPO à compléter] ou par courrier à l'adresse du siège social en joignant une copie d'un titre d'identité.",
+      "html": "Pour exercer ces droits, vous pouvez contacter notre Délégué à la Protection des Données (DPO) par email à <a class=\"text-primary hover:underline font-medium\" href=\"mailto:[Email du DPO à compléter]\">[Email du DPO à compléter]</a> ou par courrier à l'adresse du siège social en joignant une copie d'un titre d'identité.",
+      "class": "text-body-sm font-body-sm text-on-surface-variant p-4 bg-background rounded-lg border border-outline/10"
+    }
+  ],
+  "politique-confidentialite.html": [
+    {
+      "tag": "span",
+      "text": "local_fire_department sotramsbois",
+      "html": "<span class=\"material-symbols-outlined\">local_fire_department</span> <span data-i18n=\"site_name\">sotramsbois</span>",
+      "class": "font-extrabold text-lg text-[#D97706] flex items-center gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "local_fire_department",
+      "html": "local_fire_department",
+      "class": "material-symbols-outlined"
+    },
+    {
+      "tag": "span",
+      "text": "close",
+      "html": "close",
+      "class": "material-symbols-outlined text-2xl"
+    },
+    {
+      "tag": "span",
+      "text": "shield_lock",
+      "html": "shield_lock",
+      "class": "material-symbols-outlined text-[24px]"
+    },
+    {
+      "tag": "p",
+      "text": "Chez sotramsbois, nous accordons une importance primordiale à la protection de vos données personnelles. Cette politique détaille la manière dont nous collectons, utilisons et protégeons vos informations dans le cadre de nos activités commerciales et logistiques.",
+      "html": "Chez sotramsbois, nous accordons une importance primordiale à la protection de vos données personnelles. Cette politique détaille la manière dont nous collectons, utilisons et protégeons vos informations dans le cadre de nos activités commerciales et logistiques.",
+      "class": "font-body-lg text-body-lg text-on-surface-variant max-w-3xl"
+    },
+    {
+      "tag": "span",
+      "text": "[Date à compléter à la mise en ligne]",
+      "html": "[Date à compléter à la mise en ligne]",
+      "class": "font-data-mono text-data-mono text-on-surface"
+    },
+    {
+      "tag": "span",
+      "text": "contact_support",
+      "html": "contact_support",
+      "class": "material-symbols-outlined text-[20px]"
+    },
+    {
+      "tag": "span",
+      "text": "arrow_forward",
+      "html": "arrow_forward",
+      "class": "material-symbols-outlined text-[16px]"
+    },
+    {
+      "tag": "p",
+      "text": "Dans le cadre de nos relations commerciales B2B et de la gestion de vos commandes de biomasse, nous collectons des données strictement nécessaires à l'exécution de nos services. Ces données sont recueillies lorsque vous créez un compte professionnel, demandez un devis, ou interagissez avec notre service client.",
+      "html": "Dans le cadre de nos relations commerciales B2B et de la gestion de vos commandes de biomasse, nous collectons des données strictement nécessaires à l'exécution de nos services. Ces données sont recueillies lorsque vous créez un compte professionnel, demandez un devis, ou interagissez avec notre service client.",
+      "class": "mb-4"
+    },
+    {
+      "tag": "span",
+      "text": "domain",
+      "html": "domain",
+      "class": "material-symbols-outlined text-primary"
+    },
+    {
+      "tag": "li",
+      "text": "check Raison sociale et SIRET",
+      "html": "<span class=\"material-symbols-outlined text-[16px] text-outline mt-1\">check</span> Raison sociale et SIRET",
+      "class": "flex items-start gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "check",
+      "html": "check",
+      "class": "material-symbols-outlined text-[16px] text-outline mt-1"
+    },
+    {
+      "tag": "li",
+      "text": "check Nom, prénom et fonction du contact",
+      "html": "<span class=\"material-symbols-outlined text-[16px] text-outline mt-1\">check</span> Nom, prénom et fonction du contact",
+      "class": "flex items-start gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "check",
+      "html": "check",
+      "class": "material-symbols-outlined text-[16px] text-outline mt-1"
+    },
+    {
+      "tag": "li",
+      "text": "check Adresses de facturation et de livraison",
+      "html": "<span class=\"material-symbols-outlined text-[16px] text-outline mt-1\">check</span> Adresses de facturation et de livraison",
+      "class": "flex items-start gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "check",
+      "html": "check",
+      "class": "material-symbols-outlined text-[16px] text-outline mt-1"
+    },
+    {
+      "tag": "li",
+      "text": "check Coordonnées téléphoniques et email",
+      "html": "<span class=\"material-symbols-outlined text-[16px] text-outline mt-1\">check</span> Coordonnées téléphoniques et email",
+      "class": "flex items-start gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "check",
+      "html": "check",
+      "class": "material-symbols-outlined text-[16px] text-outline mt-1"
+    },
+    {
+      "tag": "span",
+      "text": "analytics",
+      "html": "analytics",
+      "class": "material-symbols-outlined text-tertiary"
+    },
+    {
+      "tag": "li",
+      "text": "check Adresse IP et type de navigateur",
+      "html": "<span class=\"material-symbols-outlined text-[16px] text-outline mt-1\">check</span> Adresse IP et type de navigateur",
+      "class": "flex items-start gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "check",
+      "html": "check",
+      "class": "material-symbols-outlined text-[16px] text-outline mt-1"
+    },
+    {
+      "tag": "li",
+      "text": "check Historique des recherches de produits",
+      "html": "<span class=\"material-symbols-outlined text-[16px] text-outline mt-1\">check</span> Historique des recherches de produits",
+      "class": "flex items-start gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "check",
+      "html": "check",
+      "class": "material-symbols-outlined text-[16px] text-outline mt-1"
+    },
+    {
+      "tag": "li",
+      "text": "check Préférences de navigation",
+      "html": "<span class=\"material-symbols-outlined text-[16px] text-outline mt-1\">check</span> Préférences de navigation",
+      "class": "flex items-start gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "check",
+      "html": "check",
+      "class": "material-symbols-outlined text-[16px] text-outline mt-1"
+    },
+    {
+      "tag": "li",
+      "text": "check Logs de connexion à l'espace pro",
+      "html": "<span class=\"material-symbols-outlined text-[16px] text-outline mt-1\">check</span> Logs de connexion à l'espace pro",
+      "class": "flex items-start gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "check",
+      "html": "check",
+      "class": "material-symbols-outlined text-[16px] text-outline mt-1"
+    },
+    {
+      "tag": "p",
+      "text": "Chaque traitement de données est justifié par une base légale définie (exécution d'un contrat, obligation légale, ou intérêt légitime). Nous n'utilisons vos données que pour des finalités explicites et déterminées.",
+      "html": "Chaque traitement de données est justifié par une base légale définie (exécution d'un contrat, obligation légale, ou intérêt légitime). Nous n'utilisons vos données que pour des finalités explicites et déterminées.",
+      "class": "font-body-md text-body-md text-on-surface-variant mb-6"
+    },
+    {
+      "tag": "th",
+      "text": "Finalité du traitement",
+      "html": "Finalité du traitement",
+      "class": "py-4 px-6 font-label-md text-label-md text-on-surface uppercase tracking-wider"
+    },
+    {
+      "tag": "th",
+      "text": "Base Légale",
+      "html": "Base Légale",
+      "class": "py-4 px-6 font-label-md text-label-md text-on-surface uppercase tracking-wider"
+    },
+    {
+      "tag": "th",
+      "text": "Durée de conservation",
+      "html": "Durée de conservation",
+      "class": "py-4 px-6 font-label-md text-label-md text-on-surface uppercase tracking-wider"
+    },
+    {
+      "tag": "td",
+      "text": "Gestion des commandes et livraisons de bois",
+      "html": "Gestion des commandes et livraisons de bois",
+      "class": "py-4 px-6 font-medium text-on-surface"
+    },
+    {
+      "tag": "td",
+      "text": "Exécution du contrat",
+      "html": "<span class=\"inline-flex items-center px-2.5 py-0.5 rounded-full text-[12px] font-medium bg-primary/10 text-primary\" data-i18n=\"privacy.contract\">Exécution du contrat</span>",
+      "class": "py-4 px-6"
+    },
+    {
+      "tag": "td",
+      "text": "10 ans (obligation légale comptable)",
+      "html": "10 ans (obligation légale comptable)",
+      "class": "py-4 px-6 font-data-mono"
+    },
+    {
+      "tag": "td",
+      "text": "Service client et support B2B",
+      "html": "Service client et support B2B",
+      "class": "py-4 px-6 font-medium text-on-surface"
+    },
+    {
+      "tag": "td",
+      "text": "Exécution du contrat",
+      "html": "<span class=\"inline-flex items-center px-2.5 py-0.5 rounded-full text-[12px] font-medium bg-primary/10 text-primary\">Exécution du contrat</span>",
+      "class": "py-4 px-6"
+    },
+    {
+      "tag": "span",
+      "text": "Exécution du contrat",
+      "html": "Exécution du contrat",
+      "class": "inline-flex items-center px-2.5 py-0.5 rounded-full text-[12px] font-medium bg-primary/10 text-primary"
+    },
+    {
+      "tag": "td",
+      "text": "3 ans après le dernier contact",
+      "html": "3 ans après le dernier contact",
+      "class": "py-4 px-6 font-data-mono"
+    },
+    {
+      "tag": "td",
+      "text": "Envoi de la newsletter technique et offres",
+      "html": "Envoi de la newsletter technique et offres",
+      "class": "py-4 px-6 font-medium text-on-surface"
+    },
+    {
+      "tag": "td",
+      "text": "Consentement",
+      "html": "<span class=\"inline-flex items-center px-2.5 py-0.5 rounded-full text-[12px] font-medium bg-secondary/10 text-secondary\" data-i18n=\"privacy.consent\">Consentement</span>",
+      "class": "py-4 px-6"
+    },
+    {
+      "tag": "td",
+      "text": "Jusqu'au désabonnement",
+      "html": "Jusqu'au désabonnement",
+      "class": "py-4 px-6 font-data-mono"
+    },
+    {
+      "tag": "td",
+      "text": "Sécurité du site web et lutte anti-fraude",
+      "html": "Sécurité du site web et lutte anti-fraude",
+      "class": "py-4 px-6 font-medium text-on-surface"
+    },
+    {
+      "tag": "td",
+      "text": "Intérêt légitime",
+      "html": "<span class=\"inline-flex items-center px-2.5 py-0.5 rounded-full text-[12px] font-medium bg-tertiary/10 text-tertiary\" data-i18n=\"privacy.legitimate\">Intérêt légitime</span>",
+      "class": "py-4 px-6"
+    },
+    {
+      "tag": "td",
+      "text": "6 mois (logs de sécurité)",
+      "html": "6 mois (logs de sécurité)",
+      "class": "py-4 px-6 font-data-mono"
+    },
+    {
+      "tag": "p",
+      "text": "\"La sécurité de vos données logistiques est aussi cruciale que la qualité de notre biomasse.\"",
+      "html": "\"La sécurité de vos données logistiques est aussi cruciale que la qualité de notre biomasse.\"",
+      "class": "font-headline-md text-headline-md text-on-primary max-w-2xl leading-tight"
+    },
+    {
+      "tag": "p",
+      "text": "Nous utilisons des cookies pour assurer le bon fonctionnement de notre portail B2B, analyser le trafic et optimiser votre expérience utilisateur. Vous gardez le contrôle total sur les cookies non essentiels.",
+      "html": "Nous utilisons des cookies pour assurer le bon fonctionnement de notre portail B2B, analyser le trafic et optimiser votre expérience utilisateur. Vous gardez le contrôle total sur les cookies non essentiels.",
+      "class": "font-body-md text-body-md text-on-surface-variant mb-6"
+    },
+    {
+      "tag": "span",
+      "text": "cookie",
+      "html": "cookie",
+      "class": "material-symbols-outlined text-6xl"
+    },
+    {
+      "tag": "p",
+      "text": "Indispensables au fonctionnement de l'espace client et au panier de commande.",
+      "html": "Indispensables au fonctionnement de l'espace client et au panier de commande.",
+      "class": "font-body-sm text-body-sm text-on-surface-variant mb-4 h-16"
+    },
+    {
+      "tag": "span",
+      "text": "lock",
+      "html": "lock",
+      "class": "material-symbols-outlined text-[18px] text-green-600"
+    },
+    {
+      "tag": "span",
+      "text": "query_stats",
+      "html": "query_stats",
+      "class": "material-symbols-outlined text-6xl"
+    },
+    {
+      "tag": "p",
+      "text": "Nous permettent de mesurer l'audience et d'améliorer la structure du site.",
+      "html": "Nous permettent de mesurer l'audience et d'améliorer la structure du site.",
+      "class": "font-body-sm text-body-sm text-on-surface-variant mb-4 h-16"
+    },
+    {
+      "tag": "span",
+      "text": "tune",
+      "html": "tune",
+      "class": "material-symbols-outlined text-[16px]"
+    },
+    {
+      "tag": "span",
+      "text": "campaign",
+      "html": "campaign",
+      "class": "material-symbols-outlined text-6xl"
+    },
+    {
+      "tag": "p",
+      "text": "Utilisés pour vous proposer des offres B2B pertinentes sur d'autres plateformes.",
+      "html": "Utilisés pour vous proposer des offres B2B pertinentes sur d'autres plateformes.",
+      "class": "font-body-sm text-body-sm text-on-surface-variant mb-4 h-16"
+    },
+    {
+      "tag": "span",
+      "text": "tune",
+      "html": "tune",
+      "class": "material-symbols-outlined text-[16px]"
+    },
+    {
+      "tag": "p",
+      "text": "Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez de droits stricts concernant le traitement de vos informations professionnelles et personnelles.",
+      "html": "Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez de droits stricts concernant le traitement de vos informations professionnelles et personnelles.",
+      "class": "font-body-md text-body-md text-on-surface-variant mb-8"
+    },
+    {
+      "tag": "span",
+      "text": "visibility",
+      "html": "visibility",
+      "class": "material-symbols-outlined text-primary mt-1"
+    },
+    {
+      "tag": "span",
+      "text": "edit_square",
+      "html": "edit_square",
+      "class": "material-symbols-outlined text-primary mt-1"
+    },
+    {
+      "tag": "span",
+      "text": "delete_sweep",
+      "html": "delete_sweep",
+      "class": "material-symbols-outlined text-primary mt-1"
+    },
+    {
+      "tag": "span",
+      "text": "swap_horiz",
+      "html": "swap_horiz",
+      "class": "material-symbols-outlined text-primary mt-1"
+    },
+    {
+      "tag": "p",
+      "text": "Pour toute demande relative à vos données, nous nous engageons à vous répondre dans un délai maximum de 30 jours.",
+      "html": "Pour toute demande relative à vos données, nous nous engageons à vous répondre dans un délai maximum de 30 jours.",
+      "class": "font-body-sm text-body-sm text-on-surface-variant"
+    }
+  ],
+  "politique-retour.html": [
+    {
+      "tag": "span",
+      "text": "local_fire_department sotramsbois",
+      "html": "<span class=\"material-symbols-outlined\">local_fire_department</span> <span data-i18n=\"site_name\">sotramsbois</span>",
+      "class": "font-extrabold text-lg text-[#D97706] flex items-center gap-2"
+    },
+    {
+      "tag": "span",
+      "text": "local_fire_department",
+      "html": "local_fire_department",
+      "class": "material-symbols-outlined"
+    },
+    {
+      "tag": "span",
+      "text": "close",
+      "html": "close",
+      "class": "material-symbols-outlined text-2xl"
+    },
+    {
+      "tag": "h1",
+      "text": "Politique de Retour & Remboursement",
+      "html": "Politique de Retour &amp; Remboursement",
+      "class": "text-headline-xl font-headline-xl text-on-background max-w-4xl"
+    },
+    {
+      "tag": "p",
+      "text": "Chez sotramsbois, nous nous engageons à fournir des produits de biomasse et de bois de chauffage de la plus haute qualité. Nous comprenons cependant que des circonstances exceptionnelles peuvent nécessiter un retour. Voici nos directives strictes concernant les retours, la logistique inverse et les remboursements pour nos clients professionnels et particuliers.",
+      "html": "Chez sotramsbois, nous nous engageons à fournir des produits de biomasse et de bois de chauffage de la plus haute qualité. Nous comprenons cependant que des circonstances exceptionnelles peuvent nécessiter un retour. Voici nos directives strictes concernant les retours, la logistique inverse et les remboursements pour nos clients professionnels et particuliers.",
+      "class": "text-body-lg font-body-lg text-on-surface-variant max-w-3xl leading-relaxed"
+    },
+    {
+      "tag": "p",
+      "text": "En raison de la nature volumineuse et des coûts logistiques associés à nos produits (palettes de bois, big bags de granulés), les retours sont soumis à des conditions strictes. Vous disposez d'un délai légal de 14 jours francs à compter de la date de livraison pour exercer votre droit de rétractation.",
+      "html": "En raison de la nature volumineuse et des coûts logistiques associés à nos produits (palettes de bois, big bags de granulés), les retours sont soumis à des conditions strictes. Vous disposez d'un délai légal de <strong>14 jours francs</strong> à compter de la date de livraison pour exercer votre droit de rétractation.",
+      "class": ""
+    },
+    {
+      "tag": "strong",
+      "text": "14 jours francs",
+      "html": "14 jours francs",
+      "class": ""
+    },
+    {
+      "tag": "span",
+      "text": "check_circle",
+      "html": "check_circle",
+      "class": "material-symbols-outlined text-primary text-[20px]"
+    },
+    {
+      "tag": "li",
+      "text": "arrow_right\nLes produits doivent être dans leur emballage d'origine, non ouverts et non endommagés (film de palette intact, sacs de granulés scellés).",
+      "html": "<span class=\"material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5\">arrow_right</span>\n<span data-i18n=\"return.cond1\">Les produits doivent être dans leur emballage d'origine, non ouverts et non endommagés (film de palette intact, sacs de granulés scellés).</span>",
+      "class": "flex items-start gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "arrow_right",
+      "html": "arrow_right",
+      "class": "material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5"
+    },
+    {
+      "tag": "li",
+      "text": "arrow_right\nLe bois ne doit pas avoir été exposé aux intempéries ou stocké dans des conditions inadéquates modifiant son taux d'humidité initial.",
+      "html": "<span class=\"material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5\">arrow_right</span>\n<span data-i18n=\"return.cond2\">Le bois ne doit pas avoir été exposé aux intempéries ou stocké dans des conditions inadéquates modifiant son taux d'humidité initial.</span>",
+      "class": "flex items-start gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "arrow_right",
+      "html": "arrow_right",
+      "class": "material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5"
+    },
+    {
+      "tag": "li",
+      "text": "arrow_right\nLe lot retourné doit correspondre exactement aux numéros de lot mentionnés sur le bon de livraison.",
+      "html": "<span class=\"material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5\">arrow_right</span>\n<span data-i18n=\"return.cond3\">Le lot retourné doit correspondre exactement aux numéros de lot mentionnés sur le bon de livraison.</span>",
+      "class": "flex items-start gap-3"
+    },
+    {
+      "tag": "span",
+      "text": "arrow_right",
+      "html": "arrow_right",
+      "class": "material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5"
+    },
+    {
+      "tag": "p",
+      "text": "L'organisation du retour des marchandises lourdes nécessite l'intervention de transporteurs spécialisés équipés de transpalettes ou de chariots élévateurs embarqués. Les frais de retour sont à la charge exclusive du client, sauf en cas d'erreur avérée de notre part (erreur de produit, non-conformité majeure à la livraison).",
+      "html": "L'organisation du retour des marchandises lourdes nécessite l'intervention de transporteurs spécialisés équipés de transpalettes ou de chariots élévateurs embarqués. Les frais de retour sont à la charge exclusive du client, sauf en cas d'erreur avérée de notre part (erreur de produit, non-conformité majeure à la livraison).",
+      "class": ""
+    },
+    {
+      "tag": "span",
+      "text": "forklift",
+      "html": "forklift",
+      "class": "material-symbols-outlined text-primary"
+    },
+    {
+      "tag": "p",
+      "text": "Nous mandatons notre réseau de transporteurs pour récupérer la marchandise directement sur le lieu de livraison initial.",
+      "html": "Nous mandatons notre réseau de transporteurs pour récupérer la marchandise directement sur le lieu de livraison initial.",
+      "class": "text-body-sm font-body-sm text-on-surface-variant mb-4 h-20"
+    },
+    {
+      "tag": "span",
+      "text": "180.00€ TTC / unité (soit 150.00€ HT)",
+      "html": "180.00€ TTC / unité <span class=\"text-xs font-normal text-on-surface-variant\" data-i18n=\"return.pallet_price\">(soit 150.00€ HT)</span>",
+      "class": "font-bold text-on-surface"
+    },
+    {
+      "tag": "span",
+      "text": "local_shipping",
+      "html": "local_shipping",
+      "class": "material-symbols-outlined text-primary"
+    },
+    {
+      "tag": "p",
+      "text": "Le client organise lui-même le transport vers notre plateforme logistique centrale. Le transporteur choisi doit être agréé poids lourds.",
+      "html": "Le client organise lui-même le transport vers notre plateforme logistique centrale. Le transporteur choisi doit être agréé poids lourds.",
+      "class": "text-body-sm font-body-sm text-on-surface-variant mb-4 h-20"
+    },
+    {
+      "tag": "span",
+      "text": "42.00€ TTC / palette (soit 35.00€ HT)",
+      "html": "42.00€ TTC / palette <span class=\"text-xs font-normal text-on-surface-variant\" data-i18n=\"return.dock_price\">(soit 35.00€ HT)</span>",
+      "class": "font-bold text-on-surface"
+    },
+    {
+      "tag": "span",
+      "text": "info",
+      "html": "info",
+      "class": "material-symbols-outlined text-tertiary shrink-0 mt-0.5"
+    },
+    {
+      "tag": "p",
+      "text": "La marchandise doit être rendue accessible aux camions de 19T équipés de hayon. Si l'accès est impossible le jour de la reprise, des frais de passage à vide de 108€ TTC (soit 90€ HT) seront facturés.",
+      "html": "La marchandise doit être rendue accessible aux camions de 19T équipés de hayon. Si l'accès est impossible le jour de la reprise, des frais de passage à vide de 108€ TTC (soit 90€ HT) seront facturés.",
+      "class": "text-body-sm font-body-sm text-on-surface-variant"
+    },
+    {
+      "tag": "h2",
+      "text": "Processus de Remboursement",
+      "html": "Processus de Remboursement",
+      "class": "text-headline-lg font-headline-lg text-on-background mb-4"
+    },
+    {
+      "tag": "p",
+      "text": "Le traitement des remboursements s'effectue après contrôle qualitatif et quantitatif des marchandises retournées sur notre plateforme logistique.",
+      "html": "Le traitement des remboursements s'effectue après contrôle qualitatif et quantitatif des marchandises retournées sur notre plateforme logistique.",
+      "class": "text-body-md font-body-md text-on-surface-variant mb-8"
+    },
+    {
+      "tag": "p",
+      "text": "Dès réception sur quai, notre équipe qualité inspecte le produit sous 48h ouvrées. Nous vérifions l'intégrité du conditionnement et le taux d'humidité (pour le bois bûche).",
+      "html": "Dès réception sur quai, notre équipe qualité inspecte le produit sous 48h ouvrées. Nous vérifions l'intégrité du conditionnement et le taux d'humidité (pour le bois bûche).",
+      "class": "text-body-sm font-body-sm text-on-surface-variant"
+    },
+    {
+      "tag": "p",
+      "text": "Si les critères de retour sont respectés, le service comptabilité valide le montant à rembourser, déduction faite des éventuels frais de transport inverse ou de décote (si l'emballage est endommagé).",
+      "html": "Si les critères de retour sont respectés, le service comptabilité valide le montant à rembourser, déduction faite des éventuels frais de transport inverse ou de décote (si l'emballage est endommagé).",
+      "class": "text-body-sm font-body-sm text-on-surface-variant"
+    },
+    {
+      "tag": "p",
+      "text": "Le remboursement est effectué via le mode de paiement initial dans un délai de 5 à 7 jours ouvrés après la validation du dossier.",
+      "html": "Le remboursement est effectué via le mode de paiement initial dans un délai de 5 à 7 jours ouvrés après la validation du dossier.",
+      "class": "text-body-sm font-body-sm text-on-surface-variant"
+    },
+    {
+      "tag": "th",
+      "text": "Type de Retour",
+      "html": "Type de Retour",
+      "class": "py-4 px-6 text-label-md font-label-md text-on-surface uppercase border-b-2 border-outline/30 w-1/3"
+    },
+    {
+      "tag": "th",
+      "text": "Montant Remboursé",
+      "html": "Montant Remboursé",
+      "class": "py-4 px-6 text-label-md font-label-md text-on-surface uppercase border-b-2 border-outline/30 w-1/3"
+    },
+    {
+      "tag": "th",
+      "text": "Délai Traitement",
+      "html": "Délai Traitement",
+      "class": "py-4 px-6 text-label-md font-label-md text-on-surface uppercase border-b-2 border-outline/30 w-1/3"
+    },
+    {
+      "tag": "td",
+      "text": "Rétractation Standard (14j)",
+      "html": "Rétractation Standard (14j)",
+      "class": "py-4 px-6"
+    },
+    {
+      "tag": "td",
+      "text": "100% - Frais de retour",
+      "html": "100% - Frais de retour",
+      "class": "py-4 px-6 font-data-mono"
+    },
+    {
+      "tag": "td",
+      "text": "5-7 jours ouvrés",
+      "html": "5-7 jours ouvrés",
+      "class": "py-4 px-6"
+    },
+    {
+      "tag": "td",
+      "text": "Erreur de préparation (sotramsbois)",
+      "html": "Erreur de préparation (sotramsbois)",
+      "class": "py-4 px-6"
+    },
+    {
+      "tag": "td",
+      "text": "100% Intégral",
+      "html": "100% Intégral",
+      "class": "py-4 px-6 font-data-mono text-primary font-bold"
+    },
+    {
+      "tag": "td",
+      "text": "3 jours ouvrés",
+      "html": "3 jours ouvrés",
+      "class": "py-4 px-6"
+    },
+    {
+      "tag": "td",
+      "text": "Emballage endommagé / Film percé",
+      "html": "Emballage endommagé / Film percé",
+      "class": "py-4 px-6"
+    },
+    {
+      "tag": "td",
+      "text": "Max 70% (Décote reconditionnement)",
+      "html": "Max 70% (Décote reconditionnement)",
+      "class": "py-4 px-6 font-data-mono"
+    },
+    {
+      "tag": "td",
+      "text": "7-10 jours ouvrés",
+      "html": "7-10 jours ouvrés",
+      "class": "py-4 px-6"
+    }
+  ]
+}
