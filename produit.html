@@ -758,7 +758,7 @@ updatePricing();
                                 const btnDevis = document.getElementById('btn-devis');
                                 if (btnDevis) {
                                     btnDevis.addEventListener('click', () => {
-                                        let url = './devis.html?product=' + product.id;
+                                        let url = window.resolveDataPath('devis.html') + '?product=' + product.id;
                                         if (selectedLength) {
                                             url += '&length=' + selectedLength;
                                         }
@@ -783,7 +783,7 @@ updatePricing();
                                             btn.innerHTML = `<span class="material-symbols-outlined">check</span> Ajouté !`;
                                             btn.classList.replace('bg-primary', 'bg-green-600');
                                             setTimeout(() => {
-                                                window.location.href = './panier.html';
+                                                window.location.href = window.resolveDataPath('panier.html');
                                             }, 800);
                                         } else {
                                             throw new Error("Add to cart failed");
