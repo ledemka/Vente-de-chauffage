@@ -701,7 +701,8 @@
     "trust": {
       "title": "Trust Score",
       "subtitle": "trusted by professionals.",
-      "customers": "+1k customers"
+      "customers": "+1k customers",
+      "pending": "New to the market — here is the type of feedback we aim for from our professional clients."
     },
     "filter": {
       "all": "ALL",
@@ -725,7 +726,32 @@
       "res2_attr": "Example, reseller"
     },
     "example_warning": "The testimonials below are examples provided for illustration purposes, pending real customer reviews. They do not represent any real company.",
-    "example_badge": "Example"
+    "example_badge": "Example",
+    "examples_notice": "Examples provided for illustration purposes, pending real customer reviews. They do not represent any real company.",
+    "example_1": {
+      "quote": "The dry wood we receive burns cleanly and evenly, a real plus for wood-fired cooking in continuous service.",
+      "attribution": "Example, gastronomic restaurant"
+    },
+    "example_2": {
+      "quote": "Deliveries arrive at the agreed time, which matters when managing tight kitchen stock.",
+      "attribution": "Example, restaurant"
+    },
+    "example_3": {
+      "quote": "The constant calorific value from one pallet to another facilitates the control of our biomass boiler.",
+      "attribution": "Example, industrial site"
+    },
+    "example_4": {
+      "quote": "A single point of contact for volume orders saves us time on logistics.",
+      "attribution": "Example, production unit"
+    },
+    "example_5": {
+      "quote": "Clear resale conditions and reliable restocking, which simplifies our stock management.",
+      "attribution": "Example, materials trading"
+    },
+    "example_6": {
+      "quote": "The availability of different formats allows us to respond to a varied clientele.",
+      "attribution": "Example, reseller"
+    }
   },
   "mentions": {
     "right_erasure": "Right to erasure (\"right to be forgotten\") and to restriction of processing.",

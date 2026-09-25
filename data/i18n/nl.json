@@ -701,7 +701,8 @@
     "trust": {
       "title": "Vertrouwensscore",
       "subtitle": "vertrouwd door professionals.",
-      "customers": "+1k klanten"
+      "customers": "+1k klanten",
+      "pending": "Nieuw op de markt — dit is het soort feedback dat we nastreven bij onze professionele klanten."
     },
     "filter": {
       "all": "ALLE",
@@ -725,7 +726,32 @@
       "res2_attr": "Voorbeeld, wederverkoper"
     },
     "example_warning": "De onderstaande getuigenissen zijn voorbeelden ter illustratie, in afwachting van echte klantbeoordelingen. Ze vertegenwoordigen geen echt bedrijf.",
-    "example_badge": "Voorbeeld"
+    "example_badge": "Voorbeeld",
+    "examples_notice": "Voorbeelden ter illustratie, in afwachting van echte klantbeoordelingen. Ze vertegenwoordigen geen echt bedrijf.",
+    "example_1": {
+      "quote": "Het droge hout dat we ontvangen brandt schoon en gelijkmatig, een echt pluspunt voor koken op houtvuur in continubedrijf.",
+      "attribution": "Voorbeeld, gastronomisch restaurant"
+    },
+    "example_2": {
+      "quote": "Leveringen komen op de afgesproken tijd aan, wat belangrijk is bij het beheren van krappe keukenvoorraden.",
+      "attribution": "Voorbeeld, restaurant"
+    },
+    "example_3": {
+      "quote": "De constante calorische waarde van pallet tot pallet vergemakkelijkt de besturing van onze biomassaketel.",
+      "attribution": "Voorbeeld, industriële site"
+    },
+    "example_4": {
+      "quote": "Een enkel aanspreekpunt voor volumebestellingen bespaart ons tijd op logistiek.",
+      "attribution": "Voorbeeld, productie-eenheid"
+    },
+    "example_5": {
+      "quote": "Duidelijke doorverkoopvoorwaarden en betrouwbare bevoorrading, wat ons voorraadbeheer vereenvoudigt.",
+      "attribution": "Voorbeeld, materialenhandel"
+    },
+    "example_6": {
+      "quote": "De beschikbaarheid van verschillende formaten stelt ons in staat om te reageren op een gevarieerde klantenkring.",
+      "attribution": "Voorbeeld, wederverkoper"
+    }
   },
   "mentions": {
     "right_erasure": "Recht op gegevenswissing (\"recht om vergeten te worden\") en op beperking van de verwerking.",
