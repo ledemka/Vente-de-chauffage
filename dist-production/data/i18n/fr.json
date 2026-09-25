@@ -215,7 +215,7 @@
     "art6_title": "Article 6 - Absence de Droit de Rétractation",
     "art6_p1": "Conformément aux dispositions du Code de la consommation, le droit de rétractation n’est pas applicable aux contrats conclus entre professionnels (B2B) agissant dans le cadre de leur activité commerciale, industrielle, artisanale ou libérale.",
     "art6_p2": "Les produits livrés et conformes au bon de livraison ne sont ni repris ni échangés. En cas de non-conformité avérée lors de la livraison (vices apparents), l’acheteur doit émettre des réserves claires et précises sur le bordereau de transport et les confirmer par lettre recommandée avec AR au transporteur dans les 3 jours ouvrables suivant la réception, avec copie à sotramsbois.",
-    "title": "Juridique & Conformité",
+    "title": "Conditions Générales de Vente B2B",
     "subtitle": "Applicables aux transactions entre professionnels. Dernière mise à jour : [Date à compléter à la mise en ligne]. Ces conditions régissent les standards de qualité, de logistique et de tarification de la biomasse sotramsbois.",
     "scope_text": "Elles régissent exclusivement les ventes de bois de chauffage, granulés, et autres produits de biomasse par sotramsbois aux acheteurs professionnels (B2B). Toute commande implique l'acceptation sans réserve de ces conditions par l'acheteur, nonobstant toute stipulation contraire figurant dans ses propres conditions générales d'achat.",
     "guaranteed_humidity": "TAUX D'HUMIDITÉ GARANTI",
@@ -238,7 +238,17 @@
     "nav_contact": "NOUS CONTACTER",
     "scope_1": "Elles régissent exclusivement les ventes de bois de chauffage, granulés, et autres produits de biomasse par",
     "scope_2": "aux acheteurs professionnels (B2B). Toute commande implique l'acceptation sans réserve de ces conditions par l'acheteur, nonobstant toute stipulation contraire figurant dans ses propres conditions générales d'achat.",
-    "access_conditions": "CONDITIONS D'ACCÈS OBLIGATOIRES"
+    "access_conditions": "CONDITIONS D'ACCÈS OBLIGATOIRES",
+    "sec1_title": "1. Objet",
+    "sec1_text": "Les présentes Conditions Générales de Vente régissent les ventes de bois de chauffage, granulés, briquettes et combustibles biomasse par sotramsbois à des acheteurs professionnels (B2B).",
+    "sec2_title": "2. Prix et Commande",
+    "sec2_text": "Les prix affichés sont en euros, hors taxes (HT). Toute commande implique l'acceptation sans réserve des présentes conditions.",
+    "sec3_title": "3. Livraison",
+    "sec3_text": "Les délais de livraison sont fournis à titre indicatif. La livraison nécessite un accès poids-lourd et, selon les sites, un moyen de déchargement (quai ou chariot élévateur) — voir notre page Livraison pour le détail. sotramsbois ne saurait être tenu responsable des retards liés au transporteur.",
+    "sec4_title": "4. Paiement",
+    "sec4_text": "Le paiement s'effectue par virement bancaire (SEPA), avant expédition, sauf accord contraire.",
+    "sec5_title": "5. Absence de droit de rétractation",
+    "sec5_text": "Conformément à l'article L221-3 du Code de la consommation, les ventes entre professionnels ne bénéficient pas du droit de rétractation applicable aux consommateurs."
   },
   "auth": {
     "login_title": "Connexion",
@@ -754,7 +764,15 @@
     "dpo_contact_1": "Pour exercer ces droits, vous pouvez contacter notre Délégué à la Protection des Données (DPO) par email à",
     "dpo_contact_2": "ou par courrier à l'adresse du siège social en joignant une copie d'un titre d'identité.",
     "dpo_email": "[Email du DPO à compléter]",
-    "hebergement_description": "Le site sotramsbois est hébergé de manière sécurisée et éco-responsable. Les serveurs sont localisés sur le territoire européen, garantissant le respect strict du RGPD."
+    "hebergement_description": "Le site sotramsbois est hébergé de manière sécurisée et éco-responsable. Les serveurs sont localisés sur le territoire européen, garantissant le respect strict du RGPD.",
+    "sec1_title": "1. Éditeur du site",
+    "sec1_text": "[Raison sociale à compléter], [forme juridique à compléter] au capital de [montant à compléter]€. Siège social : [Adresse du siège à compléter]. RCS [Ville RCS à compléter] [Numéro RCS à compléter]. TVA intracommunautaire : [Numéro de TVA à compléter]. Email : [Email de contact à compléter] — Téléphone : [Téléphone à compléter]<br>Directeur de la publication : [Nom du directeur de la publication à compléter]",
+    "sec2_title": "2. Hébergement",
+    "sec2_text": "Ce site est hébergé par [Hébergeur à compléter par le client], [Adresse de l'hébergeur à compléter].",
+    "sec3_title": "3. Propriété intellectuelle",
+    "sec3_text": "Le contenu de ce site (textes, images, logos) est la propriété exclusive de sotramsbois et est protégé par le droit de la propriété intellectuelle. Toute reproduction est interdite sans autorisation préalable.",
+    "sec4_title": "4. Données personnelles",
+    "sec4_text": "Le traitement de vos données personnelles est décrit dans notre <a href=\"./politique-confidentialite.html\" class=\"text-primary hover:underline\">politique de confidentialité</a>."
   },
   "privacy": {
     "right_erasure_desc": "Exiger la suppression de vos données (\"droit à l'oubli\") dans les limites légales.",
@@ -827,7 +845,18 @@
     "dpo_email": "[Email du DPO à compléter]",
     "execution_contract": "Exécution du contrat",
     "manage_preferences": "Gérer les préférences",
-    "contact_dpo": "Contacter le DPO"
+    "contact_dpo": "Contacter le DPO",
+    "sec1_title": "1. Collecte des données",
+    "sec1_text": "Nous collectons les informations nécessaires au traitement de vos commandes et devis professionnels : identité (nom, prénom, fonction, entreprise), coordonnées (email, téléphone, adresse de livraison), et données techniques de navigation (adresse IP, type de navigateur).<br><br>Ce site utilise des cookies techniques nécessaires à son fonctionnement (panier, connexion).",
+    "sec2_title": "2. Utilisation des données",
+    "sec2_text": "Vos données servent à traiter vos devis et commandes, et à vous contacter dans le cadre de notre relation commerciale. Aucune communication marketing ne vous sera envoyée sans votre consentement explicite.",
+    "sec3_title": "3. Conservation et sécurité",
+    "sec3_text": "Vos données sont hébergées sur des serveurs situés dans l'Union Européenne et conservées pour la durée nécessaire à la relation commerciale, conformément au RGPD.",
+    "sec4_title": "4. Vos droits",
+    "sec4_text": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données.",
+    "sec5_title": "5. Contact",
+    "sec5_text": "Pour exercer ces droits, contactez notre Délégué à la Protection des Données : [Email du DPO à compléter].",
+    "title": "Politique de Confidentialité"
   },
   "return": {
     "cond1": "Les produits doivent être dans leur emballage d'origine, non ouverts et non endommagés (film de palette intact, sacs de granulés scellés).",
@@ -850,7 +879,7 @@
     "version": "Version: 2.1",
     "toc": "Sommaire",
     "legal": "Légal",
-    "title": "Politique de Retour & Remboursement",
+    "title": "Politique de Retour & SAV",
     "intro": "Chez sotramsbois, nous nous engageons à fournir des produits de biomasse et de bois de chauffage de la plus haute qualité. Nous comprenons cependant que des circonstances exceptionnelles peuvent nécessiter un retour. Voici nos directives strictes concernant les retours, la logistique inverse et les remboursements pour nos clients professionnels et particuliers.",
     "conditions_intro": "En raison de la nature volumineuse et des coûts logistiques associés à nos produits (palettes de bois, big bags de granulés), les retours sont soumis à des conditions strictes. Vous disposez d'un délai légal de 14 jours francs à compter de la date de livraison pour exercer votre droit de rétractation.",
     "14days": "14 jours francs",
@@ -887,7 +916,13 @@
     "contact_support": "Contacter le SAV",
     "policy_1": "En raison de la nature volumineuse et des coûts logistiques associés à nos produits (palettes de bois, big bags de granulés), les retours sont soumis à des conditions strictes. Vous disposez d'un délai légal de",
     "policy_2": "à compter de la date de livraison pour exercer votre droit de rétractation.",
-    "acceptance_criteria": "Critères d'acceptation"
+    "acceptance_criteria": "Critères d'acceptation",
+    "sec1_title": "1. Conditions générales de retour",
+    "sec1_text": "En raison de la nature volumineuse de nos produits (palettes de bois), les retours sont soumis à des conditions spécifiques : produit non ouvert, dans son emballage d'origine, demande effectuée sous [durée à compléter] jours après livraison.",
+    "sec2_title": "2. Logistique et frais de retour",
+    "sec2_text": "Le retour peut s'effectuer par reprise sur site ([montant à compléter]€ TTC / palette) ou par vos propres moyens. Les frais de retour sont à la charge du client, sauf produit non conforme.",
+    "sec3_title": "3. Remboursement",
+    "sec3_text": "Le remboursement est effectué après contrôle du produit retourné, sous [délai à compléter] jours ouvrés."
   },
   "produit": {
     "palette_complte_-_bches_chne_3": "Palette Complète - Bûches Chêne 33cm",

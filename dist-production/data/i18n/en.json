@@ -215,7 +215,7 @@
     "art6_title": "Article 6 - No Right of Withdrawal",
     "art6_p1": "In accordance with the provisions of the French Consumer Code, the right of withdrawal does not apply to contracts concluded between businesses (B2B) acting within the scope of their commercial, industrial, craft or professional activity.",
     "art6_p2": "Products delivered in conformity with the delivery note are neither returnable nor exchangeable. In the event of proven non-conformity upon delivery (apparent defects), the buyer must record clear and precise reservations on the transport document and confirm them by registered letter with acknowledgement of receipt to the carrier within 3 business days of receipt, with a copy to sotramsbois.",
-    "title": "Legal & Compliance",
+    "title": "B2B General Conditions of Sale",
     "subtitle": "Applicable to transactions between professionals. Last updated: [Date to be completed at launch]. These conditions govern the quality, logistics, and pricing standards of sotramsbois biomass.",
     "scope_text": "They exclusively govern the sales of firewood, pellets, and other biomass products by sotramsbois to professional buyers (B2B). Any order implies unconditional acceptance of these conditions by the buyer, notwithstanding any contrary stipulation in their own general purchasing conditions.",
     "guaranteed_humidity": "GUARANTEED MOISTURE CONTENT",
@@ -238,7 +238,17 @@
     "nav_contact": "CONTACT US",
     "scope_1": "They exclusively govern the sales of firewood, pellets, and other biomass products by",
     "scope_2": "to professional buyers (B2B). Any order implies unconditional acceptance of these conditions by the buyer, notwithstanding any contrary stipulation in their own general purchasing conditions.",
-    "access_conditions": "MANDATORY ACCESS CONDITIONS"
+    "access_conditions": "MANDATORY ACCESS CONDITIONS",
+    "sec1_title": "1. Object",
+    "sec1_text": "These General Conditions of Sale govern the sales of firewood, pellets, briquettes and biomass fuels by sotramsbois to professional buyers (B2B).",
+    "sec2_title": "2. Price and Order",
+    "sec2_text": "The prices displayed are in euros, excluding taxes (HT). Any order implies unconditional acceptance of these conditions.",
+    "sec3_title": "3. Delivery",
+    "sec3_text": "Delivery times are provided as an indication. Delivery requires HGV access and, depending on the sites, a means of unloading (dock or forklift) — see our Delivery page for details. sotramsbois cannot be held responsible for delays linked to the carrier.",
+    "sec4_title": "4. Payment",
+    "sec4_text": "Payment is made by bank transfer (SEPA), before shipment, unless otherwise agreed.",
+    "sec5_title": "5. No right of withdrawal",
+    "sec5_text": "In accordance with Article L221-3 of the Consumer Code, sales between professionals do not benefit from the right of withdrawal applicable to consumers."
   },
   "auth": {
     "login_title": "Login",
@@ -754,7 +764,15 @@
     "dpo_contact_1": "To exercise these rights, you can contact our Data Protection Officer (DPO) by email at",
     "dpo_contact_2": "or by mail at the head office address enclosing a copy of an identity document.",
     "dpo_email": "[DPO email to be completed]",
-    "hebergement_description": "The sotramsbois site is hosted in a secure and eco-responsible manner. The servers are located in Europe, ensuring strict compliance with the GDPR."
+    "hebergement_description": "The sotramsbois site is hosted in a secure and eco-responsible manner. The servers are located in Europe, ensuring strict compliance with the GDPR.",
+    "sec1_title": "1. Site Publisher",
+    "sec1_text": "[Company name to be completed], [legal form to be completed] with a capital of [amount to be completed]€. Registered office: [Head office address to be completed]. RCS [RCS City to be completed] [RCS Number to be completed]. Intra-community VAT: [VAT Number to be completed]. Email: [Contact email to be completed] — Phone: [Phone number to be completed]<br>Publication Director: [Name of publication director to be completed]",
+    "sec2_title": "2. Hosting",
+    "sec2_text": "This site is hosted by [Hosting provider to be completed by the client], [Hosting address to be completed].",
+    "sec3_title": "3. Intellectual Property",
+    "sec3_text": "The content of this site (texts, images, logos) is the exclusive property of sotramsbois and is protected by intellectual property law. Any reproduction is prohibited without prior authorization.",
+    "sec4_title": "4. Personal Data",
+    "sec4_text": "The processing of your personal data is described in our <a href=\"./politique-confidentialite.html\" class=\"text-primary hover:underline\">privacy policy</a>."
   },
   "privacy": {
     "right_erasure_desc": "Require the deletion of your data (\"right to be forgotten\") within legal limits.",
@@ -827,7 +845,18 @@
     "dpo_email": "[DPO email to be completed]",
     "execution_contract": "Execution of the contract",
     "manage_preferences": "Manage preferences",
-    "contact_dpo": "Contact the DPO"
+    "contact_dpo": "Contact the DPO",
+    "sec1_title": "1. Data Collection",
+    "sec1_text": "We collect the information necessary to process your professional orders and quotes: identity (last name, first name, position, company), contact details (email, phone, delivery address), and technical navigation data (IP address, browser type).<br><br>This site uses technical cookies necessary for its operation (cart, login).",
+    "sec2_title": "2. Data Usage",
+    "sec2_text": "Your data is used to process your quotes and orders, and to contact you as part of our business relationship. No marketing communication will be sent to you without your explicit consent.",
+    "sec3_title": "3. Retention and Security",
+    "sec3_text": "Your data is hosted on servers located in the European Union and kept for the duration necessary for the commercial relationship, in accordance with the GDPR.",
+    "sec4_title": "4. Your Rights",
+    "sec4_text": "In accordance with the GDPR, you have the right to access, rectify, delete and port your data.",
+    "sec5_title": "5. Contact",
+    "sec5_text": "To exercise these rights, contact our Data Protection Officer: [DPO email to be completed].",
+    "title": "Privacy Policy"
   },
   "return": {
     "cond1": "Products must be in their original packaging, unopened and undamaged (pallet wrap intact, pellet bags sealed).",
@@ -850,7 +879,7 @@
     "version": "Version: 2.1",
     "toc": "Table of Contents",
     "legal": "Legal",
-    "title": "Return & Refund Policy",
+    "title": "Return Policy & Support",
     "intro": "At sotramsbois, we are committed to providing the highest quality biomass and firewood products. We understand, however, that exceptional circumstances may require a return. Here are our strict guidelines regarding returns, reverse logistics, and refunds for our professional and individual customers.",
     "conditions_intro": "Due to the bulky nature and logistical costs associated with our products (wood pallets, pellet big bags), returns are subject to strict conditions. You have a legal period of 14 clear days from the delivery date to exercise your right of withdrawal.",
     "14days": "14 clear days",
@@ -887,7 +916,13 @@
     "contact_support": "Contact Support",
     "policy_1": "Due to the bulky nature and logistical costs associated with our products (wood pallets, pellet big bags), returns are subject to strict conditions. You have a legal period of",
     "policy_2": "from the delivery date to exercise your right of withdrawal.",
-    "acceptance_criteria": "Acceptance criteria"
+    "acceptance_criteria": "Acceptance criteria",
+    "sec1_title": "1. General Return Conditions",
+    "sec1_text": "Due to the bulky nature of our products (wood pallets), returns are subject to specific conditions: product unopened, in its original packaging, request made within [duration to be completed] days after delivery.",
+    "sec2_title": "2. Logistics and Return Costs",
+    "sec2_text": "Return can be made by collection on site ([amount to be completed]€ incl. VAT / pallet) or by your own means. Return costs are the responsibility of the customer, except for non-compliant products.",
+    "sec3_title": "3. Refund",
+    "sec3_text": "The refund is made after inspection of the returned product, within [timeframe to be completed] working days."
   },
   "produit": {
     "palette_complte_-_bches_chne_3": "Full Pallet - Oak Logs 33cm",

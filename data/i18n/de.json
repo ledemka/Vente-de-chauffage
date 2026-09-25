@@ -215,7 +215,7 @@
     "art6_title": "Artikel 6 - Kein Widerrufsrecht",
     "art6_p1": "Gemäß den Bestimmungen des französischen Verbraucherschutzgesetzes (Code de la consommation) gilt das Widerrufsrecht nicht für Verträge zwischen Unternehmen (B2B), die im Rahmen ihrer gewerblichen, industriellen, handwerklichen oder freiberuflichen Tätigkeit handeln.",
     "art6_p2": "Gelieferte Produkte, die dem Lieferschein entsprechen, werden weder zurückgenommen noch umgetauscht. Bei nachweislicher Nichtkonformität bei Lieferung (offensichtliche Mängel) muss der Käufer klare und präzise Vorbehalte auf dem Frachtdokument vermerken und diese innerhalb von 3 Werktagen nach Erhalt per Einschreiben mit Rückschein an den Frachtführer bestätigen, mit Kopie an sotramsbois.",
-    "title": "Recht & Compliance",
+    "title": "Allgemeine B2B-Verkaufsbedingungen",
     "subtitle": "Anwendbar auf Transaktionen zwischen Geschäftsleuten. Letzte Aktualisierung: [Datum bei Veröffentlichung noch zu ergänzen]. Diese Bedingungen regeln die Qualitäts-, Logistik- und Preisstandards der sotramsbois Biomasse.",
     "scope_text": "Sie regeln ausschließlich den Verkauf von Brennholz, Pellets und anderen Biomasseprodukten durch sotramsbois an professionelle Käufer (B2B). Jede Bestellung impliziert die vorbehaltlose Annahme dieser Bedingungen durch den Käufer, ungeachtet entgegenstehender Bestimmungen in dessen eigenen allgemeinen Einkaufsbedingungen.",
     "guaranteed_humidity": "GARANTIERTER FEUCHTIGKEITSGEHALT",
@@ -238,7 +238,17 @@
     "nav_contact": "KONTAKTIEREN SIE UNS",
     "scope_1": "Sie regeln ausschließlich den Verkauf von Brennholz, Pellets und anderen Biomasseprodukten durch",
     "scope_2": "an professionelle Käufer (B2B). Jede Bestellung impliziert die vorbehaltlose Annahme dieser Bedingungen durch den Käufer, ungeachtet entgegenstehender Bestimmungen in dessen eigenen allgemeinen Einkaufsbedingungen.",
-    "access_conditions": "ZUSATZBEDINGUNGEN FÜR DEN ZUGANG"
+    "access_conditions": "ZUSATZBEDINGUNGEN FÜR DEN ZUGANG",
+    "sec1_title": "1. Gegenstand",
+    "sec1_text": "Diese Allgemeinen Verkaufsbedingungen regeln den Verkauf von Brennholz, Pellets, Briketts und Biomassebrennstoffen durch sotramsbois an professionelle Käufer (B2B).",
+    "sec2_title": "2. Preis und Bestellung",
+    "sec2_text": "Die angezeigten Preise verstehen sich in Euro ohne Steuern (HT). Jede Bestellung impliziert die vorbehaltlose Annahme dieser Bedingungen.",
+    "sec3_title": "3. Lieferung",
+    "sec3_text": "Lieferzeiten werden als Richtwert angegeben. Die Lieferung erfordert einen LKW-Zugang und je nach Standort eine Entlademöglichkeit (Rampe oder Gabelstapler) — siehe unsere Lieferseite für Details. sotramsbois kann nicht für Verzögerungen durch den Spediteur verantwortlich gemacht werden.",
+    "sec4_title": "4. Zahlung",
+    "sec4_text": "Die Zahlung erfolgt per Banküberweisung (SEPA) vor dem Versand, sofern nicht anders vereinbart.",
+    "sec5_title": "5. Kein Widerrufsrecht",
+    "sec5_text": "Gemäß Artikel L221-3 des Verbraucherschutzgesetzes unterliegen Verkäufe zwischen Gewerbetreibenden nicht dem für Verbraucher geltenden Widerrufsrecht."
   },
   "auth": {
     "login_title": "Anmelden",
@@ -754,7 +764,15 @@
     "dpo_contact_1": "Um diese Rechte auszuüben, können Sie unseren Datenschutzbeauftragten (DPO) per E-Mail kontaktieren unter",
     "dpo_contact_2": "oder per Post an die Adresse des Hauptsitzes unter Beifügung einer Kopie eines Ausweisdokuments.",
     "dpo_email": "[E-Mail des Datenschutzbeauftragten noch zu ergänzen]",
-    "hebergement_description": "Die sotramsbois-Website wird sicher und umweltfreundlich gehostet. Die Server befinden sich in Europa und gewährleisten die strikte Einhaltung der DSGVO."
+    "hebergement_description": "Die sotramsbois-Website wird sicher und umweltfreundlich gehostet. Die Server befinden sich in Europa und gewährleisten die strikte Einhaltung der DSGVO.",
+    "sec1_title": "1. Website-Herausgeber",
+    "sec1_text": "[Firmenname noch zu ergänzen], [Rechtsform noch zu ergänzen] mit einem Kapital von [Betrag noch zu ergänzen]€. Hauptsitz: [Adresse des Hauptsitzes noch zu ergänzen]. RCS [RCS-Stadt noch zu ergänzen] [RCS-Nummer noch zu ergänzen]. Innergemeinschaftliche MwSt.: [MwSt.-Nummer noch zu ergänzen]. E-Mail: [Kontakt-E-Mail noch zu ergänzen] — Telefon: [Telefonnummer noch zu ergänzen]<br>Publikationsdirektor: [Name des Publikationsdirektors noch zu ergänzen]",
+    "sec2_title": "2. Hosting",
+    "sec2_text": "Diese Website wird gehostet von [Hosting-Anbieter vom Kunden noch zu ergänzen], [Hosting-Adresse noch zu ergänzen].",
+    "sec3_title": "3. Geistiges Eigentum",
+    "sec3_text": "Der Inhalt dieser Website (Texte, Bilder, Logos) ist das ausschließliche Eigentum von sotramsbois und durch das Gesetz über geistiges Eigentum geschützt. Jede Vervielfältigung ist ohne vorherige Genehmigung untersagt.",
+    "sec4_title": "4. Persönliche Daten",
+    "sec4_text": "Die Verarbeitung Ihrer personenbezogenen Daten ist in unserer <a href=\"./politique-confidentialite.html\" class=\"text-primary hover:underline\">Datenschutzerklärung</a> beschrieben."
   },
   "privacy": {
     "right_erasure_desc": "Die Löschung Ihrer Daten verlangen („Recht auf Vergessenwerden\") innerhalb der gesetzlichen Grenzen.",
@@ -827,7 +845,18 @@
     "dpo_email": "[E-Mail des Datenschutzbeauftragten noch zu ergänzen]",
     "execution_contract": "Vertragserfüllung",
     "manage_preferences": "Präferenzen verwalten",
-    "contact_dpo": "DPO kontaktieren"
+    "contact_dpo": "DPO kontaktieren",
+    "sec1_title": "1. Datenerfassung",
+    "sec1_text": "Wir erfassen die für die Bearbeitung Ihrer professionellen Bestellungen und Angebote erforderlichen Informationen: Identität (Name, Vorname, Position, Unternehmen), Kontaktdaten (E-Mail, Telefon, Lieferadresse) und technische Navigationsdaten (IP-Adresse, Browsertyp).<br><br>Diese Website verwendet technische Cookies, die für ihren Betrieb (Warenkorb, Anmeldung) erforderlich sind.",
+    "sec2_title": "2. Datennutzung",
+    "sec2_text": "Ihre Daten dienen der Bearbeitung Ihrer Angebote und Bestellungen sowie der Kontaktaufnahme im Rahmen unserer Geschäftsbeziehung. Ohne Ihre ausdrückliche Zustimmung werden Ihnen keine Marketingmitteilungen gesendet.",
+    "sec3_title": "3. Aufbewahrung und Sicherheit",
+    "sec3_text": "Ihre Daten werden auf Servern in der Europäischen Union gehostet und für die für die Geschäftsbeziehung erforderliche Dauer gemäß der DSGVO aufbewahrt.",
+    "sec4_title": "4. Ihre Rechte",
+    "sec4_text": "Gemäß der DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Löschung und Übertragbarkeit Ihrer Daten.",
+    "sec5_title": "5. Kontakt",
+    "sec5_text": "Um diese Rechte auszuüben, kontaktieren Sie unseren Datenschutzbeauftragten: [E-Mail des Datenschutzbeauftragten noch zu ergänzen].",
+    "title": "Datenschutzerklärung"
   },
   "return": {
     "cond1": "Die Produkte müssen sich in der Originalverpackung befinden, ungeöffnet und unbeschädigt sein (Palettenfolie intakt, Pelletsäcke versiegelt).",
@@ -850,7 +879,7 @@
     "version": "Version: 2.1",
     "toc": "Inhaltsverzeichnis",
     "legal": "Recht",
-    "title": "Rückgabe- & Erstattungsrichtlinie",
+    "title": "Rückgaberecht & Kundendienst",
     "intro": "Wir bei sotramsbois verpflichten uns, Biomasse- und Brennholzprodukte von höchster Qualität bereitzustellen. Wir verstehen jedoch, dass außergewöhnliche Umstände eine Rücksendung erforderlich machen können. Hier sind unsere strengen Richtlinien für Rücksendungen, Reverse-Logistik und Erstattungen für unsere Geschäfts- und Privatkunden.",
     "conditions_intro": "Aufgrund der Sperrigkeit und der mit unseren Produkten verbundenen Logistikkosten (Holzpaletten, Pellet-Big-Bags) unterliegen Rücksendungen strengen Bedingungen. Sie haben eine gesetzliche Frist von 14 vollen Tagen ab dem Lieferdatum, um Ihr Widerrufsrecht auszuüben.",
     "14days": "14 volle Tage",
@@ -887,7 +916,13 @@
     "contact_support": "Kundendienst kontaktieren",
     "policy_1": "Aufgrund der Sperrigkeit und der mit unseren Produkten verbundenen Logistikkosten (Holzpaletten, Pellet-Big-Bags) unterliegen Rücksendungen strengen Bedingungen. Sie haben eine gesetzliche Frist von",
     "policy_2": "ab dem Lieferdatum, um Ihr Widerrufsrecht auszuüben.",
-    "acceptance_criteria": "Annahmekriterien"
+    "acceptance_criteria": "Annahmekriterien",
+    "sec1_title": "1. Allgemeine Rückgabebedingungen",
+    "sec1_text": "Aufgrund der Sperrigkeit unserer Produkte (Holzpaletten) unterliegen Rücksendungen besonderen Bedingungen: Produkt ungeöffnet, in Originalverpackung, Anfrage innerhalb von [Dauer noch zu ergänzen] Tagen nach Lieferung gestellt.",
+    "sec2_title": "2. Logistik und Rücksendekosten",
+    "sec2_text": "Die Rückgabe kann durch Abholung vor Ort ([Betrag noch zu ergänzen]€ inkl. MwSt. / Palette) oder auf eigene Kosten erfolgen. Die Rücksendekosten gehen zu Lasten des Kunden, außer bei nicht konformen Produkten.",
+    "sec3_title": "3. Erstattung",
+    "sec3_text": "Die Rückerstattung erfolgt nach Prüfung des zurückgesendeten Produkts innerhalb von [Frist noch zu ergänzen] Werktagen."
   },
   "produit": {
     "palette_complte_-_bches_chne_3": "Ganze Palette - Eichenscheite 33cm",

@@ -215,7 +215,7 @@
     "art6_title": "Artikel 6 - Geen herroepingsrecht",
     "art6_p1": "Overeenkomstig de bepalingen van de Franse Consumentenwet is het herroepingsrecht niet van toepassing op overeenkomsten tussen ondernemingen (B2B) die handelen in het kader van hun commerciële, industriële, ambachtelijke of vrije beroepsactiviteit.",
     "art6_p2": "Geleverde producten die conform de leveringsbon zijn, worden niet teruggenomen of geruild. Bij bewezen non-conformiteit bij levering (zichtbare gebreken) moet de koper duidelijke en nauwkeurige voorbehouden vermelden op het vervoersdocument en deze binnen 3 werkdagen na ontvangst per aangetekende brief met ontvangstbevestiging aan de vervoerder bevestigen, met kopie aan sotramsbois.",
-    "title": "Juridisch & Naleving",
+    "title": "Algemene B2B-verkoopvoorwaarden",
     "subtitle": "Van toepassing op transacties tussen professionals. Laatst bijgewerkt: [Datum in te vullen bij livegang]. Deze voorwaarden regelen de kwaliteits-, logistieke en prijsstandaarden van sotramsbois biomassa.",
     "scope_text": "Ze regelen uitsluitend de verkoop van brandhout, pellets en andere biomassaproducten door sotramsbois aan professionele kopers (B2B). Elke bestelling impliceert de onvoorwaardelijke aanvaarding van deze voorwaarden door de koper, ongeacht eventuele andersluidende bepalingen in diens eigen algemene inkoopvoorwaarden.",
     "guaranteed_humidity": "GEGARANDEERDE VOCHTIGHEIDSGRAAD",
@@ -238,7 +238,17 @@
     "nav_contact": "NEEM CONTACT OP",
     "scope_1": "Ze regelen uitsluitend de verkoop van brandhout, pellets en andere biomassaproducten door",
     "scope_2": "aan professionele kopers (B2B). Elke bestelling impliceert de onvoorwaardelijke aanvaarding van deze voorwaarden door de koper, ongeacht eventuele andersluidende bepalingen in diens eigen algemene inkoopvoorwaarden.",
-    "access_conditions": "VERPLICHTE TOEGANGSVOORWAARDEN"
+    "access_conditions": "VERPLICHTE TOEGANGSVOORWAARDEN",
+    "sec1_title": "1. Voorwerp",
+    "sec1_text": "Deze Algemene Verkoopvoorwaarden regelen de verkoop van brandhout, pellets, briketten en biomassabrandstoffen door sotramsbois aan professionele kopers (B2B).",
+    "sec2_title": "2. Prijs en Bestelling",
+    "sec2_text": "De weergegeven prijzen zijn in euro's, exclusief belastingen (HT). Elke bestelling impliceert de onvoorwaardelijke acceptatie van deze voorwaarden.",
+    "sec3_title": "3. Levering",
+    "sec3_text": "Levertijden worden ter indicatie verstrekt. Levering vereist toegang voor vrachtwagens en, afhankelijk van de locaties, een losmiddel (dock of heftruck) — zie onze Leveringspagina voor details. sotramsbois kan niet verantwoordelijk worden gehouden voor vertragingen in verband met de vervoerder.",
+    "sec4_title": "4. Betaling",
+    "sec4_text": "Betaling vindt plaats via bankoverschrijving (SEPA), voor verzending, tenzij anders overeengekomen.",
+    "sec5_title": "5. Geen herroepingsrecht",
+    "sec5_text": "In overeenstemming met artikel L221-3 van de consumentenwet, profiteren verkopen tussen professionals niet van het herroepingsrecht dat van toepassing is op consumenten."
   },
   "auth": {
     "login_title": "Inloggen",
@@ -728,7 +738,7 @@
     "hosting": "Hosting",
     "your_rights": "Uw rechten",
     "contact": "CONTACT",
-    "title": "Juridische Vermeldingen",
+    "title": "Juridische mededeling",
     "lcen_text": "In overeenstemming met de bepalingen van de artikelen 6-III en 19 van wet nr. 2004-575 van 21 juni 2004 voor vertrouwen in de digitale economie, genaamd L.C.E.N., brengen wij de volgende informatie onder de aandacht van gebruikers en bezoekers van de sotramsbois-site:",
     "head_office": "[Adres hoofdkantoor nog aan te vullen]",
     "rcs": "[KvK-/RCS-nummer nog aan te vullen]",
@@ -754,7 +764,15 @@
     "dpo_contact_1": "Om deze rechten uit te oefenen, kunt u per e-mail contact opnemen met onze Functionaris voor Gegevensbescherming (DPO/FG) via",
     "dpo_contact_2": "of per post naar het adres van het hoofdkantoor onder bijvoeging van een kopie van een identiteitsbewijs.",
     "dpo_email": "[E-mail DPO nog aan te vullen]",
-    "hebergement_description": "De sotramsbois-site wordt veilig en ecologisch verantwoord gehost. De servers bevinden zich in Europa, waardoor strikte naleving van de AVG wordt gegarandeerd."
+    "hebergement_description": "De sotramsbois-site wordt veilig en ecologisch verantwoord gehost. De servers bevinden zich in Europa, waardoor strikte naleving van de AVG wordt gegarandeerd.",
+    "sec1_title": "1. Uitgever van de site",
+    "sec1_text": "[Bedrijfsnaam nog aan te vullen], [rechtsvorm nog aan te vullen] met een kapitaal van [bedrag nog aan te vullen]€. Hoofdkantoor: [Adres hoofdkantoor nog aan te vullen]. RCS [RCS-stad nog aan te vullen] [RCS-nummer nog aan te vullen]. Intracommunautaire btw: [Btw-nummer nog aan te vullen]. E-mail: [Contact e-mail nog aan te vullen] — Telefoon: [Telefoonnummer nog aan te vullen]<br>Publicatiedirecteur: [Naam publicatiedirecteur nog aan te vullen]",
+    "sec2_title": "2. Hosting",
+    "sec2_text": "Deze site wordt gehost door [Hostingprovider in te vullen door de klant], [Hostingadres nog aan te vullen].",
+    "sec3_title": "3. Intellectueel eigendom",
+    "sec3_text": "De inhoud van deze site (teksten, afbeeldingen, logo's) is het exclusieve eigendom van sotramsbois en wordt beschermd door het intellectueel eigendomsrecht. Elke reproductie is verboden zonder voorafgaande toestemming.",
+    "sec4_title": "4. Persoonsgegevens",
+    "sec4_text": "De verwerking van uw persoonsgegevens wordt beschreven in ons <a href=\"./politique-confidentialite.html\" class=\"text-primary hover:underline\">privacybeleid</a>."
   },
   "privacy": {
     "right_erasure_desc": "De verwijdering van uw gegevens eisen (\"recht om vergeten te worden\") binnen de wettelijke grenzen.",
@@ -827,7 +845,18 @@
     "dpo_email": "[E-mail DPO nog aan te vullen]",
     "execution_contract": "Uitvoering van de overeenkomst",
     "manage_preferences": "Voorkeuren beheren",
-    "contact_dpo": "Neem contact op met de DPO"
+    "contact_dpo": "Neem contact op met de DPO",
+    "sec1_title": "1. Gegevensverzameling",
+    "sec1_text": "Wij verzamelen de nodige informatie voor de verwerking van uw professionele bestellingen en offertes: identiteit (achternaam, voornaam, functie, bedrijf), contactgegevens (e-mail, telefoon, afleveradres) en technische navigatiegegevens (IP-adres, browsertype).<br><br>Deze site maakt gebruik van technische cookies die nodig zijn voor de werking ervan (winkelwagen, login).",
+    "sec2_title": "2. Gegevensgebruik",
+    "sec2_text": "Uw gegevens worden gebruikt om uw offertes en bestellingen te verwerken en om contact met u op te nemen in het kader van onze zakelijke relatie. Zonder uw uitdrukkelijke toestemming worden er geen marketingcommunicaties naar u verzonden.",
+    "sec3_title": "3. Bewaring en beveiliging",
+    "sec3_text": "Uw gegevens worden gehost op servers in de Europese Unie en bewaard voor de duur die nodig is voor de commerciële relatie, in overeenstemming met de AVG.",
+    "sec4_title": "4. Uw rechten",
+    "sec4_text": "In overeenstemming met de AVG heeft u recht op toegang, rectificatie, verwijdering en overdraagbaarheid van uw gegevens.",
+    "sec5_title": "5. Contact",
+    "sec5_text": "Om deze rechten uit te oefenen, kunt u contact opnemen met onze Functionaris voor Gegevensbescherming: [E-mail DPO nog aan te vullen].",
+    "title": "Privacybeleid"
   },
   "return": {
     "cond1": "Producten moeten zich in de originele verpakking bevinden, ongeopend en onbeschadigd (palletfolie intact, pelletzakken verzegeld).",
@@ -850,7 +879,7 @@
     "version": "Versie: 2.1",
     "toc": "Inhoudsopgave",
     "legal": "Juridisch",
-    "title": "Retour- & Terugbetalingsbeleid",
+    "title": "Retourbeleid & Klantenservice",
     "intro": "Bij sotramsbois zetten wij ons in om biomassa- en brandhoutproducten van de hoogste kwaliteit te leveren. We begrijpen echter dat uitzonderlijke omstandigheden een retourzending noodzakelijk kunnen maken. Hier zijn onze strikte richtlijnen met betrekking tot retouren, retourlogistiek en terugbetalingen voor onze professionele en particuliere klanten.",
     "conditions_intro": "Vanwege de omvang en de logistieke kosten die aan onze producten (houtpallets, big bags pellets) zijn verbonden, zijn retouren onderworpen aan strikte voorwaarden. U heeft een wettelijke termijn van 14 kalenderdagen vanaf de leveringsdatum om uw herroepingsrecht uit te oefenen.",
     "14days": "14 kalenderdagen",
@@ -887,7 +916,13 @@
     "contact_support": "Neem contact op met de klantenservice",
     "policy_1": "Vanwege de omvang en de logistieke kosten die aan onze producten (houtpallets, big bags pellets) zijn verbonden, zijn retouren onderworpen aan strikte voorwaarden. U heeft een wettelijke termijn van",
     "policy_2": "vanaf de leveringsdatum om uw herroepingsrecht uit te oefenen.",
-    "acceptance_criteria": "Acceptatiecriteria"
+    "acceptance_criteria": "Acceptatiecriteria",
+    "sec1_title": "1. Algemene retourvoorwaarden",
+    "sec1_text": "Vanwege de omvang van onze producten (houtpallets), zijn retourzendingen onderworpen aan specifieke voorwaarden: product ongeopend, in de originele verpakking, verzoek ingediend binnen [duur nog aan te vullen] dagen na levering.",
+    "sec2_title": "2. Logistiek en retourkosten",
+    "sec2_text": "Retourneren kan door ophaling op locatie ([bedrag nog aan te vullen]€ incl. btw / pallet) of op eigen gelegenheid. De retourkosten zijn voor rekening van de klant, behalve bij niet-conforme producten.",
+    "sec3_title": "3. Terugbetaling",
+    "sec3_text": "De terugbetaling vindt plaats na controle van het geretourneerde product, binnen [termijn nog aan te vullen] werkdagen."
   },
   "produit": {
     "palette_complte_-_bches_chne_3": "Volle pallet - Eikenhout 33cm",

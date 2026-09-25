@@ -439,5 +439,9 @@
     "mentions.contact_title": [
         "en",
         "nl"
+    ],
+    "privacy.sec5_title": [
+        "en",
+        "nl"
     ]
 }
