@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const rootDir = path.join(__dirname, '..');
-const APP_URL = 'https://sotramsbois.com';
+const APP_URL = 'https://www.sotramsbois.com';
 
 // ─── CONSTANTS ────────────────────────────────────────────────────────────────
 
@@ -135,7 +135,10 @@ const verifiedProductIds = productIds.filter(id => {
 function pageToUrl(lang, page, productId = null) {
     const base = `${APP_URL}${LANG_PATHS[lang]}`;
     if (productId) {
-        return `${base}/produit.html?id=${productId}`;
+        return `${base}/produits/${productId}.html`;
+    }
+    if (page === 'index.html') {
+        return lang === 'fr' ? `${APP_URL}/` : `${base}/`;
     }
     if (lang === 'fr') {
         return `${APP_URL}/${page}`;

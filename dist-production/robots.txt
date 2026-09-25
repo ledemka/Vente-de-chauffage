@@ -47,4 +47,4 @@ Disallow: /en/activation.html
 Disallow: /de/activation.html
 Disallow: /nl/activation.html
 
-Sitemap: https://sotramsbois.com/sitemap.xml
+Sitemap: https://www.sotramsbois.com/sitemap.xml

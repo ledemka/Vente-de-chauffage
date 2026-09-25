@@ -293,7 +293,7 @@ window.resolveAssetPath = function(pathStr) {
                                     return;
                                 }
                                 const basePath = './';
-                                window.location.href = `${basePath}produit.html?id=${productId}&length=${selectedFormat}`;
+                                window.location.href = `${basePath}produits/${productId}.html?length=${selectedFormat}`;
                             };
 
                             // Simple toast notification
@@ -391,7 +391,7 @@ window.resolveAssetPath = function(pathStr) {
                                                 const imgPrefix = relPath === '.' ? '' : relPath;
                                                 const clickHandler = isBuche
                                                     ? `handleBucheClick('${p.id}')`
-                                                    : `window.location.href='./produit.html?id=${p.id}'`;
+                                                    : `window.location.href=\'./produits/${p.id}.html\'`;
 
                                                 return `
                                                     <article onclick="${clickHandler}" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group ${isBuche && !selectedFormat ? 'opacity-80' : ''}">

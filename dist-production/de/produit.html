@@ -319,7 +319,15 @@ window.resolveAssetPath = function(pathStr) {
                         const pr = t.pricing;
 
                         const urlParams = new URLSearchParams(window.location.search);
-                        const productId = urlParams.get('id') || 'hetre-etuve';
+                        const idFromUrl = urlParams.get('id');
+                        if (idFromUrl && !window.PRODUCT_ID) {
+                            let newSearch = window.location.search.replace('id=' + idFromUrl, '').replace('?&', '?').replace('&&', '&');
+                            if (newSearch === '?') newSearch = '';
+                            const newUrl = (lang === 'fr' ? './produits/' : '../' + lang + '/produits/') + idFromUrl + '.html' + newSearch;
+                            window.location.replace(newUrl);
+                            return;
+                        }
+                        const productId = window.PRODUCT_ID || idFromUrl || 'hetre-etuve';
                         const urlLength = urlParams.get('length');
 
                         try {

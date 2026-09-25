@@ -123,4 +123,7 @@ LANGS.forEach(lang => {
     });
 });
 
+const { buildProducts } = require('./build_products');
+buildProducts();
+
 console.log(`\n=== BUILD COMPLETE: ${totalCopied} HTML files deployed to dist-production/ ===`);
