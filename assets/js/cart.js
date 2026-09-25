@@ -318,7 +318,7 @@ var CartUI = {
                            </button>`;
 
                     const formatLabel = isBuche
-                        ? `<div class="text-body-sm text-amber-700 mb-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> Sélectionnez un format</div>`
+                        ? `<div class="text-body-sm text-amber-700 mb-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> ${window.i18n ? window.i18n.t('quote.specs.select_format', 'Sélectionnez un format...') : 'Sélectionnez un format...'}</div>`
                         : `<div class="text-body-sm text-on-surface-variant mb-2">${window.i18n ? window.i18n.t("formats." + p.format, p.format) : p.format}</div>`;
 
                     phtml += `

@@ -411,7 +411,7 @@ window.resolveAssetPath = function(pathStr) {
                                                         <div class="relative w-full h-48 rounded bg-surface-container overflow-hidden">
                                                             <img width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${resolveAssetPath(p.image_product)}" alt="${getProductName(p)}"/>
                                                             ${badgeHtml}
-                                                            ${isBuche && !selectedFormat ? `<div class="absolute inset-0 bg-black/10 flex items-end justify-center pb-3"><span data-i18n="catalog.filters.format_select" class="bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">Sélectionnez un format ↑</span></div>` : ''}
+                                                            ${isBuche && !selectedFormat ? `<div class="absolute inset-0 bg-black/10 flex items-end justify-center pb-3"><span data-i18n="catalog.filters.format_select" class="bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">${(typeof t !== 'undefined' && t.catalog && t.catalog.filters && t.catalog.filters.format_select) ? t.catalog.filters.format_select : 'Sélectionnez un format ↑'}</span></div>` : ''}
                                                         </div>
                                                         <div class="flex flex-col gap-2">
                                                             <h3 class="text-headline-md font-headline-md text-on-surface leading-tight">${getProductName(p)}</h3>
