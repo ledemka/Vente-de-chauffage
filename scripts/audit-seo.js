@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const distDir = path.join(__dirname, '../dist-production');
 
 const langs = ['fr', 'en', 'de', 'nl'];
-const privatePages = ['panier.html', 'connexion.html', 'inscription.html', 'merci-contact.html', 'merci-devis.html', 'merci-inscription.html', 'confirmation-commande.html', 'recapitulatif-commande.html', 'activation.html', 'tableau-de-bord.html', 'admin-commandes.html'];
+const privatePages = ['avis-clients.html', 'panier.html', 'connexion.html', 'inscription.html', 'merci-contact.html', 'merci-devis.html', 'merci-inscription.html', 'confirmation-commande.html', 'recapitulatif-commande.html', 'activation.html', 'tableau-de-bord.html', 'admin-commandes.html'];
 
 let errors = 0;
 let stats = {};
@@ -52,11 +52,10 @@ langs.forEach(lang => {
 
         const $ = cheerio.load(html, { decodeEntities: false });
         
-        // Private pages robots
         if (privatePages.includes(file)) {
             const robots = $('meta[name="robots"]').attr('content');
-            if (!robots || robots !== 'noindex, nofollow') {
-                addError(file, lang, 'Private page missing noindex, nofollow');
+            if (!robots || (!robots.includes('noindex, nofollow') && !robots.includes('noindex, follow'))) {
+                addError(file, lang, 'Private page missing noindex, (no)follow');
             }
         }
 

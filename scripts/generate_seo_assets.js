@@ -34,7 +34,6 @@ const PUBLIC_PAGES = [
     'blog.html',
     'guide-choix.html',
     'livraison.html',
-    'avis-clients.html',
     'contact.html',
     'devis.html',
     'cgv.html',

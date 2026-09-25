@@ -701,8 +701,7 @@
     "trust": {
       "title": "Trust Score",
       "subtitle": "trusted by professionals.",
-      "customers": "+1k customers",
-      "pending": "New to the market — here is the type of feedback we aim for from our professional clients."
+      "customers": "+1k customers"
     },
     "filter": {
       "all": "ALL",
@@ -710,48 +709,7 @@
       "industry": "INDUSTRY",
       "resellers": "RESELLERS"
     },
-    "commitments": "Our quality commitments",
-    "example": {
-      "hosp1_text": "The dry wood we receive burns cleanly and evenly, a real plus for wood-fired cooking in continuous service.",
-      "hosp1_attr": "Example, gastronomic restaurant",
-      "hosp2_text": "Deliveries arrive at the agreed time, which matters when managing tight kitchen stock.",
-      "hosp2_attr": "Example, restaurant",
-      "ind1_text": "The constant calorific value from one pallet to another facilitates the control of our biomass boiler.",
-      "ind1_attr": "Example, industrial site",
-      "ind2_text": "A single point of contact for volume orders saves us time on logistics.",
-      "ind2_attr": "Example, production unit",
-      "res1_text": "Clear resale conditions and reliable restocking, which simplifies our stock management.",
-      "res1_attr": "Example, materials trading",
-      "res2_text": "The availability of different formats allows us to respond to a varied clientele.",
-      "res2_attr": "Example, reseller"
-    },
-    "example_warning": "The testimonials below are examples provided for illustration purposes, pending real customer reviews. They do not represent any real company.",
-    "example_badge": "Example",
-    "examples_notice": "Examples provided for illustration purposes, pending real customer reviews. They do not represent any real company.",
-    "example_1": {
-      "quote": "The dry wood we receive burns cleanly and evenly, a real plus for wood-fired cooking in continuous service.",
-      "attribution": "Example, gastronomic restaurant"
-    },
-    "example_2": {
-      "quote": "Deliveries arrive at the agreed time, which matters when managing tight kitchen stock.",
-      "attribution": "Example, restaurant"
-    },
-    "example_3": {
-      "quote": "The constant calorific value from one pallet to another facilitates the control of our biomass boiler.",
-      "attribution": "Example, industrial site"
-    },
-    "example_4": {
-      "quote": "A single point of contact for volume orders saves us time on logistics.",
-      "attribution": "Example, production unit"
-    },
-    "example_5": {
-      "quote": "Clear resale conditions and reliable restocking, which simplifies our stock management.",
-      "attribution": "Example, materials trading"
-    },
-    "example_6": {
-      "quote": "The availability of different formats allows us to respond to a varied clientele.",
-      "attribution": "Example, reseller"
-    }
+    "commitments": "Our quality commitments"
   },
   "mentions": {
     "right_erasure": "Right to erasure (\"right to be forgotten\") and to restriction of processing.",

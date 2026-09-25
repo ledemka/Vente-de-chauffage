@@ -701,8 +701,7 @@
     "trust": {
       "title": "Vertrauensindex",
       "subtitle": "von Profis bestätigt.",
-      "customers": "+1.000 Kunden",
-      "pending": "Neu auf dem Markt — dies ist die Art von Feedback, die wir von unseren professionellen Kunden anstreben."
+      "customers": "+1.000 Kunden"
     },
     "filter": {
       "all": "ALLE",
@@ -710,48 +709,7 @@
       "industry": "INDUSTRIE",
       "resellers": "WIEDERVERKÄUFER"
     },
-    "commitments": "Unsere Qualitätsversprechen",
-    "example": {
-      "hosp1_text": "Das trockene Holz, das wir erhalten, brennt sauber und gleichmäßig, ein echtes Plus für das Kochen auf dem Holzfeuer im Dauerbetrieb.",
-      "hosp1_attr": "Beispiel, gastronomisches Restaurant",
-      "hosp2_text": "Lieferungen kommen zur vereinbarten Zeit an, was bei knapper Küchenvorratshaltung wichtig ist.",
-      "hosp2_attr": "Beispiel, Restaurant",
-      "ind1_text": "Der konstante Heizwert von Palette zu Palette erleichtert die Steuerung unseres Biomassekessels.",
-      "ind1_attr": "Beispiel, Industriestandort",
-      "ind2_text": "Ein einziger Ansprechpartner für Volumenbestellungen spart uns Zeit bei der Logistik.",
-      "ind2_attr": "Beispiel, Produktionseinheit",
-      "res1_text": "Klare Wiederverkaufsbedingungen und zuverlässige Wiederbeschaffung, was unser Bestandsmanagement vereinfacht.",
-      "res1_attr": "Beispiel, Baustoffhandel",
-      "res2_text": "Die Verfügbarkeit verschiedener Formate ermöglicht es uns, auf eine vielfältige Kundschaft zu reagieren.",
-      "res2_attr": "Beispiel, Wiederverkäufer"
-    },
-    "example_warning": "Die unten stehenden Erfahrungsberichte sind Beispiele zur Veranschaulichung, bis echte Kundenbewertungen vorliegen. Sie repräsentieren kein reales Unternehmen.",
-    "example_badge": "Beispiel",
-    "examples_notice": "Beispiele zur Veranschaulichung, bis echte Kundenbewertungen vorliegen. Sie repräsentieren kein reales Unternehmen.",
-    "example_1": {
-      "quote": "Das trockene Holz, das wir erhalten, brennt sauber und gleichmäßig, ein echtes Plus für das Kochen auf dem Holzfeuer im Dauerbetrieb.",
-      "attribution": "Beispiel, gastronomisches Restaurant"
-    },
-    "example_2": {
-      "quote": "Lieferungen kommen zur vereinbarten Zeit an, was bei knapper Küchenvorratshaltung wichtig ist.",
-      "attribution": "Beispiel, Restaurant"
-    },
-    "example_3": {
-      "quote": "Der konstante Heizwert von Palette zu Palette erleichtert die Steuerung unseres Biomassekessels.",
-      "attribution": "Beispiel, Industriestandort"
-    },
-    "example_4": {
-      "quote": "Ein einziger Ansprechpartner für Volumenbestellungen spart uns Zeit bei der Logistik.",
-      "attribution": "Beispiel, Produktionseinheit"
-    },
-    "example_5": {
-      "quote": "Klare Wiederverkaufsbedingungen und zuverlässige Wiederbeschaffung, was unser Bestandsmanagement vereinfacht.",
-      "attribution": "Beispiel, Baustoffhandel"
-    },
-    "example_6": {
-      "quote": "Die Verfügbarkeit verschiedener Formate ermöglicht es uns, auf eine vielfältige Kundschaft zu reagieren.",
-      "attribution": "Beispiel, Wiederverkäufer"
-    }
+    "commitments": "Unsere Qualitätsversprechen"
   },
   "mentions": {
     "right_erasure": "Recht auf Löschung („Recht auf Vergessenwerden“) und auf Einschränkung der Verarbeitung.",
