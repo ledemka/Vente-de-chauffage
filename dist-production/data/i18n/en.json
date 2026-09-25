@@ -1190,5 +1190,9 @@
     "Gros morceaux qualité restaurant": "Large restaurant-grade lumps",
     "Rouleaux laine de bois": "Wood wool rolls",
     "Bûche fendue avec mèche intégrée": "Split log with integrated wick"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "intro": "Find answers to frequently asked questions about our products, deliveries, and B2B policy."
   }
 }

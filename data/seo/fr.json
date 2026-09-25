@@ -83,5 +83,9 @@
   },
   "activation.html": {
     "title": "Activation du compte | sotramsbois"
+  },
+  "faq.html": {
+    "title": "Foire Aux Questions B2B | sotramsbois",
+    "description": "Retrouvez les réponses aux questions fréquentes concernant nos produits, nos livraisons et notre politique B2B."
   }
 }

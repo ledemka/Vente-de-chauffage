@@ -83,5 +83,9 @@
   },
   "activation.html": {
     "title": "Account Activation | sotramsbois"
+  },
+  "faq.html": {
+    "title": "B2B Frequently Asked Questions | sotramsbois",
+    "description": "Find answers to frequently asked questions about our products, deliveries, and B2B policy."
   }
 }

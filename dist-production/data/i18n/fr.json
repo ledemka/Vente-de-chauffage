@@ -1190,5 +1190,9 @@
     "Gros morceaux qualité restaurant": "Gros morceaux qualité restaurant",
     "Rouleaux laine de bois": "Rouleaux laine de bois",
     "Bûche fendue avec mèche intégrée": "Bûche fendue avec mèche intégrée"
+  },
+  "faq": {
+    "title": "Foire Aux Questions",
+    "intro": "Retrouvez les réponses aux questions fréquentes concernant nos produits, nos livraisons et notre politique B2B."
   }
 }
