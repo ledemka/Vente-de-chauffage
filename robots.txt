@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /api/
 Allow: /
 
 # Private pages (noindex + disallow for defense in depth)
@@ -48,4 +47,4 @@ Disallow: /en/activation.html
 Disallow: /de/activation.html
 Disallow: /nl/activation.html
 
-Sitemap: https://www.sotramsbois.com/sitemap.xml
+Sitemap: https://sotramsbois.com/sitemap.xml
