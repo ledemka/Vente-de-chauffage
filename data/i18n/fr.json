@@ -766,7 +766,7 @@
     "dpo_email": "[Email du DPO à compléter]",
     "hebergement_description": "Le site sotramsbois est hébergé de manière sécurisée et éco-responsable. Les serveurs sont localisés sur le territoire européen, garantissant le respect strict du RGPD.",
     "sec1_title": "1. Éditeur du site",
-    "sec1_text": "[Raison sociale à compléter], [forme juridique à compléter] au capital de [montant à compléter]€. Siège social : [Adresse du siège à compléter]. RCS [Ville RCS à compléter] [Numéro RCS à compléter]. TVA intracommunautaire : [Numéro de TVA à compléter]. Email : [Email de contact à compléter] — Téléphone : [Téléphone à compléter]<br>Directeur de la publication : [Nom du directeur de la publication à compléter]",
+    "sec1_text": "Siège social : [Adresse du siège à compléter]. Email : [Email de contact à compléter] — Téléphone : [Téléphone à compléter].",
     "sec2_title": "2. Hébergement",
     "sec2_text": "Ce site est hébergé par [Hébergeur à compléter par le client], [Adresse de l'hébergeur à compléter].",
     "sec3_title": "3. Propriété intellectuelle",
