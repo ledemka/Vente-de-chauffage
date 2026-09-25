@@ -709,7 +709,23 @@
       "industry": "INDUSTRIE",
       "resellers": "WEDERVERKOPERS"
     },
-    "commitments": "Onze kwaliteitsbeloften"
+    "commitments": "Onze kwaliteitsbeloften",
+    "example": {
+      "hosp1_text": "Het droge hout dat we ontvangen brandt schoon en gelijkmatig, een echt pluspunt voor koken op houtvuur in continubedrijf.",
+      "hosp1_attr": "Voorbeeld, gastronomisch restaurant",
+      "hosp2_text": "Leveringen komen op de afgesproken tijd aan, wat belangrijk is bij het beheren van krappe keukenvoorraden.",
+      "hosp2_attr": "Voorbeeld, restaurant",
+      "ind1_text": "De constante calorische waarde van pallet tot pallet vergemakkelijkt de besturing van onze biomassaketel.",
+      "ind1_attr": "Voorbeeld, industriële site",
+      "ind2_text": "Een enkel aanspreekpunt voor volumebestellingen bespaart ons tijd op logistiek.",
+      "ind2_attr": "Voorbeeld, productie-eenheid",
+      "res1_text": "Duidelijke doorverkoopvoorwaarden en betrouwbare bevoorrading, wat ons voorraadbeheer vereenvoudigt.",
+      "res1_attr": "Voorbeeld, materialenhandel",
+      "res2_text": "De beschikbaarheid van verschillende formaten stelt ons in staat om te reageren op een gevarieerde klantenkring.",
+      "res2_attr": "Voorbeeld, wederverkoper"
+    },
+    "example_warning": "De onderstaande getuigenissen zijn voorbeelden ter illustratie, in afwachting van echte klantbeoordelingen. Ze vertegenwoordigen geen echt bedrijf.",
+    "example_badge": "Voorbeeld"
   },
   "mentions": {
     "right_erasure": "Recht op gegevenswissing (\"recht om vergeten te worden\") en op beperking van de verwerking.",

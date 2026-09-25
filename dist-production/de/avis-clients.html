@@ -167,10 +167,10 @@
 <section class="max-w-[1440px] mx-auto px-margin-desktop mb-12 flex flex-col sm:flex-row justify-between items-center gap-6 z-20">
 
                 <div class="flex flex-wrap gap-3">
-                    <button data-i18n="reviews.filter.all" class="px-6 py-2 rounded-full bg-primary text-on-primary text-label-md font-label-md shadow-md">ALLE</button>
-                    <button data-i18n="reviews.filter.hospitality" class="px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">GASTRONOMIE</button>
-                    <button data-i18n="reviews.filter.industry" class="px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">INDUSTRIE</button>
-                    <button data-i18n="reviews.filter.resellers" class="px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">WIEDERVERKÄUFER</button>
+                    <button data-i18n="reviews.filter.all" data-filter="all" class="filter-btn px-6 py-2 rounded-full bg-primary text-on-primary text-label-md font-label-md shadow-md">ALLE</button>
+                    <button data-i18n="reviews.filter.hospitality" data-filter="hospitality" class="filter-btn px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">GASTRONOMIE</button>
+                    <button data-i18n="reviews.filter.industry" data-filter="industry" class="filter-btn px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">INDUSTRIE</button>
+                    <button data-i18n="reviews.filter.resellers" data-filter="resellers" class="filter-btn px-6 py-2 rounded-full bg-surface-container text-on-surface text-label-md font-label-md hover:bg-surface-variant transition-colors">WIEDERVERKÄUFER</button>
                 </div>
             
 <div class="relative">
@@ -185,9 +185,110 @@
 <!-- Reviews Grid -->
 <section class="max-w-[1440px] mx-auto px-margin-desktop mb-24">
 
-                <div class="grid grid-cols-1 gap-8 relative z-10" id="reviews-grid">
-                    <div class="bg-surface-container rounded-xl p-12 text-center text-on-surface-variant font-body-lg border border-outline/30" data-i18n="avis_clients.avis_client__ajouter__emplacem">[Kundenbewertung hinzuzufügen — Platzhalter für echte professionelle Erfahrungsberichte]</div>
-                </div>
+                
+<!-- CARTES D'EXEMPLE — à retirer intégralement (bandeau + 6 cartes) dès que de vrais témoignages sont disponibles. Ne jamais retirer le bandeau en gardant les cartes. -->
+<div class="w-full bg-surface-variant text-on-surface-variant p-4 rounded-lg mb-8 font-body-md shadow-sm border border-outline/20">
+    <p data-i18n="reviews.example_warning">Die unten stehenden Erfahrungsberichte sind Beispiele zur Veranschaulichung, bis echte Kundenbewertungen vorliegen. Sie repräsentieren kein reales Unternehmen.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10" id="reviews-grid">
+    <!-- Hospitality 1 -->
+    <article class="bg-surface-container rounded-xl p-8 shadow-sm hover:-translate-y-1 transition-transform duration-300 relative border border-outline/10 review-card" data-category="hospitality">
+        <div class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider" data-i18n="reviews.example_badge">Beispiel</div>
+        <div class="flex gap-1 text-primary mb-4">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+        <p class="text-body-lg text-on-surface-variant mb-6 italic" data-i18n="reviews.example.hosp1_text">Das trockene Holz, das wir erhalten, brennt sauber und gleichmäßig, ein echtes Plus für das Kochen auf dem Holzfeuer im Dauerbetrieb.</p>
+        <div class="mt-auto">
+            <p class="font-bold text-on-surface text-body-md" data-i18n="reviews.example.hosp1_attr">Beispiel, gastronomisches Restaurant</p>
+        </div>
+    </article>
+    
+    <!-- Hospitality 2 -->
+    <article class="bg-surface-container rounded-xl p-8 shadow-sm hover:-translate-y-1 transition-transform duration-300 relative border border-outline/10 review-card" data-category="hospitality">
+        <div class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider" data-i18n="reviews.example_badge">Beispiel</div>
+        <div class="flex gap-1 text-primary mb-4">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+        <p class="text-body-lg text-on-surface-variant mb-6 italic" data-i18n="reviews.example.hosp2_text">Lieferungen kommen zur vereinbarten Zeit an, was bei knapper Küchenvorratshaltung wichtig ist.</p>
+        <div class="mt-auto">
+            <p class="font-bold text-on-surface text-body-md" data-i18n="reviews.example.hosp2_attr">Beispiel, Restaurant</p>
+        </div>
+    </article>
+
+    <!-- Industry 1 -->
+    <article class="bg-surface-container rounded-xl p-8 shadow-sm hover:-translate-y-1 transition-transform duration-300 relative border border-outline/10 review-card" data-category="industry">
+        <div class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider" data-i18n="reviews.example_badge">Beispiel</div>
+        <div class="flex gap-1 text-primary mb-4">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+        <p class="text-body-lg text-on-surface-variant mb-6 italic" data-i18n="reviews.example.ind1_text">Der konstante Heizwert von Palette zu Palette erleichtert die Steuerung unseres Biomassekessels.</p>
+        <div class="mt-auto">
+            <p class="font-bold text-on-surface text-body-md" data-i18n="reviews.example.ind1_attr">Beispiel, Industriestandort</p>
+        </div>
+    </article>
+
+    <!-- Industry 2 -->
+    <article class="bg-surface-container rounded-xl p-8 shadow-sm hover:-translate-y-1 transition-transform duration-300 relative border border-outline/10 review-card" data-category="industry">
+        <div class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider" data-i18n="reviews.example_badge">Beispiel</div>
+        <div class="flex gap-1 text-primary mb-4">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+        <p class="text-body-lg text-on-surface-variant mb-6 italic" data-i18n="reviews.example.ind2_text">Ein einziger Ansprechpartner für Volumenbestellungen spart uns Zeit bei der Logistik.</p>
+        <div class="mt-auto">
+            <p class="font-bold text-on-surface text-body-md" data-i18n="reviews.example.ind2_attr">Beispiel, Produktionseinheit</p>
+        </div>
+    </article>
+
+    <!-- Resellers 1 -->
+    <article class="bg-surface-container rounded-xl p-8 shadow-sm hover:-translate-y-1 transition-transform duration-300 relative border border-outline/10 review-card" data-category="resellers">
+        <div class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider" data-i18n="reviews.example_badge">Beispiel</div>
+        <div class="flex gap-1 text-primary mb-4">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+        <p class="text-body-lg text-on-surface-variant mb-6 italic" data-i18n="reviews.example.res1_text">Klare Wiederverkaufsbedingungen und zuverlässige Wiederbeschaffung, was unser Bestandsmanagement vereinfacht.</p>
+        <div class="mt-auto">
+            <p class="font-bold text-on-surface text-body-md" data-i18n="reviews.example.res1_attr">Beispiel, Baustoffhandel</p>
+        </div>
+    </article>
+
+    <!-- Resellers 2 -->
+    <article class="bg-surface-container rounded-xl p-8 shadow-sm hover:-translate-y-1 transition-transform duration-300 relative border border-outline/10 review-card" data-category="resellers">
+        <div class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider" data-i18n="reviews.example_badge">Beispiel</div>
+        <div class="flex gap-1 text-primary mb-4">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+        <p class="text-body-lg text-on-surface-variant mb-6 italic" data-i18n="reviews.example.res2_text">Die Verfügbarkeit verschiedener Formate ermöglicht es uns, auf eine vielfältige Kundschaft zu reagieren.</p>
+        <div class="mt-auto">
+            <p class="font-bold text-on-surface text-body-md" data-i18n="reviews.example.res2_attr">Beispiel, Wiederverkäufer</p>
+        </div>
+    </article>
+</div>
+
             <!-- Load More -->
 <div class="mt-16 text-center">
 <button class="bg-transparent border border-outline text-on-surface text-label-md font-label-md px-10 py-4 rounded hover:bg-surface-container transition-colors shadow-sm inline-flex items-center gap-3">
@@ -279,4 +380,33 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
 
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.review-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active styling from all
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary', 'shadow-md');
+                    b.classList.add('bg-surface-container', 'text-on-surface', 'hover:bg-surface-variant');
+                });
+                // Add active styling to clicked
+                btn.classList.remove('bg-surface-container', 'text-on-surface', 'hover:bg-surface-variant');
+                btn.classList.add('bg-primary', 'text-on-primary', 'shadow-md');
+
+                const filter = btn.getAttribute('data-filter');
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
 </body></html>

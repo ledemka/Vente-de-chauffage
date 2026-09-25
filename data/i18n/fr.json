@@ -709,7 +709,23 @@
       "industry": "INDUSTRIE",
       "resellers": "REVENDEURS"
     },
-    "commitments": "Nos engagements qualité"
+    "commitments": "Nos engagements qualité",
+    "example": {
+      "hosp1_text": "Le bois sec que nous recevons brûle proprement et régulièrement, un vrai plus pour la cuisson au feu de bois en service continu.",
+      "hosp1_attr": "Exemple, restaurant gastronomique",
+      "hosp2_text": "Les livraisons arrivent à l'heure convenue, ce qui compte quand on gère un stock de cuisine tendu.",
+      "hosp2_attr": "Exemple, restaurant",
+      "ind1_text": "Le pouvoir calorifique constant d'une palette à l'autre facilite le pilotage de notre chaudière biomasse.",
+      "ind1_attr": "Exemple, site industriel",
+      "ind2_text": "Un interlocuteur unique pour les commandes en volume nous fait gagner du temps sur la logistique.",
+      "ind2_attr": "Exemple, unité de production",
+      "res1_text": "Des conditions de revente claires et un réapprovisionnement fiable, ce qui simplifie notre gestion de stock.",
+      "res1_attr": "Exemple, négoce de matériaux",
+      "res2_text": "La disponibilité des différents formats nous permet de répondre à une clientèle variée.",
+      "res2_attr": "Exemple, revendeur"
+    },
+    "example_warning": "Les témoignages ci-dessous sont des exemples fournis à titre d'illustration, en attendant de vrais avis clients. Ils ne représentent aucune entreprise réelle.",
+    "example_badge": "Exemple"
   },
   "mentions": {
     "right_erasure": "Droit à l'effacement (« droit à l'oubli ») et à la limitation du traitement.",
