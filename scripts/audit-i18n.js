@@ -23,10 +23,6 @@ const includedPages = [
 ];
 
 const excludedPages = [
-    'cgv.html',
-    'mentions-legales.html',
-    'politique-confidentialite.html',
-    'politique-retour.html',
     'admin-commandes.html',
     'tableau-de-bord.html'
 ];
