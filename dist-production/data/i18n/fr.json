@@ -227,7 +227,18 @@
     "validation_title": "Validation :",
     "validation_text": "La commande n'est définitive qu'après réception de l'acompte (si stipulé) et de l'accusé de réception de commande signé.",
     "late_payment_title": "Retards de paiement :",
-    "late_payment_text": "Tout retard de paiement entraîne de plein droit l'exigibilité d'une pénalité de retard calculée au taux de refinancement de la BCE majoré de 10 points, ainsi que l'indemnité forfaitaire de 40€ pour frais de recouvrement prévue par le Code de commerce."
+    "late_payment_text": "Tout retard de paiement entraîne de plein droit l'exigibilité d'une pénalité de retard calculée au taux de refinancement de la BCE majoré de 10 points, ainsi que l'indemnité forfaitaire de 40€ pour frais de recouvrement prévue par le Code de commerce.",
+    "nav_legal": "LÉGAL",
+    "nav_objet": "Objet",
+    "nav_produits": "Produits",
+    "nav_prix": "Prix et Commande",
+    "nav_livraison": "Livraison",
+    "nav_paiement": "Paiement",
+    "nav_retractation": "Rétractation",
+    "nav_contact": "NOUS CONTACTER",
+    "scope_1": "Elles régissent exclusivement les ventes de bois de chauffage, granulés, et autres produits de biomasse par",
+    "scope_2": "aux acheteurs professionnels (B2B). Toute commande implique l'acceptation sans réserve de ces conditions par l'acheteur, nonobstant toute stipulation contraire figurant dans ses propres conditions générales d'achat.",
+    "access_conditions": "CONDITIONS D'ACCÈS OBLIGATOIRES"
   },
   "auth": {
     "login_title": "Connexion",
@@ -733,7 +744,16 @@
     "privacy_retention": "Les données sont conservées pendant une durée de 3 ans à compter du dernier contact émanant de votre part, ou pendant la durée de la relation commerciale augmentée des prescriptions légales.",
     "rights_intro": "Conformément à la réglementation applicable, vous disposez des droits suivants :",
     "right_objection": "Droit d'opposition au traitement de vos données pour des motifs légitimes.",
-    "rights_contact": "Pour exercer ces droits, vous pouvez contacter notre Délégué à la Protection des Données (DPO) par email à [Email du DPO à compléter] ou par courrier à l'adresse du siège social en joignant une copie d'un titre d'identité."
+    "rights_contact": "Pour exercer ces droits, vous pouvez contacter notre Délégué à la Protection des Données (DPO) par email à [Email du DPO à compléter] ou par courrier à l'adresse du siège social en joignant une copie d'un titre d'identité.",
+    "date_placeholder": "[Date à compléter à la mise en ligne]",
+    "contact_title": "CONTACT",
+    "contact_email": "[Email de contact à compléter]",
+    "contact_phone": "[Téléphone à compléter]",
+    "host_placeholder": "[Hébergeur à compléter par le client]",
+    "copyright_laws": "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.",
+    "dpo_contact_1": "Pour exercer ces droits, vous pouvez contacter notre Délégué à la Protection des Données (DPO) par email à",
+    "dpo_contact_2": "ou par courrier à l'adresse du siège social en joignant une copie d'un titre d'identité.",
+    "dpo_email": "[Email du DPO à compléter]"
   },
   "privacy": {
     "right_erasure_desc": "Exiger la suppression de vos données (\"droit à l'oubli\") dans les limites légales.",
@@ -802,7 +822,11 @@
     "cookie_analytics": "Nous permettent de mesurer l'audience et d'améliorer la structure du site.",
     "cookie_marketing": "Utilisés pour vous proposer des offres B2B pertinentes sur d'autres plateformes.",
     "rights_text": "Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez de droits stricts concernant le traitement de vos informations professionnelles et personnelles.",
-    "rights_deadline": "Pour toute demande relative à vos données, nous nous engageons à vous répondre dans un délai maximum de 30 jours."
+    "rights_deadline": "Pour toute demande relative à vos données, nous nous engageons à vous répondre dans un délai maximum de 30 jours.",
+    "dpo_email": "[Email du DPO à compléter]",
+    "execution_contract": "Exécution du contrat",
+    "manage_preferences": "Gérer les préférences",
+    "contact_dpo": "Contacter le DPO"
   },
   "return": {
     "cond1": "Les produits doivent être dans leur emballage d'origine, non ouverts et non endommagés (film de palette intact, sacs de granulés scellés).",
@@ -854,7 +878,15 @@
     "delay_fast": "3 jours ouvrés",
     "type_damaged": "Emballage endommagé / Film percé",
     "amount_damaged": "Max 70% (Décote reconditionnement)",
-    "delay_slow": "7-10 jours ouvrés"
+    "delay_slow": "7-10 jours ouvrés",
+    "nav_conditions": "Conditions Générales",
+    "nav_logistics": "Logistique & Transport",
+    "nav_refund": "Processus de Remboursement",
+    "nav_exceptions": "Exceptions & Litiges",
+    "contact_support": "Contacter le SAV",
+    "policy_1": "En raison de la nature volumineuse et des coûts logistiques associés à nos produits (palettes de bois, big bags de granulés), les retours sont soumis à des conditions strictes. Vous disposez d'un délai légal de",
+    "policy_2": "à compter de la date de livraison pour exercer votre droit de rétractation.",
+    "acceptance_criteria": "Critères d'acceptation"
   },
   "produit": {
     "palette_complte_-_bches_chne_3": "Palette Complète - Bûches Chêne 33cm",

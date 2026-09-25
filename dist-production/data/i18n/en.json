@@ -227,7 +227,18 @@
     "validation_title": "Validation:",
     "validation_text": "The order is only final upon receipt of the deposit (if stipulated) and the signed order acknowledgment.",
     "late_payment_title": "Late Payments:",
-    "late_payment_text": "Any late payment automatically results in the exigibility of a late penalty calculated at the ECB refinancing rate plus 10 points, as well as the fixed compensation of €40 for recovery costs provided by the Commercial Code."
+    "late_payment_text": "Any late payment automatically results in the exigibility of a late penalty calculated at the ECB refinancing rate plus 10 points, as well as the fixed compensation of €40 for recovery costs provided by the Commercial Code.",
+    "nav_legal": "LEGAL",
+    "nav_objet": "Object",
+    "nav_produits": "Products",
+    "nav_prix": "Price and Order",
+    "nav_livraison": "Delivery",
+    "nav_paiement": "Payment",
+    "nav_retractation": "Withdrawal",
+    "nav_contact": "CONTACT US",
+    "scope_1": "They exclusively govern the sales of firewood, pellets, and other biomass products by",
+    "scope_2": "to professional buyers (B2B). Any order implies unconditional acceptance of these conditions by the buyer, notwithstanding any contrary stipulation in their own general purchasing conditions.",
+    "access_conditions": "MANDATORY ACCESS CONDITIONS"
   },
   "auth": {
     "login_title": "Login",
@@ -733,7 +744,16 @@
     "privacy_retention": "Data is kept for a period of 3 years from the last contact from you, or for the duration of the commercial relationship plus legal prescription periods.",
     "rights_intro": "In accordance with applicable regulations, you have the following rights:",
     "right_objection": "Right to object to the processing of your data for legitimate reasons.",
-    "rights_contact": "To exercise these rights, you can contact our Data Protection Officer (DPO) by email at [DPO email to be completed] or by mail at the head office address, enclosing a copy of an identity document."
+    "rights_contact": "To exercise these rights, you can contact our Data Protection Officer (DPO) by email at [DPO email to be completed] or by mail at the head office address, enclosing a copy of an identity document.",
+    "date_placeholder": "[Date to be completed at launch]",
+    "contact_title": "CONTACT",
+    "contact_email": "[Contact email to be completed]",
+    "contact_phone": "[Phone number to be completed]",
+    "host_placeholder": "[Hosting provider to be completed by the client]",
+    "copyright_laws": "The entire site is subject to French and international legislation on copyright and intellectual property. All reproduction rights are reserved, including for downloadable documents and iconographic and photographic representations.",
+    "dpo_contact_1": "To exercise these rights, you can contact our Data Protection Officer (DPO) by email at",
+    "dpo_contact_2": "or by mail at the head office address enclosing a copy of an identity document.",
+    "dpo_email": "[DPO email to be completed]"
   },
   "privacy": {
     "right_erasure_desc": "Require the deletion of your data (\"right to be forgotten\") within legal limits.",
@@ -802,7 +822,11 @@
     "cookie_analytics": "Allow us to measure the audience and improve the site structure.",
     "cookie_marketing": "Used to offer you relevant B2B offers on other platforms.",
     "rights_text": "In accordance with the General Data Protection Regulation (GDPR), you have strict rights regarding the processing of your professional and personal information.",
-    "rights_deadline": "For any request relating to your data, we commit to responding within a maximum of 30 days."
+    "rights_deadline": "For any request relating to your data, we commit to responding within a maximum of 30 days.",
+    "dpo_email": "[DPO email to be completed]",
+    "execution_contract": "Execution of the contract",
+    "manage_preferences": "Manage preferences",
+    "contact_dpo": "Contact the DPO"
   },
   "return": {
     "cond1": "Products must be in their original packaging, unopened and undamaged (pallet wrap intact, pellet bags sealed).",
@@ -854,7 +878,15 @@
     "delay_fast": "3 working days",
     "type_damaged": "Damaged packaging / Pierced film",
     "amount_damaged": "Max 70% (Reconditioning discount)",
-    "delay_slow": "7-10 working days"
+    "delay_slow": "7-10 working days",
+    "nav_conditions": "General Conditions",
+    "nav_logistics": "Logistics & Transport",
+    "nav_refund": "Refund Process",
+    "nav_exceptions": "Exceptions & Disputes",
+    "contact_support": "Contact Support",
+    "policy_1": "Due to the bulky nature and logistical costs associated with our products (wood pallets, pellet big bags), returns are subject to strict conditions. You have a legal period of",
+    "policy_2": "from the delivery date to exercise your right of withdrawal.",
+    "acceptance_criteria": "Acceptance criteria"
   },
   "produit": {
     "palette_complte_-_bches_chne_3": "Full Pallet - Oak Logs 33cm",

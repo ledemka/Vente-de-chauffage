@@ -227,7 +227,18 @@
     "validation_title": "Bestätigung:",
     "validation_text": "Die Bestellung ist erst nach Erhalt der Anzahlung (falls vereinbart) und der unterzeichneten Auftragsbestätigung endgültig.",
     "late_payment_title": "Zahlungsverzug:",
-    "late_payment_text": "Jeder Zahlungsverzug führt automatisch zur Fälligkeit einer Verzugsstrafe, die auf der Grundlage des EZB-Refinanzierungssatzes zuzüglich 10 Punkten berechnet wird, sowie der im Handelsgesetzbuch (Code de commerce) vorgesehenen Pauschalentschädigung von 40 € für Beitreibungskosten."
+    "late_payment_text": "Jeder Zahlungsverzug führt automatisch zur Fälligkeit einer Verzugsstrafe, die auf der Grundlage des EZB-Refinanzierungssatzes zuzüglich 10 Punkten berechnet wird, sowie der im Handelsgesetzbuch (Code de commerce) vorgesehenen Pauschalentschädigung von 40 € für Beitreibungskosten.",
+    "nav_legal": "RECHTLICHES",
+    "nav_objet": "Gegenstand",
+    "nav_produits": "Produkte",
+    "nav_prix": "Preis und Bestellung",
+    "nav_livraison": "Lieferung",
+    "nav_paiement": "Zahlung",
+    "nav_retractation": "Widerruf",
+    "nav_contact": "KONTAKTIEREN SIE UNS",
+    "scope_1": "Sie regeln ausschließlich den Verkauf von Brennholz, Pellets und anderen Biomasseprodukten durch",
+    "scope_2": "an professionelle Käufer (B2B). Jede Bestellung impliziert die vorbehaltlose Annahme dieser Bedingungen durch den Käufer, ungeachtet entgegenstehender Bestimmungen in dessen eigenen allgemeinen Einkaufsbedingungen.",
+    "access_conditions": "ZUSATZBEDINGUNGEN FÜR DEN ZUGANG"
   },
   "auth": {
     "login_title": "Anmelden",
@@ -733,7 +744,16 @@
     "privacy_retention": "Die Daten werden für einen Zeitraum von 3 Jahren ab dem letzten Kontakt Ihrerseits oder für die Dauer der Geschäftsbeziehung zuzüglich der gesetzlichen Verjährungsfristen aufbewahrt.",
     "rights_intro": "Gemäß den geltenden Vorschriften haben Sie folgende Rechte:",
     "right_objection": "Recht auf Widerspruch gegen die Verarbeitung Ihrer Daten aus legitimen Gründen.",
-    "rights_contact": "Um diese Rechte auszuüben, können Sie unseren Datenschutzbeauftragten (DPO) per E-Mail an [E-Mail des Datenschutzbeauftragten noch zu ergänzen] oder per Post an die Adresse des Hauptsitzes unter Beifügung einer Kopie eines Ausweisdokuments kontaktieren."
+    "rights_contact": "Um diese Rechte auszuüben, können Sie unseren Datenschutzbeauftragten (DPO) per E-Mail an [E-Mail des Datenschutzbeauftragten noch zu ergänzen] oder per Post an die Adresse des Hauptsitzes unter Beifügung einer Kopie eines Ausweisdokuments kontaktieren.",
+    "date_placeholder": "[Datum bei Veröffentlichung noch zu ergänzen]",
+    "contact_title": "KONTAKT",
+    "contact_email": "[Kontakt-E-Mail noch zu ergänzen]",
+    "contact_phone": "[Telefonnummer noch zu ergänzen]",
+    "host_placeholder": "[Hosting-Anbieter vom Kunden noch zu ergänzen]",
+    "copyright_laws": "Die gesamte Website unterliegt der französischen und internationalen Gesetzgebung zu Urheberrecht und geistigem Eigentum. Alle Vervielfältigungsrechte sind vorbehalten, einschließlich für herunterladbare Dokumente sowie ikonografische und fotografische Darstellungen.",
+    "dpo_contact_1": "Um diese Rechte auszuüben, können Sie unseren Datenschutzbeauftragten (DPO) per E-Mail kontaktieren unter",
+    "dpo_contact_2": "oder per Post an die Adresse des Hauptsitzes unter Beifügung einer Kopie eines Ausweisdokuments.",
+    "dpo_email": "[E-Mail des Datenschutzbeauftragten noch zu ergänzen]"
   },
   "privacy": {
     "right_erasure_desc": "Die Löschung Ihrer Daten verlangen („Recht auf Vergessenwerden\") innerhalb der gesetzlichen Grenzen.",
@@ -802,7 +822,11 @@
     "cookie_analytics": "Ermöglichen uns, das Publikum zu messen und die Struktur der Website zu verbessern.",
     "cookie_marketing": "Wird verwendet, um Ihnen relevante B2B-Angebote auf anderen Plattformen anzubieten.",
     "rights_text": "Gemäß der Datenschutz-Grundverordnung (DSGVO) haben Sie strenge Rechte in Bezug auf die Verarbeitung Ihrer beruflichen und persönlichen Daten.",
-    "rights_deadline": "Bei Anfragen bezüglich Ihrer Daten verpflichten wir uns, Ihnen innerhalb von maximal 30 Tagen zu antworten."
+    "rights_deadline": "Bei Anfragen bezüglich Ihrer Daten verpflichten wir uns, Ihnen innerhalb von maximal 30 Tagen zu antworten.",
+    "dpo_email": "[E-Mail des Datenschutzbeauftragten noch zu ergänzen]",
+    "execution_contract": "Vertragserfüllung",
+    "manage_preferences": "Präferenzen verwalten",
+    "contact_dpo": "DPO kontaktieren"
   },
   "return": {
     "cond1": "Die Produkte müssen sich in der Originalverpackung befinden, ungeöffnet und unbeschädigt sein (Palettenfolie intakt, Pelletsäcke versiegelt).",
@@ -854,7 +878,15 @@
     "delay_fast": "3 Werktage",
     "type_damaged": "Beschädigte Verpackung / Durchstochene Folie",
     "amount_damaged": "Max. 70% (Aufbereitungsabschlag)",
-    "delay_slow": "7-10 Werktage"
+    "delay_slow": "7-10 Werktage",
+    "nav_conditions": "Allgemeine Bedingungen",
+    "nav_logistics": "Logistik & Transport",
+    "nav_refund": "Erstattungsprozess",
+    "nav_exceptions": "Ausnahmen & Streitigkeiten",
+    "contact_support": "Kundendienst kontaktieren",
+    "policy_1": "Aufgrund der Sperrigkeit und der mit unseren Produkten verbundenen Logistikkosten (Holzpaletten, Pellet-Big-Bags) unterliegen Rücksendungen strengen Bedingungen. Sie haben eine gesetzliche Frist von",
+    "policy_2": "ab dem Lieferdatum, um Ihr Widerrufsrecht auszuüben.",
+    "acceptance_criteria": "Annahmekriterien"
   },
   "produit": {
     "palette_complte_-_bches_chne_3": "Ganze Palette - Eichenscheite 33cm",

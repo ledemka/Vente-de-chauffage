@@ -3,6 +3,13 @@ const path = require('path');
 const cheerio = require('cheerio');
 
 const includedPages = [
+    'merci-contact.html',
+    'merci-devis.html',
+    'merci-inscription.html',
+    'cgv.html',
+    'mentions-legales.html',
+    'politique-confidentialite.html',
+    'politique-retour.html',
     'guide-choix.html',
     'livraison.html',
     'inscription.html',
@@ -134,9 +141,15 @@ for (const file of files) {
             // Basic heuristics to find hardcoded French text
             if (text.length > 3 && /[éèàçùêâôîû]/.test(text) && !$(el).closest('[data-i18n], [data-i18n-html]').length) {
                 // Ignore some known exceptions
-                if (text.includes('sotramsbois') || text.includes('Conteneur')) return;
-                // We're suppressing this heuristic check for now because it yields too many false positives
-                // console.warn(`⚠️ Possible hardcoded text in ${file}: "${text}"`);
+                if (text.includes('sotramsbois') || text.includes('Conteneur') || text.includes('€') || 
+                    ['Français', 'English', 'Deutsch', 'Nederlands', 'Palettes Bûches 33cm'].includes(text)) {
+                    return;
+                }
+                
+                if (includedPages.includes(file)) {
+                    console.error(`❌ Untranslated hardcoded text in ${file}: "${text}"`);
+                    pageErrors++;
+                }
             }
         });
     });

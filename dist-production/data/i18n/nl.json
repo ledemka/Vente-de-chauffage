@@ -227,7 +227,18 @@
     "validation_title": "Validatie:",
     "validation_text": "De bestelling is pas definitief na ontvangst van de aanbetaling (indien overeengekomen) en de ondertekende orderbevestiging.",
     "late_payment_title": "Betalingsachterstand:",
-    "late_payment_text": "Elke betalingsachterstand leidt van rechtswege tot de opeisbaarheid van een vertragingsboete berekend tegen de herfinancieringsrente van de ECB verhoogd met 10 punten, evenals de forfaitaire vergoeding van €40 voor invorderingskosten zoals voorzien in het Wetboek van Koophandel (Code de commerce)."
+    "late_payment_text": "Elke betalingsachterstand leidt van rechtswege tot de opeisbaarheid van een vertragingsboete berekend tegen de herfinancieringsrente van de ECB verhoogd met 10 punten, evenals de forfaitaire vergoeding van €40 voor invorderingskosten zoals voorzien in het Wetboek van Koophandel (Code de commerce).",
+    "nav_legal": "JURIDISCH",
+    "nav_objet": "Voorwerp",
+    "nav_produits": "Producten",
+    "nav_prix": "Prijs en Bestelling",
+    "nav_livraison": "Levering",
+    "nav_paiement": "Betaling",
+    "nav_retractation": "Herroeping",
+    "nav_contact": "NEEM CONTACT OP",
+    "scope_1": "Ze regelen uitsluitend de verkoop van brandhout, pellets en andere biomassaproducten door",
+    "scope_2": "aan professionele kopers (B2B). Elke bestelling impliceert de onvoorwaardelijke aanvaarding van deze voorwaarden door de koper, ongeacht eventuele andersluidende bepalingen in diens eigen algemene inkoopvoorwaarden.",
+    "access_conditions": "VERPLICHTE TOEGANGSVOORWAARDEN"
   },
   "auth": {
     "login_title": "Inloggen",
@@ -733,7 +744,16 @@
     "privacy_retention": "Gegevens worden bewaard gedurende een periode van 3 jaar vanaf het laatste contact van uw kant, of voor de duur van de commerciële relatie verhoogd met de wettelijke verjaringstermijnen.",
     "rights_intro": "In overeenstemming met de toepasselijke regelgeving heeft u de volgende rechten:",
     "right_objection": "Recht op bezwaar tegen de verwerking van uw gegevens om legitieme redenen.",
-    "rights_contact": "Om deze rechten uit te oefenen, kunt u contact opnemen met onze Functionaris voor Gegevensbescherming (DPO/FG) via e-mail op [E-mail DPO nog aan te vullen] of per post naar het adres van het hoofdkantoor, onder bijvoeging van een kopie van een identiteitsbewijs."
+    "rights_contact": "Om deze rechten uit te oefenen, kunt u contact opnemen met onze Functionaris voor Gegevensbescherming (DPO/FG) via e-mail op [E-mail DPO nog aan te vullen] of per post naar het adres van het hoofdkantoor, onder bijvoeging van een kopie van een identiteitsbewijs.",
+    "date_placeholder": "[Datum in te vullen bij livegang]",
+    "contact_title": "CONTACT",
+    "contact_email": "[Contact e-mail nog aan te vullen]",
+    "contact_phone": "[Telefoonnummer nog aan te vullen]",
+    "host_placeholder": "[Hostingprovider in te vullen door de klant]",
+    "copyright_laws": "De gehele site is onderworpen aan de Franse en internationale wetgeving inzake auteursrecht en intellectueel eigendom. Alle reproductierechten zijn voorbehouden, inclusief voor downloadbare documenten en iconografische en fotografische weergaven.",
+    "dpo_contact_1": "Om deze rechten uit te oefenen, kunt u per e-mail contact opnemen met onze Functionaris voor Gegevensbescherming (DPO/FG) via",
+    "dpo_contact_2": "of per post naar het adres van het hoofdkantoor onder bijvoeging van een kopie van een identiteitsbewijs.",
+    "dpo_email": "[E-mail DPO nog aan te vullen]"
   },
   "privacy": {
     "right_erasure_desc": "De verwijdering van uw gegevens eisen (\"recht om vergeten te worden\") binnen de wettelijke grenzen.",
@@ -802,7 +822,11 @@
     "cookie_analytics": "Stellen ons in staat het publiek te meten en de structuur van de site te verbeteren.",
     "cookie_marketing": "Wordt gebruikt om u relevante B2B-aanbiedingen op andere platforms aan te bieden.",
     "rights_text": "In overeenstemming met de Algemene Verordening Gegevensbescherming (AVG/GDPR) heeft u strikte rechten met betrekking tot de verwerking van uw professionele en persoonlijke informatie.",
-    "rights_deadline": "Voor elk verzoek met betrekking tot uw gegevens, beloven wij u binnen maximaal 30 dagen te antwoorden."
+    "rights_deadline": "Voor elk verzoek met betrekking tot uw gegevens, beloven wij u binnen maximaal 30 dagen te antwoorden.",
+    "dpo_email": "[E-mail DPO nog aan te vullen]",
+    "execution_contract": "Uitvoering van de overeenkomst",
+    "manage_preferences": "Voorkeuren beheren",
+    "contact_dpo": "Neem contact op met de DPO"
   },
   "return": {
     "cond1": "Producten moeten zich in de originele verpakking bevinden, ongeopend en onbeschadigd (palletfolie intact, pelletzakken verzegeld).",
@@ -854,7 +878,15 @@
     "delay_fast": "3 werkdagen",
     "type_damaged": "Beschadigde verpakking / Geperforeerde folie",
     "amount_damaged": "Max 70% (Waardevermindering herverpakking)",
-    "delay_slow": "7-10 werkdagen"
+    "delay_slow": "7-10 werkdagen",
+    "nav_conditions": "Algemene Voorwaarden",
+    "nav_logistics": "Logistiek & Transport",
+    "nav_refund": "Terugbetalingsproces",
+    "nav_exceptions": "Uitzonderingen & Geschillen",
+    "contact_support": "Neem contact op met de klantenservice",
+    "policy_1": "Vanwege de omvang en de logistieke kosten die aan onze producten (houtpallets, big bags pellets) zijn verbonden, zijn retouren onderworpen aan strikte voorwaarden. U heeft een wettelijke termijn van",
+    "policy_2": "vanaf de leveringsdatum om uw herroepingsrecht uit te oefenen.",
+    "acceptance_criteria": "Acceptatiecriteria"
   },
   "produit": {
     "palette_complte_-_bches_chne_3": "Volle pallet - Eikenhout 33cm",
