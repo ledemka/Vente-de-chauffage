@@ -54,10 +54,10 @@ function getSeoKeywords(subgroupId, lang) {
 }
 
 const META_DESC_TEMPLATE = {
-    fr: (name, kw, mat, fmt, price) => `${kw}. Découvrez ${name} (${mat}, ${fmt}) pour professionnels. Prix conseillé: ${price}€ TTC. Idéal pour l'achat en gros.`,
-    en: (name, kw, mat, fmt, price) => `${kw}. ${name} (${mat}, ${fmt}) for professionals. Retail price: ${price}€ incl. VAT. Ideal for bulk buyers.`,
-    de: (name, kw, mat, fmt, price) => `${kw}. ${name} (${mat}, ${fmt}) für Profis. Verkaufspreis: ${price}€ inkl. MwSt. Ideal für Großeinkäufer.`,
-    nl: (name, kw, mat, fmt, price) => `${kw}. ${name} (${mat}, ${fmt}) voor professionals. Verkoopprijs: ${price}€ incl. btw. Ideaal voor zakelijke kopers.`,
+    fr: (name, kw, mat, fmt, price) => price > 0 ? `${kw}. Découvrez ${name} (${mat}, ${fmt}) pour professionnels. Prix conseillé: ${price}€ TTC. Idéal pour l'achat en gros.` : `${kw}. Découvrez ${name} (${mat}, ${fmt}) pour professionnels. Idéal pour l'achat en gros.`,
+    en: (name, kw, mat, fmt, price) => price > 0 ? `${kw}. ${name} (${mat}, ${fmt}) for professionals. Retail price: ${price}€ incl. VAT. Ideal for bulk buyers.` : `${kw}. ${name} (${mat}, ${fmt}) for professionals. Ideal for bulk buyers.`,
+    de: (name, kw, mat, fmt, price) => price > 0 ? `${kw}. ${name} (${mat}, ${fmt}) für Profis. Verkaufspreis: ${price}€ inkl. MwSt. Ideal für Großeinkäufer.` : `${kw}. ${name} (${mat}, ${fmt}) für Profis. Ideal für Großeinkäufer.`,
+    nl: (name, kw, mat, fmt, price) => price > 0 ? `${kw}. ${name} (${mat}, ${fmt}) voor professionals. Verkoopprijs: ${price}€ incl. btw. Ideaal voor zakelijke kopers.` : `${kw}. ${name} (${mat}, ${fmt}) voor professionals. Ideaal voor zakelijke kopers.`,
 };
 
 function buildProducts() {
@@ -117,11 +117,13 @@ function buildProducts() {
             if ($('meta[name="description"]').length === 0) $('head').append('<meta name="description" content="">');
             $('meta[name="description"]').attr('content', desc);
             
-            // Enhance H1
+            // Enhance H1 - Keep it clean, just the product name
             if ($('h1#product-name').length) {
-                $('h1#product-name').html(`${name} <span class="d-block fs-5 text-muted mt-2">${kw}</span>`);
+                $('h1#product-name').text(name);
+            } else if ($('#product-title').length) {
+                $('#product-title').text(name);
             } else if ($('h1').length) {
-                $('h1').first().html(`${name} <span class="d-block fs-5 text-muted mt-2">${kw}</span>`);
+                $('h1').first().text(name);
             }
             
             // SEO Images
@@ -161,9 +163,43 @@ function buildProducts() {
                 "description": desc,
                 "sku": product.id,
                 "image": `${MAIN_HOST}/${String(product.image_product).replace(/^\/+/, '')}`,
-                "url": canonUrl
+                "url": canonUrl,
+                "brand": {
+                    "@type": "Brand",
+                    "name": "Sotrams Bois"
+                }
             };
             $('head').append(`\n<script type="application/ld+json">\n${JSON.stringify(productJsonLd, null, 2)}\n</script>\n`);
+
+            // Open Graph & Twitter
+            const ogLocale = lang === 'fr' ? 'fr_FR' : (lang === 'en' ? 'en_GB' : (lang === 'de' ? 'de_DE' : 'nl_NL'));
+            $('head').append(`\n<meta property="og:type" content="product">`);
+            $('head').append(`\n<meta property="og:title" content="${title}">`);
+            $('head').append(`\n<meta property="og:description" content="${desc}">`);
+            $('head').append(`\n<meta property="og:url" content="${canonUrl}">`);
+            $('head').append(`\n<meta property="og:image" content="${MAIN_HOST}/${String(product.image_product).replace(/^\/+/, '')}">`);
+            $('head').append(`\n<meta property="og:site_name" content="sotramsbois">`);
+            $('head').append(`\n<meta property="og:locale" content="${ogLocale}">`);
+            $('head').append(`\n<meta name="twitter:card" content="summary_large_image">`);
+
+            // HTML Static Hydration (pre-rendering for SEO without noscript)
+            $('#product-ref').text(`Ref: ${product.id.toUpperCase()}-PAL`);
+            const displayHumidity = product.humidity_bucket || "Non communiqué";
+            $('#product-desc').text(`${species} - Humidité: ${displayHumidity}`);
+            $('#product-stock').text('En Stock');
+            $('#spec-essence').text(species);
+            $('#spec-longueur').text(format);
+            $('#spec-humidite').text(displayHumidity);
+            $('#spec-origine').text(product.origin || 'À préciser');
+            $('#spec-pouvoir').text('~ 4.8 kWh/kg');
+            $('#spec-poids').text(product.palette_weight || '');
+            $('#spec-volume-m3').text(product.volume_m3 ? `${product.volume_m3} m³` : '');
+            $('#spec-conditionnement').text((product.units_per_palette || '') + ' unités par palette');
+            
+            // Note: The JavaScript (product.js logic inside produit.html) will still execute on the client
+            // and overwrite these with the correct translated strings based on the dynamic lang,
+            // but the crawlers will now see these static real values instead of placeholders or empty spans!
+
 
             // Output
             const outPath = lang === 'fr' 
