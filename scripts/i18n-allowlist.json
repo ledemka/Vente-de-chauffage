@@ -426,5 +426,14 @@
   ],
   "inscription.adresse": [
     "de"
+  ],
+  "quote.format_standard": [
+    "en",
+    "de"
+  ],
+  "product.seo_title": [
+    "en",
+    "de",
+    "nl"
   ]
 }

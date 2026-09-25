@@ -515,7 +515,8 @@
     },
     "processing": "PROCESSING...",
     "length_to_choose": "Length to choose",
-    "units_of": "units of"
+    "units_of": "units of",
+    "format_standard": "Standard"
   },
   "register": {
     "benefits": {
@@ -810,7 +811,8 @@
     "add_to_cart": "Add",
     "seo_title": "{name} – sotramsbois",
     "seo_description": "{name} ({species}, {format}). {units} units/pallet, {palette_weight}. Request a free B2B quote.",
-    "units_per_pallet": "units per pallet"
+    "units_per_pallet": "units per pallet",
+    "origin_tbd": "Origin to be specified"
   },
   "panier": {
     "vider_le_panier": "Empty cart",

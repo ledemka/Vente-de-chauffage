@@ -515,7 +515,8 @@
     },
     "processing": "TRAITEMENT...",
     "length_to_choose": "Longueur à choisir",
-    "units_of": "unités de"
+    "units_of": "unités de",
+    "format_standard": "Standard"
   },
   "register": {
     "benefits": {
@@ -810,7 +811,8 @@
     "add_to_cart": "Ajouter",
     "seo_title": "{name} – sotramsbois",
     "seo_description": "{name} ({species}, {format}). {units} unités/palette, {palette_weight}. Demandez un devis pro gratuit.",
-    "units_per_pallet": "unités par palette"
+    "units_per_pallet": "unités par palette",
+    "origin_tbd": "Origine à préciser"
   },
   "panier": {
     "vider_le_panier": "Vider le panier",

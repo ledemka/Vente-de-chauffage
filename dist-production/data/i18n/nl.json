@@ -515,7 +515,8 @@
     },
     "processing": "VERWERKEN...",
     "length_to_choose": "Lengte te kiezen",
-    "units_of": "eenheden van"
+    "units_of": "eenheden van",
+    "format_standard": "Standaard"
   },
   "register": {
     "benefits": {
@@ -810,7 +811,8 @@
     "add_to_cart": "Toevoegen",
     "seo_title": "{name} – sotramsbois",
     "seo_description": "{name} ({species}, {format}). {units} stuks/pallet, {palette_weight}. Vraag een B2B-offerte aan.",
-    "units_per_pallet": "stuks per pallet"
+    "units_per_pallet": "stuks per pallet",
+    "origin_tbd": "Herkomst nog te bepalen"
   },
   "panier": {
     "vider_le_panier": "Winkelwagen legen",

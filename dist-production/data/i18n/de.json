@@ -515,7 +515,8 @@
     },
     "processing": "WIRD VERARBEITET...",
     "length_to_choose": "Länge zu wählen",
-    "units_of": "Einheiten von"
+    "units_of": "Einheiten von",
+    "format_standard": "Standard"
   },
   "register": {
     "benefits": {
@@ -810,7 +811,8 @@
     "add_to_cart": "Hinzufügen",
     "seo_title": "{name} – sotramsbois",
     "seo_description": "{name} ({species}, {format}). {units} Stück/Palette, {palette_weight}. Fordern Sie ein B2B-Angebot an.",
-    "units_per_pallet": "Stück pro Palette"
+    "units_per_pallet": "Stück pro Palette",
+    "origin_tbd": "Herkunft wird noch bekannt gegeben"
   },
   "panier": {
     "vider_le_panier": "Warenkorb leeren",
