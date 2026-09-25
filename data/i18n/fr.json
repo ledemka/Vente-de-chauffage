@@ -10,11 +10,12 @@
     "guide": "Guide de Choix",
     "quote": "Devis",
     "returns": "Politique de Retour",
-    "blog": "Blog",
+    "blog": "BLOG",
     "contact": "Contact",
     "depots": "Dépôts",
     "prev": "Précédent",
-    "next": "Suivant"
+    "next": "Suivant",
+    "faq": "FAQ"
   },
   "categories": {
     "1": "Bûches de bois",

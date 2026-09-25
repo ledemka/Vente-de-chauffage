@@ -1,0 +1,386 @@
+[
+  {
+    "id": "q1",
+    "question": {
+      "fr": "Quels types de camions utilisez-vous pour la livraison ?",
+      "en": "What types of trucks do you use for delivery?",
+      "de": "Welche Art von LKWs verwenden Sie für die Lieferung?",
+      "nl": "Welke soorten vrachtwagens gebruikt u voor de levering?"
+    },
+    "answer": {
+      "fr": "Nous disposons d'une flotte adaptée aux contraintes logistiques B2B. Pour les gros volumes et sites équipés de quais, nous privilégions les Plateaux Tautliner 44T (jusqu'à 32 palettes). Pour les accès complexes nécessitant de passer au-dessus d'obstacles (murs, haies), nos Porteurs Grue offrent une portée jusqu'à 6m. Enfin, les camions à hayon sont utilisés pour les livraisons standard nécessitant un déchargement au sol.",
+      "en": "We have a fleet adapted to B2B logistical constraints. For large volumes and sites equipped with docks, we prefer 44T Tautliner flatbeds (up to 32 pallets). For complex access requiring passing over obstacles (walls, hedges), our Crane Trucks offer a reach of up to 6m. Finally, tail-lift trucks are used for standard deliveries requiring ground unloading.",
+      "de": "Wir verfügen über eine auf B2B-Logistikbeschränkungen abgestimmte Flotte. Für große Mengen und mit Rampen ausgestattete Standorte bevorzugen wir 44T Tautliner-Pritschen (bis zu 32 Paletten). Für komplexe Zugänge, bei denen Hindernisse (Mauern, Hecken) überwunden werden müssen, bieten unsere Kranwagen eine Reichweite von bis zu 6 m. Schließlich werden Hebebühnen-Lkw für Standardlieferungen eingesetzt, die eine Bodenentladung erfordern.",
+      "nl": "Wij beschikken over een vloot die is aangepast aan B2B logistieke beperkingen. Voor grote volumes en locaties uitgerust met laaddocks geven we de voorkeur aan 44T Tautliner diepladers (tot 32 pallets). Voor complexe toegang waarover obstakels (muren, heggen) gepasseerd moeten worden, bieden onze kraanwagens een bereik tot 6m. Tot slot worden vrachtwagens met laadklep gebruikt voor standaardleveringen die lossen op de grond vereisen."
+    },
+    "category": "livraison"
+  },
+  {
+    "id": "q2",
+    "question": {
+      "fr": "Quels sont vos délais de livraison selon les zones ?",
+      "en": "What are your delivery times by zone?",
+      "de": "Wie sind Ihre Lieferzeiten je nach Zone?",
+      "nl": "Wat zijn uw levertijden per zone?"
+    },
+    "answer": {
+      "fr": "Nos délais de livraison dépendent de votre zone d'intervention. Si vous vous situez en Zone 1, la livraison est extrêmement rapide, effectuée généralement en J+1 ou J+2 après validation de la commande. Pour les secteurs relevant de la Zone 2, le délai logistique s'étend de J+3 à J+5. Ces délais permettent de garantir une planification optimale de nos tournées de transport.",
+      "en": "Our delivery times depend on your intervention zone. If you are located in Zone 1, delivery is extremely fast, generally completed in D+1 or D+2 after order validation. For areas falling under Zone 2, the logistical timeframe extends from D+3 to D+5. These timeframes allow us to guarantee optimal planning for our transport routes.",
+      "de": "Unsere Lieferzeiten hängen von Ihrer Interventionszone ab. Wenn Sie sich in Zone 1 befinden, erfolgt die Lieferung extrem schnell, in der Regel in T+1 oder T+2 nach Auftragsbestätigung. Für Gebiete der Zone 2 erstreckt sich der logistische Zeitrahmen von T+3 bis T+5. Diese Zeitrahmen ermöglichen es uns, eine optimale Planung unserer Transportwege zu gewährleisten.",
+      "nl": "Onze levertijden zijn afhankelijk van uw interventiezone. Als u zich in Zone 1 bevindt, is de levering extreem snel, over het algemeen voltooid in D+1 of D+2 na validatie van de bestelling. Voor gebieden die onder Zone 2 vallen, strekt de logistieke termijn zich uit van D+3 tot D+5. Deze termijnen stellen ons in staat om een optimale planning van onze transportroutes te garanderen."
+    },
+    "category": "livraison"
+  },
+  {
+    "id": "q3",
+    "question": {
+      "fr": "Y a-t-il des contraintes d'accès pour les camions à hayon ?",
+      "en": "Are there access constraints for tail-lift trucks?",
+      "de": "Gibt es Zugangsbeschränkungen für Hebebühnen-LKWs?",
+      "nl": "Zijn er toegangsbeperkingen voor vrachtwagens met laadklep?"
+    },
+    "answer": {
+      "fr": "Oui, la livraison par camion à hayon exige des caractéristiques d'accès spécifiques pour manœuvrer en toute sécurité. Votre site doit offrir une hauteur minimum de passage de 4,00 m et une largeur de portail d'au moins 3,50 m. De plus, le rayon de braquage du véhicule nécessite un espace de 12,0 m. Si ces conditions ne sont pas réunies, nous vous invitons à consulter nos experts pour envisager le porteur grue.",
+      "en": "Yes, delivery by tail-lift truck requires specific access characteristics to maneuver safely. Your site must offer a minimum clearance height of 4.00 m and a gate width of at least 3.50 m. In addition, the turning radius of the vehicle requires a space of 12.0 m. If these conditions are not met, we invite you to consult our experts to consider the crane truck.",
+      "de": "Ja, die Lieferung per Hebebühnen-Lkw erfordert spezifische Zugangsmerkmale, um sicher manövrieren zu können. Ihr Standort muss eine Mindestdurchfahrtshöhe von 4,00 m und eine Torbreite von mindestens 3,50 m bieten. Darüber hinaus erfordert der Wenderadius des Fahrzeugs einen Platz von 12,0 m. Wenn diese Bedingungen nicht erfüllt sind, laden wir Sie ein, sich an unsere Experten zu wenden, um den Kranwagen in Betracht zu ziehen.",
+      "nl": "Ja, levering met een vrachtwagen met laadklep vereist specifieke toegangskenmerken om veilig te kunnen manoeuvreren. Uw locatie moet een minimale doorrijhoogte van 4.00 m en een poortbreedte van minimaal 3.50 m bieden. Bovendien vereist de draaicirkel van het voertuig een ruimte van 12.0 m. Als niet aan deze voorwaarden wordt voldaan, nodigen wij u uit om onze experts te raadplegen om de kraanwagen te overwegen."
+    },
+    "category": "livraison"
+  },
+  {
+    "id": "q4",
+    "question": {
+      "fr": "Quelle est l'humidité garantie pour votre bois de chauffage ?",
+      "en": "What is the guaranteed moisture content for your firewood?",
+      "de": "Wie hoch ist die garantierte Feuchtigkeit für Ihr Brennholz?",
+      "nl": "Wat is het gegarandeerde vochtgehalte voor uw brandhout?"
+    },
+    "answer": {
+      "fr": "La qualité de notre bois de chauffage repose sur un séchage optimal. Conformément à notre politique de retour et de garantie, nous nous engageons strictement à fournir un bois étuvé dont le taux d'humidité est inférieur à 20%. Cette exigence vous garantit un pouvoir calorifique maximal et une combustion propre, limitant l'encrassement des installations thermiques.",
+      "en": "The quality of our firewood is based on optimal drying. In accordance with our return and guarantee policy, we are strictly committed to providing kiln-dried wood with a moisture content of less than 20%. This requirement guarantees you maximum calorific value and clean combustion, limiting the fouling of thermal installations.",
+      "de": "Die Qualität unseres Brennholzes beruht auf optimaler Trocknung. Gemäß unseren Rückgabe- und Garantierichtlinien verpflichten wir uns strikt, ofengetrocknetes Holz mit einem Feuchtigkeitsgehalt von weniger als 20% zu liefern. Diese Anforderung garantiert Ihnen einen maximalen Heizwert und eine saubere Verbrennung, wodurch die Verschmutzung thermischer Anlagen begrenzt wird.",
+      "nl": "De kwaliteit van ons brandhout is gebaseerd op optimale droging. In overeenstemming met ons retour- en garantiebeleid verplichten wij ons er strikt toe om ovengedroogd hout te leveren met een vochtgehalte van minder dan 20%. Deze eis garandeert u maximale calorische waarde en schone verbranding, waardoor de vervuiling van thermische installaties wordt beperkt."
+    },
+    "category": "qualite"
+  },
+  {
+    "id": "q5",
+    "question": {
+      "fr": "Comment obtenir un tarif personnalisé (devis) ?",
+      "en": "How to get a personalized quote?",
+      "de": "Wie erhalte ich ein personalisiertes Angebot?",
+      "nl": "Hoe krijg ik een gepersonaliseerde offerte?"
+    },
+    "answer": {
+      "fr": "Pour répondre aux exigences des professionnels, nous avons mis en place un processus de devis express B2B. Depuis notre page 'Devis', vous pouvez renseigner vos besoins spécifiques en termes d'essences, de conditionnement et de logistique. Notre équipe étudiera votre demande pour vous proposer un tarif sur-mesure et dégressif, valable pour vos commandes par palettes ou par camions complets.",
+      "en": "To meet the requirements of professionals, we have implemented an express B2B quote process. From our 'Quote' page, you can enter your specific needs in terms of species, packaging, and logistics. Our team will study your request to offer you a tailor-made and decreasing rate, valid for your orders by pallets or full trucks.",
+      "de": "Um den Anforderungen von Profis gerecht zu werden, haben wir einen Express-B2B-Angebotsprozess implementiert. Auf unserer 'Angebots'-Seite können Sie Ihre spezifischen Bedürfnisse hinsichtlich Holzarten, Verpackung und Logistik eingeben. Unser Team wird Ihre Anfrage prüfen, um Ihnen einen maßgeschneiderten und degressiven Tarif anzubieten, der für Ihre Bestellungen in Paletten oder kompletten Lkw gültig ist.",
+      "nl": "Om aan de eisen van professionals te voldoen, hebben we een express B2B-offerteproces geïmplementeerd. Vanaf onze 'Offerte'-pagina kunt u uw specifieke behoeften invullen op het gebied van soorten, verpakking en logistiek. Ons team zal uw aanvraag bestuderen om u een op maat gemaakt en degressief tarief aan te bieden, geldig voor uw bestellingen per pallet of volle vrachtwagen."
+    },
+    "category": "commande"
+  },
+  {
+    "id": "q6",
+    "question": {
+      "fr": "À qui s'adressent vos offres ?",
+      "en": "Who are your offers for?",
+      "de": "An wen richten sich Ihre Angebote?",
+      "nl": "Voor wie zijn uw aanbiedingen bedoeld?"
+    },
+    "answer": {
+      "fr": "Sotrams Bois agit en tant que grossiste B2B exclusif. Par conséquent, nos offres et nos tarifs préférentiels s'adressent uniquement aux acteurs professionnels. Cela inclut les revendeurs de bois énergie, les artisans paysagistes, les collectivités territoriales ainsi que les entreprises industrielles nécessitant de larges volumes de biomasse pour leur activité.",
+      "en": "Sotrams Bois acts as an exclusive B2B wholesaler. Consequently, our offers and preferential rates are strictly intended for professional players. This includes wood energy resellers, landscaping artisans, local authorities, and industrial companies requiring large volumes of biomass for their activity.",
+      "de": "Sotrams Bois agiert als exklusiver B2B-Großhändler. Daher richten sich unsere Angebote und Vorzugstarife ausschließlich an professionelle Akteure. Dazu gehören Holzenergie-Wiederverkäufer, Landschaftsbauunternehmen, lokale Gebietskörperschaften sowie Industrieunternehmen, die für ihre Tätigkeit große Mengen an Biomasse benötigen.",
+      "nl": "Sotrams Bois fungeert als exclusieve B2B-groothandel. Bijgevolg zijn onze aanbiedingen en voorkeurstarieven uitsluitend bedoeld voor professionele spelers. Dit omvat wederverkopers van houtenergie, hoveniers, lokale overheden en industriële bedrijven die grote hoeveelheden biomassa nodig hebben voor hun activiteiten."
+    },
+    "category": "commande"
+  },
+  {
+    "id": "q7",
+    "question": {
+      "fr": "Comment s'inscrire pour voir les tarifs ?",
+      "en": "How to register to see the prices?",
+      "de": "Wie melde ich mich an, um die Preise zu sehen?",
+      "nl": "Hoe registreer ik me om de prijzen te zien?"
+    },
+    "answer": {
+      "fr": "Afin de protéger notre politique tarifaire B2B, nos prix grossistes ne sont pas affichés publiquement. Vous devez créer un compte professionnel via notre page de Connexion/Inscription et fournir vos informations d'entreprise. Une fois votre compte validé, vous accéderez instantanément à l'ensemble du catalogue avec vos tarifs personnalisés.",
+      "en": "To protect our B2B pricing policy, our wholesale prices are not publicly displayed. You must create a professional account via our Login/Registration page and provide your company information. Once your account is validated, you will instantly access the entire catalog with your personalized rates.",
+      "de": "Um unsere B2B-Preispolitik zu schützen, werden unsere Großhandelspreise nicht öffentlich angezeigt. Sie müssen über unsere Anmelde-/Registrierungsseite ein professionelles Konto erstellen und Ihre Unternehmensdaten angeben. Sobald Ihr Konto validiert ist, haben Sie sofortigen Zugriff auf den gesamten Katalog mit Ihren personalisierten Tarifen.",
+      "nl": "Om ons B2B-prijsbeleid te beschermen, worden onze groothandelsprijzen niet openbaar weergegeven. U dient een professioneel account aan te maken via onze Inlog-/Registratiepagina en uw bedrijfsgegevens te verstrekken. Zodra uw account is gevalideerd, krijgt u direct toegang tot de volledige catalogus met uw gepersonaliseerde tarieven."
+    },
+    "category": "compte"
+  },
+  {
+    "id": "q8",
+    "question": {
+      "fr": "Dans quels pays êtes-vous implantés ?",
+      "en": "In which countries are you located?",
+      "de": "In welchen Ländern sind Sie vertreten?",
+      "nl": "In welke landen bent u gevestigd?"
+    },
+    "answer": {
+      "fr": "Nous avons bâti un réseau d'approvisionnement B2B robuste et étendu à travers le continent. Sotrams Bois est directement implanté et opérationnel dans 8 pays stratégiques d'Europe. Cela couvre la France, mais également des bassins forestiers majeurs comme la Pologne, la Lettonie, la Lituanie, la Roumanie, la Tchéquie, la Croatie et la Bosnie.",
+      "en": "We have built a robust and extensive B2B supply network across the continent. Sotrams Bois is directly established and operational in 8 strategic countries in Europe. This covers France, but also major forest basins such as Poland, Latvia, Lithuania, Romania, Czechia, Croatia, and Bosnia.",
+      "de": "Wir haben ein robustes und weitreichendes B2B-Versorgungsnetzwerk auf dem gesamten Kontinent aufgebaut. Sotrams Bois ist direkt in 8 strategischen Ländern in Europa etabliert und tätig. Dies umfasst Frankreich, aber auch wichtige Waldbecken wie Polen, Lettland, Litauen, Rumänien, Tschechien, Kroatien und Bosnien.",
+      "nl": "We hebben een robuust en uitgebreid B2B-leveringsnetwerk opgebouwd over het hele continent. Sotrams Bois is direct gevestigd en operationeel in 8 strategische landen in Europa. Dit omvat Frankrijk, maar ook belangrijke bosgebieden zoals Polen, Letland, Litouwen, Roemenië, Tsjechië, Kroatië en Bosnië."
+    },
+    "category": "logistique"
+  },
+  {
+    "id": "q9",
+    "question": {
+      "fr": "Combien de villes desservez-vous depuis vos dépôts ?",
+      "en": "How many cities do you serve from your depots?",
+      "de": "Wie viele Städte bedienen Sie von Ihren Depots aus?",
+      "nl": "Hoeveel steden bedient u vanuit uw depots?"
+    },
+    "answer": {
+      "fr": "Pour garantir une réactivité maximale sur le terrain, notre maillage logistique s'appuie sur de multiples dépôts. Nous opérons actuellement depuis 24 villes différentes réparties en Europe. Cette présence décentralisée nous permet de réduire les temps de transit et de sécuriser vos approvisionnements, même en période de forte demande hivernale.",
+      "en": "To guarantee maximum responsiveness in the field, our logistical network relies on multiple depots. We currently operate from 24 different cities spread across Europe. This decentralized presence allows us to reduce transit times and secure your supplies, even during periods of high winter demand.",
+      "de": "Um maximale Reaktionsfähigkeit vor Ort zu gewährleisten, stützt sich unser Logistiknetzwerk auf mehrere Depots. Wir operieren derzeit von 24 verschiedenen Städten aus, die über Europa verteilt sind. Diese dezentrale Präsenz ermöglicht es uns, die Transitzeiten zu reduzieren und Ihre Versorgung auch in Zeiten hoher Winternachfrage zu sichern.",
+      "nl": "Om maximale responsiviteit in het veld te garanderen, vertrouwt ons logistieke netwerk op meerdere depots. Momenteel opereren we vanuit 24 verschillende steden verspreid over Europa. Deze gedecentraliseerde aanwezigheid stelt ons in staat om de transittijden te verkorten en uw bevoorrading te beveiligen, zelfs tijdens periodes van grote vraag in de winter."
+    },
+    "category": "logistique"
+  },
+  {
+    "id": "q10",
+    "question": {
+      "fr": "Quels produits proposez-vous en gros ?",
+      "en": "What products do you offer wholesale?",
+      "de": "Welche Produkte bieten Sie im Großhandel an?",
+      "nl": "Welke producten biedt u groothandel aan?"
+    },
+    "answer": {
+      "fr": "Notre catalogue B2B est conçu pour couvrir l'ensemble des besoins thermiques professionnels. Nous vous proposons 5 gammes principales : les bûches de bois traditionnelles, les bûches de bois compressées, les briquettes, les granulés de bois (pellets), ainsi que du charbon et des allume-feu. Chaque gamme propose différents formats et essences.",
+      "en": "Our B2B catalog is designed to cover all professional thermal needs. We offer 5 main ranges: traditional firewood logs, compressed wood logs, briquettes, wood pellets, as well as charcoal and firelighters. Each range offers different formats and species.",
+      "de": "Unser B2B-Katalog ist darauf ausgelegt, alle professionellen thermischen Bedürfnisse abzudecken. Wir bieten 5 Hauptsortimente an: traditionelle Brennholzscheite, Holzbriketts, Briketts, Holzpellets sowie Holzkohle und Anzünder. Jedes Sortiment bietet verschiedene Formate und Holzarten.",
+      "nl": "Onze B2B-catalogus is ontworpen om aan alle professionele thermische behoeften te voldoen. Wij bieden 5 hoofdassortimenten: traditionele brandhoutblokken, geperste houtblokken, briketten, houtpellets, evenals houtskool en aanmaakblokjes. Elk assortiment biedt verschillende formaten en soorten."
+    },
+    "category": "qualite"
+  },
+  {
+    "id": "q11",
+    "question": {
+      "fr": "Puis-je commander au détail ?",
+      "en": "Can I order retail?",
+      "de": "Kann ich im Einzelhandel bestellen?",
+      "nl": "Kan ik particulier bestellen?"
+    },
+    "answer": {
+      "fr": "Non, notre modèle économique et logistique est strictement dédié aux achats en gros. En tant que grossiste, nous n'effectuons aucune vente au détail pour les particuliers. Toute commande sur notre plateforme doit obligatoirement atteindre la volumétrie d'une palette entière ou s'inscrire dans le cadre de l'affrètement de camions complets.",
+      "en": "No, our economic and logistical model is strictly dedicated to wholesale purchases. As a wholesaler, we do not make any retail sales to individuals. Any order on our platform must mandatorily reach the volume of a full pallet or be part of the chartering of full trucks.",
+      "de": "Nein, unser wirtschaftliches und logistisches Modell ist ausschließlich auf Großhandelskäufe ausgerichtet. Als Großhändler tätigen wir keine Einzelhandelsverkäufe an Privatpersonen. Jede Bestellung auf unserer Plattform muss zwingend das Volumen einer kompletten Palette erreichen oder Teil der Charterung kompletter Lkw sein.",
+      "nl": "Nee, ons economische en logistieke model is strikt gericht op groothandelsaankopen. Als groothandel doen wij geen detailverkopen aan particulieren. Elke bestelling op ons platform moet verplicht het volume van een volle pallet bereiken of deel uitmaken van de bevrachting van volle vrachtwagens."
+    },
+    "category": "commande"
+  },
+  {
+    "id": "q12",
+    "question": {
+      "fr": "Où puis-je consulter vos Conditions Générales de Vente ?",
+      "en": "Where can I consult your General Terms and Conditions of Sale?",
+      "de": "Wo kann ich Ihre Allgemeinen Geschäftsbedingungen einsehen?",
+      "nl": "Waar kan ik uw Algemene Verkoopvoorwaarden raadplegen?"
+    },
+    "answer": {
+      "fr": "La transparence juridique est primordiale dans nos relations commerciales. Nos Conditions Générales de Vente (CGV) sont consultables librement à tout instant. Vous trouverez le lien hypertexte direct dans le pied de page de chaque écran du site. Elles détaillent de manière exhaustive nos politiques de tarification, de livraison et de litige.",
+      "en": "Legal transparency is paramount in our commercial relations. Our General Terms and Conditions of Sale (GTC) can be consulted freely at any time. You will find the direct hyperlink in the footer of every screen of the site. They detail exhaustively our pricing, delivery, and dispute policies.",
+      "de": "Rechtliche Transparenz ist in unseren Geschäftsbeziehungen von größter Bedeutung. Unsere Allgemeinen Geschäftsbedingungen (AGB) sind jederzeit frei einsehbar. Den direkten Hyperlink finden Sie in der Fußzeile jedes Bildschirms der Website. Sie detaillieren erschöpfend unsere Preis-, Liefer- und Streitbeilegungsrichtlinien.",
+      "nl": "Juridische transparantie is van het grootste belang in onze commerciële relaties. Onze Algemene Verkoopvoorwaarden (AVV) zijn te allen tijde vrij te raadplegen. U vindt de directe hyperlink in de voettekst van elk scherm van de site. Ze detailleren uitputtend ons prijs-, leverings- en geschillenbeleid."
+    },
+    "category": "retours"
+  },
+  {
+    "id": "q13",
+    "question": {
+      "fr": "Que faire en cas de non-conformité de la livraison ?",
+      "en": "What to do in case of non-compliance of the delivery?",
+      "de": "Was tun bei Nichtübereinstimmung der Lieferung?",
+      "nl": "Wat te doen bij niet-naleving van de levering?"
+    },
+    "answer": {
+      "fr": "En cas d'anomalie constatée à la réception de votre marchandise, la procédure est encadrée par notre Politique de Retour B2B. Vous devez émettre des réserves caractérisées sur le bon de livraison du transporteur. Ensuite, signalez-nous la non-conformité (humidité excessive, casse) sous 48h afin d'activer notre garantie de conformité professionnelle.",
+      "en": "In the event of an anomaly noted upon receipt of your goods, the procedure is governed by our B2B Return Policy. You must issue specific reservations on the carrier's delivery note. Then, report the non-compliance (excessive moisture, breakage) to us within 48 hours to activate our professional compliance warranty.",
+      "de": "Im Falle einer Anomalie, die bei Erhalt Ihrer Ware festgestellt wird, wird das Verfahren durch unsere B2B-Rückgaberichtlinien geregelt. Sie müssen auf dem Lieferschein des Spediteurs spezifische Vorbehalte geltend machen. Melden Sie uns dann die Nichtübereinstimmung (übermäßige Feuchtigkeit, Bruch) innerhalb von 48 Stunden, um unsere professionelle Konformitätsgarantie zu aktivieren.",
+      "nl": "In geval van een anomalie geconstateerd bij ontvangst van uw goederen, wordt de procedure geregeld door ons B2B Retourbeleid. U dient specifieke voorbehouden te maken op de leveringsbon van de vervoerder. Meld de niet-naleving (overmatig vocht, breuk) vervolgens binnen 48 uur aan ons om onze professionele conformiteitsgarantie te activeren."
+    },
+    "category": "retours"
+  },
+  {
+    "id": "q14",
+    "question": {
+      "fr": "Vos prix incluent-ils la livraison ?",
+      "en": "Do your prices include delivery?",
+      "de": "Beinhalten Ihre Preise die Lieferung?",
+      "nl": "Zijn uw prijzen inclusief levering?"
+    },
+    "answer": {
+      "fr": "Nos grilles tarifaires de base s'entendent hors frais de transport, car la logistique B2B est hautement variable. Les coûts d'acheminement fluctuent selon le volume commandé (de la palette au camion complet) et le code postal de destination. Nous vous recommandons de générer un devis ou d'utiliser le calculateur de votre panier pour visualiser le coût total incluant la livraison.",
+      "en": "Our basic price grids do not include transport costs, as B2B logistics is highly variable. Shipping costs fluctuate depending on the volume ordered (from pallet to full truck) and the destination postal code. We recommend generating a quote or using the calculator in your cart to view the total cost including delivery.",
+      "de": "Unsere Basispreislisten verstehen sich ohne Transportkosten, da die B2B-Logistik sehr variabel ist. Die Versandkosten schwanken je nach bestelltem Volumen (von der Palette bis zum kompletten Lkw) und der Postleitzahl des Bestimmungsortes. Wir empfehlen Ihnen, ein Angebot zu erstellen oder den Rechner in Ihrem Warenkorb zu verwenden, um die Gesamtkosten einschließlich Lieferung anzuzeigen.",
+      "nl": "Onze basisprijslijsten zijn exclusief transportkosten, aangezien de B2B-logistiek zeer variabel is. De verzendkosten fluctueren afhankelijk van het bestelde volume (van pallet tot volle vrachtwagen) en de postcode van bestemming. Wij raden u aan een offerte te genereren of de calculator in uw winkelwagen te gebruiken om de totale kosten inclusief levering te bekijken."
+    },
+    "category": "livraison"
+  },
+  {
+    "id": "q15",
+    "question": {
+      "fr": "Fournissez-vous des informations techniques sur les produits ?",
+      "en": "Do you provide technical information on products?",
+      "de": "Bieten Sie technische Informationen zu Produkten an?",
+      "nl": "Biedt u technische informatie over producten?"
+    },
+    "answer": {
+      "fr": "Absolument. Nous mettons un point d'honneur à fournir des fiches techniques détaillées pour aider les professionnels dans leurs choix. Sur chaque page catalogue, vous retrouverez l'essence du bois, le pouvoir calorifique (PCI), le format exact des bûches ou briquettes, le taux d'humidité certifié, ainsi que les spécifications précises de conditionnement.",
+      "en": "Absolutely. We make it a point of honor to provide detailed technical sheets to help professionals in their choices. On each catalog page, you will find the wood species, the calorific value (NCV), the exact format of the logs or briquettes, the certified moisture content, as well as precise packaging specifications.",
+      "de": "Absolut. Wir legen großen Wert darauf, detaillierte technische Datenblätter zur Verfügung zu stellen, um Fachleuten bei ihrer Auswahl zu helfen. Auf jeder Katalogseite finden Sie die Holzart, den Heizwert (Hu), das genaue Format der Scheite oder Briketts, den zertifizierten Feuchtigkeitsgehalt sowie genaue Verpackungsspezifikationen.",
+      "nl": "Absoluut. Wij maken er een erezaak van om gedetailleerde technische fiches te verstrekken om professionals te helpen bij hun keuzes. Op elke cataloguspagina vindt u de houtsoort, de calorische waarde (stookwaarde), het exacte formaat van de blokken of briketten, het gecertificeerde vochtgehalte, evenals nauwkeurige verpakkingsspecificaties."
+    },
+    "category": "qualite"
+  },
+  {
+    "id": "q16",
+    "question": {
+      "fr": "Proposez-vous du bois mi-sec ?",
+      "en": "Do you offer semi-dry wood?",
+      "de": "Bieten Sie halbtrockenes Holz an?",
+      "nl": "Biedt u halfdroog hout aan?"
+    },
+    "answer": {
+      "fr": "Oui, notre volonté est de couvrir l'intégralité du spectre des besoins énergétiques. Ainsi, notre catalogue inclut différents niveaux de séchage. Outre le bois étuvé premium (<20%), nous proposons du bois sec à l'air naturel, ainsi que du bois demi-sec. Ce dernier est idéal pour les clients professionnels capables de stocker la marchandise quelques mois avant la saison de chauffe.",
+      "en": "Yes, our desire is to cover the entire spectrum of energy needs. Thus, our catalog includes different drying levels. In addition to premium kiln-dried wood (<20%), we offer natural air-dried wood, as well as semi-dry wood. The latter is ideal for professional customers capable of storing the goods a few months before the heating season.",
+      "de": "Ja, unser Wunsch ist es, das gesamte Spektrum des Energiebedarfs abzudecken. So umfasst unser Katalog verschiedene Trocknungsstufen. Neben ofengetrocknetem Premium-Holz (<20%) bieten wir natürlich luftgetrocknetes Holz sowie halbtrockenes Holz an. Letzteres ist ideal für professionelle Kunden, die die Ware einige Monate vor der Heizperiode lagern können.",
+      "nl": "Ja, onze wens is om het hele spectrum van energiebehoeften te dekken. Zo bevat onze catalogus verschillende drogingsniveaus. Naast premium ovengedroogd hout (<20%), bieden wij natuurlijk luchtgedroogd hout, evenals halfdroog hout. Dit laatste is ideaal voor professionele klanten die in staat zijn om de goederen een paar maanden voor het stookseizoen op te slaan."
+    },
+    "category": "qualite"
+  },
+  {
+    "id": "q17",
+    "question": {
+      "fr": "Comment puis-je suivre l'état de ma commande ?",
+      "en": "How can I track my order status?",
+      "de": "Wie kann ich den Status meiner Bestellung verfolgen?",
+      "nl": "Hoe kan ik de status van mijn bestelling volgen?"
+    },
+    "answer": {
+      "fr": "Le suivi rigoureux des acheminements est une priorité de notre service client B2B. Une fois authentifié sur votre Espace Client Sécurisé, un onglet dédié vous permet de suivre l'évolution de chaque commande passée. Vous y retrouvez les statuts de validation, d'expédition, ainsi que les historiques de vos achats antérieurs pour faciliter votre comptabilité.",
+      "en": "The rigorous tracking of shipments is a priority of our B2B customer service. Once authenticated on your Secure Customer Space, a dedicated tab allows you to follow the progress of each order placed. You will find the validation and shipping statuses there, as well as the history of your previous purchases to facilitate your accounting.",
+      "de": "Die strikte Verfolgung von Sendungen hat für unseren B2B-Kundenservice Priorität. Nach der Authentifizierung in Ihrem sicheren Kundenbereich können Sie auf einer speziellen Registerkarte den Fortschritt jeder aufgegebenen Bestellung verfolgen. Dort finden Sie die Validierungs- und Versandstatus sowie die Historie Ihrer früheren Einkäufe, um Ihre Buchhaltung zu erleichtern.",
+      "nl": "Het strikt volgen van zendingen is een prioriteit van onze B2B-klantenservice. Na authenticatie in uw Beveiligde Klantenruimte, kunt u via een speciaal tabblad de voortgang van elke geplaatste bestelling volgen. U vindt er de validatie- en verzendstatussen, evenals de geschiedenis van uw eerdere aankopen om uw boekhouding te vergemakkelijken."
+    },
+    "category": "compte"
+  },
+  {
+    "id": "q18",
+    "question": {
+      "fr": "Y a-t-il des remises pour les très gros volumes ?",
+      "en": "Are there discounts for very large volumes?",
+      "de": "Gibt es Rabatte für sehr große Volumina?",
+      "nl": "Zijn er kortingen voor zeer grote volumes?"
+    },
+    "answer": {
+      "fr": "Pour soutenir le développement de nos clients B2B, nous appliquons une politique de tarification avantageuse basée sur le volume. Notre système de facturation intègre automatiquement une grille de remises dégressives. Plus le nombre de palettes commandées simultanément est élevé, plus le tarif unitaire baisse, optimisant ainsi votre marge commerciale.",
+      "en": "To support the development of our B2B customers, we apply an advantageous pricing policy based on volume. Our billing system automatically integrates a sliding discount scale. The higher the number of pallets ordered simultaneously, the lower the unit price, thus optimizing your commercial margin.",
+      "de": "Zur Unterstützung der Entwicklung unserer B2B-Kunden wenden wir eine vorteilhafte Preispolitik auf der Grundlage des Volumens an. Unser Abrechnungssystem integriert automatisch eine degressive Rabattstaffel. Je höher die Anzahl der gleichzeitig bestellten Paletten, desto niedriger der Stückpreis, wodurch Ihre Handelsspanne optimiert wird.",
+      "nl": "Om de ontwikkeling van onze B2B-klanten te ondersteunen, passen wij een voordelig prijsbeleid toe op basis van volume. Ons factureringssysteem integreert automatisch een glijdende kortingsschaal. Hoe hoger het aantal tegelijkertijd bestelde pallets, hoe lager de stukprijs, waardoor uw commerciële marge wordt geoptimaliseerd."
+    },
+    "category": "commande"
+  },
+  {
+    "id": "q19",
+    "question": {
+      "fr": "Que faire si j'ai besoin d'informations commerciales supplémentaires ?",
+      "en": "What if I need additional commercial information?",
+      "de": "Was, wenn ich zusätzliche kommerzielle Informationen benötige?",
+      "nl": "Wat als ik aanvullende commerciële informatie nodig heb?"
+    },
+    "answer": {
+      "fr": "L'accompagnement technique et commercial fait partie intégrante de notre offre grossiste. Si les fiches produits ne suffisent pas, nos conseillers spécialisés et thermiciens sont à votre entière disposition. Il vous suffit d'utiliser les formulaires ou coordonnées de la page Contact pour être rappelé et obtenir une expertise personnalisée sur nos solutions biomasse.",
+      "en": "Technical and commercial support is an integral part of our wholesale offer. If the product sheets are not enough, our specialized advisors and thermal experts are entirely at your disposal. Simply use the forms or contact details on the Contact page to be called back and receive personalized expertise on our biomass solutions.",
+      "de": "Die technische und kaufmännische Betreuung ist ein wesentlicher Bestandteil unseres Großhandelsangebots. Sollten die Produktdatenblätter nicht ausreichen, stehen Ihnen unsere spezialisierten Berater und Wärmetechniker uneingeschränkt zur Verfügung. Nutzen Sie einfach die Formulare oder Kontaktdaten auf der Kontaktseite, um zurückgerufen zu werden und eine personalisierte Expertise zu unseren Biomasselösungen zu erhalten.",
+      "nl": "De technische en commerciële ondersteuning is een integraal onderdeel van ons groothandelsaanbod. Mochten de productfiches niet volstaan, dan staan onze gespecialiseerde adviseurs en thermische experts volledig tot uw beschikking. Gebruik eenvoudig de formulieren of contactgegevens op de Contactpagina om teruggebeld te worden en gepersonaliseerde expertise te ontvangen over onze biomassatoplossingen."
+    },
+    "category": "compte"
+  },
+  {
+    "id": "q20",
+    "question": {
+      "fr": "Les données de mon entreprise sont-elles sécurisées ?",
+      "en": "Is my company data secure?",
+      "de": "Sind meine Unternehmensdaten sicher?",
+      "nl": "Zijn mijn bedrijfsgegevens veilig?"
+    },
+    "answer": {
+      "fr": "La sécurité des informations de nos partenaires professionnels est garantie. Conformément à notre Politique de Confidentialité stricte et en vertu de la réglementation RGPD, toutes vos données (coordonnées, historiques d'achat, moyens de paiement) sont chiffrées et protégées. Nous ne revendons jamais vos informations à des acteurs tiers.",
+      "en": "The security of our professional partners' information is guaranteed. In accordance with our strict Privacy Policy and under the GDPR regulations, all your data (contact details, purchase histories, payment methods) are encrypted and protected. We never resell your information to third parties.",
+      "de": "Die Sicherheit der Informationen unserer professionellen Partner ist garantiert. In Übereinstimmung mit unserer strengen Datenschutzrichtlinie und gemäß den DSGVO-Bestimmungen werden alle Ihre Daten (Kontaktdaten, Kaufhistorien, Zahlungsmittel) verschlüsselt und geschützt. Wir verkaufen Ihre Daten niemals an Dritte weiter.",
+      "nl": "De veiligheid van de informatie van onze professionele partners is gegarandeerd. In overeenstemming met ons strikte Privacybeleid en krachtens de AVG-regelgeving, worden al uw gegevens (contactgegevens, aankoopgeschiedenissen, betaalmiddelen) versleuteld en beschermd. Wij verkopen uw gegevens nooit door aan derden."
+    },
+    "category": "compte"
+  },
+  {
+    "id": "q21",
+    "category": "qualite",
+    "question": {
+      "fr": "Quel est le taux d'humidité de ce bois ?",
+      "en": "What is the moisture content of this wood?",
+      "de": "Wie hoch ist der Feuchtigkeitsgehalt dieses Holzes?",
+      "nl": "Wat is het vochtgehalte van dit hout?"
+    },
+    "answer": {
+      "fr": "La qualité de notre bois de chauffage repose sur un séchage optimal. Nous nous engageons à fournir un bois étuvé premium dont le taux d'humidité est certifié inférieur à 20%. Cette faible humidité garantit un pouvoir calorifique (PCI) maximal et assure une combustion propre qui limite l'encrassement de vos installations thermiques professionnelles.",
+      "en": "The quality of our firewood is based on optimal drying. We are committed to providing premium kiln-dried wood with a certified moisture content of less than 20%. This low moisture guarantees maximum calorific value (NCV) and ensures clean combustion that limits the fouling of your professional thermal installations.",
+      "de": "Die Qualität unseres Brennholzes beruht auf einer optimalen Trocknung. Wir verpflichten uns, hochwertiges kammergetrocknetes Holz mit einem zertifizierten Feuchtigkeitsgehalt von weniger als 20% zu liefern. Diese geringe Feuchtigkeit garantiert einen maximalen Heizwert (Hu) und sorgt für eine saubere Verbrennung, die die Verschmutzung Ihrer professionellen thermischen Anlagen minimiert.",
+      "nl": "De kwaliteit van ons brandhout is gebaseerd op een optimale droging. Wij streven ernaar premium ovengedroogd hout te leveren met een gecertificeerd vochtgehalte van minder dan 20%. Dit lage vochtgehalte garandeert een maximale stookwaarde en zorgt voor een schone verbranding die vervuiling van uw professionele thermische installaties beperkt."
+    }
+  },
+  {
+    "id": "q22",
+    "category": "qualite",
+    "question": {
+      "fr": "Quelle longueur de bûche choisir ?",
+      "en": "Which log length to choose?",
+      "de": "Welche Scheitlänge soll ich wählen?",
+      "nl": "Welke lengte houtblok moet ik kiezen?"
+    },
+    "answer": {
+      "fr": "Le choix de la longueur dépend directement de la taille de votre foyer ou de votre installation industrielle. Notre catalogue propose généralement plusieurs formats standards (25cm, 33cm, 50cm). Nous vous conseillons de vérifier les dimensions de votre chambre de combustion. Un format adapté permet de maximiser le rendement et de limiter les manipulations.",
+      "en": "The choice of length depends directly on the size of your fireplace or industrial installation. Our catalog generally offers several standard formats (25cm, 33cm, 50cm). We advise you to check the dimensions of your combustion chamber. An adapted format maximizes efficiency and limits handling.",
+      "de": "Die Wahl der Länge hängt direkt von der Größe Ihres Kamins oder Ihrer Industrieanlage ab. Unser Katalog bietet in der Regel verschiedene Standardformate (25cm, 33cm, 50cm). Wir empfehlen Ihnen, die Abmessungen Ihrer Brennkammer zu überprüfen. Ein angepasstes Format maximiert die Effizienz und begrenzt die Handhabung.",
+      "nl": "De keuze van de lengte hangt direct af van de grootte van uw haard of industriële installatie. Onze catalogus biedt over het algemeen verschillende standaardformaten (25cm, 33cm, 50cm). Wij adviseren u om de afmetingen van uw verbrandingskamer te controleren. Een aangepast formaat maximaliseert de efficiëntie en beperkt de manipulatie."
+    }
+  },
+  {
+    "id": "q23",
+    "category": "commande",
+    "question": {
+      "fr": "Le produit est-il disponible en palette ?",
+      "en": "Is the product available on a pallet?",
+      "de": "Ist das Produkt auf einer Palette erhältlich?",
+      "nl": "Is het product op een pallet verkrijgbaar?"
+    },
+    "answer": {
+      "fr": "Oui, tous nos produits bois énergie sont systématiquement conditionnés sur palettes pour répondre aux exigences logistiques B2B. Ce conditionnement sécurisé facilite le déchargement au transpalette ou au chariot élévateur et optimise le stockage dans vos entrepôts. Les spécifications exactes de chaque palette sont disponibles sur les fiches produits.",
+      "en": "Yes, all our wood energy products are systematically packaged on pallets to meet B2B logistical requirements. This secure packaging facilitates unloading with a pallet truck or forklift and optimizes storage in your warehouses. The exact specifications of each pallet are available on the product sheets.",
+      "de": "Ja, alle unsere Holzenergieprodukte werden systematisch auf Paletten verpackt, um den logistischen B2B-Anforderungen gerecht zu werden. Diese sichere Verpackung erleichtert das Entladen mit Hubwagen oder Gabelstapler und optimiert die Lagerung in Ihren Hallen. Die genauen Spezifikationen jeder Palette finden Sie auf den Produktdatenblättern.",
+      "nl": "Ja, al onze houtenergieproducten worden systematisch op pallets verpakt om te voldoen aan de logistieke B2B-vereisten. Deze veilige verpakking vergemakkelijkt het lossen met een pompwagen of heftruck en optimaliseert de opslag in uw magazijnen. De exacte specificaties van elke pallet zijn beschikbaar op de productfiches."
+    }
+  },
+  {
+    "id": "q24",
+    "category": "commande",
+    "question": {
+      "fr": "Quelle quantité peut être commandée ?",
+      "en": "What quantity can be ordered?",
+      "de": "Welche Menge kann bestellt werden?",
+      "nl": "Welke hoeveelheid kan besteld worden?"
+    },
+    "answer": {
+      "fr": "Sotrams Bois agit exclusivement en tant que grossiste B2B. Par conséquent, la quantité minimale de commande sur notre plateforme correspond au volume d'une palette complète. Pour les besoins industriels plus importants, vous pouvez commander plusieurs dizaines de palettes simultanément ou demander l'affrètement de camions complets pour bénéficier de nos tarifs dégressifs.",
+      "en": "Sotrams Bois acts exclusively as a B2B wholesaler. Therefore, the minimum order quantity on our platform corresponds to the volume of a full pallet. For larger industrial needs, you can order several dozen pallets simultaneously or request the chartering of full trucks to benefit from our sliding scale prices.",
+      "de": "Sotrams Bois agiert ausschließlich als B2B-Großhändler. Daher entspricht die Mindestbestellmenge auf unserer Plattform dem Volumen einer kompletten Palette. Für größere industrielle Anforderungen können Sie mehrere Dutzend Paletten gleichzeitig bestellen oder die Charterung von kompletten Lkw anfordern, um von unseren gestaffelten Preisen zu profitieren.",
+      "nl": "Sotrams Bois treedt uitsluitend op als B2B-groothandel. Daarom komt de minimale bestelhoeveelheid op ons platform overeen met het volume van een volle pallet. Voor grotere industriële behoeften kunt u tientallen pallets tegelijk bestellen of de bevrachting van volle vrachtwagens aanvragen om te profiteren van onze kwantumkortingen."
+    }
+  }
+]

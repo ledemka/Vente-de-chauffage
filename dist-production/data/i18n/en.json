@@ -10,11 +10,12 @@
     "guide": "Buying Guide",
     "quote": "Quote",
     "returns": "Return Policy",
-    "blog": "Blog",
+    "blog": "BLOG",
     "contact": "Contact",
     "depots": "Warehouses",
     "prev": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "faq": "FAQ"
   },
   "categories": {
     "1": "Firewood Logs",

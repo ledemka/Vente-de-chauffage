@@ -10,11 +10,12 @@
     "guide": "Keuzehulp",
     "quote": "Offerte",
     "returns": "Retourbeleid",
-    "blog": "Blog",
+    "blog": "BLOG",
     "contact": "Contact",
     "depots": "Magazijnen",
     "prev": "Vorige",
-    "next": "Volgende"
+    "next": "Volgende",
+    "faq": "FAQ"
   },
   "categories": {
     "1": "Houtblokken",

@@ -10,11 +10,12 @@
     "guide": "Ratgeber",
     "quote": "Angebot",
     "returns": "Rückgaberecht",
-    "blog": "Blog",
+    "blog": "BLOG",
     "contact": "Kontakt",
     "depots": "Lager",
     "prev": "Zurück",
-    "next": "Weiter"
+    "next": "Weiter",
+    "faq": "FAQ"
   },
   "categories": {
     "1": "Brennholzscheite",
