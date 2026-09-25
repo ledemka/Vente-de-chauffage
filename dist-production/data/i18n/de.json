@@ -753,7 +753,8 @@
     "copyright_laws": "Die gesamte Website unterliegt der französischen und internationalen Gesetzgebung zu Urheberrecht und geistigem Eigentum. Alle Vervielfältigungsrechte sind vorbehalten, einschließlich für herunterladbare Dokumente sowie ikonografische und fotografische Darstellungen.",
     "dpo_contact_1": "Um diese Rechte auszuüben, können Sie unseren Datenschutzbeauftragten (DPO) per E-Mail kontaktieren unter",
     "dpo_contact_2": "oder per Post an die Adresse des Hauptsitzes unter Beifügung einer Kopie eines Ausweisdokuments.",
-    "dpo_email": "[E-Mail des Datenschutzbeauftragten noch zu ergänzen]"
+    "dpo_email": "[E-Mail des Datenschutzbeauftragten noch zu ergänzen]",
+    "hebergement_description": "Die sotramsbois-Website wird sicher und umweltfreundlich gehostet. Die Server befinden sich in Europa und gewährleisten die strikte Einhaltung der DSGVO."
   },
   "privacy": {
     "right_erasure_desc": "Die Löschung Ihrer Daten verlangen („Recht auf Vergessenwerden\") innerhalb der gesetzlichen Grenzen.",

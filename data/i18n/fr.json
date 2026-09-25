@@ -753,7 +753,8 @@
     "copyright_laws": "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.",
     "dpo_contact_1": "Pour exercer ces droits, vous pouvez contacter notre Délégué à la Protection des Données (DPO) par email à",
     "dpo_contact_2": "ou par courrier à l'adresse du siège social en joignant une copie d'un titre d'identité.",
-    "dpo_email": "[Email du DPO à compléter]"
+    "dpo_email": "[Email du DPO à compléter]",
+    "hebergement_description": "Le site sotramsbois est hébergé de manière sécurisée et éco-responsable. Les serveurs sont localisés sur le territoire européen, garantissant le respect strict du RGPD."
   },
   "privacy": {
     "right_erasure_desc": "Exiger la suppression de vos données (\"droit à l'oubli\") dans les limites légales.",

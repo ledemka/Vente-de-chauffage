@@ -753,7 +753,8 @@
     "copyright_laws": "The entire site is subject to French and international legislation on copyright and intellectual property. All reproduction rights are reserved, including for downloadable documents and iconographic and photographic representations.",
     "dpo_contact_1": "To exercise these rights, you can contact our Data Protection Officer (DPO) by email at",
     "dpo_contact_2": "or by mail at the head office address enclosing a copy of an identity document.",
-    "dpo_email": "[DPO email to be completed]"
+    "dpo_email": "[DPO email to be completed]",
+    "hebergement_description": "The sotramsbois site is hosted in a secure and eco-responsible manner. The servers are located in Europe, ensuring strict compliance with the GDPR."
   },
   "privacy": {
     "right_erasure_desc": "Require the deletion of your data (\"right to be forgotten\") within legal limits.",

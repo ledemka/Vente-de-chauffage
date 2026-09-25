@@ -140,8 +140,7 @@ for (const file of files) {
             const text = $(this).text().trim();
             // Basic heuristics to find hardcoded French text
             if (text.length > 3 && /[éèàçùêâôîû]/.test(text) && !$(el).closest('[data-i18n], [data-i18n-html]').length) {
-                // Ignore some known exceptions
-                if (text.includes('sotramsbois') || text.includes('Conteneur') || text.includes('€') || 
+                if ((text.toLowerCase() === 'sotramsbois') || (text.includes('sotramsbois') && text.length < 20) || text.includes('€') || 
                     ['Français', 'English', 'Deutsch', 'Nederlands', 'Palettes Bûches 33cm'].includes(text)) {
                     return;
                 }
