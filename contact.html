@@ -268,6 +268,17 @@
                     close.addEventListener('click', () => drawer.classList.add('hidden'));
                 }
 
+                // Pre-fill form if user is logged in
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (user) {
+                    if (user.societe && document.getElementById('societe')) document.getElementById('societe').value = user.societe;
+                    if (user.siret && document.getElementById('siret')) document.getElementById('siret').value = user.siret;
+                    if (user.nom && document.getElementById('nom')) document.getElementById('nom').value = user.nom;
+                    if (user.prenom && user.nom && document.getElementById('nom')) document.getElementById('nom').value = user.prenom + ' ' + user.nom;
+                    if (user.email && document.getElementById('email')) document.getElementById('email').value = user.email;
+                    if (user.telephone && document.getElementById('telephone')) document.getElementById('telephone').value = user.telephone;
+                }
+
                 // Form submission logic
                 const form = document.getElementById('contactForm');
                 if (form) {
