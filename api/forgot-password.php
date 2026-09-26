@@ -32,19 +32,19 @@ try {
     $pdo = $db->getConnection();
     if ($pdo) {
         $pdo->exec("
-            CREATE TABLE IF NOT EXISTS contact_attempts (
+            CREATE TABLE IF NOT EXISTS password_reset_attempts (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 ip_address VARCHAR(45) NOT NULL,
                 attempt_time DATETIME NOT NULL
             )
         ");
-        $pdo->exec("DELETE FROM contact_attempts WHERE attempt_time < DATE_SUB(NOW(), INTERVAL 1 HOUR)");
+        $pdo->exec("DELETE FROM password_reset_attempts WHERE attempt_time < DATE_SUB(NOW(), INTERVAL 1 HOUR)");
 
-        $stmt = $pdo->prepare("SELECT COUNT(*) FROM contact_attempts WHERE ip_address = ?");
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM password_reset_attempts WHERE ip_address = ?");
         if ($stmt) {
             $stmt->execute([$ipAddress]);
             $attempts = (int)$stmt->fetchColumn();
-            if ($attempts >= 3) {
+            if ($attempts >= 5) {
                 respondError(429, "Trop de demandes. Veuillez réessayer plus tard.");
             }
         }
@@ -55,7 +55,7 @@ try {
 
 if ($pdo) {
     try {
-        $stmt = $pdo->prepare("INSERT INTO contact_attempts (ip_address, attempt_time) VALUES (?, NOW())");
+        $stmt = $pdo->prepare("INSERT INTO password_reset_attempts (ip_address, attempt_time) VALUES (?, NOW())");
         if ($stmt) $stmt->execute([$ipAddress]);
     } catch (Throwable $e) {}
 }
