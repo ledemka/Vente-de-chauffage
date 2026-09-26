@@ -60,7 +60,7 @@ const META_DESC_TEMPLATE = {
     nl: (name, kw, mat, fmt, price) => price > 0 ? `${kw}. ${name} (${mat}, ${fmt}) voor professionals. Verkoopprijs: ${price}€ incl. btw. Ideaal voor zakelijke kopers.` : `${kw}. ${name} (${mat}, ${fmt}) voor professionals. Ideaal voor zakelijke kopers.`,
 };
 
-function buildProducts() {
+function buildProducts(buildId) {
     console.log('=== Building Product Static Pages ===');
     const productsJson = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'data/products.json'), 'utf8'));
     const srcHtml = fs.readFileSync(path.join(ROOT_DIR, 'produit.html'), 'utf8');
@@ -69,6 +69,11 @@ function buildProducts() {
     LANGS.forEach(lang => {
         productsJson.forEach(product => {
             let content = srcHtml;
+            
+            // Add cache-busting to JS assets
+            if (buildId) {
+                content = content.replace(/(src=(['"])[^"']*assets\/js\/[^"']+\.js)\2/g, `$1?v=${buildId}$2`);
+            }
             
             // 1. Base i18n translation from post_process_seo
             content = processSeo(content, lang, 'produit.html');

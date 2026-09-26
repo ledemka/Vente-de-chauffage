@@ -40,7 +40,8 @@ function copyRecursiveSync(src, dest) {
     }
 }
 
-console.log('=== BUILD START: Packaging to dist-production ===');
+const BUILD_ID = Date.now();
+console.log(`=== BUILD START: Packaging to dist-production (BUILD_ID: ${BUILD_ID}) ===`);
 
 if (fs.existsSync(DIST_DIR)) {
     fs.rmSync(DIST_DIR, { recursive: true, force: true });
@@ -88,11 +89,14 @@ LANGS.forEach(lang => {
         if (fs.existsSync(srcPath)) {
             fs.mkdirSync(path.dirname(distPath), { recursive: true });
             
+            let content = fs.readFileSync(srcPath, 'utf8');
+            
+            // Add cache-busting to JS assets
+            content = content.replace(/(src=(['"])[^"']*assets\/js\/[^"']+\.js)\2/g, `$1?v=${BUILD_ID}$2`);
+
             if (lang === 'fr') {
-                fs.writeFileSync(distPath, processSeo(fs.readFileSync(srcPath, 'utf8'), 'fr', page));
+                fs.writeFileSync(distPath, processSeo(content, 'fr', page));
             } else {
-                let content = fs.readFileSync(srcPath, 'utf8');
-                
                 // 1. Replace <html lang="fr"
                 content = content.replace(/<html[^>]*lang="[^"]*"[^>]*>/i, (match) => {
                     return match.replace(/lang="[^"]*"/i, `lang="${lang}"`);
@@ -129,6 +133,6 @@ LANGS.forEach(lang => {
 });
 
 const { buildProducts } = require('./build_products');
-buildProducts();
+buildProducts(BUILD_ID);
 
 console.log(`\n=== BUILD COMPLETE: ${totalCopied} HTML files deployed to dist-production/ ===`);
