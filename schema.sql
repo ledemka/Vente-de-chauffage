@@ -33,6 +33,8 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `is_active` tinyint(1) NOT NULL DEFAULT '0',
   `activation_token` varchar(64) DEFAULT NULL,
   `token_expires_at` datetime DEFAULT NULL,
+  `reset_token` varchar(64) DEFAULT NULL,
+  `reset_token_expires_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -134,6 +136,30 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 -- Table structure for table `contact_attempts`
 --
 CREATE TABLE IF NOT EXISTS `contact_attempts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(45) NOT NULL,
+  `attempt_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_reset_attempts`
+--
+CREATE TABLE IF NOT EXISTS `password_reset_attempts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(45) NOT NULL,
+  `attempt_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `activation_attempts`
+--
+CREATE TABLE IF NOT EXISTS `activation_attempts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ip_address` varchar(45) NOT NULL,
   `attempt_time` datetime NOT NULL,
