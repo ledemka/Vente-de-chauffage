@@ -17,9 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' && $_SERVER['REQUEST_METHOD'] !== 'GET
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!verifyCsrfToken()) {
-        respondError(403, 'Invalid CSRF token.');
-    }
 }
 
 

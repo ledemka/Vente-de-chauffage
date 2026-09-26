@@ -5,7 +5,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/db.php';
-startSecureSession();
+session_start();
 
 if (!isset($_SESSION['client_id'])) {
     http_response_code(401);

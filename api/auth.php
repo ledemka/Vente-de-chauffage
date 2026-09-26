@@ -7,20 +7,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/db.php';
 
-startSecureSession();
+session_start();
 
 header('Content-Type: application/json; charset=utf-8');
 
 $method = $_SERVER['REQUEST_METHOD'] ?? '';
 
-// Verifier le token CSRF sur toutes les requêtes POST
-if ($method === 'POST') {
-    if (!verifyCsrfToken()) {
-        http_response_code(403);
-        echo json_encode(['error' => 'Invalid CSRF token.']);
-        exit;
-    }
-}
+
 
 
 function getEnvVar(string $key, string $default = ''): string {

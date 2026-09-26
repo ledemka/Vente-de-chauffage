@@ -16,9 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respondError(405, 'Method not allowed.');
 }
 
-if (!verifyCsrfToken()) {
-    respondError(403, 'Invalid CSRF token.');
-}
 
 
 // 1. Honeypot check
