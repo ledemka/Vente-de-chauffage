@@ -13,8 +13,8 @@ __pycache__/
 venv/
 
 # Localized dev folders (generated dynamically for localhost)
-en/
-de/
-nl/
+/en/
+/de/
+/nl/
 
-dev/
+/dev/
