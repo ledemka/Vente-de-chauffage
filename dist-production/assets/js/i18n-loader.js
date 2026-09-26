@@ -29,7 +29,7 @@ window.fetch = async function() {
     if (isPost && isApiCall) {
         if (!cachedCsrfToken) {
             try {
-                const tokenRes = await originalFetch.call(this, window.resolveDataPath('api/csrf-token.php'));
+                const tokenRes = await originalFetch.call(this, window.resolveDataPath('api/csrf-token.php'), { method: 'POST' });
                 if (tokenRes.ok) {
                     const data = await tokenRes.json();
                     cachedCsrfToken = data.csrf_token;
