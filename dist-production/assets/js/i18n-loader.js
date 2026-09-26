@@ -16,6 +16,43 @@ window.resolveDataPath = function(pathStr) {
     return depth + pathStr.replace(/^\/+/, '');
 };
 
+// Global CSRF Token Interceptor
+let cachedCsrfToken = null;
+const originalFetch = window.fetch;
+window.fetch = async function() {
+    let [resource, config] = arguments;
+    
+    // Check if it's a POST request to our API
+    const isPost = config && config.method && config.method.toUpperCase() === 'POST';
+    const isApiCall = typeof resource === 'string' && resource.includes('api/');
+    
+    if (isPost && isApiCall) {
+        if (!cachedCsrfToken) {
+            try {
+                const tokenRes = await originalFetch.call(this, window.resolveDataPath('api/csrf-token.php'));
+                if (tokenRes.ok) {
+                    const data = await tokenRes.json();
+                    cachedCsrfToken = data.csrf_token;
+                }
+            } catch (e) {
+                console.error('Failed to fetch CSRF token', e);
+            }
+        }
+        
+        if (cachedCsrfToken) {
+            config.headers = config.headers || {};
+            if (config.headers instanceof Headers) {
+                config.headers.append('X-CSRF-Token', cachedCsrfToken);
+            } else {
+                config.headers['X-CSRF-Token'] = cachedCsrfToken;
+            }
+        }
+    }
+    
+    return originalFetch.apply(this, arguments);
+};
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const lang = document.documentElement.lang || 'fr';
     let relPath = lang === 'fr' ? '.' : '..';

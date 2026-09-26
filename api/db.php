@@ -162,3 +162,62 @@ class Database {
         return $this->conn;
     }
 }
+
+/**
+ * Starts a secure session with appropriate cookie parameters
+ */
+function startSecureSession() {
+    if (session_status() === PHP_SESSION_NONE) {
+        $lifetime = 60 * 60 * 24 * 7; // 7 days
+        $isProduction = getenv('APP_ENV') === 'production';
+        session_set_cookie_params([
+            'lifetime' => $lifetime,
+            'path' => '/',
+            'domain' => '', // Current domain
+            'secure' => $isProduction,
+            'httponly' => true,
+            'samesite' => 'Lax'
+        ]);
+        session_start();
+    }
+}
+
+/**
+ * Generates a CSRF token if one does not exist, and returns it.
+ */
+function getCsrfToken(): string {
+    startSecureSession();
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
+}
+
+/**
+ * Verifies the CSRF token in a POST request.
+ * Returns true if valid, false otherwise.
+ */
+function verifyCsrfToken(): bool {
+    startSecureSession();
+    $headers = getallheaders();
+    
+    // Support header X-CSRF-Token or POST body csrf_token
+    $clientToken = $headers['X-CSRF-Token'] ?? $headers['x-csrf-token'] ?? $_POST['csrf_token'] ?? '';
+    
+    // Also check JSON body if not found
+    if (empty($clientToken)) {
+        $rawBody = file_get_contents('php://input');
+        if (!empty($rawBody)) {
+            $decoded = json_decode($rawBody, true);
+            if (is_array($decoded) && !empty($decoded['csrf_token'])) {
+                $clientToken = $decoded['csrf_token'];
+            }
+        }
+    }
+    
+    if (empty($clientToken) || empty($_SESSION['csrf_token'])) {
+        return false;
+    }
+    
+    return hash_equals($_SESSION['csrf_token'], $clientToken);
+}

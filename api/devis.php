@@ -71,6 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respondError(450, 'Méthode non autorisée. Utilisez POST.');
 }
 
+if (!verifyCsrfToken()) {
+    respondError(403, 'Invalid CSRF token.');
+}
+
+
 // 2. Read Request Parameters (handling JSON as well as application/x-www-form-urlencoded / multipart)
 $input = [];
 $rawBody = file_get_contents('php://input');

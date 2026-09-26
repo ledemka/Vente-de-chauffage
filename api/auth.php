@@ -5,14 +5,23 @@
 
 declare(strict_types=1);
 
-// Set session lifetime to 7 days before session_start
-$session_lifetime = 7 * 24 * 60 * 60;
-// // session_set_cookie_params commented out for localhost compatibility // Can cause issues on localhost
-session_start();
+require_once __DIR__ . '/db.php';
+
+startSecureSession();
 
 header('Content-Type: application/json; charset=utf-8');
 
-require_once __DIR__ . '/db.php';
+$method = $_SERVER['REQUEST_METHOD'] ?? '';
+
+// Verifier le token CSRF sur toutes les requêtes POST
+if ($method === 'POST') {
+    if (!verifyCsrfToken()) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Invalid CSRF token.']);
+        exit;
+    }
+}
+
 
 function getEnvVar(string $key, string $default = ''): string {
     $envFile = __DIR__ . '/../.env';

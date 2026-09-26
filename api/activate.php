@@ -16,6 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' && $_SERVER['REQUEST_METHOD'] !== 'GET
     respondError(405, 'Méthode non autorisée.');
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!verifyCsrfToken()) {
+        respondError(403, 'Invalid CSRF token.');
+    }
+}
+
+
 $token = $_POST['token'] ?? $_GET['token'] ?? '';
 if (empty($token)) {
     respondError(400, "Jeton d'activation manquant.");
