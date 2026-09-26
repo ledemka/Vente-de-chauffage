@@ -46,5 +46,13 @@ Disallow: /activation.html
 Disallow: /en/activation.html
 Disallow: /de/activation.html
 Disallow: /nl/activation.html
+Disallow: /mot-de-passe-oublie.html
+Disallow: /en/mot-de-passe-oublie.html
+Disallow: /de/mot-de-passe-oublie.html
+Disallow: /nl/mot-de-passe-oublie.html
+Disallow: /reinitialiser-mot-de-passe.html
+Disallow: /en/reinitialiser-mot-de-passe.html
+Disallow: /de/reinitialiser-mot-de-passe.html
+Disallow: /nl/reinitialiser-mot-de-passe.html
 
 Sitemap: https://www.sotramsbois.com/sitemap.xml

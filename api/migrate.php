@@ -34,6 +34,10 @@ try {
     // 3. Add token columns
     addColumn($pdo, 'clients', 'activation_token VARCHAR(64) DEFAULT NULL', 'activation_token column to clients');
     addColumn($pdo, 'clients', 'token_expires_at DATETIME DEFAULT NULL', 'token_expires_at column to clients');
+    
+    // 3b. Add reset token columns
+    addColumn($pdo, 'clients', 'reset_token VARCHAR(64) DEFAULT NULL', 'reset_token column to clients');
+    addColumn($pdo, 'clients', 'reset_token_expires_at DATETIME DEFAULT NULL', 'reset_token_expires_at column to clients');
 
     // 4. Add additional client profile columns
     addColumn($pdo, 'clients', 'first_name VARCHAR(255) NOT NULL DEFAULT \'\'', 'first_name column to clients');
