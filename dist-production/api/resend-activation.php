@@ -47,7 +47,13 @@ try {
             $stmt->execute([$ipAddress]);
             $attempts = (int)$stmt->fetchColumn();
             if ($attempts >= 3) {
-                respondError(429, "Trop de demandes. Veuillez réessayer plus tard.");
+                $stmtMin = $pdo->prepare("SELECT CEIL(TIMESTAMPDIFF(SECOND, NOW(), DATE_ADD(MIN(attempt_time), INTERVAL 1 HOUR)) / 60) FROM activation_attempts WHERE ip_address = ?");
+                $stmtMin->execute([$ipAddress]);
+                $minutesRemaining = (int)$stmtMin->fetchColumn();
+                if ($minutesRemaining < 1) $minutesRemaining = 1;
+                
+                $s = $minutesRemaining > 1 ? 's' : '';
+                respondError(429, "Trop de demandes. Merci de réessayer dans {$minutesRemaining} minute{$s}.");
             }
         }
     }
