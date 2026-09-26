@@ -87,5 +87,11 @@
   "faq.html": {
     "title": "Foire Aux Questions B2B | sotramsbois",
     "description": "Retrouvez les réponses aux questions fréquentes concernant nos produits, nos livraisons et notre politique B2B."
+  },
+  "article.html": {
+    "title": "Article | sotramsbois"
+  },
+  "produit.html": {
+    "title": "Product | sotramsbois"
   }
 }

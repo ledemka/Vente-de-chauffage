@@ -80,6 +80,11 @@ LANGS.forEach(lang => {
         const srcPath = path.join(ROOT_DIR, page);
         const distPath = lang === 'fr' ? path.join(DIST_DIR, page) : path.join(DIST_DIR, lang, page);
 
+        // Exclude admin-commandes.html for non-FR languages (back-office internal page)
+        if (lang !== 'fr' && page === 'admin-commandes.html') {
+            return; // Skip this iteration
+        }
+
         if (fs.existsSync(srcPath)) {
             fs.mkdirSync(path.dirname(distPath), { recursive: true });
             

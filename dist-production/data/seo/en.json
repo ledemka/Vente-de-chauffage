@@ -87,5 +87,11 @@
   "faq.html": {
     "title": "B2B Frequently Asked Questions | sotramsbois",
     "description": "Find answers to frequently asked questions about our products, deliveries, and B2B policy."
+  },
+  "article.html": {
+    "title": "Article | sotramsbois"
+  },
+  "produit.html": {
+    "title": "Product | sotramsbois"
   }
 }
