@@ -215,6 +215,9 @@ function verifyCsrfToken(): bool {
         }
     }
     
+    $match = (isset($_SESSION['csrf_token']) && !empty($clientToken) && hash_equals($_SESSION['csrf_token'], $clientToken)) ? 'OUI' : 'NON';
+    error_log("[CSRF DEBUG] session=" . session_id() . " session_token=" . ($_SESSION['csrf_token'] ?? 'VIDE') . " client_token=" . ($clientToken ?: 'VIDE') . " match=" . $match);
+
     if (empty($clientToken) || empty($_SESSION['csrf_token'])) {
         return false;
     }
