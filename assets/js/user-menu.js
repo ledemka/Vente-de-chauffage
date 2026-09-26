@@ -13,9 +13,8 @@
 
         const user = window.AuthAPI ? window.AuthAPI.getUser() : null;
 
-        // Detect relative path for links
-        const inSubdir = /^\/(en|de|nl)\//.test(window.location.pathname);
-        const base = inSubdir ? '../' : './';
+        // Detect relative path for links using global resolver
+        const base = typeof window.resolveDataPath === 'function' ? window.resolveDataPath('') : './';
 
         if (!user) {
             // NOT LOGGED IN — static link to connexion
