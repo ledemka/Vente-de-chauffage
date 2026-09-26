@@ -165,5 +165,5 @@ try {
     echo json_encode(['success' => true, 'message' => $successMessage]);
 } catch (Throwable $e) {
     error_log("Forgot Password Error: " . $e->getMessage());
-    respondError(500, "Erreur interne.");
+    respondError(500, "Erreur interne: " . $e->getMessage());
 }
