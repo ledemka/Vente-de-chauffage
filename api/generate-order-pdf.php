@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * B2B Orders API - Generate PDF
  */
@@ -112,7 +112,7 @@ try {
                     <div class="company-info">
                         [Adresse à compléter par le client]<br>
                         [Téléphone à compléter par le client]<br>
-                        Email: [Email à compléter par le client]<br>
+                        Email: contact@sotramsbois.com<br>
                         [SIRET à compléter par le client]
                     </div>
                 </td>

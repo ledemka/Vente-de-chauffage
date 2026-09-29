@@ -1,4 +1,4 @@
-{
+﻿{
   "site_name": "sotramsbois",
   "nav.blog": "Blog",
   "nav.contact": "Contact",
@@ -80,7 +80,7 @@
   "contact.contactez": "Contactez",
   "contact.notre_quipe": "notre équipe",
   "contact.notre_quipe_dexperts_en_biomas": "Notre équipe d'experts en biomasse est à votre disposition pour vous conseiller sur le meilleur combustible adapté à vos besoins industriels ou professionnels.",
-  "contact.email__complter_par_le_client": "[Email à compléter par le client]",
+  "contact.email__complter_par_le_client": "contact@sotramsbois.com",
   "contact.slectionnez_votre_type_de_dema": "Sélectionnez votre type de demande...",
   "contact.bches_de_bois": "Bûches de bois",
   "contact.bches_compresses__briquettes_d": "Bûches compressées / briquettes de bois",
@@ -252,7 +252,7 @@
   "devis.demande_de": "Demande de",
   "devis.industrielle": "Industrielle",
   "devis.obtenez_une_tarification_sur-m": "Obtenez une tarification sur-mesure pour vos volumes de biomasse et bois de chauffage professionnel. Notre équipe logistique s'engage à vous répondre sous 24h avec un plan d'approvisionnement optimisé.",
-  "devis.email__complter_par_le_client": "[Email à compléter par le client]",
+  "devis.email__complter_par_le_client": "contact@sotramsbois.com",
   "devis.lun_-_ven_0800_-_1800": "Lun - Ven, 08:00 - 18:00",
   "devis.slectionnez_une_option": "Sélectionnez une option...",
   "devis.semi-remorque_44t_-_accs_facil": "Semi-remorque (44T) - Accès facile",
