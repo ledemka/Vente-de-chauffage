@@ -110,7 +110,7 @@ function buildProducts(buildId) {
             const name = getProductName(product, lang);
             const species = getProductField(product, 'species_material', lang);
             const format = product.format;
-            const price = product.recommended_price || 0;
+            const price = 0; // Forced to 0 to remove recommended price from description
             const kw = getSeoKeywords(product.subgroup_id, lang);
             const desc = META_DESC_TEMPLATE[lang](name, kw, species, format, price);
             const title = `${name} – ${kw} | sotramsbois`;
