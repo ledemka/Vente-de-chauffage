@@ -1,11 +1,11 @@
 const fs = require('fs');
 
-const frText = "Siège social : [Adresse du siège à compléter]. Email : [Email de contact à compléter] — Téléphone : [Téléphone à compléter].";
+const frText = "Siège social : [Adresse du siège à compléter]. Email : [Email de contact à compléter] — Téléphone : 0974309229.";
 const texts = {
     fr: frText,
-    en: "Registered office: [Head office address to be completed]. Email: [Contact email to be completed] — Phone: [Phone number to be completed].",
-    de: "Hauptsitz: [Adresse des Hauptsitzes noch zu ergänzen]. E-Mail: [Kontakt-E-Mail noch zu ergänzen] — Telefon: [Telefonnummer noch zu ergänzen].",
-    nl: "Hoofdkantoor: [Adres hoofdkantoor nog aan te vullen]. E-mail: [Contact e-mail nog aan te vullen] — Telefoon: [Telefoonnummer nog aan te vullen]."
+    en: "Registered office: [Head office address to be completed]. Email: [Contact email to be completed] — Phone: 0974309229.",
+    de: "Hauptsitz: [Adresse des Hauptsitzes noch zu ergänzen]. E-Mail: [Kontakt-E-Mail noch zu ergänzen] — Telefon: 0974309229.",
+    nl: "Hoofdkantoor: [Adres hoofdkantoor nog aan te vullen]. E-mail: [Contact e-mail nog aan te vullen] — Telefoon: 0974309229."
 };
 
 for (const lang of ['fr', 'en', 'de', 'nl']) {

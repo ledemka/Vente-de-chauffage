@@ -23,8 +23,8 @@ dirs.forEach(dir => {
         content = content.replace(/>contact@terreetfeu\.pro</g, '>[Email de contact à compléter]<');
         content = content.replace(/"mailto:contact@terreetfeu\.pro"/g, '"mailto:[Email de contact à compléter]"');
         
-        content = content.replace(/>\+33 \(0\)3 88 00 00 00</g, '>[Téléphone à compléter]<');
-        content = content.replace(/"tel:\+33388000000"/g, '"tel:[Téléphone à compléter]"');
+        content = content.replace(/>\+33 \(0\)3 88 00 00 00</g, '>0974309229<');
+        content = content.replace(/"tel:\+33388000000"/g, '"tel:0974309229"');
         
         content = content.replace(/>dpo@terreetfeu\.pro</g, '>[Email du DPO à compléter]<');
         content = content.replace(/"mailto:dpo@terreetfeu\.pro"/g, '"mailto:[Email du DPO à compléter]"');

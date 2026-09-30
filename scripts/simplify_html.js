@@ -32,7 +32,7 @@ const mentionsHtml = `
                     <span data-i18n="mentions.sec1_title">1. Éditeur du site</span>
                 </h2>
                 <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed" data-i18n-html="mentions.sec1_text">
-                    [Raison sociale à compléter], [forme juridique à compléter] au capital de [montant à compléter]€. Siège social : 2475 Route de Fumay 08230 Gué-d’Hossus (France). SIRET 35387770700029. TVA intracommunautaire : [Numéro de TVA à compléter]. Email : [Email de contact à compléter] — Téléphone : [Téléphone à compléter]<br>Directeur de la publication : [Nom du directeur de la publication à compléter]
+                    [Raison sociale à compléter], [forme juridique à compléter] au capital de [montant à compléter]€. Siège social : 2475 Route de Fumay 08230 Gué-d’Hossus (France). SIRET 35387770700029. TVA intracommunautaire : [Numéro de TVA à compléter]. Email : [Email de contact à compléter] — Téléphone : 0974309229<br>Directeur de la publication : [Nom du directeur de la publication à compléter]
                 </p>
             </section>
             
