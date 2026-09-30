@@ -112,7 +112,7 @@
         "service_3": "Profi-kookhout",
         "service_4": "Groothandels- & B2B-tarieven",
         "coords_title": "CONTACTGEGEVENS",
-        "address": "[Adres in te vullen door klant]",
+        "address": "2475 Route de Fumay 08230 Gué-d’Hossus (Frankrijk)",
         "phone": "Telefoon: 0974309229",
         "email": "contact@sotramsbois.com",
         "legal": "Juridische kennisgeving",
@@ -1217,6 +1217,5 @@
         "mismatch": "De wachtwoorden komen niet overeen.",
         "too_short": "Het wachtwoord moet uit minimaal 8 tekens bestaan.",
         "error": "Er is een fout opgetreden."
-    },
-    "footer.address": "2475 Route de Fumay 08230 Gué-d’Hossus (Frankrijk)"
+    }
 }

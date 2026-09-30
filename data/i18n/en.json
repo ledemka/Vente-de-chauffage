@@ -112,7 +112,7 @@
         "service_3": "Pro Cooking Wood",
         "service_4": "Wholesale & B2B Rates",
         "coords_title": "CONTACT DETAILS",
-        "address": "[Address to be completed by client]",
+        "address": "2475 Route de Fumay 08230 Gué-d’Hossus (France)",
         "phone": "Phone: 0974309229",
         "email": "contact@sotramsbois.com",
         "legal": "Legal Notice",
@@ -1217,6 +1217,5 @@
         "mismatch": "Passwords do not match.",
         "too_short": "The password must be at least 8 characters long.",
         "error": "An error occurred."
-    },
-    "footer.address": "2475 Route de Fumay 08230 Gué-d’Hossus (France)"
+    }
 }
