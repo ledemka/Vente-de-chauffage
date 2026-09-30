@@ -755,7 +755,7 @@
         "privacy_retention": "Gegevens worden bewaard gedurende een periode van 3 jaar vanaf het laatste contact van uw kant, of voor de duur van de commerciële relatie verhoogd met de wettelijke verjaringstermijnen.",
         "rights_intro": "In overeenstemming met de toepasselijke regelgeving heeft u de volgende rechten:",
         "right_objection": "Recht op bezwaar tegen de verwerking van uw gegevens om legitieme redenen.",
-        "rights_contact": "Om deze rechten uit te oefenen, kunt u contact opnemen met onze Functionaris voor Gegevensbescherming (DPO/FG) via e-mail op [E-mail DPO nog aan te vullen] of per post naar het adres van het hoofdkantoor, onder bijvoeging van een kopie van een identiteitsbewijs.",
+        "rights_contact": "Om deze rechten uit te oefenen, kunt u contact opnemen met onze Functionaris voor Gegevensbescherming (DPO/FG) via e-mail op contact@sotramsbois.com of per post naar het adres van het hoofdkantoor, onder bijvoeging van een kopie van een identiteitsbewijs.",
         "date_placeholder": "[Datum in te vullen bij livegang]",
         "contact_title": "CONTACT",
         "contact_email": "[Contact e-mail nog aan te vullen]",
@@ -764,7 +764,7 @@
         "copyright_laws": "De gehele site is onderworpen aan de Franse en internationale wetgeving inzake auteursrecht en intellectueel eigendom. Alle reproductierechten zijn voorbehouden, inclusief voor downloadbare documenten en iconografische en fotografische weergaven.",
         "dpo_contact_1": "Om deze rechten uit te oefenen, kunt u per e-mail contact opnemen met onze Functionaris voor Gegevensbescherming (DPO/FG) via",
         "dpo_contact_2": "of per post naar het adres van het hoofdkantoor onder bijvoeging van een kopie van een identiteitsbewijs.",
-        "dpo_email": "[E-mail DPO nog aan te vullen]",
+        "dpo_email": "contact@sotramsbois.com",
         "hebergement_description": "De sotramsbois-site wordt veilig en ecologisch verantwoord gehost. De servers bevinden zich in Europa, waardoor strikte naleving van de AVG wordt gegarandeerd.",
         "sec1_title": "1. Uitgever van de site",
         "sec1_text": "<strong>Hoofdkantoor:</strong> 2475 Route de Fumay 08230 Gué-d’Hossus (France)<br><br><strong>SIRET:</strong> 35387770700029<br><br><strong>E-mail:</strong> contact@sotramsbois.com",
@@ -843,7 +843,7 @@
         "cookie_marketing": "Wordt gebruikt om u relevante B2B-aanbiedingen op andere platforms aan te bieden.",
         "rights_text": "In overeenstemming met de Algemene Verordening Gegevensbescherming (AVG/GDPR) heeft u strikte rechten met betrekking tot de verwerking van uw professionele en persoonlijke informatie.",
         "rights_deadline": "Voor elk verzoek met betrekking tot uw gegevens, beloven wij u binnen maximaal 30 dagen te antwoorden.",
-        "dpo_email": "[E-mail DPO nog aan te vullen]",
+        "dpo_email": "contact@sotramsbois.com",
         "execution_contract": "Uitvoering van de overeenkomst",
         "manage_preferences": "Voorkeuren beheren",
         "contact_dpo": "Neem contact op met de DPO",
@@ -856,7 +856,7 @@
         "sec4_title": "4. Uw rechten",
         "sec4_text": "In overeenstemming met de AVG heeft u recht op toegang, rectificatie, verwijdering en overdraagbaarheid van uw gegevens.",
         "sec5_title": "5. Contact",
-        "sec5_text": "Om deze rechten uit te oefenen, kunt u contact opnemen met onze Functionaris voor Gegevensbescherming: [E-mail DPO nog aan te vullen].",
+        "sec5_text": "Om deze rechten uit te oefenen, kunt u contact opnemen met onze Functionaris voor Gegevensbescherming: contact@sotramsbois.com.",
         "title": "Privacybeleid"
     },
     "return": {
@@ -1217,5 +1217,6 @@
         "mismatch": "De wachtwoorden komen niet overeen.",
         "too_short": "Het wachtwoord moet uit minimaal 8 tekens bestaan.",
         "error": "Er is een fout opgetreden."
-    }
+    },
+    "footer.address": "2475 Route de Fumay 08230 Gué-d’Hossus (Frankrijk)"
 }
