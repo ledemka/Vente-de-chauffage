@@ -1,7 +1,13 @@
 {
   "site_origin": "https://www.sotramsbois.com",
-  "brand": "",
+  "brand": "Sotrams Bois",
   "vat_rate": 0.20,
   "currency": "EUR",
-  "langs": ["fr", "en", "de", "nl"]
+  "langs": ["fr", "en", "de", "nl"],
+  "default_language": "fr",
+  "merchant_center": {
+    "target_country": "FR",
+    "feed_language": "fr",
+    "condition": "new"
+  }
 }

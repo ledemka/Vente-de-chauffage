@@ -161,18 +161,49 @@ function buildProducts(buildId) {
             $('head').append(`\n<link rel="alternate" hreflang="x-default" href="${MAIN_HOST}/produits/${product.id}.html">`);
 
             // Product JSON-LD
+            const vatRate = 0.20; // Hardcoded from merchant-config
+            const offers = [];
+            
+            if (product.prices_by_length) {
+                for (const [length, priceHT] of Object.entries(product.prices_by_length)) {
+                    const priceTTC = (priceHT * (1 + vatRate)).toFixed(2);
+                    offers.push({
+                        "@type": "Offer",
+                        "url": `${canonUrl}?length=${length}`,
+                        "price": priceTTC,
+                        "priceCurrency": "EUR",
+                        "availability": product.available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+                        "itemCondition": "https://schema.org/NewCondition",
+                        "sku": `${product.id}-${length}`
+                    });
+                }
+            } else {
+                const priceHT = product.price || 0;
+                const priceTTC = (priceHT * (1 + vatRate)).toFixed(2);
+                offers.push({
+                    "@type": "Offer",
+                    "url": canonUrl,
+                    "price": priceTTC,
+                    "priceCurrency": "EUR",
+                    "availability": product.available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+                    "itemCondition": "https://schema.org/NewCondition",
+                    "sku": product.id
+                });
+            }
+
             const productJsonLd = {
                 "@context": "https://schema.org/",
                 "@type": "Product",
                 "name": name,
                 "description": desc,
                 "sku": product.id,
-                "image": `${MAIN_HOST}/${String(product.image_product).replace(/^\/+/, '')}`,
+                "image": [ `${MAIN_HOST}/${String(product.image_product).replace(/^\/+/, '')}` ],
                 "url": canonUrl,
                 "brand": {
                     "@type": "Brand",
                     "name": "Sotrams Bois"
-                }
+                },
+                "offers": offers.length === 1 ? offers[0] : offers
             };
             $('head').append(`\n<script type="application/ld+json">\n${JSON.stringify(productJsonLd, null, 2)}\n</script>\n`);
 
