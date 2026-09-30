@@ -18,6 +18,11 @@ if (!file_exists($productsFile) || !file_exists($configFile)) {
 $products = json_decode(file_get_contents($productsFile), true);
 $config = json_decode(file_get_contents($configFile), true);
 
+if (isset($config['publish']) && $config['publish'] !== true) {
+    http_response_code(503);
+    die("Feed not published");
+}
+
 $siteOrigin = rtrim($config['site_origin'] ?? 'https://www.sotramsbois.com', '/');
 $brand = !empty($config['brand']) ? $config['brand'] : '';
 if (empty($brand)) {
@@ -57,7 +62,7 @@ foreach ($products as $product) {
         $descParts[] = $product['units_per_palette'] . " unités par palette";
     }
     if (!empty($product['palette_weight'])) {
-        $descParts[] = "Poids de la palette : " . $product['palette_weight'] . " kg";
+        $descParts[] = "Poids de la palette : " . $product['palette_weight'];
     }
     if (!empty($product['format'][$defaultLanguage])) {
         $descParts[] = "Format : " . $product['format'][$defaultLanguage];
@@ -96,11 +101,14 @@ foreach ($products as $product) {
             $productType = (string)$product['subgroup_name'];
         }
     }
+    
+    $shippingWeight = !empty($product['palette_weight']) ? (string)$product['palette_weight'] : null;
 
     if (isset($product['prices_by_length']) && is_array($product['prices_by_length'])) {
         foreach ($product['prices_by_length'] as $length => $priceHT) {
             writeProductItem([
                 'id' => $id . '-' . $length,
+                'item_group_id' => $id,
                 'title' => $titleBase . ' - ' . $length . ' cm',
                 'description' => $descBase . ' - Longueur : ' . $length . ' cm',
                 'link' => $siteOrigin . '/produits/' . $id . '.html?length=' . $length,
@@ -114,7 +122,8 @@ foreach ($products as $product) {
                 'mpn' => $mpn,
                 'hasIdentifier' => $hasIdentifier,
                 'availability' => $availability,
-                'product_type' => $productType
+                'product_type' => $productType,
+                'shipping_weight' => $shippingWeight
             ]);
         }
     } else {
@@ -134,7 +143,8 @@ foreach ($products as $product) {
             'mpn' => $mpn,
             'hasIdentifier' => $hasIdentifier,
             'availability' => $availability,
-            'product_type' => $productType
+            'product_type' => $productType,
+            'shipping_weight' => $shippingWeight
         ]);
     }
 }
@@ -182,6 +192,14 @@ function writeProductItem(array $data) {
     
     if (!$data['hasIdentifier']) {
         echo '  <g:identifier_exists>no</g:identifier_exists>' . "\n";
+    }
+
+    if (!empty($data['item_group_id'])) {
+        echo '  <g:item_group_id>' . escapeXml($data['item_group_id']) . '</g:item_group_id>' . "\n";
+    }
+
+    if (!empty($data['shipping_weight'])) {
+        echo '  <g:shipping_weight>' . escapeXml($data['shipping_weight']) . '</g:shipping_weight>' . "\n";
     }
     
     echo '</item>' . "\n";
