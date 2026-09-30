@@ -84,7 +84,14 @@ foreach ($products as $product) {
     $mpn = $product['mpn'] ?? null;
     $hasIdentifier = ($gtin || $mpn);
     
-    $productType = $product['subgroup_name']['fr'] ?? $product['subgroup_name'][$defaultLanguage] ?? null;
+    $productType = null;
+    if (isset($product['subgroup_name'])) {
+        if (is_array($product['subgroup_name'])) {
+            $productType = $product['subgroup_name']['fr'] ?? $product['subgroup_name'][$defaultLanguage] ?? reset($product['subgroup_name']);
+        } else {
+            $productType = (string)$product['subgroup_name'];
+        }
+    }
 
     if (isset($product['prices_by_length']) && is_array($product['prices_by_length'])) {
         foreach ($product['prices_by_length'] as $length => $priceHT) {
