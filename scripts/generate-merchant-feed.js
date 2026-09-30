@@ -50,6 +50,7 @@ for (const lang of config.langs) {
 
   let itemsXml = "";
   let itemCount = 0;
+  let cleanedCount = 0;
   const missingWarnings = [];
 
   for (const p of products) {
@@ -79,9 +80,29 @@ for (const lang of config.langs) {
     let description = "";
     if (fs.existsSync(htmlPath)) {
       const htmlContent = fs.readFileSync(htmlPath, 'utf8');
-      const descMatch = htmlContent.match(/<meta\s+name=["']description["']\s+content=["'](.*?)["']/is);
-      if (descMatch && descMatch[1]) {
-        description = descMatch[1].trim();
+      const descMatch = htmlContent.match(/<meta\s+name=(["'])description\1\s+content=(["'])([\s\S]*?)\2\s*\/?>/i);
+      if (descMatch && descMatch[3]) {
+        description = descMatch[3].trim();
+        // Decode HTML entities
+        description = description
+          .replace(/&amp;/g, '&')
+          .replace(/&quot;/g, '"')
+          .replace(/&#39;/g, "'")
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>');
+
+        // Scrub price phrase
+        const originalDesc = description;
+        const pricePhraseRegex = /(Prix (public )?conseillé|Retail price|Recommended retail price|Empfohlener Verkaufspreis|Aanbevolen verkoopprijs)[\s\S]*?€[^.]*\./gi;
+        description = description.replace(pricePhraseRegex, '').replace(/\s+/g, ' ').trim();
+        if (originalDesc !== description) {
+          cleanedCount++;
+        }
+
+        // Safety check for remaining price pattern: \d+[.,]\d{2}\s*€ or € followed by digit
+        if (/\d+[.,]\d{2}\s*€|€\s*\d+/i.test(description)) {
+           missingWarnings.push(`Produit ${p.id} : Motif de prix suspect détecté dans la description après nettoyage.`);
+        }
       }
     }
 
@@ -142,6 +163,7 @@ for (const lang of config.langs) {
   // Add to report
   reportContent += `## Flux ${lang.toUpperCase()}\n`;
   reportContent += `- Nombre d'articles générés : ${itemCount}\n`;
+  reportContent += `- Descriptions nettoyées (prix retiré) : ${cleanedCount}\n`;
   if (missingWarnings.length > 0) {
     reportContent += `- Avertissements : \n`;
     // De-duplicate warnings to keep report clean if they repeat per variant
