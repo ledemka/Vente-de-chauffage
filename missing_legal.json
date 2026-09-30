@@ -250,8 +250,8 @@
     },
     {
       "tag": "span",
-      "text": "[Adresse du siège social à compléter]",
-      "html": "[Adresse du siège social à compléter]",
+      "text": "2475 Route de Fumay 08230 Gué-d’Hossus (France)",
+      "html": "2475 Route de Fumay 08230 Gué-d’Hossus (France)",
       "class": "text-body-md font-body-md text-on-surface"
     },
     {
@@ -262,8 +262,8 @@
     },
     {
       "tag": "span",
-      "text": "[RCS à compléter]",
-      "html": "[RCS à compléter]",
+      "text": "35387770700029",
+      "html": "35387770700029",
       "class": "text-body-md font-body-md text-on-surface"
     },
     {
