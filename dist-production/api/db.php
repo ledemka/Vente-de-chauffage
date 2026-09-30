@@ -155,8 +155,8 @@ class Database {
             $this->conn->exec($sql);
 
         } catch (PDOException $e) {
-            // Logging connection error silently in production
-            error_log("Database connection error: " . $e->getMessage());
+            // Throw exception to see real error in production debugging
+            throw new Exception("DB Connection failed: " . $e->getMessage());
         }
 
         return $this->conn;
