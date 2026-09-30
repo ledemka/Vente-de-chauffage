@@ -17,25 +17,31 @@ class Database {
         $envVars = [];
         $paths = [
             __DIR__ . '/../.env',      // Root of the site (public_html)
-            __DIR__ . '/../../.env',   // One folder above web root (more secure, common on cPanel)
+            __DIR__ . '/../../.env',   // One folder above web root
             __DIR__ . '/.env'          // Inside the api/ folder
         ];
         
+        $foundEnvPath = null;
         foreach ($paths as $envPath) {
             if (file_exists($envPath)) {
+                $foundEnvPath = $envPath;
                 $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
                 foreach ($lines as $line) {
                     if (strpos(trim($line), '#') === 0) continue;
                     if (strpos($line, '=') === false) continue;
                     [$key, $value] = explode('=', $line, 2);
                     $key = trim($key);
-                    $value = trim(trim($value, '"'), "'"); // Remove potential quotes
+                    $value = trim(trim($value, '"'), "'"); 
                     putenv("$key=$value");
                     $_ENV[$key] = $value;
                     $envVars[$key] = $value;
                 }
                 break;
             }
+        }
+
+        if (!$foundEnvPath && getenv('DB_USER') === false && !isset($_ENV['DB_USER'])) {
+            throw new Exception("Fichier .env INTROUVABLE. Chemins testés: " . implode(', ', $paths) . ". Veuillez vérifier que le fichier .env existe sur le serveur de production et a les bonnes permissions de lecture.");
         }
 
         $this->host = $envVars['DB_HOST'] ?? $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?: '127.0.0.1';
