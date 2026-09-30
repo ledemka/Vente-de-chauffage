@@ -201,7 +201,7 @@ function buildProducts(buildId) {
                 "url": canonUrl,
                 "brand": {
                     "@type": "Brand",
-                    "name": "Sotrams Bois"
+                    "name": "Sotramsbois"
                 },
                 "offers": offers.length === 1 ? offers[0] : offers
             };

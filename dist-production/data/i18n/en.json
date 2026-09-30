@@ -769,7 +769,7 @@
         "sec1_title": "1. Site Publisher",
         "sec1_text": "<strong>Registered office:</strong> 2475 Route de Fumay 08230 Gué-d’Hossus (France)<br><br><strong>SIRET:</strong> 35387770700029<br><br><strong>Email:</strong> contact@sotramsbois.com",
         "sec2_title": "2. Hosting",
-        "sec2_text": "This site is hosted by [Hosting provider to be completed by the client], [Hosting address to be completed].",
+        "sec2_text": "This site is hosted by SiteGround Spain SL, Calle Prim 19, 28004 Madrid, Spain. Phone: +34 900 838 543.",
         "sec3_title": "3. Intellectual Property",
         "sec3_text": "The content of this site (texts, images, logos) is the exclusive property of sotramsbois and is protected by intellectual property law. Any reproduction is prohibited without prior authorization.",
         "sec4_title": "4. Personal Data",
@@ -919,11 +919,11 @@
         "policy_2": "from the delivery date to exercise your right of withdrawal.",
         "acceptance_criteria": "Acceptance criteria",
         "sec1_title": "1. General Return Conditions",
-        "sec1_text": "Due to the bulky nature of our products (wood pallets), returns are subject to specific conditions: product unopened, in its original packaging, request made within [duration to be completed] days after delivery.",
+        "sec1_text": "Due to the bulky nature of our products (wood pallets), returns are subject to specific conditions: product unopened, in its original packaging, request made within 5 days after delivery.",
         "sec2_title": "2. Logistics and Return Costs",
-        "sec2_text": "Return can be made by collection on site ([amount to be completed]€ incl. VAT / pallet) or by your own means. Return costs are the responsibility of the customer, except for non-compliant products.",
+        "sec2_text": "Returns can be made at any of our warehouses. Any applicable costs are specified directly on site by an operator. Return costs are the responsibility of the customer, except for non-compliant products.",
         "sec3_title": "3. Refund",
-        "sec3_text": "The refund is made after inspection of the returned product, within [timeframe to be completed] working days."
+        "sec3_text": "The refund is made after inspection of the returned product, within 7 days at most."
     },
     "produit": {
         "palette_complte_-_bches_chne_3": "Full Pallet - Oak Logs 33cm",

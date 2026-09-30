@@ -769,7 +769,7 @@
         "sec1_title": "1. Éditeur du site",
         "sec1_text": "<strong>Siège social :</strong> 2475 Route de Fumay 08230 Gué-d’Hossus (France)<br><br><strong>SIRET :</strong> 35387770700029<br><br><strong>Email :</strong> contact@sotramsbois.com",
         "sec2_title": "2. Hébergement",
-        "sec2_text": "Ce site est hébergé par [Hébergeur à compléter par le client], [Adresse de l'hébergeur à compléter].",
+        "sec2_text": "Ce site est hébergé par SiteGround Spain SL, Calle Prim 19, 28004 Madrid, Espagne. Téléphone : +34 900 838 543.",
         "sec3_title": "3. Propriété intellectuelle",
         "sec3_text": "Le contenu de ce site (textes, images, logos) est la propriété exclusive de sotramsbois et est protégé par le droit de la propriété intellectuelle. Toute reproduction est interdite sans autorisation préalable.",
         "sec4_title": "4. Données personnelles",
@@ -919,11 +919,11 @@
         "policy_2": "à compter de la date de livraison pour exercer votre droit de rétractation.",
         "acceptance_criteria": "Critères d'acceptation",
         "sec1_title": "1. Conditions générales de retour",
-        "sec1_text": "En raison de la nature volumineuse de nos produits (palettes de bois), les retours sont soumis à des conditions spécifiques : produit non ouvert, dans son emballage d'origine, demande effectuée sous [durée à compléter] jours après livraison.",
+        "sec1_text": "En raison de la nature volumineuse de nos produits (palettes de bois), les retours sont soumis à des conditions spécifiques : produit non ouvert, dans son emballage d'origine, demande effectuée sous 5 jours après livraison.",
         "sec2_title": "2. Logistique et frais de retour",
-        "sec2_text": "Le retour peut s'effectuer par reprise sur site ([montant à compléter]€ TTC / palette) ou par vos propres moyens. Les frais de retour sont à la charge du client, sauf produit non conforme.",
+        "sec2_text": "Le retour peut s'effectuer dans n'importe lequel de nos dépôts. Les éventuels frais sont précisés directement sur place par un opérateur. Les frais de retour sont à la charge du client, sauf produit non conforme.",
         "sec3_title": "3. Remboursement",
-        "sec3_text": "Le remboursement est effectué après contrôle du produit retourné, sous [délai à compléter] jours ouvrés."
+        "sec3_text": "Le remboursement est effectué après contrôle du produit retourné, sous 7 jours maximum."
     },
     "produit": {
         "palette_complte_-_bches_chne_3": "Palette Complète - Bûches Chêne 33cm",

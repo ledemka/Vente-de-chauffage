@@ -1,17 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-// Ensure --draft flag
-if (!process.argv.includes('--draft')) {
-  console.error("Erreur: Le script doit être exécuté avec l'option --draft.");
-  process.exit(1);
-}
+const isDraft = process.argv.includes('--draft');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG_PATH = path.join(ROOT, 'data', 'merchant-config.json');
 const PRODUCTS_PATH = path.join(ROOT, 'data', 'products.json');
 const DIST_PATH = path.join(ROOT, 'dist-production');
-const OUT_DIR = path.join(ROOT, 'feeds-draft');
+const OUT_DIR = isDraft ? path.join(ROOT, 'feeds-draft') : path.join(DIST_PATH, 'feeds');
 
 if (!fs.existsSync(CONFIG_PATH)) {
   console.error("Config manquante: data/merchant-config.json");
@@ -25,11 +21,20 @@ if (!fs.existsSync(PRODUCTS_PATH)) {
 const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
 const products = JSON.parse(fs.readFileSync(PRODUCTS_PATH, 'utf8'));
 
+if (!isDraft) {
+  if (!config.brand || config.publish !== true) {
+    console.log("Flux non publiés : marque vide ou publish=false");
+    process.exit(0);
+  }
+}
+
 if (!fs.existsSync(OUT_DIR)) {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 }
 
-let reportContent = "# Rapport Génération Google Merchant Center (Draft)\n\n";
+let hasError = false;
+
+let reportContent = `# Rapport Génération Google Merchant Center (${isDraft ? 'Draft' : 'Production'})\n\n`;
 reportContent += `**Domaine à confirmer** : ${config.site_origin}\n\n`;
 
 for (const lang of config.langs) {
@@ -101,13 +106,17 @@ for (const lang of config.langs) {
 
         // Safety check for remaining price pattern: \d+[.,]\d{2}\s*€ or € followed by digit
         if (/\d+[.,]\d{2}\s*€|€\s*\d+/i.test(description)) {
-           missingWarnings.push(`Produit ${p.id} : Motif de prix suspect détecté dans la description après nettoyage.`);
+           const msg = `Produit ${p.id} : Motif de prix suspect détecté dans la description après nettoyage.`;
+           missingWarnings.push(msg);
+           if (!isDraft) { console.error("Erreur critique: " + msg); hasError = true; }
         }
       }
     }
 
     if (!description) {
-      missingWarnings.push(`Produit ${p.id} : Description manquante (balise meta description non trouvée)`);
+      const msg = `Produit ${p.id} : Description manquante (balise meta description non trouvée)`;
+      missingWarnings.push(msg);
+      if (!isDraft) { console.error("Erreur critique: " + msg); hasError = true; }
     }
 
     if (!config.brand) {
@@ -115,7 +124,9 @@ for (const lang of config.langs) {
     }
     
     if (!p.image_product) {
-        missingWarnings.push(`Produit ${p.id} : Image produit introuvable`);
+        const msg = `Produit ${p.id} : Image produit introuvable`;
+        missingWarnings.push(msg);
+        if (!isDraft) { console.error("Erreur critique: " + msg); hasError = true; }
     }
 
     const avail = p.available ? 'in_stock' : 'out_of_stock';
@@ -125,6 +136,11 @@ for (const lang of config.langs) {
     const baseLink = isFr ? `${config.site_origin}/produits/${p.id}.html` : `${config.site_origin}/${lang}/produits/${p.id}.html`;
 
     for (const v of variations) {
+      if (!v.priceHt || isNaN(v.priceHt) || v.priceHt <= 0) {
+        const msg = `Produit ${v.id} : Prix HT invalide (${v.priceHt})`;
+        missingWarnings.push(msg);
+        if (!isDraft) { console.error("Erreur critique: " + msg); hasError = true; }
+      }
       const priceTtc = (v.priceHt * (1 + config.vat_rate)).toFixed(2);
       const link = `${baseLink}${v.link_suffix}`;
 
@@ -153,9 +169,15 @@ for (const lang of config.langs) {
   <channel>
     <title>Sotramsbois - ${lang.toUpperCase()}</title>
     <link>${config.site_origin}${!isFr ? `/${lang}` : ''}</link>
-    <description>Flux Google Merchant Center (Draft)</description>${itemsXml}
+    <description>Flux Google Merchant Center (${isDraft ? 'Draft' : 'Production'})</description>${itemsXml}
   </channel>
 </rss>`;
+
+  if (hasError && !isDraft) {
+    console.error("Génération annulée en raison d'erreurs critiques.");
+    fs.rmSync(OUT_DIR, { recursive: true, force: true });
+    process.exit(1);
+  }
 
   const outXmlPath = path.join(OUT_DIR, `merchant-${lang}.xml`);
   fs.writeFileSync(outXmlPath, feedXml, 'utf8');
@@ -180,4 +202,4 @@ for (const lang of config.langs) {
 const outReportPath = path.join(OUT_DIR, 'report.md');
 fs.writeFileSync(outReportPath, reportContent, 'utf8');
 
-console.log(`Génération réussie en mode --draft. Dossier: ${OUT_DIR}`);
+console.log(`Génération réussie en mode ${isDraft ? '--draft' : 'production'}. Dossier: ${OUT_DIR}`);

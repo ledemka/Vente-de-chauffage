@@ -131,8 +131,15 @@ LANGS.forEach(lang => {
         }
     });
 });
-
 const { buildProducts } = require('./build_products');
 buildProducts(BUILD_ID);
+
+console.log(`\n=== GENERATING MERCHANT FEEDS ===`);
+try {
+    const { execSync } = require('child_process');
+    execSync('node scripts/generate-merchant-feed.js', { stdio: 'inherit', cwd: ROOT_DIR });
+} catch (error) {
+    console.error(`\n[WARNING] Merchant Feed generation failed or was skipped. Site build still succeeds.`);
+}
 
 console.log(`\n=== BUILD COMPLETE: ${totalCopied} HTML files deployed to dist-production/ ===`);

@@ -19,7 +19,11 @@ $products = json_decode(file_get_contents($productsFile), true);
 $config = json_decode(file_get_contents($configFile), true);
 
 $siteOrigin = rtrim($config['site_origin'] ?? 'https://www.sotramsbois.com', '/');
-$brand = !empty($config['brand']) ? $config['brand'] : 'Sotrams Bois';
+$brand = !empty($config['brand']) ? $config['brand'] : '';
+if (empty($brand)) {
+    http_response_code(503);
+    die("Brand not configured");
+}
 $vatRate = (float)($config['vat_rate'] ?? 0.20);
 $currency = $config['currency'] ?? 'EUR';
 $defaultLanguage = $config['default_language'] ?? 'fr';
