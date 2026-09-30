@@ -178,7 +178,7 @@ function buildProducts(buildId) {
                     });
                 }
             } else {
-                const priceHT = product.price || 0;
+                const priceHT = product.price || product.wholesale_price || 0;
                 const priceTTC = (priceHT * (1 + vatRate)).toFixed(2);
                 offers.push({
                     "@type": "Offer",
