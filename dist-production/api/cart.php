@@ -190,5 +190,5 @@ try {
 
 } catch (\Throwable $e) {
     error_log("Cart Error: " . $e->getMessage());
-    respondError(500, "Erreur interne : " . $e->getMessage());
+    respondError(500, "Erreur interne.");
 }

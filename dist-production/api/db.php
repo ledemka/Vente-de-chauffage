@@ -41,10 +41,6 @@ class Database {
             }
         }
 
-        if (!$foundEnvPath && getenv('DB_USER') === false && !isset($_ENV['DB_USER'])) {
-            throw new Exception("Fichier .env INTROUVABLE. Chemins testés: " . implode(', ', $paths) . ". Veuillez vérifier que le fichier .env existe sur le serveur de production et a les bonnes permissions de lecture.");
-        }
-
         $this->host = $envVars['DB_HOST'] ?? $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?: '127.0.0.1';
         $this->db_name = $envVars['DB_NAME'] ?? $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?: 'bois_chauffage_b2b';
         $this->username = $envVars['DB_USER'] ?? $_ENV['DB_USER'] ?? getenv('DB_USER') ?: 'root';
@@ -173,8 +169,8 @@ class Database {
             $this->conn->exec($sql);
 
         } catch (PDOException $e) {
-            // Throw exception to see real error in production debugging
-            throw new Exception("DB Connection failed: " . $e->getMessage());
+            // Logging connection error silently in production
+            error_log("Database connection error: " . $e->getMessage());
         }
 
         return $this->conn;
