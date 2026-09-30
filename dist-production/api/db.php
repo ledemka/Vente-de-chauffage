@@ -14,23 +14,34 @@ class Database {
     private ?PDO $conn = null;
 
     public function __construct() {
-        if (getenv('DB_HOST') === false) {
-            $envPath = __DIR__ . '/../.env';
+        $envVars = [];
+        $paths = [
+            __DIR__ . '/../.env',      // Root of the site (public_html)
+            __DIR__ . '/../../.env',   // One folder above web root (more secure, common on cPanel)
+            __DIR__ . '/.env'          // Inside the api/ folder
+        ];
+        
+        foreach ($paths as $envPath) {
             if (file_exists($envPath)) {
                 $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
                 foreach ($lines as $line) {
                     if (strpos(trim($line), '#') === 0) continue;
                     if (strpos($line, '=') === false) continue;
                     [$key, $value] = explode('=', $line, 2);
-                    putenv(trim($key) . '=' . trim($value));
+                    $key = trim($key);
+                    $value = trim(trim($value, '"'), "'"); // Remove potential quotes
+                    putenv("$key=$value");
+                    $_ENV[$key] = $value;
+                    $envVars[$key] = $value;
                 }
+                break;
             }
         }
 
-        $this->host = getenv('DB_HOST') ?: '127.0.0.1';
-        $this->db_name = getenv('DB_NAME') ?: 'bois_chauffage_b2b';
-        $this->username = getenv('DB_USER') ?: 'root';
-        $this->password = getenv('DB_PASS') ?: '';
+        $this->host = $envVars['DB_HOST'] ?? $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?: '127.0.0.1';
+        $this->db_name = $envVars['DB_NAME'] ?? $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?: 'bois_chauffage_b2b';
+        $this->username = $envVars['DB_USER'] ?? $_ENV['DB_USER'] ?? getenv('DB_USER') ?: 'root';
+        $this->password = $envVars['DB_PASS'] ?? $_ENV['DB_PASS'] ?? getenv('DB_PASS') ?: '';
     }
 
     public function getConnection(): ?PDO {
