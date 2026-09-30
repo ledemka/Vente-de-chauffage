@@ -492,61 +492,7 @@ window.resolveAssetPath = function(pathStr) {
                                 }
                                 ldBreadcrumb.textContent = JSON.stringify(breadcrumbJsonLd, null, 2);
 
-                                // 2. Product JSON-LD
-                                let displayPrice = 0;
-                                let isAggregate = false;
-                                let lowPrice = 0, highPrice = 0, offerCount = 0;
-                                
-                                if (isBuche && product.prices_by_length) {
-                                    const prices = Object.values(product.prices_by_length).map(p => Number(p) * 1.20);
-                                    if (prices.length > 0) {
-                                        lowPrice = Math.min(...prices).toFixed(2);
-                                        highPrice = Math.max(...prices).toFixed(2);
-                                        offerCount = prices.length;
-                                        isAggregate = true;
-                                    }
-                                } else if (product.wholesale_price) {
-                                    displayPrice = (Number(product.wholesale_price) * 1.20).toFixed(2);
-                                }
-                                
-                                const offers = {};
-                                if (isAggregate) {
-                                    offers["@type"] = "AggregateOffer";
-                                    offers["priceCurrency"] = "EUR";
-                                    offers["lowPrice"] = lowPrice;
-                                    offers["highPrice"] = highPrice;
-                                    offers["offerCount"] = offerCount;
-                                } else if (displayPrice > 0) {
-                                    offers["@type"] = "Offer";
-                                    offers["priceCurrency"] = "EUR";
-                                    offers["price"] = displayPrice;
-                                    offers["availability"] = product.available === false ? "https://schema.org/OutOfStock" : "https://schema.org/InStock";
-                                    offers["itemCondition"] = "https://schema.org/NewCondition";
-                                    offers["valueAddedTaxIncluded"] = true;
-                                }
-
-                                const productJsonLd = {
-                                    "@context": "https://schema.org/",
-                                    "@type": "Product",
-                                    "name": getProductName(product),
-                                    "description": pageDesc,
-                                    "sku": product.id,
-                                    "image": "https://www.sotramsbois.com/" + String(product.image_product).replace(/^\/+/, ''),
-                                    "url": canon.href
-                                };
-                                
-                                if (Object.keys(offers).length > 0) {
-                                    productJsonLd.offers = offers;
-                                }
-
-                                let ldScript = document.getElementById('product-json-ld');
-                                if (!ldScript) {
-                                    ldScript = document.createElement('script');
-                                    ldScript.id = 'product-json-ld';
-                                    ldScript.type = 'application/ld+json';
-                                    document.head.appendChild(ldScript);
-                                }
-                                ldScript.textContent = JSON.stringify(productJsonLd, null, 2);
+                                /* 2. Product JSON-LD removed by script to preserve static JSON-LD */
 
                                 // 3.6 units per palette
                                 const unitT = window.i18n && window.i18n.t ? window.i18n.t('product.units_per_pallet', 'unités par palette') : 'unités par palette';
