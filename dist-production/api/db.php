@@ -17,6 +17,7 @@ class Database {
         $envVars = [];
         $paths = [
             __DIR__ . '/../.env',      // Root of the site (public_html)
+            __DIR__ . '/../ .env',     // Fallback for user typo (leading space)
             __DIR__ . '/../../.env',   // One folder above web root
             __DIR__ . '/.env'          // Inside the api/ folder
         ];
