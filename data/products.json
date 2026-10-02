@@ -451,7 +451,7 @@
     "unit_weight": "15 kg",
     "units_per_palette": 66,
     "palette_weight": "990 kg",
-    "wholesale_price": 324.17,
+    "wholesale_price": 345,
     "recommended_price": 295.83,
     "positioning": {
       "fr": "Très bon prix",
@@ -468,6 +468,7 @@
     "origin": "À préciser",
     "image_product": "/assets/images/products/granules-pellets-premium-product.jpg",
     "image_packaging": "/assets/images/products/granules-pellets-premium-packaging.jpg",
+    "humidity_bucket": "< 8 %",
     "available": true,
     "volume_m3": 2.16
   },
