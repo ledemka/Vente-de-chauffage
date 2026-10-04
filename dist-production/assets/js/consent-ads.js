@@ -2,17 +2,7 @@
     const GOOGLE_ADS_ID = 'AW-18453340840';
     const STORAGE_KEY = 'sotramsbois_consent_v1';
     
-    // Initialize dataLayer and gtag
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
     
-    // Default consent: denied
-    gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied'
-    });
 
     const lang = document.documentElement.lang || 'fr';
     
@@ -70,27 +60,6 @@
         }
     }
     
-    function loadGoogleAds() {
-        if (document.getElementById('google-ads-script')) return;
-        const script = document.createElement('script');
-        script.id = 'google-ads-script';
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GOOGLE_ADS_ID;
-        script.async = true;
-        document.head.appendChild(script);
-        
-        gtag('js', new Date());
-        
-        const params = new URLSearchParams(window.location.search);
-        params.delete('email');
-        params.delete('token');
-        params.delete('ref');
-        params.delete('password');
-        const qs = params.toString();
-        const cleanUrl = window.location.origin + window.location.pathname + (qs ? '?' + qs : '');
-        
-        gtag('config', GOOGLE_ADS_ID, { page_location: cleanUrl });
-    }
-    
     function checkConversion() {
         if (window.adsConversionSent) return;
         if (document.body && document.body.dataset.adsConversion) {
@@ -114,7 +83,6 @@
                 'ad_personalization': 'granted',
                 'analytics_storage': 'granted'
             });
-            loadGoogleAds();
             hideBanner();
             checkConversion();
         } else {

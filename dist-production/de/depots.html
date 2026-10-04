@@ -1,4 +1,30 @@
 <!DOCTYPE html><html lang="de" translate="no"><head>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-18453340840"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied',
+  'wait_for_update': 500
+});
+
+gtag('js', new Date());
+
+// Nettoyage de l'URL pour Google Ads
+var params = new URLSearchParams(window.location.search);
+params.delete('email');
+params.delete('token');
+params.delete('ref');
+params.delete('password');
+var qs = params.toString();
+var cleanUrl = window.location.origin + window.location.pathname + (qs ? '?' + qs : '');
+
+gtag('config', 'AW-18453340840', { page_location: cleanUrl });
+</script>
 
 <meta charset="utf-8">
     <meta name="google" content="notranslate">
@@ -22,7 +48,7 @@
     
     
     
-    <script src="../assets/js/auth.js?v=1791131281655"></script>
+    <script src="../assets/js/auth.js?v=1791134641391"></script>
 
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
@@ -228,7 +254,7 @@
         </div>
     </footer>
 
-    <script src="../assets/js/i18n-loader.js?v=1791131281655"></script>
+    <script src="../assets/js/i18n-loader.js?v=1791134641391"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const btn = document.getElementById('mobile-menu-btn');
@@ -407,14 +433,14 @@
                 .catch(err => console.error('Error loading depots:', err));
         });
     </script>
-    <script src="../assets/js/user-menu.js?v=1791131281655"></script>
-    <script src="../assets/js/lang-selector.js?v=1791131281655"></script>
-    <script src="../assets/js/i18n-loader.js?v=1791131281655"></script>
+    <script src="../assets/js/user-menu.js?v=1791134641391"></script>
+    <script src="../assets/js/lang-selector.js?v=1791134641391"></script>
+    <script src="../assets/js/i18n-loader.js?v=1791134641391"></script>
 
 
 
 
 
-<script src="../assets/js/tawk-loader.js?v=1791131281655"></script>
-<script src="../assets/js/consent-ads.js?v=1791131281655"></script>
+<script src="../assets/js/tawk-loader.js?v=1791134641391"></script>
+<script src="../assets/js/consent-ads.js?v=1791134641391"></script>
 </body></html>
