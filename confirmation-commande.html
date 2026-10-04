@@ -167,8 +167,16 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+    let email = null;
+    let ref = null;
+    try { 
+        email = sessionStorage.getItem('thanks_email'); 
+        ref = sessionStorage.getItem('thanks_ref');
+    } catch(e) {}
     const urlParams = new URLSearchParams(window.location.search);
-    const email = urlParams.get('email');
+    if (!email) email = urlParams.get('email');
+    if (!ref) ref = urlParams.get('ref');
+    if (window.location.search) { window.history.replaceState(null, '', window.location.pathname); }
     if (email) {
         // Use i18nLoaded event to inject email after translations are applied
         document.addEventListener('i18nLoaded', (e) => {

@@ -29,7 +29,7 @@
 
     <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-</head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-inverse-surface shadow-[0_1px_8px_rgba(0,0,0,0.1)]"><div class="h-20 max-w-[1440px] mx-auto px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-4">
+</head><body class="bg-surface font-body-md text-on-surface" data-ads-conversion="AW-18453340840/bknNCJvX-40dEKjFnt9E"><header class="fixed top-0 w-full z-50 bg-inverse-surface shadow-[0_1px_8px_rgba(0,0,0,0.1)]"><div class="h-20 max-w-[1440px] mx-auto px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-4">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
                     <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
@@ -118,8 +118,11 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+    let email = null;
+    try { email = sessionStorage.getItem('thanks_email'); } catch(e) {}
     const urlParams = new URLSearchParams(window.location.search);
-    const email = urlParams.get('email');
+    if (!email) email = urlParams.get('email');
+    if (window.location.search) { window.history.replaceState(null, '', window.location.pathname); }
     if (email) {
         // Use i18nLoaded event to inject email after translations are applied
         document.addEventListener('i18nLoaded', (e) => {

@@ -322,7 +322,10 @@
                             return response.json();
                         })
                         .then(data => {
-                            window.location.href = './merci-contact.html?email=' + encodeURIComponent(formData.email);
+                            try {
+                                sessionStorage.setItem('thanks_email', formData.email);
+                            } catch(e) {}
+                            window.location.href = './merci-contact.html';
                         })
                         .catch(error => {
                             alert(error.message);

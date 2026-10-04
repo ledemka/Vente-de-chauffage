@@ -82,6 +82,18 @@
         gtag('config', GOOGLE_ADS_ID);
     }
     
+    function checkConversion() {
+        if (window.adsConversionSent) return;
+        if (document.body && document.body.dataset.adsConversion) {
+            const navEntries = performance.getEntriesByType('navigation');
+            const isReload = navEntries.length > 0 && navEntries[0].type === 'reload';
+            if (!isReload) {
+                gtag('event', 'conversion', { 'send_to': document.body.dataset.adsConversion });
+                window.adsConversionSent = true;
+            }
+        }
+    }
+
     function applyConsent(status, reloadIfDenied = false) {
         setStoredConsent(status);
         
@@ -94,6 +106,7 @@
             });
             loadGoogleAds();
             hideBanner();
+            checkConversion();
         } else {
             gtag('consent', 'update', {
                 'ad_storage': 'denied',

@@ -808,7 +808,11 @@ var CartUI = {
                         const pathParts = window.location.pathname.split('/');
                         const fileIdx = pathParts.findIndex(p => p.includes('.html'));
                         pathParts[fileIdx] = 'confirmation-commande.html';
-                        const newUrl = pathParts.join('/') + '?ref=' + res.order_reference + '&email=' + encodeURIComponent(data.email);
+                        try {
+                            sessionStorage.setItem('thanks_ref', res.order_reference);
+                            sessionStorage.setItem('thanks_email', data.email);
+                        } catch(e) {}
+                        const newUrl = pathParts.join('/');
                         window.location.href = newUrl;
                     } else {
                         if(errorDiv) {
@@ -868,7 +872,9 @@ var CartUI = {
         const refSpan = document.getElementById('order-reference');
         if (refSpan) {
             const urlParams = new URLSearchParams(window.location.search);
-            const ref = urlParams.get('ref');
+            let ref = null;
+            try { ref = sessionStorage.getItem('thanks_ref'); } catch(e) {}
+            if (!ref) ref = urlParams.get('ref');
             if (ref) {
                 refSpan.textContent = ref;
                 

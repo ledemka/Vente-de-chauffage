@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" translate="no"><head>
     <meta charset="utf-8">
     <meta name="google" content="notranslate">
@@ -417,7 +417,10 @@
                 return response.json();
             })
             .then(data => {
-                window.location.href = './merci-devis.html?email=' + encodeURIComponent(formData.email);
+                try {
+                    sessionStorage.setItem('thanks_email', formData.email);
+                } catch(e) {}
+                window.location.href = './merci-devis.html';
             })
             .catch(error => {
                 errorContainer.textContent = error.message;
