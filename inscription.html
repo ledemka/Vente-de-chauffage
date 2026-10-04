@@ -354,9 +354,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const res = await (typeof window.AuthAPI !== 'undefined' ? window.AuthAPI.register(data) : AuthAPI.register(data));
                 if (res.success) {
                     const urlParams = new URLSearchParams(window.location.search);
-                    let redirectUrl = './merci-inscription.html?email=' + encodeURIComponent(data.email);
+                    try { sessionStorage.setItem('thanks_email', data.email); } catch(e) {}
+                    let redirectUrl = './merci-inscription.html';
                     if (urlParams.has('redirect')) {
-                        redirectUrl += '&redirect=' + encodeURIComponent(urlParams.get('redirect'));
+                        redirectUrl += '?redirect=' + encodeURIComponent(urlParams.get('redirect'));
                     }
                     window.location.href = redirectUrl;
                 } else {

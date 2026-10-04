@@ -419,6 +419,7 @@
             .then(data => {
                 try {
                     sessionStorage.setItem('thanks_email', formData.email);
+                    sessionStorage.setItem('ads_conv_devis', '1');
                 } catch(e) {}
                 window.location.href = './merci-devis.html';
             })

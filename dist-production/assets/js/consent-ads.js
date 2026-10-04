@@ -79,17 +79,27 @@
         document.head.appendChild(script);
         
         gtag('js', new Date());
-        gtag('config', GOOGLE_ADS_ID);
+        
+        const params = new URLSearchParams(window.location.search);
+        params.delete('email');
+        params.delete('token');
+        params.delete('ref');
+        params.delete('password');
+        const qs = params.toString();
+        const cleanUrl = window.location.origin + window.location.pathname + (qs ? '?' + qs : '');
+        
+        gtag('config', GOOGLE_ADS_ID, { page_location: cleanUrl });
     }
     
     function checkConversion() {
         if (window.adsConversionSent) return;
         if (document.body && document.body.dataset.adsConversion) {
-            const navEntries = performance.getEntriesByType('navigation');
-            const isReload = navEntries.length > 0 && navEntries[0].type === 'reload';
-            if (!isReload) {
+            let isDevis = false;
+            try { isDevis = sessionStorage.getItem('ads_conv_devis') === '1'; } catch(e) {}
+            if (isDevis) {
                 gtag('event', 'conversion', { 'send_to': document.body.dataset.adsConversion });
                 window.adsConversionSent = true;
+                try { sessionStorage.removeItem('ads_conv_devis'); } catch(e) {}
             }
         }
     }
@@ -108,6 +118,7 @@
             hideBanner();
             checkConversion();
         } else {
+            try { sessionStorage.removeItem('ads_conv_devis'); } catch(e) {}
             gtag('consent', 'update', {
                 'ad_storage': 'denied',
                 'ad_user_data': 'denied',
