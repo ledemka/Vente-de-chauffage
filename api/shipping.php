@@ -11,34 +11,7 @@ function respondError(int $statusCode, string $message, array $details = []): vo
     exit;
 }
 
-function getEnvVar(string $name, string $default = ''): string {
-    $val = getenv($name);
-    if ($val !== false) return $val;
-    if (isset($_ENV[$name])) return (string)$_ENV[$name];
-    
-    static $envLoaded = false;
-    static $envData = [];
-    if (!$envLoaded) {
-        $envPath = __DIR__ . '/../.env';
-        if (file_exists($envPath)) {
-            $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            foreach ($lines as $line) {
-                if (strpos(trim($line), '#') === 0) continue;
-                if (strpos($line, '=') !== false) {
-                    list($key, $value) = explode('=', $line, 2);
-                    $key = trim($key);
-                    $value = trim($value, " \t\n\r\0\x0B\"'");
-                    $envData[$key] = $value;
-                    $_ENV[$key] = $value;
-                    putenv("$key=$value");
-                }
-            }
-        }
-        $envLoaded = true;
-    }
-    return $envData[$name] ?? $default;
-}
-
+require_once __DIR__ . '/env.php';
 $action = $_GET['action'] ?? '';
 $hereApiKey = getEnvVar('HERE_API_KEY');
 
