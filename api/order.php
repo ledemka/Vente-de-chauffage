@@ -4,6 +4,7 @@
  */
 declare(strict_types=1);
 
+require_once __DIR__ . '/env.php';
 require_once __DIR__ . '/db.php';
 session_start();
 
@@ -22,35 +23,7 @@ function respondError(int $statusCode, string $message, array $details = []): vo
     exit;
 }
 
-// Parse .env at project root
-function getEnvVar(string $name, string $default = ''): string {
-    $val = getenv($name);
-    if ($val !== false) return $val;
-    if (isset($_ENV[$name])) return (string)$_ENV[$name];
-    static $envLoaded = false;
-    static $envData = [];
-    if (!$envLoaded) {
-        $envPath = __DIR__ . '/../.env';
-        if (file_exists($envPath)) {
-            $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            foreach ($lines as $line) {
-                if (strpos(trim($line), '#') === 0) continue;
-                $parts = explode('=', $line, 2);
-                if (count($parts) === 2) {
-                    $key = trim($parts[0]);
-                    $value = trim($parts[1]);
-                    if (preg_match('/^"([\s\S]*?)"$/', $value, $m)) $value = $m[1];
-                    elseif (preg_match("/^'([\s\S]*?)'$/", $value, $m)) $value = $m[1];
-                    $envData[$key] = $value;
-                    $_ENV[$key] = $value;
-                    putenv("$key=$value");
-                }
-            }
-        }
-        $envLoaded = true;
-    }
-    return $envData[$name] ?? $default;
-}
+// removed getEnvVar
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respondError(405, 'Méthode non autorisée.');
@@ -386,8 +359,13 @@ try {
         <p>Client: " . htmlspecialchars($clientBlockName) . " ({$contactNameHtml})</p>
         <p>Email: " . htmlspecialchars(trim((string)$input['email'])) . "</p>";
 
-        function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text, array $attachments = []): void {
-            $url  = 'https://api.resend.com/emails';
+        function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text, array $attachments = []): bool {
+            if (empty($apiKey) || empty($from)) {
+                error_log('Resend config manquante');
+                return false;
+            }
+
+            $url = 'https://api.resend.com/emails';
             $data = ['from' => $from, 'to' => [$to], 'subject' => $subject, 'html' => $html, 'text' => $text];
             if (!empty($attachments)) {
                 $data['attachments'] = $attachments;
@@ -397,8 +375,30 @@ try {
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $apiKey, 'Content-Type: application/json']);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-            curl_exec($ch);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+            $response = curl_exec($ch);
+            
+            $domain = 'unknown';
+            if (strpos($to, '@') !== false) {
+                $domain = explode('@', $to)[1];
+            }
+            
+            if ($response === false) {
+                $error = curl_error($ch);
+                error_log("Resend error: HTTP 0 $error (to=$domain)");
+                curl_close($ch);
+                return false;
+            }
+            
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             curl_close($ch);
+            
+            if ($httpCode < 200 || $httpCode > 299) {
+                error_log("Resend error: HTTP $httpCode $response (to=$domain)");
+                return false;
+            }
+            
+            return true;
         }
 
         $emailAttachments = [];

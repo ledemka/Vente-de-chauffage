@@ -4,6 +4,7 @@
  */
 declare(strict_types=1);
 
+require_once __DIR__ . '/env.php';
 require_once __DIR__ . '/db.php';
 
 function respondError(int $code, string $message): void {
@@ -68,19 +69,12 @@ if ($pdo) {
     } catch (Throwable $e) { }
 }
 
-function getEnvVar(string $key, string $default = ''): string {
-    $envFile = __DIR__ . '/../.env';
-    if (!file_exists($envFile)) return $default;
-    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    foreach ($lines as $line) {
-        if (strpos(trim($line), '#') === 0) continue;
-        list($k, $v) = explode('=', $line, 2) + [NULL, NULL];
-        if (trim((string)$k) === $key) return trim((string)$v);
+function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text): bool {
+    if (empty($apiKey) || empty($from)) {
+        error_log('Resend config manquante');
+        return false;
     }
-    return $default;
-}
 
-function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text): void {
     $url = 'https://api.resend.com/emails';
     $unsubscribeLink = 'mailto:' . getEnvVar('TO_EMAIL') . '?subject=unsubscribe';
     
@@ -99,8 +93,30 @@ function sendResendEmail(string $apiKey, string $from, string $to, string $subje
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $apiKey, 'Content-Type: application/json']);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-    curl_exec($ch);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    $response = curl_exec($ch);
+    
+    $domain = 'unknown';
+    if (strpos($to, '@') !== false) {
+        $domain = explode('@', $to)[1];
+    }
+    
+    if ($response === false) {
+        $error = curl_error($ch);
+        error_log("Resend error: HTTP 0 $error (to=$domain)");
+        curl_close($ch);
+        return false;
+    }
+    
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
+    
+    if ($httpCode < 200 || $httpCode > 299) {
+        error_log("Resend error: HTTP $httpCode $response (to=$domain)");
+        return false;
+    }
+    
+    return true;
 }
 
 // 3. Process Request

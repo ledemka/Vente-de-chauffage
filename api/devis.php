@@ -6,47 +6,12 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/env.php';
 header('Content-Type: application/json; charset=utf-8');
 
 require_once __DIR__ . '/db.php';
 
-// Parse .env at project root
-function getEnvVar(string $name, string $default = ''): string {
-    $val = getenv($name);
-    if ($val !== false) {
-        return $val;
-    }
-    if (isset($_ENV[$name])) {
-        return (string)$_ENV[$name];
-    }
-    static $envLoaded = false;
-    static $envData = [];
-    if (!$envLoaded) {
-        $envPath = __DIR__ . '/../.env';
-        if (file_exists($envPath)) {
-            $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            foreach ($lines as $line) {
-                if (strpos(trim($line), '#') === 0) continue;
-                $parts = explode('=', $line, 2);
-                if (count($parts) === 2) {
-                    $key = trim($parts[0]);
-                    $value = trim($parts[1]);
-                    // Strip quotes
-                    if (preg_match('/^"([\s\S]*?)"$/', $value, $m)) {
-                        $value = $m[1];
-                    } elseif (preg_match("/^'([\s\S]*?)'$/", $value, $m)) {
-                        $value = $m[1];
-                    }
-                    $envData[$key] = $value;
-                    $_ENV[$key] = $value;
-                    putenv("$key=$value");
-                }
-            }
-        }
-        $envLoaded = true;
-    }
-    return $envData[$name] ?? $default;
-}
+// removed getEnvVar
 
 // Load products mapping
 $productsJson = file_get_contents(__DIR__ . '/../data/products.json');
@@ -302,11 +267,16 @@ if (!empty($clientHtml)) {
 
 $clientText = strip_tags(str_replace(['<br>', '<h2>', '</h2>', '<p>', '</p>'], ["\n", "\n\n", "\n\n", "", "\n\n"], $clientHtml));
 
-// Helper to make API request to Resend
 function sendResendEmail(string $apiKey, string $from, string $to, string $subject, string $html, string $text): bool {
-    global $toEmail;
+    if (empty($apiKey) || empty($from)) {
+        error_log('Resend config manquante');
+        return false;
+    }
+
     $url = 'https://api.resend.com/emails';
+    $toEmail = getEnvVar('TO_EMAIL');
     $unsubscribeLink = 'mailto:' . $toEmail . '?subject=unsubscribe';
+    
     $data = [
         'from' => $from,
         'to' => [$to],
@@ -317,25 +287,35 @@ function sendResendEmail(string $apiKey, string $from, string $to, string $subje
             'List-Unsubscribe' => "<{$unsubscribeLink}>"
         ]
     ];
-
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Authorization: Bearer ' . $apiKey,
-        'Content-Type: application/json'
-    ]);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $apiKey, 'Content-Type: application/json']);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
     $response = curl_exec($ch);
+    
+    $domain = 'unknown';
+    if (strpos($to, '@') !== false) {
+        $domain = explode('@', $to)[1];
+    }
+    
+    if ($response === false) {
+        $error = curl_error($ch);
+        error_log("Resend error: HTTP 0 $error (to=$domain)");
+        curl_close($ch);
+        return false;
+    }
+    
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
-
-    if ($httpCode >= 200 && $httpCode < 300) {
-        return true;
+    
+    if ($httpCode < 200 || $httpCode > 299) {
+        error_log("Resend error: HTTP $httpCode $response (to=$domain)");
+        return false;
     }
-
-    error_log("Resend API failed. HTTP: {$httpCode}, Response: {$response}");
-    return false;
+    
+    return true;
 }
 
 // 7. Send Emails and handle results
