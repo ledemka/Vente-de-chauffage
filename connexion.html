@@ -245,12 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (input.type === 'password') {
                 input.type = 'text';
                 icon.textContent = 'visibility_off'; btn.setAttribute('aria-label', window.i18n ? window.i18n.t('auth.hide_password', 'Masquer le mot de passe') : 'Masquer le mot de passe'); btn.setAttribute('data-i18n-aria-label', 'auth.hide_password');
-                btn.setAttribute('aria-label', 'Masquer le mot de passe');
-            } else {
+                } else {
                 input.type = 'password';
                 icon.textContent = 'visibility'; btn.setAttribute('aria-label', window.i18n ? window.i18n.t('auth.show_password', 'Afficher le mot de passe') : 'Afficher le mot de passe'); btn.setAttribute('data-i18n-aria-label', 'auth.show_password');
-                btn.setAttribute('aria-label', 'Afficher le mot de passe');
-            }
+                }
         });
     });
 
