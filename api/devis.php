@@ -57,7 +57,6 @@ $requiredFields = [
     'format' => 'Le format de conditionnement est obligatoire.',
     'quantity' => 'La quantité est obligatoire.',
     'delivery_address' => 'L\'adresse de livraison est obligatoire.',
-    'company' => 'Le nom de l\'entreprise est obligatoire.',
     'contact_name' => 'Le nom du contact est obligatoire.',
     'email' => 'L\'adresse email est obligatoire.',
     'phone' => 'Le numéro de téléphone est obligatoire.',
