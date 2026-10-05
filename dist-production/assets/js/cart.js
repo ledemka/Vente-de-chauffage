@@ -451,9 +451,7 @@ var CartUI = {
                         <span data-i18n="cart.validate_order">Valider ma commande</span>
                         <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
                     </a>
-                    <p class="text-center text-[11px] text-on-surface-variant mt-3 flex justify-center items-center gap-1">
-                        <span class="material-symbols-outlined text-[14px]">lock</span> <span data-i18n="cart.secure_payment">Paiement sécurisé B2B par Virement</span>
-                    </p>
+
                 </div>
             `;
         }
