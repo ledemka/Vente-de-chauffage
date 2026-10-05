@@ -5,12 +5,12 @@ function getEnvVar(string $name, string $default = ''): string {
     static $cache = null;
 
     $val = getenv($name);
-    if ($val !== false) {
+    if ($val !== false && trim((string)$val) !== '') {
         $val = trim((string)$val);
         return trim($val, "\"'");
     }
 
-    if (isset($_ENV[$name])) {
+    if (isset($_ENV[$name]) && trim((string)$_ENV[$name]) !== '') {
         $val = trim((string)$_ENV[$name]);
         return trim($val, "\"'");
     }
