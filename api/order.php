@@ -394,7 +394,9 @@ try {
             curl_close($ch);
             
             if ($httpCode < 200 || $httpCode > 299) {
-                error_log("Resend error: HTTP $httpCode $response (to=$domain)");
+                $resData = json_decode($response, true);
+                $resMessage = is_array($resData) && !empty($resData['message']) ? (string)$resData['message'] : 'Resend API error';
+                error_log("Resend error: HTTP $httpCode $resMessage (to=$domain)");
                 return false;
             }
             
