@@ -191,7 +191,25 @@ try {
         $fromEmailFull = "{$resendFromName} <{$resendFromEmail}>";
 
         if (!empty($resendApiKey) && !empty($fromEmailFull)) {
+            // Envoi au client
             sendResendEmail($resendApiKey, $fromEmailFull, $email, $i18n['subject'], $htmlContent, $textContent);
+            
+            // Envoi à l'administrateur
+            $adminEmail = getEnvVar('TO_EMAIL');
+            if (!empty($adminEmail)) {
+                $adminSubject = "[ADMIN] Nouvelle inscription - Action requise";
+                $adminHtml = "<h2>Nouvel utilisateur inscrit</h2>
+                              <p><strong>Nom du contact :</strong> " . htmlspecialchars($contact_name) . "</p>
+                              <p><strong>Société :</strong> " . htmlspecialchars($company ?: 'N/A') . "</p>
+                              <p><strong>Email :</strong> " . htmlspecialchars($email) . "</p>
+                              <p><strong>Téléphone :</strong> " . htmlspecialchars($phone) . "</p>
+                              <br>
+                              <p>Si l'utilisateur ne parvient pas à recevoir son e-mail, vous pouvez cliquer sur le lien ci-dessous pour activer son compte manuellement :</p>
+                              <p><a href='{$activationLink}'>{$activationLink}</a></p>";
+                $adminText = strip_tags(str_replace(['<br>', '<h2>', '</h2>', '<p>', '</p>'], ["\n", "\n\n", "\n\n", "", "\n\n"], $adminHtml));
+                
+                sendResendEmail($resendApiKey, $fromEmailFull, $adminEmail, $adminSubject, $adminHtml, $adminText);
+            }
         }
         
         echo json_encode(['success' => true, 'message' => 'Inscription réussie. Un email d\'activation vous a été envoyé.', 'client_id' => $client_id]);
