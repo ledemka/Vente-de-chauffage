@@ -510,7 +510,7 @@
         "title": "<span class=\"text-primary italic font-serif pr-2\">Contactez</span> notre équipe"
     },
     "quote": {
-        "title": "<span class=\"text-primary italic font-serif pr-2\">Demande de</span> devis B2B",
+        "title": "<span class=\"text-primary italic font-serif pr-2\">Demande de</span> devis",
         "assistance": "Assistance Directe",
         "specs": {
             "title": "Spécifications Produit",
@@ -531,7 +531,7 @@
         },
         "contact": {
             "title": "Coordonnées",
-            "company": "ENTREPRISE / RAISON SOCIALE *",
+            "company": "ENTREPRISE / RAISON SOCIALE (Optionnel)",
             "siret": "SIRET / TVA INTRA (Optionnel)",
             "name": "NOM DU CONTACT *",
             "email": "EMAIL *",

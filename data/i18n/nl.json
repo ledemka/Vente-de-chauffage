@@ -510,7 +510,7 @@
         "title": "<span class=\"text-primary italic font-serif pr-2\">Neem contact op met</span> ons team"
     },
     "quote": {
-        "title": "<span class=\"text-primary italic font-serif pr-2\">Aanvraag voor</span> B2B-offerte",
+        "title": "<span class=\"text-primary italic font-serif pr-2\">Aanvraag voor</span>-offerte",
         "assistance": "Directe ondersteuning",
         "specs": {
             "title": "Productspecificaties",
@@ -531,7 +531,7 @@
         },
         "contact": {
             "title": "Contactgegevens",
-            "company": "BEDRIJF / HANDELSNAAM *",
+            "company": "BEDRIJF / HANDELSNAAM (Optioneel)",
             "siret": "KVK-nummer / btw-nummer (Optioneel)",
             "name": "CONTACTPERSOON *",
             "email": "E-MAIL *",

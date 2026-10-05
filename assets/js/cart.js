@@ -878,15 +878,8 @@ var CartUI = {
             if (ref) {
                 refSpan.textContent = ref;
                 
-                // Auto-download PDF
-                setTimeout(() => {
-                    const iframe = document.createElement('iframe');
-                    iframe.style.display = 'none';
-                    const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
-                    const apiPath = inSubdir ? '../api/generate-order-pdf.php' : './api/generate-order-pdf.php';
-                    iframe.src = `${apiPath}?ref=${encodeURIComponent(ref)}`;
-                    document.body.appendChild(iframe);
-                }, 1000);
+                // Automatic download removed as per request.
+                // The manual download button still exists in the dashboard.
             } else {
                 refSpan.textContent = 'NON_TROUVEE';
             }

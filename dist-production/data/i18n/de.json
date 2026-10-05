@@ -510,7 +510,7 @@
         "title": "<span class=\"text-primary italic font-serif pr-2\">Kontaktieren Sie</span> unser Team"
     },
     "quote": {
-        "title": "<span class=\"text-primary italic font-serif pr-2\">Anfrage für</span> B2B-Angebot",
+        "title": "<span class=\"text-primary italic font-serif pr-2\">Anfrage für</span>-Angebot",
         "assistance": "Direkte Unterstützung",
         "specs": {
             "title": "Produktspezifikationen",
@@ -531,7 +531,7 @@
         },
         "contact": {
             "title": "Kontaktdaten",
-            "company": "UNTERNEHMEN / FIRMENNAME *",
+            "company": "UNTERNEHMEN / FIRMENNAME (Optional)",
             "siret": "Handelsregisternr. / USt-IdNr. (Optional)",
             "name": "ANSPRECHPARTNER *",
             "email": "E-MAIL *",
