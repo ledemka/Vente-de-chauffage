@@ -82,10 +82,12 @@ function buildProducts(buildId) {
             if (lang !== 'fr') {
                 content = content.replace(/<html[^>]*lang="[^"]*"[^>]*>/i, (match) => match.replace(/lang="[^"]*"/i, `lang="${lang}"`));
                 // In /en/produits/, it's 2 levels deep
-                content = content.replace(/(['"]).\/(assets|data|api)\//g, `$1../../$2/`);
+                content = content.replace(/(['"`]).\/(assets|data|api)\//g, `$1../../$2/`);
+                content = content.replace(/(['"`]).\/(catalogue\.html)/g, `$1../../$2`);
             } else {
                 // In /produits/, it's 1 level deep
-                content = content.replace(/(['"]).\/(assets|data|api)\//g, `$1../$2/`);
+                content = content.replace(/(['"`]).\/(assets|data|api)\//g, `$1../$2/`);
+                content = content.replace(/(['"`]).\/(catalogue\.html)/g, `$1../$2`);
             }
 
             // 3. Cheerio manipulation for SEO
