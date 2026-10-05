@@ -1,9 +1,8 @@
 <?php
+declare(strict_types=1);
 /**
  * Reset Password API
  */
-declare(strict_types=1);
-
 require_once __DIR__ . '/db.php';
 
 function respondError(int $code, string $message): void {

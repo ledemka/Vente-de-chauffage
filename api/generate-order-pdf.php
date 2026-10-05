@@ -1,8 +1,8 @@
-﻿<?php
+<?php
+declare(strict_types=1);
 /**
  * B2B Orders API - Generate PDF
  */
-declare(strict_types=1);
 
 require_once __DIR__ . '/db.php';
 session_start();
@@ -110,10 +110,10 @@ try {
                 <td width="50%">
                     <div class="logo-placeholder">sotramsbois</div>
                     <div class="company-info">
-                        [Adresse à compléter par le client]<br>
-                        [Téléphone à compléter par le client]<br>
+                        2475 Route de Fumay, 08230 Gué-d’Hossus (France)<br>
+                        Téléphone : 09 74 30 92 29<br>
                         Email: contact@sotramsbois.com<br>
-                        [SIRET à compléter par le client]
+                        SIRET : 35387770700029
                     </div>
                 </td>
                 <td width="50%" class="doc-title">
@@ -243,7 +243,10 @@ try {
     $dompdf->loadHtml($html);
     $dompdf->setPaper('A4', 'portrait');
     $dompdf->render();
-
+    // Prevent any PHP warnings or whitespace from corrupting the PDF stream
+    if (ob_get_length()) {
+        ob_clean();
+    }
     $dompdf->stream('bon-commande-' . $ref . '.pdf', ['Attachment' => true]);
 
 } catch (Exception $e) {

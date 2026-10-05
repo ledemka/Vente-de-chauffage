@@ -1,9 +1,8 @@
 <?php
+declare(strict_types=1);
 /**
  * Contact Form API
  */
-declare(strict_types=1);
-
 require_once __DIR__ . '/env.php';
 require_once __DIR__ . '/db.php';
 

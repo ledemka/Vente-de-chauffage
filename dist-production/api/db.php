@@ -1,11 +1,9 @@
 <?php
+declare(strict_types=1);
 /**
  * PHP / PDO Skeleton for B2B Wood Heating Catalog Database Connection
  * Prepared for Step 2 product data integration and B2B quote handling.
  */
-
-declare(strict_types=1);
-
 class Database {
     private string $host;
     private string $db_name;

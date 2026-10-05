@@ -1,10 +1,8 @@
 <?php
+declare(strict_types=1);
 /**
  * B2B Auth API (Register, Login, Logout)
  */
-
-declare(strict_types=1);
-
 require_once __DIR__ . '/env.php';
 require_once __DIR__ . '/db.php';
 

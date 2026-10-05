@@ -1,11 +1,9 @@
 <?php
+declare(strict_types=1);
 /**
  * Real B2B Quote Submission Handler API
  * Handles database persistence and Resend email alerts.
  */
-
-declare(strict_types=1);
-
 require_once __DIR__ . '/env.php';
 header('Content-Type: application/json; charset=utf-8');
 

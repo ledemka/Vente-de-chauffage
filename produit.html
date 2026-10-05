@@ -82,7 +82,16 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
             <nav class="bg-surface-container border-t border-outline-variant/20">
                 <div class="max-w-[1440px] mx-auto px-margin-desktop h-12 flex items-center gap-10">
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.home" href="./index.html"><span data-i18n="nav.home">ACCUEIL</span></a>
-                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.catalog" href="./catalogue.html"><span data-i18n="nav.catalog">CATALOGUE</span></a>
+                    <div class="relative group h-full flex items-center">
+    <a class="flex items-center gap-1 h-full text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.catalog" href="./catalogue.html"><span data-i18n="nav.catalog">CATALOGUE</span> <span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:rotate-180">expand_more</span></a>
+    <div class="absolute top-[100%] left-0 hidden group-hover:flex flex-col bg-surface-container border border-outline-variant/20 shadow-lg py-2 min-w-[280px] z-50">
+        <a href="./catalogue.html?subgroup=1" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.1">Bûches de bois</span></a>
+        <a href="./catalogue.html?subgroup=2" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a>
+        <a href="./catalogue.html?subgroup=3" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.3">Briquettes</span></a>
+        <a href="./catalogue.html?subgroup=4" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.4">Granulés / Pellets</span></a>
+        <a href="./catalogue.html?subgroup=5" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.5">Charbon / Allume-feu</span></a>
+    </div>
+</div>
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.guide" href="./guide-choix.html"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
                     <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.depots" href="./depots.html"><span data-i18n="nav.depots">Dépôts</span></a>
                       <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.faq" href="./faq.html"><span data-i18n="nav.faq">FAQ</span></a>
