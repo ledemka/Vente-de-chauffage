@@ -122,9 +122,18 @@ try {
                     <p>Date: ' . $date . '</p>
                 </td>
             </tr>
-        </table>
+        </table>';
 
-        <table class="addresses">
+    $statusMap = [
+        'pending_payment' => 'En attente de paiement',
+        'paid' => 'Payée',
+        'shipped' => 'En cours de livraison',
+        'delivered' => 'Livrée',
+        'cancelled' => 'Annulée'
+    ];
+    $statusFR = $statusMap[$order['status']] ?? $order['status'];
+
+    $html .= '<table class="addresses">
             <tr>
                 <td class="address-box" valign="top">
                     <h3>Facturé / Livré à</h3>
@@ -140,7 +149,7 @@ try {
                 <td class="address-box" valign="top">
                     <h3>Informations de livraison</h3>
                     <p><strong>Accès camion:</strong> ' . htmlspecialchars($order['truck_access']) . '</p>
-                    <p><strong>Statut de la commande:</strong> ' . htmlspecialchars($order['status']) . '</p>
+                    <p><strong>Statut de la commande:</strong> ' . htmlspecialchars($statusFR) . '</p>
                     <p><em>Nous vous contacterons rapidement pour planifier la livraison.</em></p>
                 </td>
             </tr>
