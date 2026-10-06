@@ -586,9 +586,9 @@
             "invoice_desc": "Centralized management and paperless delivery notes."
         },
         "form": {
-            "title": "B2B Login",
+            "title": "Login",
             "subtitle": "Enter your business credentials to access your account.",
-            "email": "Business Email",
+            "email": "Email",
             "password": "Password",
             "forgot": "Forgot password?",
             "remember": "Stay logged in",

@@ -586,9 +586,9 @@
             "invoice_desc": "Gestion centralisée et bons de livraison dématérialisés."
         },
         "form": {
-            "title": "Connexion B2B",
+            "title": "Connexion",
             "subtitle": "Entrez vos identifiants professionnels pour accéder à votre espace.",
-            "email": "Email Professionnel",
+            "email": "Email",
             "password": "Mot de passe",
             "forgot": "Mot de passe oublié ?",
             "remember": "Rester connecté",

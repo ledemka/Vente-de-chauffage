@@ -586,9 +586,9 @@
             "invoice_desc": "Gecentraliseerd beheer en digitale afleverbonnen."
         },
         "form": {
-            "title": "B2B-inloggen",
+            "title": "Inloggen",
             "subtitle": "Voer uw zakelijke gegevens in om toegang te krijgen tot uw account.",
-            "email": "Zakelijk e-mailadres",
+            "email": "E-mailadres",
             "password": "Wachtwoord",
             "forgot": "Wachtwoord vergeten?",
             "remember": "Ingelogd blijven",

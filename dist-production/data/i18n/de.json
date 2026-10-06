@@ -586,9 +586,9 @@
             "invoice_desc": "Zentralisierte Verwaltung und digitale Lieferscheine."
         },
         "form": {
-            "title": "B2B-Anmeldung",
+            "title": "Anmeldung",
             "subtitle": "Geben Sie Ihre Geschäftsdaten ein, um auf Ihren Bereich zuzugreifen.",
-            "email": "Geschäftliche E-Mail",
+            "email": "E-Mail",
             "password": "Passwort",
             "forgot": "Passwort vergessen?",
             "remember": "Angemeldet bleiben",
