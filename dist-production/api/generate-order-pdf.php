@@ -122,9 +122,18 @@ try {
                     <p>Date: ' . $date . '</p>
                 </td>
             </tr>
-        </table>
+        </table>';
 
-        <table class="addresses">
+    $statusMap = [
+        'pending_payment' => 'En attente de paiement',
+        'paid' => 'Payée',
+        'shipped' => 'En cours de livraison',
+        'delivered' => 'Livrée',
+        'cancelled' => 'Annulée'
+    ];
+    $statusFR = $statusMap[$order['status']] ?? $order['status'];
+
+    $html .= '<table class="addresses">
             <tr>
                 <td class="address-box" valign="top">
                     <h3>Facturé / Livré à</h3>
@@ -140,7 +149,7 @@ try {
                 <td class="address-box" valign="top">
                     <h3>Informations de livraison</h3>
                     <p><strong>Accès camion:</strong> ' . htmlspecialchars($order['truck_access']) . '</p>
-                    <p><strong>Statut de la commande:</strong> ' . htmlspecialchars($order['status']) . '</p>
+                    <p><strong>Statut de la commande:</strong> ' . htmlspecialchars($statusFR) . '</p>
                     <p><em>Nous vous contacterons rapidement pour planifier la livraison.</em></p>
                 </td>
             </tr>
@@ -152,23 +161,21 @@ try {
                     <th>Désignation</th>
                     <th>Format</th>
                     <th class="center">Qté</th>
-                    <th class="right">P.U. TTC</th>
-                    <th class="right">Total TTC</th>
+                    <th class="right">Total</th>
                 </tr>
             </thead>
             <tbody>';
 
     foreach ($items as $item) {
-        $pu = floatval($item['unit_price']);
         $qty = intval($item['quantity']);
-        $lineTotal = $pu * $qty;
+        // total_ht is stored in DB for the item
+        $lineTotalHt = isset($item['total_ht']) ? floatval($item['total_ht']) : (isset($item['unit_price_net_ht']) ? floatval($item['unit_price_net_ht']) * $qty : 0);
         
         $html .= '<tr>
             <td><strong>' . htmlspecialchars($item['name']) . '</strong></td>
             <td>' . htmlspecialchars($item['format'] ?? '') . '</td>
             <td class="center">' . $qty . '</td>
-            <td class="right">' . number_format($pu, 2, ',', ' ') . ' €</td>
-            <td class="right">' . number_format($lineTotal, 2, ',', ' ') . ' €</td>
+            <td class="right">' . number_format($lineTotalHt, 2, ',', ' ') . ' €</td>
         </tr>';
     }
 
@@ -177,17 +184,9 @@ try {
 
         <div class="totals">
             <table>
-                <tr>
-                    <td>Sous-total HT</td>
-                    <td class="right">' . number_format($total_ht, 2, ',', ' ') . ' €</td>
-                </tr>
-                <tr>
-                    <td>TVA (20%)</td>
-                    <td class="right">' . number_format($total_tva, 2, ',', ' ') . ' €</td>
-                </tr>
                 <tr class="grand-total">
-                    <td>TOTAL TTC</td>
-                    <td class="right">' . number_format($total_ttc, 2, ',', ' ') . ' €</td>
+                    <td>TOTAL</td>
+                    <td class="right">' . number_format($total_ht, 2, ',', ' ') . ' €</td>
                 </tr>
             </table>
         </div>
