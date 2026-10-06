@@ -152,23 +152,22 @@ try {
                     <th>Désignation</th>
                     <th>Format</th>
                     <th class="center">Qté</th>
-                    <th class="right">P.U. TTC</th>
                     <th class="right">Total TTC</th>
                 </tr>
             </thead>
             <tbody>';
 
     foreach ($items as $item) {
-        $pu = floatval($item['unit_price']);
         $qty = intval($item['quantity']);
-        $lineTotal = $pu * $qty;
+        // total_ht is stored in DB for the item
+        $lineTotalHt = isset($item['total_ht']) ? floatval($item['total_ht']) : (isset($item['unit_price_net_ht']) ? floatval($item['unit_price_net_ht']) * $qty : 0);
+        $lineTotalTtc = $lineTotalHt * (1 + $tva_rate);
         
         $html .= '<tr>
             <td><strong>' . htmlspecialchars($item['name']) . '</strong></td>
             <td>' . htmlspecialchars($item['format'] ?? '') . '</td>
             <td class="center">' . $qty . '</td>
-            <td class="right">' . number_format($pu, 2, ',', ' ') . ' €</td>
-            <td class="right">' . number_format($lineTotal, 2, ',', ' ') . ' €</td>
+            <td class="right">' . number_format($lineTotalTtc, 2, ',', ' ') . ' €</td>
         </tr>';
     }
 
