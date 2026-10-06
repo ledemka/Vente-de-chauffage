@@ -152,7 +152,7 @@ try {
                     <th>Désignation</th>
                     <th>Format</th>
                     <th class="center">Qté</th>
-                    <th class="right">Total TTC</th>
+                    <th class="right">Total</th>
                 </tr>
             </thead>
             <tbody>';
@@ -161,13 +161,12 @@ try {
         $qty = intval($item['quantity']);
         // total_ht is stored in DB for the item
         $lineTotalHt = isset($item['total_ht']) ? floatval($item['total_ht']) : (isset($item['unit_price_net_ht']) ? floatval($item['unit_price_net_ht']) * $qty : 0);
-        $lineTotalTtc = $lineTotalHt * (1 + $tva_rate);
         
         $html .= '<tr>
             <td><strong>' . htmlspecialchars($item['name']) . '</strong></td>
             <td>' . htmlspecialchars($item['format'] ?? '') . '</td>
             <td class="center">' . $qty . '</td>
-            <td class="right">' . number_format($lineTotalTtc, 2, ',', ' ') . ' €</td>
+            <td class="right">' . number_format($lineTotalHt, 2, ',', ' ') . ' €</td>
         </tr>';
     }
 
@@ -176,17 +175,9 @@ try {
 
         <div class="totals">
             <table>
-                <tr>
-                    <td>Sous-total HT</td>
-                    <td class="right">' . number_format($total_ht, 2, ',', ' ') . ' €</td>
-                </tr>
-                <tr>
-                    <td>TVA (20%)</td>
-                    <td class="right">' . number_format($total_tva, 2, ',', ' ') . ' €</td>
-                </tr>
                 <tr class="grand-total">
-                    <td>TOTAL TTC</td>
-                    <td class="right">' . number_format($total_ttc, 2, ',', ' ') . ' €</td>
+                    <td>TOTAL</td>
+                    <td class="right">' . number_format($total_ht, 2, ',', ' ') . ' €</td>
                 </tr>
             </table>
         </div>
