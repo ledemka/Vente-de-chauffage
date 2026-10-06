@@ -80,11 +80,11 @@ try {
         <style>
             body { font-family: "Helvetica", "Arial", sans-serif; font-size: 13px; color: #333; margin: 0; padding: 20px; }
             .header { width: 100%; border-bottom: 3px solid #802813; padding-bottom: 20px; margin-bottom: 30px; }
-            .logo-placeholder { font-size: 28px; font-weight: bold; color: #802813; margin-bottom: 10px; }
-            .company-info { font-size: 11px; color: #666; line-height: 1.5; }
-            .doc-title { text-align: right; margin-top: -60px; }
-            .doc-title h1 { color: #802813; font-size: 24px; margin: 0; text-transform: uppercase; }
-            .doc-title p { margin: 5px 0 0 0; font-size: 14px; font-weight: bold; }
+            .logo-placeholder { font-size: 14px; font-weight: bold; color: #000; margin-bottom: 2px; text-transform: uppercase; }
+            .company-info { font-size: 12px; color: #000; line-height: 1.4; }
+            .doc-title { text-align: right; vertical-align: top; }
+            .doc-title h1 { color: #000; font-size: 16px; margin: 0 0 20px 0; text-transform: uppercase; }
+            .doc-title p { margin: 3px 0 0 0; font-size: 12px; font-weight: normal; }
             .addresses { width: 100%; margin-bottom: 40px; }
             .address-box { width: 45%; padding: 15px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 4px; }
             .address-box h3 { margin-top: 0; margin-bottom: 10px; font-size: 14px; color: #802813; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
@@ -107,19 +107,21 @@ try {
     <body>
         <table class="header">
             <tr>
-                <td width="50%">
-                    <div class="logo-placeholder">sotramsbois</div>
+                <td width="50%" valign="top">
+                    <div class="logo-placeholder">SOTRAMSBOIS</div>
                     <div class="company-info">
-                        2475 Route de Fumay, 08230 Gué-d’Hossus (France)<br>
-                        Téléphone : 09 74 30 92 29<br>
-                        Email: contact@sotramsbois.com<br>
-                        SIRET : 35387770700029
+                        Société par actions simplifiée (SAS)<br>
+                        2475 route de Fumay<br>
+                        08230 Gué-d’Hossus – France<br>
+                        <strong>SIREN : 353 877 707 – RCS Sedan</strong><br>
+                        Tél. : 09 74 30 92 29<br>
+                        Email : contact@sotramsbois.com
                     </div>
                 </td>
-                <td width="50%" class="doc-title">
+                <td width="50%" class="doc-title" valign="top">
                     <h1>BON DE COMMANDE</h1>
-                    <p>Réf: ' . htmlspecialchars($ref) . '</p>
-                    <p>Date: ' . $date . '</p>
+                    <p>N° : ' . htmlspecialchars($ref) . '</p>
+                    <p>Date : ' . $date . '</p>
                 </td>
             </tr>
         </table>';
