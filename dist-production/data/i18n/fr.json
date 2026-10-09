@@ -43,7 +43,7 @@
         },
         "table": {
             "format": "FORMAT",
-            "unit_pallet": "UNITE / PALETTE",
+            "unit_pallet": "UNITÉ / PALETTE",
             "weight": "POIDS PALETTE",
             "price": "PRIX GROS / PALETTE",
             "currency": "€ TTC"

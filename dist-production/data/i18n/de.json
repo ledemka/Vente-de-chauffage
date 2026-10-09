@@ -45,8 +45,8 @@
             "format": "FORMAT",
             "unit_pallet": "EINHEIT / PALETTE",
             "weight": "PALETTENGEWICHT",
-            "price": "GROSSPREIS / PALETTE",
-            "currency": "€ inkl. MwSt"
+            "price": "GROSSHANDELSPREIS / PALETTE",
+            "currency": "€ inkl. MwSt."
         },
         "category_label": "KATEGORIE",
         "references_label": "Artikel",
