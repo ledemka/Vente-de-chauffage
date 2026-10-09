@@ -1,31 +1,37 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const directories = ['.', 'en', 'de', 'nl'];
+const directories = [".", "en", "de", "nl"];
 
 function modifyContactFile(filepath) {
-    if (!fs.existsSync(filepath)) return;
-    
-    let content = fs.readFileSync(filepath, 'utf8');
+  if (!fs.existsSync(filepath)) return;
 
-    // 1. Société
-    content = content.replace('>Société *</label>', '>Société</label>');
-    content = content.replace('id="societe" required=""', 'id="societe"');
+  let content = fs.readFileSync(filepath, "utf8");
 
-    // 2. SIRET
-    content = content.replace('>SIRET / TVA Intracom. *</label>', '>SIRET / TVA Intracom.</label>');
-    content = content.replace('id="siret" required=""', 'id="siret"');
+  // 1. Société
+  content = content.replace(">Société *</label>", ">Société</label>");
+  content = content.replace('id="societe" required=""', 'id="societe"');
 
-    // 3. Détails du projet -> Commentaire
-    content = content.replace('>Détails du projet / Volumes estimés *</label>', '>Commentaire</label>');
-    content = content.replace('id="message" required=""', 'id="message"');
+  // 2. SIRET
+  content = content.replace(
+    ">SIRET / TVA Intracom. *</label>",
+    ">SIRET / TVA Intracom.</label>",
+  );
+  content = content.replace('id="siret" required=""', 'id="siret"');
 
-    fs.writeFileSync(filepath, content, 'utf8');
-    console.log(`Modified ${filepath}`);
+  // 3. Détails du projet -> Commentaire
+  content = content.replace(
+    ">Détails du projet / Volumes estimés *</label>",
+    ">Commentaire</label>",
+  );
+  content = content.replace('id="message" required=""', 'id="message"');
+
+  fs.writeFileSync(filepath, content, "utf8");
+  console.log(`Modified ${filepath}`);
 }
 
-directories.forEach(d => {
-    modifyContactFile(path.join(__dirname, '..', d, 'contact.html'));
+directories.forEach((d) => {
+  modifyContactFile(path.join(__dirname, "..", d, "contact.html"));
 });
 
 console.log("Done.");

@@ -1,15 +1,17 @@
-const fs = require('fs');
+const fs = require("fs");
 
 // 1. Update recapitulatif-commande.html across all languages
 const htmlFiles = [
-    'recapitulatif-commande.html',
-    'en/recapitulatif-commande.html',
-    'de/recapitulatif-commande.html',
-    'nl/recapitulatif-commande.html'
+  "recapitulatif-commande.html",
+  "en/recapitulatif-commande.html",
+  "de/recapitulatif-commande.html",
+  "nl/recapitulatif-commande.html",
 ];
 
-const addressUIPattern = /<div class="flex flex-col gap-2">\s*<label for="address".*?<\/label>\s*<input type="text" id="address".*?<\/div>/s;
-const zipCityPattern = /<div class="grid grid-cols-1 md:grid-cols-2 gap-5">\s*<div class="flex flex-col gap-2">\s*<label for="zip_code".*?<\/div>\s*<div class="flex flex-col gap-2">\s*<label for="city".*?<\/div>\s*<\/div>/s;
+const addressUIPattern =
+  /<div class="flex flex-col gap-2">\s*<label for="address".*?<\/label>\s*<input type="text" id="address".*?<\/div>/s;
+const zipCityPattern =
+  /<div class="grid grid-cols-1 md:grid-cols-2 gap-5">\s*<div class="flex flex-col gap-2">\s*<label for="zip_code".*?<\/div>\s*<div class="flex flex-col gap-2">\s*<label for="city".*?<\/div>\s*<\/div>/s;
 
 const newAddressUI = `
                         <div class="flex flex-col gap-2 relative">
@@ -31,38 +33,44 @@ const newAddressUI = `
                         </div>
 `;
 
-htmlFiles.forEach(f => {
-    if (!fs.existsSync(f)) return;
-    let content = fs.readFileSync(f, 'utf8');
-    
-    // Replace address field and add new elements
-    if (content.match(addressUIPattern) && !content.includes('id="shipping-result"')) {
-        content = content.replace(addressUIPattern, newAddressUI);
-    }
-    
-    // Remove zip code and city
-    if (content.match(zipCityPattern)) {
-        content = content.replace(zipCityPattern, '');
-    }
+htmlFiles.forEach((f) => {
+  if (!fs.existsSync(f)) return;
+  let content = fs.readFileSync(f, "utf8");
 
-    // Add Shipping row to totals block
-    if (content.includes('id="checkout-discount"') && !content.includes('id="checkout-shipping"')) {
-        content = content.replace(
-            /(<div class="flex justify-between items-center text-body-sm text-primary">[\s\S]*?id="checkout-discount"[\s\S]*?<\/div>)/,
-            `$1\n                            <div class="flex justify-between items-center text-body-sm text-on-surface-variant" id="checkout-shipping-row">\n                                <span>Frais de livraison HT</span>\n                                <span class="font-data-mono" id="checkout-shipping">À calculer</span>\n                            </div>`
-        );
-    }
+  // Replace address field and add new elements
+  if (
+    content.match(addressUIPattern) &&
+    !content.includes('id="shipping-result"')
+  ) {
+    content = content.replace(addressUIPattern, newAddressUI);
+  }
 
-    fs.writeFileSync(f, content);
-    console.log('Updated ' + f);
+  // Remove zip code and city
+  if (content.match(zipCityPattern)) {
+    content = content.replace(zipCityPattern, "");
+  }
+
+  // Add Shipping row to totals block
+  if (
+    content.includes('id="checkout-discount"') &&
+    !content.includes('id="checkout-shipping"')
+  ) {
+    content = content.replace(
+      /(<div class="flex justify-between items-center text-body-sm text-primary">[\s\S]*?id="checkout-discount"[\s\S]*?<\/div>)/,
+      `$1\n                            <div class="flex justify-between items-center text-body-sm text-on-surface-variant" id="checkout-shipping-row">\n                                <span>Frais de livraison HT</span>\n                                <span class="font-data-mono" id="checkout-shipping">À calculer</span>\n                            </div>`,
+    );
+  }
+
+  fs.writeFileSync(f, content);
+  console.log("Updated " + f);
 });
 
 // 2. Update assets/js/cart.js
-let cartJs = fs.readFileSync('assets/js/cart.js', 'utf8');
+let cartJs = fs.readFileSync("assets/js/cart.js", "utf8");
 
 // Insert new shipping state into renderCheckoutPage
-if (!cartJs.includes('let checkoutShippingCost = null;')) {
-    const stateVars = `
+if (!cartJs.includes("let checkoutShippingCost = null;")) {
+  const stateVars = `
         let checkoutShippingCost = null;
         let validatedAddress = '';
         let isShippingCalculable = false;
@@ -91,15 +99,18 @@ if (!cartJs.includes('let checkoutShippingCost = null;')) {
         }
         updateCheckoutTotal = updateCheckoutTotal.bind(this);
     `;
-    
-    cartJs = cartJs.replace(/let subtotal = 0;\s*let totalQuantity = 0;/, stateVars + '\n        let subtotal = 0;\n        let totalQuantity = 0;');
+
+  cartJs = cartJs.replace(
+    /let subtotal = 0;\s*let totalQuantity = 0;/,
+    stateVars + "\n        let subtotal = 0;\n        let totalQuantity = 0;",
+  );
 }
 
 // Update total rendering logic
-if (!cartJs.includes('checkoutSubtotal = subtotal;')) {
-    cartJs = cartJs.replace(
-        /const discount = this\.calculateDiscount\(totalQuantity, subtotal\);\s*const totalHT = subtotal - discount;\s*document\.getElementById\('checkout-subtotal'\)\.textContent = this\.formatPrice\(subtotal\);\s*document\.getElementById\('checkout-discount'\)\.textContent = '-' \+ this\.formatPrice\(discount\);\s*document\.getElementById\('checkout-total'\)\.textContent = this\.formatPrice\(totalHT\);/,
-        `const discount = this.calculateDiscount(totalQuantity, subtotal);
+if (!cartJs.includes("checkoutSubtotal = subtotal;")) {
+  cartJs = cartJs.replace(
+    /const discount = this\.calculateDiscount\(totalQuantity, subtotal\);\s*const totalHT = subtotal - discount;\s*document\.getElementById\('checkout-subtotal'\)\.textContent = this\.formatPrice\(subtotal\);\s*document\.getElementById\('checkout-discount'\)\.textContent = '-' \+ this\.formatPrice\(discount\);\s*document\.getElementById\('checkout-total'\)\.textContent = this\.formatPrice\(totalHT\);/,
+    `const discount = this.calculateDiscount(totalQuantity, subtotal);
         
         checkoutSubtotal = subtotal;
         checkoutTotalQty = totalQuantity;
@@ -109,13 +120,13 @@ if (!cartJs.includes('checkoutSubtotal = subtotal;')) {
         document.getElementById('checkout-discount').textContent = '-' + this.formatPrice(discount);
         document.getElementById('checkout-shipping').textContent = 'À calculer';
         
-        updateCheckoutTotal();`
-    );
+        updateCheckoutTotal();`,
+  );
 }
 
 // Attach Autocomplete events
-if (!cartJs.includes('// Initialize shipping autocomplete')) {
-    const autocompleteLogic = `
+if (!cartJs.includes("// Initialize shipping autocomplete")) {
+  const autocompleteLogic = `
         // Initialize shipping autocomplete
         const shippingAddress = document.getElementById('address');
         const autocompleteResults = document.getElementById('autocomplete-results');
@@ -221,19 +232,21 @@ if (!cartJs.includes('// Initialize shipping autocomplete')) {
         }
         calculateCheckoutShipping = calculateCheckoutShipping.bind(this);
     `;
-    
-    // Insert before "// Handle form submission"
-    cartJs = cartJs.replace(/\/\/\s*Handle form submission/s, autocompleteLogic + '\n\n        // Handle form submission');
+
+  // Insert before "// Handle form submission"
+  cartJs = cartJs.replace(
+    /\/\/\s*Handle form submission/s,
+    autocompleteLogic + "\n\n        // Handle form submission",
+  );
 }
 
 // Update form submission delivery_address mapping
-if (cartJs.includes('document.getElementById(\'zip_code\').value')) {
-    cartJs = cartJs.replace(
-        /delivery_address:\s*document\.getElementById\('address'\)\.value \+ ' ' \+ document\.getElementById\('zip_code'\)\.value \+ ' ' \+ document\.getElementById\('city'\)\.value,/,
-        "delivery_address: validatedAddress || document.getElementById('address').value,"
-    );
+if (cartJs.includes("document.getElementById('zip_code').value")) {
+  cartJs = cartJs.replace(
+    /delivery_address:\s*document\.getElementById\('address'\)\.value \+ ' ' \+ document\.getElementById\('zip_code'\)\.value \+ ' ' \+ document\.getElementById\('city'\)\.value,/,
+    "delivery_address: validatedAddress || document.getElementById('address').value,",
+  );
 }
 
-fs.writeFileSync('assets/js/cart.js', cartJs);
-console.log('Updated assets/js/cart.js');
-
+fs.writeFileSync("assets/js/cart.js", cartJs);
+console.log("Updated assets/js/cart.js");

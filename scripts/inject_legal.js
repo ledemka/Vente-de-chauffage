@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 const userHtml = `<!-- Confidentialité — sotramsbois -->
 <html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
@@ -794,34 +794,37 @@ const mentionsHtml = `<!-- Mentions Légales — sotramsbois -->
 </script></main><footer></footer></body></html>`;
 
 function extractMain(htmlString) {
-    const startIdx = htmlString.indexOf('<main');
-    if (startIdx === -1) return '';
-    const endIdx = htmlString.indexOf('</main>');
-    return htmlString.substring(startIdx, endIdx + 7);
+  const startIdx = htmlString.indexOf("<main");
+  if (startIdx === -1) return "";
+  const endIdx = htmlString.indexOf("</main>");
+  return htmlString.substring(startIdx, endIdx + 7);
 }
 
 const mains = {
-    'politique-confidentialite.html': extractMain(userHtml),
-    'cgv.html': extractMain(cgvHtml),
-    'mentions-legales.html': extractMain(mentionsHtml)
+  "politique-confidentialite.html": extractMain(userHtml),
+  "cgv.html": extractMain(cgvHtml),
+  "mentions-legales.html": extractMain(mentionsHtml),
 };
 
-const directories = ['.', 'en', 'de', 'nl'];
+const directories = [".", "en", "de", "nl"];
 
-directories.forEach(dir => {
-    Object.keys(mains).forEach(filename => {
-        const filepath = path.join(__dirname, '..', dir, filename);
-        if (fs.existsSync(filepath)) {
-            let currentContent = fs.readFileSync(filepath, 'utf8');
-            const startIdx = currentContent.indexOf('<main');
-            const endIdx = currentContent.indexOf('</main>');
-            if (startIdx !== -1 && endIdx !== -1) {
-                const newContent = currentContent.substring(0, startIdx) + mains[filename] + currentContent.substring(endIdx + 7);
-                fs.writeFileSync(filepath, newContent, 'utf8');
-                console.log("Updated " + filepath);
-            }
-        }
-    });
+directories.forEach((dir) => {
+  Object.keys(mains).forEach((filename) => {
+    const filepath = path.join(__dirname, "..", dir, filename);
+    if (fs.existsSync(filepath)) {
+      let currentContent = fs.readFileSync(filepath, "utf8");
+      const startIdx = currentContent.indexOf("<main");
+      const endIdx = currentContent.indexOf("</main>");
+      if (startIdx !== -1 && endIdx !== -1) {
+        const newContent =
+          currentContent.substring(0, startIdx) +
+          mains[filename] +
+          currentContent.substring(endIdx + 7);
+        fs.writeFileSync(filepath, newContent, "utf8");
+        console.log("Updated " + filepath);
+      }
+    }
+  });
 });
 
 console.log("Done injecting new main contents.");

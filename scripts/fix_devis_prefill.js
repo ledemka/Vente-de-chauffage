@@ -1,25 +1,25 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
-const dirs = ['.', 'en', 'de', 'nl'];
+const rootDir = path.join(__dirname, "..");
+const dirs = [".", "en", "de", "nl"];
 
 let modifiedCount = 0;
 
 for (const dir of dirs) {
-    const fullPath = path.join(rootDir, dir);
-    if (!fs.existsSync(fullPath)) continue;
-    
-    const filePath = path.join(fullPath, 'devis.html');
-    if (fs.existsSync(filePath)) {
-        let content = fs.readFileSync(filePath, 'utf8');
-        
-        // Prevent duplicate insertion
-        if (content.includes('urlParams.get(\'product\')')) {
-            continue;
-        }
+  const fullPath = path.join(rootDir, dir);
+  if (!fs.existsSync(fullPath)) continue;
 
-        const scriptToInject = `
+  const filePath = path.join(fullPath, "devis.html");
+  if (fs.existsSync(filePath)) {
+    let content = fs.readFileSync(filePath, "utf8");
+
+    // Prevent duplicate insertion
+    if (content.includes("urlParams.get('product')")) {
+      continue;
+    }
+
+    const scriptToInject = `
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const urlParams = new URLSearchParams(window.location.search);
@@ -62,13 +62,13 @@ for (const dir of dirs) {
         </script>
 </body>`;
 
-        // Inject right before </body>
-        content = content.replace(/<\/body>/, scriptToInject);
-        
-        fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`Updated ${path.join(dir, 'devis.html')}`);
-        modifiedCount++;
-    }
+    // Inject right before </body>
+    content = content.replace(/<\/body>/, scriptToInject);
+
+    fs.writeFileSync(filePath, content, "utf8");
+    console.log(`Updated ${path.join(dir, "devis.html")}`);
+    modifiedCount++;
+  }
 }
 
 console.log(`Modified ${modifiedCount} files.`);

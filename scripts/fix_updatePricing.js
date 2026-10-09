@@ -1,44 +1,42 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
+const rootDir = path.join(__dirname, "..");
 
 const replaceLogic = (content) => {
-    // Replace the currentLength init block
-    content = content.replace(
-        /let\s+currentLength\s*=\s*'';\s*if\s*\(product\.prices_by_length\)\s*\{/g,
-        `let selectedLength = lengthFromUrl || '';
+  // Replace the currentLength init block
+  content = content.replace(
+    /let\s+currentLength\s*=\s*'';\s*if\s*\(product\.prices_by_length\)\s*\{/g,
+    `let selectedLength = lengthFromUrl || '';
                                 const defaultDisplayLength = '50';
 
-                                if (product.prices_by_length) {`
-    );
+                                if (product.prices_by_length) {`,
+  );
 
-    // Remove the defaultDisplayLength assignment
-    content = content.replace(
-        /currentLength\s*=\s*lengthFromUrl\s*\|\|\s*'';\s*\/\/\s*displayLength is used for initial price display \(50 if nothing selected\)\s*const defaultDisplayLength = '50';/g,
-        ``
-    );
+  // Remove the defaultDisplayLength assignment
+  content = content.replace(
+    /currentLength\s*=\s*lengthFromUrl\s*\|\|\s*'';\s*\/\/\s*displayLength is used for initial price display \(50 if nothing selected\)\s*const defaultDisplayLength = '50';/g,
+    ``,
+  );
 
-    content = content.replace(
-        /const isActive = l === currentLength;/g,
-        `const isActive = l === selectedLength;`
-    );
+  content = content.replace(
+    /const isActive = l === currentLength;/g,
+    `const isActive = l === selectedLength;`,
+  );
 
-    content = content.replace(
-        /currentLength = l;/g,
-        `selectedLength = l;`
-    );
+  content = content.replace(/currentLength = l;/g, `selectedLength = l;`);
 
-    // Replace warning block setting currentLength
-    content = content.replace(
-        /\/\/\s*Use displayLength for initial price preview\s*currentLength\s*=\s*defaultDisplayLength;/g,
-        ``
-    );
+  // Replace warning block setting currentLength
+  content = content.replace(
+    /\/\/\s*Use displayLength for initial price preview\s*currentLength\s*=\s*defaultDisplayLength;/g,
+    ``,
+  );
 
-    // Now, replace the entire updatePricing function accurately using a RegExp
-    const updatePricingRegex = /function\s+updatePricing\(\)\s*\{[\s\S]*?\/\/\s*Make\s+currentLength\s+available\s+globally\s+for\s+handleCommanderClick\s*window\.currentProductLength\s*=\s*currentLength;\s*\}/g;
-    
-    const newUpdatePricing = `function updatePricing() {
+  // Now, replace the entire updatePricing function accurately using a RegExp
+  const updatePricingRegex =
+    /function\s+updatePricing\(\)\s*\{[\s\S]*?\/\/\s*Make\s+currentLength\s+available\s+globally\s+for\s+handleCommanderClick\s*window\.currentProductLength\s*=\s*currentLength;\s*\}/g;
+
+  const newUpdatePricing = `function updatePricing() {
                                     let qty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
                                     if (qty < 1) { qty = 1; if (qtyInput) qtyInput.value = 1; }
                                     
@@ -135,32 +133,38 @@ const replaceLogic = (content) => {
                                     // Make selectedLength available globally for handleCommanderClick
                                     window.currentProductLength = selectedLength;
                                 }`;
-    
-    if (updatePricingRegex.test(content)) {
-        content = content.replace(updatePricingRegex, newUpdatePricing);
-    } else {
-        console.error("Could not find updatePricing block to replace using regex!");
-    }
 
-    // Replace Commander Logic
-    content = content.replace(/if\s*\(isBuche\s*&&\s*!window\._userSelectedLength\)/g, `if (isBuche && !selectedLength)`);
-    content = content.replace(/CartAPI\.add\(product\.id,\s*qty,\s*currentLength\)/g, `CartAPI.add(product.id, qty, selectedLength)`);
+  if (updatePricingRegex.test(content)) {
+    content = content.replace(updatePricingRegex, newUpdatePricing);
+  } else {
+    console.error("Could not find updatePricing block to replace using regex!");
+  }
 
-    return content;
+  // Replace Commander Logic
+  content = content.replace(
+    /if\s*\(isBuche\s*&&\s*!window\._userSelectedLength\)/g,
+    `if (isBuche && !selectedLength)`,
+  );
+  content = content.replace(
+    /CartAPI\.add\(product\.id,\s*qty,\s*currentLength\)/g,
+    `CartAPI.add(product.id, qty, selectedLength)`,
+  );
+
+  return content;
 };
 
-const dirs = ['.', 'en', 'de', 'nl'];
+const dirs = [".", "en", "de", "nl"];
 
-dirs.forEach(d => {
-    const file = path.join(rootDir, d, 'produit.html');
-    if (fs.existsSync(file)) {
-        let content = fs.readFileSync(file, 'utf8');
-        const updated = replaceLogic(content);
-        if (content !== updated) {
-            fs.writeFileSync(file, updated, 'utf8');
-            console.log(`[OK] Updated ${file}`);
-        } else {
-            console.log(`[WARN] No changes made to ${file} - regex may have failed.`);
-        }
+dirs.forEach((d) => {
+  const file = path.join(rootDir, d, "produit.html");
+  if (fs.existsSync(file)) {
+    let content = fs.readFileSync(file, "utf8");
+    const updated = replaceLogic(content);
+    if (content !== updated) {
+      fs.writeFileSync(file, updated, "utf8");
+      console.log(`[OK] Updated ${file}`);
+    } else {
+      console.log(`[WARN] No changes made to ${file} - regex may have failed.`);
     }
+  }
 });

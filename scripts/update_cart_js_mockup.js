@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const cartJsPath = path.join(__dirname, '..', 'assets', 'js', 'cart.js');
+const cartJsPath = path.join(__dirname, "..", "assets", "js", "cart.js");
 
-let content = fs.readFileSync(cartJsPath, 'utf8');
+let content = fs.readFileSync(cartJsPath, "utf8");
 
 const newCartUI = `const CartUI = {
     products: null,
@@ -363,5 +363,5 @@ const newCartUI = `const CartUI = {
 };`;
 
 content = content.replace(/const CartUI = \{[\s\S]*\}\;/g, newCartUI);
-fs.writeFileSync(cartJsPath, content, 'utf8');
-console.log('Updated CartUI logic in cart.js with new mockup design.');
+fs.writeFileSync(cartJsPath, content, "utf8");
+console.log("Updated CartUI logic in cart.js with new mockup design.");

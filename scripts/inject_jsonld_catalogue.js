@@ -1,22 +1,22 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 const dirs = {
-    '.': { home: 'Accueil', cat: 'Catalogue' },
-    'en': { home: 'Home', cat: 'Catalog' },
-    'de': { home: 'Startseite', cat: 'Katalog' },
-    'nl': { home: 'Startpagina', cat: 'Catalogus' }
+  ".": { home: "Accueil", cat: "Catalogue" },
+  en: { home: "Home", cat: "Catalog" },
+  de: { home: "Startseite", cat: "Katalog" },
+  nl: { home: "Startpagina", cat: "Catalogus" },
 };
-const filename = 'catalogue.html';
+const filename = "catalogue.html";
 
 Object.entries(dirs).forEach(([dir, labels]) => {
-    const filepath = path.join(__dirname, '..', dir, filename);
-    if (!fs.existsSync(filepath)) return;
-    
-    let content = fs.readFileSync(filepath, 'utf8');
-    
-    const prefix = dir === '.' ? '' : `/${dir}`;
-    const jsonLd = `
+  const filepath = path.join(__dirname, "..", dir, filename);
+  if (!fs.existsSync(filepath)) return;
+
+  let content = fs.readFileSync(filepath, "utf8");
+
+  const prefix = dir === "." ? "" : `/${dir}`;
+  const jsonLd = `
     <!-- JSON-LD BreadcrumbList -->
     <script type="application/ld+json">
     {
@@ -40,11 +40,11 @@ Object.entries(dirs).forEach(([dir, labels]) => {
     </script>
 </head>`;
 
-    if (!content.includes('"@type": "BreadcrumbList"')) {
-        content = content.replace('</head>', jsonLd);
-        fs.writeFileSync(filepath, content, 'utf8');
-        console.log(`Updated catalogue.html in ${dir}`);
-    } else {
-        console.log(`JSON-LD already exists in catalogue.html in ${dir}`);
-    }
+  if (!content.includes('"@type": "BreadcrumbList"')) {
+    content = content.replace("</head>", jsonLd);
+    fs.writeFileSync(filepath, content, "utf8");
+    console.log(`Updated catalogue.html in ${dir}`);
+  } else {
+    console.log(`JSON-LD already exists in catalogue.html in ${dir}`);
+  }
 });

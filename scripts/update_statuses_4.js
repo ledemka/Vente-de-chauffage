@@ -1,44 +1,50 @@
-const fs = require('fs');
+const fs = require("fs");
 
 const files = [
-    'tableau-de-bord.html',
-    'en/tableau-de-bord.html',
-    'de/tableau-de-bord.html',
-    'nl/tableau-de-bord.html',
-    'admin-commandes.html',
-    'en/admin-commandes.html',
-    'de/admin-commandes.html',
-    'nl/admin-commandes.html'
+  "tableau-de-bord.html",
+  "en/tableau-de-bord.html",
+  "de/tableau-de-bord.html",
+  "nl/tableau-de-bord.html",
+  "admin-commandes.html",
+  "en/admin-commandes.html",
+  "de/admin-commandes.html",
+  "nl/admin-commandes.html",
 ];
 
-files.forEach(file => {
-    let content = fs.readFileSync(file, 'utf8');
+files.forEach((file) => {
+  let content = fs.readFileSync(file, "utf8");
 
-    // 1. Replace statusMap
-    const mapRegex = /const statusMap = \{[\s\S]*?\};/;
-    const newMap = `const statusMap = {
+  // 1. Replace statusMap
+  const mapRegex = /const statusMap = \{[\s\S]*?\};/;
+  const newMap = `const statusMap = {
                     'pending_payment': { label: 'En attente de payement', icon: 'schedule', class: 'text-orange-500 border-orange-300 bg-orange-50' },
                     'paid': { label: 'Payé', icon: 'check_circle', class: 'text-[#0ea5e9] border-[#0ea5e9] bg-[#f0f9ff]' },
                     'shipped': { label: 'En cour de Livraison', icon: 'local_shipping', class: 'text-blue-500 border-blue-300 bg-blue-50' },
                     'delivered': { label: 'Livrée', icon: 'check_circle', class: 'text-emerald-600 border-emerald-300 bg-emerald-50' }
                 };`;
-    if (content.match(mapRegex)) content = content.replace(mapRegex, newMap);
+  if (content.match(mapRegex)) content = content.replace(mapRegex, newMap);
 
-    // 2. Replace stats calculation logic
-    const statsLogicRegex = /if \(order\.status === 'preparing' \|\| order\.status === 'shipped'\) stats\.delivery\+\+;[\s\S]*?else if \(order\.status === 'cancelled'\) stats\.cancelled\+\+;/;
-    const newStatsLogic = `if (order.status === 'shipped') stats.delivery++;
+  // 2. Replace stats calculation logic
+  const statsLogicRegex =
+    /if \(order\.status === 'preparing' \|\| order\.status === 'shipped'\) stats\.delivery\+\+;[\s\S]*?else if \(order\.status === 'cancelled'\) stats\.cancelled\+\+;/;
+  const newStatsLogic = `if (order.status === 'shipped') stats.delivery++;
                 else if (order.status === 'delivered') stats.delivered++;
                 else if (order.status === 'pending_payment') stats.pending++;
                 else if (order.status === 'paid') stats.paid++;`;
-    
-    // We also need to add 'paid: 0' to the stats object init
-    content = content.replace(/stats = \{ total: data\.orders\.length, delivery: 0, delivered: 0, pending: 0, cancelled: 0 \};/, "stats = { total: data.orders.length, delivery: 0, delivered: 0, pending: 0, paid: 0 };");
-    
-    if (content.match(statsLogicRegex)) content = content.replace(statsLogicRegex, newStatsLogic);
 
-    // 3. Replace Stats HTML
-    const statsHtmlRegex = /const statsContainer = document\.getElementById\('dashboard-stats'\);[\s\S]*?if \(statsContainer\) \{[\s\S]*?statsContainer\.innerHTML = `[\s\S]*?`;\s*\}/;
-    const newStats = `const statsContainer = document.getElementById('dashboard-stats');
+  // We also need to add 'paid: 0' to the stats object init
+  content = content.replace(
+    /stats = \{ total: data\.orders\.length, delivery: 0, delivered: 0, pending: 0, cancelled: 0 \};/,
+    "stats = { total: data.orders.length, delivery: 0, delivered: 0, pending: 0, paid: 0 };",
+  );
+
+  if (content.match(statsLogicRegex))
+    content = content.replace(statsLogicRegex, newStatsLogic);
+
+  // 3. Replace Stats HTML
+  const statsHtmlRegex =
+    /const statsContainer = document\.getElementById\('dashboard-stats'\);[\s\S]*?if \(statsContainer\) \{[\s\S]*?statsContainer\.innerHTML = `[\s\S]*?`;\s*\}/;
+  const newStats = `const statsContainer = document.getElementById('dashboard-stats');
             if (statsContainer) {
                 statsContainer.innerHTML = \`
                     <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col items-start border-2 border-[#1a2b3c]">
@@ -78,33 +84,36 @@ files.forEach(file => {
                     </div>
                 \`;
             }`;
-    if (content.match(statsHtmlRegex)) content = content.replace(statsHtmlRegex, newStats);
+  if (content.match(statsHtmlRegex))
+    content = content.replace(statsHtmlRegex, newStats);
 
-    // 4. Update Admin filter tabs & Select dropdown
-    if (file.includes('admin-commandes.html')) {
-        // Filter tabs
-        const tabsRegex = /<div class="flex flex-wrap gap-2" id="status-filters">[\s\S]*?<\/div>/;
-        const newTabs = `<div class="flex flex-wrap gap-2" id="status-filters">
+  // 4. Update Admin filter tabs & Select dropdown
+  if (file.includes("admin-commandes.html")) {
+    // Filter tabs
+    const tabsRegex =
+      /<div class="flex flex-wrap gap-2" id="status-filters">[\s\S]*?<\/div>/;
+    const newTabs = `<div class="flex flex-wrap gap-2" id="status-filters">
                 <button class="px-4 py-2 rounded-full bg-primary text-on-primary text-body-sm font-bold transition-colors" data-filter="all">Toutes</button>
                 <button class="px-4 py-2 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-body-sm font-bold transition-colors" data-filter="pending_payment">En attente de payement</button>
                 <button class="px-4 py-2 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-body-sm font-bold transition-colors" data-filter="paid">Payé</button>
                 <button class="px-4 py-2 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-body-sm font-bold transition-colors" data-filter="shipped">En cour de Livraison</button>
                 <button class="px-4 py-2 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-body-sm font-bold transition-colors" data-filter="delivered">Livrée</button>
             </div>`;
-        if (content.match(tabsRegex)) content = content.replace(tabsRegex, newTabs);
+    if (content.match(tabsRegex)) content = content.replace(tabsRegex, newTabs);
 
-        // Select dropdown
-        const selectRegex = /<select class="bg-surface border border-outline\/30 rounded py-1 px-2 text-body-sm focus:outline-none focus:border-primary" onchange="updateOrderStatus\('\$\{order\.order_reference\}', this\.value\)">[\s\S]*?<\/select>/g;
-        const newSelect = `<select class="bg-surface border border-outline/30 rounded py-1 px-2 text-body-sm focus:outline-none focus:border-primary" onchange="updateOrderStatus('\${order.order_reference}', this.value)">
+    // Select dropdown
+    const selectRegex =
+      /<select class="bg-surface border border-outline\/30 rounded py-1 px-2 text-body-sm focus:outline-none focus:border-primary" onchange="updateOrderStatus\('\$\{order\.order_reference\}', this\.value\)">[\s\S]*?<\/select>/g;
+    const newSelect = `<select class="bg-surface border border-outline/30 rounded py-1 px-2 text-body-sm focus:outline-none focus:border-primary" onchange="updateOrderStatus('\${order.order_reference}', this.value)">
                     <option value="" disabled selected>Changer statut...</option>
                     <option value="pending_payment">En attente de payement</option>
                     <option value="paid">Payé</option>
                     <option value="shipped">En cour de Livraison</option>
                     <option value="delivered">Livrée</option>
                 </select>`;
-        content = content.replace(selectRegex, newSelect);
-    }
+    content = content.replace(selectRegex, newSelect);
+  }
 
-    fs.writeFileSync(file, content, 'utf8');
-    console.log('Updated ' + file);
+  fs.writeFileSync(file, content, "utf8");
+  console.log("Updated " + file);
 });

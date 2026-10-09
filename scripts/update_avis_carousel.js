@@ -1,10 +1,10 @@
-const fs = require('fs');
+const fs = require("fs");
 
 // --- 1. Update Translations ---
-const fr = JSON.parse(fs.readFileSync('data/i18n/fr.json', 'utf8'));
-const en = JSON.parse(fs.readFileSync('data/i18n/en.json', 'utf8'));
-const de = JSON.parse(fs.readFileSync('data/i18n/de.json', 'utf8'));
-const nl = JSON.parse(fs.readFileSync('data/i18n/nl.json', 'utf8'));
+const fr = JSON.parse(fs.readFileSync("data/i18n/fr.json", "utf8"));
+const en = JSON.parse(fs.readFileSync("data/i18n/en.json", "utf8"));
+const de = JSON.parse(fs.readFileSync("data/i18n/de.json", "utf8"));
+const nl = JSON.parse(fs.readFileSync("data/i18n/nl.json", "utf8"));
 
 if (!fr.reviews) fr.reviews = {};
 if (!en.reviews) en.reviews = {};
@@ -12,130 +12,130 @@ if (!de.reviews) de.reviews = {};
 if (!nl.reviews) nl.reviews = {};
 
 const newKeys = {
-    "trust": {
-        "pending": {
-            fr: "Nouveaux sur le marché — voici le type de retours que nous visons auprès de nos clients professionnels.",
-            en: "New to the market — here is the type of feedback we aim for from our professional clients.",
-            de: "Neu auf dem Markt — dies ist die Art von Feedback, die wir von unseren professionellen Kunden anstreben.",
-            nl: "Nieuw op de markt — dit is het soort feedback dat we nastreven bij onze professionele klanten."
-        }
+  trust: {
+    pending: {
+      fr: "Nouveaux sur le marché — voici le type de retours que nous visons auprès de nos clients professionnels.",
+      en: "New to the market — here is the type of feedback we aim for from our professional clients.",
+      de: "Neu auf dem Markt — dies ist die Art von Feedback, die wir von unseren professionellen Kunden anstreben.",
+      nl: "Nieuw op de markt — dit is het soort feedback dat we nastreven bij onze professionele klanten.",
     },
-    "examples_notice": {
-        fr: "Exemples fournis à titre d'illustration, en attendant de vrais avis clients. Ne représentent aucune entreprise réelle.",
-        en: "Examples provided for illustration purposes, pending real customer reviews. They do not represent any real company.",
-        de: "Beispiele zur Veranschaulichung, bis echte Kundenbewertungen vorliegen. Sie repräsentieren kein reales Unternehmen.",
-        nl: "Voorbeelden ter illustratie, in afwachting van echte klantbeoordelingen. Ze vertegenwoordigen geen echt bedrijf."
+  },
+  examples_notice: {
+    fr: "Exemples fournis à titre d'illustration, en attendant de vrais avis clients. Ne représentent aucune entreprise réelle.",
+    en: "Examples provided for illustration purposes, pending real customer reviews. They do not represent any real company.",
+    de: "Beispiele zur Veranschaulichung, bis echte Kundenbewertungen vorliegen. Sie repräsentieren kein reales Unternehmen.",
+    nl: "Voorbeelden ter illustratie, in afwachting van echte klantbeoordelingen. Ze vertegenwoordigen geen echt bedrijf.",
+  },
+  example_1: {
+    quote: {
+      fr: "Le bois sec que nous recevons brûle proprement et régulièrement, un vrai plus pour la cuisson au feu de bois en service continu.",
+      en: "The dry wood we receive burns cleanly and evenly, a real plus for wood-fired cooking in continuous service.",
+      de: "Das trockene Holz, das wir erhalten, brennt sauber und gleichmäßig, ein echtes Plus für das Kochen auf dem Holzfeuer im Dauerbetrieb.",
+      nl: "Het droge hout dat we ontvangen brandt schoon en gelijkmatig, een echt pluspunt voor koken op houtvuur in continubedrijf.",
     },
-    "example_1": {
-        "quote": {
-            fr: "Le bois sec que nous recevons brûle proprement et régulièrement, un vrai plus pour la cuisson au feu de bois en service continu.",
-            en: "The dry wood we receive burns cleanly and evenly, a real plus for wood-fired cooking in continuous service.",
-            de: "Das trockene Holz, das wir erhalten, brennt sauber und gleichmäßig, ein echtes Plus für das Kochen auf dem Holzfeuer im Dauerbetrieb.",
-            nl: "Het droge hout dat we ontvangen brandt schoon en gelijkmatig, een echt pluspunt voor koken op houtvuur in continubedrijf."
-        },
-        "attribution": {
-            fr: "Exemple, restaurant gastronomique",
-            en: "Example, gastronomic restaurant",
-            de: "Beispiel, gastronomisches Restaurant",
-            nl: "Voorbeeld, gastronomisch restaurant"
-        }
+    attribution: {
+      fr: "Exemple, restaurant gastronomique",
+      en: "Example, gastronomic restaurant",
+      de: "Beispiel, gastronomisches Restaurant",
+      nl: "Voorbeeld, gastronomisch restaurant",
     },
-    "example_2": {
-        "quote": {
-            fr: "Les livraisons arrivent à l'heure convenue, ce qui compte quand on gère un stock de cuisine tendu.",
-            en: "Deliveries arrive at the agreed time, which matters when managing tight kitchen stock.",
-            de: "Lieferungen kommen zur vereinbarten Zeit an, was bei knapper Küchenvorratshaltung wichtig ist.",
-            nl: "Leveringen komen op de afgesproken tijd aan, wat belangrijk is bij het beheren van krappe keukenvoorraden."
-        },
-        "attribution": {
-            fr: "Exemple, restaurant",
-            en: "Example, restaurant",
-            de: "Beispiel, Restaurant",
-            nl: "Voorbeeld, restaurant"
-        }
+  },
+  example_2: {
+    quote: {
+      fr: "Les livraisons arrivent à l'heure convenue, ce qui compte quand on gère un stock de cuisine tendu.",
+      en: "Deliveries arrive at the agreed time, which matters when managing tight kitchen stock.",
+      de: "Lieferungen kommen zur vereinbarten Zeit an, was bei knapper Küchenvorratshaltung wichtig ist.",
+      nl: "Leveringen komen op de afgesproken tijd aan, wat belangrijk is bij het beheren van krappe keukenvoorraden.",
     },
-    "example_3": {
-        "quote": {
-            fr: "Le pouvoir calorifique constant d'une palette à l'autre facilite le pilotage de notre chaudière biomasse.",
-            en: "The constant calorific value from one pallet to another facilitates the control of our biomass boiler.",
-            de: "Der konstante Heizwert von Palette zu Palette erleichtert die Steuerung unseres Biomassekessels.",
-            nl: "De constante calorische waarde van pallet tot pallet vergemakkelijkt de besturing van onze biomassaketel."
-        },
-        "attribution": {
-            fr: "Exemple, site industriel",
-            en: "Example, industrial site",
-            de: "Beispiel, Industriestandort",
-            nl: "Voorbeeld, industriële site"
-        }
+    attribution: {
+      fr: "Exemple, restaurant",
+      en: "Example, restaurant",
+      de: "Beispiel, Restaurant",
+      nl: "Voorbeeld, restaurant",
     },
-    "example_4": {
-        "quote": {
-            fr: "Un interlocuteur unique pour les commandes en volume nous fait gagner du temps sur la logistique.",
-            en: "A single point of contact for volume orders saves us time on logistics.",
-            de: "Ein einziger Ansprechpartner für Volumenbestellungen spart uns Zeit bei der Logistik.",
-            nl: "Een enkel aanspreekpunt voor volumebestellingen bespaart ons tijd op logistiek."
-        },
-        "attribution": {
-            fr: "Exemple, unité de production",
-            en: "Example, production unit",
-            de: "Beispiel, Produktionseinheit",
-            nl: "Voorbeeld, productie-eenheid"
-        }
+  },
+  example_3: {
+    quote: {
+      fr: "Le pouvoir calorifique constant d'une palette à l'autre facilite le pilotage de notre chaudière biomasse.",
+      en: "The constant calorific value from one pallet to another facilitates the control of our biomass boiler.",
+      de: "Der konstante Heizwert von Palette zu Palette erleichtert die Steuerung unseres Biomassekessels.",
+      nl: "De constante calorische waarde van pallet tot pallet vergemakkelijkt de besturing van onze biomassaketel.",
     },
-    "example_5": {
-        "quote": {
-            fr: "Des conditions de revente claires et un réapprovisionnement fiable, ce qui simplifie notre gestion de stock.",
-            en: "Clear resale conditions and reliable restocking, which simplifies our stock management.",
-            de: "Klare Wiederverkaufsbedingungen und zuverlässige Wiederbeschaffung, was unser Bestandsmanagement vereinfacht.",
-            nl: "Duidelijke doorverkoopvoorwaarden en betrouwbare bevoorrading, wat ons voorraadbeheer vereenvoudigt."
-        },
-        "attribution": {
-            fr: "Exemple, négoce de matériaux",
-            en: "Example, materials trading",
-            de: "Beispiel, Baustoffhandel",
-            nl: "Voorbeeld, materialenhandel"
-        }
+    attribution: {
+      fr: "Exemple, site industriel",
+      en: "Example, industrial site",
+      de: "Beispiel, Industriestandort",
+      nl: "Voorbeeld, industriële site",
     },
-    "example_6": {
-        "quote": {
-            fr: "La disponibilité des différents formats nous permet de répondre à une clientèle variée.",
-            en: "The availability of different formats allows us to respond to a varied clientele.",
-            de: "Die Verfügbarkeit verschiedener Formate ermöglicht es uns, auf eine vielfältige Kundschaft zu reagieren.",
-            nl: "De beschikbaarheid van verschillende formaten stelt ons in staat om te reageren op een gevarieerde klantenkring."
-        },
-        "attribution": {
-            fr: "Exemple, revendeur",
-            en: "Example, reseller",
-            de: "Beispiel, Wiederverkäufer",
-            nl: "Voorbeeld, wederverkoper"
-        }
-    }
+  },
+  example_4: {
+    quote: {
+      fr: "Un interlocuteur unique pour les commandes en volume nous fait gagner du temps sur la logistique.",
+      en: "A single point of contact for volume orders saves us time on logistics.",
+      de: "Ein einziger Ansprechpartner für Volumenbestellungen spart uns Zeit bei der Logistik.",
+      nl: "Een enkel aanspreekpunt voor volumebestellingen bespaart ons tijd op logistiek.",
+    },
+    attribution: {
+      fr: "Exemple, unité de production",
+      en: "Example, production unit",
+      de: "Beispiel, Produktionseinheit",
+      nl: "Voorbeeld, productie-eenheid",
+    },
+  },
+  example_5: {
+    quote: {
+      fr: "Des conditions de revente claires et un réapprovisionnement fiable, ce qui simplifie notre gestion de stock.",
+      en: "Clear resale conditions and reliable restocking, which simplifies our stock management.",
+      de: "Klare Wiederverkaufsbedingungen und zuverlässige Wiederbeschaffung, was unser Bestandsmanagement vereinfacht.",
+      nl: "Duidelijke doorverkoopvoorwaarden en betrouwbare bevoorrading, wat ons voorraadbeheer vereenvoudigt.",
+    },
+    attribution: {
+      fr: "Exemple, négoce de matériaux",
+      en: "Example, materials trading",
+      de: "Beispiel, Baustoffhandel",
+      nl: "Voorbeeld, materialenhandel",
+    },
+  },
+  example_6: {
+    quote: {
+      fr: "La disponibilité des différents formats nous permet de répondre à une clientèle variée.",
+      en: "The availability of different formats allows us to respond to a varied clientele.",
+      de: "Die Verfügbarkeit verschiedener Formate ermöglicht es uns, auf eine vielfältige Kundschaft zu reagieren.",
+      nl: "De beschikbaarheid van verschillende formaten stelt ons in staat om te reageren op een gevarieerde klantenkring.",
+    },
+    attribution: {
+      fr: "Exemple, revendeur",
+      en: "Example, reseller",
+      de: "Beispiel, Wiederverkäufer",
+      nl: "Voorbeeld, wederverkoper",
+    },
+  },
 };
 
 const applyTranslation = (obj, source, lang) => {
-    if (!obj.trust) obj.trust = {};
-    obj.trust.pending = source.trust.pending[lang];
-    obj.examples_notice = source.examples_notice[lang];
-    for (let i = 1; i <= 6; i++) {
-        obj[`example_${i}`] = {
-            quote: source[`example_${i}`].quote[lang],
-            attribution: source[`example_${i}`].attribution[lang]
-        };
-    }
+  if (!obj.trust) obj.trust = {};
+  obj.trust.pending = source.trust.pending[lang];
+  obj.examples_notice = source.examples_notice[lang];
+  for (let i = 1; i <= 6; i++) {
+    obj[`example_${i}`] = {
+      quote: source[`example_${i}`].quote[lang],
+      attribution: source[`example_${i}`].attribution[lang],
+    };
+  }
 };
 
-applyTranslation(fr.reviews, newKeys, 'fr');
-applyTranslation(en.reviews, newKeys, 'en');
-applyTranslation(de.reviews, newKeys, 'de');
-applyTranslation(nl.reviews, newKeys, 'nl');
+applyTranslation(fr.reviews, newKeys, "fr");
+applyTranslation(en.reviews, newKeys, "en");
+applyTranslation(de.reviews, newKeys, "de");
+applyTranslation(nl.reviews, newKeys, "nl");
 
-fs.writeFileSync('data/i18n/fr.json', JSON.stringify(fr, null, 2), 'utf8');
-fs.writeFileSync('data/i18n/en.json', JSON.stringify(en, null, 2), 'utf8');
-fs.writeFileSync('data/i18n/de.json', JSON.stringify(de, null, 2), 'utf8');
-fs.writeFileSync('data/i18n/nl.json', JSON.stringify(nl, null, 2), 'utf8');
+fs.writeFileSync("data/i18n/fr.json", JSON.stringify(fr, null, 2), "utf8");
+fs.writeFileSync("data/i18n/en.json", JSON.stringify(en, null, 2), "utf8");
+fs.writeFileSync("data/i18n/de.json", JSON.stringify(de, null, 2), "utf8");
+fs.writeFileSync("data/i18n/nl.json", JSON.stringify(nl, null, 2), "utf8");
 
 // --- 2. Update avis-clients.html ---
-let avisHtml = fs.readFileSync('avis-clients.html', 'utf8');
+let avisHtml = fs.readFileSync("avis-clients.html", "utf8");
 
 const newHeroAndCarousel = `
 <!-- Hero / Reviews Carousel Section -->
@@ -283,11 +283,15 @@ const newHeroAndCarousel = `
 </section>
 `;
 
-const regexHeroToGrid = /<!-- Hero \/ Summary Section -->[\s\S]*?<!-- Trust Badges Section -->/;
+const regexHeroToGrid =
+  /<!-- Hero \/ Summary Section -->[\s\S]*?<!-- Trust Badges Section -->/;
 if (regexHeroToGrid.test(avisHtml)) {
-    avisHtml = avisHtml.replace(regexHeroToGrid, newHeroAndCarousel + '\n<!-- Trust Badges Section -->');
+  avisHtml = avisHtml.replace(
+    regexHeroToGrid,
+    newHeroAndCarousel + "\n<!-- Trust Badges Section -->",
+  );
 } else {
-    console.log("Could not find the block to replace in avis-clients.html.");
+  console.log("Could not find the block to replace in avis-clients.html.");
 }
 
 // Add the carousel sliding JS logic
@@ -333,9 +337,12 @@ const scriptLogic = `
 `;
 
 // Replace the old script block I added in the previous turn if it exists
-if (avisHtml.includes('const filterBtns = document.querySelectorAll')) {
-    avisHtml = avisHtml.replace(/<script>\s*document\.addEventListener\('DOMContentLoaded', \(\) => \{\s*const filterBtns = document\.querySelectorAll[\s\S]*?<\/script>\s*(<\/body>)/, scriptLogic + '$1');
+if (avisHtml.includes("const filterBtns = document.querySelectorAll")) {
+  avisHtml = avisHtml.replace(
+    /<script>\s*document\.addEventListener\('DOMContentLoaded', \(\) => \{\s*const filterBtns = document\.querySelectorAll[\s\S]*?<\/script>\s*(<\/body>)/,
+    scriptLogic + "$1",
+  );
 }
 
-fs.writeFileSync('avis-clients.html', avisHtml, 'utf8');
-console.log('avis-clients.html updated.');
+fs.writeFileSync("avis-clients.html", avisHtml, "utf8");
+console.log("avis-clients.html updated.");

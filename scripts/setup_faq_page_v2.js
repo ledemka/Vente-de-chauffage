@@ -1,7 +1,7 @@
-const fs = require('fs');
-const cheerio = require('cheerio');
+const fs = require("fs");
+const cheerio = require("cheerio");
 
-let faqHtml = fs.readFileSync('faq.html', 'utf8');
+let faqHtml = fs.readFileSync("faq.html", "utf8");
 const $faq = cheerio.load(faqHtml);
 
 const scriptContent = `
@@ -87,14 +87,34 @@ const scriptContent = `
 `;
 
 // Replace script content
-$faq('script:not([src])').text(scriptContent);
+$faq("script:not([src])").text(scriptContent);
 
 // Add CTA Section at the end of <main>
 const ctaTranslations = {
-  fr: { title: "Vous ne trouvez pas votre réponse ?", desc: "Nos conseillers sont à votre disposition pour toute demande spécifique.", quote: "Demander un devis", contact: "Nous contacter" },
-  en: { title: "Can't find your answer?", desc: "Our advisors are at your disposal for any specific request.", quote: "Request a quote", contact: "Contact us" },
-  de: { title: "Finden Sie Ihre Antwort nicht?", desc: "Unsere Berater stehen Ihnen für spezifische Anfragen zur Verfügung.", quote: "Angebot anfordern", contact: "Kontaktieren Sie uns" },
-  nl: { title: "Kunt u uw antwoord niet vinden?", desc: "Onze adviseurs staan tot uw beschikking voor specifieke verzoeken.", quote: "Offerte aanvragen", contact: "Neem contact op" }
+  fr: {
+    title: "Vous ne trouvez pas votre réponse ?",
+    desc: "Nos conseillers sont à votre disposition pour toute demande spécifique.",
+    quote: "Demander un devis",
+    contact: "Nous contacter",
+  },
+  en: {
+    title: "Can't find your answer?",
+    desc: "Our advisors are at your disposal for any specific request.",
+    quote: "Request a quote",
+    contact: "Contact us",
+  },
+  de: {
+    title: "Finden Sie Ihre Antwort nicht?",
+    desc: "Unsere Berater stehen Ihnen für spezifische Anfragen zur Verfügung.",
+    quote: "Angebot anfordern",
+    contact: "Kontaktieren Sie uns",
+  },
+  nl: {
+    title: "Kunt u uw antwoord niet vinden?",
+    desc: "Onze adviseurs staan tot uw beschikking voor specifieke verzoeken.",
+    quote: "Offerte aanvragen",
+    contact: "Neem contact op",
+  },
 };
 
 // We will inject the CTA natively in the HTML, using a script to inject the right localized strings.
@@ -136,11 +156,14 @@ const ctaHtml = `
 `;
 
 // Remove old CTA if exists, then append
-$faq('section').last().nextAll().remove();
-$faq('#faq-container').parent().after(ctaHtml);
+$faq("section").last().nextAll().remove();
+$faq("#faq-container").parent().after(ctaHtml);
 
 let newHtml = $faq.html();
 // Restore escaped tags from Cheerio
-newHtml = newHtml.replace(/&#x3E;/g, '>').replace(/&#x3C;/g, '<').replace(/&#x22;/g, '"');
-fs.writeFileSync('faq.html', newHtml);
-console.log('Updated faq.html with groups and CTA');
+newHtml = newHtml
+  .replace(/&#x3E;/g, ">")
+  .replace(/&#x3C;/g, "<")
+  .replace(/&#x22;/g, '"');
+fs.writeFileSync("faq.html", newHtml);
+console.log("Updated faq.html with groups and CTA");

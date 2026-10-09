@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
-const dirs = ['.', 'en', 'de', 'nl'];
+const rootDir = path.join(__dirname, "..");
+const dirs = [".", "en", "de", "nl"];
 
 const newMainContent = `<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-16">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
@@ -229,34 +229,34 @@ document.addEventListener('DOMContentLoaded', () => {
 let modifiedCount = 0;
 
 for (const dir of dirs) {
-    const fullPath = path.join(rootDir, dir);
-    if (!fs.existsSync(fullPath)) continue;
-    
-    const filePath = path.join(fullPath, 'inscription.html');
-    if (fs.existsSync(filePath)) {
-        let content = fs.readFileSync(filePath, 'utf8');
-        
-        // Find the <main> tag content to replace
-        const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
-        
-        // Fix relative links based on dir
-        const relPath = dir === '.' ? '.' : '..';
-        let customContent = newMainContent
-            .replace(/LINK_CONNEXION/g, `${relPath}/connexion.html`)
-            .replace(/LINK_PANIER/g, `${relPath}/panier.html`)
-            .replace(/LINK_CGV/g, `${relPath}/cgv.html`);
+  const fullPath = path.join(rootDir, dir);
+  if (!fs.existsSync(fullPath)) continue;
 
-        content = content.replace(mainRegex, (match, p1) => {
-            return match.replace(p1, customContent);
-        });
+  const filePath = path.join(fullPath, "inscription.html");
+  if (fs.existsSync(filePath)) {
+    let content = fs.readFileSync(filePath, "utf8");
 
-        // Also fix canonical links in the head
-        content = content.replace(/connexion\.html/g, 'inscription.html');
+    // Find the <main> tag content to replace
+    const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
 
-        fs.writeFileSync(filePath, content, 'utf8');
-        modifiedCount++;
-        console.log(`Updated ${path.join(dir, 'inscription.html')}`);
-    }
+    // Fix relative links based on dir
+    const relPath = dir === "." ? "." : "..";
+    let customContent = newMainContent
+      .replace(/LINK_CONNEXION/g, `${relPath}/connexion.html`)
+      .replace(/LINK_PANIER/g, `${relPath}/panier.html`)
+      .replace(/LINK_CGV/g, `${relPath}/cgv.html`);
+
+    content = content.replace(mainRegex, (match, p1) => {
+      return match.replace(p1, customContent);
+    });
+
+    // Also fix canonical links in the head
+    content = content.replace(/connexion\.html/g, "inscription.html");
+
+    fs.writeFileSync(filePath, content, "utf8");
+    modifiedCount++;
+    console.log(`Updated ${path.join(dir, "inscription.html")}`);
+  }
 }
 
 console.log(`Updated ${modifiedCount} files.`);

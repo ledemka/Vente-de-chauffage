@@ -18,6 +18,14 @@
 /* Custom transitions and scroll */
 html {
     scroll-behavior: smooth;
+    /* Reduce base font size on mobile to scale down all REM values uniformly */
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
 }
 
 body {

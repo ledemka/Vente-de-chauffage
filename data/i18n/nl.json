@@ -46,7 +46,7 @@
             "unit_pallet": "EENHEID / PALLET",
             "weight": "PALLETGEWICHT",
             "price": "GROOTHANDELSPRIJS / PALLET",
-            "currency": "€ incl. btw"
+            "currency": "€ incl. BTW"
         },
         "category_label": "CATEGORIE",
         "references_label": "Artikelen",

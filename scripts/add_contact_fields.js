@@ -1,19 +1,20 @@
 /**
  * add_contact_fields.js
- * 
+ *
  * Adds the contact_name, email, and phone fields to the checkout form
  * in all recapitulatif-commande.html files (root + en/ de/ nl/).
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
-const langDirs = ['', 'en', 'de', 'nl'];
+const rootDir = path.join(__dirname, "..");
+const langDirs = ["", "en", "de", "nl"];
 
 // The exact regex pattern to find the company field block
 // We capture everything from <div class="flex flex-col gap-2"> to </div>
-const COMPANY_BLOCK_REGEX = /<div class="flex flex-col gap-2">\s*<label for="company" class="text-label-md font-label-md text-on-surface uppercase"[^>]*>.*?<\/label>\s*<input type="text" id="company" required class="[^"]*">\s*<\/div>/;
+const COMPANY_BLOCK_REGEX =
+  /<div class="flex flex-col gap-2">\s*<label for="company" class="text-label-md font-label-md text-on-surface uppercase"[^>]*>.*?<\/label>\s*<input type="text" id="company" required class="[^"]*">\s*<\/div>/;
 
 const NEW_FIELDS_BLOCK = `<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div class="flex flex-col gap-2">
@@ -40,18 +41,20 @@ const NEW_FIELDS_BLOCK = `<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 let totalModified = 0;
 
 for (const lang of langDirs) {
-    const filePath = path.join(rootDir, lang, 'recapitulatif-commande.html');
-    if (!fs.existsSync(filePath)) continue;
+  const filePath = path.join(rootDir, lang, "recapitulatif-commande.html");
+  if (!fs.existsSync(filePath)) continue;
 
-    let content = fs.readFileSync(filePath, 'utf8');
+  let content = fs.readFileSync(filePath, "utf8");
 
-    if (COMPANY_BLOCK_REGEX.test(content)) {
-        content = content.replace(COMPANY_BLOCK_REGEX, NEW_FIELDS_BLOCK);
-        fs.writeFileSync(filePath, content, 'utf8');
-        const displayPath = lang ? `${lang}/recapitulatif-commande.html` : 'recapitulatif-commande.html';
-        console.log(`✓ Added fields to ${displayPath}`);
-        totalModified++;
-    }
+  if (COMPANY_BLOCK_REGEX.test(content)) {
+    content = content.replace(COMPANY_BLOCK_REGEX, NEW_FIELDS_BLOCK);
+    fs.writeFileSync(filePath, content, "utf8");
+    const displayPath = lang
+      ? `${lang}/recapitulatif-commande.html`
+      : "recapitulatif-commande.html";
+    console.log(`✓ Added fields to ${displayPath}`);
+    totalModified++;
+  }
 }
 
 console.log(`\nDone. Updated ${totalModified} file(s).`);

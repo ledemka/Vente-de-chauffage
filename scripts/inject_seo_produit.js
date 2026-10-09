@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const dirs = ['.', 'en', 'de', 'nl'];
-const filename = 'produit.html';
+const dirs = [".", "en", "de", "nl"];
+const filename = "produit.html";
 
 const targetContent = `                                const breadcrumbCat = document.getElementById('breadcrumb-category');
                                 if (breadcrumbCat) {
@@ -52,18 +52,22 @@ const replacementContent = `                                const breadcrumbCat 
                                 }
                                 ldScript.textContent = JSON.stringify(productJsonLd, null, 2);`;
 
+dirs.forEach((dir) => {
+  const filepath = path.join(__dirname, "..", dir, filename);
+  if (!fs.existsSync(filepath)) return;
 
-dirs.forEach(dir => {
-    const filepath = path.join(__dirname, '..', dir, filename);
-    if (!fs.existsSync(filepath)) return;
-    
-    let content = fs.readFileSync(filepath, 'utf8');
-    
-    if (content.includes('product.subgroup_name;') && !content.includes('document.title = `${product.name} – Bois de Chauffage PRO`;')) {
-        content = content.replace(targetContent, replacementContent);
-        fs.writeFileSync(filepath, content, 'utf8');
-        console.log(`Updated produit.html in ${dir}`);
-    } else {
-        console.log(`produit.html already updated in ${dir}`);
-    }
+  let content = fs.readFileSync(filepath, "utf8");
+
+  if (
+    content.includes("product.subgroup_name;") &&
+    !content.includes(
+      "document.title = `${product.name} – Bois de Chauffage PRO`;",
+    )
+  ) {
+    content = content.replace(targetContent, replacementContent);
+    fs.writeFileSync(filepath, content, "utf8");
+    console.log(`Updated produit.html in ${dir}`);
+  } else {
+    console.log(`produit.html already updated in ${dir}`);
+  }
 });

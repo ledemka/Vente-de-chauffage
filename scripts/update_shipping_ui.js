@@ -1,10 +1,10 @@
-const fs = require('fs');
+const fs = require("fs");
 
 const files = [
-    'produit.html',
-    'en/produit.html',
-    'de/produit.html',
-    'nl/produit.html'
+  "produit.html",
+  "en/produit.html",
+  "de/produit.html",
+  "nl/produit.html",
 ];
 
 const shippingCalculatorHTML = `
@@ -154,49 +154,52 @@ updatePricing = function() {
 };
 `;
 
-files.forEach(f => {
-    if (!fs.existsSync(f)) return;
-    let content = fs.readFileSync(f, 'utf8');
-    
-    // 1. Add volume row if not present
-    if (!content.includes('id="spec-volume-m3"')) {
-        content = content.replace(
-            /<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-volume">.*?<\/span>/,
-            '<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-volume-m3"></span>'
-        );
-    }
-    
-    // Update JS to set volume
-    if (!content.includes('spec-volume-m3')) {
-        content = content.replace(
-            /document\.getElementById\('spec-volume'\)\.textContent = '1 Palette standard';/,
-            "document.getElementById('spec-volume-m3').textContent = (product.volume_m3 || '2.16') + ' m³ / palette';"
-        );
-    }
-    
-    // 2. Add shipping calculator HTML after Total Calculation block
-    if (!content.includes('id="shipping-address"')) {
-        content = content.replace(
-            /(<!-- Actions -->\s*<div class="flex flex-col gap-3">)/,
-            shippingCalculatorHTML + '\n$1'
-        );
-    }
-    
-    // 3. Add JS snippet
-    if (!content.includes('shippingAddress.addEventListener')) {
-        content = content.replace(
-            /(updatePricing\(\);\s*const btnCommander = document\.getElementById\('btn-commander'\);)/,
-            jsSnippet + '\n$1'
-        );
-    }
-    
-    // Fix API endpoint paths for translated pages (they are in subfolders)
-    if (f !== 'produit.html') {
-        content = content.replace(/..\/api\/shipping.php/g, '../../api/shipping.php');
-    } else {
-        content = content.replace(/..\/api\/shipping.php/g, './api/shipping.php');
-    }
-    
-    fs.writeFileSync(f, content);
-    console.log('Updated', f);
+files.forEach((f) => {
+  if (!fs.existsSync(f)) return;
+  let content = fs.readFileSync(f, "utf8");
+
+  // 1. Add volume row if not present
+  if (!content.includes('id="spec-volume-m3"')) {
+    content = content.replace(
+      /<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-volume">.*?<\/span>/,
+      '<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-volume-m3"></span>',
+    );
+  }
+
+  // Update JS to set volume
+  if (!content.includes("spec-volume-m3")) {
+    content = content.replace(
+      /document\.getElementById\('spec-volume'\)\.textContent = '1 Palette standard';/,
+      "document.getElementById('spec-volume-m3').textContent = (product.volume_m3 || '2.16') + ' m³ / palette';",
+    );
+  }
+
+  // 2. Add shipping calculator HTML after Total Calculation block
+  if (!content.includes('id="shipping-address"')) {
+    content = content.replace(
+      /(<!-- Actions -->\s*<div class="flex flex-col gap-3">)/,
+      shippingCalculatorHTML + "\n$1",
+    );
+  }
+
+  // 3. Add JS snippet
+  if (!content.includes("shippingAddress.addEventListener")) {
+    content = content.replace(
+      /(updatePricing\(\);\s*const btnCommander = document\.getElementById\('btn-commander'\);)/,
+      jsSnippet + "\n$1",
+    );
+  }
+
+  // Fix API endpoint paths for translated pages (they are in subfolders)
+  if (f !== "produit.html") {
+    content = content.replace(
+      /..\/api\/shipping.php/g,
+      "../../api/shipping.php",
+    );
+  } else {
+    content = content.replace(/..\/api\/shipping.php/g, "./api/shipping.php");
+  }
+
+  fs.writeFileSync(f, content);
+  console.log("Updated", f);
 });

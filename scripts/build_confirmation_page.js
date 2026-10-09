@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
-const dirs = ['.', 'en', 'de', 'nl'];
+const rootDir = path.join(__dirname, "..");
+const dirs = [".", "en", "de", "nl"];
 
 const newMainContent = `<div class="max-w-2xl mx-auto px-margin-mobile md:px-margin-desktop py-24">
     <div class="bg-surface-container rounded-xl p-10 shadow-md flex flex-col items-center text-center gap-6 border border-outline/20">
@@ -46,26 +46,29 @@ const newMainContent = `<div class="max-w-2xl mx-auto px-margin-mobile md:px-mar
 let modifiedCount = 0;
 
 for (const dir of dirs) {
-    const fullPath = path.join(rootDir, dir);
-    if (!fs.existsSync(fullPath)) continue;
-    
-    const filePath = path.join(fullPath, 'confirmation-commande.html');
-    if (fs.existsSync(filePath)) {
-        let content = fs.readFileSync(filePath, 'utf8');
-        
-        const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
-        
-        const relPath = dir === '.' ? '.' : '..';
-        let customContent = newMainContent.replace(/LINK_HOME/g, `${relPath}/index.html`);
+  const fullPath = path.join(rootDir, dir);
+  if (!fs.existsSync(fullPath)) continue;
 
-        content = content.replace(mainRegex, (match, p1) => {
-            return match.replace(p1, customContent);
-        });
+  const filePath = path.join(fullPath, "confirmation-commande.html");
+  if (fs.existsSync(filePath)) {
+    let content = fs.readFileSync(filePath, "utf8");
 
-        fs.writeFileSync(filePath, content, 'utf8');
-        modifiedCount++;
-        console.log(`Updated ${path.join(dir, 'confirmation-commande.html')}`);
-    }
+    const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
+
+    const relPath = dir === "." ? "." : "..";
+    let customContent = newMainContent.replace(
+      /LINK_HOME/g,
+      `${relPath}/index.html`,
+    );
+
+    content = content.replace(mainRegex, (match, p1) => {
+      return match.replace(p1, customContent);
+    });
+
+    fs.writeFileSync(filePath, content, "utf8");
+    modifiedCount++;
+    console.log(`Updated ${path.join(dir, "confirmation-commande.html")}`);
+  }
 }
 
 console.log(`Updated ${modifiedCount} files.`);

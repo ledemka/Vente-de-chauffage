@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const cartJsPath = path.join(__dirname, '..', 'assets', 'js', 'cart.js');
+const cartJsPath = path.join(__dirname, "..", "assets", "js", "cart.js");
 
-let content = fs.readFileSync(cartJsPath, 'utf8');
+let content = fs.readFileSync(cartJsPath, "utf8");
 
 const uiLogic = `
 
@@ -276,9 +276,9 @@ document.addEventListener('DOMContentLoaded', () => {
 window.CartUI = CartUI;
 `;
 
-if (!content.includes('CartUI')) {
-    fs.writeFileSync(cartJsPath, content + uiLogic, 'utf8');
-    console.log('Appended CartUI logic to cart.js');
+if (!content.includes("CartUI")) {
+  fs.writeFileSync(cartJsPath, content + uiLogic, "utf8");
+  console.log("Appended CartUI logic to cart.js");
 } else {
-    console.log('CartUI logic already present in cart.js');
+  console.log("CartUI logic already present in cart.js");
 }

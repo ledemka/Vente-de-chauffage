@@ -1,13 +1,14 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const ROOT_DIR = path.resolve(__dirname, '..');
-const tbPath = path.join(ROOT_DIR, 'tableau-de-bord.html');
+const ROOT_DIR = path.resolve(__dirname, "..");
+const tbPath = path.join(ROOT_DIR, "tableau-de-bord.html");
 
-let content = fs.readFileSync(tbPath, 'utf8');
+let content = fs.readFileSync(tbPath, "utf8");
 
 // 1. Replace the existing form with the new View + Form structure
-const formRegex = /<form id="profile-form" class="flex flex-col gap-4">[\s\S]*?<\/form>/;
+const formRegex =
+  /<form id="profile-form" class="flex flex-col gap-4">[\s\S]*?<\/form>/;
 const newProfileMarkup = `<div id="profile-view" class="flex flex-col gap-4">
                         <div>
                             <span class="text-label-md font-label-md text-outline-variant block mb-1">Société</span>
@@ -87,11 +88,13 @@ const newProfileMarkup = `<div id="profile-view" class="flex flex-col gap-4">
                     </form>`;
 content = content.replace(formRegex, newProfileMarkup);
 
-
 // 2. Replace JS logic for order rows (remove onclick strings, add data-order)
-const trRegex = /<tr class="border-b border-outline\/10 cursor-pointer hover:bg-surface-container-highest\/20 transition-colors" onclick="openOrderModal\('[\s\S]*?`\$\{itemsJson\.replace\(\/"\/g, '&quot;'\)\}`\)">/;
+const trRegex =
+  /<tr class="border-b border-outline\/10 cursor-pointer hover:bg-surface-container-highest\/20 transition-colors" onclick="openOrderModal\('[\s\S]*?`\$\{itemsJson\.replace\(\/"\/g, '&quot;'\)\}`\)">/;
 
-content = content.replace(trRegex, `
+content = content.replace(
+  trRegex,
+  `
                 const orderData = {
                     ref: order.order_reference,
                     date: dateStr,
@@ -102,14 +105,21 @@ content = content.replace(trRegex, `
                 // Proper HTML escaping for double quotes
                 const orderDataStr = JSON.stringify(orderData).replace(/"/g, '&quot;');
                 
-                html += \`<tr class="order-row border-b border-outline/10 cursor-pointer hover:bg-surface-container-highest/20 transition-colors" data-order="\${orderDataStr}">\``);
+                html += \`<tr class="order-row border-b border-outline/10 cursor-pointer hover:bg-surface-container-highest/20 transition-colors" data-order="\${orderDataStr}">\``,
+);
 
 // 3. Fix the leftover of the old string logic if any
-content = content.replace(/const itemsJson = \(order\.items \|\| '\[\]'\);\s*/, '');
+content = content.replace(
+  /const itemsJson = \(order\.items \|\| '\[\]'\);\s*/,
+  "",
+);
 
 // 4. Update window.openOrderModal and add delegate listener
-const oldModalRegex = /window\.openOrderModal = \(ref, date, status, total, itemsJson\) => \{[\s\S]*?items = JSON\.parse\(itemsJson\);/m;
-content = content.replace(oldModalRegex, `
+const oldModalRegex =
+  /window\.openOrderModal = \(ref, date, status, total, itemsJson\) => \{[\s\S]*?items = JSON\.parse\(itemsJson\);/m;
+content = content.replace(
+  oldModalRegex,
+  `
 // Delegate order row clicks
 document.getElementById('orders-container').addEventListener('click', (e) => {
     const tr = e.target.closest('.order-row');
@@ -132,11 +142,14 @@ window.openOrderModal = (data) => {
     
     try {
         const items = data.items;
-`);
+`,
+);
 
 // 5. Update fillProfileForm logic to handle both view and edit mode and toggle edit mode
 const oldFillRegex = /function fillProfileForm\(data\) \{[\s\S]*?\}/m;
-content = content.replace(oldFillRegex, `
+content = content.replace(
+  oldFillRegex,
+  `
 let currentProfileData = {};
 
 function fillProfileForm(data) {
@@ -177,11 +190,15 @@ document.getElementById('btn-cancel-edit').addEventListener('click', () => {
     document.getElementById('profile-view').classList.remove('hidden');
     document.getElementById('profile-view').classList.add('flex');
 });
-`);
+`,
+);
 
 // 6. Update the form submit to toggle back to view on success
-const oldSubmitSuccessRegex = /user = \{ \.\.\.user, \.\.\.data\.client \};\s*localStorage\.setItem\('user', JSON\.stringify\(user\)\);/m;
-content = content.replace(oldSubmitSuccessRegex, `
+const oldSubmitSuccessRegex =
+  /user = \{ \.\.\.user, \.\.\.data\.client \};\s*localStorage\.setItem\('user', JSON\.stringify\(user\)\);/m;
+content = content.replace(
+  oldSubmitSuccessRegex,
+  `
             user = { ...user, ...data.client };
             localStorage.setItem('user', JSON.stringify(user));
             fillProfileForm(user);
@@ -190,8 +207,8 @@ content = content.replace(oldSubmitSuccessRegex, `
             setTimeout(() => {
                 document.getElementById('btn-cancel-edit').click();
             }, 1000);
-`);
+`,
+);
 
-
-fs.writeFileSync(tbPath, content, 'utf8');
-console.log('Fixed tableau-de-bord UI');
+fs.writeFileSync(tbPath, content, "utf8");
+console.log("Fixed tableau-de-bord UI");

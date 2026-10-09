@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
-const dirs = ['.', 'en', 'de', 'nl'];
+const rootDir = path.join(__dirname, "..");
+const dirs = [".", "en", "de", "nl"];
 
 const newMainContent = `<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-16">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
@@ -180,31 +180,31 @@ document.addEventListener('DOMContentLoaded', () => {
 let modifiedCount = 0;
 
 for (const dir of dirs) {
-    const fullPath = path.join(rootDir, dir);
-    if (!fs.existsSync(fullPath)) continue;
-    
-    const filePath = path.join(fullPath, 'connexion.html');
-    if (fs.existsSync(filePath)) {
-        let content = fs.readFileSync(filePath, 'utf8');
-        
-        // Find the <main> tag content to replace
-        const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
-        
-        // Fix relative links based on dir
-        const relPath = dir === '.' ? '.' : '..';
-        let customContent = newMainContent
-            .replace(/LINK_INSCRIPTION/g, `${relPath}/inscription.html`)
-            .replace(/LINK_TABLEAU_DE_BORD/g, `${relPath}/tableau-de-bord.html`)
-            .replace(/LINK_CATALOGUE/g, `${relPath}/catalogue.html`);
+  const fullPath = path.join(rootDir, dir);
+  if (!fs.existsSync(fullPath)) continue;
 
-        content = content.replace(mainRegex, (match, p1) => {
-            return match.replace(p1, customContent);
-        });
+  const filePath = path.join(fullPath, "connexion.html");
+  if (fs.existsSync(filePath)) {
+    let content = fs.readFileSync(filePath, "utf8");
 
-        fs.writeFileSync(filePath, content, 'utf8');
-        modifiedCount++;
-        console.log(`Updated ${path.join(dir, 'connexion.html')}`);
-    }
+    // Find the <main> tag content to replace
+    const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
+
+    // Fix relative links based on dir
+    const relPath = dir === "." ? "." : "..";
+    let customContent = newMainContent
+      .replace(/LINK_INSCRIPTION/g, `${relPath}/inscription.html`)
+      .replace(/LINK_TABLEAU_DE_BORD/g, `${relPath}/tableau-de-bord.html`)
+      .replace(/LINK_CATALOGUE/g, `${relPath}/catalogue.html`);
+
+    content = content.replace(mainRegex, (match, p1) => {
+      return match.replace(p1, customContent);
+    });
+
+    fs.writeFileSync(filePath, content, "utf8");
+    modifiedCount++;
+    console.log(`Updated ${path.join(dir, "connexion.html")}`);
+  }
 }
 
 console.log(`Updated ${modifiedCount} files.`);

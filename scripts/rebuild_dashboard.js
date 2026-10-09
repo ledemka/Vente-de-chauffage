@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
-const dirs = ['.', 'en', 'de', 'nl'];
+const rootDir = path.join(__dirname, "..");
+const dirs = [".", "en", "de", "nl"];
 
 const newScriptContent = `<script>
 document.addEventListener('DOMContentLoaded', async () => {
@@ -105,37 +105,40 @@ async function handleLogout() {
 let modifiedCount = 0;
 
 for (const dir of dirs) {
-    const fullPath = path.join(rootDir, dir);
-    if (!fs.existsSync(fullPath)) continue;
-    
-    const filePath = path.join(fullPath, 'tableau-de-bord.html');
-    if (fs.existsSync(filePath)) {
-        let content = fs.readFileSync(filePath, 'utf8');
-        
-        // Find the specific script tag block
-        const scriptRegex = /<script>\s*document\.addEventListener\('DOMContentLoaded'[\s\S]*?<\/script>/;
-        
-        const relPath = dir === '.' ? '.' : '..';
-        const apiPath = `${relPath}/api/auth.php`;
-        const ordersPath = `${relPath}/api/orders.php`;
-        const loginPath = `${relPath}/connexion.html?redirect=tableau-de-bord.html`;
-        const loginPathSimple = `${relPath}/connexion.html`;
-        
-        const customScript = newScriptContent
-            .replace('API_PATH', apiPath)
-            .replace('ORDERS_PATH', ordersPath)
-            .replace('LOGIN_PATH', loginPath)
-            .replace('LOGIN_PATH_SIMPLE', loginPathSimple);
-            
-        if (scriptRegex.test(content)) {
-            content = content.replace(scriptRegex, customScript);
-            fs.writeFileSync(filePath, content, 'utf8');
-            modifiedCount++;
-            console.log(`Updated ${path.join(dir, 'tableau-de-bord.html')}`);
-        } else {
-            console.log(`Could not find script block in ${path.join(dir, 'tableau-de-bord.html')}`);
-        }
+  const fullPath = path.join(rootDir, dir);
+  if (!fs.existsSync(fullPath)) continue;
+
+  const filePath = path.join(fullPath, "tableau-de-bord.html");
+  if (fs.existsSync(filePath)) {
+    let content = fs.readFileSync(filePath, "utf8");
+
+    // Find the specific script tag block
+    const scriptRegex =
+      /<script>\s*document\.addEventListener\('DOMContentLoaded'[\s\S]*?<\/script>/;
+
+    const relPath = dir === "." ? "." : "..";
+    const apiPath = `${relPath}/api/auth.php`;
+    const ordersPath = `${relPath}/api/orders.php`;
+    const loginPath = `${relPath}/connexion.html?redirect=tableau-de-bord.html`;
+    const loginPathSimple = `${relPath}/connexion.html`;
+
+    const customScript = newScriptContent
+      .replace("API_PATH", apiPath)
+      .replace("ORDERS_PATH", ordersPath)
+      .replace("LOGIN_PATH", loginPath)
+      .replace("LOGIN_PATH_SIMPLE", loginPathSimple);
+
+    if (scriptRegex.test(content)) {
+      content = content.replace(scriptRegex, customScript);
+      fs.writeFileSync(filePath, content, "utf8");
+      modifiedCount++;
+      console.log(`Updated ${path.join(dir, "tableau-de-bord.html")}`);
+    } else {
+      console.log(
+        `Could not find script block in ${path.join(dir, "tableau-de-bord.html")}`,
+      );
     }
+  }
 }
 
 console.log(`Updated ${modifiedCount} files.`);

@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const ROOT_DIR = path.resolve(__dirname, '..');
-const LANGS = ['en', 'de', 'nl'];
+const ROOT_DIR = path.resolve(__dirname, "..");
+const LANGS = ["en", "de", "nl"];
 
 const newLogic = `
     if (document.getElementById('modal-download-btn')) {
@@ -22,20 +22,21 @@ const newLogic = `
 `;
 
 function injectLogic(filePath) {
-    if (!fs.existsSync(filePath)) return;
-    let content = fs.readFileSync(filePath, 'utf8');
+  if (!fs.existsSync(filePath)) return;
+  let content = fs.readFileSync(filePath, "utf8");
 
-    const targetRegex = /if \(document\.getElementById\('modal-download-btn'\)\) \{\s*document\.getElementById\('modal-download-btn'\)\.href = `\.\/api\/generate-order-pdf\.php\?ref=\$\{data\.ref\}`;\s*\}/;
-    
-    if (targetRegex.test(content)) {
-        content = content.replace(targetRegex, newLogic.trim());
-        fs.writeFileSync(filePath, content);
-        console.log(`Injected logic into ${filePath}`);
-    } else {
-        console.log(`Target block not found in ${filePath}`);
-    }
+  const targetRegex =
+    /if \(document\.getElementById\('modal-download-btn'\)\) \{\s*document\.getElementById\('modal-download-btn'\)\.href = `\.\/api\/generate-order-pdf\.php\?ref=\$\{data\.ref\}`;\s*\}/;
+
+  if (targetRegex.test(content)) {
+    content = content.replace(targetRegex, newLogic.trim());
+    fs.writeFileSync(filePath, content);
+    console.log(`Injected logic into ${filePath}`);
+  } else {
+    console.log(`Target block not found in ${filePath}`);
+  }
 }
 
-LANGS.forEach(lang => {
-    injectLogic(path.join(ROOT_DIR, lang, 'tableau-de-bord.html'));
+LANGS.forEach((lang) => {
+  injectLogic(path.join(ROOT_DIR, lang, "tableau-de-bord.html"));
 });

@@ -1,6 +1,6 @@
-const fs = require('fs');
+const fs = require("fs");
 
-let js = fs.readFileSync('scripts/post_process_seo.js', 'utf8');
+let js = fs.readFileSync("scripts/post_process_seo.js", "utf8");
 
 // In processSeo, we need to wrap the canonical and og logic
 // "3. Canonical and hreflang"
@@ -31,5 +31,5 @@ const canonicalReplacement = `// 3. Canonical and hreflang
 
 js = js.replace(canonicalTarget, canonicalReplacement);
 
-fs.writeFileSync('scripts/post_process_seo.js', js, 'utf8');
-console.log('post_process_seo.js patched.');
+fs.writeFileSync("scripts/post_process_seo.js", js, "utf8");
+console.log("post_process_seo.js patched.");

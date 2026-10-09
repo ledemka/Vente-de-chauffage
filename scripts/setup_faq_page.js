@@ -1,17 +1,35 @@
-const fs = require('fs');
-const cheerio = require('cheerio');
-const path = require('path');
+const fs = require("fs");
+const cheerio = require("cheerio");
+const path = require("path");
 
 // 1. Setup faq.html
-let faqHtml = fs.readFileSync('faq.html', 'utf8');
+let faqHtml = fs.readFileSync("faq.html", "utf8");
 const $faq = cheerio.load(faqHtml);
-$faq('title').text('Foire Aux Questions B2B | sotramsbois');
-$faq('link[rel="canonical"]').attr('href', 'https://www.sotramsbois.com/faq.html');
-$faq('link[hreflang="fr"]').attr('href', 'https://www.sotramsbois.com/faq.html');
-$faq('link[hreflang="en"]').attr('href', 'https://www.sotramsbois.com/en/faq.html');
-$faq('link[hreflang="de"]').attr('href', 'https://www.sotramsbois.com/de/faq.html');
-$faq('link[hreflang="nl"]').attr('href', 'https://www.sotramsbois.com/nl/faq.html');
-$faq('link[hreflang="x-default"]').attr('href', 'https://www.sotramsbois.com/faq.html');
+$faq("title").text("Foire Aux Questions B2B | sotramsbois");
+$faq('link[rel="canonical"]').attr(
+  "href",
+  "https://www.sotramsbois.com/faq.html",
+);
+$faq('link[hreflang="fr"]').attr(
+  "href",
+  "https://www.sotramsbois.com/faq.html",
+);
+$faq('link[hreflang="en"]').attr(
+  "href",
+  "https://www.sotramsbois.com/en/faq.html",
+);
+$faq('link[hreflang="de"]').attr(
+  "href",
+  "https://www.sotramsbois.com/de/faq.html",
+);
+$faq('link[hreflang="nl"]').attr(
+  "href",
+  "https://www.sotramsbois.com/nl/faq.html",
+);
+$faq('link[hreflang="x-default"]').attr(
+  "href",
+  "https://www.sotramsbois.com/faq.html",
+);
 
 const htmlContent = `
     <!-- Hero Section -->
@@ -84,59 +102,79 @@ const htmlContent = `
     </script>
 `;
 
-$faq('main').html(htmlContent);
-fs.writeFileSync('faq.html', $faq.html());
-console.log('Updated faq.html');
+$faq("main").html(htmlContent);
+fs.writeFileSync("faq.html", $faq.html());
+console.log("Updated faq.html");
 
 // 2. Add FAQ to all HTML navs
-const files = fs.readdirSync('.').filter(f => f.endsWith('.html'));
+const files = fs.readdirSync(".").filter((f) => f.endsWith(".html"));
 
-files.forEach(file => {
-    let content = fs.readFileSync(file, 'utf8');
-    const $ = cheerio.load(content);
-    
-    // Add to Desktop Nav (find nav containing ACCUEIL)
-    const $desktopNav = $('nav').filter(function() {
-        return $(this).find('a[href*="index.html"]').length > 0;
-    }).first();
-    
-    if ($desktopNav.length > 0) {
-        if ($desktopNav.find('a[data-i18n="nav.faq"]').length === 0) {
-            const isActive = file === 'faq.html';
-            const cls = isActive ? 'text-primary font-bold border-b-2 border-primary text-label-md font-label-md transition-colors py-3' : 'text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3';
-            $desktopNav.find('div.flex.items-center.gap-10').append('<a class="' + cls + '" data-i18n="nav.faq" href="./faq.html"><span data-i18n="nav.faq">FAQ</span></a>');
-        }
+files.forEach((file) => {
+  let content = fs.readFileSync(file, "utf8");
+  const $ = cheerio.load(content);
+
+  // Add to Desktop Nav (find nav containing ACCUEIL)
+  const $desktopNav = $("nav")
+    .filter(function () {
+      return $(this).find('a[href*="index.html"]').length > 0;
+    })
+    .first();
+
+  if ($desktopNav.length > 0) {
+    if ($desktopNav.find('a[data-i18n="nav.faq"]').length === 0) {
+      const isActive = file === "faq.html";
+      const cls = isActive
+        ? "text-primary font-bold border-b-2 border-primary text-label-md font-label-md transition-colors py-3"
+        : "text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3";
+      $desktopNav
+        .find("div.flex.items-center.gap-10")
+        .append(
+          '<a class="' +
+            cls +
+            '" data-i18n="nav.faq" href="./faq.html"><span data-i18n="nav.faq">FAQ</span></a>',
+        );
     }
-    
-    // Add to Mobile Nav
-    const $mobileMenu = $('#mobile-menu-drawer nav');
-    if ($mobileMenu.length > 0) {
-        if ($mobileMenu.find('a[data-i18n="nav.faq"]').length === 0) {
-            $mobileMenu.append('<a class="block py-4 border-b border-outline-variant/30 text-headline-md font-headline-md text-on-surface" data-i18n="nav.faq" href="./faq.html">FAQ</a>');
-        }
+  }
+
+  // Add to Mobile Nav
+  const $mobileMenu = $("#mobile-menu-drawer nav");
+  if ($mobileMenu.length > 0) {
+    if ($mobileMenu.find('a[data-i18n="nav.faq"]').length === 0) {
+      $mobileMenu.append(
+        '<a class="block py-4 border-b border-outline-variant/30 text-headline-md font-headline-md text-on-surface" data-i18n="nav.faq" href="./faq.html">FAQ</a>',
+      );
     }
-    
-    // Add to Footer
-    const $footerNav = $('footer h4:contains("SERVICES"), footer h4:has(span[data-i18n="footer.services_title"])').parent().find('nav');
-    if ($footerNav.length > 0) {
-        if ($footerNav.find('a[href="./faq.html"]').length === 0) {
-            // Insert before contact
-            const $contact = $footerNav.find('a[href="./contact.html"]');
-            const faqLink = '<a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./faq.html"><span data-i18n="nav.faq">FAQ</span></a>';
-            if ($contact.length) {
-                $contact.before(faqLink);
-            } else {
-                $footerNav.append(faqLink);
-            }
-        }
+  }
+
+  // Add to Footer
+  const $footerNav = $(
+    'footer h4:contains("SERVICES"), footer h4:has(span[data-i18n="footer.services_title"])',
+  )
+    .parent()
+    .find("nav");
+  if ($footerNav.length > 0) {
+    if ($footerNav.find('a[href="./faq.html"]').length === 0) {
+      // Insert before contact
+      const $contact = $footerNav.find('a[href="./contact.html"]');
+      const faqLink =
+        '<a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./faq.html"><span data-i18n="nav.faq">FAQ</span></a>';
+      if ($contact.length) {
+        $contact.before(faqLink);
+      } else {
+        $footerNav.append(faqLink);
+      }
     }
-    
-    // Write back
-    let newContent = $.html();
-    
-    // Restore raw HTML for templates that Cheerio might escape (especially in script tags)
-    newContent = newContent.replace(/&#x3E;/g, '>').replace(/&#x3C;/g, '<').replace(/&#x22;/g, '"');
-    
-    fs.writeFileSync(file, newContent);
+  }
+
+  // Write back
+  let newContent = $.html();
+
+  // Restore raw HTML for templates that Cheerio might escape (especially in script tags)
+  newContent = newContent
+    .replace(/&#x3E;/g, ">")
+    .replace(/&#x3C;/g, "<")
+    .replace(/&#x22;/g, '"');
+
+  fs.writeFileSync(file, newContent);
 });
-console.log('Updated nav in all HTML files');
+console.log("Updated nav in all HTML files");

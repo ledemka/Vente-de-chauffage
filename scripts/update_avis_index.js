@@ -1,7 +1,7 @@
-const fs = require('fs');
+const fs = require("fs");
 
 // --- 1. Update avis-clients.html ---
-let avisHtml = fs.readFileSync('avis-clients.html', 'utf8');
+let avisHtml = fs.readFileSync("avis-clients.html", "utf8");
 
 const reviewsContent = `
 <!-- CARTES D'EXEMPLE — à retirer intégralement (bandeau + 6 cartes) dès que de vrais témoignages sont disponibles. Ne jamais retirer le bandeau en gardant les cartes. -->
@@ -110,15 +110,27 @@ const reviewsContent = `
 
 // Replace the grid content in avis-clients.html
 avisHtml = avisHtml.replace(
-    /<div class="grid grid-cols-1 gap-8 relative z-10" id="reviews-grid">[\s\S]*?<\/div>\s*<\/div>/,
-    reviewsContent
+  /<div class="grid grid-cols-1 gap-8 relative z-10" id="reviews-grid">[\s\S]*?<\/div>\s*<\/div>/,
+  reviewsContent,
 );
 
 // Add filtering logic to the buttons
-avisHtml = avisHtml.replace('data-i18n="reviews.filter.all" class="', 'data-i18n="reviews.filter.all" data-filter="all" class="filter-btn ');
-avisHtml = avisHtml.replace('data-i18n="reviews.filter.hospitality" class="', 'data-i18n="reviews.filter.hospitality" data-filter="hospitality" class="filter-btn ');
-avisHtml = avisHtml.replace('data-i18n="reviews.filter.industry" class="', 'data-i18n="reviews.filter.industry" data-filter="industry" class="filter-btn ');
-avisHtml = avisHtml.replace('data-i18n="reviews.filter.resellers" class="', 'data-i18n="reviews.filter.resellers" data-filter="resellers" class="filter-btn ');
+avisHtml = avisHtml.replace(
+  'data-i18n="reviews.filter.all" class="',
+  'data-i18n="reviews.filter.all" data-filter="all" class="filter-btn ',
+);
+avisHtml = avisHtml.replace(
+  'data-i18n="reviews.filter.hospitality" class="',
+  'data-i18n="reviews.filter.hospitality" data-filter="hospitality" class="filter-btn ',
+);
+avisHtml = avisHtml.replace(
+  'data-i18n="reviews.filter.industry" class="',
+  'data-i18n="reviews.filter.industry" data-filter="industry" class="filter-btn ',
+);
+avisHtml = avisHtml.replace(
+  'data-i18n="reviews.filter.resellers" class="',
+  'data-i18n="reviews.filter.resellers" data-filter="resellers" class="filter-btn ',
+);
 
 // Add simple JS for filtering
 const filterScript = `
@@ -151,23 +163,26 @@ const filterScript = `
     });
 </script>
 `;
-avisHtml = avisHtml.replace('</body>', filterScript + '</body>');
-fs.writeFileSync('avis-clients.html', avisHtml, 'utf8');
-console.log('avis-clients.html updated.');
+avisHtml = avisHtml.replace("</body>", filterScript + "</body>");
+fs.writeFileSync("avis-clients.html", avisHtml, "utf8");
+console.log("avis-clients.html updated.");
 
 // --- 2. Update index.html ---
-let indexHtml = fs.readFileSync('index.html', 'utf8');
+let indexHtml = fs.readFileSync("index.html", "utf8");
 const originalBanner = `<div class="max-w-max-width mx-auto px-margin-desktop flex flex-wrap items-center justify-center gap-8 text-label-md font-label-md uppercase tracking-wider">`;
 const newBanner = `<a href="./avis-clients.html" class="max-w-max-width mx-auto px-margin-desktop flex flex-wrap items-center justify-center gap-8 text-label-md font-label-md uppercase tracking-wider hover:opacity-80 transition-opacity cursor-pointer">`;
 // We also need to change the closing </div> of that container to </a>.
 // We can use a regex to match the exact block:
-const regexBanner = /(<section class="bg-primary text-on-primary py-4 w-full shadow-md z-20">\s*)<div class="max-w-max-width mx-auto px-margin-desktop flex flex-wrap items-center justify-center gap-8 text-label-md font-label-md uppercase tracking-wider">([\s\S]*?)<\/div>(\s*<\/section>)/;
+const regexBanner =
+  /(<section class="bg-primary text-on-primary py-4 w-full shadow-md z-20">\s*)<div class="max-w-max-width mx-auto px-margin-desktop flex flex-wrap items-center justify-center gap-8 text-label-md font-label-md uppercase tracking-wider">([\s\S]*?)<\/div>(\s*<\/section>)/;
 
 if (regexBanner.test(indexHtml)) {
-    indexHtml = indexHtml.replace(regexBanner, '$1<a href="./avis-clients.html" class="max-w-max-width mx-auto px-margin-desktop flex flex-wrap items-center justify-center gap-8 text-label-md font-label-md uppercase tracking-wider hover:bg-primary-container transition-colors cursor-pointer py-2 rounded-lg">$2</a>$3');
-    fs.writeFileSync('index.html', indexHtml, 'utf8');
-    console.log('index.html updated.');
+  indexHtml = indexHtml.replace(
+    regexBanner,
+    '$1<a href="./avis-clients.html" class="max-w-max-width mx-auto px-margin-desktop flex flex-wrap items-center justify-center gap-8 text-label-md font-label-md uppercase tracking-wider hover:bg-primary-container transition-colors cursor-pointer py-2 rounded-lg">$2</a>$3',
+  );
+  fs.writeFileSync("index.html", indexHtml, "utf8");
+  console.log("index.html updated.");
 } else {
-    console.log('Failed to find trust banner in index.html');
+  console.log("Failed to find trust banner in index.html");
 }
-

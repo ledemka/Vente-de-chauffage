@@ -1,23 +1,24 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 const files = [
-    'merci-contact.html',
-    'merci-devis.html',
-    'merci-inscription.html',
-    'confirmation-commande.html'
+  "merci-contact.html",
+  "merci-devis.html",
+  "merci-inscription.html",
+  "confirmation-commande.html",
 ];
 
 for (const file of files) {
-    const filePath = path.join(__dirname, '..', file);
-    if (!fs.existsSync(filePath)) continue;
-    
-    let content = fs.readFileSync(filePath, 'utf8');
-    
-    // Replace the JS block
-    const oldJsRegex = /const spamNotice = window\.i18nData\?\.confirmation\?\.spam_notice \|\| "--- \{\{email\}\} ---";\s*const noticeText = spamNotice\.replace\('\{\{email\}\}', '<strong>' \+ email \+ '<\/strong>'\);\s*document\.getElementById\('spam-notice-text'\)\.innerHTML = noticeText;\s*document\.getElementById\('spam-notice-container'\)\.classList\.remove\('hidden'\);/;
-    
-    const newJs = `const mainBodyText = document.getElementById('main-body-text');
+  const filePath = path.join(__dirname, "..", file);
+  if (!fs.existsSync(filePath)) continue;
+
+  let content = fs.readFileSync(filePath, "utf8");
+
+  // Replace the JS block
+  const oldJsRegex =
+    /const spamNotice = window\.i18nData\?\.confirmation\?\.spam_notice \|\| "--- \{\{email\}\} ---";\s*const noticeText = spamNotice\.replace\('\{\{email\}\}', '<strong>' \+ email \+ '<\/strong>'\);\s*document\.getElementById\('spam-notice-text'\)\.innerHTML = noticeText;\s*document\.getElementById\('spam-notice-container'\)\.classList\.remove\('hidden'\);/;
+
+  const newJs = `const mainBodyText = document.getElementById('main-body-text');
         if (mainBodyText) {
             // Wait slightly for i18n to load if needed
             setTimeout(() => {
@@ -41,8 +42,8 @@ for (const file of files) {
         } else {
              document.getElementById('spam-notice-container').classList.remove('hidden');
         }`;
-        
-    content = content.replace(oldJsRegex, newJs);
-    fs.writeFileSync(filePath, content, 'utf8');
+
+  content = content.replace(oldJsRegex, newJs);
+  fs.writeFileSync(filePath, content, "utf8");
 }
-console.log('JS blocks updated successfully');
+console.log("JS blocks updated successfully");

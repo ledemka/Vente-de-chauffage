@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
-const dirs = ['.', 'en', 'de', 'nl'];
+const rootDir = path.join(__dirname, "..");
+const dirs = [".", "en", "de", "nl"];
 
 const newMainContent = `<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-16">
     <div class="flex items-center gap-2 mb-8">
@@ -47,25 +47,28 @@ const newMainContent = `<div class="max-w-[1440px] mx-auto px-margin-mobile md:p
 let modifiedCount = 0;
 
 for (const dir of dirs) {
-    const fullPath = path.join(rootDir, dir);
-    if (!fs.existsSync(fullPath)) continue;
-    
-    const filePath = path.join(fullPath, 'panier.html');
-    if (fs.existsSync(filePath)) {
-        let content = fs.readFileSync(filePath, 'utf8');
-        
-        const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
-        const relPath = dir === '.' ? '.' : '..';
-        
-        let customContent = newMainContent.replace(/LINK_CATALOGUE/g, `${relPath}/catalogue.html`);
+  const fullPath = path.join(rootDir, dir);
+  if (!fs.existsSync(fullPath)) continue;
 
-        content = content.replace(mainRegex, (match, p1) => {
-            return match.replace(p1, customContent);
-        });
+  const filePath = path.join(fullPath, "panier.html");
+  if (fs.existsSync(filePath)) {
+    let content = fs.readFileSync(filePath, "utf8");
 
-        fs.writeFileSync(filePath, content, 'utf8');
-        modifiedCount++;
-    }
+    const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
+    const relPath = dir === "." ? "." : "..";
+
+    let customContent = newMainContent.replace(
+      /LINK_CATALOGUE/g,
+      `${relPath}/catalogue.html`,
+    );
+
+    content = content.replace(mainRegex, (match, p1) => {
+      return match.replace(p1, customContent);
+    });
+
+    fs.writeFileSync(filePath, content, "utf8");
+    modifiedCount++;
+  }
 }
 
 console.log(`Updated ${modifiedCount} panier pages.`);

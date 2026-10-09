@@ -1,18 +1,23 @@
-const fs = require('fs');
+const fs = require("fs");
 
-const file = 'tableau-de-bord.html';
-let content = fs.readFileSync(file, 'utf8');
+const file = "tableau-de-bord.html";
+let content = fs.readFileSync(file, "utf8");
 
 // Revert container
-content = content.replace(/<div id="orders-container" class="overflow-x-auto pb-4 px-1 -mx-1">/g, '<div id="orders-container" class="overflow-x-auto">');
+content = content.replace(
+  /<div id="orders-container" class="overflow-x-auto pb-4 px-1 -mx-1">/g,
+  '<div id="orders-container" class="overflow-x-auto">',
+);
 
 // Revert Header
-const headerRegex = /let html = `<table class="w-full text-left border-separate" style="border-spacing: 0 0\.75rem;"><thead class="text-on-surface-variant"><tr><th class="pb-2 px-4 text-label-md font-label-md font-semibold">\${t\('order\.table\.ref', 'Référence'\)}<\/th><th class="pb-2 px-4 text-label-md font-label-md font-semibold">\${t\('order\.table\.date', 'Date'\)}<\/th><th class="pb-2 px-4 text-label-md font-label-md font-semibold">\${t\('order\.table\.status', 'Statut'\)}<\/th><th class="pb-2 px-4 text-label-md font-label-md font-semibold text-right" data-i18n="modal\.total_ttc">\${t\('order\.table\.total', 'Total TTC'\)}<\/th><th class="pb-2 px-4 text-label-md font-label-md font-semibold text-right">\${t\('order\.table\.actions', 'Actions'\)}<\/th><\/tr><\/thead><tbody>`;/s;
+const headerRegex =
+  /let html = `<table class="w-full text-left border-separate" style="border-spacing: 0 0\.75rem;"><thead class="text-on-surface-variant"><tr><th class="pb-2 px-4 text-label-md font-label-md font-semibold">\${t\('order\.table\.ref', 'Référence'\)}<\/th><th class="pb-2 px-4 text-label-md font-label-md font-semibold">\${t\('order\.table\.date', 'Date'\)}<\/th><th class="pb-2 px-4 text-label-md font-label-md font-semibold">\${t\('order\.table\.status', 'Statut'\)}<\/th><th class="pb-2 px-4 text-label-md font-label-md font-semibold text-right" data-i18n="modal\.total_ttc">\${t\('order\.table\.total', 'Total TTC'\)}<\/th><th class="pb-2 px-4 text-label-md font-label-md font-semibold text-right">\${t\('order\.table\.actions', 'Actions'\)}<\/th><\/tr><\/thead><tbody>`;/s;
 const origHeader = `let html = \`<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">\${t('order.table.ref', 'Référence')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">\${t('order.table.date', 'Date')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">\${t('order.table.status', 'Statut')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant text-right" data-i18n="modal.total_ttc">\${t('order.table.total', 'Total TTC')}</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">\${t('order.table.actions', 'Actions')}</th></tr></thead><tbody>\`;`;
 content = content.replace(headerRegex, origHeader);
 
 // Revert Row
-const rowRegex = /html \+= `<tr class="order-row bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow cursor-pointer".*?<\/tr>`;/s;
+const rowRegex =
+  /html \+= `<tr class="order-row bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow cursor-pointer".*?<\/tr>`;/s;
 const origRow = `html += \`<tr class="order-row border-b border-outline/10 cursor-pointer hover:bg-surface-container-highest/20 transition-colors" data-order="\${orderDataStr}">
             <td class="py-4 pr-2 text-body-md font-bold text-on-surface">\${order.order_reference}</td>
             <td class="py-4 px-2 text-body-sm text-on-surface-variant">\${dateStr}</td>
@@ -37,5 +42,5 @@ const origRow = `html += \`<tr class="order-row border-b border-outline/10 curso
         </tr>\`;`;
 content = content.replace(rowRegex, origRow);
 
-fs.writeFileSync(file, content, 'utf8');
-console.log('tableau-de-bord.html reverted to standard layout.');
+fs.writeFileSync(file, content, "utf8");
+console.log("tableau-de-bord.html reverted to standard layout.");

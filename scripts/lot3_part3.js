@@ -1,18 +1,20 @@
-const fs = require('fs');
+const fs = require("fs");
 
-let html = fs.readFileSync('produit.html', 'utf8');
+let html = fs.readFileSync("produit.html", "utf8");
 
 // Replace the SEO block
-const oldSeoStart = '// 1. Dynamic SEO';
-const oldSeoEnd = '// 3.6 units per palette';
+const oldSeoStart = "// 1. Dynamic SEO";
+const oldSeoEnd = "// 3.6 units per palette";
 // Actually we can replace up to `const qtyInput` to include the unit price replacement.
 
 // Find the start index
 const startIndex = html.indexOf(oldSeoStart);
-const endIndex = html.indexOf('const qtyInput = document.getElementById(\'qty-input\');');
+const endIndex = html.indexOf(
+  "const qtyInput = document.getElementById('qty-input');",
+);
 
 if (startIndex !== -1 && endIndex !== -1) {
-    const newSeoBlock = `// 1. Dynamic SEO
+  const newSeoBlock = `// 1. Dynamic SEO
                                 const lang = document.documentElement.lang || 'fr';
                                 
                                 // Clean up static tags
@@ -186,9 +188,9 @@ if (startIndex !== -1 && endIndex !== -1) {
                                 document.getElementById('spec-conditionnement').textContent = product.units_per_palette + ' ' + unitT;
 
                                 `;
-    html = html.substring(0, startIndex) + newSeoBlock + html.substring(endIndex);
-    fs.writeFileSync('produit.html', html, 'utf8');
-    console.log('Updated produit.html');
+  html = html.substring(0, startIndex) + newSeoBlock + html.substring(endIndex);
+  fs.writeFileSync("produit.html", html, "utf8");
+  console.log("Updated produit.html");
 } else {
-    console.log('Could not find start or end index');
+  console.log("Could not find start or end index");
 }

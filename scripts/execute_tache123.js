@@ -1,38 +1,43 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
-const langs = ['', 'en', 'de', 'nl'];
+const rootDir = path.join(__dirname, "..");
+const langs = ["", "en", "de", "nl"];
 
 // TASK 1: produit.html buttons
 function fixProduit() {
-    langs.forEach(lang => {
-        const file = path.join(rootDir, lang, 'produit.html');
-        if (!fs.existsSync(file)) return;
-        
-        let content = fs.readFileSync(file, 'utf-8');
-        
-        // Remove existing onclicks or hrefs just in case, then add ours.
-        
-        const commanderMatch = content.match(/<button id="btn-commander"[^>]*>/);
-        if (commanderMatch) {
-            let newTag = commanderMatch[0].replace(/onclick="[^"]*"/, '');
-            newTag = newTag.replace(/>$/, ' onclick="handleCommanderClick(this)">');
-            content = content.replace(commanderMatch[0], newTag);
-        }
+  langs.forEach((lang) => {
+    const file = path.join(rootDir, lang, "produit.html");
+    if (!fs.existsSync(file)) return;
 
-        const devisMatch = content.match(/<button id="btn-devis"[^>]*>/);
-        if (devisMatch) {
-            let newTag = devisMatch[0].replace(/onclick="[^"]*"/, '');
-            const prefix = lang ? '../' : './';
-            newTag = newTag.replace(/>$/, ` onclick="window.location.href='${prefix}devis.html?product=' + new URLSearchParams(window.location.search).get('id')">`);
-            content = content.replace(devisMatch[0], newTag);
-        }
-        
-        // Add the handleCommanderClick function before </body>
-        if (!content.includes('function handleCommanderClick')) {
-            const prefix = lang ? '../' : './';
-            content = content.replace('</body>', `
+    let content = fs.readFileSync(file, "utf-8");
+
+    // Remove existing onclicks or hrefs just in case, then add ours.
+
+    const commanderMatch = content.match(/<button id="btn-commander"[^>]*>/);
+    if (commanderMatch) {
+      let newTag = commanderMatch[0].replace(/onclick="[^"]*"/, "");
+      newTag = newTag.replace(/>$/, ' onclick="handleCommanderClick(this)">');
+      content = content.replace(commanderMatch[0], newTag);
+    }
+
+    const devisMatch = content.match(/<button id="btn-devis"[^>]*>/);
+    if (devisMatch) {
+      let newTag = devisMatch[0].replace(/onclick="[^"]*"/, "");
+      const prefix = lang ? "../" : "./";
+      newTag = newTag.replace(
+        />$/,
+        ` onclick="window.location.href='${prefix}devis.html?product=' + new URLSearchParams(window.location.search).get('id')">`,
+      );
+      content = content.replace(devisMatch[0], newTag);
+    }
+
+    // Add the handleCommanderClick function before </body>
+    if (!content.includes("function handleCommanderClick")) {
+      const prefix = lang ? "../" : "./";
+      content = content.replace(
+        "</body>",
+        `
 <script>
 window.handleCommanderClick = async function(btn) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -53,27 +58,30 @@ window.handleCommanderClick = async function(btn) {
     }
 };
 </script>
-</body>`);
-        }
-        
-        fs.writeFileSync(file, content);
-        console.log('Fixed produit.html for lang:', lang);
-    });
+</body>`,
+      );
+    }
+
+    fs.writeFileSync(file, content);
+    console.log("Fixed produit.html for lang:", lang);
+  });
 }
 
 // TASK 2.5: Create tableau-de-bord.html
 function createDashboard() {
-    const tplFrPath = path.join(rootDir, 'connexion.html'); // base template
-    if (!fs.existsSync(tplFrPath)) return;
-    
-    let baseHtml = fs.readFileSync(tplFrPath, 'utf-8');
-    const mainRegex = /<main[^>]*>[\s\S]*?<\/main>/;
-    
-    langs.forEach(lang => {
-        let tpl = lang ? fs.readFileSync(path.join(rootDir, lang, 'connexion.html'), 'utf-8') : baseHtml;
-        const prefix = lang ? '../' : './';
-        
-        let dashboardMain = `
+  const tplFrPath = path.join(rootDir, "connexion.html"); // base template
+  if (!fs.existsSync(tplFrPath)) return;
+
+  let baseHtml = fs.readFileSync(tplFrPath, "utf-8");
+  const mainRegex = /<main[^>]*>[\s\S]*?<\/main>/;
+
+  langs.forEach((lang) => {
+    let tpl = lang
+      ? fs.readFileSync(path.join(rootDir, lang, "connexion.html"), "utf-8")
+      : baseHtml;
+    const prefix = lang ? "../" : "./";
+
+    let dashboardMain = `
 <main class="w-full pt-[128px] bg-background min-h-screen">
     <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-16">
         <div class="flex justify-between items-center mb-10">
@@ -191,20 +199,23 @@ async function handleLogout() {
 }
 </script>
 `;
-        
-        let resultHtml = tpl.replace(mainRegex, dashboardMain);
-        resultHtml = resultHtml.replace(/<title>.*?<\/title>/, '<title>Mon Tableau de Bord | sotramsbois</title>');
-        
-        const dest = path.join(rootDir, lang, 'tableau-de-bord.html');
-        fs.writeFileSync(dest, resultHtml);
-        console.log('Created tableau-de-bord.html for lang:', lang);
-    });
+
+    let resultHtml = tpl.replace(mainRegex, dashboardMain);
+    resultHtml = resultHtml.replace(
+      /<title>.*?<\/title>/,
+      "<title>Mon Tableau de Bord | sotramsbois</title>",
+    );
+
+    const dest = path.join(rootDir, lang, "tableau-de-bord.html");
+    fs.writeFileSync(dest, resultHtml);
+    console.log("Created tableau-de-bord.html for lang:", lang);
+  });
 }
 
 // TASK 2: Create api/orders.php
 function createApiOrders() {
-    const dest = path.join(rootDir, 'api', 'orders.php');
-    const content = `<?php
+  const dest = path.join(rootDir, "api", "orders.php");
+  const content = `<?php
 /**
  * B2B Orders API - List orders
  */
@@ -251,19 +262,19 @@ try {
     echo json_encode(['success' => false, 'message' => 'Erreur serveur.']);
 }
 `;
-    fs.writeFileSync(dest, content);
-    console.log('Created api/orders.php');
+  fs.writeFileSync(dest, content);
+  console.log("Created api/orders.php");
 }
 
 // TASK 3: Contextual redirect on connexion.html
 function fixConnexion() {
-    langs.forEach(lang => {
-        const file = path.join(rootDir, lang, 'connexion.html');
-        if (!fs.existsSync(file)) return;
-        
-        let content = fs.readFileSync(file, 'utf-8');
-        
-        const replaceStr = `if (res.success) {
+  langs.forEach((lang) => {
+    const file = path.join(rootDir, lang, "connexion.html");
+    if (!fs.existsSync(file)) return;
+
+    let content = fs.readFileSync(file, "utf-8");
+
+    const replaceStr = `if (res.success) {
                     const urlParams = new URLSearchParams(window.location.search);
                     const redirect = urlParams.get('redirect');
                     if (redirect) {
@@ -272,68 +283,84 @@ function fixConnexion() {
                         window.location.href = './tableau-de-bord.html';
                     }
                 }`;
-                
-        const topReplace = `if (user) {
+
+    const topReplace = `if (user) {
         const params = new URLSearchParams(window.location.search);
         const redir = params.get('redirect');
         window.location.href = redir ? './' + redir : './tableau-de-bord.html';
     }`;
-    
-        content = content.replace(/if\s*\(res\.success\)\s*\{\s*window\.location\.href\s*=\s*'(\.\/)?panier\.html';\s*\}/, replaceStr);
-        content = content.replace(/if\s*\(user\)\s*window\.location\.href\s*=\s*'(\.\/)?panier\.html';/, topReplace);
 
-        fs.writeFileSync(file, content);
-        console.log('Fixed connexion.html for lang:', lang);
-    });
+    content = content.replace(
+      /if\s*\(res\.success\)\s*\{\s*window\.location\.href\s*=\s*'(\.\/)?panier\.html';\s*\}/,
+      replaceStr,
+    );
+    content = content.replace(
+      /if\s*\(user\)\s*window\.location\.href\s*=\s*'(\.\/)?panier\.html';/,
+      topReplace,
+    );
+
+    fs.writeFileSync(file, content);
+    console.log("Fixed connexion.html for lang:", lang);
+  });
 }
 
 // TASK 3.5: recapitulatif-commande.html pointing to ?redirect
 function fixRecap() {
-    langs.forEach(lang => {
-        const file = path.join(rootDir, lang, 'recapitulatif-commande.html');
-        if (!fs.existsSync(file)) return;
-        
-        let content = fs.readFileSync(file, 'utf-8');
-        content = content.replace(/href="([^"]*?)connexion\.html"/g, 'href="$1connexion.html?redirect=recapitulatif-commande.html"');
-        
-        fs.writeFileSync(file, content);
-        console.log('Fixed recapitulatif-commande.html for lang:', lang);
-    });
+  langs.forEach((lang) => {
+    const file = path.join(rootDir, lang, "recapitulatif-commande.html");
+    if (!fs.existsSync(file)) return;
+
+    let content = fs.readFileSync(file, "utf-8");
+    content = content.replace(
+      /href="([^"]*?)connexion\.html"/g,
+      'href="$1connexion.html?redirect=recapitulatif-commande.html"',
+    );
+
+    fs.writeFileSync(file, content);
+    console.log("Fixed recapitulatif-commande.html for lang:", lang);
+  });
 }
 
 // TASK 2.6: Footer updates
 function updateFooters() {
-    const filesToUpdate = [];
-    function findHtmlFiles(dir) {
-        const entries = fs.readdirSync(dir, { withFileTypes: true });
-        for (const entry of entries) {
-            const fullPath = path.join(dir, entry.name);
-            if (entry.isDirectory() && ['api', 'assets', 'dist-production', '.git', 'node_modules'].includes(entry.name)) continue;
-            if (entry.isDirectory()) {
-                findHtmlFiles(fullPath);
-            } else if (entry.isFile() && entry.name.endsWith('.html')) {
-                filesToUpdate.push(fullPath);
-            }
-        }
+  const filesToUpdate = [];
+  function findHtmlFiles(dir) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (
+        entry.isDirectory() &&
+        ["api", "assets", "dist-production", ".git", "node_modules"].includes(
+          entry.name,
+        )
+      )
+        continue;
+      if (entry.isDirectory()) {
+        findHtmlFiles(fullPath);
+      } else if (entry.isFile() && entry.name.endsWith(".html")) {
+        filesToUpdate.push(fullPath);
+      }
     }
-    findHtmlFiles(rootDir);
-    
-    for (const file of filesToUpdate) {
-        let content = fs.readFileSync(file, 'utf-8');
-        if (content.includes('footer.client_link_2')) {
-            const linkRegex = /(<a[^>]*href="[^"]*connexion\.html"[^>]*>.*?<\/a>)/;
-            const match = content.match(linkRegex);
-            if (match && !content.includes('tableau-de-bord.html')) {
-                const isSubdir = file.split(path.sep).length > rootDir.split(path.sep).length + 1;
-                const prefix = isSubdir ? '../' : './';
-                
-                const newLink = `\n<a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="${prefix}tableau-de-bord.html"><span data-i18n="nav.dashboard">Mon Tableau de bord</span></a>`;
-                content = content.replace(linkRegex, '$1' + newLink);
-                fs.writeFileSync(file, content);
-                console.log('Updated footer in:', file);
-            }
-        }
+  }
+  findHtmlFiles(rootDir);
+
+  for (const file of filesToUpdate) {
+    let content = fs.readFileSync(file, "utf-8");
+    if (content.includes("footer.client_link_2")) {
+      const linkRegex = /(<a[^>]*href="[^"]*connexion\.html"[^>]*>.*?<\/a>)/;
+      const match = content.match(linkRegex);
+      if (match && !content.includes("tableau-de-bord.html")) {
+        const isSubdir =
+          file.split(path.sep).length > rootDir.split(path.sep).length + 1;
+        const prefix = isSubdir ? "../" : "./";
+
+        const newLink = `\n<a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="${prefix}tableau-de-bord.html"><span data-i18n="nav.dashboard">Mon Tableau de bord</span></a>`;
+        content = content.replace(linkRegex, "$1" + newLink);
+        fs.writeFileSync(file, content);
+        console.log("Updated footer in:", file);
+      }
     }
+  }
 }
 
 // Execute all
@@ -343,4 +370,4 @@ createApiOrders();
 fixConnexion();
 fixRecap();
 updateFooters();
-console.log('All done!');
+console.log("All done!");

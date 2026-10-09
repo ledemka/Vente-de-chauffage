@@ -4,10 +4,10 @@ const path = require("path");
 const ROOT = process.cwd();
 
 const LANGS = [
-  { dir: "",            lang: "fr" },
-  { dir: "en",         lang: "en" },
-  { dir: "de",         lang: "de" },
-  { dir: "nl",         lang: "nl" },
+  { dir: "", lang: "fr" },
+  { dir: "en", lang: "en" },
+  { dir: "de", lang: "de" },
+  { dir: "nl", lang: "nl" },
 ];
 
 const translations = {
@@ -28,7 +28,7 @@ const translations = {
     en: "Products delivered and conforming to the delivery note are neither returnable nor exchangeable. In the event of proven non-conformity upon delivery (apparent defects), the buyer must state clear and precise reservations on the transport document and confirm them by registered letter with acknowledgment of receipt to the carrier within 3 working days following receipt, with a copy to sotramsbois.",
     de: "Gelieferte und dem Lieferschein entsprechende Produkte werden weder zur\u00fcckgenommen noch umgetauscht. Im Falle einer nachgewiesenen Nichtkonformit\u00e4t bei der Lieferung (offensichtliche M\u00e4ngel) muss der K\u00e4ufer klare und pr\u00e4zise Vorbehalte auf dem Frachtbrief vermerken und diese innerhalb von 3 Werktagen nach Erhalt per Einschreiben mit R\u00fcckschein an den Spediteur best\u00e4tigen, mit einer Kopie an sotramsbois.",
     nl: "Geleverde en aan de afleverbon beantwoordende producten worden niet teruggenomen of geruild. In geval van bewezen non-conformiteit bij de levering (zichtbare gebreken), moet de koper duidelijke en nauwkeurige voorbehouden maken op de vrachtbrief en deze binnen 3 werkdagen na ontvangst per aangetekende brief met ontvangstbevestiging aan de vervoerder bevestigen, met een kopie aan sotramsbois.",
-  }
+  },
 };
 
 function fix(langObj) {
@@ -53,7 +53,8 @@ function fix(langObj) {
 
   // 2. art6_p1
   const old6_1 = "<p>" + translations.art6_p1.fr + "</p>";
-  const new6_1 = '<p data-i18n="cgv.art6_p1">' + translations.art6_p1[l] + "</p>";
+  const new6_1 =
+    '<p data-i18n="cgv.art6_p1">' + translations.art6_p1[l] + "</p>";
   if (html.includes(old6_1)) {
     html = html.split(old6_1).join(new6_1);
     console.log("[" + l + "] Fixed art6_p1");
@@ -67,7 +68,8 @@ function fix(langObj) {
 
   // 3. art6_p2
   const old6_2 = "<p>" + translations.art6_p2.fr + "</p>";
-  const new6_2 = '<p data-i18n="cgv.art6_p2">' + translations.art6_p2[l] + "</p>";
+  const new6_2 =
+    '<p data-i18n="cgv.art6_p2">' + translations.art6_p2[l] + "</p>";
   if (html.includes(old6_2)) {
     html = html.split(old6_2).join(new6_2);
     console.log("[" + l + "] Fixed art6_p2");

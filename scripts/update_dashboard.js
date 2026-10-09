@@ -1,33 +1,35 @@
-const fs = require('fs');
+const fs = require("fs");
 
 const files = [
-    'tableau-de-bord.html',
-    'en/tableau-de-bord.html',
-    'de/tableau-de-bord.html',
-    'nl/tableau-de-bord.html'
+  "tableau-de-bord.html",
+  "en/tableau-de-bord.html",
+  "de/tableau-de-bord.html",
+  "nl/tableau-de-bord.html",
 ];
 
-files.forEach(file => {
-    let content = fs.readFileSync(file, 'utf8');
+files.forEach((file) => {
+  let content = fs.readFileSync(file, "utf8");
 
-    // Insert stats container HTML
-    const insertionPoint = '<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">';
-    const statsHtml = `
+  // Insert stats container HTML
+  const insertionPoint = '<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">';
+  const statsHtml = `
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8" id="dashboard-stats">
             <!-- Injected by JS -->
         </div>
         `;
-    
-    if (!content.includes('id="dashboard-stats"')) {
-        content = content.replace(insertionPoint, statsHtml + insertionPoint);
-    }
 
-    // Replace the JS rendering block
-    const jsStart = 'if (data.success && data.orders && data.orders.length > 0) {';
-    const jsEnd = "} else {\n            ordersContainer.innerHTML = '<div class=\"text-center py-10 text-on-surface-variant\"><span class=\"material-symbols-outlined text-[48px] opacity-50 mb-4 block\">inventory_2</span><p data-i18n=\"dashboard.no_orders\">Aucune commande pour le moment.</p></div>';\n        }";
-    
-    if (content.includes(jsStart)) {
-        const replacementJs = `if (data.success && data.orders) {
+  if (!content.includes('id="dashboard-stats"')) {
+    content = content.replace(insertionPoint, statsHtml + insertionPoint);
+  }
+
+  // Replace the JS rendering block
+  const jsStart =
+    "if (data.success && data.orders && data.orders.length > 0) {";
+  const jsEnd =
+    '} else {\n            ordersContainer.innerHTML = \'<div class="text-center py-10 text-on-surface-variant"><span class="material-symbols-outlined text-[48px] opacity-50 mb-4 block">inventory_2</span><p data-i18n="dashboard.no_orders">Aucune commande pour le moment.</p></div>\';\n        }';
+
+  if (content.includes(jsStart)) {
+    const replacementJs = `if (data.success && data.orders) {
             let stats = { total: data.orders.length, delivery: 0, delivered: 0, pending: 0, cancelled: 0 };
             
             let html = '<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">Référence</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Date</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">Statut</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">Total TTC</th></tr></thead><tbody>';
@@ -106,15 +108,18 @@ files.forEach(file => {
             ordersContainer.innerHTML = '<div class="text-center py-10 text-on-surface-variant"><span class="material-symbols-outlined text-[48px] opacity-50 mb-4 block">inventory_2</span><p data-i18n="dashboard.no_orders">Aucune commande pour le moment.</p></div>';
         }`;
 
-        // I need to use regex because the exact spaces might not match
-        // Or I can do substring replace since I know exactly where it starts.
-        
-        let startIdx = content.indexOf(jsStart);
-        let endIdx = content.indexOf(jsEnd, startIdx) + jsEnd.length;
-        
-        content = content.substring(0, startIdx) + replacementJs + content.substring(endIdx);
-    }
-    
-    fs.writeFileSync(file, content, 'utf8');
-    console.log('Updated ' + file);
+    // I need to use regex because the exact spaces might not match
+    // Or I can do substring replace since I know exactly where it starts.
+
+    let startIdx = content.indexOf(jsStart);
+    let endIdx = content.indexOf(jsEnd, startIdx) + jsEnd.length;
+
+    content =
+      content.substring(0, startIdx) +
+      replacementJs +
+      content.substring(endIdx);
+  }
+
+  fs.writeFileSync(file, content, "utf8");
+  console.log("Updated " + file);
 });

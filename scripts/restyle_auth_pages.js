@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rootDir = path.join(__dirname, '..');
-const dirs = ['.', 'en', 'de', 'nl'];
+const rootDir = path.join(__dirname, "..");
+const dirs = [".", "en", "de", "nl"];
 
 const connexionContent = `<div class="min-h-[calc(100vh-128px)] flex flex-col lg:flex-row">
     <!-- Form Side -->
@@ -257,46 +257,54 @@ let modifiedConnexionCount = 0;
 let modifiedInscriptionCount = 0;
 
 for (const dir of dirs) {
-    const fullPath = path.join(rootDir, dir);
-    if (!fs.existsSync(fullPath)) continue;
-    const relPath = dir === '.' ? '.' : '..';
-    const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
+  const fullPath = path.join(rootDir, dir);
+  if (!fs.existsSync(fullPath)) continue;
+  const relPath = dir === "." ? "." : "..";
+  const mainRegex = /<main[^>]*>([\s\S]*?)<\/main>/i;
 
-    // Process connexion.html
-    const connFilePath = path.join(fullPath, 'connexion.html');
-    if (fs.existsSync(connFilePath)) {
-        let content = fs.readFileSync(connFilePath, 'utf8');
-        
-        let customContent = connexionContent
-            .replace(/LINK_INSCRIPTION/g, `${relPath}/inscription.html`)
-            .replace(/LINK_PANIER/g, `${relPath}/panier.html`)
-            .replace(/LINK_IMG_1/g, `${relPath}/assets/images/hero/hero-carousel-1.jpg`);
+  // Process connexion.html
+  const connFilePath = path.join(fullPath, "connexion.html");
+  if (fs.existsSync(connFilePath)) {
+    let content = fs.readFileSync(connFilePath, "utf8");
 
-        content = content.replace(mainRegex, (match, p1) => {
-            return match.replace(p1, customContent);
-        });
+    let customContent = connexionContent
+      .replace(/LINK_INSCRIPTION/g, `${relPath}/inscription.html`)
+      .replace(/LINK_PANIER/g, `${relPath}/panier.html`)
+      .replace(
+        /LINK_IMG_1/g,
+        `${relPath}/assets/images/hero/hero-carousel-1.jpg`,
+      );
 
-        fs.writeFileSync(connFilePath, content, 'utf8');
-        modifiedConnexionCount++;
-    }
+    content = content.replace(mainRegex, (match, p1) => {
+      return match.replace(p1, customContent);
+    });
 
-    // Process inscription.html
-    const inscrFilePath = path.join(fullPath, 'inscription.html');
-    if (fs.existsSync(inscrFilePath)) {
-        let content = fs.readFileSync(inscrFilePath, 'utf8');
-        
-        let customContent = inscriptionContent
-            .replace(/LINK_CONNEXION/g, `${relPath}/connexion.html`)
-            .replace(/LINK_PANIER/g, `${relPath}/panier.html`)
-            .replace(/LINK_IMG_2/g, `${relPath}/assets/images/hero/hero-carousel-2.jpg`);
+    fs.writeFileSync(connFilePath, content, "utf8");
+    modifiedConnexionCount++;
+  }
 
-        content = content.replace(mainRegex, (match, p1) => {
-            return match.replace(p1, customContent);
-        });
+  // Process inscription.html
+  const inscrFilePath = path.join(fullPath, "inscription.html");
+  if (fs.existsSync(inscrFilePath)) {
+    let content = fs.readFileSync(inscrFilePath, "utf8");
 
-        fs.writeFileSync(inscrFilePath, content, 'utf8');
-        modifiedInscriptionCount++;
-    }
+    let customContent = inscriptionContent
+      .replace(/LINK_CONNEXION/g, `${relPath}/connexion.html`)
+      .replace(/LINK_PANIER/g, `${relPath}/panier.html`)
+      .replace(
+        /LINK_IMG_2/g,
+        `${relPath}/assets/images/hero/hero-carousel-2.jpg`,
+      );
+
+    content = content.replace(mainRegex, (match, p1) => {
+      return match.replace(p1, customContent);
+    });
+
+    fs.writeFileSync(inscrFilePath, content, "utf8");
+    modifiedInscriptionCount++;
+  }
 }
 
-console.log(`Updated ${modifiedConnexionCount} connexion pages and ${modifiedInscriptionCount} inscription pages.`);
+console.log(
+  `Updated ${modifiedConnexionCount} connexion pages and ${modifiedInscriptionCount} inscription pages.`,
+);

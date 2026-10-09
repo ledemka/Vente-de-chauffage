@@ -3,65 +3,68 @@
  * Uses regex with 's' flag and normalizes line endings to handle CRLF.
  */
 
-const fs = require('fs');
-const path = require('path');
-const rootDir = path.join(__dirname, '..');
+const fs = require("fs");
+const path = require("path");
+const rootDir = path.join(__dirname, "..");
 
 // ============================================================
 // LANGUAGE-SPECIFIC TEXTS
 // ============================================================
 const TEXTS = {
-    en: {
-        banner: 'The prices displayed correspond to the <strong>50 cm</strong> format. Please select your format before choosing your wood.',
-        priceNote: 'Price for 50 cm',
-        formatSelectedStr: 'Format ${selectedFormat} cm selected',
-        formatSelectBadge: 'Select a format ↑',
-        toast: 'Please select a format before choosing your wood.',
-        noResults: 'No products match these criteria.',
-        currencyLabel: '€ incl. VAT',
-        currencyI18n: 'catalog.table.currency',
-        formatLabelI18n: 'catalog.filters.format',
-        formatLabel: 'Format:',
-        unitPalette: 'UNIT / PALLET',
-        palletWeight: 'PALLET WEIGHT',
-        priceLabel: 'WHOLESALE PRICE / PALLET',
-    },
-    de: {
-        banner: 'Die angezeigten Preise entsprechen dem Format <strong>50 cm</strong>. Bitte wählen Sie Ihr Format, bevor Sie Ihr Holz auswählen.',
-        priceNote: 'Preis für 50 cm',
-        formatSelectedStr: 'Format ${selectedFormat} cm ausgewählt',
-        formatSelectBadge: 'Format auswählen ↑',
-        toast: 'Bitte wählen Sie ein Format, bevor Sie Ihr Holz auswählen.',
-        noResults: 'Keine Produkte entsprechen diesen Kriterien.',
-        currencyLabel: '€ inkl. MwSt',
-        currencyI18n: 'catalog.table.currency',
-        formatLabelI18n: 'catalog.filters.format',
-        formatLabel: 'Format:',
-        unitPalette: 'EINHEIT / PALETTE',
-        palletWeight: 'PALETTENGEWICHT',
-        priceLabel: 'GROSSPREIS / PALETTE',
-    },
-    nl: {
-        banner: 'De weergegeven prijzen komen overeen met het formaat <strong>50 cm</strong>. Selecteer uw formaat voordat u uw hout kiest.',
-        priceNote: 'Prijs voor 50 cm',
-        formatSelectedStr: 'Formaat ${selectedFormat} cm geselecteerd',
-        formatSelectBadge: 'Selecteer een formaat ↑',
-        toast: 'Selecteer een formaat voordat u uw hout kiest.',
-        noResults: 'Geen producten voldoen aan deze criteria.',
-        currencyLabel: '€ incl. btw',
-        currencyI18n: 'catalog.table.currency',
-        formatLabelI18n: 'catalog.filters.format',
-        formatLabel: 'Formaat:',
-        unitPalette: 'EENHEID / PALLET',
-        palletWeight: 'PALLETGEWICHT',
-        priceLabel: 'GROOTHANDELSPRIJS / PALLET',
-    }
+  en: {
+    banner:
+      "The prices displayed correspond to the <strong>50 cm</strong> format. Please select your format before choosing your wood.",
+    priceNote: "Price for 50 cm",
+    formatSelectedStr: "Format ${selectedFormat} cm selected",
+    formatSelectBadge: "Select a format ↑",
+    toast: "Please select a format before choosing your wood.",
+    noResults: "No products match these criteria.",
+    currencyLabel: "€ incl. VAT",
+    currencyI18n: "catalog.table.currency",
+    formatLabelI18n: "catalog.filters.format",
+    formatLabel: "Format:",
+    unitPalette: "UNIT / PALLET",
+    palletWeight: "PALLET WEIGHT",
+    priceLabel: "WHOLESALE PRICE / PALLET",
+  },
+  de: {
+    banner:
+      "Die angezeigten Preise entsprechen dem Format <strong>50 cm</strong>. Bitte wählen Sie Ihr Format, bevor Sie Ihr Holz auswählen.",
+    priceNote: "Preis für 50 cm",
+    formatSelectedStr: "Format ${selectedFormat} cm ausgewählt",
+    formatSelectBadge: "Format auswählen ↑",
+    toast: "Bitte wählen Sie ein Format, bevor Sie Ihr Holz auswählen.",
+    noResults: "Keine Produkte entsprechen diesen Kriterien.",
+    currencyLabel: "€ inkl. MwSt",
+    currencyI18n: "catalog.table.currency",
+    formatLabelI18n: "catalog.filters.format",
+    formatLabel: "Format:",
+    unitPalette: "EINHEIT / PALETTE",
+    palletWeight: "PALETTENGEWICHT",
+    priceLabel: "GROSSPREIS / PALETTE",
+  },
+  nl: {
+    banner:
+      "De weergegeven prijzen komen overeen met het formaat <strong>50 cm</strong>. Selecteer uw formaat voordat u uw hout kiest.",
+    priceNote: "Prijs voor 50 cm",
+    formatSelectedStr: "Formaat ${selectedFormat} cm geselecteerd",
+    formatSelectBadge: "Selecteer een formaat ↑",
+    toast: "Selecteer een formaat voordat u uw hout kiest.",
+    noResults: "Geen producten voldoen aan deze criteria.",
+    currencyLabel: "€ incl. btw",
+    currencyI18n: "catalog.table.currency",
+    formatLabelI18n: "catalog.filters.format",
+    formatLabel: "Formaat:",
+    unitPalette: "EENHEID / PALLET",
+    palletWeight: "PALLETGEWICHT",
+    priceLabel: "GROOTHANDELSPRIJS / PALLET",
+  },
 };
 
 function buildNewCatalogueScript(lang) {
-    const tx = TEXTS[lang];
+  const tx = TEXTS[lang];
 
-    return `<script>
+  return `<script>
                 document.addEventListener('DOMContentLoaded', () => {
                     document.addEventListener('i18nLoaded', async (e) => {
                         const t = e.detail.translations;
@@ -351,100 +354,113 @@ function buildNewCatalogueScript(lang) {
 // ============================================================
 // MAIN PROCESSING
 // ============================================================
-const langs = ['en', 'de', 'nl'];
+const langs = ["en", "de", "nl"];
 
-langs.forEach(lang => {
-    const filePath = path.join(rootDir, lang, 'catalogue.html');
-    if (!fs.existsSync(filePath)) {
-        console.error(`[SKIP] Not found: ${filePath}`);
-        return;
-    }
+langs.forEach((lang) => {
+  const filePath = path.join(rootDir, lang, "catalogue.html");
+  if (!fs.existsSync(filePath)) {
+    console.error(`[SKIP] Not found: ${filePath}`);
+    return;
+  }
 
-    let content = fs.readFileSync(filePath, 'utf8');
-    // Normalize to LF for regex matching
-    const originalEnding = content.includes('\r\n') ? '\r\n' : '\n';
-    content = content.replace(/\r\n/g, '\n');
+  let content = fs.readFileSync(filePath, "utf8");
+  // Normalize to LF for regex matching
+  const originalEnding = content.includes("\r\n") ? "\r\n" : "\n";
+  content = content.replace(/\r\n/g, "\n");
 
-    // 1. Remove old sidebar Format Filter section entirely
-    // Pattern: the <div> block starting with <!-- Format Filter --> up to its closing </div></div>
-    content = content.replace(
-        /\s*<!-- Format Filter -->\n\s*<div class="flex flex-col gap-3">[\s\S]*?<\/div>\n\s*<\/div>\s*(?=\s*<!-- Moisture Filter)/,
-        '\n            '
-    );
+  // 1. Remove old sidebar Format Filter section entirely
+  // Pattern: the <div> block starting with <!-- Format Filter --> up to its closing </div></div>
+  content = content.replace(
+    /\s*<!-- Format Filter -->\n\s*<div class="flex flex-col gap-3">[\s\S]*?<\/div>\n\s*<\/div>\s*(?=\s*<!-- Moisture Filter)/,
+    "\n            ",
+  );
 
-    // Alternative simpler pattern
-    content = content.replace(
-        /\n\s*<!-- Format Filter -->\s*\n\s*<div class="flex flex-col gap-3">\s*\n[\s\S]*?<\/div>\s*\n\s*<\/div>/,
-        ''
-    );
+  // Alternative simpler pattern
+  content = content.replace(
+    /\n\s*<!-- Format Filter -->\s*\n\s*<div class="flex flex-col gap-3">\s*\n[\s\S]*?<\/div>\s*\n\s*<\/div>/,
+    "",
+  );
 
-    // 2. Replace the entire catalogue script block
-    // Strategy: find <script> that contains "selectedFormats" and replace it completely
-    // The script block starts after the i18n-loader.js script tag
-    const scriptStartMarker = '<script src="../assets/js/i18n-loader.js"></script>';
-    const mobileMenuScriptStart = '<script>\n            document.addEventListener(\'DOMContentLoaded\', () => {\n                const btn';
-    const catalogueScriptStart = '\n\n            <script>\n                document.addEventListener(\'DOMContentLoaded\', () => {\n                    document.addEventListener(\'i18nLoaded\'';
-    const userMenuScript = '\n<script src="../assets/js/user-menu.js"></script>';
+  // 2. Replace the entire catalogue script block
+  // Strategy: find <script> that contains "selectedFormats" and replace it completely
+  // The script block starts after the i18n-loader.js script tag
+  const scriptStartMarker =
+    '<script src="../assets/js/i18n-loader.js"></script>';
+  const mobileMenuScriptStart =
+    "<script>\n            document.addEventListener('DOMContentLoaded', () => {\n                const btn";
+  const catalogueScriptStart =
+    "\n\n            <script>\n                document.addEventListener('DOMContentLoaded', () => {\n                    document.addEventListener('i18nLoaded'";
+  const userMenuScript = '\n<script src="../assets/js/user-menu.js"></script>';
 
-    // Find index of the catalogue script (the one with i18nLoaded)
-    const i18nScriptIdx = content.indexOf("document.addEventListener('i18nLoaded'");
-    if (i18nScriptIdx === -1) {
-        console.error(`[ERROR] ${lang}: Cannot find i18nLoaded listener`);
-        return;
-    }
+  // Find index of the catalogue script (the one with i18nLoaded)
+  const i18nScriptIdx = content.indexOf(
+    "document.addEventListener('i18nLoaded'",
+  );
+  if (i18nScriptIdx === -1) {
+    console.error(`[ERROR] ${lang}: Cannot find i18nLoaded listener`);
+    return;
+  }
 
-    // Find the <script> opening tag before i18nLoaded
-    const scriptOpenIdx = content.lastIndexOf('<script>', i18nScriptIdx);
-    if (scriptOpenIdx === -1) {
-        console.error(`[ERROR] ${lang}: Cannot find <script> before i18nLoaded`);
-        return;
-    }
+  // Find the <script> opening tag before i18nLoaded
+  const scriptOpenIdx = content.lastIndexOf("<script>", i18nScriptIdx);
+  if (scriptOpenIdx === -1) {
+    console.error(`[ERROR] ${lang}: Cannot find <script> before i18nLoaded`);
+    return;
+  }
 
-    // Find the closing </script> tag after i18nLoaded
-    const scriptCloseIdx = content.indexOf('</script>', i18nScriptIdx);
-    if (scriptCloseIdx === -1) {
-        console.error(`[ERROR] ${lang}: Cannot find </script> after i18nLoaded`);
-        return;
-    }
+  // Find the closing </script> tag after i18nLoaded
+  const scriptCloseIdx = content.indexOf("</script>", i18nScriptIdx);
+  if (scriptCloseIdx === -1) {
+    console.error(`[ERROR] ${lang}: Cannot find </script> after i18nLoaded`);
+    return;
+  }
 
-    const before = content.substring(0, scriptOpenIdx);
-    const after = content.substring(scriptCloseIdx + '</script>'.length);
+  const before = content.substring(0, scriptOpenIdx);
+  const after = content.substring(scriptCloseIdx + "</script>".length);
 
-    const newScript = buildNewCatalogueScript(lang);
-    content = before + newScript + after;
+  const newScript = buildNewCatalogueScript(lang);
+  content = before + newScript + after;
 
-    // Restore original line endings if needed
-    if (originalEnding === '\r\n') {
-        content = content.replace(/\n/g, '\r\n');
-    }
+  // Restore original line endings if needed
+  if (originalEnding === "\r\n") {
+    content = content.replace(/\n/g, "\r\n");
+  }
 
-    fs.writeFileSync(filePath, content, 'utf8');
-    console.log(`[DONE] ${lang}/catalogue.html — new logic injected (${content.length} bytes)`);
+  fs.writeFileSync(filePath, content, "utf8");
+  console.log(
+    `[DONE] ${lang}/catalogue.html — new logic injected (${content.length} bytes)`,
+  );
 
-    // Verify key markers
-    const verify = [
-        'selectedFormat',
-        'displayFormat',
-        'getBuchePrice',
-        'handleBucheClick',
-        'prices_by_length',
-        'buche-format-selector',
-    ];
-    const missing = verify.filter(m => !content.includes(m));
-    if (missing.length > 0) {
-        console.error(`  [WARN] Missing markers: ${missing.join(', ')}`);
-    } else {
-        console.log(`  [OK] All 6 key markers present`);
-    }
+  // Verify key markers
+  const verify = [
+    "selectedFormat",
+    "displayFormat",
+    "getBuchePrice",
+    "handleBucheClick",
+    "prices_by_length",
+    "buche-format-selector",
+  ];
+  const missing = verify.filter((m) => !content.includes(m));
+  if (missing.length > 0) {
+    console.error(`  [WARN] Missing markers: ${missing.join(", ")}`);
+  } else {
+    console.log(`  [OK] All 6 key markers present`);
+  }
 
-    // Verify old markers are gone
-    const banned = ['selectedFormats', 'selectedFormats.push', 'selectedFormats.filter'];
-    const found = banned.filter(m => content.includes(m));
-    if (found.length > 0) {
-        console.error(`  [WARN] Old logic still present: ${found.join(', ')}`);
-    } else {
-        console.log(`  [OK] Old selectedFormats[] logic removed`);
-    }
+  // Verify old markers are gone
+  const banned = [
+    "selectedFormats",
+    "selectedFormats.push",
+    "selectedFormats.filter",
+  ];
+  const found = banned.filter((m) => content.includes(m));
+  if (found.length > 0) {
+    console.error(`  [WARN] Old logic still present: ${found.join(", ")}`);
+  } else {
+    console.log(`  [OK] Old selectedFormats[] logic removed`);
+  }
 });
 
-console.log('\nDone. Check above for any warnings, then run: node scripts/generate-dist.js');
+console.log(
+  "\nDone. Check above for any warnings, then run: node scripts/generate-dist.js",
+);

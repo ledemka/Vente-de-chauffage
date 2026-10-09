@@ -82,14 +82,18 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
     ]
 }
     </script>
-</head><body class="bg-surface font-body-md text-on-surface overflow-x-hidden"><header class="fixed top-0 w-full z-50 bg-inverse-surface shadow-[0_1px_8px_rgba(0,0,0,0.1)]"><div class="h-20 max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-4">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
-                    <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
+</head><body class="bg-surface font-body-md text-on-surface overflow-x-hidden"><header class="fixed top-0 w-full z-50 bg-inverse-surface shadow-[0_1px_8px_rgba(0,0,0,0.1)]">
+    <div class="h-20 max-w-[1440px] mx-auto px-4 sm:px-margin-mobile md:px-margin-desktop flex items-center justify-between gap-2 sm:gap-gutter">
+        <div class="flex items-center gap-2 sm:gap-4">
+            <button id="mobile-menu-btn" class="md:hidden flex items-center text-inverse-on-surface hover:text-primary transition-colors" aria-label="Ouvrir le menu" onclick="document.getElementById('mobile-menu-drawer').classList.remove('hidden')"><span class="material-symbols-outlined text-[28px]">menu</span></button>
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
+                    <span class="material-symbols-outlined text-[20px] sm:text-[24px]">local_fire_department</span>
                 </div>
-                <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span>
+                <span class="text-[20px] sm:text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span>
             </div>
-</div><div class="flex items-center gap-6">
+        </div>
+        <div class="flex items-center gap-3 sm:gap-6">
             <div class="relative" id="lang-selector-wrapper">
                     <button id="lang-selector-btn" class="flex items-center gap-1.5 bg-surface-container/20 hover:bg-surface-container/30 border border-inverse-on-surface/20 rounded-full px-2.5 py-1.5 transition-colors cursor-pointer" aria-haspopup="true" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-3.5 rounded-sm object-cover"><rect width="3" height="2" fill="#ED2939"></rect><rect width="2" height="2" fill="#fff"></rect><rect width="1" height="2" fill="#002395"></rect></svg>
@@ -107,27 +111,28 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
                 <a href="./panier.html" class="flex items-center">
                     <span class="material-symbols-outlined text-inverse-on-surface cursor-pointer hover:opacity-80 transition-opacity">shopping_cart</span>
                 </a>
-            </div></div>
-            <nav class="bg-surface-container border-t border-outline-variant/20">
-                <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop h-12 flex items-center gap-4 md:gap-10 overflow-x-auto whitespace-nowrap no-scrollbar">
-                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.home" href="./index.html"><span data-i18n="nav.home">ACCUEIL</span></a>
-                    <div class="relative group h-full flex items-center">
-    <a class="flex items-center gap-1 h-full text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.catalog" href="./catalogue.html"><span data-i18n="nav.catalog">CATALOGUE</span> <span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:rotate-180">expand_more</span></a>
-    <div class="absolute top-[100%] left-0 hidden group-hover:flex flex-col bg-surface-container border border-outline-variant/20 shadow-lg py-2 min-w-[280px] z-50">
-        <a href="./catalogue.html?subgroup=1" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.1">Bûches de bois</span></a>
-        <a href="./catalogue.html?subgroup=2" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a>
-        <a href="./catalogue.html?subgroup=3" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.3">Briquettes</span></a>
-        <a href="./catalogue.html?subgroup=4" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.4">Granulés / Pellets</span></a>
-        <a href="./catalogue.html?subgroup=5" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.5">Charbon / Allume-feu</span></a>
+            </div>
     </div>
-</div>
-                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.guide" href="./guide-choix.html"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
-                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.depots" href="./depots.html"><span data-i18n="nav.depots">Dépôts</span></a>
-                      <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.faq" href="./faq.html"><span data-i18n="nav.faq">FAQ</span></a>
-                    <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.blog" href="./blog.html"><span data-i18n="nav.blog">BLOG</span></a>
-                    <a class="text-primary font-bold border-b-2 border-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.contact" href="./contact.html"><span data-i18n="nav.contact">CONTACT</span></a>
-                </div>
-            </nav>
+            <nav class="hidden md:block bg-surface-container border-t border-outline-variant/20">
+    <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop h-12 flex items-center gap-4 md:gap-10 overflow-x-auto whitespace-nowrap no-scrollbar">
+        <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.home" href="./index.html"><span data-i18n="nav.home">ACCUEIL</span></a>
+        <div class="relative group h-full flex items-center">
+            <a class="flex items-center gap-1 h-full text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.catalog" href="./catalogue.html"><span data-i18n="nav.catalog">CATALOGUE</span> <span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:rotate-180">expand_more</span></a>
+            <div class="absolute top-[100%] left-0 hidden group-hover:flex flex-col bg-surface-container border border-outline-variant/20 shadow-lg py-2 min-w-[280px] z-50">
+                <a href="./catalogue.html?subgroup=1" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.1">Bûches de bois</span></a>
+                <a href="./catalogue.html?subgroup=2" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a>
+                <a href="./catalogue.html?subgroup=3" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.3">Briquettes</span></a>
+                <a href="./catalogue.html?subgroup=4" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.4">Granulés / Pellets</span></a>
+                <a href="./catalogue.html?subgroup=5" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.5">Charbon / Allume-feu</span></a>
+            </div>
+        </div>
+        <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.guide" href="./guide-choix.html"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
+        <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.depots" href="./depots.html"><span data-i18n="nav.depots">Dépôts</span></a>
+        <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.faq" href="./faq.html"><span data-i18n="nav.faq">FAQ</span></a>
+        <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.blog" href="./blog.html"><span data-i18n="nav.blog">BLOG</span></a>
+        <a class="text-primary font-bold border-b-2 border-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.contact" href="./contact.html"><span data-i18n="nav.contact">CONTACT</span></a>
+    </div>
+</nav>
         </header>
 
             <!-- Mobile Drawer Navigation -->
@@ -139,13 +144,14 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
                             <button id="mobile-menu-close" class="text-[#D3C3BE] hover:text-white"><span class="material-symbols-outlined text-2xl">close</span></button>
                         </div>
                         <div class="space-y-3 font-semibold text-sm">
-                            <a href="./index.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.home"><span data-i18n="nav.home">ACCUEIL</span></a>
-                            <a href="./catalogue.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.catalog"><span data-i18n="nav.catalog">CATALOGUE</span></a>
-                            <a href="./guide-choix.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.guide"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
-                            <a href="./depots.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.depots"><span data-i18n="nav.depots">Dépôts</span></a>
-                            <a href="./blog.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.blog"><span data-i18n="nav.blog">BLOG</span></a>
-                            <a href="./contact.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.contact"><span data-i18n="nav.contact">CONTACT</span></a>
-                        </div>
+    <a href="./index.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.home"><span data-i18n="nav.home">ACCUEIL</span></a>
+    <a href="./catalogue.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.catalog"><span data-i18n="nav.catalog">CATALOGUE</span></a>
+    <a href="./guide-choix.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.guide"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
+    <a href="./depots.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.depots"><span data-i18n="nav.depots">Dépôts</span></a>
+    <a href="./faq.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.faq"><span data-i18n="nav.faq">FAQ</span></a>
+    <a href="./blog.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.blog"><span data-i18n="nav.blog">BLOG</span></a>
+    <a href="./contact.html" class="block py-2 text-[#D97706] uppercase" data-i18n="nav.contact"><span data-i18n="nav.contact">CONTACT</span></a>
+</div>
                     </div>
                 </div>
             </div>
@@ -371,7 +377,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
                 }
             });
         </script>
-<script src="./assets/js/user-menu.js"></script>
+<script src="./assets/js/user-menu.js?v=1791549470509"></script>
 <script src="./assets/js/lang-selector.js"></script>
 
 

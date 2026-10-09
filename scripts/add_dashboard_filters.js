@@ -1,18 +1,19 @@
-const fs = require('fs');
+const fs = require("fs");
 
 const files = [
-    'tableau-de-bord.html',
-    'en/tableau-de-bord.html',
-    'de/tableau-de-bord.html',
-    'nl/tableau-de-bord.html'
+  "tableau-de-bord.html",
+  "en/tableau-de-bord.html",
+  "de/tableau-de-bord.html",
+  "nl/tableau-de-bord.html",
 ];
 
-files.forEach(file => {
-    let content = fs.readFileSync(file, 'utf8');
+files.forEach((file) => {
+  let content = fs.readFileSync(file, "utf8");
 
-    // 1. Add Filter Badges HTML right after the "Mes Commandes" title
-    const titleRegex = /<h2 class="text-headline-md font-headline-md text-on-surface mb-6 flex items-center gap-2">[\s\S]*?<\/h2>/;
-    const filterHtml = `<h2 class="text-headline-md font-headline-md text-on-surface mb-4 flex items-center gap-2">
+  // 1. Add Filter Badges HTML right after the "Mes Commandes" title
+  const titleRegex =
+    /<h2 class="text-headline-md font-headline-md text-on-surface mb-6 flex items-center gap-2">[\s\S]*?<\/h2>/;
+  const filterHtml = `<h2 class="text-headline-md font-headline-md text-on-surface mb-4 flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary">list_alt</span>
                         <span data-i18n="dashboard.my_orders">Mes Commandes</span>
                     </h2>
@@ -24,19 +25,26 @@ files.forEach(file => {
                         <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="shipped">En cour de Livraison</button>
                         <button class="px-4 py-1.5 rounded-full bg-surface text-on-surface hover:bg-surface-container-highest border border-outline/20 text-[13px] font-bold transition-colors" data-filter="delivered">Livrée</button>
                     </div>`;
-    
-    if (content.match(titleRegex) && !content.includes('id="dashboard-status-filters"')) {
-        content = content.replace(titleRegex, filterHtml);
-    }
 
-    // 2. Add global variables
-    if (!content.includes('let currentFilter = \'all\';')) {
-        content = content.replace('let currentProfileData = {};', 'let currentProfileData = {};\nlet allOrders = [];\nlet currentFilter = \'all\';\n');
-    }
+  if (
+    content.match(titleRegex) &&
+    !content.includes('id="dashboard-status-filters"')
+  ) {
+    content = content.replace(titleRegex, filterHtml);
+  }
 
-    // 3. Replace the orders fetch and render block
-    const ordersFetchRegex = /\/\/ 4\. Chargement des commandes[\s\S]*?\/\/ Modal Logic/m;
-    const newOrdersLogic = `// 4. Chargement des commandes
+  // 2. Add global variables
+  if (!content.includes("let currentFilter = 'all';")) {
+    content = content.replace(
+      "let currentProfileData = {};",
+      "let currentProfileData = {};\nlet allOrders = [];\nlet currentFilter = 'all';\n",
+    );
+  }
+
+  // 3. Replace the orders fetch and render block
+  const ordersFetchRegex =
+    /\/\/ 4\. Chargement des commandes[\s\S]*?\/\/ Modal Logic/m;
+  const newOrdersLogic = `// 4. Chargement des commandes
     const ordersContainer = document.getElementById('orders-container');
     try {
         const formData = new URLSearchParams();
@@ -197,10 +205,10 @@ function renderClientOrders() {
 
 // Modal Logic`;
 
-    if (content.match(ordersFetchRegex)) {
-        content = content.replace(ordersFetchRegex, newOrdersLogic);
-    }
-    
-    fs.writeFileSync(file, content, 'utf8');
-    console.log('Updated ' + file);
+  if (content.match(ordersFetchRegex)) {
+    content = content.replace(ordersFetchRegex, newOrdersLogic);
+  }
+
+  fs.writeFileSync(file, content, "utf8");
+  console.log("Updated " + file);
 });

@@ -1,5 +1,5 @@
-const fs = require('fs');
-let html = fs.readFileSync('produit.html', 'utf8');
+const fs = require("fs");
+let html = fs.readFileSync("produit.html", "utf8");
 
 const newDynamicSeo = `// 1. Dynamic SEO
                                 const prodName = getProductName(product).substring(0, 45); // safeguard
@@ -122,7 +122,10 @@ const newDynamicSeo = `// 1. Dynamic SEO
 
 // Regex replacement
 const regex = /\/\/ 1\. Dynamic SEO[\s\S]*?(?=\/\/ 3\. Initialize components)/;
-html = html.replace(regex, newDynamicSeo + '\n\n                                ');
+html = html.replace(
+  regex,
+  newDynamicSeo + "\n\n                                ",
+);
 
-fs.writeFileSync('produit.html', html);
-console.log('Lot 3 applied to produit.html');
+fs.writeFileSync("produit.html", html);
+console.log("Lot 3 applied to produit.html");

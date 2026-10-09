@@ -1,23 +1,28 @@
-const fs = require('fs');
+const fs = require("fs");
 
 function replaceMainContent(file, newContent) {
-    const html = fs.readFileSync(file, 'utf8');
-    const startTag = '<main';
-    const endTag = '</main>';
-    
-    const startIndex = html.indexOf(startTag);
-    const endIndex = html.indexOf(endTag) + endTag.length;
-    
-    if (startIndex !== -1 && endIndex !== -1) {
-        // Find the actual end of the <main ...> tag
-        const startTagEnd = html.indexOf('>', startIndex) + 1;
-        
-        const newHtml = html.substring(0, startTagEnd) + '\n' + newContent + '\n' + html.substring(endIndex - endTag.length);
-        fs.writeFileSync(file, newHtml, 'utf8');
-        console.log(`Updated ${file}`);
-    } else {
-        console.log(`Could not find <main> in ${file}`);
-    }
+  const html = fs.readFileSync(file, "utf8");
+  const startTag = "<main";
+  const endTag = "</main>";
+
+  const startIndex = html.indexOf(startTag);
+  const endIndex = html.indexOf(endTag) + endTag.length;
+
+  if (startIndex !== -1 && endIndex !== -1) {
+    // Find the actual end of the <main ...> tag
+    const startTagEnd = html.indexOf(">", startIndex) + 1;
+
+    const newHtml =
+      html.substring(0, startTagEnd) +
+      "\n" +
+      newContent +
+      "\n" +
+      html.substring(endIndex - endTag.length);
+    fs.writeFileSync(file, newHtml, "utf8");
+    console.log(`Updated ${file}`);
+  } else {
+    console.log(`Could not find <main> in ${file}`);
+  }
 }
 
 // 1. MENTIONS LEGALES
@@ -226,7 +231,7 @@ const returnHtml = `
     </div>
 `;
 
-replaceMainContent('mentions-legales.html', mentionsHtml);
-replaceMainContent('politique-confidentialite.html', privacyHtml);
-replaceMainContent('cgv.html', cgvHtml);
-replaceMainContent('politique-retour.html', returnHtml);
+replaceMainContent("mentions-legales.html", mentionsHtml);
+replaceMainContent("politique-confidentialite.html", privacyHtml);
+replaceMainContent("cgv.html", cgvHtml);
+replaceMainContent("politique-retour.html", returnHtml);

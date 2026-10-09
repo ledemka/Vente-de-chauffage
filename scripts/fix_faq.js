@@ -1,19 +1,31 @@
-const fs = require('fs');
-const cheerio = require('cheerio');
+const fs = require("fs");
+const cheerio = require("cheerio");
 
 // 1. Reset faq.html from politique-retour.html
-let html = fs.readFileSync('politique-retour.html', 'utf8');
+let html = fs.readFileSync("politique-retour.html", "utf8");
 
 const $ = cheerio.load(html, { decodeEntities: false });
 
 // Update Head
-$('title').text('Foire Aux Questions B2B | sotramsbois');
-$('link[rel="canonical"]').attr('href', 'https://www.sotramsbois.com/faq.html');
-$('link[hreflang="fr"]').attr('href', 'https://www.sotramsbois.com/faq.html');
-$('link[hreflang="en"]').attr('href', 'https://www.sotramsbois.com/en/faq.html');
-$('link[hreflang="de"]').attr('href', 'https://www.sotramsbois.com/de/faq.html');
-$('link[hreflang="nl"]').attr('href', 'https://www.sotramsbois.com/nl/faq.html');
-$('link[hreflang="x-default"]').attr('href', 'https://www.sotramsbois.com/faq.html');
+$("title").text("Foire Aux Questions B2B | sotramsbois");
+$('link[rel="canonical"]').attr("href", "https://www.sotramsbois.com/faq.html");
+$('link[hreflang="fr"]').attr("href", "https://www.sotramsbois.com/faq.html");
+$('link[hreflang="en"]').attr(
+  "href",
+  "https://www.sotramsbois.com/en/faq.html",
+);
+$('link[hreflang="de"]').attr(
+  "href",
+  "https://www.sotramsbois.com/de/faq.html",
+);
+$('link[hreflang="nl"]').attr(
+  "href",
+  "https://www.sotramsbois.com/nl/faq.html",
+);
+$('link[hreflang="x-default"]').attr(
+  "href",
+  "https://www.sotramsbois.com/faq.html",
+);
 
 // Replace main content
 const mainContent = `
@@ -161,10 +173,13 @@ const mainContent = `
     </script>
 `;
 
-$('main').html(mainContent);
+$("main").html(mainContent);
 
 let newHtml = $.html();
-newHtml = newHtml.replace(/&#x3E;/g, '>').replace(/&#x3C;/g, '<').replace(/&#x22;/g, '"');
+newHtml = newHtml
+  .replace(/&#x3E;/g, ">")
+  .replace(/&#x3C;/g, "<")
+  .replace(/&#x22;/g, '"');
 
-fs.writeFileSync('faq.html', newHtml);
-console.log('Fixed faq.html');
+fs.writeFileSync("faq.html", newHtml);
+console.log("Fixed faq.html");

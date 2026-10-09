@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const cartJsPath = path.join(__dirname, '..', 'assets', 'js', 'cart.js');
+const cartJsPath = path.join(__dirname, "..", "assets", "js", "cart.js");
 
-let content = fs.readFileSync(cartJsPath, 'utf8');
+let content = fs.readFileSync(cartJsPath, "utf8");
 
 const newCartAPI = `const CartAPI = {
     _getCart() {
@@ -64,7 +64,10 @@ const newCartAPI = `const CartAPI = {
     }
 };`;
 
-content = content.replace(/const CartAPI = \{[\s\S]*?async get\(\) \{\s*return this\.request\('get'\);\s*\}\s*\};/m, newCartAPI);
+content = content.replace(
+  /const CartAPI = \{[\s\S]*?async get\(\) \{\s*return this\.request\('get'\);\s*\}\s*\};/m,
+  newCartAPI,
+);
 
-fs.writeFileSync(cartJsPath, content, 'utf8');
-console.log('CartAPI mocked with localStorage');
+fs.writeFileSync(cartJsPath, content, "utf8");
+console.log("CartAPI mocked with localStorage");

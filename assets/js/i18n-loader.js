@@ -16,6 +16,12 @@ window.resolveDataPath = function(pathStr) {
     return depth + pathStr.replace(/^\/+/, '');
 };
 
+window.resolveLinkPath = function(pathStr) {
+    const isProduitSubdir = window.location.pathname.includes('/produits/');
+    let depth = isProduitSubdir ? '../' : './';
+    return depth + pathStr.replace(/^\/+/, '');
+};
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const lang = document.documentElement.lang || 'fr';

@@ -7,10 +7,10 @@ const ROOT = process.cwd();
 // We operate on ALL 4 cgv.html variants (root=FR, en, de, nl) + dist-production copies
 
 const LANGS = [
-  { dir: "",            lang: "fr" },
-  { dir: "en",         lang: "en" },
-  { dir: "de",         lang: "de" },
-  { dir: "nl",         lang: "nl" },
+  { dir: "", lang: "fr" },
+  { dir: "en", lang: "en" },
+  { dir: "de", lang: "de" },
+  { dir: "nl", lang: "nl" },
 ];
 
 // Translations for text content in EN/DE/NL (from the i18n JSON)
@@ -50,20 +50,35 @@ const translations = {
 // For each lang, apply the 5 fixes
 function fix(langObj) {
   const fp = path.join(ROOT, langObj.dir, "cgv.html");
-  if (!fs.existsSync(fp)) { console.warn("[SKIP] " + fp); return; }
+  if (!fs.existsSync(fp)) {
+    console.warn("[SKIP] " + fp);
+    return;
+  }
   let html = fs.readFileSync(fp, "utf8");
   const l = langObj.lang;
 
   // 1. h2 Article 1 — add data-i18n="cgv.art1_title" and translate text
-  const oldH2 = '<h2 class="font-headline-lg text-headline-lg text-on-surface">' + translations.art1_title.fr + "</h2>";
-  const newH2 = '<h2 class="font-headline-lg text-headline-lg text-on-surface" data-i18n="cgv.art1_title">' + translations.art1_title[l] + "</h2>";
+  const oldH2 =
+    '<h2 class="font-headline-lg text-headline-lg text-on-surface">' +
+    translations.art1_title.fr +
+    "</h2>";
+  const newH2 =
+    '<h2 class="font-headline-lg text-headline-lg text-on-surface" data-i18n="cgv.art1_title">' +
+    translations.art1_title[l] +
+    "</h2>";
   if (html.includes(oldH2)) {
     html = html.split(oldH2).join(newH2);
     console.log("[" + l + "] Fixed art1_title h2");
   } else {
     // Maybe already has translated text but still no data-i18n
-    const translatedH2 = '<h2 class="font-headline-lg text-headline-lg text-on-surface">' + translations.art1_title[l] + "</h2>";
-    const translatedNewH2 = '<h2 class="font-headline-lg text-headline-lg text-on-surface" data-i18n="cgv.art1_title">' + translations.art1_title[l] + "</h2>";
+    const translatedH2 =
+      '<h2 class="font-headline-lg text-headline-lg text-on-surface">' +
+      translations.art1_title[l] +
+      "</h2>";
+    const translatedNewH2 =
+      '<h2 class="font-headline-lg text-headline-lg text-on-surface" data-i18n="cgv.art1_title">' +
+      translations.art1_title[l] +
+      "</h2>";
     if (html.includes(translatedH2)) {
       html = html.split(translatedH2).join(translatedNewH2);
       console.log("[" + l + "] Fixed art1_title h2 (already translated)");
@@ -73,14 +88,26 @@ function fix(langObj) {
   }
 
   // 2. <p> art1_info (inside the info box) — add data-i18n and translate
-  const oldP1info = '<p class="font-body-sm text-body-sm text-on-surface">' + translations.art1_info.fr + "</p>";
-  const newP1info = '<p class="font-body-sm text-body-sm text-on-surface" data-i18n="cgv.art1_info">' + translations.art1_info[l] + "</p>";
+  const oldP1info =
+    '<p class="font-body-sm text-body-sm text-on-surface">' +
+    translations.art1_info.fr +
+    "</p>";
+  const newP1info =
+    '<p class="font-body-sm text-body-sm text-on-surface" data-i18n="cgv.art1_info">' +
+    translations.art1_info[l] +
+    "</p>";
   if (html.includes(oldP1info)) {
     html = html.split(oldP1info).join(newP1info);
     console.log("[" + l + "] Fixed art1_info");
   } else {
-    const translatedOld = '<p class="font-body-sm text-body-sm text-on-surface">' + translations.art1_info[l] + "</p>";
-    const translatedNew = '<p class="font-body-sm text-body-sm text-on-surface" data-i18n="cgv.art1_info">' + translations.art1_info[l] + "</p>";
+    const translatedOld =
+      '<p class="font-body-sm text-body-sm text-on-surface">' +
+      translations.art1_info[l] +
+      "</p>";
+    const translatedNew =
+      '<p class="font-body-sm text-body-sm text-on-surface" data-i18n="cgv.art1_info">' +
+      translations.art1_info[l] +
+      "</p>";
     if (html.includes(translatedOld)) {
       html = html.split(translatedOld).join(translatedNew);
       console.log("[" + l + "] Fixed art1_info (already translated)");
@@ -91,13 +118,19 @@ function fix(langObj) {
 
   // 3. <p class="mt-4"> art2_p2
   const oldP2p2 = '<p class="mt-4">' + translations.art2_p2.fr + "</p>";
-  const newP2p2 = '<p class="mt-4" data-i18n="cgv.art2_p2">' + translations.art2_p2[l] + "</p>";
+  const newP2p2 =
+    '<p class="mt-4" data-i18n="cgv.art2_p2">' +
+    translations.art2_p2[l] +
+    "</p>";
   if (html.includes(oldP2p2)) {
     html = html.split(oldP2p2).join(newP2p2);
     console.log("[" + l + "] Fixed art2_p2");
   } else {
     const translatedOld = '<p class="mt-4">' + translations.art2_p2[l] + "</p>";
-    const translatedNew = '<p class="mt-4" data-i18n="cgv.art2_p2">' + translations.art2_p2[l] + "</p>";
+    const translatedNew =
+      '<p class="mt-4" data-i18n="cgv.art2_p2">' +
+      translations.art2_p2[l] +
+      "</p>";
     if (html.includes(translatedOld)) {
       html = html.split(translatedOld).join(translatedNew);
       console.log("[" + l + "] Fixed art2_p2 (already translated)");
@@ -108,13 +141,15 @@ function fix(langObj) {
 
   // 4. <p> art4_p1
   const oldP4p1 = "<p>" + translations.art4_p1.fr + "</p>";
-  const newP4p1 = '<p data-i18n="cgv.art4_p1">' + translations.art4_p1[l] + "</p>";
+  const newP4p1 =
+    '<p data-i18n="cgv.art4_p1">' + translations.art4_p1[l] + "</p>";
   if (html.includes(oldP4p1)) {
     html = html.split(oldP4p1).join(newP4p1);
     console.log("[" + l + "] Fixed art4_p1");
   } else {
     const translatedOld = "<p>" + translations.art4_p1[l] + "</p>";
-    const translatedNew = '<p data-i18n="cgv.art4_p1">' + translations.art4_p1[l] + "</p>";
+    const translatedNew =
+      '<p data-i18n="cgv.art4_p1">' + translations.art4_p1[l] + "</p>";
     if (html.includes(translatedOld)) {
       html = html.split(translatedOld).join(translatedNew);
       console.log("[" + l + "] Fixed art4_p1 (already translated)");
@@ -124,14 +159,26 @@ function fix(langObj) {
   }
 
   // 5. <p class="font-body-sm text-body-sm"> access_desc
-  const oldAccess = '<p class="font-body-sm text-body-sm">' + translations.access_desc.fr + "</p>";
-  const newAccess = '<p class="font-body-sm text-body-sm" data-i18n="cgv.access_desc">' + translations.access_desc[l] + "</p>";
+  const oldAccess =
+    '<p class="font-body-sm text-body-sm">' +
+    translations.access_desc.fr +
+    "</p>";
+  const newAccess =
+    '<p class="font-body-sm text-body-sm" data-i18n="cgv.access_desc">' +
+    translations.access_desc[l] +
+    "</p>";
   if (html.includes(oldAccess)) {
     html = html.split(oldAccess).join(newAccess);
     console.log("[" + l + "] Fixed access_desc");
   } else {
-    const translatedOld = '<p class="font-body-sm text-body-sm">' + translations.access_desc[l] + "</p>";
-    const translatedNew = '<p class="font-body-sm text-body-sm" data-i18n="cgv.access_desc">' + translations.access_desc[l] + "</p>";
+    const translatedOld =
+      '<p class="font-body-sm text-body-sm">' +
+      translations.access_desc[l] +
+      "</p>";
+    const translatedNew =
+      '<p class="font-body-sm text-body-sm" data-i18n="cgv.access_desc">' +
+      translations.access_desc[l] +
+      "</p>";
     if (html.includes(translatedOld)) {
       html = html.split(translatedOld).join(translatedNew);
       console.log("[" + l + "] Fixed access_desc (already translated)");

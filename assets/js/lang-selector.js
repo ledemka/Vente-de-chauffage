@@ -42,6 +42,43 @@
             }
         });
         
+        // Preserve context and scroll position on language change
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Save scroll position
+                sessionStorage.setItem('restoreLangScrollY', window.scrollY);
+                
+                // Build new URL
+                let targetUrl = new URL(this.href, window.location.origin);
+                
+                // Copy query params
+                const currentParams = new URLSearchParams(window.location.search);
+                currentParams.forEach((value, key) => {
+                    targetUrl.searchParams.set(key, value);
+                });
+                
+                // Copy hash
+                if (window.location.hash) {
+                    targetUrl.hash = window.location.hash;
+                }
+                
+                // Navigate
+                window.location.href = targetUrl.toString();
+            });
+        });
+
+        // Restore scroll if coming from a language change
+        const savedScroll = sessionStorage.getItem('restoreLangScrollY');
+        if (savedScroll !== null) {
+            sessionStorage.removeItem('restoreLangScrollY');
+            // Give DOM a tiny moment to render potential dynamic elements
+            setTimeout(() => {
+                window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'instant' });
+            }, 150);
+        }
+        
         // Update the button UI
         if (activeLink) {
             const svg = activeLink.querySelector('svg');

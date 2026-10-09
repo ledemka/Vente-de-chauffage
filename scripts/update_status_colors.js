@@ -1,22 +1,22 @@
-const fs = require('fs');
+const fs = require("fs");
 
 const files = [
-    'tableau-de-bord.html',
-    'en/tableau-de-bord.html',
-    'de/tableau-de-bord.html',
-    'nl/tableau-de-bord.html',
-    'admin-commandes.html',
-    'en/admin-commandes.html',
-    'de/admin-commandes.html',
-    'nl/admin-commandes.html'
+  "tableau-de-bord.html",
+  "en/tableau-de-bord.html",
+  "de/tableau-de-bord.html",
+  "nl/tableau-de-bord.html",
+  "admin-commandes.html",
+  "en/admin-commandes.html",
+  "de/admin-commandes.html",
+  "nl/admin-commandes.html",
 ];
 
-files.forEach(file => {
-    let content = fs.readFileSync(file, 'utf8');
+files.forEach((file) => {
+  let content = fs.readFileSync(file, "utf8");
 
-    // 1. Replace statusMap
-    const mapRegex = /const statusMap = \{[\s\S]*?\};/;
-    const newMap = `const statusMap = {
+  // 1. Replace statusMap
+  const mapRegex = /const statusMap = \{[\s\S]*?\};/;
+  const newMap = `const statusMap = {
                     'pending_payment': { label: 'En attente', icon: 'schedule', class: 'text-orange-500 border-orange-300 bg-orange-50' },
                     'paid': { label: 'Paiement reçu', icon: 'check_circle', class: 'text-[#0ea5e9] border-[#0ea5e9] bg-[#f0f9ff]' },
                     'preparing': { label: 'En prépa', icon: 'inventory_2', class: 'text-blue-500 border-blue-300 bg-blue-50' },
@@ -24,29 +24,30 @@ files.forEach(file => {
                     'delivered': { label: 'Livrée', icon: 'check_circle', class: 'text-emerald-600 border-emerald-300 bg-emerald-50' },
                     'cancelled': { label: 'Annulée', icon: 'cancel', class: 'text-red-500 border-red-300 bg-red-50' }
                 };`;
-    content = content.replace(mapRegex, newMap);
+  content = content.replace(mapRegex, newMap);
 
-    // 2. Replace badge HTML in table row
-    // For dashboard: <td class="py-4 px-2 text-body-sm"><span class="px-2 py-1 rounded text-xs font-bold ${statusInfo.class}">${statusInfo.label}</span></td>
-    // For admin: <td class="py-4 px-2 text-body-sm"><span class="px-2 py-1 rounded text-xs font-bold ${stInfo.class}" id="badge-${order.order_reference}">${stInfo.label}</span></td>
-    
-    // In dashboard:
-    content = content.replace(
-        /<span class="px-2 py-1 rounded text-xs font-bold \$\{statusInfo\.class\}">\$\{statusInfo\.label\}<\/span>/g,
-        `<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border \${statusInfo.class} uppercase tracking-wide"><span class="material-symbols-outlined text-[14px]">\${statusInfo.icon}</span>\${statusInfo.label}</div>`
-    );
+  // 2. Replace badge HTML in table row
+  // For dashboard: <td class="py-4 px-2 text-body-sm"><span class="px-2 py-1 rounded text-xs font-bold ${statusInfo.class}">${statusInfo.label}</span></td>
+  // For admin: <td class="py-4 px-2 text-body-sm"><span class="px-2 py-1 rounded text-xs font-bold ${stInfo.class}" id="badge-${order.order_reference}">${stInfo.label}</span></td>
 
-    // In admin (uses stInfo):
-    content = content.replace(
-        /<span class="px-2 py-1 rounded text-xs font-bold \$\{stInfo\.class\}" id="badge-\$\{order\.order_reference\}">\$\{stInfo\.label\}<\/span>/g,
-        `<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border \${stInfo.class} uppercase tracking-wide" id="badge-\${order.order_reference}"><span class="material-symbols-outlined text-[14px]">\${stInfo.icon}</span>\${stInfo.label}</div>`
-    );
+  // In dashboard:
+  content = content.replace(
+    /<span class="px-2 py-1 rounded text-xs font-bold \$\{statusInfo\.class\}">\$\{statusInfo\.label\}<\/span>/g,
+    `<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border \${statusInfo.class} uppercase tracking-wide"><span class="material-symbols-outlined text-[14px]">\${statusInfo.icon}</span>\${statusInfo.label}</div>`,
+  );
 
-    // 3. Replace Stats HTML
-    // The image shows very specific stats cards
-    const statsRegex = /const statsContainer = document\.getElementById\('dashboard-stats'\);[\s\S]*?if \(statsContainer\) \{[\s\S]*?statsContainer\.innerHTML = `[\s\S]*?`;\s*\}/;
-    
-    const newStats = `const statsContainer = document.getElementById('dashboard-stats');
+  // In admin (uses stInfo):
+  content = content.replace(
+    /<span class="px-2 py-1 rounded text-xs font-bold \$\{stInfo\.class\}" id="badge-\$\{order\.order_reference\}">\$\{stInfo\.label\}<\/span>/g,
+    `<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border \${stInfo.class} uppercase tracking-wide" id="badge-\${order.order_reference}"><span class="material-symbols-outlined text-[14px]">\${stInfo.icon}</span>\${stInfo.label}</div>`,
+  );
+
+  // 3. Replace Stats HTML
+  // The image shows very specific stats cards
+  const statsRegex =
+    /const statsContainer = document\.getElementById\('dashboard-stats'\);[\s\S]*?if \(statsContainer\) \{[\s\S]*?statsContainer\.innerHTML = `[\s\S]*?`;\s*\}/;
+
+  const newStats = `const statsContainer = document.getElementById('dashboard-stats');
             if (statsContainer) {
                 statsContainer.innerHTML = \`
                     <div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col items-start border-2 border-[#1a2b3c]">
@@ -86,16 +87,17 @@ files.forEach(file => {
                     </div>
                 \`;
             }`;
-    
-    if (content.match(statsRegex)) {
-        content = content.replace(statsRegex, newStats);
-    }
-    
-    // Some translations tweaks for dashboard labels
-    content = content.replace(
-        "label: 'En attente de paiement'", "label: 'En attente'"
-    );
 
-    fs.writeFileSync(file, content, 'utf8');
-    console.log('Updated ' + file);
+  if (content.match(statsRegex)) {
+    content = content.replace(statsRegex, newStats);
+  }
+
+  // Some translations tweaks for dashboard labels
+  content = content.replace(
+    "label: 'En attente de paiement'",
+    "label: 'En attente'",
+  );
+
+  fs.writeFileSync(file, content, "utf8");
+  console.log("Updated " + file);
 });

@@ -1,13 +1,14 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const ROOT_DIR = path.resolve(__dirname, '..');
-const tbPath = path.join(ROOT_DIR, 'tableau-de-bord.html');
+const ROOT_DIR = path.resolve(__dirname, "..");
+const tbPath = path.join(ROOT_DIR, "tableau-de-bord.html");
 
-let content = fs.readFileSync(tbPath, 'utf8');
+let content = fs.readFileSync(tbPath, "utf8");
 
 // 1. Replace the Info section with a form
-const infoRegex = /<div class="flex flex-col gap-4">\s*<div>\s*<span class="text-label-md font-label-md text-outline-variant block mb-1".*?<\/div>\s*<\/div>/s;
+const infoRegex =
+  /<div class="flex flex-col gap-4">\s*<div>\s*<span class="text-label-md font-label-md text-outline-variant block mb-1".*?<\/div>\s*<\/div>/s;
 const newInfoForm = `<form id="profile-form" class="flex flex-col gap-4">
                         <div id="profile-msg" class="text-body-sm font-bold hidden px-4 py-2 rounded"></div>
                         <div>
@@ -88,11 +89,11 @@ const modalMarkup = `
         </div>
     </dialog>
 `;
-content = content.replace(/<\/main>/, modalMarkup + '</main>');
+content = content.replace(/<\/main>/, modalMarkup + "</main>");
 
 // 3. Replace Script
-const scriptStartIdx = content.indexOf('<script>', content.indexOf('</main>'));
-const scriptEndIdx = content.indexOf('</script>', scriptStartIdx) + 9;
+const scriptStartIdx = content.indexOf("<script>", content.indexOf("</main>"));
+const scriptEndIdx = content.indexOf("</script>", scriptStartIdx) + 9;
 const oldScript = content.substring(scriptStartIdx, scriptEndIdx);
 
 const newScript = `<script>
@@ -289,5 +290,5 @@ async function handleLogout() {
 
 content = content.replace(oldScript, newScript);
 
-fs.writeFileSync(tbPath, content, 'utf8');
-console.log('Modified tableau-de-bord.html');
+fs.writeFileSync(tbPath, content, "utf8");
+console.log("Modified tableau-de-bord.html");

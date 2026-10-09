@@ -1,5 +1,5 @@
-const fs = require('fs');
-let content = fs.readFileSync('assets/js/consent-ads.js', 'utf8');
+const fs = require("fs");
+let content = fs.readFileSync("assets/js/consent-ads.js", "utf8");
 
 // Task 3: loadGoogleAds
 const targetLoad = `    function loadGoogleAds() {
@@ -36,9 +36,16 @@ const replaceLoad = `    function loadGoogleAds() {
     }`;
 
 content = content.replace(targetLoad, replaceLoad);
-if (content.indexOf("gtag('config', GOOGLE_ADS_ID, { page_location: cleanUrl });") === -1) {
-    // try with \r\n
-    content = content.replace(targetLoad.replace(/\n/g, '\r\n'), replaceLoad.replace(/\n/g, '\r\n'));
+if (
+  content.indexOf(
+    "gtag('config', GOOGLE_ADS_ID, { page_location: cleanUrl });",
+  ) === -1
+) {
+  // try with \r\n
+  content = content.replace(
+    targetLoad.replace(/\n/g, "\r\n"),
+    replaceLoad.replace(/\n/g, "\r\n"),
+  );
 }
 
 // Task 5: checkConversion
@@ -69,7 +76,10 @@ const replaceCheck = `    function checkConversion() {
 
 content = content.replace(targetCheck, replaceCheck);
 if (content.indexOf("let isDevis = false;") === -1) {
-    content = content.replace(targetCheck.replace(/\n/g, '\r\n'), replaceCheck.replace(/\n/g, '\r\n'));
+  content = content.replace(
+    targetCheck.replace(/\n/g, "\r\n"),
+    replaceCheck.replace(/\n/g, "\r\n"),
+  );
 }
 
 // Task 5: applyConsent('denied') -> remove flag
@@ -101,9 +111,16 @@ const replaceDenied = `        } else {
         }`;
 
 content = content.replace(targetDenied, replaceDenied);
-if (content.indexOf("try { sessionStorage.removeItem('ads_conv_devis'); } catch(e) {}") === -1) {
-    content = content.replace(targetDenied.replace(/\n/g, '\r\n'), replaceDenied.replace(/\n/g, '\r\n'));
+if (
+  content.indexOf(
+    "try { sessionStorage.removeItem('ads_conv_devis'); } catch(e) {}",
+  ) === -1
+) {
+  content = content.replace(
+    targetDenied.replace(/\n/g, "\r\n"),
+    replaceDenied.replace(/\n/g, "\r\n"),
+  );
 }
 
-fs.writeFileSync('assets/js/consent-ads.js', content);
-console.log('Fixed consent-ads.js');
+fs.writeFileSync("assets/js/consent-ads.js", content);
+console.log("Fixed consent-ads.js");
