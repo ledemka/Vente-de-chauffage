@@ -417,24 +417,7 @@ window.resolveAssetPath = function(pathStr) {
                                 // 1. Dynamic SEO
                                 const lang = document.documentElement.lang || 'fr';
                                 
-                                // Clean up static tags
-                                document.querySelectorAll('link[rel="canonical"], link[rel="alternate"]').forEach(el => el.remove());
-
-                                // Add Canonical
-                                const canon = document.createElement('link');
-                                canon.rel = 'canonical';
-                                canon.href = `https://www.sotramsbois.com${lang === 'fr' ? '' : '/' + lang}/produit.html?id=${product.id}`;
-                                document.head.appendChild(canon);
-
-                                // Add Hreflang
-                                ['fr', 'en', 'de', 'nl', 'x-default'].forEach(l => {
-                                    const alt = document.createElement('link');
-                                    alt.rel = 'alternate';
-                                    alt.hreflang = l;
-                                    const prefix = (l === 'fr' || l === 'x-default') ? '' : '/' + l;
-                                    alt.href = `https://www.sotramsbois.com${prefix}/produit.html?id=${product.id}`;
-                                    document.head.appendChild(alt);
-                                });
+                                const productCanonicalUrl = document.querySelector('link[rel="canonical"]')?.href || `https://www.sotramsbois.com${lang === 'fr' ? '' : '/' + lang}/produits/${product.id}.html`;
 
                                 // Title
                                 const titleTemplate = window.i18n && window.i18n.t ? window.i18n.t('product.seo_title', '{name} – sotramsbois') : '{name} – sotramsbois';
@@ -476,7 +459,7 @@ window.resolveAssetPath = function(pathStr) {
                                     'og:type': 'product',
                                     'og:title': pageTitle,
                                     'og:description': pageDesc,
-                                    'og:url': canon.href,
+                                    'og:url': productCanonicalUrl,
                                     'og:image': 'https://www.sotramsbois.com/' + String(product.image_product).replace(/^\/+/, ''),
                                     'og:site_name': 'sotramsbois',
                                     'og:locale': lang === 'fr' ? 'fr_FR' : (lang === 'en' ? 'en_GB' : (lang === 'de' ? 'de_DE' : 'nl_NL')),
@@ -514,7 +497,7 @@ window.resolveAssetPath = function(pathStr) {
                                             "@type": "ListItem",
                                             "position": 3,
                                             "name": getProductName(product),
-                                            "item": canon.href
+                                            "item": productCanonicalUrl
                                         }
                                     ]
                                 };
