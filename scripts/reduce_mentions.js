@@ -1,12 +1,12 @@
 const fs = require("fs");
 
 const frText =
-  "Siège social : [Adresse du siège à compléter]. Email : [Email de contact à compléter] — Téléphone : 0974309229.";
+  "Siège social : [Adresse du siège à compléter]. Email : [Email de contact à compléter] — Téléphone : 0978368016.";
 const texts = {
   fr: frText,
-  en: "Registered office: [Head office address to be completed]. Email: [Contact email to be completed] — Phone: 0974309229.",
-  de: "Hauptsitz: [Adresse des Hauptsitzes noch zu ergänzen]. E-Mail: [Kontakt-E-Mail noch zu ergänzen] — Telefon: 0974309229.",
-  nl: "Hoofdkantoor: [Adres hoofdkantoor nog aan te vullen]. E-mail: [Contact e-mail nog aan te vullen] — Telefoon: 0974309229.",
+  en: "Registered office: [Head office address to be completed]. Email: [Contact email to be completed] — Phone: 0978368016.",
+  de: "Hauptsitz: [Adresse des Hauptsitzes noch zu ergänzen]. E-Mail: [Kontakt-E-Mail noch zu ergänzen] — Telefon: 0978368016.",
+  nl: "Hoofdkantoor: [Adres hoofdkantoor nog aan te vullen]. E-mail: [Contact e-mail nog aan te vullen] — Telefoon: 0978368016.",
 };
 
 for (const lang of ["fr", "en", "de", "nl"]) {

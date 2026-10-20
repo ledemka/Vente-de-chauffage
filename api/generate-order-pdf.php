@@ -114,7 +114,7 @@ try {
                         2475 route de Fumay<br>
                         08230 Gué-d’Hossus – France<br>
                         <strong>SIREN : 353 877 707 – RCS Sedan</strong><br>
-                        Tél. : 09 74 30 92 29<br>
+                        Tél. : 09 78 36 80 16<br>
                         Email : contact@sotramsbois.com
                     </div>
                 </td>

@@ -19,7 +19,7 @@ function walk(dir) {
 const files = walk('./');
 files.forEach(file => {
     let content = fs.readFileSync(file, 'utf8');
-    let newContent = content.replace(/<span data-i18n="footer\.phone">.*?<\/span>/g, '<span data-i18n="footer.phone">Téléphone : 0974309229</span>');
+    let newContent = content.replace(/<span data-i18n="footer\.phone">.*?<\/span>/g, '<span data-i18n="footer.phone">Téléphone : 0978368016</span>');
     if (content !== newContent) {
         fs.writeFileSync(file, newContent);
         console.log('Updated HTML fallback in ' + file);

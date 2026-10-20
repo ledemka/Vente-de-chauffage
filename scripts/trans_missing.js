@@ -26,11 +26,11 @@ module.exports = [
   },
   {
     file: "mentions-legales.html",
-    fr: "0974309229",
+    fr: "0978368016",
     key: "mentions.contact_phone",
-    en: "0974309229",
-    de: "0974309229",
-    nl: "0974309229",
+    en: "0978368016",
+    de: "0978368016",
+    nl: "0978368016",
   },
   {
     file: "mentions-legales.html",

@@ -45,8 +45,8 @@ dirs.forEach((dir) => {
       '"mailto:[Email de contact à compléter]"',
     );
 
-    content = content.replace(/>\+33 \(0\)3 88 00 00 00</g, ">0974309229<");
-    content = content.replace(/"tel:\+33388000000"/g, '"tel:0974309229"');
+    content = content.replace(/>\+33 \(0\)3 88 00 00 00</g, ">0978368016<");
+    content = content.replace(/"tel:\+33388000000"/g, '"tel:0978368016"');
 
     content = content.replace(
       />dpo@terreetfeu\.pro</g,

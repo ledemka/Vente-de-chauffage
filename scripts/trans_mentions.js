@@ -70,7 +70,7 @@ module.exports = [
     nl: "[Adres hostingprovider nog aan te vullen]",
   },
   {
-    fr: "0974309229",
+    fr: "0978368016",
     key: "mentions.host_phone",
     en: "[Hosting provider phone number to be completed]",
     de: "[Telefonnummer des Hosting-Anbieters noch zu vervollständigen]",
