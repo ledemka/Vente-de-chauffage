@@ -129,8 +129,13 @@ function buildNewCatalogueScript(lang) {
                                     showToast('${tx.toast}');
                                     return;
                                 }
-                                const basePath = lang === 'fr' ? './' : \`../\${lang}/\`;
-                                window.location.href = \`\${basePath}produit.html?id=\${productId}&length=\${selectedFormat}\`;
+                                 const basePath = './';
+                                window.location.href = `${basePath}produits/${productId}.html?length=${selectedFormat}`;
+                            };
+
+                            window.goToProduct = function(productId) {
+                                if (!productId) return;
+                                window.location.href = './produits/' + productId + '.html';
                             };
 
                             // Simple toast notification
@@ -223,8 +228,8 @@ function buildNewCatalogueScript(lang) {
                                                 }
 
                                                 const clickHandler = isBuche
-                                                    ? \`handleBucheClick('\${p.id}')\`
-                                                    : \`window.location.href='../\${lang}/produit.html?id=\${p.id}'\`;
+                                                    ? `handleBucheClick('${p.id}')`
+                                                    : `goToProduct('${p.id}')`;
 
                                                 return \`
                                                     <article onclick="\${clickHandler}" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group \${isBuche && !selectedFormat ? 'opacity-80' : ''}">

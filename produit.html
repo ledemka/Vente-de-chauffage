@@ -360,7 +360,7 @@ window.resolveAssetPath = function(pathStr) {
                         if (idFromUrl && !window.PRODUCT_ID) {
                             let newSearch = window.location.search.replace('id=' + idFromUrl, '').replace('?&', '?').replace('&&', '&');
                             if (newSearch === '?') newSearch = '';
-                            const newUrl = (lang === 'fr' ? './produits/' : '../' + lang + '/produits/') + idFromUrl + '.html' + newSearch;
+                            const newUrl = (lang === 'fr' ? '/produits/' : '/' + lang + '/produits/') + idFromUrl + '.html' + newSearch;
                             window.location.replace(newUrl);
                             return;
                         }
@@ -411,7 +411,7 @@ window.resolveAssetPath = function(pathStr) {
                                 const breadcrumbCat = document.getElementById('breadcrumb-category');
                                 if (breadcrumbCat) {
                                     breadcrumbCat.textContent = (t.categories && t.categories[product.subgroup_id]) ? t.categories[product.subgroup_id] : product.subgroup_name;
-                                    breadcrumbCat.href = `./catalogue.html?subgroup=${product.subgroup_id}`;
+                                    breadcrumbCat.href = `../catalogue.html?subgroup=${product.subgroup_id}`;
                                 }
 
                                 // 1. Dynamic SEO

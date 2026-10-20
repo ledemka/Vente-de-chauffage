@@ -338,6 +338,12 @@ window.resolveAssetPath = function(pathStr) {
                                 window.location.href = `${basePath}produits/${productId}.html?length=${selectedFormat}`;
                             };
 
+                            // Safe direct product navigation
+                            window.goToProduct = function(productId) {
+                                if (!productId) return;
+                                window.location.href = './produits/' + productId + '.html';
+                            };
+
                             // Simple toast notification
                             function showToast(message) {
                                 let toast = document.getElementById('catalogue-toast');
@@ -431,19 +437,20 @@ window.resolveAssetPath = function(pathStr) {
                                                 }
 
                                                 const imgPrefix = relPath === '.' ? '' : relPath;
+                                                const productUrl = './produits/' + p.id + '.html';
                                                 const clickHandler = isBuche
                                                     ? `handleBucheClick('${p.id}')`
-                                                    : `window.location.href=\'./produits/\' + \'${p.id}\' + \'.html\'`;
+                                                    : `goToProduct('${p.id}')`;
 
                                                 return `
                                                     <article onclick="${clickHandler}" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group ${isBuche && !selectedFormat ? 'opacity-80' : ''}">
                                                         <div class="relative w-full h-48 rounded bg-surface-container overflow-hidden">
-                                                            <img width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${resolveAssetPath(p.image_product)}" alt="${getProductName(p)}"/>
+                                                             <img width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${resolveAssetPath(p.image_product)}" alt="${getProductName(p)}"/>
                                                             ${badgeHtml}
                                                             ${isBuche && !selectedFormat ? `<div class="absolute inset-0 bg-black/10 flex items-end justify-center pb-3"><span data-i18n="catalog.filters.format_select" class="bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">${(typeof t !== 'undefined' && t.catalog && t.catalog.filters && t.catalog.filters.format_select) ? t.catalog.filters.format_select : 'Sélectionnez un format ↑'}</span></div>` : ''}
                                                         </div>
                                                         <div class="flex flex-col gap-2">
-                                                            <h3 class="text-headline-md font-headline-md text-on-surface leading-tight">${getProductName(p)}</h3>
+                                                            <h3 class="text-headline-md font-headline-md text-on-surface leading-tight"><a href="${productUrl}" class="hover:text-primary transition-colors" ${isBuche ? `onclick="if (!selectedFormat) { event.preventDefault(); handleBucheClick('${p.id}'); }"` : ''}>${getProductName(p)}</a></h3>
                                                             <p class="text-body-sm font-body-sm text-on-surface-variant">${getProductField(p, 'species_material')}</p>
                                                         </div>
                                                         <div class="flex flex-col gap-2 mt-auto">

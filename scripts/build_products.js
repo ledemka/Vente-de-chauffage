@@ -8,6 +8,14 @@ const DIST_DIR = path.join(ROOT_DIR, "dist-production");
 const LANGS = ["fr", "en", "de", "nl"];
 const MAIN_HOST = "https://www.sotramsbois.com";
 
+const i18nDir = path.join(ROOT_DIR, "data/i18n");
+const i18nData = {};
+LANGS.forEach((lang) => {
+  i18nData[lang] = JSON.parse(
+    fs.readFileSync(path.join(i18nDir, lang + ".json"), "utf8"),
+  );
+});
+
 function getProductField(p, field, lang) {
   if (!p || !p[field]) return "";
   if (typeof p[field] === "string") return p[field];
@@ -95,43 +103,81 @@ function buildProducts(buildId) {
       // 1. Base i18n translation from post_process_seo
       content = processSeo(content, lang, "produit.html");
 
-      // 2. Language and path fixing
+      // 2. Language attribute and asset path fixing
       if (lang !== "fr") {
         content = content.replace(/<html[^>]*lang="[^"]*"[^>]*>/i, (match) =>
           match.replace(/lang="[^"]*"/i, `lang="${lang}"`),
         );
-        // In /en/produits/, it's 2 levels deep
+        // In /[lang]/produits/, assets/data/api are 2 levels deep
         content = content.replace(
           /(['"`]).\/(assets|data|api)\//g,
           `$1../../$2/`,
         );
-        content = content.replace(/(['"`]).\/(catalogue\.html)/g, `$1../../$2`);
       } else {
-        // In /produits/, it's 1 level deep
-        content = content.replace(/(['"`]).\/(assets|data|api)\//g, `$1../$2/`);
-        content = content.replace(/(['"`]).\/(catalogue\.html)/g, `$1../$2`);
+        // In /produits/, assets/data/api are 1 level deep
+        content = content.replace(
+          /(['"`]).\/(assets|data|api)\//g,
+          `$1../$2/`,
+        );
       }
 
       // 3. Cheerio manipulation for SEO
       const $ = cheerio.load(content, { decodeEntities: false });
 
-      // Fix relative links (e.g. href="./catalogue.html" -> href="../catalogue.html")
-      const levelsBack = lang === "fr" ? "../" : "../../";
+      // Fix internal page links: for both /produits/ and /[lang]/produits/,
+      // other pages in the same language are 1 level up (../)
       $("a").each((i, el) => {
         let href = $(el).attr("href");
-        if (href && href.startsWith("./")) {
-          $(el).attr("href", href.replace("./", levelsBack));
-        } else if (
-          href &&
-          !href.startsWith("http") &&
-          !href.startsWith("/") &&
-          !href.startsWith("#") &&
-          !href.startsWith("mailto:")
+        if (!href) return;
+        if (
+          href.startsWith("http") ||
+          href.startsWith("/") ||
+          href.startsWith("#") ||
+          href.startsWith("mailto:") ||
+          href.startsWith("tel:")
         ) {
-          // e.g. "catalogue.html" without ./
-          $(el).attr("href", levelsBack + href);
+          return;
+        }
+        if (href.startsWith("./")) {
+          $(el).attr("href", href.replace("./", "../"));
+        } else if (!href.startsWith("../")) {
+          $(el).attr("href", "../" + href);
         }
       });
+
+      // Fix language switcher dropdown to point directly to localized product URLs
+      const langUrls = {
+        fr: `/produits/${product.id}.html`,
+        en: `/en/produits/${product.id}.html`,
+        de: `/de/produits/${product.id}.html`,
+        nl: `/nl/produits/${product.id}.html`,
+      };
+      $("#lang-dropdown a").each((i, el) => {
+        const text = $(el).text().toLowerCase();
+        if (text.includes("français")) {
+          $(el).attr("href", langUrls.fr);
+        } else if (text.includes("english")) {
+          $(el).attr("href", langUrls.en);
+        } else if (text.includes("deutsch")) {
+          $(el).attr("href", langUrls.de);
+        } else if (text.includes("nederlands")) {
+          $(el).attr("href", langUrls.nl);
+        }
+      });
+
+      // Fix static breadcrumb category link
+      if ($("#breadcrumb-category").length) {
+        $("#breadcrumb-category").attr(
+          "href",
+          `../catalogue.html?subgroup=${product.subgroup_id}`,
+        );
+        const catName =
+          (i18nData[lang] &&
+            i18nData[lang].categories &&
+            i18nData[lang].categories[product.subgroup_id]) ||
+          product.subgroup_name;
+        $("#breadcrumb-category").text(catName);
+      }
 
       // Inject PRODUCT_ID
       $("head").append(
