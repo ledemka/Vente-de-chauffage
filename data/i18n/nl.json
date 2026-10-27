@@ -56,6 +56,7 @@
     "format_warning": "De weergegeven prijzen komen overeen met het <strong>50 cm</strong> formaat. Selecteer uw formaat voordat u uw hout kiest.",
     "format_selected": "geselecteerd",
     "units_per_pallet": "eenheden/pallet",
+    "price_note_50cm": "Prijs voor 50 cm",
     "unspecified": "niet gespecificeerd"
   },
   "index": {
@@ -1183,12 +1184,16 @@
   },
   "formats": {
     "20 / 30 / 33 / 40 / 50 cm": "20 / 30 / 33 / 40 / 50 cm",
+    "de 20 à 30 cm": "20 tot 30 cm",
     "Cylindrique": "Cilindrisch",
     "Cylindrique écorce": "Cilindrische schors",
     "Cubique": "Kubisch",
+    "15 à 16 cm (indicative)": "15 tot 16 cm (indicatief)",
     "Octogonal extrudé": "Geëxtrudeerd achthoekig",
+    "environ 20 à 25 cm": "ongeveer 20 tot 25 cm",
     "Cylindrique standard": "Standaard cilindrisch",
     "Pâté rectangulaire RUF": "Rechthoekig RUF-blok",
+    "Pavé rectangulaire RUF": "Rechthoekig RUF-blok",
     "Rectangulaire écorce": "Rechthoekige schors",
     "Granulés 6mm DINplus / ENplus A1": "6mm Pellets DINplus / ENplus A1",
     "Gros morceaux qualité restaurant": "Grote stukken restaurantkwaliteit",

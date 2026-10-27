@@ -56,6 +56,7 @@
     "format_warning": "The prices displayed correspond to the <strong>50 cm</strong> format. Please select your format before choosing your wood.",
     "format_selected": "selected",
     "units_per_pallet": "units/pallet",
+    "price_note_50cm": "Price for 50 cm",
     "unspecified": "unspecified"
   },
   "index": {
@@ -1183,12 +1184,16 @@
   },
   "formats": {
     "20 / 30 / 33 / 40 / 50 cm": "20 / 30 / 33 / 40 / 50 cm",
+    "de 20 à 30 cm": "20 to 30 cm",
     "Cylindrique": "Cylindrical",
     "Cylindrique écorce": "Cylindrical bark",
     "Cubique": "Cubic",
+    "15 à 16 cm (indicative)": "15 to 16 cm (indicative)",
     "Octogonal extrudé": "Extruded octagonal",
+    "environ 20 à 25 cm": "approx. 20 to 25 cm",
     "Cylindrique standard": "Standard cylindrical",
     "Pâté rectangulaire RUF": "Rectangular RUF block",
+    "Pavé rectangulaire RUF": "Rectangular RUF block",
     "Rectangulaire écorce": "Rectangular bark",
     "Granulés 6mm DINplus / ENplus A1": "6mm Pellets DINplus / ENplus A1",
     "Gros morceaux qualité restaurant": "Large restaurant-grade lumps",

@@ -169,11 +169,6 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
                             <span class="text-xs text-on-surface-variant font-normal" data-i18n="catalog_menu.sub_5_desc">Houtskool, houtwol aanmaak, fakkels</span>
                         </div>
                     </a>
-                    <div class="border-t border-outline-variant/30 my-1"></div>
-                    <a href="./catalogue.html" class="flex items-center justify-between px-3 py-2 text-label-md font-label-md text-primary hover:bg-primary/5 rounded-lg transition-colors">
-                        <span data-i18n="catalog_menu.all_products">Bekijk het volledige assortiment</span>
-                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -223,10 +218,6 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
             <a href="./catalogue.html?subgroup=5" data-catalog-subgroup="5" class="text-xs text-[#D3C3BE] hover:text-[#D97706] py-1 transition-colors flex items-center gap-2">
                 <span class="material-symbols-outlined text-[16px] text-[#D97706]">outdoor_grill</span>
                 <span data-i18n="categories.5">Houtskool / Aanmaakblokjes / Zweedse fakkels</span>
-            </a>
-            <a href="./catalogue.html" class="text-xs text-[#D97706] font-semibold py-1.5 flex items-center gap-1 border-t border-[#504440]/30 mt-1">
-                <span data-i18n="catalog_menu.all_products">Bekijk het volledige assortiment</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
             </a>
         </div>
     </div>
@@ -338,7 +329,13 @@ window.resolveAssetPath = function(pathStr) {
                             window.getProductField = (p, field, forceLang) => {
                                 if (!p || !p[field]) return '';
                                 const l = forceLang || document.documentElement.lang || 'fr';
-                                if (typeof p[field] === 'string') return p[field];
+                                if (typeof p[field] === 'string') {
+                                    const trans = (typeof t !== 'undefined' && t) ? t : (window.i18n && window.i18n.translations);
+                                    if (trans && trans.formats && trans.formats[p[field]]) {
+                                        return trans.formats[p[field]];
+                                    }
+                                    return p[field];
+                                }
                                 return p[field][l] || p[field]['fr'] || '';
                             };
                         }
@@ -353,11 +350,11 @@ window.resolveAssetPath = function(pathStr) {
                             const allProducts = await res.json();
 
                             const subGroups = [
-                                { id: 1, name: t.categories.logs },
-                                { id: 2, name: t.categories.briquettes_compressed },
-                                { id: 3, name: t.categories.briquettes },
-                                { id: 4, name: t.categories.pellets },
-                                { id: 5, name: t.categories.coal_starters }
+                                { id: 1, name: (t.categories && (t.categories['1'] || t.categories.logs)) || 'Houtblokken' },
+                                { id: 2, name: (t.categories && (t.categories['2'] || t.categories.briquettes_compressed)) || 'Geperste blokken / Houtbriketten' },
+                                { id: 3, name: (t.categories && (t.categories['3'] || t.categories.briquettes)) || 'Briketten' },
+                                { id: 4, name: (t.categories && (t.categories['4'] || t.categories.pellets)) || 'Houtpellets' },
+                                { id: 5, name: (t.categories && (t.categories['5'] || t.categories.coal_starters)) || 'Houtskool / Aanmaakblokjes / Zweedse fakkels' }
                             ];
 
                             // DOM Elements
@@ -453,7 +450,7 @@ window.resolveAssetPath = function(pathStr) {
                                                 <span>${(typeof t !== 'undefined' && t.catalog && t.catalog.format_warning) ? t.catalog.format_warning : 'Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.'}</span>
                                             </div>
                                             <div class="flex items-center gap-4 flex-wrap">
-                                                <span data-i18n="catalog.filters.format" class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider shrink-0">Format :</span>
+                                                <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider shrink-0">${(typeof t !== 'undefined' && t.catalog && t.catalog.filters && t.catalog.filters.format) ? t.catalog.filters.format : 'Format :'}</span>
                                                 <div class="flex flex-wrap gap-2" id="buche-format-buttons">
                                                     ${['20','30','33','40','50'].map(f => `
                                                         <button onclick="selectBucheFormat('${f}')" id="fmt-btn-${f}"
@@ -462,7 +459,7 @@ window.resolveAssetPath = function(pathStr) {
                                                         </button>
                                                     `).join('')}
                                                 </div>
-                                                ${selectedFormat ? `<span class="text-body-sm text-primary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1">check_circle</span> Format ${selectedFormat} cm ${(typeof t !== 'undefined' && t.catalog && t.catalog.format_selected) ? t.catalog.format_selected : 'sélectionné'}</span>` : ''}
+                                                ${selectedFormat ? `<span class="text-body-sm text-primary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1">check_circle</span> ${(typeof t !== 'undefined' && t.catalog && t.catalog.filters && t.catalog.filters.format ? t.catalog.filters.format.replace(':', '').trim() : 'Formaat')} ${selectedFormat} cm ${(typeof t !== 'undefined' && t.catalog && t.catalog.format_selected) ? t.catalog.format_selected : 'geselecteerd'}</span>` : ''}
                                             </div>
                                         </div>
                                     ` : '';
@@ -495,7 +492,8 @@ window.resolveAssetPath = function(pathStr) {
                                                     displayPrice = getBuchePrice(p, effectiveFmt);
                                                     // Note about what format is being shown
                                                     if (!selectedFormat) {
-                                                        priceNote = `<div class="text-[11px] text-amber-700 font-medium mt-0.5">Prix pour 50 cm</div>`;
+                                                        const noteText = (typeof t !== 'undefined' && t.catalog && t.catalog.price_note_50cm) ? t.catalog.price_note_50cm : (lang === 'en' ? 'Price for 50 cm' : (lang === 'de' ? 'Preis für 50 cm' : (lang === 'nl' ? 'Prijs voor 50 cm' : 'Prix pour 50 cm')));
+                                                        priceNote = `<div class="text-[11px] text-amber-700 font-medium mt-0.5">${noteText}</div>`;
                                                     }
                                                 } else {
                                                     displayPrice = p.wholesale_price || 0;
@@ -521,7 +519,7 @@ window.resolveAssetPath = function(pathStr) {
                                                         <div class="flex flex-col gap-2 mt-auto">
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span data-i18n="catalog.table.format" class="text-label-md font-label-md text-on-surface-variant">${(t.catalog && t.catalog.table && t.catalog.table.format) ? t.catalog.table.format : 'FORMAT'}</span>
-                                                                <span class="text-data-mono font-data-mono text-on-surface">${isBuche ? (selectedFormat ? selectedFormat + ' cm' : '50 cm*') : p.format}</span>
+                                                                <span class="text-data-mono font-data-mono text-on-surface">${isBuche ? (selectedFormat ? selectedFormat + ' cm' : '50 cm*') : getProductField(p, 'format')}</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span data-i18n="catalog.table.unit_pallet" class="text-label-md font-label-md text-on-surface-variant">${(t.catalog && t.catalog.table && t.catalog.table.unit_pallet) ? t.catalog.table.unit_pallet : 'UNITÉ / PALETTE'}</span>
