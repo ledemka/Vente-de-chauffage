@@ -55,3 +55,54 @@ input[type=number] {
 .alert-warning .material-symbols-outlined {
     color: #271813;
 }
+
+/* ========================================================
+   NAVIGATION & CATALOG DROPDOWN MENU
+   ======================================================== */
+/* Ensure the navigation bar NEVER clips dropdown menus on desktop */
+header nav,
+header nav > div {
+    overflow: visible !important;
+}
+
+#nav-catalog-wrapper {
+    position: relative;
+}
+
+/* Invisible bridge between tab and dropdown to prevent mouse-leave gap */
+#nav-catalog-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 14px;
+    background: transparent;
+}
+
+/* Pure CSS Hover: works 100% reliably regardless of JS */
+#nav-catalog-wrapper:hover > #nav-catalog-dropdown,
+#nav-catalog-wrapper:focus-within > #nav-catalog-dropdown,
+#nav-catalog-dropdown:hover,
+#nav-catalog-dropdown.is-open {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+}
+
+#nav-catalog-wrapper:hover #nav-catalog-chevron,
+#nav-catalog-wrapper.is-open #nav-catalog-chevron {
+    transform: rotate(180deg) !important;
+}
+
+/* Supprimer définitivement "Voir tout le catalogue" du menu déroulant et du tiroir mobile */
+#nav-catalog-dropdown a:not([data-catalog-subgroup]),
+#nav-catalog-dropdown .border-t,
+#mobile-catalog-subcategories a:not([data-catalog-subgroup]),
+[data-i18n="catalog_menu.all_products"],
+a:has([data-i18n="catalog_menu.all_products"]) {
+    display: none !important;
+}
+

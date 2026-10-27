@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fr" translate="no"><head>
+﻿<!DOCTYPE html><html lang="fr" translate="no"><head>
     <meta name="robots" content="noindex, nofollow">
     <script>
         const user = localStorage.getItem("user");
@@ -26,8 +26,8 @@
     
     
     
-    <script src="./assets/js/auth.js?v=1793139114482"></script>
-<script src="./assets/js/cart.js?v=1793139114482"></script>
+    <script src="./assets/js/auth.js?v=1793140738586"></script>
+<script src="./assets/js/cart.js?v=1793140738586"></script>
 
     <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
@@ -69,16 +69,53 @@
             </div>
     </div>
             <nav class="hidden md:block bg-surface-container border-t border-outline-variant/20">
-    <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop h-12 flex items-center gap-4 md:gap-10 overflow-x-auto whitespace-nowrap no-scrollbar">
+    <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop h-12 flex items-center gap-4 md:gap-10 overflow-visible whitespace-nowrap">
         <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.home" href="./"><span data-i18n="nav.home">ACCUEIL</span></a>
-        <div class="relative group h-full flex items-center">
-            <a class="flex items-center gap-1 h-full text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.catalog" href="./catalogue.html"><span data-i18n="nav.catalog">CATALOGUE</span> <span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:rotate-180">expand_more</span></a>
-            <div class="absolute top-[100%] left-0 hidden group-hover:flex flex-col bg-surface-container border border-outline-variant/20 shadow-lg py-2 min-w-[280px] z-50">
-                <a href="./catalogue.html?subgroup=1" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.1">Bûches de bois</span></a>
-                <a href="./catalogue.html?subgroup=2" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a>
-                <a href="./catalogue.html?subgroup=3" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.3">Briquettes</span></a>
-                <a href="./catalogue.html?subgroup=4" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.4">Granulés / Pellets</span></a>
-                <a href="./catalogue.html?subgroup=5" class="px-4 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface hover:text-primary transition-colors"><span data-i18n="categories.5">Charbon / Allume-feu</span></a>
+        <div class="relative group h-full flex items-center" id="nav-catalog-wrapper">
+            <a class="flex items-center gap-1.5 h-full text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase tracking-wider" id="nav-catalog-link" data-i18n="nav.catalog" href="./catalogue.html"><span data-i18n="nav.catalog">CATALOGUE</span><span class="material-symbols-outlined text-[18px] transition-transform duration-200" id="nav-catalog-chevron">expand_more</span></a>
+            <div id="nav-catalog-dropdown" class="absolute top-full left-0 pt-2 transition-all duration-200 z-[100] min-w-[340px] opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto -translate-y-1 group-hover:translate-y-0">
+                <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-2xl p-2 flex flex-col gap-1 backdrop-blur-sm">
+                    <a href="./catalogue.html?subgroup=1" data-catalog-subgroup="1" class="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group/item text-left">
+                        <span class="material-symbols-outlined text-primary text-[22px] mt-0.5 shrink-0">forest</span>
+                        <div class="flex flex-col">
+                            <span class="text-label-md font-label-md text-on-surface group-hover/item:text-primary transition-colors" data-i18n="categories.1">Bûches de bois</span>
+                            <span class="text-xs text-on-surface-variant font-normal" data-i18n="catalog_menu.sub_1_desc">Chêne, hêtre, mélanges (20 à 50 cm)</span>
+                        </div>
+                    </a>
+                    <a href="./catalogue.html?subgroup=2" data-catalog-subgroup="2" class="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group/item text-left">
+                        <span class="material-symbols-outlined text-primary text-[22px] mt-0.5 shrink-0">local_fire_department</span>
+                        <div class="flex flex-col">
+                            <span class="text-label-md font-label-md text-on-surface group-hover/item:text-primary transition-colors" data-i18n="categories.2">Bûches compressées / briquettes de bois</span>
+                            <span class="text-xs text-on-surface-variant font-normal" data-i18n="catalog_menu.sub_2_desc">Bûches densifiées jour &amp; nuit, Pini-Kay</span>
+                        </div>
+                    </a>
+                    <a href="./catalogue.html?subgroup=3" data-catalog-subgroup="3" class="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group/item text-left">
+                        <span class="material-symbols-outlined text-primary text-[22px] mt-0.5 shrink-0">view_in_ar</span>
+                        <div class="flex flex-col">
+                            <span class="text-label-md font-label-md text-on-surface group-hover/item:text-primary transition-colors" data-i18n="categories.3">Briquettes</span>
+                            <span class="text-xs text-on-surface-variant font-normal" data-i18n="catalog_menu.sub_3_desc">Briquettes RUF &amp; écorce longue durée</span>
+                        </div>
+                    </a>
+                    <a href="./catalogue.html?subgroup=4" data-catalog-subgroup="4" class="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group/item text-left">
+                        <span class="material-symbols-outlined text-primary text-[22px] mt-0.5 shrink-0">grain</span>
+                        <div class="flex flex-col">
+                            <span class="text-label-md font-label-md text-on-surface group-hover/item:text-primary transition-colors" data-i18n="categories.4">Granulés / Pellets</span>
+                            <span class="text-xs text-on-surface-variant font-normal" data-i18n="catalog_menu.sub_4_desc">Pellets 100% résineux certifiés DINplus</span>
+                        </div>
+                    </a>
+                    <a href="./catalogue.html?subgroup=5" data-catalog-subgroup="5" class="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group/item text-left">
+                        <span class="material-symbols-outlined text-primary text-[22px] mt-0.5 shrink-0">outdoor_grill</span>
+                        <div class="flex flex-col">
+                            <span class="text-label-md font-label-md text-on-surface group-hover/item:text-primary transition-colors" data-i18n="categories.5">Charbon / Allume-feu / Bûches de torche</span>
+                            <span class="text-xs text-on-surface-variant font-normal" data-i18n="catalog_menu.sub_5_desc">Charbon de bois, laine de bois, torches</span>
+                        </div>
+                    </a>
+                    <div class="border-t border-outline-variant/30 my-1"></div>
+                    <a href="./catalogue.html" class="flex items-center justify-between px-3 py-2 text-label-md font-label-md text-primary hover:bg-primary/5 rounded-lg transition-colors">
+                        <span data-i18n="catalog_menu.all_products">Voir tout le catalogue</span>
+                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </a>
+                </div>
             </div>
         </div>
         <a class="text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors py-3 uppercase" data-i18n="nav.guide" href="./guide-choix.html"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
@@ -100,7 +137,40 @@
                         </div>
                         <div class="space-y-3 font-semibold text-sm">
     <a href="./" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.home"><span data-i18n="nav.home">ACCUEIL</span></a>
-    <a href="./catalogue.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.catalog"><span data-i18n="nav.catalog">CATALOGUE</span></a>
+    <div class="mobile-catalog-wrapper border-b border-[#504440]/30 py-1">
+        <div class="flex items-center justify-between py-1">
+            <a href="./catalogue.html" class="block py-1 text-[#D3C3BE] hover:text-[#D97706] uppercase mobile-link flex-1 font-semibold text-sm" data-i18n="nav.catalog"><span data-i18n="nav.catalog">CATALOGUE</span></a>
+            <button id="mobile-catalog-expand-btn" type="button" class="text-[#D3C3BE] hover:text-[#D97706] p-1.5 rounded transition-colors cursor-pointer" aria-expanded="false" aria-label="Afficher les catégories">
+                <span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="mobile-catalog-chevron">expand_more</span>
+            </button>
+        </div>
+        <div id="mobile-catalog-subcategories" class="hidden pl-3 py-2 flex flex-col gap-2 border-l-2 border-[#D97706]/40 ml-2 mt-1">
+            <a href="./catalogue.html?subgroup=1" data-catalog-subgroup="1" class="text-xs text-[#D3C3BE] hover:text-[#D97706] py-1 transition-colors flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px] text-[#D97706]">forest</span>
+                <span data-i18n="categories.1">Bûches de bois</span>
+            </a>
+            <a href="./catalogue.html?subgroup=2" data-catalog-subgroup="2" class="text-xs text-[#D3C3BE] hover:text-[#D97706] py-1 transition-colors flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px] text-[#D97706]">local_fire_department</span>
+                <span data-i18n="categories.2">Bûches compressées / briquettes de bois</span>
+            </a>
+            <a href="./catalogue.html?subgroup=3" data-catalog-subgroup="3" class="text-xs text-[#D3C3BE] hover:text-[#D97706] py-1 transition-colors flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px] text-[#D97706]">view_in_ar</span>
+                <span data-i18n="categories.3">Briquettes</span>
+            </a>
+            <a href="./catalogue.html?subgroup=4" data-catalog-subgroup="4" class="text-xs text-[#D3C3BE] hover:text-[#D97706] py-1 transition-colors flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px] text-[#D97706]">grain</span>
+                <span data-i18n="categories.4">Granulés / Pellets</span>
+            </a>
+            <a href="./catalogue.html?subgroup=5" data-catalog-subgroup="5" class="text-xs text-[#D3C3BE] hover:text-[#D97706] py-1 transition-colors flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px] text-[#D97706]">outdoor_grill</span>
+                <span data-i18n="categories.5">Charbon / Allume-feu / Bûches de torche</span>
+            </a>
+            <a href="./catalogue.html" class="text-xs text-[#D97706] font-semibold py-1.5 flex items-center gap-1 border-t border-[#504440]/30 mt-1">
+                <span data-i18n="catalog_menu.all_products">Voir tout le catalogue</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+        </div>
+    </div>
     <a href="./guide-choix.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.guide"><span data-i18n="nav.guide">GUIDE DE CHOIX</span></a>
     <a href="./depots.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.depots"><span data-i18n="nav.depots">Dépôts</span></a>
     <a href="./faq.html" class="block py-2 text-[#D3C3BE] hover:text-[#D97706] uppercase" data-i18n="nav.faq"><span data-i18n="nav.faq">FAQ</span></a>
@@ -438,7 +508,7 @@ document.getElementById('order-modal').addEventListener('click', (e) => {
     if (e.target === document.getElementById('order-modal')) document.getElementById('order-modal').close();
 });
 </script>
-<footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Solutions professionnelles de biomasse et bois de chauffage haute performance.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS &amp; SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=1"><span data-i18n="categories.1">Bûches de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=2"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=3"><span data-i18n="categories.3">Briquettes</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=4"><span data-i18n="categories.4">Granulés / Pellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=5"><span data-i18n="categories.5">Charbon / Allume-feu</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./devis.html"><span data-i18n="nav.quote">Devis</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.service_5">Livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./faq.html"><span data-i18n="nav.faq">FAQ</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="nav.contact">Contact</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">ESPACE CLIENT &amp; PANIER</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./panier.html"><span data-i18n="footer.client_link_1">Mon Panier</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./connexion.html"><span data-i18n="footer.client_link_2">Connexion / Inscription</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.client_link_3">Suivi de livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="footer.client_link_4">Service commercial</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">2475 Route de Fumay 08230 Gué-d’Hossus (France)</span></span><span><span data-i18n="footer.phone">Téléphone : 0978368016</span></span><span>Email: contact@sotramsbois.com</span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="./mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="./cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="./politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="./politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="./assets/js/i18n-loader.js?v=1793139114482"></script>
+<footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Solutions professionnelles de biomasse et bois de chauffage haute performance.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS &amp; SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=1"><span data-i18n="categories.1">Bûches de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=2"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=3"><span data-i18n="categories.3">Briquettes</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=4"><span data-i18n="categories.4">Granulés / Pellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./catalogue.html?subgroup=5"><span data-i18n="categories.5">Charbon / Allume-feu</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./devis.html"><span data-i18n="nav.quote">Devis</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.service_5">Livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./faq.html"><span data-i18n="nav.faq">FAQ</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="nav.contact">Contact</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">ESPACE CLIENT &amp; PANIER</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./panier.html"><span data-i18n="footer.client_link_1">Mon Panier</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./connexion.html"><span data-i18n="footer.client_link_2">Connexion / Inscription</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./livraison.html"><span data-i18n="footer.client_link_3">Suivi de livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="./contact.html"><span data-i18n="footer.client_link_4">Service commercial</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">2475 Route de Fumay 08230 Gué-d’Hossus (France)</span></span><span><span data-i18n="footer.phone">Téléphone : 0978368016</span></span><span>Email: contact@sotramsbois.com</span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="./mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="./cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="./politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="./politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="./assets/js/i18n-loader.js?v=1793140738586"></script>
 <script>
 // Resolves absolute /assets/... paths to relative paths based on language
 window.resolveAssetPath = function(pathStr) {
@@ -464,10 +534,11 @@ window.resolveAssetPath = function(pathStr) {
             });
         </script>
 <script src="./assets/js/user-menu.js?v=1791549470509"></script>
-<script src="./assets/js/lang-selector.js?v=1793139114482"></script>
+<script src="./assets/js/lang-selector.js?v=1793140738586"></script>
+<script src="./assets/js/catalog-menu.js?v=1793140738586"></script>
 
 
 
-<script src="./assets/js/tawk-loader.js?v=1793139114482"></script>
+<script src="./assets/js/tawk-loader.js?v=1793140738586"></script>
 
 </body></html>
