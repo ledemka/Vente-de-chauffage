@@ -1,4 +1,4 @@
-﻿{
+{
     "site_name":  "sotramsbois",
     "tagline":  "Großhandel mit Brennholz, Holzpellets und Holzbriketts B2B",
     "search_placeholder":  "Produkt suchen...",
@@ -976,7 +976,9 @@
                     "units_per_pallet":  "Stück pro Palette",
                     "origin_tbd":  "Herkunft wird noch bekannt gegeben",
                     "total_ttc":  "Gesamt (inkl. MwSt.)",
-                    "tva_included":  "Inkl. 20% MwSt."
+                    "tva_included":  "Inkl. 20% MwSt.",
+                    "min_qty_warning":  "Mindestbestellmenge erlaubt: 5 Paletten.",
+                    "min_order_notice":  "Mindestbestellmenge: 5 Paletten. Es ist nicht möglich, weniger als 5 Paletten zu bestellen."
                 },
     "panier":  {
                    "vider_le_panier":  "Warenkorb leeren",

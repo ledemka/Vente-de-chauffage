@@ -20,29 +20,42 @@ function calculateVolumeDiscount(wholesalePrice, quantity) {
     let nextTierPercentage = 0;
     let isFullTruckload = false;
 
-    if (qty < 2) {
+    if (qty < 5) {
+        tier = 0;
+        discountPercentage = 0;
+        palettesNeededForNextTier = 5 - qty;
+        nextTierPercentage = 0;
+    } else if (qty === 5) {
         tier = 1;
         discountPercentage = 0;
-        palettesNeededForNextTier = 2 - qty;
+        palettesNeededForNextTier = 1;
         nextTierPercentage = 4;
-    } else if (qty >= 2 && qty <= 4) {
+    } else if (qty >= 6 && qty <= 10) {
         tier = 2;
         discountPercentage = 4;
-        palettesNeededForNextTier = 5 - qty;
+        palettesNeededForNextTier = 11 - qty;
         nextTierPercentage = 6;
-    } else if (qty >= 5 && qty <= 9) {
+    } else if (qty >= 11 && qty <= 15) {
         tier = 3;
         discountPercentage = 6;
-        palettesNeededForNextTier = 10 - qty;
+        palettesNeededForNextTier = 16 - qty;
         nextTierPercentage = 8;
-    } else if (qty >= 10 && qty <= 19) {
+    } else if (qty >= 16 && qty <= 19) {
         tier = 4;
         discountPercentage = 8;
         palettesNeededForNextTier = 20 - qty;
         nextTierPercentage = 10;
-    } else {
-        // qty >= 20 (Cap at 10% for any quantity >= 20)
+    } else if (qty >= 20 && qty <= 24) {
         tier = 5;
+        discountPercentage = 10;
+        palettesNeededForNextTier = 0;
+        nextTierPercentage = 10;
+        if (qty === 24) {
+            isFullTruckload = true;
+        }
+    } else {
+        // qty > 24
+        tier = 6;
         discountPercentage = 10;
         palettesNeededForNextTier = 0;
         nextTierPercentage = 10;

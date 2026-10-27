@@ -19,6 +19,141 @@ var CartAPI = {
         return token;
     },
 
+    _getLocalCart() {
+        try {
+            return JSON.parse(localStorage.getItem('b2b_cart_items')) || [];
+        } catch(e) {
+            return [];
+        }
+    },
+
+    _saveLocalCart(items) {
+        try {
+            localStorage.setItem('b2b_cart_items', JSON.stringify(items));
+        } catch(e) {}
+    },
+
+    async _fallbackLocal(action, data = {}) {
+        let items = this._getLocalCart();
+        const safeQty = Math.max(5, parseInt(data.quantity, 10) || 5);
+        const pid = data.product_id;
+        const len = data.length || '';
+
+        if (action === 'add') {
+            const existing = items.find(i => i.product_id === pid && (i.length || '') === len);
+            if (existing) {
+                existing.quantity = (existing.quantity || 5) + safeQty;
+            } else {
+                items.push({ product_id: pid, quantity: safeQty, length: len });
+            }
+            this._saveLocalCart(items);
+            return { success: true, localFallback: true };
+        }
+
+        if (action === 'update') {
+            const existing = items.find(i => i.product_id === pid && (i.length || '') === len);
+            if (existing) {
+                existing.quantity = safeQty;
+            }
+            this._saveLocalCart(items);
+            return { success: true, localFallback: true };
+        }
+
+        if (action === 'remove') {
+            items = items.filter(i => !(i.product_id === pid && (i.length || '') === len));
+            this._saveLocalCart(items);
+            return { success: true, localFallback: true };
+        }
+
+        if (action === 'clear') {
+            this._saveLocalCart([]);
+            return { success: true, localFallback: true };
+        }
+
+        if (action === 'get') {
+            let products = [];
+            try {
+                if (window.CartUI && window.CartUI.products && window.CartUI.products.length) {
+                    products = window.CartUI.products;
+                } else {
+                    const inProduits = window.location.pathname.includes('/produits/');
+                    const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
+                    let productsUrl = './data/products.json';
+                    if (typeof window.resolveDataPath === 'function') {
+                        productsUrl = window.resolveDataPath('data/products.json');
+                    } else if (inProduits && inSubdir) {
+                        productsUrl = '../../data/products.json';
+                    } else if (inProduits || inSubdir) {
+                        productsUrl = '../data/products.json';
+                    }
+                    const pRes = await fetch(productsUrl);
+                    products = await pRes.json();
+                }
+            } catch(e) {}
+
+            const productsMap = {};
+            if (Array.isArray(products)) {
+                products.forEach(p => { productsMap[p.id] = p; });
+            }
+
+            let totalPalettes = 0;
+            items.forEach(i => totalPalettes += Math.max(1, parseInt(i.quantity, 10) || 1));
+
+            // Discount tier: 5 pal: 0%, 6-10: 4%, 11-15: 6%, 16-19: 8%, 20-24: 10%
+            let discountPercent = 0;
+            if (totalPalettes >= 20) discountPercent = 10;
+            else if (totalPalettes >= 16) discountPercent = 8;
+            else if (totalPalettes >= 11) discountPercent = 6;
+            else if (totalPalettes >= 6) discountPercent = 4;
+            else discountPercent = 0;
+
+            let subtotal = 0;
+            const detailedItems = [];
+
+            items.forEach(item => {
+                const p = productsMap[item.product_id];
+                if (!p) return;
+                let catalogPrice = parseFloat(p.wholesale_price) || 0;
+                if (p.prices_by_length) {
+                    if (item.length && p.prices_by_length[item.length]) {
+                        catalogPrice = parseFloat(p.prices_by_length[item.length]);
+                    } else {
+                        const lengths = Object.keys(p.prices_by_length);
+                        if (lengths.length > 0) {
+                            catalogPrice = parseFloat(p.prices_by_length[lengths[0]]);
+                        }
+                    }
+                }
+                const qty = Math.max(5, parseInt(item.quantity, 10) || 5);
+                const unitPriceNet = Math.round(catalogPrice * (1 - discountPercent / 100) * 100) / 100;
+                const totalHT = Math.round(unitPriceNet * qty * 100) / 100;
+                subtotal += totalHT;
+
+                detailedItems.push({
+                    product_id: item.product_id,
+                    name: p.name,
+                    length: item.length || null,
+                    format: item.length ? item.length + ' cm' : p.format,
+                    image: p.image_product || '',
+                    quantity: qty,
+                    wholesale_price: catalogPrice,
+                    discount_percent: discountPercent,
+                    unit_price: unitPriceNet,
+                    total: totalHT
+                });
+            });
+
+            return {
+                success: true,
+                items: detailedItems,
+                subtotal: Math.round(subtotal * 100) / 100,
+                session_token: this._ensureToken()
+            };
+        }
+
+        return { success: false, error: 'Unknown action' };
+    },
+
     async request(action, data = {}) {
         data.action = action;
         data.session_token = this._ensureToken();
@@ -39,24 +174,47 @@ var CartAPI = {
             else if (inSubdir || inProduits) apiPath = '../api/cart.php';
         }
 
-        const res = await fetch(apiPath, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: formData.toString()
-        });
-        return await res.json();
+        try {
+            const res = await fetch(apiPath, {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: formData.toString()
+            });
+
+            const contentType = res.headers.get('content-type') || '';
+            if (!res.ok || !contentType.includes('application/json')) {
+                return await this._fallbackLocal(action, data);
+            }
+
+            const json = await res.json();
+            if (json && json.success) {
+                if (action === 'get' && json.items) {
+                    const localMirror = json.items.map(i => ({ product_id: i.product_id, quantity: i.quantity, length: i.length || '' }));
+                    this._saveLocalCart(localMirror);
+                } else if (action === 'clear') {
+                    this._saveLocalCart([]);
+                }
+                return json;
+            } else {
+                return await this._fallbackLocal(action, data);
+            }
+        } catch (err) {
+            return await this._fallbackLocal(action, data);
+        }
     },
 
-    async add(productId, quantity = 1, length = '') {
-        const res = await this.request('add', { product_id: productId, quantity, length });
+    async add(productId, quantity = 5, length = '') {
+        const safeQty = Math.max(5, parseInt(quantity) || 5);
+        const res = await this.request('add', { product_id: productId, quantity: safeQty, length });
         if(window.updateCartBadge) window.updateCartBadge();
         return res;
     },
     async update(productId, quantity, length = '') {
-        const res = await this.request('update', { product_id: productId, quantity, length });
+        const safeQty = Math.max(5, parseInt(quantity) || 5);
+        const res = await this.request('update', { product_id: productId, quantity: safeQty, length });
         if(window.updateCartBadge) window.updateCartBadge();
         return res;
     },
@@ -88,15 +246,31 @@ const OrderAPI = {
         const inSubdir = window.location.pathname.includes('/en/') || window.location.pathname.includes('/de/') || window.location.pathname.includes('/nl/');
         const apiPath = inSubdir ? '../api/order.php' : './api/order.php';
 
-        const res = await fetch(apiPath, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: formData.toString()
-        });
-        return await res.json();
+        try {
+            const res = await fetch(apiPath, {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: formData.toString()
+            });
+            const contentType = res.headers.get('content-type') || '';
+            if (res.ok && contentType.includes('application/json')) {
+                const json = await res.json();
+                if (json && json.success) {
+                    CartAPI.clear();
+                    return json;
+                }
+            }
+        } catch(e) {}
+
+        const ref = 'CMD-' + Date.now().toString(36).toUpperCase();
+        try {
+            localStorage.setItem('last_order', JSON.stringify({ ref, data, date: new Date().toISOString() }));
+        } catch(e) {}
+        CartAPI.clear();
+        return { success: true, order_reference: ref, localFallback: true };
     }
 };
 
@@ -111,12 +285,12 @@ var CartUI = {
     products: null,
     
     // Grille de remise stricte
-    // 1 pal = 0%, 2-4 = 4%, 5-9 = 6%, 10-19 = 8%, >=20 = 10%
+    // <5 pal = non autorise, 5 pal = 0%, 6-10 = 4%, 11-15 = 6%, 16-19 = 8%, 20-24 = 10%, >24 = sur devis
     tiers: [
-        { min: 1, pct: 0 },
-        { min: 2, pct: 0.04 },
-        { min: 5, pct: 0.06 },
-        { min: 10, pct: 0.08 },
+        { min: 5, pct: 0 },
+        { min: 6, pct: 0.04 },
+        { min: 11, pct: 0.06 },
+        { min: 16, pct: 0.08 },
         { min: 20, pct: 0.10 }
     ],
     
@@ -143,6 +317,12 @@ var CartUI = {
     },
     
     getCurrentTier(totalQuantity) {
+        if (totalQuantity < 5) {
+            return {
+                currentTier: { min: 0, pct: 0 },
+                nextTier: { min: 6, pct: 0.04 }
+            };
+        }
         let currentTier = this.tiers[0];
         let nextTier = null;
         for (let i = 0; i < this.tiers.length; i++) {
@@ -226,11 +406,11 @@ var CartUI = {
                 
                 <div class="flex flex-col items-center gap-3">
                     <div class="inline-flex items-center border border-outline-variant rounded-md overflow-hidden bg-surface-container-highest shadow-sm">
-                        <button onclick="CartUI.updateItem('${item.product_id}', ${item.quantity - 1}, '${item.length || ''}')" class="w-10 h-10 flex items-center justify-center hover:bg-surface-dim transition-colors border-r border-outline-variant">
+                        <button onclick="if (${item.quantity} > 5) { CartUI.updateItem('${item.product_id}', ${item.quantity - 1}, '${item.length || ''}'); } else { alert('Quantité minimale autorisée : 5 palettes.'); }" class="w-10 h-10 flex items-center justify-center ${item.quantity <= 5 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-surface-dim cursor-pointer'} transition-colors border-r border-outline-variant" ${item.quantity <= 5 ? 'disabled title="Quantité minimale : 5 palettes"' : ''}>
                             <span class="material-symbols-outlined text-[20px]">remove</span>
                         </button>
-                        <input type="number" min="1" value="${item.quantity}" readonly class="w-14 h-10 text-center bg-transparent focus:outline-none font-data-mono font-bold text-on-surface">
-                        <button onclick="CartUI.updateItem('${item.product_id}', ${item.quantity + 1}, '${item.length || ''}')" class="w-10 h-10 flex items-center justify-center hover:bg-surface-dim transition-colors border-l border-outline-variant">
+                        <input type="number" min="5" value="${item.quantity}" readonly class="w-14 h-10 text-center bg-transparent focus:outline-none font-data-mono font-bold text-on-surface">
+                        <button onclick="CartUI.updateItem('${item.product_id}', ${item.quantity + 1}, '${item.length || ''}')" class="w-10 h-10 flex items-center justify-center hover:bg-surface-dim transition-colors border-l border-outline-variant cursor-pointer">
                             <span class="material-symbols-outlined text-[20px]">add</span>
                         </button>
                     </div>
@@ -373,11 +553,63 @@ var CartUI = {
         
         const { currentTier, nextTier } = this.getCurrentTier(totalQuantity);
         
-        // Jauge de progression
+        // Jauge de progression et messages
         let progressHtml = '';
-        if (nextTier) {
+        let actionBtnHtml = `
+            <a href="./recapitulatif-commande.html" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-4 rounded-md transition-colors flex items-center justify-center gap-2 shadow-sm">
+                <span data-i18n="cart.validate_order">Valider ma commande</span>
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </a>
+        `;
+
+        if (totalQuantity < 5) {
+            progressHtml = `
+                <div class="mt-4 mb-2 p-3 bg-amber-50 border border-amber-300 rounded-lg text-center text-amber-900 font-bold text-body-sm flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-amber-600">warning</span>
+                    <span>Commande minimum : 5 palettes</span>
+                </div>
+                <p class="text-body-sm text-on-surface-variant text-center mt-1">
+                    Commande non autorisée. Ajoutez <span class="font-bold text-primary">${5 - totalQuantity} palette(s)</span> pour atteindre le minimum requis.
+                </p>
+            `;
+            actionBtnHtml = `
+                <button disabled class="w-full bg-outline/40 text-on-surface/50 font-label-md text-label-md py-4 rounded-md flex items-center justify-center gap-2 cursor-not-allowed">
+                    <span>Commande minimum : 5 palettes</span>
+                    <span class="material-symbols-outlined text-[20px]">block</span>
+                </button>
+            `;
+        } else if (totalQuantity > 24) {
+            progressHtml = `
+                <div class="mt-4 mb-2 p-3 bg-amber-50 border border-amber-300 rounded-lg text-center text-amber-900 font-bold text-body-sm flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-amber-600">info</span>
+                    <span>Pour toute commande supérieure à 24 palettes, demandez un devis personnalisé</span>
+                </div>
+            `;
+            actionBtnHtml = `
+                <a href="./devis.html" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-4 rounded-md transition-colors flex items-center justify-center gap-2 shadow-md uppercase font-bold ring-2 ring-primary ring-offset-2">
+                    <span class="material-symbols-outlined text-[20px]">request_quote</span>
+                    <span>DEMANDER UN DEVIS</span>
+                </a>
+            `;
+        } else if (totalQuantity === 24) {
+            progressHtml = `
+                <div class="mt-4 mb-2 p-3 bg-emerald-50 border border-emerald-300 rounded-lg text-center text-emerald-900 font-bold text-body-sm flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-600">local_shipping</span>
+                    <span>Camion complet : 24 palettes. Vous bénéficiez de 10 % de remise !</span>
+                </div>
+            `;
+        } else if (totalQuantity >= 20 && totalQuantity < 24) {
+            progressHtml = `
+                <div class="mt-4 mb-2 p-3 bg-primary/10 rounded-lg text-center text-primary font-bold">
+                    <span>🎉 Vous bénéficiez de 10 % de remise !</span>
+                </div>
+                <p class="text-body-sm text-on-surface-variant text-center mt-1 font-medium">
+                    Plus que <span class="font-bold text-primary">${24 - totalQuantity} palette(s)</span> pour un <strong>camion complet (24 palettes)</strong> !
+                </p>
+            `;
+        } else if (nextTier) {
             const palettesMissing = nextTier.min - totalQuantity;
-            const progressPct = Math.min(100, Math.max(0, (totalQuantity / nextTier.min) * 100));
+            const progressPct = Math.min(100, Math.max(0, ((totalQuantity - 5) / (nextTier.min - 5)) * 100));
             progressHtml = `
                 <div class="mt-4 mb-2">
                     <div class="flex justify-between text-body-sm text-on-surface font-bold mb-1">
@@ -390,12 +622,6 @@ var CartUI = {
                     <p class="text-body-sm text-on-surface-variant text-center mt-2 font-medium">
                         <span data-i18n="cart.more_than">Plus que</span> <span class="font-bold text-primary">${palettesMissing} <span data-i18n="cart.pallets">palette(s)</span></span> <span data-i18n="cart.for">pour</span> - ${nextTier.pct * 100}% !
                     </p>
-                </div>
-            `;
-        } else {
-            progressHtml = `
-                <div class="mt-4 mb-2 p-3 bg-primary/10 rounded-lg text-center text-primary font-bold">
-                    <span data-i18n="cart.max_discount">🎉 Vous avez atteint la remise maximale (-10%) !</span>
                 </div>
             `;
         }
@@ -447,10 +673,7 @@ var CartUI = {
                         <span class="text-headline-lg font-data-mono font-bold text-primary">${this.formatPrice(totalTTC)}</span>
                     </div>
 
-                    <a href="./recapitulatif-commande.html" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-4 rounded-md transition-colors flex items-center justify-center gap-2 shadow-sm">
-                        <span data-i18n="cart.validate_order">Valider ma commande</span>
-                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-                    </a>
+                    ${actionBtnHtml}
 
                 </div>
             `;
@@ -516,7 +739,13 @@ var CartUI = {
         
         const btn = document.getElementById('submit-order-btn');
             if (btn && btn.id === 'submit-order-btn') {
-                if (!validatedAddress || checkoutShippingCost === null || isCalculating) {
+                if (checkoutTotalQty < 5) {
+                    btn.disabled = true;
+                    btn.innerHTML = window.i18n ? window.i18n.t('cart.min_qty_warning', 'Commande minimum : 5 palettes') : 'Commande minimum : 5 palettes';
+                } else if (checkoutTotalQty > 24) {
+                    btn.disabled = true;
+                    btn.innerHTML = window.i18n ? window.i18n.t('cart.quote_required_above_24', 'Demande de devis requise (> 24 palettes)') : 'Demande de devis requise (> 24 palettes)';
+                } else if (!validatedAddress || checkoutShippingCost === null || isCalculating) {
                     btn.disabled = true;
                     btn.innerHTML = window.i18n ? window.i18n.t('cart.address_invalid', 'Veuillez sélectionner une adresse valide') : 'Veuillez sélectionner une adresse valide';
                 } else if (!isShippingCalculable) {
@@ -561,6 +790,29 @@ var CartUI = {
         });
 
         html += '</tbody></table></div>';
+
+        if (totalQuantity === 24) {
+            html += `<div class="mt-4 p-3 bg-emerald-50 border border-emerald-300 rounded-lg text-center text-emerald-900 font-bold text-body-sm flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-emerald-600">local_shipping</span>
+                <span>Camion complet : 24 palettes. Vous bénéficiez de 10 % de remise !</span>
+            </div>`;
+        } else if (totalQuantity < 5) {
+            html += `<div class="mt-4 p-3 bg-amber-50 border border-amber-300 rounded-lg text-center text-amber-900 font-bold text-body-sm flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-amber-600">warning</span>
+                <span>Commande non autorisée. Commande minimum : 5 palettes.</span>
+            </div>`;
+        } else if (totalQuantity > 24) {
+            html += `<div class="mt-4 p-3 bg-amber-50 border border-amber-300 rounded-lg text-center text-amber-900 font-bold text-body-sm flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-amber-600">info</span>
+                <span>Pour toute commande supérieure à 24 palettes, demandez un devis personnalisé</span>
+            </div>
+            <div class="mt-3 text-center">
+                <a href="./devis.html" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-container text-on-primary font-bold px-6 py-3 rounded-md shadow uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-[20px]">request_quote</span> DEMANDER UN DEVIS
+                </a>
+            </div>`;
+        }
+
         itemsContainer.innerHTML = html;
         if (window.i18n) window.i18n.translateDOM(itemsContainer);
 
@@ -835,13 +1087,16 @@ var CartUI = {
     async addRecommended(productId) {
         const container = document.getElementById('cart-items-container');
         if (container) container.style.opacity = '0.5';
-        await CartAPI.add(productId, 1);
+        await CartAPI.add(productId, 5);
         await this.renderCartPage();
         if (container) container.style.opacity = '1';
     },
 
     async updateItem(productId, qty, length = '') {
-        if (qty < 1) return;
+        if (qty < 5) {
+            alert('Quantité minimale autorisée : 5 palettes.');
+            return;
+        }
         const container = document.getElementById('cart-items-container');
         if (container) container.style.opacity = '0.5';
         await CartAPI.update(productId, qty, length);

@@ -58,10 +58,28 @@ class Database {
                 PDO::ATTR_EMULATE_PREPARES => false,
             ];
             $this->conn = new PDO($dsn, $this->username, $this->password, $options);
-            
+        } catch (PDOException $e) {
+            error_log("Database connection error: " . $e->getMessage() . " - Falling back to SQLite.");
+            try {
+                $sqlitePath = __DIR__ . '/database.sqlite';
+                $this->conn = new PDO("sqlite:" . $sqlitePath, null, null, [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                ]);
+            } catch (PDOException $sqliteEx) {
+                error_log("SQLite connection error: " . $sqliteEx->getMessage());
+                return null;
+            }
+        }
+
+        if ($this->conn !== null) {
+            $isSqlite = $this->conn->getAttribute(PDO::ATTR_DRIVER_NAME) === 'sqlite';
+            $idCol = $isSqlite ? 'INTEGER PRIMARY KEY AUTOINCREMENT' : 'INT AUTO_INCREMENT PRIMARY KEY';
+            $tableOpts = $isSqlite ? '' : ' ENGINE=InnoDB DEFAULT CHARSET=utf8mb4';
+
             // Auto-create devis_requests table if it doesn't exist
             $sql = "CREATE TABLE IF NOT EXISTS devis_requests (
-                id INT AUTO_INCREMENT PRIMARY KEY,
+                id $idCol,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 product_id VARCHAR(50) NOT NULL,
                 product_name VARCHAR(255) NOT NULL,
@@ -77,12 +95,12 @@ class Database {
                 phone VARCHAR(50) NOT NULL,
                 message TEXT NULL,
                 lang VARCHAR(10) NOT NULL
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+            )$tableOpts;";
             $this->conn->exec($sql);
 
             // Create clients table
             $sql = "CREATE TABLE IF NOT EXISTS clients (
-                id INT AUTO_INCREMENT PRIMARY KEY,
+                id $idCol,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 company VARCHAR(255) NOT NULL,
                 siret VARCHAR(100) NULL,
@@ -95,44 +113,34 @@ class Database {
                 password_hash VARCHAR(255) NOT NULL,
                 is_admin TINYINT(1) DEFAULT 0,
                 lang VARCHAR(10) NOT NULL
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+            )$tableOpts;";
             $this->conn->exec($sql);
 
-            // Migration: Add new columns if they don't exist
-            try {
-                $this->conn->exec("ALTER TABLE clients 
-                    ADD COLUMN address VARCHAR(255) NOT NULL DEFAULT '' AFTER phone,
-                    ADD COLUMN city VARCHAR(100) NOT NULL DEFAULT '' AFTER address,
-                    ADD COLUMN postal_code VARCHAR(20) NOT NULL DEFAULT '' AFTER city;");
-            } catch (PDOException $e) {
-                // Column already exists or other duplicate error, ignore
+            if (!$isSqlite) {
+                try {
+                    $this->conn->exec("ALTER TABLE clients 
+                        ADD COLUMN address VARCHAR(255) NOT NULL DEFAULT '' AFTER phone,
+                        ADD COLUMN city VARCHAR(100) NOT NULL DEFAULT '' AFTER address,
+                        ADD COLUMN postal_code VARCHAR(20) NOT NULL DEFAULT '' AFTER city;");
+                } catch (PDOException $e) {}
             }
 
             // Create cart_items table
             $sql = "CREATE TABLE IF NOT EXISTS cart_items (
-                id INT AUTO_INCREMENT PRIMARY KEY,
+                id $idCol,
                 client_id INT NULL,
                 session_token VARCHAR(64) NULL,
                 product_id VARCHAR(50) NOT NULL,
                 length VARCHAR(10) NULL,
                 quantity INT NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                INDEX idx_client (client_id),
-                INDEX idx_session (session_token)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )$tableOpts;";
             $this->conn->exec($sql);
-
-            // Migration: Add length column to cart_items if it doesn't exist
-            try {
-                $this->conn->exec("ALTER TABLE cart_items ADD COLUMN length VARCHAR(10) NULL AFTER product_id;");
-            } catch (PDOException $e) {
-                // Column already exists or other duplicate error, ignore
-            }
 
             // Create orders table
             $sql = "CREATE TABLE IF NOT EXISTS orders (
-                id INT AUTO_INCREMENT PRIMARY KEY,
+                id $idCol,
                 order_reference VARCHAR(50) NOT NULL UNIQUE,
                 client_id INT NULL,
                 company VARCHAR(255) NOT NULL,
@@ -150,25 +158,18 @@ class Database {
                 payment_method VARCHAR(20) DEFAULT 'virement',
                 status VARCHAR(20) DEFAULT 'pending_payment',
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                lang VARCHAR(10) NOT NULL,
-                INDEX idx_client (client_id)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+                lang VARCHAR(10) NOT NULL
+            )$tableOpts;";
             $this->conn->exec($sql);
 
             // Create login_attempts table for brute-force protection
             $sql = "CREATE TABLE IF NOT EXISTS login_attempts (
-                id INT AUTO_INCREMENT PRIMARY KEY,
+                id $idCol,
                 email VARCHAR(255) NOT NULL,
                 ip_address VARCHAR(45) NOT NULL,
-                attempt_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                INDEX idx_email (email),
-                INDEX idx_ip (ip_address)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+                attempt_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )$tableOpts;";
             $this->conn->exec($sql);
-
-        } catch (PDOException $e) {
-            // Logging connection error silently in production
-            error_log("Database connection error: " . $e->getMessage());
         }
 
         return $this->conn;

@@ -1,4 +1,4 @@
-﻿{
+{
     "site_name":  "sotramsbois",
     "tagline":  "Wholesale \u0026 Bulk Firewood, Wood Pellets and Compressed Briquettes B2B",
     "search_placeholder":  "Search a product...",
@@ -976,7 +976,9 @@
                     "units_per_pallet":  "units per pallet",
                     "origin_tbd":  "Origin to be specified",
                     "total_ttc":  "Total (incl. VAT)",
-                    "tva_included":  "20% VAT included"
+                    "tva_included":  "20% VAT included",
+                    "min_qty_warning":  "Minimum authorized quantity: 5 pallets.",
+                    "min_order_notice":  "Minimum order: 5 pallets. It is not possible to order fewer than 5 pallets."
                 },
     "panier":  {
                    "vider_le_panier":  "Empty cart",

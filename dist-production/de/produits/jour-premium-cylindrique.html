@@ -47,8 +47,8 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
     
     
     
-<script src="../../assets/js/pricing-engine.js?v=1793125172490"></script>
-<script src="../../assets/js/auth.js?v=1793125172490"></script>
+<script src="../../assets/js/pricing-engine.js?v=1793139114482"></script>
+<script src="../../assets/js/auth.js?v=1793139114482"></script>
 
     <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
     <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
@@ -287,13 +287,25 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 <span class="text-primary bg-primary/10 px-2 py-0.5 rounded text-xs hidden" id="discount-badge" data-i18n="product.discount_applied">Angewandter Mengenrabatt</span>
 </label>
 <div class="flex items-center gap-4 bg-surface rounded-lg p-2 border border-outline/30 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
-<button class="w-12 h-12 rounded bg-surface-container flex items-center justify-center hover:bg-outline-variant/30 text-on-surface transition-colors" id="btn-decrease" type="button">
+<div id="btn-decrease-wrapper" class="inline-flex cursor-not-allowed">
+<button class="w-12 h-12 rounded bg-surface-container flex items-center justify-center hover:bg-outline-variant/30 text-on-surface transition-colors disabled:opacity-40 disabled:cursor-not-allowed opacity-40 cursor-not-allowed pointer-events-none" id="btn-decrease" type="button" disabled="" title="Quantité minimale : 5 palettes">
 <span class="material-symbols-outlined">remove</span>
 </button>
-<input class="flex-1 w-full min-w-0 bg-transparent text-center text-headline-lg font-data-mono text-on-surface focus:outline-none" id="qty-input" min="1" type="number" value="1">
+</div>
+<input class="flex-1 w-full min-w-0 bg-transparent text-center text-headline-lg font-data-mono text-on-surface focus:outline-none" id="qty-input" min="5" type="number" value="5">
 <button class="w-12 h-12 rounded bg-surface-container flex items-center justify-center hover:bg-outline-variant/30 text-on-surface transition-colors" id="btn-increase" type="button">
 <span class="material-symbols-outlined">add</span>
 </button>
+</div>
+<!-- Minimum Order Permanent Notice -->
+<div id="min-qty-permanent-notice" class="flex items-center gap-2 px-3.5 py-2.5 bg-surface-container-low border border-outline/30 rounded-lg text-body-sm text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">info</span>
+<span data-i18n="product.min_order_notice">Mindestbestellmenge: 5 Paletten. Es ist nicht möglich, weniger als 5 Paletten zu bestellen.</span>
+</div>
+<!-- Temporary / Persistent Alert when trying to decrease under 5 -->
+<div id="min-qty-alert" class="hidden flex items-center gap-2 px-3.5 py-2.5 bg-amber-50 border border-amber-300 text-amber-900 rounded-lg text-body-sm font-semibold transition-all">
+<span class="material-symbols-outlined text-[20px] text-amber-600 shrink-0">warning</span>
+<span data-i18n="product.min_qty_warning">Mindestbestellmenge erlaubt: 5 Paletten.</span>
 </div>
 <!-- Tier Progress UI -->
 <div class="bg-surface-container-low rounded-lg p-4 border border-outline/20" id="discount-progress-ui">
@@ -312,16 +324,17 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 <p class="text-xs text-on-surface-variant text-center" id="next-tier-msg"><span data-i18n="produit.ajoutez">Fügen Sie</span> <span class="font-bold text-on-surface">1</span> <span data-i18n="produit.palette_pour_dbloquer_-4">Palette hinzu, um -4% freizuschalten</span></p>
 </div>
 </div>
+<div id="recap-info-banner" class="hidden rounded-lg p-3 text-body-sm font-semibold flex items-center gap-2 mb-1"></div>
 <!-- Total Calculation -->
 <div class="bg-surface rounded-xl p-5 border border-primary/20 flex flex-col gap-3">
 <div class="flex justify-between items-center text-body-sm text-on-surface-variant">
-<span data-i18n="product.subtotal">Sous-total TTC</span>
+<span data-i18n="product.subtotal">Zwischensumme (inkl. MwSt)</span>
 <span class="font-data-mono font-medium" id="subtotal">185.00€</span>
 </div>
 <div class="flex justify-between items-center text-body-sm text-emerald-700 font-medium hidden" id="discount-row">
 <span class="flex items-center gap-1.5">
 <span class="material-symbols-outlined text-[18px]">local_offer</span>
-<span data-i18n="product.discount">Remise Volume</span>
+<span data-i18n="product.discount">Mengenrabatt</span>
 <span id="discount-pct-badge" class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full font-bold"></span>
 </span>
 <span class="font-data-mono font-bold" id="discount-amt">-0.00€</span>
@@ -329,8 +342,8 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 <div class="h-[1px] w-full bg-outline/20"></div>
 <div class="flex justify-between items-baseline">
 <div class="flex flex-col">
-<span class="text-label-md font-headline-md font-bold text-on-surface uppercase tracking-wider" data-i18n="product.total_ttc">Total TTC</span>
-<span class="text-xs text-on-surface-variant font-normal" data-i18n="product.tva_included">TVA (20%) incluse</span>
+<span class="text-label-md font-headline-md font-bold text-on-surface uppercase tracking-wider" data-i18n="product.total_ttc">Gesamt (inkl. MwSt.)</span>
+<span class="text-xs text-on-surface-variant font-normal" data-i18n="product.tva_included">Inkl. 20% MwSt.</span>
 </div>
 <span class="text-headline-lg font-data-mono font-bold text-primary" id="total">185.00€</span>
 </div>
@@ -352,7 +365,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 </div>
 </div>
 </div>
-</main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Professionelle Biomasse- und Hochleistungs-Brennholzlösungen.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUKTE &amp; DIENSTE</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=1"><span data-i18n="categories.1">Brennholzscheite</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=2"><span data-i18n="categories.2">Presslinge / Holzbriketts</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=3"><span data-i18n="categories.3">Briketts</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=4"><span data-i18n="categories.4">Holzpellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=5"><span data-i18n="categories.5">Kohle / Anzünder / Schwedenfackeln</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../devis.html"><span data-i18n="nav.quote">Angebot</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.service_5">Lieferung</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../faq.html"><span data-i18n="nav.faq">FAQ</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../contact.html"><span data-i18n="nav.contact">Kontakt</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">KUNDENBEREICH &amp; WARENKORB</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../panier.html"><span data-i18n="footer.client_link_1">Mein Warenkorb</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../connexion.html"><span data-i18n="footer.client_link_2">Anmelden / Registrieren</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.client_link_3">Lieferverfolgung</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../contact.html"><span data-i18n="footer.client_link_4">Vertriebsabteilung</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">KONTAKTDATEN</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">2475 Route de Fumay 08230 Gué-d’Hossus (Frankreich)</span></span><span><span data-i18n="footer.phone">Telefon: 0978368016</span></span><span data-i18n="produit.email_contactsotramsboiscom">Email: contact@sotramsbois.com</span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="../mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Impressum</span></a><a href="../cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">AGB</span></a><a href="../politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Datenschutz</span></a><a href="../politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Rückgaberecht</span></a></div></div></div></footer><script src="../../assets/js/i18n-loader.js?v=1793125172490"></script>
+</main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Professionelle Biomasse- und Hochleistungs-Brennholzlösungen.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUKTE &amp; DIENSTE</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=1"><span data-i18n="categories.1">Brennholzscheite</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=2"><span data-i18n="categories.2">Presslinge / Holzbriketts</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=3"><span data-i18n="categories.3">Briketts</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=4"><span data-i18n="categories.4">Holzpellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=5"><span data-i18n="categories.5">Kohle / Anzünder / Schwedenfackeln</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../devis.html"><span data-i18n="nav.quote">Angebot</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.service_5">Lieferung</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../faq.html"><span data-i18n="nav.faq">FAQ</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../contact.html"><span data-i18n="nav.contact">Kontakt</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">KUNDENBEREICH &amp; WARENKORB</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../panier.html"><span data-i18n="footer.client_link_1">Mein Warenkorb</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../connexion.html"><span data-i18n="footer.client_link_2">Anmelden / Registrieren</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.client_link_3">Lieferverfolgung</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../contact.html"><span data-i18n="footer.client_link_4">Vertriebsabteilung</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">KONTAKTDATEN</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">2475 Route de Fumay 08230 Gué-d’Hossus (Frankreich)</span></span><span><span data-i18n="footer.phone">Telefon: 0978368016</span></span><span data-i18n="produit.email_contactsotramsboiscom">Email: contact@sotramsbois.com</span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="../mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Impressum</span></a><a href="../cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">AGB</span></a><a href="../politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Datenschutz</span></a><a href="../politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Rückgaberecht</span></a></div></div></div></footer><script src="../../assets/js/i18n-loader.js?v=1793139114482"></script>
 <script>
                         if (typeof window.getProductField === 'undefined') {
                             window.getProductField = (p, field, forceLang) => {
@@ -376,7 +389,7 @@ window.resolveAssetPath = function(pathStr) {
 };
 </script>
 
-<script src="../../assets/js/cart.js?v=1793125172490"></script>
+<script src="../../assets/js/cart.js?v=1793139114482"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const btn = document.getElementById('mobile-menu-btn');
@@ -398,7 +411,7 @@ window.resolveAssetPath = function(pathStr) {
                         const t = e.detail.translations;
                         const lang = e.detail.lang;
                         const relPath = lang === 'fr' ? '.' : '..';
-                        const pr = t.pricing;
+                        const pr = (t && t.pricing) ? t.pricing : {};
 
                         const urlParams = new URLSearchParams(window.location.search);
                         const idFromUrl = urlParams.get('id');
@@ -652,7 +665,6 @@ window.resolveAssetPath = function(pathStr) {
                                 }
 
                                 // 1. Dynamic SEO
-                                
                                 const productCanonicalUrl = document.querySelector('link[rel="canonical"]')?.href || `https://www.sotramsbois.com${lang === 'fr' ? '' : '/' + lang}/produits/${product.id}.html`;
 
                                 // Title
@@ -842,9 +854,52 @@ window.resolveAssetPath = function(pathStr) {
                                     }
                                 }
 
+                                let minQtyAlertTimeout = null;
+                                function showMinQtyAlert() {
+                                    const alertEl = document.getElementById('min-qty-alert');
+                                    if (alertEl) {
+                                        alertEl.classList.remove('hidden');
+                                        if (minQtyAlertTimeout) clearTimeout(minQtyAlertTimeout);
+                                        minQtyAlertTimeout = setTimeout(() => {
+                                            alertEl.classList.add('hidden');
+                                        }, 4000);
+                                    }
+                                }
+                                function hideMinQtyAlert() {
+                                    const alertEl = document.getElementById('min-qty-alert');
+                                    if (alertEl) {
+                                        alertEl.classList.add('hidden');
+                                        if (minQtyAlertTimeout) clearTimeout(minQtyAlertTimeout);
+                                    }
+                                }
+                                function updateMinusButtonState(qty) {
+                                    if (!btnDecrease) return;
+                                    const btnDecreaseWrapper = document.getElementById('btn-decrease-wrapper');
+                                    if (qty <= 5) {
+                                        btnDecrease.disabled = true;
+                                        btnDecrease.classList.add('opacity-40', 'cursor-not-allowed', 'pointer-events-none');
+                                        btnDecrease.setAttribute('title', 'Quantit\u00e9 minimale : 5 palettes');
+                                        if (btnDecreaseWrapper) {
+                                            btnDecreaseWrapper.classList.add('cursor-not-allowed');
+                                            btnDecreaseWrapper.classList.remove('cursor-pointer');
+                                        }
+                                    } else {
+                                        btnDecrease.disabled = false;
+                                        btnDecrease.classList.remove('opacity-40', 'cursor-not-allowed', 'pointer-events-none');
+                                        btnDecrease.removeAttribute('title');
+                                        if (btnDecreaseWrapper) {
+                                            btnDecreaseWrapper.classList.remove('cursor-not-allowed');
+                                            btnDecreaseWrapper.classList.add('cursor-pointer');
+                                        }
+                                    }
+                                }
+
                                 function updatePricing() {
-                                    let qty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
-                                    if (qty < 1) { qty = 1; if (qtyInput) qtyInput.value = 1; }
+                                    let qty = parseInt(qtyInput ? qtyInput.value : 5, 10);
+                                    if (isNaN(qty) || qty < 5) {
+                                        qty = 5;
+                                    }
+                                    updateMinusButtonState(qty);
                                     
                                     let basePrice = product.wholesale_price || 0;
                                     let hasVolumeDiscount = true; // Toujours vrai car les remises sont globales
@@ -864,16 +919,20 @@ window.resolveAssetPath = function(pathStr) {
                                     let nextTierPercentage = 0;
 
                                     if (hasVolumeDiscount) {
-                                        if (qty < 2) {
-                                            tier = 1; discountPercentage = 0; palettesNeededForNextTier = 2 - qty; nextTierPercentage = 4;
-                                        } else if (qty >= 2 && qty <= 4) {
-                                            tier = 2; discountPercentage = 4; palettesNeededForNextTier = 5 - qty; nextTierPercentage = 6;
-                                        } else if (qty >= 5 && qty <= 9) {
-                                            tier = 3; discountPercentage = 6; palettesNeededForNextTier = 10 - qty; nextTierPercentage = 8;
-                                        } else if (qty >= 10 && qty <= 19) {
+                                        if (qty < 5) {
+                                            tier = 0; discountPercentage = 0; palettesNeededForNextTier = 5 - qty; nextTierPercentage = 0;
+                                        } else if (qty === 5) {
+                                            tier = 1; discountPercentage = 0; palettesNeededForNextTier = 1; nextTierPercentage = 4;
+                                        } else if (qty >= 6 && qty <= 10) {
+                                            tier = 2; discountPercentage = 4; palettesNeededForNextTier = 11 - qty; nextTierPercentage = 6;
+                                        } else if (qty >= 11 && qty <= 15) {
+                                            tier = 3; discountPercentage = 6; palettesNeededForNextTier = 16 - qty; nextTierPercentage = 8;
+                                        } else if (qty >= 16 && qty <= 19) {
                                             tier = 4; discountPercentage = 8; palettesNeededForNextTier = 20 - qty; nextTierPercentage = 10;
-                                        } else {
+                                        } else if (qty >= 20 && qty <= 24) {
                                             tier = 5; discountPercentage = 10; palettesNeededForNextTier = 0; nextTierPercentage = 10;
+                                        } else {
+                                            tier = 6; discountPercentage = 10; palettesNeededForNextTier = 0; nextTierPercentage = 10;
                                         }
                                     }
                                     
@@ -915,25 +974,105 @@ window.resolveAssetPath = function(pathStr) {
                                     }
 
                                     if (hasVolumeDiscount) {
-                                        let tierName = "Standard";
-                                        let progress = 5;
-                                        if (tier === 2) { tierName = "Pro Initial"; progress = 25; }
-                                        else if (tier === 3) { tierName = "Revendeur"; progress = 50; }
-                                        else if (tier === 4) { tierName = "Volume Pro"; progress = 75; }
-                                        else if (tier === 5) { tierName = pr.full_truckload || "Camion Complet"; progress = 100; }
+                                        const pStrings = (typeof pr !== 'undefined' && pr) ? pr : ((typeof t !== 'undefined' && t && t.pricing) ? t.pricing : (window.i18n && window.i18n.data && window.i18n.data.pricing ? window.i18n.data.pricing : {}));
+                                        let tierName = "Standard (5 pal.)";
+                                        let progress = 20;
+                                        if (qty < 5) {
+                                            tierName = "Commande non autoris\u00e9e";
+                                            progress = Math.max(5, (qty / 5) * 20);
+                                        } else if (tier === 1) {
+                                            tierName = "Standard (5 pal.)";
+                                            progress = 20;
+                                        } else if (tier === 2) {
+                                            tierName = "Palier 1 (-4%)";
+                                            progress = 40;
+                                        } else if (tier === 3) {
+                                            tierName = "Palier 2 (-6%)";
+                                            progress = 60;
+                                        } else if (tier === 4) {
+                                            tierName = "Palier 3 (-8%)";
+                                            progress = 80;
+                                        } else if (tier === 5) {
+                                            tierName = qty === 24 ? (pStrings.full_truckload || "Camion Complet (-10%)") : "Palier 4 (-10%)";
+                                            progress = 100;
+                                        } else {
+                                            tierName = "Sur devis";
+                                            progress = 100;
+                                        }
 
-                                        if (tierStatusEl) tierStatusEl.textContent = `${pr.tier_level} ${tierName}`;
+                                        if (tierStatusEl) tierStatusEl.textContent = `${pStrings.tier_level || 'Palier :'} ${tierName}`;
                                         if (discountPctEl) discountPctEl.textContent = `-${discountPercentage}%`;
                                         if (progressBar) progressBar.style.width = `${progress}%`;
 
                                         if (nextTierMsg) {
-                                            if (palettesNeededForNextTier > 0) {
-                                                let msg = pr.next_tier_incentive || "Ajoutez {count} palette(s) pour -{pct}%";
+                                            if (qty < 5) {
+                                                nextTierMsg.innerHTML = `<span class="text-error font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">warning</span> Commande minimum : 5 palettes</span>`;
+                                                nextTierMsg.classList.remove('hidden');
+                                            } else if (qty > 24) {
+                                                nextTierMsg.innerHTML = `<span class="text-primary font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">info</span> Pour toute commande sup\u00e9rieure \u00e0 24 palettes, demandez un devis personnalis\u00e9</span>`;
+                                                nextTierMsg.classList.remove('hidden');
+                                            } else if (qty === 24) {
+                                                nextTierMsg.innerHTML = `<span class="text-emerald-700 font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">local_shipping</span> Camion complet : 24 palettes. Vous b\u00e9n\u00e9ficiez de 10 % de remise !</span>`;
+                                                nextTierMsg.classList.remove('hidden');
+                                            } else if (qty >= 20 && qty < 24) {
+                                                nextTierMsg.innerHTML = `<span class="text-primary font-bold">Remise de 10% appliqu\u00e9e !</span> <span class="text-xs text-on-surface-variant block mt-0.5">Plus que ${24 - qty} palette(s) pour un <strong>camion complet (24 palettes)</strong></span>`;
+                                                nextTierMsg.classList.remove('hidden');
+                                            } else if (palettesNeededForNextTier > 0) {
+                                                let msg = pStrings.next_tier_incentive || "Ajoutez {count} palette(s) pour -{pct}%";
                                                 msg = msg.replace('{count}', palettesNeededForNextTier).replace('{pct}', nextTierPercentage);
                                                 nextTierMsg.innerHTML = msg;
                                                 nextTierMsg.classList.remove('hidden');
+                                            }
+                                        }
+
+                                        // Recap Information Banner
+                                        const recapInfoBanner = document.getElementById('recap-info-banner');
+                                        if (recapInfoBanner) {
+                                            if (qty < 5) {
+                                                recapInfoBanner.className = 'bg-amber-50 border border-amber-300 text-amber-900 rounded-lg p-3 text-body-sm font-semibold flex items-center gap-2 mb-1';
+                                                recapInfoBanner.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0">warning</span><span>Commande minimum : 5 palettes</span>`;
+                                                recapInfoBanner.classList.remove('hidden');
+                                            } else if (qty === 24) {
+                                                recapInfoBanner.className = 'bg-emerald-50 border border-emerald-300 text-emerald-900 rounded-lg p-3 text-body-sm font-semibold flex items-center gap-2 mb-1';
+                                                recapInfoBanner.innerHTML = `<span class="material-symbols-outlined text-emerald-600 shrink-0">local_shipping</span><span>Camion complet : 24 palettes. Vous b\u00e9n\u00e9ficiez de 10 % de remise !</span>`;
+                                                recapInfoBanner.classList.remove('hidden');
+                                            } else if (qty > 24) {
+                                                recapInfoBanner.className = 'bg-amber-50 border border-amber-300 text-amber-900 rounded-lg p-3 text-body-sm font-semibold flex items-center gap-2 mb-1';
+                                                recapInfoBanner.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0">info</span><span>Pour toute commande sup\u00e9rieure \u00e0 24 palettes, demandez un devis personnalis\u00e9</span>`;
+                                                recapInfoBanner.classList.remove('hidden');
                                             } else {
-                                                nextTierMsg.innerHTML = `<span class="text-primary font-bold" data-i18n="product.max_discount">Remise maximale atteinte !</span>`;
+                                                recapInfoBanner.classList.add('hidden');
+                                            }
+                                        }
+
+                                        // Button state management
+                                        const cmdBtn = document.getElementById('btn-commander');
+                                        const btnDevis = document.getElementById('btn-devis');
+                                        if (qty < 5) {
+                                            if (cmdBtn) {
+                                                cmdBtn.disabled = true;
+                                                cmdBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                                            }
+                                            if (btnDevis) {
+                                                btnDevis.className = "w-full bg-transparent border-2 border-outline hover:border-primary text-on-surface font-label-md text-label-md uppercase tracking-wider py-3.5 rounded-md transition-colors flex items-center justify-center gap-2";
+                                            }
+                                        } else if (qty > 24) {
+                                            if (cmdBtn) {
+                                                cmdBtn.disabled = true;
+                                                cmdBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                                            }
+                                            if (btnDevis) {
+                                                btnDevis.className = "w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider py-4 rounded-md transition-colors flex items-center justify-center gap-2 shadow-md ring-2 ring-primary ring-offset-2 font-bold";
+                                            }
+                                        } else {
+                                            if (cmdBtn) {
+                                                if (typeof isBuche === 'undefined' || !isBuche || selectedLength) {
+                                                    cmdBtn.disabled = false;
+                                                    cmdBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                                                }
+                                            }
+                                            if (btnDevis) {
+                                                btnDevis.className = "w-full bg-transparent border-2 border-outline hover:border-primary text-on-surface font-label-md text-label-md uppercase tracking-wider py-3.5 rounded-md transition-colors flex items-center justify-center gap-2";
                                             }
                                         }
                                     }
@@ -942,27 +1081,94 @@ window.resolveAssetPath = function(pathStr) {
                                     window.currentProductLength = selectedLength;
                                 }
 
+                                const btnDecreaseWrapper = document.getElementById('btn-decrease-wrapper');
+                                if (btnDecreaseWrapper) {
+                                    btnDecreaseWrapper.addEventListener('click', () => {
+                                        let currentQty = parseInt(qtyInput.value, 10) || 5;
+                                        if (currentQty <= 5) {
+                                            qtyInput.value = 5;
+                                            updateMinusButtonState(5);
+                                            showMinQtyAlert();
+                                            updatePricing();
+                                        }
+                                    });
+                                }
+
+                                const origBtnDecreaseClick = btnDecrease.click.bind(btnDecrease);
+                                btnDecrease.click = function() {
+                                    let currentQty = parseInt(qtyInput.value, 10) || 5;
+                                    if (btnDecrease.disabled || currentQty <= 5) {
+                                        qtyInput.value = 5;
+                                        updateMinusButtonState(5);
+                                        showMinQtyAlert();
+                                        updatePricing();
+                                    } else {
+                                        origBtnDecreaseClick();
+                                    }
+                                };
+
                                 btnDecrease.addEventListener('click', () => {
-                                    if (parseInt(qtyInput.value) > 1) {
-                                        qtyInput.value = parseInt(qtyInput.value) - 1;
+                                    let currentQty = parseInt(qtyInput.value, 10) || 5;
+                                    if (currentQty <= 5) {
+                                        qtyInput.value = 5;
+                                        updateMinusButtonState(5);
+                                        showMinQtyAlert();
+                                        updatePricing();
+                                    } else {
+                                        qtyInput.value = currentQty - 1;
+                                        updateMinusButtonState(currentQty - 1);
+                                        hideMinQtyAlert();
                                         updatePricing();
                                     }
                                 });
 
                                 btnIncrease.addEventListener('click', () => {
-                                    qtyInput.value = parseInt(qtyInput.value) + 1;
+                                    let currentQty = parseInt(qtyInput.value, 10) || 5;
+                                    if (currentQty < 5) currentQty = 5;
+                                    qtyInput.value = currentQty + 1;
+                                    updateMinusButtonState(currentQty + 1);
+                                    hideMinQtyAlert();
                                     updatePricing();
                                 });
 
                                 qtyInput.addEventListener('input', () => {
+                                    let val = parseInt(qtyInput.value, 10);
+                                    if (!isNaN(val) && val < 5) {
+                                        showMinQtyAlert();
+                                        updateMinusButtonState(5);
+                                    } else if (!isNaN(val)) {
+                                        hideMinQtyAlert();
+                                        updateMinusButtonState(val);
+                                    }
                                     updatePricing();
                                 });
 
-                                
-updatePricing();
+                                qtyInput.addEventListener('change', () => {
+                                    let val = parseInt(qtyInput.value, 10);
+                                    if (isNaN(val) || val < 5) {
+                                        qtyInput.value = 5;
+                                        showMinQtyAlert();
+                                        updateMinusButtonState(5);
+                                    } else {
+                                        updateMinusButtonState(val);
+                                    }
+                                    updatePricing();
+                                });
 
-                                
-                                
+                                qtyInput.addEventListener('blur', () => {
+                                    let val = parseInt(qtyInput.value, 10);
+                                    if (isNaN(val) || val < 5) {
+                                        qtyInput.value = 5;
+                                        showMinQtyAlert();
+                                        updateMinusButtonState(5);
+                                    } else {
+                                        updateMinusButtonState(val);
+                                    }
+                                    updatePricing();
+                                });
+
+                                updatePricing();
+
                                 const btnDevis = document.getElementById('btn-devis');
                                 if (btnDevis) {
                                     btnDevis.addEventListener('click', () => {
@@ -970,12 +1176,25 @@ updatePricing();
                                         if (selectedLength) {
                                             url += '&length=' + selectedLength;
                                         }
-                                        url += '&qty=' + (parseInt(qtyInput.value) || 1);
+                                        url += '&qty=' + (parseInt(qtyInput.value, 10) || 5);
                                         window.location.href = url;
                                     });
                                 }
 
                                 window.handleCommanderClick = (btn) => {
+                                    let qty = parseInt(qtyInput.value, 10) || 5;
+                                    if (qty < 5) {
+                                        qtyInput.value = 5;
+                                        updatePricing();
+                                        showMinQtyAlert();
+                                        alert('Commande non autoris\u00e9e. Commande minimum : 5 palettes.');
+                                        return;
+                                    }
+                                    if (qty > 24) {
+                                        alert('Pour toute commande sup\u00e9rieure \u00e0 24 palettes, demandez un devis personnalis\u00e9.');
+                                        window.location.href = window.resolveDataPath('devis.html') + '?product=' + product.id + '&qty=' + qty;
+                                        return;
+                                    }
                                     // Guard: Bûches need a real selected length
                                     if (isBuche && !selectedLength) {
                                         alert('Veuillez sélectionner un format avant de commander.');
@@ -985,7 +1204,7 @@ updatePricing();
                                     btn.disabled = true;
                                     btn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> Ajout...`;
                                     
-                                    const qty = parseInt(qtyInput.value) || 1;
+                                    
                                     CartAPI.add(product.id, qty, selectedLength).then(res => {
                                         if (res && res.success) {
                                             btn.innerHTML = `<span class="material-symbols-outlined">check</span> Ajouté !`;
@@ -1011,14 +1230,14 @@ updatePricing();
                 });
             </script>
 
-<script src="../../assets/js/user-menu.js?v=1793125172490"></script>
-<script src="../../assets/js/lang-selector.js?v=1793125172490"></script>
+<script src="../../assets/js/user-menu.js?v=1793139114482"></script>
+<script src="../../assets/js/lang-selector.js?v=1793139114482"></script>
 
 
 
 
 
-<script src="../../assets/js/tawk-loader.js?v=1793125172490"></script>
-<script src="../../assets/js/consent-ads.js?v=1793125172490"></script>
+<script src="../../assets/js/tawk-loader.js?v=1793139114482"></script>
+<script src="../../assets/js/consent-ads.js?v=1793139114482"></script>
 
 </body></html>

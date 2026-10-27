@@ -1,4 +1,4 @@
-﻿{
+{
     "site_name":  "sotramsbois",
     "tagline":  "Vente en Gros \u0026 Demi-Gros de Bois de Chauffage, Pellets et Briquettes B2B",
     "search_placeholder":  "Rechercher un produit...",
@@ -976,7 +976,9 @@
                     "units_per_pallet":  "unités par palette",
                     "origin_tbd":  "Origine à préciser",
                     "total_ttc":  "Total TTC",
-                    "tva_included":  "TVA (20%) incluse"
+                    "tva_included":  "TVA (20%) incluse",
+                    "min_qty_warning":  "Quantité minimale autorisée : 5 palettes.",
+                    "min_order_notice":  "Commande minimum : 5 palettes. Il n’est pas possible de commander moins de 5 palettes."
                 },
     "panier":  {
                    "vider_le_panier":  "Vider le panier",

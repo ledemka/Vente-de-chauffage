@@ -8,7 +8,7 @@ session_start();
 
 header('Content-Type: application/json; charset=utf-8');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 }
 
 function respondError(int $statusCode, string $message, array $details = []): void {
@@ -40,7 +40,12 @@ try {
     $pdo = $db->getConnection();
     if ($pdo === null) throw new Exception("DB Connection failed");
 
-    $pdo->exec("DELETE FROM cart_items WHERE client_id IS NULL AND session_token IS NOT NULL AND updated_at < NOW() - INTERVAL 30 DAY");
+    $isSqlite = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME) === 'sqlite';
+    if ($isSqlite) {
+        $pdo->exec("DELETE FROM cart_items WHERE client_id IS NULL AND session_token IS NOT NULL AND updated_at < datetime('now', '-30 days')");
+    } else {
+        $pdo->exec("DELETE FROM cart_items WHERE client_id IS NULL AND session_token IS NOT NULL AND updated_at < NOW() - INTERVAL 30 DAY");
+    }
 
     require_once __DIR__ . '/pricing.php';
 
@@ -71,7 +76,7 @@ try {
         $product_id = $input['product_id'] ?? '';
         $length = $input['length'] ?? null;
         if ($length === '') $length = null;
-        $quantity = max(1, (int)($input['quantity'] ?? 1));
+        $quantity = max(5, (int)($input['quantity'] ?? 5));
 
         if (!$product_id) respondError(400, 'Produit manquant');
 

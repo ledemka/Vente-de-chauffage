@@ -13,23 +13,29 @@ function getProductsData() {
  * Calculates the global discount percentage and tier based on total palettes in the order.
  */
 function calculateGlobalDiscount(int $totalPalettes): array {
-    $tier = 1;
+    $tier = 0;
     $discountPercentage = 0;
     
-    if ($totalPalettes < 2) {
+    if ($totalPalettes < 5) {
+        $tier = 0;
+        $discountPercentage = 0;
+    } elseif ($totalPalettes === 5) {
         $tier = 1;
         $discountPercentage = 0;
-    } elseif ($totalPalettes >= 2 && $totalPalettes <= 4) {
+    } elseif ($totalPalettes >= 6 && $totalPalettes <= 10) {
         $tier = 2;
         $discountPercentage = 4;
-    } elseif ($totalPalettes >= 5 && $totalPalettes <= 9) {
+    } elseif ($totalPalettes >= 11 && $totalPalettes <= 15) {
         $tier = 3;
         $discountPercentage = 6;
-    } elseif ($totalPalettes >= 10 && $totalPalettes <= 19) {
+    } elseif ($totalPalettes >= 16 && $totalPalettes <= 19) {
         $tier = 4;
         $discountPercentage = 8;
-    } else {
+    } elseif ($totalPalettes >= 20 && $totalPalettes <= 24) {
         $tier = 5;
+        $discountPercentage = 10;
+    } else {
+        $tier = 6;
         $discountPercentage = 10;
     }
     

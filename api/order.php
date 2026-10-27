@@ -80,6 +80,13 @@ try {
         $totalPalettes += max(1, (int)$item['quantity']);
     }
 
+    if ($totalPalettes < 5) {
+        respondError(400, 'Commande non autorisée. Commande minimum : 5 palettes.');
+    }
+    if ($totalPalettes > 24) {
+        respondError(400, 'Pour toute commande supérieure à 24 palettes, demandez un devis personnalisé.');
+    }
+
     // Get global discount
     $globalDiscount = calculateGlobalDiscount($totalPalettes);
     $globalDiscountPercent = $globalDiscount['discount_percent'];

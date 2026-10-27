@@ -20,3 +20,5 @@ venv/
 /dev/
 
 feeds-draft/
+*.sqlite
+
