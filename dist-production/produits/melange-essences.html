@@ -47,8 +47,8 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
     
     
     
-<script src="../assets/js/pricing-engine.js?v=1792534502032"></script>
-<script src="../assets/js/auth.js?v=1792534502032"></script>
+<script src="../assets/js/pricing-engine.js?v=1793125172490"></script>
+<script src="../assets/js/auth.js?v=1793125172490"></script>
 
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
@@ -80,7 +80,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
     {
       "@type": "Offer",
       "url": "https://www.sotramsbois.com/produits/melange-essences.html?length=20",
-      "price": "348.00",
+      "price": "222.00",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition",
@@ -89,7 +89,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
     {
       "@type": "Offer",
       "url": "https://www.sotramsbois.com/produits/melange-essences.html?length=30",
-      "price": "336.00",
+      "price": "216.00",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition",
@@ -98,7 +98,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
     {
       "@type": "Offer",
       "url": "https://www.sotramsbois.com/produits/melange-essences.html?length=33",
-      "price": "324.00",
+      "price": "206.00",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition",
@@ -107,7 +107,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
     {
       "@type": "Offer",
       "url": "https://www.sotramsbois.com/produits/melange-essences.html?length=40",
-      "price": "306.00",
+      "price": "202.00",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition",
@@ -116,7 +116,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
     {
       "@type": "Offer",
       "url": "https://www.sotramsbois.com/produits/melange-essences.html?length=50",
-      "price": "288.00",
+      "price": "190.00",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition",
@@ -244,22 +244,22 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
                 </h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
 <!-- Row 1 -->
-<div class="flex justify-between py-3 border-b border-outline/30">
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-essence">
 <span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.species">ESSENCE</span>
-<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-essence" data-i18n="produit.chne_100">Mélange d'essences feuillues dures</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-essence">Mélange d'essences feuillues dures</span>
 </div>
-<div class="flex justify-between py-3 border-b border-outline/30">
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-longueur">
 <span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.length">LONGUEUR</span>
-<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-longueur" data-i18n="produit.33_cm__2cm">20 / 30 / 33 / 40 / 50 cm</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-longueur">20 cm</span>
 </div>
 <!-- Row 2 -->
-<div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="specs.humidity">TAUX D'HUMIDITÉ</span>
-<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-humidite" data-i18n="produit._20_schoir">&lt;20%</span>
+<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-humidite">
+<span class="text-label-md font-label-md text-on-surface-variant shrink-0" data-i18n="specs.humidity">TAUX D'HUMIDITÉ</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-humidite">&lt;20%</span>
 </div>
 <div class="flex justify-between py-3 border-b border-outline/30">
 <span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.calorific">POUVOIR CALORIFIQUE</span>
-<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-pouvoir" data-i18n="produit._2000_kwhstre">~ 4.8 kWh/kg</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-pouvoir">~ 4.8 kWh/kg</span>
 </div>
 <!-- Row 3 -->
 <div class="flex justify-between py-3 border-b border-outline/30">
@@ -271,15 +271,12 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 </div>
 <!-- Row 4 -->
 <div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.pallet_dimensions">DIMENSIONS PALETTE</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-dimensions" data-i18n="produit.100_x_120_x_120_cm">100 x 120 x 120 cm</span>
+<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.pallet_dimensions">DIMENSIONS PALETTE</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-dimensions">100 × 120 cm</span>
 </div>
-<div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.packaging">CONDITIONNEMENT</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-conditionnement" data-i18n="produit.cerclage_fil_dacier">40 unités par palette</span>
+<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-conditionnement">
+<span class="text-label-md font-label-md text-on-surface-variant shrink-0" data-i18n="product.packaging">CONDITIONNEMENT</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-conditionnement">1 700 à 2 000 bûches par palette</span>
 </div>
-<div class="flex justify-between py-3 border-b border-outline/30">
-<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="specs.origin">ORIGINE</span>
-<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-origine" data-i18n="produit.france">À préciser</span>
-</div>
+
 </div>
 </div>
 <!-- Logistics / Delivery -->
@@ -302,7 +299,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 <div class="flex flex-col">
 
 <div class="flex items-baseline gap-2">
-<span class="text-headline-xl font-headline-xl text-primary" id="unit-price-ttc"></span>
+<span class="text-headline-xl font-headline-xl text-primary" id="unit-price-ttc">222,00 €</span>
     </div>
 
 </div>
@@ -310,7 +307,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 </div>
 <!-- Interactive Quantity Selector & Discount Widget -->
 <div class="flex flex-col gap-4">
-<div class="flex flex-col gap-4" id="length-selector-container" style="display: none;">
+<div class="flex flex-col gap-4" id="length-selector-container">
 <label class="text-label-md font-label-md text-on-surface uppercase tracking-wider" data-i18n="product.log_length">Longueur des Bûches</label>
 <div class="flex gap-2 flex-wrap" id="length-options">
 </div>
@@ -345,30 +342,28 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 <p class="text-xs text-on-surface-variant text-center" id="next-tier-msg"><span data-i18n="produit.ajoutez">Ajoutez</span> <span class="font-bold text-on-surface">1</span> <span data-i18n="produit.palette_pour_dbloquer_-4">palette pour débloquer -4%</span></p>
 </div>
 </div>
-<!-- Total Calculation -- data-i18n="product.total">
-<div class="bg-surface rounded-xl p-6 border border-primary/20 flex flex-col gap-2">
+<!-- Total Calculation -->
+<div class="bg-surface rounded-xl p-5 border border-primary/20 flex flex-col gap-3">
 <div class="flex justify-between items-center text-body-sm text-on-surface-variant">
 <span data-i18n="product.subtotal">Sous-total TTC</span>
-<span class="font-data-mono" id="subtotal"><span id="total-ref-wholesale">185.00€</span></span>
+<span class="font-data-mono font-medium" id="subtotal">222,00 €</span>
 </div>
-<div class="flex justify-between items-center text-body-sm text-primary hidden" id="discount-row">
+<div class="flex justify-between items-center text-body-sm text-emerald-700 font-medium hidden" id="discount-row">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">local_offer</span>
 <span data-i18n="product.discount">Remise Volume</span>
-<span class="font-data-mono" id="discount-amt">-0.00€</span>
+<span id="discount-pct-badge" class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full font-bold"></span>
+</span>
+<span class="font-data-mono font-bold" id="discount-amt">-0.00€</span>
 </div>
-<div class="h-[1px] w-full bg-outline/20 my-2"></div>
-<div class="flex justify-between items-end">
-                              <span class="text-label-md font-label-md text-on-surface uppercase" data-i18n="product.total_ht">Total TTC</span>
-                              <span class="text-headline-md font-data-mono text-on-surface" id="total"><span id="total-ref-wholesale">185.00€</span></span>
-                          </div>
-                          <div class="flex justify-between items-center text-body-sm text-on-surface-variant mt-2">
-                              <span data-i18n="product.tax_included">dont TVA (20%)</span>
-                              <span class="font-data-mono" id="tax-amt">0.00€</span>
-                          </div>
-                          <div class="h-[1px] w-full bg-outline/20 my-2"></div>
-                          <div class="flex justify-between items-end">
-                              <span class="text-label-md font-label-md text-on-surface uppercase text-outline-variant" data-i18n="product.total">Total</span>
-                              <span class="text-headline-sm font-data-mono font-bold text-outline-variant" id="total-ht">0.00€</span>
-                          </div>
+<div class="h-[1px] w-full bg-outline/20"></div>
+<div class="flex justify-between items-baseline">
+<div class="flex flex-col">
+<span class="text-label-md font-headline-md font-bold text-on-surface uppercase tracking-wider" data-i18n="product.total_ttc">Total TTC</span>
+<span class="text-xs text-on-surface-variant font-normal" data-i18n="product.tva_included">TVA (20%) incluse</span>
+</div>
+<span class="text-headline-lg font-data-mono font-bold text-primary" id="total">222,00 €</span>
+</div>
 </div>
 
 <!-- Actions -->
@@ -387,7 +382,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 </div>
 </div>
 </div>
-</main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Solutions professionnelles de biomasse et bois de chauffage haute performance.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS &amp; SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=1"><span data-i18n="categories.1">Bûches de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=2"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=3"><span data-i18n="categories.3">Briquettes</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=4"><span data-i18n="categories.4">Granulés / Pellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=5"><span data-i18n="categories.5">Charbon / Allume-feu</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../devis.html"><span data-i18n="nav.quote">Devis</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.service_5">Livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../faq.html"><span data-i18n="nav.faq">FAQ</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../contact.html"><span data-i18n="nav.contact">Contact</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">ESPACE CLIENT &amp; PANIER</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../panier.html"><span data-i18n="footer.client_link_1">Mon Panier</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../connexion.html"><span data-i18n="footer.client_link_2">Connexion / Inscription</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.client_link_3">Suivi de livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../contact.html"><span data-i18n="footer.client_link_4">Service commercial</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">2475 Route de Fumay 08230 Gué-d’Hossus (France)</span></span><span><span data-i18n="footer.phone">Téléphone : 0978368016</span></span><span data-i18n="produit.email_contactsotramsboiscom">Email: contact@sotramsbois.com</span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="../mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="../cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="../politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="../politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="../assets/js/i18n-loader.js?v=1792534502032"></script>
+</main><footer class="w-full bg-inverse-surface text-inverse-on-surface py-16 mt-20"><div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"><div class="flex flex-col gap-4"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md"><span class="material-symbols-outlined text-[24px]">local_fire_department</span></div><span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span></div><p class="text-body-sm text-outline-variant"><span data-i18n="footer.desc">Solutions professionnelles de biomasse et bois de chauffage haute performance.</span></p></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.services_title">PRODUITS &amp; SERVICES</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=1"><span data-i18n="categories.1">Bûches de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=2"><span data-i18n="categories.2">Bûches compressées / briquettes de bois</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=3"><span data-i18n="categories.3">Briquettes</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=4"><span data-i18n="categories.4">Granulés / Pellets</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../catalogue.html?subgroup=5"><span data-i18n="categories.5">Charbon / Allume-feu</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../devis.html"><span data-i18n="nav.quote">Devis</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.service_5">Livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../faq.html"><span data-i18n="nav.faq">FAQ</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../contact.html"><span data-i18n="nav.contact">Contact</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.client_space_title">ESPACE CLIENT &amp; PANIER</span></h4><nav class="flex flex-col gap-2"><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../panier.html"><span data-i18n="footer.client_link_1">Mon Panier</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../connexion.html"><span data-i18n="footer.client_link_2">Connexion / Inscription</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../livraison.html"><span data-i18n="footer.client_link_3">Suivi de livraison</span></a><a class="text-body-sm text-outline-variant hover:text-inverse-on-surface" href="../contact.html"><span data-i18n="footer.client_link_4">Service commercial</span></a></nav></div><div class="flex flex-col gap-4"><h4 class="text-label-md font-label-md text-primary-fixed"><span data-i18n="footer.coords_title">COORDONNÉES</span></h4><div class="text-body-sm text-outline-variant flex flex-col gap-2"><span><span data-i18n="footer.address">2475 Route de Fumay 08230 Gué-d’Hossus (France)</span></span><span><span data-i18n="footer.phone">Téléphone : 0978368016</span></span><span data-i18n="produit.email_contactsotramsboiscom">Email: contact@sotramsbois.com</span></div></div></div><div class="border-t border-outline/30 pt-8 flex flex-col md:flex-row justify-end text-body-sm text-outline-variant"><div class="flex gap-6"><a href="../mentions-legales.html" class="hover:text-primary transition-colors"><span data-i18n="footer.legal">Mentions Légales</span></a><a href="../cgv.html" class="hover:text-primary transition-colors"><span data-i18n="footer.cgv">CGV</span></a><a href="../politique-confidentialite.html" class="hover:text-primary transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a><a href="../politique-retour.html" class="hover:text-primary transition-colors"><span data-i18n="footer.return_policy">Politique de Retour</span></a></div></div></div></footer><script src="../assets/js/i18n-loader.js?v=1793125172490"></script>
 <script>
                         if (typeof window.getProductField === 'undefined') {
                             window.getProductField = (p, field, forceLang) => {
@@ -411,7 +406,7 @@ window.resolveAssetPath = function(pathStr) {
 };
 </script>
 
-<script src="../assets/js/cart.js?v=1792534502032"></script>
+<script src="../assets/js/cart.js?v=1793125172490"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const btn = document.getElementById('mobile-menu-btn');
@@ -466,8 +461,24 @@ window.resolveAssetPath = function(pathStr) {
 
                                 document.getElementById('product-title').textContent = getProductName(product);
                                 document.getElementById('product-ref').textContent = `Ref: ${product.id.toUpperCase()}-PAL`;
-                                const displayHumidity = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
-                                document.getElementById('product-desc').textContent = `${getProductField(product, 'species_material')} - Humidité: ${displayHumidity}`;
+                                const rawHumidity = getProductField(product, "humidity_bucket");
+                                const hasHumidity = Boolean(rawHumidity && product.id !== 'allume-feu-laine-bois');
+                                const displayHumidity = rawHumidity || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
+
+                                const productDescEl = document.getElementById('product-desc');
+                                if (productDescEl) {
+                                    if (product.id === 'nuit-longue-duree') {
+                                        productDescEl.textContent = 'Écorces bois densifiées';
+                                    } else if (product.id === 'pini-kay-compressbee') {
+                                        productDescEl.textContent = 'Bois chêne/hêtre extrudé Pini-Kay';
+                                    } else if (product.id === 'briquettes-ruf' || product.id === 'briquettes-ecorce' || product.id === 'jour-premium-cylindrique' || product.id === 'jour-forte-chaleur-cubique') {
+                                        productDescEl.textContent = getProductField(product, 'species_material');
+                                    } else if (hasHumidity) {
+                                        productDescEl.textContent = `${getProductField(product, 'species_material')} - Humidité: ${displayHumidity}`;
+                                    } else {
+                                        productDescEl.textContent = getProductField(product, 'species_material');
+                                    }
+                                }
                                 document.getElementById('product-stock').textContent = 'En Stock';
                                 const imgPrefix = relPath === '.' ? '' : relPath;
                                 document.getElementById('product-img-1').src = resolveAssetPath(product.image_product);
@@ -475,18 +486,194 @@ window.resolveAssetPath = function(pathStr) {
 
                                 document.getElementById('spec-essence').textContent = getProductField(product, 'species_material');
                                 document.getElementById('spec-longueur').textContent = product.format;
-                                document.getElementById('spec-humidite').textContent = product.humidity_bucket || (t.specs && t.specs.humidity_unavailable) || "Non communiqué";
-                                if (product.origin === 'À préciser') {
-            document.getElementById('spec-origine').setAttribute('data-i18n', 'product.origin_tbd');
-            document.getElementById('spec-origine').textContent = window.i18n ? window.i18n.t('product.origin_tbd', 'À préciser') : 'À préciser';
-        } else {
-            document.getElementById('spec-origine').textContent = product.origin;
-        }
+                                const specHumiditeEl = document.getElementById('spec-humidite');
+                                if (specHumiditeEl) {
+                                    specHumiditeEl.textContent = displayHumidity;
+                                }
+
+                                const specRowHumidite = document.getElementById('spec-row-humidite');
+                                const specRowConditionnement = document.getElementById('spec-row-conditionnement');
+                                if (product.id === 'buches-torche-suedoise') {
+                                    if (specRowHumidite && !document.getElementById('spec-row-hauteur')) {
+                                        const heightLabels = { fr: 'HAUTEUR', en: 'HEIGHT', de: 'HÖHE', nl: 'HOOGTE' };
+                                        const diameterLabels = { fr: 'DIAMÈTRE', en: 'DIAMETER', de: 'DURCHMESSER', nl: 'DIAMETER' };
+                                        const heightValues = { fr: '25 cm', en: '25 cm', de: '25 cm', nl: '25 cm' };
+                                        const diameterValues = { fr: 'environ 15 cm', en: 'approx. 15 cm', de: 'ca. 15 cm', nl: 'ongeveer 15 cm' };
+
+                                        const hLabel = heightLabels[lang] || 'HAUTEUR';
+                                        const dLabel = diameterLabels[lang] || 'DIAMÈTRE';
+                                        const hVal = heightValues[lang] || '25 cm';
+                                        const dVal = diameterValues[lang] || 'environ 15 cm';
+
+                                        const rowHauteur = document.createElement('div');
+                                        rowHauteur.className = "flex justify-between py-3 border-b border-outline/30";
+                                        rowHauteur.id = "spec-row-hauteur";
+                                        rowHauteur.innerHTML = `<span class="text-label-md font-label-md text-on-surface-variant">${hLabel}</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-hauteur">${hVal}</span>`;
+
+                                        const rowDiametre = document.createElement('div');
+                                        rowDiametre.className = "flex justify-between py-3 border-b border-outline/30";
+                                        rowDiametre.id = "spec-row-diametre";
+                                        rowDiametre.innerHTML = `<span class="text-label-md font-label-md text-on-surface-variant">${dLabel}</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">${dVal}</span>`;
+
+                                        specRowHumidite.replaceWith(rowHauteur, rowDiametre);
+                                    }
+                                    if (specRowConditionnement) specRowConditionnement.classList.add('md:col-span-2');
+                                } else if (product.id === 'jour-premium-cylindrique') {
+                                    const shapeLabels = { fr: 'FORME', en: 'SHAPE', de: 'FORM', nl: 'VORM' };
+                                    const shapeValues = { fr: 'Cylindrique', en: 'Cylindrical', de: 'Zylindrisch', nl: 'Cilindrisch' };
+                                    const diameterLabels = { fr: 'DIAMÈTRE', en: 'DIAMETER', de: 'DURCHMESSER', nl: 'DIAMETER' };
+                                    const diameterValues = { fr: 'de 6 à 10 cm', en: '6 to 10 cm', de: '6 bis 10 cm', nl: '6 tot 10 cm' };
+                                    const lengthValues = { fr: 'de 20 à 30 cm', en: '20 to 30 cm', de: '20 bis 30 cm', nl: '20 tot 30 cm' };
+
+                                    const sLabel = shapeLabels[lang] || 'FORME';
+                                    const sVal = shapeValues[lang] || 'Cylindrique';
+                                    const dLabel = diameterLabels[lang] || 'DIAMÈTRE';
+                                    const dVal = diameterValues[lang] || 'de 6 à 10 cm';
+                                    const lVal = lengthValues[lang] || 'de 20 à 30 cm';
+
+                                    const specLong = document.getElementById('spec-longueur');
+                                    if (specLong) specLong.textContent = lVal;
+
+                                    let rowForme = document.getElementById('spec-row-forme');
+                                    if (!rowForme) {
+                                        rowForme = document.createElement('div');
+                                        rowForme.className = 'flex justify-between py-3 border-b border-outline/30';
+                                        rowForme.id = 'spec-row-forme';
+                                        rowForme.innerHTML = '<span class="text-label-md font-label-md text-on-surface-variant">' + sLabel + '</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-forme">' + sVal + '</span>';
+                                        const rowEssence = document.getElementById('spec-row-essence');
+                                        if (rowEssence) rowEssence.after(rowForme);
+                                    } else {
+                                        const fValEl = document.getElementById('spec-forme');
+                                        if (fValEl) fValEl.textContent = sVal;
+                                    }
+
+                                    let rowDiametre = document.getElementById('spec-row-diametre');
+                                    if (!rowDiametre) {
+                                        rowDiametre = document.createElement('div');
+                                        rowDiametre.className = 'flex justify-between py-3 border-b border-outline/30';
+                                        rowDiametre.id = 'spec-row-diametre';
+                                        rowDiametre.innerHTML = '<span class="text-label-md font-label-md text-on-surface-variant">' + dLabel + '</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">' + dVal + '</span>';
+                                        const rowLongueur = document.getElementById('spec-row-longueur');
+                                        if (rowLongueur) rowLongueur.before(rowDiametre);
+                                    } else {
+                                        const dValEl = document.getElementById('spec-diametre');
+                                        if (dValEl) dValEl.textContent = dVal;
+                                    }
+
+                                    if (specRowConditionnement) specRowConditionnement.classList.remove('md:col-span-2');
+                                } else if (product.id === 'jour-forte-chaleur-cubique') {
+                                    const shapeLabels = { fr: 'FORME', en: 'SHAPE', de: 'FORM', nl: 'VORM' };
+                                    const shapeValues = { fr: 'Cubique', en: 'Cubic', de: 'Würfelform', nl: 'Kubusvorm' };
+                                    const widthLabels = { fr: 'LARGEUR', en: 'WIDTH', de: 'BREITE', nl: 'BREEDTE' };
+                                    const widthValues = { fr: '6,5 cm', en: '6.5 cm', de: '6,5 cm', nl: '6,5 cm' };
+                                    const heightLabels = { fr: 'HAUTEUR', en: 'HEIGHT', de: 'HÖHE', nl: 'HOOGTE' };
+                                    const heightValues = { fr: '9,5 cm', en: '9.5 cm', de: '9,5 cm', nl: '9,5 cm' };
+                                    const lengthValues = { fr: '15 à 16 cm (indicative)', en: '15 to 16 cm (indicative)', de: '15 bis 16 cm (Richtwert)', nl: '15 tot 16 cm (indicatief)' };
+
+                                    const sLabel = shapeLabels[lang] || 'FORME';
+                                    const sVal = shapeValues[lang] || 'Cubique';
+                                    const wLabel = widthLabels[lang] || 'LARGEUR';
+                                    const wVal = widthValues[lang] || '6,5 cm';
+                                    const hLabel = heightLabels[lang] || 'HAUTEUR';
+                                    const hVal = heightValues[lang] || '9,5 cm';
+                                    const lVal = lengthValues[lang] || '15 à 16 cm (indicative)';
+
+                                    const specLong = document.getElementById('spec-longueur');
+                                    if (specLong) specLong.textContent = lVal;
+
+                                    let rowForme = document.getElementById('spec-row-forme');
+                                    if (!rowForme) {
+                                        rowForme = document.createElement('div');
+                                        rowForme.className = 'flex justify-between py-3 border-b border-outline/30';
+                                        rowForme.id = 'spec-row-forme';
+                                        rowForme.innerHTML = '<span class="text-label-md font-label-md text-on-surface-variant">' + sLabel + '</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-forme">' + sVal + '</span>';
+                                        const rowEssence = document.getElementById('spec-row-essence');
+                                        if (rowEssence) rowEssence.after(rowForme);
+                                    } else {
+                                        const fValEl = document.getElementById('spec-forme');
+                                        if (fValEl) fValEl.textContent = sVal;
+                                    }
+
+                                    let rowLargeur = document.getElementById('spec-row-largeur');
+                                    if (!rowLargeur) {
+                                        rowLargeur = document.createElement('div');
+                                        rowLargeur.className = 'flex justify-between py-3 border-b border-outline/30';
+                                        rowLargeur.id = 'spec-row-largeur';
+                                        rowLargeur.innerHTML = '<span class="text-label-md font-label-md text-on-surface-variant">' + wLabel + '</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-largeur">' + wVal + '</span>';
+                                        const rowLongueur = document.getElementById('spec-row-longueur');
+                                        if (rowLongueur) rowLongueur.after(rowLargeur);
+                                    } else {
+                                        const wValEl = document.getElementById('spec-largeur');
+                                        if (wValEl) wValEl.textContent = wVal;
+                                    }
+
+                                    let rowHauteur = document.getElementById('spec-row-hauteur');
+                                    if (!rowHauteur) {
+                                        rowHauteur = document.createElement('div');
+                                        rowHauteur.className = 'flex justify-between py-3 border-b border-outline/30';
+                                        rowHauteur.id = 'spec-row-hauteur';
+                                        rowHauteur.innerHTML = '<span class="text-label-md font-label-md text-on-surface-variant">' + hLabel + '</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-hauteur">' + hVal + '</span>';
+                                        const rowHumidite = document.getElementById('spec-row-humidite');
+                                        if (rowHumidite) rowHumidite.before(rowHauteur);
+                                    } else {
+                                        const hValEl = document.getElementById('spec-hauteur');
+                                        if (hValEl) hValEl.textContent = hVal;
+                                    }
+
+                                    if (specRowConditionnement) specRowConditionnement.classList.add('md:col-span-2');
+                                } else if (product.id === 'pini-kay-compressbee') {
+                                    const shapeLabels = { fr: 'FORME', en: 'SHAPE', de: 'FORM', nl: 'VORM' };
+                                    const shapeValues = { fr: 'Octogonale (Pini Kay)', en: 'Octagonal (Pini Kay)', de: 'Achteckig (Pini Kay)', nl: 'Achthoekig (Pini Kay)' };
+                                    const diameterLabels = { fr: 'DIAMÈTRE', en: 'DIAMETER', de: 'DURCHMESSER', nl: 'DIAMETER' };
+                                    const diameterValues = { fr: '6 à 7 cm', en: '6 to 7 cm', de: '6 bis 7 cm', nl: '6 tot 7 cm' };
+                                    const lengthValues = { fr: 'environ 20 à 25 cm', en: 'approx. 20 to 25 cm', de: 'ca. 20 bis 25 cm', nl: 'ongeveer 20 tot 25 cm' };
+
+                                    const sLabel = shapeLabels[lang] || 'FORME';
+                                    const sVal = shapeValues[lang] || 'Octogonale (Pini Kay)';
+                                    const dLabel = diameterLabels[lang] || 'DIAMÈTRE';
+                                    const dVal = diameterValues[lang] || '6 à 7 cm';
+                                    const lVal = lengthValues[lang] || 'environ 20 à 25 cm';
+
+                                    const specLong = document.getElementById('spec-longueur');
+                                    if (specLong) specLong.textContent = lVal;
+
+                                    let rowForme = document.getElementById('spec-row-forme');
+                                    if (!rowForme) {
+                                        rowForme = document.createElement('div');
+                                        rowForme.className = 'flex justify-between py-3 border-b border-outline/30';
+                                        rowForme.id = 'spec-row-forme';
+                                        rowForme.innerHTML = '<span class="text-label-md font-label-md text-on-surface-variant">' + sLabel + '</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-forme">' + sVal + '</span>';
+                                        const rowEssence = document.getElementById('spec-row-essence');
+                                        if (rowEssence) rowEssence.after(rowForme);
+                                    } else {
+                                        const fValEl = document.getElementById('spec-forme');
+                                        if (fValEl) fValEl.textContent = sVal;
+                                    }
+
+                                    let rowDiametre = document.getElementById('spec-row-diametre');
+                                    if (!rowDiametre) {
+                                        rowDiametre = document.createElement('div');
+                                        rowDiametre.className = 'flex justify-between py-3 border-b border-outline/30';
+                                        rowDiametre.id = 'spec-row-diametre';
+                                        rowDiametre.innerHTML = '<span class="text-label-md font-label-md text-on-surface-variant">' + dLabel + '</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">' + dVal + '</span>';
+                                        const rowLongueur = document.getElementById('spec-row-longueur');
+                                        if (rowLongueur) rowLongueur.before(rowDiametre);
+                                    } else {
+                                        const dValEl = document.getElementById('spec-diametre');
+                                        if (dValEl) dValEl.textContent = dVal;
+                                    }
+
+                                    if (specRowConditionnement) specRowConditionnement.classList.remove('md:col-span-2');
+                                } else if (!hasHumidity) {
+                                    if (specRowHumidite) specRowHumidite.remove();
+                                    if (specRowConditionnement) specRowConditionnement.classList.add('md:col-span-2');
+                                }
+
                                 document.getElementById('spec-pouvoir').textContent = '~ 4.8 kWh/kg';
                                 document.getElementById('spec-poids').textContent = product.palette_weight;
                                 document.getElementById('spec-volume-m3').textContent = `${product.volume_m3} m³`;
                                 
-                                document.getElementById('spec-dimensions').textContent = '100x120cm';
+                                document.getElementById('spec-dimensions').textContent = '100 × 120 cm';
 
                                 const breadcrumbCat = document.getElementById('breadcrumb-category');
                                 if (breadcrumbCat) {
@@ -495,7 +682,6 @@ window.resolveAssetPath = function(pathStr) {
                                 }
 
                                 // 1. Dynamic SEO
-                                const lang = document.documentElement.lang || 'fr';
                                 
                                 const productCanonicalUrl = document.querySelector('link[rel="canonical"]')?.href || `https://www.sotramsbois.com${lang === 'fr' ? '' : '/' + lang}/produits/${product.id}.html`;
 
@@ -594,7 +780,24 @@ window.resolveAssetPath = function(pathStr) {
 
                                 // 3.6 units per palette
                                 const unitT = window.i18n && window.i18n.t ? window.i18n.t('product.units_per_pallet', 'unités par palette') : 'unités par palette';
-                                document.getElementById('spec-conditionnement').textContent = product.units_per_palette + ' ' + unitT;
+                                const customPackaging = getProductField(product, 'packaging');
+                                const specConditionnementEl = document.getElementById('spec-conditionnement');
+                                if (specConditionnementEl) {
+                                    specConditionnementEl.removeAttribute('data-i18n');
+                                    if (customPackaging) {
+                                        specConditionnementEl.textContent = customPackaging;
+                                    } else {
+                                        specConditionnementEl.textContent = product.units_per_palette + ' ' + unitT;
+                                    }
+                                }
+
+                                const packagingByLength = {
+                                    '20': { fr: '1 700 à 2 000 bûches par palette', en: '1,700 to 2,000 logs per pallet', de: '1.700 bis 2.000 Scheite pro Palette', nl: '1.700 tot 2.000 blokken per pallet' },
+                                    '30': { fr: '1 350 à 1 600 bûches par palette', en: '1,350 to 1,600 logs per pallet', de: '1.350 bis 1.600 Scheite pro Palette', nl: '1.350 tot 1.600 blokken per pallet' },
+                                    '33': { fr: '1 250 à 1 400 bûches par palette', en: '1,250 to 1,400 logs per pallet', de: '1.250 bis 1.400 Scheite pro Palette', nl: '1.250 tot 1.400 blokken per pallet' },
+                                    '40': { fr: '1 050 à 1 200 bûches par palette', en: '1,050 to 1,200 logs per pallet', de: '1.050 bis 1.200 Scheite pro Palette', nl: '1.050 tot 1.200 blokken per pallet' },
+                                    '50': { fr: '900 à 1 000 bûches par palette', en: '900 to 1,000 logs per pallet', de: '900 bis 1.000 Scheite pro Palette', nl: '900 tot 1.000 blokken per pallet' }
+                                };
 
                                 const qtyInput = document.getElementById('qty-input');
                                 const btnDecrease = document.getElementById('btn-decrease');
@@ -610,20 +813,17 @@ window.resolveAssetPath = function(pathStr) {
                                 const nextTierMsg = document.getElementById('next-tier-msg');
                                 const discountBadge = document.getElementById('discount-badge');
 
-                                const formatCurrency = (val) => val.toFixed(2) + ' €';
+                                const formatCurrency = (val) => val.toFixed(2).replace('.', ',') + ' €';
 
-                                let selectedLength = lengthFromUrl || '';
-                                const defaultDisplayLength = '50';
+                                let selectedLength = lengthFromUrl || '20';
+                                const defaultDisplayLength = '20';
 
                                 if (product.prices_by_length) {
                                     const lenContainer = document.getElementById('length-selector-container');
                                     const lenOptions = document.getElementById('length-options');
                                     lenContainer.style.display = 'flex';
                                     lenOptions.innerHTML = '';
-                                    const lengths = Object.keys(product.prices_by_length).sort();
-
-                                    // For Bûches: selectedLength = URL param if valid, else empty (no silent default)
-                                    
+                                    const lengths = Object.keys(product.prices_by_length).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
 
                                     lengths.forEach(l => {
                                         const btn = document.createElement('button');
@@ -632,7 +832,7 @@ window.resolveAssetPath = function(pathStr) {
                                         btn.textContent = l + ' cm';
                                         btn.onclick = () => {
                                             selectedLength = l;
-                                            window._userSelectedLength = l; // track explicit user choice
+                                            window._userSelectedLength = l;
                                             window.currentProductLength = l;
                                             const newUrl = new URL(window.location);
                                             newUrl.searchParams.set('length', l);
@@ -642,38 +842,16 @@ window.resolveAssetPath = function(pathStr) {
                                                 c.className = `px-4 py-2 border rounded-md font-data-mono text-body-sm transition-colors bg-surface text-on-surface border-outline/30 hover:border-primary/50`;
                                             });
                                             btn.className = `px-4 py-2 border rounded-md font-data-mono text-body-sm transition-colors bg-primary text-on-primary border-primary`;
-                                            // Hide the "no format" warning if shown
-                                            const warn = document.getElementById('no-format-warning');
-                                            if (warn) warn.classList.add('hidden');
-                                            // Enable Commander button
-                                            const cmdBtn = document.getElementById('btn-commander');
-                                            if (cmdBtn) {
-                                                cmdBtn.disabled = false;
-                                                cmdBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                                            }
+                                            
                                             updatePricing();
                                         };
                                         lenOptions.appendChild(btn);
                                     });
 
-                                    // If no length selected, show warning banner and disable Commander
-                                    if (!selectedLength) {
-                                        // Show informational banner
-                                        let warn = document.getElementById('no-format-warning');
-                                        if (!warn) {
-                                            warn = document.createElement('div');
-                                            warn.id = 'no-format-warning';
-                                            warn.className = 'flex items-start gap-3 bg-amber-50 border border-amber-300 text-amber-900 rounded-lg px-4 py-3 text-body-sm mt-2';
-                                            warn.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0" style="font-variation-settings:'FILL' 1">info</span><span data-i18n="product.select_format">Veuillez sélectionner un format ci-dessus avant de commander.</span>`;
-                                            lenContainer.after(warn);
-                                        }
-                                        // Disable Commander button
-                                        const cmdBtn = document.getElementById('btn-commander');
-                                        if (cmdBtn) {
-                                            cmdBtn.disabled = true;
-                                            cmdBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                                        }
-                                        
+                                    const cmdBtn = document.getElementById('btn-commander');
+                                    if (cmdBtn) {
+                                        cmdBtn.disabled = false;
+                                        cmdBtn.classList.remove('opacity-50', 'cursor-not-allowed');
                                     }
                                 }
 
@@ -681,16 +859,19 @@ window.resolveAssetPath = function(pathStr) {
                                     let qty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
                                     if (qty < 1) { qty = 1; if (qtyInput) qtyInput.value = 1; }
                                     
-                                    let basePrice = product.wholesale_price || 0;
-                                    let hasVolumeDiscount = true; // Toujours vrai car les remises sont globales
+                                    const priceLength = selectedLength || defaultDisplayLength || '20';
+                                    let basePrice = (product.prices_by_length && product.prices_by_length[priceLength]) ? product.prices_by_length[priceLength] : (product.wholesale_price || 222);
+                                    let hasVolumeDiscount = true;
 
-                                    if (product.prices_by_length) {
-                                        const priceLength = selectedLength || defaultDisplayLength;
-                                        basePrice = product.prices_by_length[priceLength];
-                                        const specLong = document.getElementById('spec-longueur');
-                                        if (specLong) {
-                                            specLong.textContent = priceLength + ' cm';
-                                        }
+                                    const specLong = document.getElementById('spec-longueur');
+                                    if (specLong) {
+                                        specLong.textContent = priceLength + ' cm';
+                                    }
+
+                                    const specCondEl = document.getElementById('spec-conditionnement');
+                                    if (specCondEl && packagingByLength[priceLength]) {
+                                        const curLang = document.documentElement.lang || 'fr';
+                                        specCondEl.textContent = packagingByLength[priceLength][curLang] || packagingByLength[priceLength]['fr'];
                                     }
                                     
                                     let tier = 1;
@@ -718,32 +899,31 @@ window.resolveAssetPath = function(pathStr) {
                                     }
 
                                     const discountedUnitPrice = basePrice * (1 - discountPercentage / 100);
-                                    const totalPrice = discountedUnitPrice * qty;
-                                    
-                                    const subtotalTtc = (basePrice * qty) * 1.20;
-                                    const totalTtc = totalPrice * 1.20;
-                                    const taxAmt = totalTtc - totalPrice;
+                                    const subtotalTtc = basePrice * qty;
+                                    const totalTtc = discountedUnitPrice * qty;
                                     
                                     const unitPriceTtcEl = document.getElementById('unit-price-ttc');
-                                    if (unitPriceTtcEl) unitPriceTtcEl.textContent = formatCurrency(discountedUnitPrice * 1.20);
-                                    if (unitPriceEl) unitPriceEl.textContent = formatCurrency(discountedUnitPrice);
+                                    if (unitPriceTtcEl) unitPriceTtcEl.textContent = formatCurrency(discountedUnitPrice);
+                                    if (unitPriceEl) unitPriceEl.textContent = formatCurrency(discountedUnitPrice / 1.20);
 
                                     if (subtotalEl) subtotalEl.textContent = formatCurrency(subtotalTtc);
                                     if (totalEl) totalEl.textContent = formatCurrency(totalTtc);
                                     
                                     const taxEl = document.getElementById('tax-amt');
                                     const totalHtEl = document.getElementById('total-ht');
-                                    if (taxEl) taxEl.textContent = formatCurrency(taxAmt);
-                                    if (totalHtEl) totalHtEl.textContent = formatCurrency(totalPrice);
+                                    if (taxEl) taxEl.textContent = formatCurrency(totalTtc - (totalTtc / 1.20));
+                                    if (totalHtEl) totalHtEl.textContent = formatCurrency(totalTtc / 1.20);
 
-                                    if (discountRow && discountAmtEl && discountBadge) {
+                                    if (discountRow && discountAmtEl) {
                                         if (discountPercentage > 0) {
                                             discountRow.classList.remove('hidden');
-                                            discountAmtEl.textContent = '-' + formatCurrency(basePrice * qty * (discountPercentage / 100) * 1.20);
-                                            discountBadge.classList.remove('hidden');
+                                            discountAmtEl.textContent = '-' + formatCurrency(basePrice * qty * (discountPercentage / 100));
+                                            const discountPctBadge = document.getElementById('discount-pct-badge');
+                                            if (discountPctBadge) discountPctBadge.textContent = '-' + discountPercentage + '%';
+                                            if (discountBadge) discountBadge.classList.remove('hidden');
                                         } else {
                                             discountRow.classList.add('hidden');
-                                            discountBadge.classList.add('hidden');
+                                            if (discountBadge) discountBadge.classList.add('hidden');
                                         }
                                     }
 
@@ -791,11 +971,8 @@ window.resolveAssetPath = function(pathStr) {
                                     updatePricing();
                                 });
 
-                                
-updatePricing();
+                                updatePricing();
 
-                                
-                                
                                 const btnDevis = document.getElementById('btn-devis');
                                 if (btnDevis) {
                                     btnDevis.addEventListener('click', () => {
@@ -809,17 +986,13 @@ updatePricing();
                                 }
 
                                 window.handleCommanderClick = (btn) => {
-                                    // Guard: Bûches need a real selected length
-                                    if (isBuche && !selectedLength) {
-                                        alert('Veuillez sélectionner un format avant de commander.');
-                                        return;
-                                    }
                                     if (btn.disabled) return;
                                     btn.disabled = true;
                                     btn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> Ajout...`;
                                     
                                     const qty = parseInt(qtyInput.value) || 1;
-                                    CartAPI.add(product.id, qty, selectedLength).then(res => {
+                                    const effectiveLength = selectedLength || defaultDisplayLength || '20';
+                                    CartAPI.add(product.id, qty, effectiveLength).then(res => {
                                         if (res && res.success) {
                                             btn.innerHTML = `<span class="material-symbols-outlined">check</span> Ajouté !`;
                                             btn.classList.replace('bg-primary', 'bg-green-600');
@@ -844,14 +1017,14 @@ updatePricing();
                 });
             </script>
 
-<script src="../assets/js/user-menu.js?v=1792534502032"></script>
-<script src="../assets/js/lang-selector.js?v=1792534502032"></script>
+<script src="../assets/js/user-menu.js?v=1793125172490"></script>
+<script src="../assets/js/lang-selector.js?v=1793125172490"></script>
 
 
 
 
 
-<script src="../assets/js/tawk-loader.js?v=1792534502032"></script>
-<script src="../assets/js/consent-ads.js?v=1792534502032"></script>
+<script src="../assets/js/tawk-loader.js?v=1793125172490"></script>
+<script src="../assets/js/consent-ads.js?v=1793125172490"></script>
 
 </body></html>

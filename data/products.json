@@ -1,577 +1,884 @@
 [
-  {
-    "id": "hetre-etuve",
-    "subgroup_id": 1,
-    "subgroup_name": "Bûches de bois",
-    "name": {
-      "fr": "Hêtre étuvé / séché au four",
-      "en": "Kiln-Dried Beech Firewood",
-      "de": "Buchenholz, ofengetrocknet",
-      "nl": "Beukenhout, ovengedroogd"
+    {
+        "id":  "hetre-etuve",
+        "subgroup_id":  1,
+        "subgroup_name":  "Bûches de bois",
+        "name":  {
+                     "fr":  "Hêtre étuvé / séché au four",
+                     "en":  "Kiln-Dried Beech Firewood",
+                     "de":  "Buchenholz, ofengetrocknet",
+                     "nl":  "Beukenhout, ovengedroogd"
+                 },
+        "format":  "20 / 30 / 33 / 40 / 50 cm",
+        "unit_weight":  "25 kg",
+        "units_per_palette":  40,
+        "palette_weight":  "1000 kg",
+        "positioning":  {
+                            "fr":  "Bon prix – sous marché",
+                            "en":  "Great value – below market",
+                            "de":  "Guter Preis – unter Marktniveau",
+                            "nl":  "Goede prijs – onder marktniveau"
+                        },
+        "species_material":  {
+                                 "fr":  "Hêtre séché au four (\u003c 20% humidité)",
+                                 "en":  "Kiln-dried beech (\u003c 20% moisture)",
+                                 "de":  "Ofengetrocknete Buche (\u003c 20% Feuchtigkeit)",
+                                 "nl":  "Ovengedroogd beukenhout (\u003c 20% vocht)"
+                             },
+        "image_product":  "/assets/images/products/hetre-etuve-product.jpg",
+        "image_packaging":  "/assets/images/products/hetre-etuve-packaging.jpg",
+        "humidity_bucket":  "\u003c20%",
+        "available":  true,
+        "volume_m3":  2.16,
+        "prices_by_length":  {
+                                 "20":  220,
+                                 "30":  212,
+                                 "33":  204,
+                                 "40":  196,
+                                 "50":  190
+                             },
+        "packaging_by_length":  {
+                                    "20":  {
+                                               "fr":  "1 700 à 2 000 bûches par palette",
+                                               "en":  "1,700 to 2,000 logs per pallet",
+                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
+                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                           },
+                                    "30":  {
+                                               "fr":  "1 350 à 1 600 bûches par palette",
+                                               "en":  "1,350 to 1,600 logs per pallet",
+                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
+                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                           },
+                                    "33":  {
+                                               "fr":  "1 250 à 1 400 bûches par palette",
+                                               "en":  "1,250 to 1,400 logs per pallet",
+                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
+                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                           },
+                                    "40":  {
+                                               "fr":  "1 050 à 1 200 bûches par palette",
+                                               "en":  "1,050 to 1,200 logs per pallet",
+                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
+                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                           },
+                                    "50":  {
+                                               "fr":  "900 à 1 000 bûches par palette",
+                                               "en":  "900 to 1,000 logs per pallet",
+                                               "de":  "900 bis 1.000 Scheite pro Palette",
+                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                           }
+                                }
     },
-    "format": "20 / 30 / 33 / 40 / 50 cm",
-    "unit_weight": "25 kg",
-    "units_per_palette": 40,
-    "palette_weight": "1000 kg",
-    "positioning": {
-      "fr": "Bon prix – sous marché",
-      "en": "Great value – below market",
-      "de": "Guter Preis – unter Marktniveau",
-      "nl": "Goede prijs – onder marktniveau"
+    {
+        "id":  "hetre-demi-sec",
+        "subgroup_id":  1,
+        "subgroup_name":  "Bûches de bois",
+        "name":  {
+                     "fr":  "Hêtre demi-sec",
+                     "en":  "Semi-Dried Beech Firewood",
+                     "de":  "Buchenholz, halbtrocken",
+                     "nl":  "Beukenhout, halfdroog"
+                 },
+        "format":  "20 / 30 / 33 / 40 / 50 cm",
+        "unit_weight":  "25 kg",
+        "units_per_palette":  40,
+        "palette_weight":  "1000 kg",
+        "positioning":  {
+                            "fr":  "Très bon prix",
+                            "en":  "Excellent value",
+                            "de":  "Sehr guter Preis",
+                            "nl":  "Zeer goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "Hêtre demi-sec",
+                                 "en":  "Semi-dried beech",
+                                 "de":  "Halbtrockene Buche",
+                                 "nl":  "Halfdroog beukenhout"
+                             },
+        "image_product":  "/assets/images/products/hetre-demi-sec-product.jpg",
+        "image_packaging":  "/assets/images/products/hetre-demi-sec-packaging.jpg",
+        "humidity_bucket":  "20-25%",
+        "available":  true,
+        "volume_m3":  2.16,
+        "prices_by_length":  {
+                                 "20":  170,
+                                 "30":  165,
+                                 "33":  160,
+                                 "40":  155,
+                                 "50":  150
+                             },
+        "packaging_by_length":  {
+                                    "20":  {
+                                               "fr":  "1 700 à 2 000 bûches par palette",
+                                               "en":  "1,700 to 2,000 logs per pallet",
+                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
+                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                           },
+                                    "30":  {
+                                               "fr":  "1 350 à 1 600 bûches par palette",
+                                               "en":  "1,350 to 1,600 logs per pallet",
+                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
+                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                           },
+                                    "33":  {
+                                               "fr":  "1 250 à 1 400 bûches par palette",
+                                               "en":  "1,250 to 1,400 logs per pallet",
+                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
+                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                           },
+                                    "40":  {
+                                               "fr":  "1 050 à 1 200 bûches par palette",
+                                               "en":  "1,050 to 1,200 logs per pallet",
+                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
+                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                           },
+                                    "50":  {
+                                               "fr":  "900 à 1 000 bûches par palette",
+                                               "en":  "900 to 1,000 logs per pallet",
+                                               "de":  "900 bis 1.000 Scheite pro Palette",
+                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                           }
+                                }
     },
-    "species_material": {
-      "fr": "Hêtre séché au four (< 20% humidité)",
-      "en": "Kiln-dried beech (< 20% moisture)",
-      "de": "Ofengetrocknete Buche (< 20% Feuchtigkeit)",
-      "nl": "Ovengedroogd beukenhout (< 20% vocht)"
+    {
+        "id":  "chene-etuve",
+        "subgroup_id":  1,
+        "subgroup_name":  "Bûches de bois",
+        "name":  {
+                     "fr":  "Chêne étuvé / séché au four",
+                     "en":  "Kiln-Dried Oak Firewood",
+                     "de":  "Eichenholz, ofengetrocknet",
+                     "nl":  "Eikenhout, ovengedroogd"
+                 },
+        "format":  "20 / 30 / 33 / 40 / 50 cm",
+        "unit_weight":  "25 kg",
+        "units_per_palette":  40,
+        "palette_weight":  "1000 kg",
+        "positioning":  {
+                            "fr":  "Bon prix – sous marché",
+                            "en":  "Great value – below market",
+                            "de":  "Guter Preis – unter Marktniveau",
+                            "nl":  "Goede prijs – onder marktniveau"
+                        },
+        "species_material":  {
+                                 "fr":  "Chêne séché au four (\u003c 20% humidité)",
+                                 "en":  "Kiln-dried oak (\u003c 20% moisture)",
+                                 "de":  "Ofengetrocknete Eiche (\u003c 20% Feuchtigkeit)",
+                                 "nl":  "Ovengedroogd eikenhout (\u003c 20% vocht)"
+                             },
+        "image_product":  "/assets/images/products/chene-etuve-product.jpg",
+        "image_packaging":  "/assets/images/products/chene-etuve-packaging.jpg",
+        "humidity_bucket":  "\u003c20%",
+        "available":  true,
+        "volume_m3":  2.16,
+        "prices_by_length":  {
+                                 "20":  224,
+                                 "30":  218,
+                                 "33":  208,
+                                 "40":  200,
+                                 "50":  194
+                             },
+        "packaging_by_length":  {
+                                    "20":  {
+                                               "fr":  "1 700 à 2 000 bûches par palette",
+                                               "en":  "1,700 to 2,000 logs per pallet",
+                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
+                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                           },
+                                    "30":  {
+                                               "fr":  "1 350 à 1 600 bûches par palette",
+                                               "en":  "1,350 to 1,600 logs per pallet",
+                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
+                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                           },
+                                    "33":  {
+                                               "fr":  "1 250 à 1 400 bûches par palette",
+                                               "en":  "1,250 to 1,400 logs per pallet",
+                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
+                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                           },
+                                    "40":  {
+                                               "fr":  "1 050 à 1 200 bûches par palette",
+                                               "en":  "1,050 to 1,200 logs per pallet",
+                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
+                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                           },
+                                    "50":  {
+                                               "fr":  "900 à 1 000 bûches par palette",
+                                               "en":  "900 to 1,000 logs per pallet",
+                                               "de":  "900 bis 1.000 Scheite pro Palette",
+                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                           }
+                                }
     },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/hetre-etuve-product.jpg",
-    "image_packaging": "/assets/images/products/hetre-etuve-packaging.jpg",
-    "humidity_bucket": "<20%",
-    "available": true,
-    "volume_m3": 2.16,
-    "prices_by_length": {
-      "20": 305,
-      "30": 295,
-      "33": 285,
-      "40": 270,
-      "50": 255
+    {
+        "id":  "chene-sec-air",
+        "subgroup_id":  1,
+        "subgroup_name":  "Bûches de bois",
+        "name":  {
+                     "fr":  "Chêne sec à l\u0027air",
+                     "en":  "Air-Dried Oak Firewood",
+                     "de":  "Eichenholz, lufttrocken",
+                     "nl":  "Eikenhout, luchtgedroogd"
+                 },
+        "format":  "20 / 30 / 33 / 40 / 50 cm",
+        "unit_weight":  "25 kg",
+        "units_per_palette":  40,
+        "palette_weight":  "1000 kg",
+        "positioning":  {
+                            "fr":  "Bon prix",
+                            "en":  "Good value",
+                            "de":  "Guter Preis",
+                            "nl":  "Goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "Chêne séché à l\u0027air libre",
+                                 "en":  "Air-dried oak",
+                                 "de":  "Lufttrocken gelagerte Eiche",
+                                 "nl":  "Luchtgedroogd eikenhout"
+                             },
+        "image_product":  "/assets/images/products/chene-sec-air-product.jpg",
+        "image_packaging":  "/assets/images/products/chene-sec-air-packaging.jpg",
+        "humidity_bucket":  "non spécifié",
+        "available":  true,
+        "volume_m3":  2.16,
+        "prices_by_length":  {
+                                 "20":  218,
+                                 "30":  212,
+                                 "33":  202,
+                                 "40":  198,
+                                 "50":  186
+                             },
+        "packaging_by_length":  {
+                                    "20":  {
+                                               "fr":  "1 700 à 2 000 bûches par palette",
+                                               "en":  "1,700 to 2,000 logs per pallet",
+                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
+                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                           },
+                                    "30":  {
+                                               "fr":  "1 350 à 1 600 bûches par palette",
+                                               "en":  "1,350 to 1,600 logs per pallet",
+                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
+                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                           },
+                                    "33":  {
+                                               "fr":  "1 250 à 1 400 bûches par palette",
+                                               "en":  "1,250 to 1,400 logs per pallet",
+                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
+                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                           },
+                                    "40":  {
+                                               "fr":  "1 050 à 1 200 bûches par palette",
+                                               "en":  "1,050 to 1,200 logs per pallet",
+                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
+                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                           },
+                                    "50":  {
+                                               "fr":  "900 à 1 000 bûches par palette",
+                                               "en":  "900 to 1,000 logs per pallet",
+                                               "de":  "900 bis 1.000 Scheite pro Palette",
+                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                           }
+                                }
+    },
+    {
+        "id":  "melange-essences",
+        "subgroup_id":  1,
+        "subgroup_name":  "Bûches de bois",
+        "name":  {
+                     "fr":  "Mélange d\u0027essences séché au four",
+                     "en":  "Kiln-Dried Mixed Hardwood Firewood",
+                     "de":  "Laubholzmischung, ofengetrocknet",
+                     "nl":  "Gemengd hardhout, ovengedroogd"
+                 },
+        "format":  "20 / 30 / 33 / 40 / 50 cm",
+        "unit_weight":  "25 kg",
+        "units_per_palette":  40,
+        "palette_weight":  "1000 kg",
+        "positioning":  {
+                            "fr":  "Très bon prix",
+                            "en":  "Excellent value",
+                            "de":  "Sehr guter Preis",
+                            "nl":  "Zeer goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "Mélange d\u0027essences feuillues dures",
+                                 "en":  "Blend of hardwood species",
+                                 "de":  "Mischung aus Harthölzern",
+                                 "nl":  "Mix van hardhoutsoorten"
+                             },
+        "image_product":  "/assets/images/products/melange-essences-product.jpg",
+        "image_packaging":  "/assets/images/products/melange-essences-packaging.jpg",
+        "humidity_bucket":  "\u003c20%",
+        "available":  true,
+        "volume_m3":  2.16,
+        "prices_by_length":  {
+                                 "20":  222,
+                                 "30":  216,
+                                 "33":  206,
+                                 "40":  202,
+                                 "50":  190
+                             },
+        "packaging_by_length":  {
+                                    "20":  {
+                                               "fr":  "1 700 à 2 000 bûches par palette",
+                                               "en":  "1,700 to 2,000 logs per pallet",
+                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
+                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                           },
+                                    "30":  {
+                                               "fr":  "1 350 à 1 600 bûches par palette",
+                                               "en":  "1,350 to 1,600 logs per pallet",
+                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
+                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                           },
+                                    "33":  {
+                                               "fr":  "1 250 à 1 400 bûches par palette",
+                                               "en":  "1,250 to 1,400 logs per pallet",
+                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
+                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                           },
+                                    "40":  {
+                                               "fr":  "1 050 à 1 200 bûches par palette",
+                                               "en":  "1,050 to 1,200 logs per pallet",
+                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
+                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                           },
+                                    "50":  {
+                                               "fr":  "900 à 1 000 bûches par palette",
+                                               "en":  "900 to 1,000 logs per pallet",
+                                               "de":  "900 bis 1.000 Scheite pro Palette",
+                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                           }
+                                }
+    },
+    {
+        "id":  "jour-premium-cylindrique",
+        "subgroup_id":  2,
+        "subgroup_name":  "Bûches compressées / briquettes de bois",
+        "name":  {
+                     "fr":  "JOUR PREMIUM – Cylindrique",
+                     "en":  "DAY PREMIUM – Cylindrical Briquette",
+                     "de":  "TAG PREMIUM – Zylindrisch",
+                     "nl":  "DAG PREMIUM – Cilindrisch"
+                 },
+        "format":  "de 20 à 30 cm",
+        "unit_weight":  "10 kg",
+        "units_per_palette":  100,
+        "palette_weight":  "1000 kg",
+        "wholesale_price":  225,
+        "recommended_price":  337.5,
+        "positioning":  {
+                            "fr":  "Très bon prix",
+                            "en":  "Excellent value",
+                            "de":  "Sehr guter Preis",
+                            "nl":  "Zeer goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "Bois densifié résineux \u0026 feuillus",
+                                 "en":  "Compressed softwood \u0026 hardwood",
+                                 "de":  "Verdichtetes Nadel- und Laubholz",
+                                 "nl":  "Geperst naald- en loofhout"
+                             },
+        "image_product":  "/assets/images/products/jour-premium-cylindrique-product.jpg",
+        "image_packaging":  "/assets/images/products/jour-premium-cylindrique-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16,
+        "humidity_bucket":  {
+                                "fr":  "Inférieur à 10 %",
+                                "en":  "Less than 10%",
+                                "de":  "Unter 10%",
+                                "nl":  "Minder dan 10%"
+                            },
+        "shape":  {
+                      "fr":  "Cylindrique",
+                      "en":  "Cylindrical",
+                      "de":  "Zylindrisch",
+                      "nl":  "Cilindrisch"
+                  },
+        "diameter":  {
+                         "fr":  "de 6 à 10 cm",
+                         "en":  "6 to 10 cm",
+                         "de":  "6 bis 10 cm",
+                         "nl":  "6 tot 10 cm"
+                     },
+        "packaging":  {
+                          "fr":  "100 unités par palette",
+                          "en":  "100 units per pallet",
+                          "de":  "100 Einheiten pro Palette",
+                          "nl":  "100 stuks per pallet"
+                      }
+    },
+    {
+        "id":  "nuit-longue-duree",
+        "subgroup_id":  2,
+        "subgroup_name":  "Bûches compressées / briquettes de bois",
+        "name":  {
+                     "fr":  "NUIT – Longue Durée (Compressée)",
+                     "en":  "NIGHT – Long-Burning Compressed Log",
+                     "de":  "NACHT – Langbrenner (Presslinge)",
+                     "nl":  "NACHT – Langbrandend (Geperst)"
+                 },
+        "format":  "Cylindrique écorce",
+        "unit_weight":  "10 kg",
+        "units_per_palette":  100,
+        "palette_weight":  "1000 kg",
+        "wholesale_price":  216.67,
+        "recommended_price":  325,
+        "positioning":  {
+                            "fr":  "Très bon prix",
+                            "en":  "Excellent value",
+                            "de":  "Sehr guter Preis",
+                            "nl":  "Zeer goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "100 % d’écorces naturelles compressées",
+                                 "en":  "100% compressed natural bark",
+                                 "de":  "100% verdichtete Naturrinde",
+                                 "nl":  "100% geperste natuurlijke schors"
+                             },
+        "image_product":  "/assets/images/products/nuit-longue-duree-product.jpg",
+        "image_packaging":  "/assets/images/products/nuit-longue-duree-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16,
+        "humidity_bucket":  {
+                                "fr":  "Inférieur à 12 %",
+                                "en":  "Less than 12%",
+                                "de":  "Unter 12%",
+                                "nl":  "Minder dan 12%"
+                            },
+        "packaging":  {
+                          "fr":  "100 unités de 10 kg chacune",
+                          "en":  "100 units of 10 kg each",
+                          "de":  "100 Einheiten à 10 kg",
+                          "nl":  "100 eenheden van 10 kg elk"
+                      }
+    },
+    {
+        "id":  "jour-forte-chaleur-cubique",
+        "subgroup_id":  2,
+        "subgroup_name":  "Bûches compressées / briquettes de bois",
+        "name":  {
+                     "fr":  "JOUR FORTE CHALEUR – Cubique",
+                     "en":  "DAY HIGH HEAT – Cubic Briquette",
+                     "de":  "TAG HOCHHITZE – Würfelform",
+                     "nl":  "DAG HOGE HITTE – Kubusvorm"
+                 },
+        "format":  "15 à 16 cm (indicative)",
+        "unit_weight":  "10 kg",
+        "units_per_palette":  100,
+        "palette_weight":  "1000 kg",
+        "wholesale_price":  216.67,
+        "recommended_price":  325,
+        "positioning":  {
+                            "fr":  "Très bon prix",
+                            "en":  "Excellent value",
+                            "de":  "Sehr guter Preis",
+                            "nl":  "Zeer goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "100 % Bois dur compressé",
+                                 "en":  "100% compressed hardwood",
+                                 "de":  "100% verdichtetes Hartholz",
+                                 "nl":  "100% geperst hardhout"
+                             },
+        "image_product":  "/assets/images/products/jour-forte-chaleur-cubique-product.jpg",
+        "image_packaging":  "/assets/images/products/jour-forte-chaleur-cubique-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16,
+        "humidity_bucket":  {
+                                "fr":  "Inférieur à 8 %",
+                                "en":  "Less than 8%",
+                                "de":  "Unter 8%",
+                                "nl":  "Minder dan 8%"
+                            },
+        "shape":  {
+                      "fr":  "Cubique",
+                      "en":  "Cubic",
+                      "de":  "Würfelform",
+                      "nl":  "Kubusvorm"
+                  },
+        "length":  {
+                       "fr":  "15 à 16 cm (indicative)",
+                       "en":  "15 to 16 cm (indicative)",
+                       "de":  "15 bis 16 cm (Richtwert)",
+                       "nl":  "15 tot 16 cm (indicatief)"
+                   },
+        "width":  {
+                      "fr":  "6,5 cm",
+                      "en":  "6.5 cm",
+                      "de":  "6,5 cm",
+                      "nl":  "6,5 cm"
+                  },
+        "height":  {
+                       "fr":  "9,5 cm",
+                       "en":  "9.5 cm",
+                       "de":  "9,5 cm",
+                       "nl":  "9,5 cm"
+                   },
+        "packaging":  {
+                          "fr":  "100 unités par palette",
+                          "en":  "100 units per pallet",
+                          "de":  "100 Einheiten pro Palette",
+                          "nl":  "100 stuks per pallet"
+                      }
+    },
+    {
+        "id":  "pini-kay-compressbee",
+        "subgroup_id":  2,
+        "subgroup_name":  "Bûches compressées / briquettes de bois",
+        "name":  {
+                     "fr":  "Pini Kay (Compressée premium)",
+                     "en":  "Pini Kay Premium Compressed Briquette",
+                     "de":  "Pini Kay Premium-Presslinge",
+                     "nl":  "Pini Kay Premium Perslog"
+                 },
+        "format":  "environ 20 à 25 cm",
+        "unit_weight":  "10 kg",
+        "units_per_palette":  100,
+        "palette_weight":  "1000 kg",
+        "wholesale_price":  225,
+        "recommended_price":  337.5,
+        "positioning":  {
+                            "fr":  "Bon prix – sous marché",
+                            "en":  "Great value – below market",
+                            "de":  "Guter Preis – unter Marktniveau",
+                            "nl":  "Goede prijs – onder marktniveau"
+                        },
+        "species_material":  {
+                                 "fr":  "100 % bois dur — mélange de chêne et de hêtre",
+                                 "en":  "100% hardwood — oak and beech blend",
+                                 "de":  "100% Hartholz — Eichen- und Buchenmischung",
+                                 "nl":  "100% hardhout — mix van eiken en beuken"
+                             },
+        "image_product":  "/assets/images/products/pini-kay-compressbee-product.jpg",
+        "image_packaging":  "/assets/images/products/pini-kay-compressbee-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16,
+        "humidity_bucket":  {
+                                "fr":  "Inférieur à 8 %",
+                                "en":  "Less than 8%",
+                                "de":  "Unter 8%",
+                                "nl":  "Minder dan 8%"
+                            },
+        "shape":  {
+                      "fr":  "Octogonale (Pini Kay)",
+                      "en":  "Octagonal (Pini Kay)",
+                      "de":  "Achteckig (Pini Kay)",
+                      "nl":  "Achthoekig (Pini Kay)"
+                  },
+        "diameter":  {
+                         "fr":  "6 à 7 cm",
+                         "en":  "6 to 7 cm",
+                         "de":  "6 bis 7 cm",
+                         "nl":  "6 tot 7 cm"
+                     },
+        "length":  {
+                       "fr":  "environ 20 à 25 cm",
+                       "en":  "approx. 20 to 25 cm",
+                       "de":  "ca. 20 bis 25 cm",
+                       "nl":  "ongeveer 20 tot 25 cm"
+                   },
+        "packaging":  {
+                          "fr":  "100 unités par palette",
+                          "en":  "100 units per pallet",
+                          "de":  "100 Einheiten pro Palette",
+                          "nl":  "100 stuks per pallet"
+                      }
+    },
+    {
+        "id":  "jour-eco-cylindrique",
+        "subgroup_id":  2,
+        "subgroup_name":  "Bûches compressées / briquettes de bois",
+        "name":  {
+                     "fr":  "JOUR ECO – Cylindrique",
+                     "en":  "DAY ECO – Cylindrical Briquette",
+                     "de":  "TAG ECO – Zylindrisch",
+                     "nl":  "DAG ECO – Cilindrisch"
+                 },
+        "format":  "Cylindrique standard",
+        "unit_weight":  "10 kg",
+        "units_per_palette":  100,
+        "palette_weight":  "1000 kg",
+        "wholesale_price":  290.83,
+        "recommended_price":  312.5,
+        "positioning":  {
+                            "fr":  "Très bon prix",
+                            "en":  "Excellent value",
+                            "de":  "Sehr guter Preis",
+                            "nl":  "Zeer goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "Mélange copeaux \u0026 sciures compressés",
+                                 "en":  "Compressed wood shavings \u0026 sawdust blend",
+                                 "de":  "Mischung aus verdichteten Holzspänen und Sägemehl",
+                                 "nl":  "Mix van geperste houtkrullen en zaagsel"
+                             },
+        "image_product":  "/assets/images/products/jour-eco-cylindrique-product.jpg",
+        "image_packaging":  "/assets/images/products/jour-eco-cylindrique-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16
+    },
+    {
+        "id":  "briquettes-ruf",
+        "subgroup_id":  3,
+        "subgroup_name":  "Briquettes",
+        "name":  {
+                     "fr":  "Briquettes RUF",
+                     "en":  "RUF Briquettes",
+                     "de":  "RUF-Briketts",
+                     "nl":  "RUF-Briketten"
+                 },
+        "format":  "Pâté rectangulaire RUF",
+        "unit_weight":  "10 kg",
+        "units_per_palette":  96,
+        "palette_weight":  "960 kg",
+        "wholesale_price":  156.67,
+        "recommended_price":  235,
+        "positioning":  {
+                            "fr":  "Très bon prix",
+                            "en":  "Excellent value",
+                            "de":  "Sehr guter Preis",
+                            "nl":  "Zeer goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "Bois compressé haute pression RUF",
+                                 "en":  "High-pressure compressed RUF wood",
+                                 "de":  "Hochdruck-verdichtetes RUF-Holz",
+                                 "nl":  "Hogedruk geperst RUF-hout"
+                             },
+        "image_product":  "/assets/images/products/briquettes-ruf-product.jpg",
+        "image_packaging":  "/assets/images/products/briquettes-ruf-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16,
+        "humidity_bucket":  {
+                                "fr":  "6 à 8 %",
+                                "en":  "6 to 8%",
+                                "de":  "6 bis 8%",
+                                "nl":  "6 tot 8%"
+                            },
+        "packaging":  {
+                          "fr":  "96 unités par palette",
+                          "en":  "96 units per pallet",
+                          "de":  "96 Einheiten pro Palette",
+                          "nl":  "96 stuks per pallet"
+                      }
+    },
+    {
+        "id":  "briquettes-ecorce",
+        "subgroup_id":  3,
+        "subgroup_name":  "Briquettes",
+        "name":  {
+                     "fr":  "Briquettes d\u0027écorce",
+                     "en":  "Bark Briquettes",
+                     "de":  "Rindenbriketts",
+                     "nl":  "Schorsbriketten"
+                 },
+        "format":  "Rectangulaire écorce",
+        "unit_weight":  "10 kg",
+        "units_per_palette":  100,
+        "palette_weight":  "1000 kg",
+        "wholesale_price":  165,
+        "recommended_price":  245,
+        "positioning":  {
+                            "fr":  "Très bon prix",
+                            "en":  "Excellent value",
+                            "de":  "Sehr guter Preis",
+                            "nl":  "Zeer goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "100% Écorces naturelles compressées",
+                                 "en":  "100% compressed natural bark",
+                                 "de":  "100% verdichtete Naturrinde",
+                                 "nl":  "100% geperste natuurlijke schors"
+                             },
+        "image_product":  "/assets/images/products/briquettes-ecorce-product.jpg",
+        "image_packaging":  "/assets/images/products/briquettes-ecorce-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16,
+        "humidity_bucket":  {
+                                "fr":  "12 %",
+                                "en":  "12%",
+                                "de":  "12%",
+                                "nl":  "12%"
+                            },
+        "packaging":  {
+                          "fr":  "100 unités par palette",
+                          "en":  "100 units per pallet",
+                          "de":  "100 Einheiten pro Palette",
+                          "nl":  "100 stuks per pallet"
+                      }
+    },
+    {
+        "id":  "granules-pellets-premium",
+        "subgroup_id":  4,
+        "subgroup_name":  "Granulés / Pellets",
+        "name":  {
+                     "fr":  "Granulés / Pellets Premium",
+                     "en":  "Premium Wood Pellets",
+                     "de":  "Premium-Holzpellets",
+                     "nl":  "Premium Houtpellets"
+                 },
+        "format":  "Granulés 6mm DINplus / ENplus A1",
+        "unit_weight":  "15 kg",
+        "units_per_palette":  66,
+        "palette_weight":  "990 kg",
+        "wholesale_price":  154.17,
+        "recommended_price":  230,
+        "positioning":  {
+                            "fr":  "Très bon prix",
+                            "en":  "Excellent value",
+                            "de":  "Sehr guter Preis",
+                            "nl":  "Zeer goede prijs"
+                        },
+        "species_material":  {
+                                 "fr":  "100% Résineux dépoussiéré",
+                                 "en":  "100% dedusted softwood",
+                                 "de":  "100% entstaubtes Nadelholz",
+                                 "nl":  "100% ontstoft naaldhout"
+                             },
+        "image_product":  "/assets/images/products/granules-pellets-premium-product.jpg",
+        "image_packaging":  "/assets/images/products/granules-pellets-premium-packaging.jpg",
+        "humidity_bucket":  "\u003c 8 %",
+        "available":  true,
+        "volume_m3":  2.16,
+        "packaging":  {
+                          "fr":  "66 sacs de 15 kg chacun",
+                          "en":  "66 bags of 15 kg each",
+                          "de":  "66 Säcke à 15 kg",
+                          "nl":  "66 zakken van 15 kg elk"
+                      }
+    },
+    {
+        "id":  "charbon-bois-morceaux",
+        "subgroup_id":  5,
+        "subgroup_name":  "Charbon / Allume-feu / Bûches de torche",
+        "name":  {
+                     "fr":  "Charbon de bois en morceaux",
+                     "en":  "Lump Wood Charcoal",
+                     "de":  "Holzkohle (stückig)",
+                     "nl":  "Houtskool (in stukken)"
+                 },
+        "format":  "Gros morceaux qualité restaurant",
+        "unit_weight":  "10 kg",
+        "units_per_palette":  80,
+        "palette_weight":  "800 kg",
+        "wholesale_price":  166.67,
+        "recommended_price":  212.5,
+        "positioning":  {
+                            "fr":  "Bon prix – sous marché",
+                            "en":  "Great value – below market",
+                            "de":  "Guter Preis – unter Marktniveau",
+                            "nl":  "Goede prijs – onder marktniveau"
+                        },
+        "species_material":  {
+                                 "fr":  "Charbon de bois dépoussiéré",
+                                 "en":  "Dedusted lump charcoal",
+                                 "de":  "Entstaubte Holzkohle",
+                                 "nl":  "Ontstofte houtskool"
+                             },
+        "image_product":  "/assets/images/products/charbon-bois-morceaux-product.jpg",
+        "image_packaging":  "/assets/images/products/charbon-bois-morceaux-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16,
+        "humidity_bucket":  {
+                                "fr":  "Inférieur à 8 %",
+                                "en":  "Under 8%",
+                                "de":  "Unter 8 %",
+                                "nl":  "Minder dan 8 %"
+                            },
+        "packaging":  {
+                          "fr":  "2 grands sacs de 400 kg par palette",
+                          "en":  "2 big bags of 400 kg per pallet",
+                          "de":  "2 Big Bags à 400 kg pro Palette",
+                          "nl":  "2 big bags van 400 kg per pallet"
+                      }
+    },
+    {
+        "id":  "allume-feu-laine-bois",
+        "subgroup_id":  5,
+        "subgroup_name":  "Charbon / Allume-feu / Bûches de torche",
+        "name":  {
+                     "fr":  "Allume-feu en laine de bois",
+                     "en":  "Wood Wool Firelighters",
+                     "de":  "Anzünder aus Holzwolle",
+                     "nl":  "Aanmaakblokjes van houtwol"
+                 },
+        "format":  "Rouleaux laine de bois",
+        "unit_weight":  "5 kg",
+        "units_per_palette":  60,
+        "palette_weight":  "600 kg",
+        "wholesale_price":  150,
+        "recommended_price":  225,
+        "positioning":  {
+                            "fr":  "Bon prix – sous marché",
+                            "en":  "Great value – below market",
+                            "de":  "Guter Preis – unter Marktniveau",
+                            "nl":  "Goede prijs – onder marktniveau"
+                        },
+        "species_material":  {
+                                 "fr":  "Fibre de bois \u0026 cire végétale",
+                                 "en":  "Wood fibre \u0026 plant wax",
+                                 "de":  "Holzfaser \u0026 Pflanzenwachs",
+                                 "nl":  "Houtvezel \u0026 plantaardige was"
+                             },
+        "image_product":  "/assets/images/products/allume-feu-laine-bois-product.jpg",
+        "image_packaging":  "/assets/images/products/allume-feu-laine-bois-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16,
+        "packaging":  {
+                          "fr":  "60 cartons",
+                          "en":  "60 boxes",
+                          "de":  "60 Kartons",
+                          "nl":  "60 dozen"
+                      }
+    },
+    {
+        "id":  "buches-torche-suedoise",
+        "subgroup_id":  5,
+        "subgroup_name":  "Charbon / Allume-feu / Bûches de torche",
+        "name":  {
+                     "fr":  "Bûches de torche suédoise",
+                     "en":  "Swedish Torch Log",
+                     "de":  "Schwedenfackel",
+                     "nl":  "Zweedse Fakkel"
+                 },
+        "format":  "Bûche fendue avec mèche intégrée",
+        "unit_weight":  "5 kg",
+        "units_per_palette":  160,
+        "palette_weight":  "800 kg",
+        "wholesale_price":  186.67,
+        "recommended_price":  280,
+        "positioning":  {
+                            "fr":  "Bon prix – sous marché",
+                            "en":  "Great value – below market",
+                            "de":  "Guter Preis – unter Marktniveau",
+                            "nl":  "Goede prijs – onder marktniveau"
+                        },
+        "species_material":  {
+                                 "fr":  "Bois naturel résineux",
+                                 "en":  "Natural softwood",
+                                 "de":  "Naturbelassenes Nadelholz",
+                                 "nl":  "Natuurlijk naaldhout"
+                             },
+        "image_product":  "/assets/images/products/buches-torche-suedoise-product.jpg",
+        "image_packaging":  "/assets/images/products/buches-torche-suedoise-packaging.jpg",
+        "available":  true,
+        "volume_m3":  2.16,
+        "packaging":  {
+                          "fr":  "160 pièces par palette",
+                          "en":  "160 pieces per pallet",
+                          "de":  "160 Stück pro Palette",
+                          "nl":  "160 stuks per pallet"
+                      },
+        "height":  "25 cm",
+        "diameter":  {
+                         "fr":  "environ 15 cm",
+                         "en":  "approx. 15 cm",
+                         "de":  "ca. 15 cm",
+                         "nl":  "ongeveer 15 cm"
+                     }
     }
-  },
-  {
-    "id": "hetre-demi-sec",
-    "subgroup_id": 1,
-    "subgroup_name": "Bûches de bois",
-    "name": {
-      "fr": "Hêtre demi-sec",
-      "en": "Semi-Dried Beech Firewood",
-      "de": "Buchenholz, halbtrocken",
-      "nl": "Beukenhout, halfdroog"
-    },
-    "format": "20 / 30 / 33 / 40 / 50 cm",
-    "unit_weight": "25 kg",
-    "units_per_palette": 40,
-    "palette_weight": "1000 kg",
-    "positioning": {
-      "fr": "Très bon prix",
-      "en": "Excellent value",
-      "de": "Sehr guter Preis",
-      "nl": "Zeer goede prijs"
-    },
-    "species_material": {
-      "fr": "Hêtre demi-sec",
-      "en": "Semi-dried beech",
-      "de": "Halbtrockene Buche",
-      "nl": "Halfdroog beukenhout"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/hetre-demi-sec-product.jpg",
-    "image_packaging": "/assets/images/products/hetre-demi-sec-packaging.jpg",
-    "humidity_bucket": "20-25%",
-    "available": true,
-    "volume_m3": 2.16,
-    "prices_by_length": {
-      "20": 250,
-      "30": 240,
-      "33": 230,
-      "40": 220,
-      "50": 210
-    }
-  },
-  {
-    "id": "chene-etuve",
-    "subgroup_id": 1,
-    "subgroup_name": "Bûches de bois",
-    "name": {
-      "fr": "Chêne étuvé / séché au four",
-      "en": "Kiln-Dried Oak Firewood",
-      "de": "Eichenholz, ofengetrocknet",
-      "nl": "Eikenhout, ovengedroogd"
-    },
-    "format": "20 / 30 / 33 / 40 / 50 cm",
-    "unit_weight": "25 kg",
-    "units_per_palette": 40,
-    "palette_weight": "1000 kg",
-    "positioning": {
-      "fr": "Bon prix – sous marché",
-      "en": "Great value – below market",
-      "de": "Guter Preis – unter Marktniveau",
-      "nl": "Goede prijs – onder marktniveau"
-    },
-    "species_material": {
-      "fr": "Chêne séché au four (< 20% humidité)",
-      "en": "Kiln-dried oak (< 20% moisture)",
-      "de": "Ofengetrocknete Eiche (< 20% Feuchtigkeit)",
-      "nl": "Ovengedroogd eikenhout (< 20% vocht)"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/chene-etuve-product.jpg",
-    "image_packaging": "/assets/images/products/chene-etuve-packaging.jpg",
-    "humidity_bucket": "<20%",
-    "available": true,
-    "volume_m3": 2.16,
-    "prices_by_length": {
-      "20": 310,
-      "30": 300,
-      "33": 290,
-      "40": 275,
-      "50": 260
-    }
-  },
-  {
-    "id": "chene-sec-air",
-    "subgroup_id": 1,
-    "subgroup_name": "Bûches de bois",
-    "name": {
-      "fr": "Chêne sec à l'air",
-      "en": "Air-Dried Oak Firewood",
-      "de": "Eichenholz, lufttrocken",
-      "nl": "Eikenhout, luchtgedroogd"
-    },
-    "format": "20 / 30 / 33 / 40 / 50 cm",
-    "unit_weight": "25 kg",
-    "units_per_palette": 40,
-    "palette_weight": "1000 kg",
-    "positioning": {
-      "fr": "Bon prix",
-      "en": "Good value",
-      "de": "Guter Preis",
-      "nl": "Goede prijs"
-    },
-    "species_material": {
-      "fr": "Chêne séché à l'air libre",
-      "en": "Air-dried oak",
-      "de": "Lufttrocken gelagerte Eiche",
-      "nl": "Luchtgedroogd eikenhout"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/chene-sec-air-product.jpg",
-    "image_packaging": "/assets/images/products/chene-sec-air-packaging.jpg",
-    "humidity_bucket": "non spécifié",
-    "available": true,
-    "volume_m3": 2.16,
-    "prices_by_length": {
-      "20": 280,
-      "30": 270,
-      "33": 260,
-      "40": 245,
-      "50": 230
-    }
-  },
-  {
-    "id": "melange-essences",
-    "subgroup_id": 1,
-    "subgroup_name": "Bûches de bois",
-    "name": {
-      "fr": "Mélange d'essences séché au four",
-      "en": "Kiln-Dried Mixed Hardwood Firewood",
-      "de": "Laubholzmischung, ofengetrocknet",
-      "nl": "Gemengd hardhout, ovengedroogd"
-    },
-    "format": "20 / 30 / 33 / 40 / 50 cm",
-    "unit_weight": "25 kg",
-    "units_per_palette": 40,
-    "palette_weight": "1000 kg",
-    "positioning": {
-      "fr": "Très bon prix",
-      "en": "Excellent value",
-      "de": "Sehr guter Preis",
-      "nl": "Zeer goede prijs"
-    },
-    "species_material": {
-      "fr": "Mélange d'essences feuillues dures",
-      "en": "Blend of hardwood species",
-      "de": "Mischung aus Harthölzern",
-      "nl": "Mix van hardhoutsoorten"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/melange-essences-product.jpg",
-    "image_packaging": "/assets/images/products/melange-essences-packaging.jpg",
-    "humidity_bucket": "<20%",
-    "available": true,
-    "volume_m3": 2.16,
-    "prices_by_length": {
-      "20": 290,
-      "30": 280,
-      "33": 270,
-      "40": 255,
-      "50": 240
-    }
-  },
-  {
-    "id": "jour-premium-cylindrique",
-    "subgroup_id": 2,
-    "subgroup_name": "Bûches compressées / briquettes de bois",
-    "name": {
-      "fr": "JOUR PREMIUM – Cylindrique",
-      "en": "DAY PREMIUM – Cylindrical Briquette",
-      "de": "TAG PREMIUM – Zylindrisch",
-      "nl": "DAG PREMIUM – Cilindrisch"
-    },
-    "format": "Cylindrique",
-    "unit_weight": "10 kg",
-    "units_per_palette": 100,
-    "palette_weight": "1000 kg",
-    "wholesale_price": 374.17,
-    "recommended_price": 416.67,
-    "positioning": {
-      "fr": "Très bon prix",
-      "en": "Excellent value",
-      "de": "Sehr guter Preis",
-      "nl": "Zeer goede prijs"
-    },
-    "species_material": {
-      "fr": "Bois densifié résineux & feuillus",
-      "en": "Compressed softwood & hardwood",
-      "de": "Verdichtetes Nadel- und Laubholz",
-      "nl": "Geperst naald- en loofhout"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/jour-premium-cylindrique-product.jpg",
-    "image_packaging": "/assets/images/products/jour-premium-cylindrique-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "nuit-longue-duree",
-    "subgroup_id": 2,
-    "subgroup_name": "Bûches compressées / briquettes de bois",
-    "name": {
-      "fr": "NUIT – Longue Durée (Compressée)",
-      "en": "NIGHT – Long-Burning Compressed Log",
-      "de": "NACHT – Langbrenner (Presslinge)",
-      "nl": "NACHT – Langbrandend (Geperst)"
-    },
-    "format": "Cylindrique écorce",
-    "unit_weight": "10 kg",
-    "units_per_palette": 100,
-    "palette_weight": "1000 kg",
-    "wholesale_price": 365.83,
-    "recommended_price": 412.5,
-    "positioning": {
-      "fr": "Très bon prix",
-      "en": "Excellent value",
-      "de": "Sehr guter Preis",
-      "nl": "Zeer goede prijs"
-    },
-    "species_material": {
-      "fr": "Écorces bois densifiées",
-      "en": "Compressed wood bark",
-      "de": "Verdichtete Holzrinde",
-      "nl": "Geperste houtschors"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/nuit-longue-duree-product.jpg",
-    "image_packaging": "/assets/images/products/nuit-longue-duree-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "jour-forte-chaleur-cubique",
-    "subgroup_id": 2,
-    "subgroup_name": "Bûches compressées / briquettes de bois",
-    "name": {
-      "fr": "JOUR FORTE CHALEUR – Cubique",
-      "en": "DAY HIGH HEAT – Cubic Briquette",
-      "de": "TAG HOCHHITZE – Würfelform",
-      "nl": "DAG HOGE HITTE – Kubusvorm"
-    },
-    "format": "Cubique",
-    "unit_weight": "10 kg",
-    "units_per_palette": 100,
-    "palette_weight": "1000 kg",
-    "wholesale_price": 374.17,
-    "recommended_price": 420.83,
-    "positioning": {
-      "fr": "Très bon prix",
-      "en": "Excellent value",
-      "de": "Sehr guter Preis",
-      "nl": "Zeer goede prijs"
-    },
-    "species_material": {
-      "fr": "100% Bois dur compressé",
-      "en": "100% compressed hardwood",
-      "de": "100% verdichtetes Hartholz",
-      "nl": "100% geperst hardhout"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/jour-forte-chaleur-cubique-product.jpg",
-    "image_packaging": "/assets/images/products/jour-forte-chaleur-cubique-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "pini-kay-compressbee",
-    "subgroup_id": 2,
-    "subgroup_name": "Bûches compressées / briquettes de bois",
-    "name": {
-      "fr": "Pini Kay (Compressée premium)",
-      "en": "Pini Kay Premium Compressed Briquette",
-      "de": "Pini Kay Premium-Presslinge",
-      "nl": "Pini Kay Premium Perslog"
-    },
-    "format": "Octogonal extrudé",
-    "unit_weight": "10 kg",
-    "units_per_palette": 100,
-    "palette_weight": "1000 kg",
-    "wholesale_price": 399.17,
-    "recommended_price": 437.5,
-    "positioning": {
-      "fr": "Bon prix – sous marché",
-      "en": "Great value – below market",
-      "de": "Guter Preis – unter Marktniveau",
-      "nl": "Goede prijs – onder marktniveau"
-    },
-    "species_material": {
-      "fr": "Bois chêne/hêtre extrudé Pini-Kay",
-      "en": "Extruded oak/beech Pini-Kay wood",
-      "de": "Extrudiertes Eichen-/Buchenholz Pini-Kay",
-      "nl": "Geëxtrudeerd eiken-/beukenhout Pini-Kay"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/pini-kay-compressbee-product.jpg",
-    "image_packaging": "/assets/images/products/pini-kay-compressbee-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "jour-eco-cylindrique",
-    "subgroup_id": 2,
-    "subgroup_name": "Bûches compressées / briquettes de bois",
-    "name": {
-      "fr": "JOUR ECO – Cylindrique",
-      "en": "DAY ECO – Cylindrical Briquette",
-      "de": "TAG ECO – Zylindrisch",
-      "nl": "DAG ECO – Cilindrisch"
-    },
-    "format": "Cylindrique standard",
-    "unit_weight": "10 kg",
-    "units_per_palette": 100,
-    "palette_weight": "1000 kg",
-    "wholesale_price": 290.83,
-    "recommended_price": 312.5,
-    "positioning": {
-      "fr": "Très bon prix",
-      "en": "Excellent value",
-      "de": "Sehr guter Preis",
-      "nl": "Zeer goede prijs"
-    },
-    "species_material": {
-      "fr": "Mélange copeaux & sciures compressés",
-      "en": "Compressed wood shavings & sawdust blend",
-      "de": "Mischung aus verdichteten Holzspänen und Sägemehl",
-      "nl": "Mix van geperste houtkrullen en zaagsel"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/jour-eco-cylindrique-product.jpg",
-    "image_packaging": "/assets/images/products/jour-eco-cylindrique-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "briquettes-ruf",
-    "subgroup_id": 3,
-    "subgroup_name": "Briquettes",
-    "name": {
-      "fr": "Briquettes RUF",
-      "en": "RUF Briquettes",
-      "de": "RUF-Briketts",
-      "nl": "RUF-Briketten"
-    },
-    "format": "Pâté rectangulaire RUF",
-    "unit_weight": "10 kg",
-    "units_per_palette": 96,
-    "palette_weight": "960 kg",
-    "wholesale_price": 282.5,
-    "recommended_price": 333.33,
-    "positioning": {
-      "fr": "Très bon prix",
-      "en": "Excellent value",
-      "de": "Sehr guter Preis",
-      "nl": "Zeer goede prijs"
-    },
-    "species_material": {
-      "fr": "Bois compressé haute pression RUF",
-      "en": "High-pressure compressed RUF wood",
-      "de": "Hochdruck-verdichtetes RUF-Holz",
-      "nl": "Hogedruk geperst RUF-hout"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/briquettes-ruf-product.jpg",
-    "image_packaging": "/assets/images/products/briquettes-ruf-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "briquettes-ecorce",
-    "subgroup_id": 3,
-    "subgroup_name": "Briquettes",
-    "name": {
-      "fr": "Briquettes d'écorce",
-      "en": "Bark Briquettes",
-      "de": "Rindenbriketts",
-      "nl": "Schorsbriketten"
-    },
-    "format": "Rectangulaire écorce",
-    "unit_weight": "10 kg",
-    "units_per_palette": 100,
-    "palette_weight": "1000 kg",
-    "wholesale_price": 290.83,
-    "recommended_price": 333.33,
-    "positioning": {
-      "fr": "Très bon prix",
-      "en": "Excellent value",
-      "de": "Sehr guter Preis",
-      "nl": "Zeer goede prijs"
-    },
-    "species_material": {
-      "fr": "100% Écorces naturelles compressées",
-      "en": "100% compressed natural bark",
-      "de": "100% verdichtete Naturrinde",
-      "nl": "100% geperste natuurlijke schors"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/briquettes-ecorce-product.jpg",
-    "image_packaging": "/assets/images/products/briquettes-ecorce-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "granules-pellets-premium",
-    "subgroup_id": 4,
-    "subgroup_name": "Granulés / Pellets",
-    "name": {
-      "fr": "Granulés / Pellets Premium",
-      "en": "Premium Wood Pellets",
-      "de": "Premium-Holzpellets",
-      "nl": "Premium Houtpellets"
-    },
-    "format": "Granulés 6mm DINplus / ENplus A1",
-    "unit_weight": "15 kg",
-    "units_per_palette": 66,
-    "palette_weight": "990 kg",
-    "wholesale_price": 287.5,
-    "recommended_price": 295.83,
-    "positioning": {
-      "fr": "Très bon prix",
-      "en": "Excellent value",
-      "de": "Sehr guter Preis",
-      "nl": "Zeer goede prijs"
-    },
-    "species_material": {
-      "fr": "100% Résineux dépoussiéré",
-      "en": "100% dedusted softwood",
-      "de": "100% entstaubtes Nadelholz",
-      "nl": "100% ontstoft naaldhout"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/granules-pellets-premium-product.jpg",
-    "image_packaging": "/assets/images/products/granules-pellets-premium-packaging.jpg",
-    "humidity_bucket": "< 8 %",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "charbon-bois-morceaux",
-    "subgroup_id": 5,
-    "subgroup_name": "Charbon / Allume-feu / Bûches de torche",
-    "name": {
-      "fr": "Charbon de bois en morceaux",
-      "en": "Lump Wood Charcoal",
-      "de": "Holzkohle (stückig)",
-      "nl": "Houtskool (in stukken)"
-    },
-    "format": "Gros morceaux qualité restaurant",
-    "unit_weight": "10 kg",
-    "units_per_palette": 80,
-    "palette_weight": "800 kg",
-    "wholesale_price": 457.5,
-    "recommended_price": 583.33,
-    "positioning": {
-      "fr": "Bon prix – sous marché",
-      "en": "Great value – below market",
-      "de": "Guter Preis – unter Marktniveau",
-      "nl": "Goede prijs – onder marktniveau"
-    },
-    "species_material": {
-      "fr": "Charbon de bois dépoussiéré",
-      "en": "Dedusted lump charcoal",
-      "de": "Entstaubte Holzkohle",
-      "nl": "Ontstofte houtskool"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/charbon-bois-morceaux-product.jpg",
-    "image_packaging": "/assets/images/products/charbon-bois-morceaux-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "allume-feu-laine-bois",
-    "subgroup_id": 5,
-    "subgroup_name": "Charbon / Allume-feu / Bûches de torche",
-    "name": {
-      "fr": "Allume-feu en laine de bois",
-      "en": "Wood Wool Firelighters",
-      "de": "Anzünder aus Holzwolle",
-      "nl": "Aanmaakblokjes van houtwol"
-    },
-    "format": "Rouleaux laine de bois",
-    "unit_weight": "5 kg",
-    "units_per_palette": 120,
-    "palette_weight": "600 kg",
-    "wholesale_price": 357.5,
-    "recommended_price": 416.67,
-    "positioning": {
-      "fr": "Bon prix – sous marché",
-      "en": "Great value – below market",
-      "de": "Guter Preis – unter Marktniveau",
-      "nl": "Goede prijs – onder marktniveau"
-    },
-    "species_material": {
-      "fr": "Fibre de bois & cire végétale",
-      "en": "Wood fibre & plant wax",
-      "de": "Holzfaser & Pflanzenwachs",
-      "nl": "Houtvezel & plantaardige was"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/allume-feu-laine-bois-product.jpg",
-    "image_packaging": "/assets/images/products/allume-feu-laine-bois-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  },
-  {
-    "id": "buches-torche-suedoise",
-    "subgroup_id": 5,
-    "subgroup_name": "Charbon / Allume-feu / Bûches de torche",
-    "name": {
-      "fr": "Bûches de torche suédoise",
-      "en": "Swedish Torch Log",
-      "de": "Schwedenfackel",
-      "nl": "Zweedse Fakkel"
-    },
-    "format": "Bûche fendue avec mèche intégrée",
-    "unit_weight": "5 kg",
-    "units_per_palette": 160,
-    "palette_weight": "800 kg",
-    "wholesale_price": 499.17,
-    "recommended_price": 666.67,
-    "positioning": {
-      "fr": "Bon prix – sous marché",
-      "en": "Great value – below market",
-      "de": "Guter Preis – unter Marktniveau",
-      "nl": "Goede prijs – onder marktniveau"
-    },
-    "species_material": {
-      "fr": "Bois naturel résineux",
-      "en": "Natural softwood",
-      "de": "Naturbelassenes Nadelholz",
-      "nl": "Natuurlijk naaldhout"
-    },
-    "origin": "À préciser",
-    "image_product": "/assets/images/products/buches-torche-suedoise-product.jpg",
-    "image_packaging": "/assets/images/products/buches-torche-suedoise-packaging.jpg",
-    "available": true,
-    "volume_m3": 2.16
-  }
 ]

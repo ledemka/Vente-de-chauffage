@@ -164,7 +164,7 @@ buildProducts(BUILD_ID);
 console.log(`\n=== GENERATING MERCHANT FEEDS ===`);
 try {
   const { execSync } = require("child_process");
-  execSync("node scripts/generate-merchant-feed.js", {
+  execSync(`"${process.execPath}" scripts/generate-merchant-feed.js`, {
     stdio: "inherit",
     cwd: ROOT_DIR,
   });

@@ -94,8 +94,6 @@ function buildNewCatalogueScript(lang) {
                             // DOM Elements
                             const container = document.getElementById('catalog-container');
                             const categoryInputs = document.querySelectorAll('.filter-category');
-                            const humiditySlider = document.getElementById('humidity-slider');
-                            const moistureSection = document.getElementById('moisture-filter-section');
                             const resetButton = document.getElementById('reset-filters');
 
                             // -------------------------------------------------------
@@ -301,22 +299,9 @@ function buildNewCatalogueScript(lang) {
                                 const checkedBoxes = Array.from(categoryInputs).filter(input => input.checked);
                                 const selectedSubgroupIds = checkedBoxes.map(input => parseInt(input.dataset.subgroup));
 
-                                const isBucheVisible = selectedSubgroupIds.length === 0 || selectedSubgroupIds.includes(1);
-                                if (isBucheVisible) {
-                                    moistureSection.classList.remove('hidden');
-                                } else {
-                                    moistureSection.classList.add('hidden');
-                                }
-
                                 const filtered = allProducts.filter(p => {
                                     if (selectedSubgroupIds.length > 0 && !selectedSubgroupIds.includes(p.subgroup_id)) {
                                         return false;
-                                    }
-                                    if (p.subgroup_id === 1 && p.humidity_bucket) {
-                                        const hVal = parseInt(humiditySlider.value);
-                                        if (hVal === 1 && p.humidity_bucket !== '<20%') return false;
-                                        if (hVal === 2 && p.humidity_bucket !== '20-25%') return false;
-                                        if (hVal === 3 && p.humidity_bucket !== 'non spécifié') return false;
                                     }
                                     return true;
                                 });
@@ -329,12 +314,9 @@ function buildNewCatalogueScript(lang) {
                                 input.addEventListener('change', applyFilters);
                             });
 
-                            humiditySlider.addEventListener('input', applyFilters);
-
                             resetButton.addEventListener('click', () => {
                                 categoryInputs.forEach(input => input.checked = false);
                                 selectedFormat = '';
-                                humiditySlider.value = 0;
                                 applyFilters();
                             });
 

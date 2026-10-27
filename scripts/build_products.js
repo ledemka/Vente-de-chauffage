@@ -338,21 +338,167 @@ function buildProducts(buildId) {
 
       // HTML Static Hydration (pre-rendering for SEO without noscript)
       $("#product-ref").text(`Ref: ${product.id.toUpperCase()}-PAL`);
-      const displayHumidity = product.humidity_bucket || "Non communiqué";
-      $("#product-desc").text(`${species} - Humidité: ${displayHumidity}`);
+      const rawHumidity = getProductField(product, "humidity_bucket", lang) || product.humidity_bucket;
+      const hasHumidity = Boolean(rawHumidity && product.id !== 'allume-feu-laine-bois');
+      const displayHumidity = rawHumidity || "Non communiqué";
+
+      if (product.id === 'nuit-longue-duree') {
+        $("#product-desc").text('Écorces bois densifiées');
+      } else if (product.id === 'pini-kay-compressbee') {
+        $("#product-desc").text('Bois chêne/hêtre extrudé Pini-Kay');
+      } else if (product.id === 'briquettes-ruf' || product.id === 'briquettes-ecorce' || product.id === 'jour-premium-cylindrique' || product.id === 'jour-forte-chaleur-cubique') {
+        $("#product-desc").text(species);
+      } else if (hasHumidity) {
+        $("#product-desc").text(`${species} - Humidité: ${displayHumidity}`);
+      } else {
+        $("#product-desc").text(species);
+      }
+
       $("#product-stock").text("En Stock");
-      $("#spec-essence").text(species);
-      $("#spec-longueur").text(format);
-      $("#spec-humidite").text(displayHumidity);
-      $("#spec-origine").text(product.origin || "À préciser");
+      $("#spec-essence").removeAttr("data-i18n").text(species);
+      if (product.id === 'pini-kay-compressbee') {
+        const lengthValues = { fr: 'environ 20 à 25 cm', en: 'approx. 20 to 25 cm', de: 'ca. 20 bis 25 cm', nl: 'ongeveer 20 tot 25 cm' };
+        $("#spec-longueur").removeAttr("data-i18n").text(lengthValues[lang] || 'environ 20 à 25 cm');
+      } else if (product.id === 'jour-forte-chaleur-cubique') {
+        const lengthValues = { fr: '15 à 16 cm (indicative)', en: '15 to 16 cm (indicative)', de: '15 bis 16 cm (Richtwert)', nl: '15 tot 16 cm (indicatief)' };
+        $("#spec-longueur").removeAttr("data-i18n").text(lengthValues[lang] || '15 à 16 cm (indicative)');
+      } else if (product.id === 'jour-premium-cylindrique') {
+        const lengthValues = { fr: 'de 20 à 30 cm', en: '20 to 30 cm', de: '20 bis 30 cm', nl: '20 tot 30 cm' };
+        $("#spec-longueur").removeAttr("data-i18n").text(lengthValues[lang] || 'de 20 à 30 cm');
+      } else {
+        $("#spec-longueur").removeAttr("data-i18n").text(format);
+      }
+
+      if (product.id === 'pini-kay-compressbee') {
+        const shapeLabels = { fr: 'FORME', en: 'SHAPE', de: 'FORM', nl: 'VORM' };
+        const shapeValues = { fr: 'Octogonale (Pini Kay)', en: 'Octagonal (Pini Kay)', de: 'Achteckig (Pini Kay)', nl: 'Achthoekig (Pini Kay)' };
+        const diameterLabels = { fr: 'DIAMÈTRE', en: 'DIAMETER', de: 'DURCHMESSER', nl: 'DIAMETER' };
+        const diameterValues = { fr: '6 à 7 cm', en: '6 to 7 cm', de: '6 bis 7 cm', nl: '6 tot 7 cm' };
+
+        const sLabel = shapeLabels[lang] || 'FORME';
+        const sVal = shapeValues[lang] || 'Octogonale (Pini Kay)';
+        const dLabel = diameterLabels[lang] || 'DIAMÈTRE';
+        const dVal = diameterValues[lang] || '6 à 7 cm';
+
+        const rowForme = `
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-forme">
+<span class="text-label-md font-label-md text-on-surface-variant">${sLabel}</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-forme">${sVal}</span>
+</div>`;
+
+        const rowDiametre = `
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-diametre">
+<span class="text-label-md font-label-md text-on-surface-variant">${dLabel}</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">${dVal}</span>
+</div>`;
+
+        $("#spec-row-essence").after(rowForme);
+        $("#spec-row-longueur").before(rowDiametre);
+        $("#spec-humidite").removeAttr("data-i18n").text(displayHumidity);
+        $("#spec-row-conditionnement").removeClass("md:col-span-2");
+      } else if (product.id === 'jour-forte-chaleur-cubique') {
+        const shapeLabels = { fr: 'FORME', en: 'SHAPE', de: 'FORM', nl: 'VORM' };
+        const shapeValues = { fr: 'Cubique', en: 'Cubic', de: 'Würfelform', nl: 'Kubusvorm' };
+        const widthLabels = { fr: 'LARGEUR', en: 'WIDTH', de: 'BREITE', nl: 'BREEDTE' };
+        const widthValues = { fr: '6,5 cm', en: '6.5 cm', de: '6,5 cm', nl: '6,5 cm' };
+        const heightLabels = { fr: 'HAUTEUR', en: 'HEIGHT', de: 'HÖHE', nl: 'HOOGTE' };
+        const heightValues = { fr: '9,5 cm', en: '9.5 cm', de: '9,5 cm', nl: '9,5 cm' };
+
+        const sLabel = shapeLabels[lang] || 'FORME';
+        const sVal = shapeValues[lang] || 'Cubique';
+        const wLabel = widthLabels[lang] || 'LARGEUR';
+        const wVal = widthValues[lang] || '6,5 cm';
+        const hLabel = heightLabels[lang] || 'HAUTEUR';
+        const hVal = heightValues[lang] || '9,5 cm';
+
+        const rowForme = `
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-forme">
+<span class="text-label-md font-label-md text-on-surface-variant">${sLabel}</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-forme">${sVal}</span>
+</div>`;
+
+        const rowLargeur = `
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-largeur">
+<span class="text-label-md font-label-md text-on-surface-variant">${wLabel}</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-largeur">${wVal}</span>
+</div>`;
+
+        const rowHauteur = `
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-hauteur">
+<span class="text-label-md font-label-md text-on-surface-variant">${hLabel}</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-hauteur">${hVal}</span>
+</div>`;
+
+        $("#spec-row-essence").after(rowForme);
+        $("#spec-row-longueur").after(rowLargeur);
+        $("#spec-row-humidite").before(rowHauteur);
+        $("#spec-humidite").removeAttr("data-i18n").text(displayHumidity);
+        $("#spec-row-conditionnement").addClass("md:col-span-2");
+      } else if (product.id === 'jour-premium-cylindrique') {
+        const shapeLabels = { fr: 'FORME', en: 'SHAPE', de: 'FORM', nl: 'VORM' };
+        const shapeValues = { fr: 'Cylindrique', en: 'Cylindrical', de: 'Zylindrisch', nl: 'Cilindrisch' };
+        const diameterLabels = { fr: 'DIAMÈTRE', en: 'DIAMETER', de: 'DURCHMESSER', nl: 'DIAMETER' };
+        const diameterValues = { fr: 'de 6 à 10 cm', en: '6 to 10 cm', de: '6 bis 10 cm', nl: '6 tot 10 cm' };
+
+        const sLabel = shapeLabels[lang] || 'FORME';
+        const sVal = shapeValues[lang] || 'Cylindrique';
+        const dLabel = diameterLabels[lang] || 'DIAMÈTRE';
+        const dVal = diameterValues[lang] || 'de 6 à 10 cm';
+
+        const rowForme = `
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-forme">
+<span class="text-label-md font-label-md text-on-surface-variant">${sLabel}</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-forme">${sVal}</span>
+</div>`;
+
+        const rowDiametre = `
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-diametre">
+<span class="text-label-md font-label-md text-on-surface-variant">${dLabel}</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">${dVal}</span>
+</div>`;
+
+        $("#spec-row-essence").after(rowForme);
+        $("#spec-row-longueur").before(rowDiametre);
+        $("#spec-humidite").removeAttr("data-i18n").text(displayHumidity);
+        $("#spec-row-conditionnement").removeClass("md:col-span-2");
+      } else if (product.id === 'buches-torche-suedoise') {
+        const heightLabels = { fr: 'HAUTEUR', en: 'HEIGHT', de: 'HÖHE', nl: 'HOOGTE' };
+        const diameterLabels = { fr: 'DIAMÈTRE', en: 'DIAMETER', de: 'DURCHMESSER', nl: 'DIAMETER' };
+        const heightValues = { fr: '25 cm', en: '25 cm', de: '25 cm', nl: '25 cm' };
+        const diameterValues = { fr: 'environ 15 cm', en: 'approx. 15 cm', de: 'ca. 15 cm', nl: 'ongeveer 15 cm' };
+
+        const hLabel = heightLabels[lang] || 'HAUTEUR';
+        const dLabel = diameterLabels[lang] || 'DIAMÈTRE';
+        const hVal = heightValues[lang] || '25 cm';
+        const dVal = diameterValues[lang] || 'environ 15 cm';
+
+        const rowHauteur = `
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-hauteur">
+<span class="text-label-md font-label-md text-on-surface-variant">${hLabel}</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-hauteur">${hVal}</span>
+</div>`;
+
+        const rowDiametre = `
+<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-diametre">
+<span class="text-label-md font-label-md text-on-surface-variant">${dLabel}</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">${dVal}</span>
+</div>`;
+
+        $("#spec-row-humidite").replaceWith(rowHauteur + rowDiametre);
+        $("#spec-row-conditionnement").addClass("md:col-span-2");
+      } else if (!hasHumidity) {
+        $("#spec-row-humidite").remove();
+        $("#spec-row-conditionnement").addClass("md:col-span-2");
+      } else {
+        $("#spec-humidite").removeAttr("data-i18n").text(displayHumidity);
+      }
       $("#spec-pouvoir").text("~ 4.8 kWh/kg");
       $("#spec-poids").text(product.palette_weight || "");
       $("#spec-volume-m3").text(
         product.volume_m3 ? `${product.volume_m3} m³` : "",
       );
-      $("#spec-conditionnement").text(
-        (product.units_per_palette || "") + " unités par palette",
-      );
+      const packagingText = getProductField(product, "packaging", lang) || ((product.units_per_palette || "") + " unités par palette");
+      $("#spec-conditionnement").removeAttr("data-i18n").text(packagingText);
 
       // Note: The JavaScript (product.js logic inside produit.html) will still execute on the client
       // and overwrite these with the correct translated strings based on the dynamic lang,
