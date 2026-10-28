@@ -13,12 +13,6 @@
         "unit_weight":  "25 kg",
         "units_per_palette":  40,
         "palette_weight":  "1000 kg",
-        "positioning":  {
-                            "fr":  "Bon prix – sous marché",
-                            "en":  "Great value – below market",
-                            "de":  "Guter Preis – unter Marktniveau",
-                            "nl":  "Goede prijs – onder marktniveau"
-                        },
         "species_material":  {
                                  "fr":  "Hêtre séché au four (\u003c 20% humidité)",
                                  "en":  "Kiln-dried beech (\u003c 20% moisture)",
@@ -85,12 +79,6 @@
         "unit_weight":  "25 kg",
         "units_per_palette":  40,
         "palette_weight":  "1000 kg",
-        "positioning":  {
-                            "fr":  "Très bon prix",
-                            "en":  "Excellent value",
-                            "de":  "Sehr guter Preis",
-                            "nl":  "Zeer goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "Hêtre demi-sec",
                                  "en":  "Semi-dried beech",
@@ -157,12 +145,6 @@
         "unit_weight":  "25 kg",
         "units_per_palette":  40,
         "palette_weight":  "1000 kg",
-        "positioning":  {
-                            "fr":  "Bon prix – sous marché",
-                            "en":  "Great value – below market",
-                            "de":  "Guter Preis – unter Marktniveau",
-                            "nl":  "Goede prijs – onder marktniveau"
-                        },
         "species_material":  {
                                  "fr":  "Chêne séché au four (\u003c 20% humidité)",
                                  "en":  "Kiln-dried oak (\u003c 20% moisture)",
@@ -229,12 +211,6 @@
         "unit_weight":  "25 kg",
         "units_per_palette":  40,
         "palette_weight":  "1000 kg",
-        "positioning":  {
-                            "fr":  "Bon prix",
-                            "en":  "Good value",
-                            "de":  "Guter Preis",
-                            "nl":  "Goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "Chêne séché à l\u0027air libre",
                                  "en":  "Air-dried oak",
@@ -243,7 +219,6 @@
                              },
         "image_product":  "/assets/images/products/chene-sec-air-product.jpg",
         "image_packaging":  "/assets/images/products/chene-sec-air-packaging.jpg",
-        "humidity_bucket":  "15 à 20%",
         "available":  true,
         "volume_m3":  2.16,
         "prices_by_length":  {
@@ -285,7 +260,13 @@
                                                "nl":  "900 tot 1.000 blokken"
                                            }
                                 },
-        "calorific_value":  "4,0 kWh/kg"
+        "calorific_value":  "4,0 kWh/kg",
+        "humidity_bucket":  {
+                                "fr":  "15 à 20 %",
+                                "en":  "15 to 20%",
+                                "de":  "15 bis 20 %",
+                                "nl":  "15 tot 20 %"
+                            }
     },
     {
         "id":  "melange-essences",
@@ -301,12 +282,6 @@
         "unit_weight":  "25 kg",
         "units_per_palette":  40,
         "palette_weight":  "1000 kg",
-        "positioning":  {
-                            "fr":  "Très bon prix",
-                            "en":  "Excellent value",
-                            "de":  "Sehr guter Preis",
-                            "nl":  "Zeer goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "Mélange d\u0027essences feuillues dures",
                                  "en":  "Blend of hardwood species",
@@ -369,18 +344,11 @@
                      "de":  "TAG PREMIUM – Zylindrisch",
                      "nl":  "DAG PREMIUM – Cilindrisch"
                  },
-        "format":  "de 20 à 30 cm",
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
         "wholesale_price":  270,
         "recommended_price":  337.5,
-        "positioning":  {
-                            "fr":  "Très bon prix",
-                            "en":  "Excellent value",
-                            "de":  "Sehr guter Preis",
-                            "nl":  "Zeer goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "Bois densifié résineux \u0026 feuillus",
                                  "en":  "Compressed softwood \u0026 hardwood",
@@ -415,7 +383,13 @@
                           "de":  "100 Einheiten pro Palette",
                           "nl":  "100 stuks per pallet"
                       },
-        "calorific_value":  "5,0 kWh/kg"
+        "calorific_value":  "5,0 kWh/kg",
+        "format":  {
+                       "fr":  "de 20 à 30 cm",
+                       "en":  "20 to 30 cm",
+                       "de":  "20 bis 30 cm",
+                       "nl":  "20 tot 30 cm"
+                   }
     },
     {
         "id":  "nuit-longue-duree",
@@ -427,18 +401,11 @@
                      "de":  "NACHT – Langbrenner (Presslinge)",
                      "nl":  "NACHT – Langbrandend (Geperst)"
                  },
-        "format":  "Cylindrique écorce",
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
         "wholesale_price":  260,
         "recommended_price":  325,
-        "positioning":  {
-                            "fr":  "Très bon prix",
-                            "en":  "Excellent value",
-                            "de":  "Sehr guter Preis",
-                            "nl":  "Zeer goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "100 % d’écorces naturelles compressées",
                                  "en":  "100% compressed natural bark",
@@ -461,7 +428,13 @@
                           "de":  "100 Einheiten à 10 kg",
                           "nl":  "100 eenheden van 10 kg elk"
                       },
-        "calorific_value":  "5,1 kWh/kg"
+        "calorific_value":  "5,1 kWh/kg",
+        "format":  {
+                       "fr":  "Cylindrique écorce",
+                       "en":  "Cylindrical bark",
+                       "de":  "Zylindrisch (Rinde)",
+                       "nl":  "Cilindrische schors"
+                   }
     },
     {
         "id":  "jour-forte-chaleur-cubique",
@@ -473,18 +446,11 @@
                      "de":  "TAG HOCHHITZE – Würfelform",
                      "nl":  "DAG HOGE HITTE – Kubusvorm"
                  },
-        "format":  "15 à 16 cm (indicative)",
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
         "wholesale_price":  260,
         "recommended_price":  325,
-        "positioning":  {
-                            "fr":  "Très bon prix",
-                            "en":  "Excellent value",
-                            "de":  "Sehr guter Preis",
-                            "nl":  "Zeer goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "100 % Bois dur compressé",
                                  "en":  "100% compressed hardwood",
@@ -531,7 +497,13 @@
                           "de":  "100 Einheiten pro Palette",
                           "nl":  "100 stuks per pallet"
                       },
-        "calorific_value":  "4,9 kWh/kg"
+        "calorific_value":  "4,9 kWh/kg",
+        "format":  {
+                       "fr":  "15 à 16 cm (indicative)",
+                       "en":  "15 to 16 cm (indicative)",
+                       "de":  "15 bis 16 cm (Richtwert)",
+                       "nl":  "15 tot 16 cm (indicatief)"
+                   }
     },
     {
         "id":  "pini-kay-compressbee",
@@ -543,18 +515,11 @@
                      "de":  "Pini Kay Premium-Presslinge",
                      "nl":  "Pini Kay Premium Perslog"
                  },
-        "format":  "environ 20 à 25 cm",
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
         "wholesale_price":  270,
         "recommended_price":  337.5,
-        "positioning":  {
-                            "fr":  "Bon prix – sous marché",
-                            "en":  "Great value – below market",
-                            "de":  "Guter Preis – unter Marktniveau",
-                            "nl":  "Goede prijs – onder marktniveau"
-                        },
         "species_material":  {
                                  "fr":  "100 % bois dur — mélange de chêne et de hêtre",
                                  "en":  "100% hardwood — oak and beech blend",
@@ -595,7 +560,13 @@
                           "de":  "100 Einheiten pro Palette",
                           "nl":  "100 stuks per pallet"
                       },
-        "calorific_value":  "4,9 kWh/kg"
+        "calorific_value":  "4,9 kWh/kg",
+        "format":  {
+                       "fr":  "environ 20 à 25 cm",
+                       "en":  "approx. 20 to 25 cm",
+                       "de":  "ca. 20 bis 25 cm",
+                       "nl":  "ongeveer 20 tot 25 cm"
+                   }
     },
     {
         "id":  "jour-eco-cylindrique",
@@ -607,18 +578,11 @@
                      "de":  "TAG ECO – Zylindrisch",
                      "nl":  "DAG ECO – Cilindrisch"
                  },
-        "format":  "20 à 30 cm",
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
         "wholesale_price":  200,
         "recommended_price":  312.5,
-        "positioning":  {
-                            "fr":  "Très bon prix",
-                            "en":  "Excellent value",
-                            "de":  "Sehr guter Preis",
-                            "nl":  "Zeer goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "Mélange copeaux \u0026 sciures compressés",
                                  "en":  "Compressed wood shavings \u0026 sawdust blend",
@@ -653,7 +617,13 @@
                           "de":  "100 Einheiten pro Palette",
                           "nl":  "100 stuks per pallet"
                       },
-        "calorific_value":  "4,7 kWh/kg"
+        "calorific_value":  "4,7 kWh/kg",
+        "format":  {
+                       "fr":  "20 à 30 cm",
+                       "en":  "20 to 30 cm",
+                       "de":  "20 bis 30 cm",
+                       "nl":  "20 tot 30 cm"
+                   }
     },
     {
         "id":  "briquettes-ruf",
@@ -665,18 +635,11 @@
                      "de":  "RUF-Briketts",
                      "nl":  "RUF-Briketten"
                  },
-        "format":  "Pâté rectangulaire RUF",
         "unit_weight":  "10 kg",
         "units_per_palette":  96,
         "palette_weight":  "960 kg",
         "wholesale_price":  188,
         "recommended_price":  235,
-        "positioning":  {
-                            "fr":  "Très bon prix",
-                            "en":  "Excellent value",
-                            "de":  "Sehr guter Preis",
-                            "nl":  "Zeer goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "Bois compressé haute pression RUF",
                                  "en":  "High-pressure compressed RUF wood",
@@ -693,7 +656,13 @@
                           "de":  "96 Säcke à 10 kg",
                           "nl":  "96 zakken van 10 kg"
                       },
-        "calorific_value":  "4,9 kWh/kg"
+        "calorific_value":  "4,9 kWh/kg",
+        "format":  {
+                       "fr":  "Pâté rectangulaire RUF",
+                       "en":  "Rectangular RUF block",
+                       "de":  "Rechteckiger RUF-Block",
+                       "nl":  "Rechthoekig RUF-blok"
+                   }
     },
     {
         "id":  "briquettes-ecorce",
@@ -705,18 +674,11 @@
                      "de":  "Rindenbriketts",
                      "nl":  "Schorsbriketten"
                  },
-        "format":  "Rectangulaire écorce",
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
         "wholesale_price":  198,
         "recommended_price":  245,
-        "positioning":  {
-                            "fr":  "Très bon prix",
-                            "en":  "Excellent value",
-                            "de":  "Sehr guter Preis",
-                            "nl":  "Zeer goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "100% Écorces naturelles compressées",
                                  "en":  "100% compressed natural bark",
@@ -739,7 +701,13 @@
                           "de":  "100 Einheiten pro Palette",
                           "nl":  "100 stuks per pallet"
                       },
-        "calorific_value":  "4,6 kWh/kg"
+        "calorific_value":  "4,6 kWh/kg",
+        "format":  {
+                       "fr":  "Rectangulaire écorce",
+                       "en":  "Rectangular bark",
+                       "de":  "Rechteckig (Rinde)",
+                       "nl":  "Rechthoekige schors"
+                   }
     },
     {
         "id":  "granules-pellets-premium",
@@ -751,18 +719,11 @@
                      "de":  "Premium-Holzpellets",
                      "nl":  "Premium Houtpellets"
                  },
-        "format":  "Granulés 6mm DINplus / ENplus A1",
         "unit_weight":  "15 kg",
         "units_per_palette":  66,
         "palette_weight":  "990 kg",
         "wholesale_price":  185,
         "recommended_price":  230,
-        "positioning":  {
-                            "fr":  "Très bon prix",
-                            "en":  "Excellent value",
-                            "de":  "Sehr guter Preis",
-                            "nl":  "Zeer goede prijs"
-                        },
         "species_material":  {
                                  "fr":  "100% Résineux dépoussiéré",
                                  "en":  "100% dedusted softwood",
@@ -780,7 +741,13 @@
                           "de":  "66 Säcke à 15 kg",
                           "nl":  "66 zakken van 15 kg elk"
                       },
-        "calorific_value":  "4,8 kWh/kg"
+        "calorific_value":  "4,8 kWh/kg",
+        "format":  {
+                       "fr":  "Granulés 6mm DINplus / ENplus A1",
+                       "en":  "6mm Pellets DINplus / ENplus A1",
+                       "de":  "6mm Pellets DINplus / ENplus A1",
+                       "nl":  "6mm Pellets DINplus / ENplus A1"
+                   }
     },
     {
         "id":  "charbon-bois-morceaux",
@@ -792,18 +759,11 @@
                      "de":  "Holzkohle (stückig)",
                      "nl":  "Houtskool (in stukken)"
                  },
-        "format":  "Gros morceaux qualité restaurant",
         "unit_weight":  "10 kg",
         "units_per_palette":  80,
         "palette_weight":  "800 kg",
         "wholesale_price":  200,
         "recommended_price":  212.5,
-        "positioning":  {
-                            "fr":  "Bon prix – sous marché",
-                            "en":  "Great value – below market",
-                            "de":  "Guter Preis – unter Marktniveau",
-                            "nl":  "Goede prijs – onder marktniveau"
-                        },
         "species_material":  {
                                  "fr":  "Charbon de bois dépoussiéré",
                                  "en":  "Dedusted lump charcoal",
@@ -826,7 +786,13 @@
                           "de":  "2 Big Bags à 400 kg pro Palette",
                           "nl":  "2 big bags van 400 kg per pallet"
                       },
-        "calorific_value":  "7,5 kWh/kg"
+        "calorific_value":  "7,5 kWh/kg",
+        "format":  {
+                       "fr":  "Gros morceaux qualité restaurant",
+                       "en":  "Restaurant-grade large chunks",
+                       "de":  "Große Stücke in Gastronomiequalität",
+                       "nl":  "Grote stukken restaurantkwaliteit"
+                   }
     },
     {
         "id":  "allume-feu-laine-bois",
@@ -838,18 +804,11 @@
                      "de":  "Anzünder aus Holzwolle",
                      "nl":  "Aanmaakblokjes van houtwol"
                  },
-        "format":  "Rouleaux laine de bois",
         "unit_weight":  "5 kg",
         "units_per_palette":  60,
         "palette_weight":  "600 kg",
         "wholesale_price":  180,
         "recommended_price":  225,
-        "positioning":  {
-                            "fr":  "Bon prix – sous marché",
-                            "en":  "Great value – below market",
-                            "de":  "Guter Preis – unter Marktniveau",
-                            "nl":  "Goede prijs – onder marktniveau"
-                        },
         "species_material":  {
                                  "fr":  "Fibre de bois \u0026 cire végétale",
                                  "en":  "Wood fibre \u0026 plant wax",
@@ -866,7 +825,13 @@
                           "de":  "60 Kartons",
                           "nl":  "60 dozen"
                       },
-        "calorific_value":  "7,0 kWh/kg"
+        "calorific_value":  "7,0 kWh/kg",
+        "format":  {
+                       "fr":  "Rouleaux laine de bois",
+                       "en":  "Wood wool rolls",
+                       "de":  "Holzwollerollen",
+                       "nl":  "Houtwolrollen"
+                   }
     },
     {
         "id":  "buches-torche-suedoise",
@@ -878,18 +843,11 @@
                      "de":  "Schwedenfackel",
                      "nl":  "Zweedse Fakkel"
                  },
-        "format":  "Bûche fendue avec mèche intégrée",
         "unit_weight":  "5 kg",
         "units_per_palette":  160,
         "palette_weight":  "800 kg",
         "wholesale_price":  224,
         "recommended_price":  280,
-        "positioning":  {
-                            "fr":  "Bon prix – sous marché",
-                            "en":  "Great value – below market",
-                            "de":  "Guter Preis – unter Marktniveau",
-                            "nl":  "Goede prijs – onder marktniveau"
-                        },
         "species_material":  {
                                  "fr":  "Bois naturel résineux",
                                  "en":  "Natural softwood",
@@ -919,6 +877,12 @@
                          "de":  "ca. 15 bis 25 cm",
                          "nl":  "ongeveer 15 tot 25 cm"
                      },
-        "calorific_value":  "3,9 kWh/kg"
+        "calorific_value":  "3,9 kWh/kg",
+        "format":  {
+                       "fr":  "Bûche fendue avec mèche intégrée",
+                       "en":  "Split log with integrated wick",
+                       "de":  "Gespaltener Stamm mit integriertem Docht",
+                       "nl":  "Gespleten stam met geïntegreerde lont"
+                   }
     }
 ]

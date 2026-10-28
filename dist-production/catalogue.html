@@ -472,14 +472,6 @@ window.resolveAssetPath = function(pathStr) {
                                         ${formatSelectorHtml}
                                         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                                             ${sg.products.map(p => {
-                                                const showBadge = p.positioning && p.positioning !== '';
-                                                const badgeHtml = showBadge ? `
-                                                    <div class="absolute top-3 left-3 bg-surface text-primary px-2 py-1 rounded text-label-md font-label-md flex items-center gap-1 shadow-sm">
-                                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-                                                        ${getProductField(p, 'positioning').toUpperCase()}
-                                                    </div>
-                                                ` : '';
-
                                                 let displayPrice = 0;
                                                 let priceNote = '';
 
@@ -513,7 +505,6 @@ window.resolveAssetPath = function(pathStr) {
                                                     <article onclick="${clickHandler}" class="bg-[#F1E4D8] rounded-lg p-6 flex flex-col gap-6 border border-outline hover:border-primary hover:border-2 transition-all cursor-pointer group ${isBuche && !selectedFormat ? 'opacity-80' : ''}">
                                                         <div class="relative w-full h-48 rounded bg-surface-container overflow-hidden">
                                                              <img width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${resolveAssetPath(p.image_product)}" alt="${getProductName(p)}"/>
-                                                            ${badgeHtml}
                                                             ${isBuche && !selectedFormat ? `<div class="absolute inset-0 bg-black/10 flex items-end justify-center pb-3"><span data-i18n="catalog.filters.format_select" class="bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">${(typeof t !== 'undefined' && t.catalog && t.catalog.filters && t.catalog.filters.format_select) ? t.catalog.filters.format_select : 'Sélectionnez un format ↑'}</span></div>` : ''}
                                                         </div>
                                                         <div class="flex flex-col gap-2">

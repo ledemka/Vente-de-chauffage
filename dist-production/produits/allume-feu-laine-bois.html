@@ -240,19 +240,19 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
 <span class="material-symbols-outlined text-[16px]">chevron_right</span>
 <a class="hover:text-primary transition-colors" href="../catalogue.html?subgroup=5" id="breadcrumb-category" data-i18n="product.firewood">Charbon / Allume-feu / Bûches de torche</a>
 <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-<span class="text-on-surface">Palettes Bûches 33cm</span>
+<span class="text-on-surface" id="breadcrumb-product">Allume-feu en laine de bois</span>
 </nav>
 <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
 <div class="flex flex-col gap-2 max-w-3xl">
 <div class="flex items-center gap-3">
-<h1 class="text-headline-xl font-headline-xl text-on-surface"><span id="product-title" data-i18n="produit.palette_complte_-_bches_chne_3">Allume-feu en laine de bois</span></h1>
+<h1 class="text-headline-xl font-headline-xl text-on-surface"><span id="product-title">Allume-feu en laine de bois</span></h1>
 <span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-label-md font-label-md rounded border border-outline/30 uppercase tracking-wider"><span id="product-ref">Ref: ALLUME-FEU-LAINE-BOIS-PAL</span></span>
 </div>
-<p class="text-body-lg font-body-lg text-on-surface-variant"><span id="product-desc" data-i18n="produit.bois_sec_premium_prt__lemploi_">Fibre de bois &amp; cire végétale</span></p>
+<p class="text-body-lg font-body-lg text-on-surface-variant"><span id="product-desc">Fibre de bois & cire végétale</span></p>
 </div>
 <div class="flex items-center gap-2 bg-surface-container-low border border-outline/30 px-4 py-2 rounded-lg">
 <span class="w-3 h-3 rounded-full bg-primary"></span>
-<span class="text-label-md font-label-md text-on-surface uppercase tracking-wide"><span id="product-stock" data-i18n="produit.en_stock__45_palettes">En Stock</span></span>
+<span class="text-label-md font-label-md text-on-surface uppercase tracking-wide"><span id="product-stock">En Stock</span></span>
 </div>
 </div>
 </div>
@@ -507,25 +507,31 @@ window.resolveAssetPath = function(pathStr) {
 
                                 const productDescEl = document.getElementById('product-desc');
                                 if (productDescEl) {
+                                    const moistureLabelMap = { fr: 'Humidité', en: 'Moisture', de: 'Feuchtigkeit', nl: 'Vochtigheid' };
+                                    const nuitDescMap = { fr: 'Écorces bois densifiées', en: 'Compressed wood bark', de: 'Verdichtete Holzrinde', nl: 'Geperste houtschors' };
+                                    const piniDescMap = { fr: 'Bois chêne/hêtre extrudé Pini-Kay', en: 'Extruded oak/beech Pini-Kay briquettes', de: 'Extrudierte Eichen-/Buchen-Pini-Kay-Briketts', nl: 'Geëxtrudeerde eiken/beuken Pini-Kay briketten' };
                                     if (product.id === 'nuit-longue-duree') {
-                                        productDescEl.textContent = 'Écorces bois densifiées';
+                                        productDescEl.textContent = nuitDescMap[lang] || nuitDescMap.fr;
                                     } else if (product.id === 'pini-kay-compressbee') {
-                                        productDescEl.textContent = 'Bois chêne/hêtre extrudé Pini-Kay';
+                                        productDescEl.textContent = piniDescMap[lang] || piniDescMap.fr;
                                     } else if (product.id === 'briquettes-ruf' || product.id === 'briquettes-ecorce' || product.id === 'jour-premium-cylindrique' || product.id === 'jour-forte-chaleur-cubique' || product.id === 'jour-eco-cylindrique') {
                                         productDescEl.textContent = getProductField(product, 'species_material');
                                     } else if (hasHumidity) {
-                                        productDescEl.textContent = `${getProductField(product, 'species_material')} - Humidité: ${displayHumidity}`;
+                                        productDescEl.textContent = `${getProductField(product, 'species_material')} - ${moistureLabelMap[lang] || 'Humidité'}: ${displayHumidity}`;
                                     } else {
                                         productDescEl.textContent = getProductField(product, 'species_material');
                                     }
                                 }
-                                document.getElementById('product-stock').textContent = 'En Stock';
+                                const stockMap = { fr: 'En Stock', en: 'In Stock', de: 'Auf Lager', nl: 'Op Voorraad' };
+                                document.getElementById('product-stock').textContent = stockMap[lang] || 'En Stock';
+                                const breadcrumbProd = document.getElementById('breadcrumb-product');
+                                if (breadcrumbProd) breadcrumbProd.textContent = getProductName(product);
                                 const imgPrefix = relPath === '.' ? '' : relPath;
                                 document.getElementById('product-img-1').src = resolveAssetPath(product.image_product);
                                 document.getElementById('product-img-2').src = resolveAssetPath(product.image_packaging);
 
                                 document.getElementById('spec-essence').textContent = getProductField(product, 'species_material');
-                                document.getElementById('spec-longueur').textContent = product.format;
+                                document.getElementById('spec-longueur').textContent = getProductField(product, 'format');
                                 const specHumiditeEl = document.getElementById('spec-humidite');
                                 if (specHumiditeEl) {
                                     specHumiditeEl.textContent = displayHumidity;
@@ -765,7 +771,7 @@ window.resolveAssetPath = function(pathStr) {
                                 document.title = pageTitle;
 
                                 // Description
-                                let formatStr = product.format;
+                                let formatStr = getProductField(product, 'format');
                                 if (isBuche && product.prices_by_length) {
                                     formatStr = Object.keys(product.prices_by_length).join('/') + ' cm';
                                 }
@@ -1074,47 +1080,72 @@ window.resolveAssetPath = function(pathStr) {
 
                                     if (hasVolumeDiscount) {
                                         const pStrings = (typeof pr !== 'undefined' && pr) ? pr : ((typeof t !== 'undefined' && t && t.pricing) ? t.pricing : (window.i18n && window.i18n.data && window.i18n.data.pricing ? window.i18n.data.pricing : {}));
-                                        let tierName = "Standard (5 pal.)";
+                                        const tierWordMap = { fr: 'Palier', en: 'Tier', de: 'Stufe', nl: 'Staffel' };
+                                        const tierWord = tierWordMap[lang] || 'Palier';
+                                        const stdMap = { fr: 'Standard (5 pal.)', en: 'Standard (5 pal.)', de: 'Standard (5 Pal.)', nl: 'Standaard (5 pal.)' };
+                                        const unauthMap = { fr: 'Commande non autorisée', en: 'Unauthorized order', de: 'Bestellung nicht zulässig', nl: 'Bestelling niet toegestaan' };
+                                        const quoteTierMap = { fr: 'Sur devis', en: 'Custom quote', de: 'Auf Anfrage', nl: 'Op offerte' };
+                                        const minOrderMsgMap = { fr: 'Commande minimum : 5 palettes', en: 'Minimum order: 5 pallets', de: 'Mindestbestellmenge: 5 Paletten', nl: 'Minimale bestelling: 5 pallets' };
+                                        const over24MsgMap = {
+                                            fr: 'Pour toute commande supérieure à 24 palettes, demandez un devis personnalisé',
+                                            en: 'For any order over 24 pallets, please request a custom quote',
+                                            de: 'Für Bestellungen über 24 Paletten fordern Sie bitte ein individuelles Angebot an',
+                                            nl: 'Vraag voor bestellingen boven 24 pallets een offerte op maat aan'
+                                        };
+                                        const fullTruckMsgMap = {
+                                            fr: 'Camion complet : 24 palettes. Vous bénéficiez de 10 % de remise !',
+                                            en: 'Full truckload: 24 pallets. You get a 10% discount!',
+                                            de: 'Komplettladung: 24 Paletten. Sie erhalten 10 % Rabatt!',
+                                            nl: 'Volle vrachtwagen: 24 pallets. U profiteert van 10% korting!'
+                                        };
+                                        const nearTruckHtmlMap = {
+                                            fr: (rem) => `<span class="text-primary font-bold">Remise de 10% appliquée !</span> <span class="text-xs text-on-surface-variant block mt-0.5">Plus que ${rem} palette(s) pour un <strong>camion complet (24 palettes)</strong></span>`,
+                                            en: (rem) => `<span class="text-primary font-bold">10% discount applied!</span> <span class="text-xs text-on-surface-variant block mt-0.5">Only ${rem} more pallet(s) for a <strong>full truckload (24 pallets)</strong></span>`,
+                                            de: (rem) => `<span class="text-primary font-bold">10 % Rabatt angewendet!</span> <span class="text-xs text-on-surface-variant block mt-0.5">Nur noch ${rem} Palette(n) bis zur <strong>Komplettladung (24 Paletten)</strong></span>`,
+                                            nl: (rem) => `<span class="text-primary font-bold">10% korting toegepast!</span> <span class="text-xs text-on-surface-variant block mt-0.5">Nog maar ${rem} pallet(s) voor een <strong>volle vrachtwagen (24 pallets)</strong></span>`
+                                        };
+
+                                        let tierName = stdMap[lang] || stdMap.fr;
                                         let progress = 20;
                                         if (qty < 5) {
-                                            tierName = "Commande non autoris\u00e9e";
+                                            tierName = unauthMap[lang] || unauthMap.fr;
                                             progress = Math.max(5, (qty / 5) * 20);
                                         } else if (tier === 1) {
-                                            tierName = "Standard (5 pal.)";
+                                            tierName = stdMap[lang] || stdMap.fr;
                                             progress = 20;
                                         } else if (tier === 2) {
-                                            tierName = "Palier 1 (-4%)";
+                                            tierName = `${tierWord} 1 (-4%)`;
                                             progress = 40;
                                         } else if (tier === 3) {
-                                            tierName = "Palier 2 (-6%)";
+                                            tierName = `${tierWord} 2 (-6%)`;
                                             progress = 60;
                                         } else if (tier === 4) {
-                                            tierName = "Palier 3 (-8%)";
+                                            tierName = `${tierWord} 3 (-8%)`;
                                             progress = 80;
                                         } else if (tier === 5) {
-                                            tierName = qty === 24 ? (pStrings.full_truckload || "Camion Complet (-10%)") : "Palier 4 (-10%)";
+                                            tierName = qty === 24 ? (pStrings.full_truckload || "Camion Complet (-10%)") : `${tierWord} 4 (-10%)`;
                                             progress = 100;
                                         } else {
-                                            tierName = "Sur devis";
+                                            tierName = quoteTierMap[lang] || quoteTierMap.fr;
                                             progress = 100;
                                         }
 
-                                        if (tierStatusEl) tierStatusEl.textContent = `${pStrings.tier_level || 'Palier :'} ${tierName}`;
+                                        if (tierStatusEl) tierStatusEl.textContent = `${pStrings.tier_level || (tierWord + ' :')} ${tierName}`;
                                         if (discountPctEl) discountPctEl.textContent = `-${discountPercentage}%`;
                                         if (progressBar) progressBar.style.width = `${progress}%`;
 
                                         if (nextTierMsg) {
                                             if (qty < 5) {
-                                                nextTierMsg.innerHTML = `<span class="text-error font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">warning</span> Commande minimum : 5 palettes</span>`;
+                                                nextTierMsg.innerHTML = `<span class="text-error font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">warning</span> ${minOrderMsgMap[lang] || minOrderMsgMap.fr}</span>`;
                                                 nextTierMsg.classList.remove('hidden');
                                             } else if (qty > 24) {
-                                                nextTierMsg.innerHTML = `<span class="text-primary font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">info</span> Pour toute commande sup\u00e9rieure \u00e0 24 palettes, demandez un devis personnalis\u00e9</span>`;
+                                                nextTierMsg.innerHTML = `<span class="text-primary font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">info</span> ${over24MsgMap[lang] || over24MsgMap.fr}</span>`;
                                                 nextTierMsg.classList.remove('hidden');
                                             } else if (qty === 24) {
-                                                nextTierMsg.innerHTML = `<span class="text-emerald-700 font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">local_shipping</span> Camion complet : 24 palettes. Vous b\u00e9n\u00e9ficiez de 10 % de remise !</span>`;
+                                                nextTierMsg.innerHTML = `<span class="text-emerald-700 font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">local_shipping</span> ${fullTruckMsgMap[lang] || fullTruckMsgMap.fr}</span>`;
                                                 nextTierMsg.classList.remove('hidden');
                                             } else if (qty >= 20 && qty < 24) {
-                                                nextTierMsg.innerHTML = `<span class="text-primary font-bold">Remise de 10% appliqu\u00e9e !</span> <span class="text-xs text-on-surface-variant block mt-0.5">Plus que ${24 - qty} palette(s) pour un <strong>camion complet (24 palettes)</strong></span>`;
+                                                nextTierMsg.innerHTML = (nearTruckHtmlMap[lang] || nearTruckHtmlMap.fr)(24 - qty);
                                                 nextTierMsg.classList.remove('hidden');
                                             } else if (palettesNeededForNextTier > 0) {
                                                 let msg = pStrings.next_tier_incentive || "Ajoutez {count} palette(s) pour -{pct}%";
@@ -1129,15 +1160,15 @@ window.resolveAssetPath = function(pathStr) {
                                         if (recapInfoBanner) {
                                             if (qty < 5) {
                                                 recapInfoBanner.className = 'bg-amber-50 border border-amber-300 text-amber-900 rounded-lg p-3 text-body-sm font-semibold flex items-center gap-2 mb-1';
-                                                recapInfoBanner.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0">warning</span><span>Commande minimum : 5 palettes</span>`;
+                                                recapInfoBanner.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0">warning</span><span>${minOrderMsgMap[lang] || minOrderMsgMap.fr}</span>`;
                                                 recapInfoBanner.classList.remove('hidden');
                                             } else if (qty === 24) {
                                                 recapInfoBanner.className = 'bg-emerald-50 border border-emerald-300 text-emerald-900 rounded-lg p-3 text-body-sm font-semibold flex items-center gap-2 mb-1';
-                                                recapInfoBanner.innerHTML = `<span class="material-symbols-outlined text-emerald-600 shrink-0">local_shipping</span><span>Camion complet : 24 palettes. Vous b\u00e9n\u00e9ficiez de 10 % de remise !</span>`;
+                                                recapInfoBanner.innerHTML = `<span class="material-symbols-outlined text-emerald-600 shrink-0">local_shipping</span><span>${fullTruckMsgMap[lang] || fullTruckMsgMap.fr}</span>`;
                                                 recapInfoBanner.classList.remove('hidden');
                                             } else if (qty > 24) {
                                                 recapInfoBanner.className = 'bg-amber-50 border border-amber-300 text-amber-900 rounded-lg p-3 text-body-sm font-semibold flex items-center gap-2 mb-1';
-                                                recapInfoBanner.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0">info</span><span>Pour toute commande sup\u00e9rieure \u00e0 24 palettes, demandez un devis personnalis\u00e9</span>`;
+                                                recapInfoBanner.innerHTML = `<span class="material-symbols-outlined text-amber-600 shrink-0">info</span><span>${over24MsgMap[lang] || over24MsgMap.fr}</span>`;
                                                 recapInfoBanner.classList.remove('hidden');
                                             } else {
                                                 recapInfoBanner.classList.add('hidden');
@@ -1301,12 +1332,15 @@ window.resolveAssetPath = function(pathStr) {
                                     }
                                     if (btn.disabled) return;
                                     btn.disabled = true;
-                                    btn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> Ajout...`;
-                                    
+                                    const addingTxt = { fr: 'Ajout...', en: 'Adding...', de: 'Hinzufügen...', nl: 'Toevoegen...' }[lang] || 'Ajout...';
+                                    const addedTxt  = { fr: 'Ajouté !', en: 'Added!', de: 'Hinzugefügt!', nl: 'Toegevoegd!' }[lang] || 'Ajouté !';
+                                    const orderTxt  = { fr: 'Commander', en: 'Order', de: 'Bestellen', nl: 'Bestellen' }[lang] || 'Commander';
+                                    const errTxt    = { fr: "Erreur lors de l'ajout au panier", en: "Error adding to cart", de: "Fehler beim Hinzufügen zum Warenkorb", nl: "Fout bij toevoegen aan winkelwagen" }[lang] || "Erreur lors de l'ajout au panier";
+                                    btn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> ${addingTxt}`;
                                     
                                     CartAPI.add(product.id, qty, selectedLength).then(res => {
                                         if (res && res.success) {
-                                            btn.innerHTML = `<span class="material-symbols-outlined">check</span> Ajouté !`;
+                                            btn.innerHTML = `<span class="material-symbols-outlined">check</span> ${addedTxt}`;
                                             btn.classList.replace('bg-primary', 'bg-green-600');
                                             setTimeout(() => {
                                                 window.location.href = window.resolveDataPath('panier.html');
@@ -1317,8 +1351,8 @@ window.resolveAssetPath = function(pathStr) {
                                     }).catch(err => {
                                         console.error(err);
                                         btn.disabled = false;
-                                        btn.innerHTML = `<span class="material-symbols-outlined">shopping_cart_checkout</span> Commander`;
-                                        alert("Erreur lors de l'ajout au panier");
+                                        btn.innerHTML = `<span class="material-symbols-outlined">shopping_cart_checkout</span> ${orderTxt}`;
+                                        alert(errTxt);
                                     });
                                 };
                             }
