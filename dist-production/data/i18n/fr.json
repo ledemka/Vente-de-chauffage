@@ -319,7 +319,7 @@
     "checkout":  {
                      "product":  "Produit",
                      "qty":  "Qté",
-                     "total_ttc":  "Total",
+                     "total_ttc":  "Total TTC",
                      "discounted":  "remisé",
                      "to_be_calculated":  "À calculer",
                      "confirm_address":  "Confirmer l\u0027adresse",

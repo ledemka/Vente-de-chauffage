@@ -721,7 +721,7 @@ var CartUI = {
         html += '<thead><tr class="border-b border-outline/20">';
         html += '<th class="py-3 pr-2 text-label-md font-label-md uppercase text-on-surface-variant" data-i18n="checkout.product">Produit</th>';
         html += '<th class="py-3 px-2 text-label-md font-label-md uppercase text-on-surface-variant text-center" data-i18n="checkout.qty">Qté</th>';
-        html += '<th class="py-3 pl-2 text-label-md font-label-md uppercase text-on-surface-variant text-right" data-i18n="checkout.total_ttc">Total</th>';
+        html += '<th class="py-3 pl-2 text-label-md font-label-md uppercase text-on-surface-variant text-right" data-i18n="checkout.total_ttc">Total TTC</th>';
         html += '</tr></thead><tbody>';
 
         let checkoutShippingCost = null;

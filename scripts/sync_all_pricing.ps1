@@ -1255,9 +1255,9 @@ foreach ($sub in @('en', 'de', 'nl')) {
     if (Test-Path $recapFile) {
         $r = [System.IO.File]::ReadAllText($recapFile, $utf8NoBom).Replace("`r`n", "`n")
         $subLbl = $subtotalLabels[$sub]
-        $totLbl = $totalLabels[$sub]
+        $totLbl = $productTotalTtcLabels[$sub]
         $r = [regex]::Replace($r, '(<span[^>]*data-i18n="cart\.subtotal"[^>]*>)[^<]*(</span>)', "`${1}$subLbl`${2}")
-        $r = [regex]::Replace($r, '(<span[^>]*data-i18n="checkout\.total_ttc"[^>]*>)[^<]*(</span>)', "`${1}$totLbl`${2}")
+        $r = [regex]::Replace($r, '<span[^>]*data-i18n="(?:cart\.total|checkout\.total_ttc)"[^>]*>[^<]*</span>', '<span data-i18n="checkout.total_ttc">' + $totLbl + '</span>')
         [System.IO.File]::WriteAllText($recapFile, $r, $utf8NoBom)
         Write-Host "Updated $sub\recapitulatif-commande.html"
     }
@@ -1355,7 +1355,7 @@ foreach ($sub in @('en', 'de', 'nl')) {
     }
 }
 
-# 7b. Update data/i18n/{fr,en,de,nl}.json for cart.total_ttc and product.total_ttc
+# 7b. Update data/i18n/{fr,en,de,nl}.json for cart.total_ttc, product.total_ttc, and checkout.total_ttc
 $i18nTotalTtcMap = @{
     'fr' = 'Total TTC'
     'en' = 'Total (incl. tax)'
@@ -1368,6 +1368,7 @@ foreach ($lg in @('fr', 'en', 'de', 'nl')) {
         $i18nObj = [System.IO.File]::ReadAllText($i18nPath, $utf8NoBom) | ConvertFrom-Json
         $i18nObj.cart.total_ttc = $i18nTotalTtcMap[$lg]
         $i18nObj.product.total_ttc = $i18nTotalTtcMap[$lg]
+        $i18nObj.checkout.total_ttc = $i18nTotalTtcMap[$lg]
         [System.IO.File]::WriteAllText($i18nPath, ($i18nObj | ConvertTo-Json -Depth 10), $utf8NoBom)
     }
 }

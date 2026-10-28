@@ -319,7 +319,7 @@
     "checkout":  {
                      "product":  "Product",
                      "qty":  "Aantal",
-                     "total_ttc":  "Totaal ()",
+                     "total_ttc":  "Totaal (incl. btw)",
                      "discounted":  "met korting",
                      "to_be_calculated":  "Te berekenen",
                      "confirm_address":  "Adres bevestigen",
