@@ -184,97 +184,123 @@ try {
 
         $clientBlockName = $company !== '' ? $company : trim((string)$input['contact_name']);
 
-        $pdfHtml = '<!DOCTYPE html>
+                $pdfHtml = '<!DOCTYPE html>
 <html lang="fr"><head><meta charset="UTF-8"><title>Bon de commande - ' . htmlspecialchars($orderRef) . '</title>
 <style>
-  body{font-family:"Helvetica","Arial",sans-serif;font-size:13px;color:#333;margin:0;padding:20px}
-  .header{width:100%;border-bottom:3px solid #802813;padding-bottom:20px;margin-bottom:30px}
-  .logo{font-size:28px;font-weight:bold;color:#802813;margin-bottom:10px}
-  .co-info{font-size:11px;color:#666;line-height:1.5}
-  .doc-title{text-align:right;margin-top:-60px}
-  .doc-title h1{color:#802813;font-size:24px;margin:0;text-transform:uppercase}
-  .doc-title p{margin:5px 0 0 0;font-size:14px;font-weight:bold}
-  .addresses{width:100%;margin-bottom:40px}
-  .address-box{width:45%;padding:15px;border:1px solid #ddd;background:#f9f9f9;border-radius:4px}
-  .address-box h3{margin-top:0;margin-bottom:10px;font-size:14px;color:#802813;border-bottom:1px solid #ddd;padding-bottom:5px}
-  .address-box p{margin:0 0 5px 0;line-height:1.4}
-  table.items{width:100%;border-collapse:collapse;margin-bottom:30px}
-  table.items th{background:#802813;color:#fff;padding:10px;text-align:left;font-size:12px}
-  table.items td{padding:10px;border-bottom:1px solid #eee}
-  table.items th.right,table.items td.right{text-align:right}
-  table.items th.center,table.items td.center{text-align:center}
-  .totals{width:40%;float:right;margin-bottom:40px}
-  .totals table{width:100%;border-collapse:collapse}
-  .totals table td{padding:8px;border-bottom:1px solid #eee}
-  .totals table tr.grand-total td{font-weight:bold;font-size:16px;color:#802813;border-top:2px solid #802813;border-bottom:none}
-  .payment-info{clear:both;background:#f5f5f5;border-left:4px solid #802813;padding:15px;margin-bottom:40px}
-  .payment-info h4{margin-top:0;margin-bottom:10px;color:#802813}
-  .footer{position:fixed;bottom:-20px;left:0;right:0;text-align:center;font-size:10px;color:#999;border-top:1px solid #eee;padding-top:10px}
+  body { font-family: "Helvetica", "Arial", sans-serif; font-size: 13px; color: #333; margin: 0; padding: 20px; }
+  .header { width: 100%; border-bottom: 3px solid #802813; padding-bottom: 20px; margin-bottom: 30px; }
+  .logo-placeholder { font-size: 14px; font-weight: bold; color: #000; margin-bottom: 2px; text-transform: uppercase; }
+  .company-info { font-size: 12px; color: #000; line-height: 1.4; }
+  .doc-title { text-align: right; vertical-align: top; }
+  .doc-title h1 { color: #000; font-size: 16px; margin: 0 0 20px 0; text-transform: uppercase; }
+  .doc-title p { margin: 3px 0 0 0; font-size: 12px; font-weight: normal; }
+  .addresses { width: 100%; margin-bottom: 40px; }
+  .address-box { width: 45%; padding: 15px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 4px; }
+  .address-box h3 { margin-top: 0; margin-bottom: 10px; font-size: 14px; color: #802813; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+  .address-box p { margin: 0 0 5px 0; line-height: 1.4; }
+  table.items { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+  table.items th { background-color: #802813; color: #fff; padding: 10px; text-align: left; font-size: 12px; }
+  table.items td { padding: 10px; border-bottom: 1px solid #eee; }
+  table.items th.right, table.items td.right { text-align: right; }
+  table.items th.center, table.items td.center { text-align: center; }
+  .totals { width: 40%; float: right; margin-bottom: 40px; }
+  .totals table { width: 100%; border-collapse: collapse; }
+  .totals table td { padding: 8px; border-bottom: 1px solid #eee; }
+  .totals table tr.grand-total td { font-weight: bold; font-size: 16px; color: #802813; border-top: 2px solid #802813; border-bottom: none; }
+  .payment-info { clear: both; background-color: #f5f5f5; border-left: 4px solid #802813; padding: 15px; margin-bottom: 40px; }
+  .payment-info h4 { margin-top: 0; margin-bottom: 10px; color: #802813; }
+  .payment-info p { margin: 0; font-size: 12px; }
+  .footer { position: fixed; bottom: -20px; left: 0; right: 0; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
 </style></head><body>
-<table class="header"><tr>
-  <td width="50%"><div class="logo">sotramsbois</div><div class="co-info">[Adresse à compléter]</div></td>
-  <td width="50%" class="doc-title"><h1>BON DE COMMANDE</h1><p>Réf: ' . htmlspecialchars($orderRef) . '</p><p>Date: ' . $date . '</p></td>
-</tr></table>
-<table class="addresses"><tr>
-  <td class="address-box" valign="top">
-    <h3>Facturé / Livré à</h3>
-    <p><strong>' . htmlspecialchars($clientBlockName) . '</strong></p>
-    <p>' . htmlspecialchars(trim((string)$input['contact_name'])) . '</p>
-    <p>' . nl2br(htmlspecialchars(trim((string)$input['delivery_address']))) . '</p>
-    <p>Tél: ' . htmlspecialchars(trim((string)$input['phone'])) . '</p>
-    <p>Email: ' . htmlspecialchars(trim((string)$input['email'])) . '</p>
-  </td>
-  <td width="10%"></td>
-  <td class="address-box" valign="top">
-    <h3>Informations de livraison</h3>
-    <p><strong>Statut:</strong> En attente de paiement</p>
-    <p><em>Nous vous contacterons pour planifier la livraison.</em></p>
-  </td>
-</tr></table>
-<table class="items"><thead><tr>
-  <th>Désignation</th><th>Format</th><th class="center">Qté</th><th class="right">Prix cat. HT</th><th class="right">Remise</th><th class="right">Prix net HT</th><th class="right">Total HT</th>
-</tr></thead><tbody>';
+<table class="header">
+  <tr>
+    <td width="50%" valign="top">
+      <div class="logo-placeholder">SOTRAMSBOIS</div>
+      <div class="company-info">
+        Société par actions simplifiée (SAS)<br>
+        2475 route de Fumay<br>
+        08230 Gué-d’Hossus – France<br>
+        <strong>SIREN : 353 877 707 – RCS Sedan</strong><br>
+        Tél. : 09 78 36 80 16<br>
+        Email : contact@sotramsbois.com
+      </div>
+    </td>
+    <td width="50%" class="doc-title" valign="top">
+      <h1>BON DE COMMANDE</h1>
+      <p>N° : ' . htmlspecialchars($orderRef) . '</p>
+      <p>Date : ' . $date . '</p>
+    </td>
+  </tr>
+</table>
+<table class="addresses">
+  <tr>
+    <td class="address-box" valign="top">
+      <h3>Facturé / Livré à</h3>
+      <p><strong>' . htmlspecialchars($clientBlockName) . '</strong></p>
+      <p>' . htmlspecialchars(trim((string)$input['contact_name'])) . '</p>
+      <p>' . nl2br(htmlspecialchars(trim((string)$input['delivery_address']))) . '</p>
+      <p>Tél: ' . htmlspecialchars(trim((string)$input['phone'])) . '</p>
+      <p>Email: ' . htmlspecialchars(trim((string)$input['email'])) . '</p>
+    </td>
+    <td width="10%"></td>
+    <td class="address-box" valign="top">
+      <h3>Informations de livraison</h3>
+      <p><strong>Accès camion:</strong> ' . htmlspecialchars((string)($input['truck_access'] ?? 'Non spécifié')) . '</p>
+      <p><strong>Statut de la commande:</strong> En attente de paiement</p>
+      <p><em>Nous vous contacterons rapidement pour planifier la livraison.</em></p>
+    </td>
+  </tr>
+</table>
+<table class="items">
+  <thead>
+    <tr>
+      <th>Désignation</th>
+      <th>Format</th>
+      <th class="center">Qté</th>
+      <th class="right">Total</th>
+    </tr>
+  </thead>
+  <tbody>';
 
         foreach ($orderItems as $oi) {
-            $pu_ht    = floatval($oi['unit_price_net_ht'] ?? 0);
-            $catalog_ht = floatval($oi['unit_price_catalog_ht'] ?? 0);
-            $discount = floatval($oi['discount_percent'] ?? 0);
             $oi_qty   = intval($oi['quantity']);
             $line_ht  = floatval($oi['total_ht'] ?? 0);
 
-            $discountStr = $discount > 0 ? "-{$discount}%" : '';
-
             $pdfHtml .= '<tr>
-  <td><strong>' . htmlspecialchars($oi['name']) . '</strong></td>
-  <td>' . htmlspecialchars($oi['format'] ?? '') . '</td>
-  <td class="center">' . $oi_qty . '</td>
-  <td class="right">' . number_format($catalog_ht, 2, ',', ' ') . ' €</td>
-  <td class="right">' . $discountStr . '</td>
-  <td class="right">' . number_format($pu_ht, 2, ',', ' ') . ' €</td>
-  <td class="right">' . number_format($line_ht, 2, ',', ' ') . ' €</td>
-</tr>';
+      <td><strong>' . htmlspecialchars($oi['name']) . '</strong></td>
+      <td>' . htmlspecialchars($oi['format'] ?? '') . '</td>
+      <td class="center">' . $oi_qty . '</td>
+      <td class="right">' . number_format($line_ht, 2, ',', ' ') . ' €</td>
+    </tr>';
         }
 
-        $pdfHtml .= '</tbody></table>
-<div class="totals"><table>
-  <tr><td>Sous-total HT</td><td class="right">' . number_format($total_ht, 2, ',', ' ') . ' €</td></tr>
-  <tr><td>TVA (20%)</td><td class="right">' . number_format($total_tva, 2, ',', ' ') . ' €</td></tr>
-  <tr class="grand-total"><td>TOTAL TTC</td><td class="right">' . number_format($total_ttc, 2, ',', ' ') . ' €</td></tr>
-</table></div>
+        $pdfHtml .= '</tbody>
+</table>
+<div class="totals">
+  <table>
+    <tr class="grand-total">
+      <td>TOTAL</td>
+      <td class="right">' . number_format($total_ht, 2, ',', ' ') . ' €</td>
+    </tr>
+  </table>
+</div>
 <div class="payment-info">
   <h4>Instructions de paiement</h4>
-  <table style="width:100%;border-collapse:collapse;font-size:13px">
-    <tr><td style="padding:4px 0;width:40%"><strong>Mode :</strong></td><td style="padding:4px 0">Virement Bancaire (SEPA)</td></tr>
-    <tr><td style="padding:4px 0"><strong>Bénéficiaire :</strong></td><td style="padding:4px 0">CAMARA LANSANA</td></tr>
-    <tr><td style="padding:4px 0"><strong>Pour :</strong></td><td style="padding:4px 0">SOTRAMSBOIS</td></tr>
-    <tr><td style="padding:4px 0"><strong>Banque :</strong></td><td style="padding:4px 0">Qonto</td></tr>
-    <tr><td style="padding:4px 0"><strong>IBAN :</strong></td><td style="padding:4px 0">FR76 1695 8000 0154 3879 6652 982</td></tr>
-    <tr><td style="padding:4px 0"><strong>BIC :</strong></td><td style="padding:4px 0">QNTOFR P1XXX</td></tr>
-    <tr><td style="padding:4px 0"><strong>Référence obligatoire à rappeler :</strong></td><td style="padding:4px 0">' . htmlspecialchars($orderRef) . '</td></tr>
+  <p><strong>Mode de paiement :</strong> Virement Bancaire</p>
+  <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px">
+    <tr><td style="padding:3px 0;width:35%"><strong>Bénéficiaire :</strong></td><td style="padding:3px 0">CAMARA LANSANA</td></tr>
+    <tr><td style="padding:3px 0"><strong>Pour :</strong></td><td style="padding:3px 0">SOTRAMSBOIS</td></tr>
+    <tr><td style="padding:3px 0"><strong>Banque :</strong></td><td style="padding:3px 0">Qonto</td></tr>
+    <tr><td style="padding:3px 0"><strong>IBAN :</strong></td><td style="padding:3px 0">FR76 1695 8000 0154 3879 6652 982</td></tr>
+    <tr><td style="padding:3px 0"><strong>BIC :</strong></td><td style="padding:3px 0">QNTOFR P1XXX</td></tr>
+    <tr><td style="padding:3px 0"><strong>Référence obligatoire à rappeler :</strong></td><td style="padding:3px 0"><strong>' . htmlspecialchars($orderRef) . '</strong></td></tr>
   </table>
   <p style="font-size:11px;font-style:italic;margin-top:10px;color:#666">Votre commande sera validée dès réception du virement.</p>
 </div>
-<div class="footer">sotramsbois — Bon de commande généré numériquement le ' . date('d/m/Y H:i') . '</div>
+<div class="footer">
+  sotramsbois - Solutions professionnelles de biomasse et bois de chauffage haute performance<br>
+  Bon de commande généré numériquement - ' . date('d/m/Y H:i') . '
+</div>
 </body></html>';
 
         $opts = new Options();
