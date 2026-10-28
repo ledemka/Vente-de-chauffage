@@ -269,8 +269,8 @@ $calorificMap = @{
 }
 
 $formatTranslations = @{
-    "jour-premium-cylindrique"   = [PSCustomObject]@{ fr = "de 20 à 30 cm"; en = "20 to 30 cm"; de = "20 bis 30 cm"; nl = "20 tot 30 cm" }
-    "nuit-longue-duree"          = [PSCustomObject]@{ fr = "Cylindrique écorce"; en = "Cylindrical bark"; de = "Zylindrisch (Rinde)"; nl = "Cilindrische schors" }
+    "jour-premium-cylindrique"   = [PSCustomObject]@{ fr = "30 cm"; en = "30 cm"; de = "30 cm"; nl = "30 cm" }
+    "nuit-longue-duree"          = [PSCustomObject]@{ fr = "30 cm"; en = "30 cm"; de = "30 cm"; nl = "30 cm" }
     "jour-forte-chaleur-cubique" = [PSCustomObject]@{ fr = "15 à 16 cm (indicative)"; en = "15 to 16 cm (indicative)"; de = "15 bis 16 cm (Richtwert)"; nl = "15 tot 16 cm (indicatief)" }
     "pini-kay-compressbee"       = [PSCustomObject]@{ fr = "environ 20 à 25 cm"; en = "approx. 20 to 25 cm"; de = "ca. 20 bis 25 cm"; nl = "ongeveer 20 tot 25 cm" }
     "jour-eco-cylindrique"       = [PSCustomObject]@{ fr = "20 à 30 cm"; en = "20 to 30 cm"; de = "20 bis 30 cm"; nl = "20 tot 30 cm" }
@@ -278,7 +278,7 @@ $formatTranslations = @{
     "briquettes-ecorce"          = [PSCustomObject]@{ fr = "Rectangulaire écorce"; en = "Rectangular bark"; de = "Rechteckig (Rinde)"; nl = "Rechthoekige schors" }
     "granules-pellets-premium"   = [PSCustomObject]@{ fr = "Granulés 6mm DINplus / ENplus A1"; en = "6mm Pellets DINplus / ENplus A1"; de = "6mm Pellets DINplus / ENplus A1"; nl = "6mm Pellets DINplus / ENplus A1" }
     "charbon-bois-morceaux"      = [PSCustomObject]@{ fr = "Gros morceaux qualité restaurant"; en = "Restaurant-grade large chunks"; de = "Große Stücke in Gastronomiequalität"; nl = "Grote stukken restaurantkwaliteit" }
-    "allume-feu-laine-bois"      = [PSCustomObject]@{ fr = "Rouleaux laine de bois"; en = "Wood wool rolls"; de = "Holzwollerollen"; nl = "Houtwolrollen" }
+    "allume-feu-laine-bois"      = [PSCustomObject]@{ fr = "50 mm"; en = "50 mm"; de = "50 mm"; nl = "50 mm" }
     "buches-torche-suedoise"     = [PSCustomObject]@{ fr = "Bûche fendue avec mèche intégrée"; en = "Split log with integrated wick"; de = "Gespaltener Stamm mit integriertem Docht"; nl = "Gespleten stam met geïntegreerde lont" }
 }
 
@@ -293,6 +293,19 @@ foreach ($p in $products) {
     }
     if ($p.id -eq "chene-sec-air") {
         $p | Add-Member -NotePropertyName "humidity_bucket" -NotePropertyValue ([PSCustomObject]@{ fr = "15 à 20 %"; en = "15 to 20%"; de = "15 bis 20 %"; nl = "15 tot 20 %" }) -Force
+    }
+    if ($p.id -eq "allume-feu-laine-bois") {
+        $p | Add-Member -NotePropertyName "packaging" -NotePropertyValue ([PSCustomObject]@{ fr = "60 cartons de 10 kg"; en = "60 boxes of 10 kg"; de = "60 Kartons à 10 kg"; nl = "60 dozen van 10 kg" }) -Force
+        $p | Add-Member -NotePropertyName "length" -NotePropertyValue ([PSCustomObject]@{ fr = "50 mm"; en = "50 mm"; de = "50 mm"; nl = "50 mm" }) -Force
+        $p | Add-Member -NotePropertyName "diameter" -NotePropertyValue ([PSCustomObject]@{ fr = "25 à 30 mm"; en = "25 to 30 mm"; de = "25 bis 30 mm"; nl = "25 tot 30 mm" }) -Force
+    }
+    if ($p.id -eq "nuit-longue-duree") {
+        $p | Add-Member -NotePropertyName "length" -NotePropertyValue ([PSCustomObject]@{ fr = "30 cm"; en = "30 cm"; de = "30 cm"; nl = "30 cm" }) -Force
+        $p | Add-Member -NotePropertyName "diameter" -NotePropertyValue ([PSCustomObject]@{ fr = "8,5 cm"; en = "8.5 cm"; de = "8,5 cm"; nl = "8,5 cm" }) -Force
+    }
+    if ($p.id -eq "jour-premium-cylindrique") {
+        $p | Add-Member -NotePropertyName "length" -NotePropertyValue ([PSCustomObject]@{ fr = "30 cm"; en = "30 cm"; de = "30 cm"; nl = "30 cm" }) -Force
+        $p | Add-Member -NotePropertyName "diameter" -NotePropertyValue ([PSCustomObject]@{ fr = "8 cm"; en = "8 cm"; de = "8 cm"; nl = "8 cm" }) -Force
     }
     $productMap[$p.id] = $p
 }
@@ -353,6 +366,41 @@ foreach ($ld in $langDirs) {
         # Determine product ID (from filename or default hetre-etuve)
         $prodId = if ($file.Name -eq "produit.html") { "hetre-etuve" } else { [System.IO.Path]::GetFileNameWithoutExtension($file.Name) }
         $prod = $productMap[$prodId]
+
+        # Responsive mobile header: add burger menu button (#mobile-menu-btn), hide desktop nav bar on mobile (hidden md:block), and adjust main top padding on mobile (pt-24 md:pt-[128px])
+        $menuAriaLabels = @{ 'fr' = 'Ouvrir le menu'; 'en' = 'Open menu'; 'de' = 'Menü öffnen'; 'nl' = 'Menu openen' }
+        $closeAriaLabels = @{ 'fr' = 'Fermer le menu'; 'en' = 'Close menu'; 'de' = 'Menü schließen'; 'nl' = 'Menu sluiten' }
+        $openMenuLbl = $menuAriaLabels[$lang]
+        $closeMenuLbl = $closeAriaLabels[$lang]
+
+        $oldHeaderTop = @'
+<header class="fixed top-0 w-full z-50 bg-inverse-surface shadow-[0_1px_8px_rgba(0,0,0,0.1)]"><div class="h-20 max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
+                    <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
+                </div>
+                <span class="text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span>
+            </div>
+</div><div class="flex items-center gap-6">
+'@.Replace("`r`n", "`n").TrimEnd()
+        $newHeaderTop = @"
+<header class="fixed top-0 w-full z-50 bg-inverse-surface shadow-[0_1px_8px_rgba(0,0,0,0.1)]"><div class="h-20 max-w-[1440px] mx-auto px-4 sm:px-margin-mobile md:px-margin-desktop flex items-center justify-between gap-2 sm:gap-gutter"><div class="flex items-center gap-2 sm:gap-4">
+            <button id="mobile-menu-btn" class="md:hidden flex items-center text-inverse-on-surface hover:text-primary transition-colors" aria-label="$openMenuLbl" onclick="document.getElementById('mobile-menu-drawer').classList.remove('hidden')"><span class="material-symbols-outlined text-[28px]">menu</span></button>
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#802813] to-[#56423d] rounded-lg flex items-center justify-center text-white shadow-md">
+                    <span class="material-symbols-outlined text-[20px] sm:text-[24px]">local_fire_department</span>
+                </div>
+                <span class="text-[20px] sm:text-headline-md font-headline-md text-inverse-on-surface" data-i18n="site_name">sotramsbois</span>
+            </div>
+</div><div class="flex items-center gap-3 sm:gap-6">
+"@.Replace("`r`n", "`n").TrimEnd()
+        $content = $content.Replace($oldHeaderTop, $newHeaderTop)
+        $content = [regex]::Replace($content, '(<button id="mobile-menu-btn"[^>]*aria-label=")[^"]*(")', "`${1}$openMenuLbl`${2}")
+        $content = $content.Replace('<nav class="bg-surface-container border-t border-outline-variant/20">', '<nav class="hidden md:block bg-surface-container border-t border-outline-variant/20">')
+        $content = $content.Replace('<button id="mobile-menu-close" class="text-[#D3C3BE] hover:text-white"><span class="material-symbols-outlined text-2xl">close</span></button>', '<button id="mobile-menu-close" class="text-[#D3C3BE] hover:text-white" aria-label="' + $closeMenuLbl + '" onclick="document.getElementById(''mobile-menu-drawer'').classList.add(''hidden'')"><span class="material-symbols-outlined text-2xl">close</span></button>')
+        $content = [regex]::Replace($content, '(<button id="mobile-menu-close"[^>]*aria-label=")[^"]*(")', "`${1}$closeMenuLbl`${2}")
+        $content = $content.Replace('<div id="mobile-menu-drawer" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm">', '<div id="mobile-menu-drawer" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" onclick="if(event.target===this)this.classList.add(''hidden'')">')
+        $content = $content.Replace('<main class="w-full pt-[128px] bg-background">', '<main class="w-full pt-20 md:pt-[128px] bg-background">')
 
         if ($null -ne $prod) {
             $isBuche = ($prod.subgroup_id -eq 1 -and $null -ne $prod.prices_by_length)
@@ -547,6 +595,71 @@ foreach ($ld in $langDirs) {
                     $content = $content.Replace('<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-longueur">', '<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-longueur">')
                     $content = $content.Replace('<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.length">', '<span class="text-label-md font-label-md text-on-surface-variant shrink-0" data-i18n="product.length">')
                 }
+                if ($prodId -eq "allume-feu-laine-bois") {
+                    $diamLbls = @{ 'fr' = "DIAMÈTRE"; 'en' = "DIAMETER"; 'de' = "DURCHMESSER"; 'nl' = "DIAMETER" }
+                    $diamVals = @{ 'fr' = "25 à 30 mm"; 'en' = "25 to 30 mm"; 'de' = "25 bis 30 mm"; 'nl' = "25 tot 30 mm" }
+                    $dLbl = $diamLbls[$lang]
+                    $dVal = $diamVals[$lang]
+
+                    $content = [regex]::Replace($content, '(<span[^>]*id="spec-longueur"[^>]*>)[^<]*(</span>)', '${1}50 mm${2}')
+                    $content = [regex]::Replace($content, '\s*<div[^>]*id="spec-row-diametre"[^>]*>.*?</div>', '', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+                    $content = [regex]::Replace($content, '\s*<div[^>]*id="spec-row-humidite"[^>]*>.*?</div>', '', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+
+                    $diamHtml = @"
+<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-diametre">
+<span class="text-label-md font-label-md text-on-surface-variant shrink-0">$dLbl</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">$dVal</span>
+</div>
+"@.Replace("`r`n", "`n").TrimEnd()
+                    $content = [regex]::Replace($content, '(<div[^>]*id="spec-row-longueur"[^>]*>.*?</div>)', "`${1}`n$diamHtml", [System.Text.RegularExpressions.RegexOptions]::Singleline)
+
+                    # Remove md:col-span-2 from #spec-row-conditionnement so the 8 specs align in 4 balanced 2-column rows
+                    $content = $content.Replace('gap-4 items-baseline md:col-span-2" id="spec-row-conditionnement"', 'gap-4 items-baseline" id="spec-row-conditionnement"')
+
+                    # Ensure gap-4 items-baseline and shrink-0 on labels
+                    $content = $content.Replace('<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-essence">', '<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-essence">')
+                    $content = $content.Replace('<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.species">', '<span class="text-label-md font-label-md text-on-surface-variant shrink-0" data-i18n="product.species">')
+                    $content = $content.Replace('<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-longueur">', '<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-longueur">')
+                    $content = $content.Replace('<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.length">', '<span class="text-label-md font-label-md text-on-surface-variant shrink-0" data-i18n="product.length">')
+                }
+                if ($prodId -eq "nuit-longue-duree") {
+                    $diamLbls = @{ 'fr' = "DIAMÈTRE"; 'en' = "DIAMETER"; 'de' = "DURCHMESSER"; 'nl' = "DIAMETER" }
+                    $diamVals = @{ 'fr' = "8,5 cm"; 'en' = "8.5 cm"; 'de' = "8,5 cm"; 'nl' = "8,5 cm" }
+                    $dLbl = $diamLbls[$lang]
+                    $dVal = $diamVals[$lang]
+
+                    $content = [regex]::Replace($content, '(<span[^>]*id="spec-longueur"[^>]*>)[^<]*(</span>)', '${1}30 cm${2}')
+                    $content = [regex]::Replace($content, '\s*<div[^>]*id="spec-row-diametre"[^>]*>.*?</div>', '', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+
+                    $diamHtml = @"
+<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-diametre">
+<span class="text-label-md font-label-md text-on-surface-variant shrink-0">$dLbl</span>
+<span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">$dVal</span>
+</div>
+"@.Replace("`r`n", "`n").TrimEnd()
+                    $content = [regex]::Replace($content, '(<div[^>]*id="spec-row-longueur"[^>]*>.*?</div>)', "`${1}`n$diamHtml", [System.Text.RegularExpressions.RegexOptions]::Singleline)
+
+                    # With 9 spec items, #spec-row-conditionnement spans 2 columns on desktop
+                    $content = $content.Replace('gap-4 items-baseline" id="spec-row-conditionnement"', 'gap-4 items-baseline md:col-span-2" id="spec-row-conditionnement"')
+
+                    # Ensure gap-4 items-baseline and shrink-0 on labels
+                    $content = $content.Replace('<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-essence">', '<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-essence">')
+                    $content = $content.Replace('<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.species">', '<span class="text-label-md font-label-md text-on-surface-variant shrink-0" data-i18n="product.species">')
+                    $content = $content.Replace('<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-longueur">', '<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-longueur">')
+                    $content = $content.Replace('<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.length">', '<span class="text-label-md font-label-md text-on-surface-variant shrink-0" data-i18n="product.length">')
+                }
+                if ($prodId -eq "jour-premium-cylindrique") {
+                    $content = [regex]::Replace($content, '(<span[^>]*id="spec-longueur"[^>]*>)[^<]*(</span>)', '${1}30 cm${2}')
+                    $content = [regex]::Replace($content, '(<span[^>]*id="spec-diametre"[^>]*>)[^<]*(</span>)', '${1}8 cm${2}')
+
+                    # Ensure gap-4 items-baseline and shrink-0 on labels
+                    $content = $content.Replace('<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-essence">', '<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-essence">')
+                    $content = $content.Replace('<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.species">', '<span class="text-label-md font-label-md text-on-surface-variant shrink-0" data-i18n="product.species">')
+                    $content = $content.Replace('<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-forme">', '<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-forme">')
+                    $content = $content.Replace('<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-diametre">', '<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-diametre">')
+                    $content = $content.Replace('<div class="flex justify-between py-3 border-b border-outline/30" id="spec-row-longueur">', '<div class="flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline" id="spec-row-longueur">')
+                    $content = $content.Replace('<span class="text-label-md font-label-md text-on-surface-variant" data-i18n="product.length">', '<span class="text-label-md font-label-md text-on-surface-variant shrink-0" data-i18n="product.length">')
+                }
             }
         }
 
@@ -594,6 +707,87 @@ foreach ($ld in $langDirs) {
                                 }
 '@.Replace("`r`n", "`n")
             $content = $content.Replace($oldNotHasHum, $newJourEcoAndNotHasHum)
+        }
+
+        # Update jour-premium-cylindrique and nuit-longue-duree in product page JS
+        $content = $content.Replace("const diameterValues = { fr: 'de 6 à 10 cm', en: '6 to 10 cm', de: '6 bis 10 cm', nl: '6 tot 10 cm' };", "const diameterValues = { fr: '8 cm', en: '8 cm', de: '8 cm', nl: '8 cm' };")
+        $content = $content.Replace("const lengthValues = { fr: 'de 20 à 30 cm', en: '20 to 30 cm', de: '20 bis 30 cm', nl: '20 tot 30 cm' };", "const lengthValues = { fr: '30 cm', en: '30 cm', de: '30 cm', nl: '30 cm' };")
+        $content = $content.Replace("const dVal = diameterValues[lang] || 'de 6 à 10 cm';", "const dVal = diameterValues[lang] || '8 cm';")
+        $content = $content.Replace("const lVal = lengthValues[lang] || 'de 20 à 30 cm';", "const lVal = lengthValues[lang] || '30 cm';")
+
+        if ($content -notmatch "product\.id === 'nuit-longue-duree'\)\s*\{\s*const diameterLabels") {
+            $oldAllumeAndNotHasHum = @'
+                                } else if (!hasHumidity) {
+                                    if (specRowHumidite) specRowHumidite.remove();
+                                    if (specRowConditionnement) specRowConditionnement.classList.add('md:col-span-2');
+                                }
+'@.Replace("`r`n", "`n")
+            $newNuitAndNotHasHum = @'
+                                } else if (product.id === 'nuit-longue-duree') {
+                                    const diameterLabels = { fr: 'DIAMÈTRE', en: 'DIAMETER', de: 'DURCHMESSER', nl: 'DIAMETER' };
+                                    const diameterValues = { fr: '8,5 cm', en: '8.5 cm', de: '8,5 cm', nl: '8,5 cm' };
+                                    const dLabel = diameterLabels[lang] || 'DIAMÈTRE';
+                                    const dVal = diameterValues[lang] || '8,5 cm';
+
+                                    const specLong = document.getElementById('spec-longueur');
+                                    if (specLong) specLong.textContent = '30 cm';
+
+                                    let rowDiametre = document.getElementById('spec-row-diametre');
+                                    if (!rowDiametre) {
+                                        rowDiametre = document.createElement('div');
+                                        rowDiametre.className = 'flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline';
+                                        rowDiametre.id = 'spec-row-diametre';
+                                        rowDiametre.innerHTML = '<span class="text-label-md font-label-md text-on-surface-variant shrink-0">' + dLabel + '</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">' + dVal + '</span>';
+                                        if (specRowHumidite) specRowHumidite.before(rowDiametre);
+                                    } else {
+                                        const dValEl = document.getElementById('spec-diametre');
+                                        if (dValEl) dValEl.textContent = dVal;
+                                    }
+                                    if (specRowConditionnement) specRowConditionnement.classList.add('md:col-span-2');
+                                } else if (!hasHumidity) {
+                                    if (specRowHumidite) specRowHumidite.remove();
+                                    if (specRowConditionnement) specRowConditionnement.classList.add('md:col-span-2');
+                                }
+'@.Replace("`r`n", "`n")
+            $content = $content.Replace($oldAllumeAndNotHasHum, $newNuitAndNotHasHum)
+        }
+        if ($content -notmatch "product\.id === 'allume-feu-laine-bois'\)\s*\{\s*if \(specRowHumidite\)") {
+            $oldNotHasHumAllume = @'
+                                } else if (!hasHumidity) {
+                                    if (specRowHumidite) specRowHumidite.remove();
+                                    if (specRowConditionnement) specRowConditionnement.classList.add('md:col-span-2');
+                                }
+'@.Replace("`r`n", "`n")
+            $newAllumeAndNotHasHum = @'
+                                } else if (product.id === 'allume-feu-laine-bois') {
+                                    if (specRowHumidite) specRowHumidite.remove();
+                                    const diameterLabels = { fr: 'DIAMÈTRE', en: 'DIAMETER', de: 'DURCHMESSER', nl: 'DIAMETER' };
+                                    const diameterValues = { fr: '25 à 30 mm', en: '25 to 30 mm', de: '25 bis 30 mm', nl: '25 tot 30 mm' };
+                                    const dLabel = diameterLabels[lang] || 'DIAMÈTRE';
+                                    const dVal = diameterValues[lang] || '25 à 30 mm';
+
+                                    const specLong = document.getElementById('spec-longueur');
+                                    if (specLong) specLong.textContent = '50 mm';
+
+                                    let rowDiametre = document.getElementById('spec-row-diametre');
+                                    if (!rowDiametre) {
+                                        rowDiametre = document.createElement('div');
+                                        rowDiametre.className = 'flex justify-between py-3 border-b border-outline/30 gap-4 items-baseline';
+                                        rowDiametre.id = 'spec-row-diametre';
+                                        rowDiametre.innerHTML = '<span class="text-label-md font-label-md text-on-surface-variant shrink-0">' + dLabel + '</span><span class="text-body-md font-data-mono text-on-surface text-right" id="spec-diametre">' + dVal + '</span>';
+                                        const rowLong = document.getElementById('spec-row-longueur');
+                                        if (rowLong) rowLong.after(rowDiametre);
+                                    } else {
+                                        const dValEl = document.getElementById('spec-diametre');
+                                        if (dValEl) dValEl.textContent = dVal;
+                                    }
+                                    if (specRowConditionnement) specRowConditionnement.classList.remove('md:col-span-2');
+                                } else if (!hasHumidity) {
+                                    if (specRowHumidite) specRowHumidite.remove();
+                                    if (specRowConditionnement) specRowConditionnement.classList.add('md:col-span-2');
+                                }
+'@.Replace("`r`n", "`n")
+            $content = $content.Replace($oldNotHasHumAllume, $newAllumeAndNotHasHum)
         }
 
         # Update buches-torche-suedoise JS spec handling in all product pages so spec-row-humidite is preserved and aligned
@@ -673,15 +867,22 @@ foreach ($ld in $langDirs) {
         $content = $content.Replace("const shapeValues = { fr: 'Octogonale (Pini Kay)', en: 'Octagonal (Pini Kay)', de: 'Achteckig (Pini Kay)', nl: 'Achthoekig (Pini Kay)' };", "const shapeValues = { fr: 'octogonale (Pini Kay)', en: 'Octagonal (Pini Kay)', de: 'Achteckig (Pini Kay)', nl: 'Achthoekig (Pini Kay)' };")
         $content = $content.Replace("const sVal = shapeValues[lang] || 'Octogonale (Pini Kay)';", "const sVal = shapeValues[lang] || 'octogonale (Pini Kay)';")
 
-        # C. Remove TVA included span and TTC from static labels
+        # C. Remove TVA included span and set product.total_ttc label
+        $productTotalTtcLabels = @{
+            'fr' = 'Total TTC'
+            'en' = 'Total (incl. tax)'
+            'de' = 'Gesamt (inkl. MwSt)'
+            'nl' = 'Totaal (incl. btw)'
+        }
         $subLbl = $subtotalLabels[$lang]
-        $totLbl = $totalLabels[$lang]
+        $prodTotLbl = $productTotalTtcLabels[$lang]
         $content = [regex]::Replace($content, '(<span[^>]*data-i18n="product\.subtotal"[^>]*>)[^<]*(</span>)', "`${1}$subLbl`${2}")
-        $content = [regex]::Replace($content, '(<span[^>]*data-i18n="product\.total_ttc"[^>]*>)[^<]*(</span>)', "`${1}$totLbl`${2}")
+        $content = [regex]::Replace($content, '(<span[^>]*data-i18n="product\.total_ttc"[^>]*>)[^<]*(</span>)', "`${1}$prodTotLbl`${2}")
         $content = [regex]::Replace($content, '\s*<span[^>]*data-i18n="product\.tva_included"[^>]*>[^<]*</span>', '')
 
-        # D. Update JS default length from '' / '50' to '20'
-        $content = $content.Replace("let selectedLength = lengthFromUrl || '';", "let selectedLength = lengthFromUrl || '20';")
+        # D. Update JS default length from '' / '50' to '20' for Bûches only
+        $content = $content.Replace("let selectedLength = lengthFromUrl || '';", "let selectedLength = isBuche ? (lengthFromUrl || '20') : '';")
+        $content = $content.Replace("let selectedLength = lengthFromUrl || '20';", "let selectedLength = isBuche ? (lengthFromUrl || '20') : '';")
         $content = $content.Replace("const defaultDisplayLength = '50';", "const defaultDisplayLength = '20';")
 
         # Ensure window._userSelectedLength and window.currentProductLength are initialized to selectedLength for Bûches
@@ -1134,6 +1335,7 @@ foreach ($sub in @('en', 'de', 'nl')) {
         $tdb = [regex]::Replace($tdb, '(<span[^>]*data-i18n="modal\.total_ttc"[^>]*>)[^<]*(</span>)', "`${1}$totLbl`${2}")
         $tdb = $tdb.Replace("t('order.table.total', 'Total TTC')", "t('order.table.total', 'Total')")
         $tdb = $tdb.Replace("const puTTC = puHT * 1.20;", "const puTTC = puHT;")
+        $tdb = $tdb.Replace('<div class="text-body-sm text-outline-variant">${item.format}</div>', '<div class="text-body-sm text-outline-variant">${typeof item.format === ''object'' && item.format !== null ? (item.format[document.documentElement.lang || ''fr''] || item.format.fr || '''') : (item.format || '''')}</div>')
         [System.IO.File]::WriteAllText($tdbFile, $tdb, $utf8NoBom)
         Write-Host "Updated $sub\tableau-de-bord.html"
     }
@@ -1146,8 +1348,27 @@ foreach ($sub in @('en', 'de', 'nl')) {
         $adm = [regex]::Replace($adm, '(<span[^>]*data-i18n="modal\.total_ttc"[^>]*>)[^<]*(</span>)', "`${1}$totLbl`${2}")
         $adm = $adm.Replace("t('admin.table.total', 'Total TTC')", "t('admin.table.total', 'Total')")
         $adm = $adm.Replace("const puTTC = puHT * 1.20;", "const puTTC = puHT;")
+        $adm = $adm.Replace("document.getElementById('modal-client-name').textContent = data.client_name;", "const clientEl = document.getElementById('modal-client') || document.getElementById('modal-client-name'); if (clientEl) clientEl.textContent = data.client_name;")
+        $adm = $adm.Replace('<div class="text-body-sm text-outline-variant">${item.format}</div>', '<div class="text-body-sm text-outline-variant">${typeof item.format === ''object'' && item.format !== null ? (item.format[document.documentElement.lang || ''fr''] || item.format.fr || '''') : (item.format || '''')}</div>')
         [System.IO.File]::WriteAllText($admFile, $adm, $utf8NoBom)
         Write-Host "Updated $sub\admin-commandes.html"
+    }
+}
+
+# 7b. Update data/i18n/{fr,en,de,nl}.json for cart.total_ttc and product.total_ttc
+$i18nTotalTtcMap = @{
+    'fr' = 'Total TTC'
+    'en' = 'Total (incl. tax)'
+    'de' = 'Gesamt (inkl. MwSt)'
+    'nl' = 'Totaal (incl. btw)'
+}
+foreach ($lg in @('fr', 'en', 'de', 'nl')) {
+    $i18nPath = Join-Path $rootDir "data\i18n\$lg.json"
+    if (Test-Path $i18nPath) {
+        $i18nObj = [System.IO.File]::ReadAllText($i18nPath, $utf8NoBom) | ConvertFrom-Json
+        $i18nObj.cart.total_ttc = $i18nTotalTtcMap[$lg]
+        $i18nObj.product.total_ttc = $i18nTotalTtcMap[$lg]
+        [System.IO.File]::WriteAllText($i18nPath, ($i18nObj | ConvertTo-Json -Depth 10), $utf8NoBom)
     }
 }
 
@@ -1159,6 +1380,7 @@ if (Test-Path $distDir) {
     # Copy assets/js/cart.js
     Copy-Item -Path (Join-Path $rootDir "assets\js\cart.js") -Destination (Join-Path $distDir "assets\js\cart.js") -Force
     # Copy api/
+    Copy-Item -Path (Join-Path $rootDir "api\cart.php") -Destination (Join-Path $distDir "api\cart.php") -Force
     Copy-Item -Path (Join-Path $rootDir "api\pricing.php") -Destination (Join-Path $distDir "api\pricing.php") -Force
     Copy-Item -Path (Join-Path $rootDir "api\order.php") -Destination (Join-Path $distDir "api\order.php") -Force
     Copy-Item -Path (Join-Path $rootDir "api\merchant-feed.php") -Destination (Join-Path $distDir "api\merchant-feed.php") -Force

@@ -889,7 +889,7 @@ window.openOrderModal = (data) => {
                     <td class="py-3 pr-2">${img}</td>
                     <td class="py-3 px-2">
                         <div class="font-bold text-body-md text-on-surface">${getProductName(item)}</div>
-                        <div class="text-body-sm text-outline-variant">${item.format}</div>
+                        <div class="text-body-sm text-outline-variant">${typeof item.format === 'object' && item.format !== null ? (item.format[document.documentElement.lang || 'fr'] || item.format.fr || '') : (item.format || '')}</div>
                     </td>
                     <td class="py-3 px-2 text-center text-body-md">${item.quantity}</td>
                     <td class="py-3 px-2 text-right text-body-sm">${puTTC.toFixed(2)} €</td>

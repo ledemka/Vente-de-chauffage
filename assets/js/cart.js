@@ -8,6 +8,14 @@ if (typeof window.getProductName === 'undefined') {
         return p ? (typeof p.name === 'string' ? p.name : (p.name[lang] || p.name.fr)) : '';
     };
 }
+if (typeof window.getFormatString === 'undefined') {
+    window.getFormatString = (fmt) => {
+        if (!fmt) return '';
+        const lang = document.documentElement.lang || 'fr';
+        if (typeof fmt === 'object') return fmt[lang] || fmt.fr || '';
+        return window.i18n ? window.i18n.t("formats." + fmt, fmt) : fmt;
+    };
+}
 
 var CartAPI = {
     _ensureToken() {
@@ -132,8 +140,8 @@ var CartAPI = {
                 detailedItems.push({
                     product_id: item.product_id,
                     name: p.name,
-                    length: item.length || null,
-                    format: item.length ? item.length + ' cm' : p.format,
+                    length: p.prices_by_length ? (item.length || '20') : null,
+                    format: (p.prices_by_length && item.length) ? item.length + ' cm' : window.getFormatString(p.format),
                     image: p.image_product || '',
                     quantity: qty,
                     wholesale_price: catalogPrice,
@@ -399,7 +407,7 @@ var CartUI = {
                     <h3 class="text-body-lg font-bold text-on-surface mb-2">${getProductName(prod)}</h3>
                     <div class="text-body-sm text-on-surface-variant flex items-center gap-2">
                         <span class="material-symbols-outlined text-[16px]">inventory_2</span>
-                        <span data-i18n="cart.format_weight">Format :</span> ${window.i18n ? window.i18n.t("formats." + item.format, item.format) : item.format} / ${prod.palette_weight}
+                        <span data-i18n="cart.format_weight">Format :</span> ${window.getFormatString(item.length ? (item.length + ' cm') : (prod.format || item.format))} / ${prod.palette_weight}
                     </div>
                 </div>
                 
@@ -498,7 +506,7 @@ var CartUI = {
 
                     const formatLabel = isBuche
                         ? `<div class="text-body-sm text-amber-700 mb-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> 20 cm</div>`
-                        : `<div class="text-body-sm text-on-surface-variant mb-2">${window.i18n ? window.i18n.t("formats." + p.format, p.format) : p.format}</div>`;
+                        : `<div class="text-body-sm text-on-surface-variant mb-2">${window.getFormatString(p.format)}</div>`;
 
                     phtml += `
                         <div class="bg-surface-container rounded-xl p-4 border border-outline/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
@@ -668,7 +676,7 @@ var CartUI = {
                     </div>
                     
                     <div class="flex justify-between items-end mb-6 text-on-surface border-t border-outline/30 mt-4 pt-4">
-                        <span class="text-headline-md font-headline-md" data-i18n="cart.total_ttc">Total</span>
+                        <span class="text-headline-md font-headline-md" data-i18n="cart.total_ttc">Total TTC</span>
                         <span class="text-headline-lg font-data-mono font-bold text-primary">${this.formatPrice(totalTTC)}</span>
                     </div>
 
@@ -774,7 +782,7 @@ var CartUI = {
             html += `<tr class="border-b border-outline/20">
                 <td class="py-3 pr-2 text-body-sm">
                     <span class="font-bold text-on-surface block">${getProductName(prod)}</span>
-                    <span class="text-body-sm text-on-surface-variant block">${window.i18n ? window.i18n.t("formats." + item.format, item.format) : item.format}</span>
+                    <span class="text-body-sm text-on-surface-variant block">${window.getFormatString(item.length ? (item.length + ' cm') : (prod.format || item.format))}</span>
                     <span class="text-label-md uppercase text-outline-variant mt-1 block">RÉF: ${prod.id}</span>
                 </td>
                 <td class="py-3 px-2 text-center text-body-sm font-data-mono">
@@ -1112,12 +1120,86 @@ var CartUI = {
     },
 
     async clearCart() {
-        if (!confirm(window.i18n ? window.i18n.t('cart.clear_confirm', 'Vider le panier ?') : 'Vider le panier ?')) return;
-        const container = document.getElementById('cart-items-container');
-        if (container) container.style.opacity = '0.5';
-        await CartAPI.clear();
-        await this.renderCartPage();
-        if (container) container.style.opacity = '1';
+        const existing = document.getElementById('clear-cart-modal');
+        if (existing) existing.remove();
+
+        const lang = document.documentElement.lang || 'fr';
+        const i18nTexts = {
+            fr: {
+                title: 'Vider le panier ?',
+                desc: 'Êtes-vous sûr de vouloir supprimer tous les articles de votre panier ?',
+                cancel: 'Annuler',
+                confirm: 'Vider le panier'
+            },
+            en: {
+                title: 'Empty cart?',
+                desc: 'Are you sure you want to remove all items from your cart?',
+                cancel: 'Cancel',
+                confirm: 'Empty cart'
+            },
+            de: {
+                title: 'Warenkorb leeren?',
+                desc: 'Sind Sie sicher, dass Sie alle Artikel aus Ihrem Warenkorb entfernen möchten?',
+                cancel: 'Abbrechen',
+                confirm: 'Warenkorb leeren'
+            },
+            nl: {
+                title: 'Winkelwagen legen?',
+                desc: 'Weet u zeker dat u alle artikelen uit uw winkelwagen wilt verwijderen?',
+                cancel: 'Annuleren',
+                confirm: 'Winkelwagen legen'
+            }
+        };
+        const t = i18nTexts[lang] || i18nTexts.fr;
+        const titleText = (window.i18n && window.i18n.t('cart.clear_confirm')) || t.title;
+        const confirmText = (window.i18n && window.i18n.t('panier.vider_le_panier')) || t.confirm;
+
+        const modalHtml = `
+            <div id="clear-cart-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+                <div class="bg-surface-container rounded-2xl shadow-xl w-full max-w-md border border-outline/20 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-11 h-11 rounded-xl bg-error/10 text-error flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-[24px]">delete</span>
+                            </div>
+                            <h3 class="text-headline-sm font-bold text-on-surface">${titleText}</h3>
+                        </div>
+                        <p class="text-body-md text-on-surface-variant mb-6 leading-relaxed">${t.desc}</p>
+                        <div class="flex gap-3">
+                            <button type="button" id="btn-clear-cart-cancel" class="flex-1 py-3 border-2 border-outline/40 hover:border-outline text-on-surface rounded-md font-label-md font-bold transition-colors shadow-sm cursor-pointer">${t.cancel}</button>
+                            <button type="button" id="btn-clear-cart-confirm" class="flex-1 py-3 bg-error hover:bg-error/90 text-white rounded-md font-label-md font-bold transition-colors shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
+                                <span class="material-symbols-outlined text-[18px]">delete</span>
+                                <span>${confirmText}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+        const modalEl = document.getElementById('clear-cart-modal');
+        const closeModal = () => {
+            if (modalEl) modalEl.remove();
+            document.removeEventListener('keydown', onKeyDown);
+        };
+        const onKeyDown = (e) => {
+            if (e.key === 'Escape') closeModal();
+        };
+        document.addEventListener('keydown', onKeyDown);
+
+        modalEl.addEventListener('click', (e) => {
+            if (e.target === modalEl) closeModal();
+        });
+        document.getElementById('btn-clear-cart-cancel').onclick = closeModal;
+        document.getElementById('btn-clear-cart-confirm').onclick = async () => {
+            closeModal();
+            const container = document.getElementById('cart-items-container');
+            if (container) container.style.opacity = '0.5';
+            await CartAPI.clear();
+            await this.renderCartPage();
+            if (container) container.style.opacity = '1';
+        };
     },
     
     renderConfirmationPage() {

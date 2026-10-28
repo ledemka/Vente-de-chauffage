@@ -80,6 +80,16 @@ try {
 
         if (!$product_id) respondError(400, 'Produit manquant');
 
+        $products = getProductsData();
+        foreach ($products as $prodItem) {
+            if (($prodItem['id'] ?? '') === $product_id) {
+                if (!isset($prodItem['prices_by_length'])) {
+                    $length = null;
+                }
+                break;
+            }
+        }
+
         if ($client_id) {
             $stmt = $pdo->prepare("SELECT id, quantity FROM cart_items WHERE client_id = ? AND product_id = ? AND (length = ? OR (length IS NULL AND ? IS NULL))");
             $stmt->execute([$client_id, $product_id, $length, $length]);
@@ -158,17 +168,23 @@ try {
                 $p = $productsMap[$pid];
                 $len = $item['length'];
 
-                if ($len !== null && (!isset($p['prices_by_length']) || !isset($p['prices_by_length'][$len]))) {
-                    continue;
+                if (!isset($p['prices_by_length'])) {
+                    $len = null;
+                } elseif ($len !== null && !isset($p['prices_by_length'][$len])) {
+                    $len = '20';
                 }
 
                 $calc = calculateLinePrice($p, $len, (int)$item['quantity'], (float)$globalDiscountPercent);
+                $rawFormat = $p['format'] ?? '';
+                if (is_array($rawFormat)) {
+                    $rawFormat = $rawFormat['fr'] ?? reset($rawFormat) ?: '';
+                }
 
                 $cartData[] = [
                     'product_id' => $pid,
                     'name' => $p['name'],
                     'length' => $len,
-                    'format' => $len ? $len . ' cm' : $p['format'],
+                    'format' => $len ? $len . ' cm' : $rawFormat,
                     'image' => $p['image_product'] ?? '',
                     'quantity' => $calc['quantity'],
                     'wholesale_price' => $calc['unit_price_catalog_ht'],

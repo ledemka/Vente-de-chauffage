@@ -310,7 +310,7 @@
                  "volume_discount":  "Volumekorting",
                  "shipping_fees":  "Verzendkosten",
                  "calc_at_checkout":  "Berekend bij het afrekenen",
-                 "total_ttc":  "Totaal ()",
+                 "total_ttc":  "Totaal (incl. btw)",
                  "validate_order":  "Afrekenen",
                  "secure_payment":  "Veilige B2B-betaling via bankoverschrijving",
                  "similar":  "Vergelijkbare producten",
@@ -976,7 +976,7 @@
                     "seo_description":  "{name} ({species}, {format}). {units} stuks/pallet, {palette_weight}. Vraag een B2B-offerte aan.",
                     "units_per_pallet":  "stuks per pallet",
                     "origin_tbd":  "Herkomst nog te bepalen",
-                    "total_ttc":  "Totaal ()",
+                    "total_ttc":  "Totaal (incl. btw)",
                     "tva_included":  "",
                     "min_qty_warning":  "Minimaal toegestane hoeveelheid: 5 pallets.",
                     "min_order_notice":  "Minimale bestelling: 5 pallets. Het is niet mogelijk om minder dan 5 pallets te bestellen."

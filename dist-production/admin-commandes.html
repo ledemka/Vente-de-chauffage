@@ -446,7 +446,8 @@ window.openAdminModal = function(el) {
         const data = JSON.parse(el.dataset.order);
         document.getElementById('modal-ref').textContent = data.ref;
         document.getElementById('modal-date').textContent = data.date;
-        document.getElementById('modal-client-name').textContent = data.client_name;
+        const clientEl = document.getElementById('modal-client') || document.getElementById('modal-client-name');
+        if (clientEl) clientEl.textContent = data.client_name;
         document.getElementById('modal-total').textContent = data.total;
         if (document.getElementById('modal-address')) {
             document.getElementById('modal-address').textContent = data.delivery_address || (window.i18n ? window.i18n.t('admin-commandes.not_specified', 'Non spécifiée') : 'Non spécifiée');
@@ -481,7 +482,7 @@ window.openAdminModal = function(el) {
                     <td class="py-3 pr-2">${img}</td>
                     <td class="py-3 px-2">
                         <div class="font-bold text-body-md text-on-surface">${getProductName(item)}</div>
-                        <div class="text-body-sm text-outline-variant">${item.format}</div>
+                        <div class="text-body-sm text-outline-variant">${typeof item.format === 'object' && item.format !== null ? (item.format[document.documentElement.lang || 'fr'] || item.format.fr || '') : (item.format || '')}</div>
                     </td>
                     <td class="py-3 px-2 text-center text-body-md">${item.quantity}</td>
                     <td class="py-3 px-2 text-right text-body-sm">${puVal.toFixed(2)} €</td>

@@ -310,7 +310,7 @@
                  "volume_discount":  "Mengenrabatt",
                  "shipping_fees":  "Versandkosten",
                  "calc_at_checkout":  "An der Kasse berechnet",
-                 "total_ttc":  "Gesamtsumme (inkl. MwSt)",
+                 "total_ttc":  "Gesamt (inkl. MwSt)",
                  "validate_order":  "Bestellung aufgeben",
                  "secure_payment":  "Sichere B2B-Zahlung per Überweisung",
                  "similar":  "Ähnliche Produkte",
@@ -976,7 +976,7 @@
                     "seo_description":  "{name} ({species}, {format}). {units} Stück/Palette, {palette_weight}. Fordern Sie ein B2B-Angebot an.",
                     "units_per_pallet":  "Stück pro Palette",
                     "origin_tbd":  "Herkunft wird noch bekannt gegeben",
-                    "total_ttc":  "Gesamt ()",
+                    "total_ttc":  "Gesamt (inkl. MwSt)",
                     "tva_included":  "",
                     "min_qty_warning":  "Mindestbestellmenge erlaubt: 5 Paletten.",
                     "min_order_notice":  "Mindestbestellmenge: 5 Paletten. Es ist nicht möglich, weniger als 5 Paletten zu bestellen."

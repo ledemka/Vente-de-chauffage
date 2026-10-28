@@ -104,17 +104,23 @@ try {
         if (isset($productsMap[$pid])) {
             $p = $productsMap[$pid];
 
-            if ($len !== null && (!isset($p['prices_by_length']) || !isset($p['prices_by_length'][$len]))) {
-                continue;
+            if (!isset($p['prices_by_length'])) {
+                $len = null;
+            } elseif ($len !== null && !isset($p['prices_by_length'][$len])) {
+                $len = '20';
             }
 
             $calc = calculateLinePrice($p, $len, (int)$item['quantity'], (float)$globalDiscountPercent);
+            $rawFormat = $p['format'] ?? '';
+            if (is_array($rawFormat)) {
+                $rawFormat = $rawFormat[$lang] ?? $rawFormat['fr'] ?? reset($rawFormat) ?: '';
+            }
 
             $orderItems[] = [
                 'product_id' => $pid,
                 'name' => is_array($p['name']) ? ($p['name'][$lang] ?? $p['name']['fr']) : $p['name'],
                 'length' => $len,
-                'format' => $len ? $len . ' cm' : $p['format'],
+                'format' => $len ? $len . ' cm' : $rawFormat,
                 'quantity' => $calc['quantity'],
                 'unit_price_catalog_ht' => $calc['unit_price_catalog_ht'],
                 'discount_percent' => $calc['discount_percent'],

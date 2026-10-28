@@ -99,6 +99,33 @@ Assert-Equal ($jourEcoHtml.Contains('id="spec-longueur">20 à 30 cm</span>')) $t
 Assert-Equal ($jourEcoHtml.Contains('id="spec-diametre">6 à 9 cm</span>')) $true "produits/jour-eco-cylindrique.html spec-diametre 6 à 9 cm"
 Assert-Equal ($jourEcoHtml.Contains('id="spec-essence">Mélange copeaux &amp; sciures compressés</span>')) $true "produits/jour-eco-cylindrique.html spec-essence unchanged"
 
+$allumeHtml = [System.IO.File]::ReadAllText((Join-Path $rootDir "produits\allume-feu-laine-bois.html"), $utf8NoBom)
+Assert-Equal ($allumeHtml.Contains('id="unit-price-ttc">180,00 €</span>')) $true "produits/allume-feu-laine-bois.html initial unit price 180,00 €"
+Assert-Equal ($allumeHtml.Contains('id="spec-longueur">50 mm</span>')) $true "produits/allume-feu-laine-bois.html spec-longueur 50 mm"
+Assert-Equal ($allumeHtml.Contains('id="spec-diametre">25 à 30 mm</span>')) $true "produits/allume-feu-laine-bois.html spec-diametre 25 à 30 mm"
+Assert-Equal ($allumeHtml.Contains('id="spec-conditionnement">60 cartons de 10 kg</span>')) $true "produits/allume-feu-laine-bois.html spec-conditionnement 60 cartons de 10 kg"
+Assert-Equal ($allumeHtml.Contains('id="spec-pouvoir">7,0 kWh/kg</span>')) $true "produits/allume-feu-laine-bois.html spec-pouvoir 7,0 kWh/kg"
+Assert-Equal ($allumeHtml.Contains('md:col-span-2" id="spec-row-conditionnement"')) $false "produits/allume-feu-laine-bois.html spec-row-conditionnement aligned (no md:col-span-2)"
+Assert-Equal $pmap['allume-feu-laine-bois'].packaging.fr "60 cartons de 10 kg" "products.json allume-feu-laine-bois packaging FR"
+Assert-Equal $pmap['allume-feu-laine-bois'].length.fr "50 mm" "products.json allume-feu-laine-bois length FR"
+Assert-Equal $pmap['allume-feu-laine-bois'].diameter.fr "25 à 30 mm" "products.json allume-feu-laine-bois diameter FR"
+
+$nuitHtml = [System.IO.File]::ReadAllText((Join-Path $rootDir "produits\nuit-longue-duree.html"), $utf8NoBom)
+Assert-Equal ($nuitHtml.Contains('id="unit-price-ttc">260,00 €</span>')) $true "produits/nuit-longue-duree.html initial unit price 260,00 €"
+Assert-Equal ($nuitHtml.Contains('id="spec-longueur">30 cm</span>')) $true "produits/nuit-longue-duree.html spec-longueur 30 cm"
+Assert-Equal ($nuitHtml.Contains('id="spec-diametre">8,5 cm</span>')) $true "produits/nuit-longue-duree.html spec-diametre 8,5 cm"
+Assert-Equal ($nuitHtml.Contains('id="spec-pouvoir">5,1 kWh/kg</span>')) $true "produits/nuit-longue-duree.html spec-pouvoir 5,1 kWh/kg"
+Assert-Equal $pmap['nuit-longue-duree'].length.fr "30 cm" "products.json nuit-longue-duree length FR"
+Assert-Equal $pmap['nuit-longue-duree'].diameter.fr "8,5 cm" "products.json nuit-longue-duree diameter FR"
+
+$jourPremHtml = [System.IO.File]::ReadAllText((Join-Path $rootDir "produits\jour-premium-cylindrique.html"), $utf8NoBom)
+Assert-Equal ($jourPremHtml.Contains('id="unit-price-ttc">270,00 €</span>')) $true "produits/jour-premium-cylindrique.html initial unit price 270,00 €"
+Assert-Equal ($jourPremHtml.Contains('id="spec-longueur">30 cm</span>')) $true "produits/jour-premium-cylindrique.html spec-longueur 30 cm"
+Assert-Equal ($jourPremHtml.Contains('id="spec-diametre">8 cm</span>')) $true "produits/jour-premium-cylindrique.html spec-diametre 8 cm"
+Assert-Equal ($jourPremHtml.Contains('id="spec-pouvoir">5,0 kWh/kg</span>')) $true "produits/jour-premium-cylindrique.html spec-pouvoir 5,0 kWh/kg"
+Assert-Equal $pmap['jour-premium-cylindrique'].length.fr "30 cm" "products.json jour-premium-cylindrique length FR"
+Assert-Equal $pmap['jour-premium-cylindrique'].diameter.fr "8 cm" "products.json jour-premium-cylindrique diameter FR"
+
 $expectedCalorific = @{
     "jour-premium-cylindrique"   = "5,0 kWh/kg"
     "jour-forte-chaleur-cubique" = "4,9 kWh/kg"
@@ -150,6 +177,22 @@ foreach ($sub in @('', 'en\', 'de\', 'nl\')) {
         if ($txt -match 'data-i18n="product\.tva_included"') {
             $failures += "FAIL [$($pf.FullName)]: still contains product.tva_included span!"
         }
+        if (-not $txt.Contains('id="mobile-menu-btn"')) {
+            $failures += "FAIL [$($pf.FullName)]: missing #mobile-menu-btn burger button!"
+        }
+        if (-not $txt.Contains('<nav class="hidden md:block bg-surface-container')) {
+            $failures += "FAIL [$($pf.FullName)]: desktop nav bar not hidden on mobile (missing hidden md:block)!"
+        }
+        if (-not $txt.Contains("let selectedLength = isBuche ? (lengthFromUrl || '20') : '';")) {
+            $failures += "FAIL [$($pf.FullName)]: selectedLength not conditioned on isBuche!"
+        }
+    }
+}
+
+foreach ($adm in @('admin-commandes.html', 'en\admin-commandes.html', 'de\admin-commandes.html', 'nl\admin-commandes.html')) {
+    $admTxt = [System.IO.File]::ReadAllText((Join-Path $rootDir $adm), $utf8NoBom)
+    if (-not $admTxt.Contains("document.getElementById('modal-client')")) {
+        $failures += "FAIL [$adm]: missing modal-client lookup in openAdminModal!"
     }
 }
 

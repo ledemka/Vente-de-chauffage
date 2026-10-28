@@ -976,7 +976,7 @@
                     "seo_description":  "{name} ({species}, {format}). {units} units/pallet, {palette_weight}. Request a free B2B quote.",
                     "units_per_pallet":  "units per pallet",
                     "origin_tbd":  "Origin to be specified",
-                    "total_ttc":  "Total ()",
+                    "total_ttc":  "Total (incl. tax)",
                     "tva_included":  "",
                     "min_qty_warning":  "Minimum authorized quantity: 5 pallets.",
                     "min_order_notice":  "Minimum order: 5 pallets. It is not possible to order fewer than 5 pallets."

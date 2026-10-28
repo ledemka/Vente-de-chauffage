@@ -371,12 +371,6 @@
                       "de":  "Zylindrisch",
                       "nl":  "Cilindrisch"
                   },
-        "diameter":  {
-                         "fr":  "de 6 à 10 cm",
-                         "en":  "6 to 10 cm",
-                         "de":  "6 bis 10 cm",
-                         "nl":  "6 tot 10 cm"
-                     },
         "packaging":  {
                           "fr":  "100 unités par palette",
                           "en":  "100 units per pallet",
@@ -385,11 +379,23 @@
                       },
         "calorific_value":  "5,0 kWh/kg",
         "format":  {
-                       "fr":  "de 20 à 30 cm",
-                       "en":  "20 to 30 cm",
-                       "de":  "20 bis 30 cm",
-                       "nl":  "20 tot 30 cm"
-                   }
+                       "fr":  "30 cm",
+                       "en":  "30 cm",
+                       "de":  "30 cm",
+                       "nl":  "30 cm"
+                   },
+        "length":  {
+                       "fr":  "30 cm",
+                       "en":  "30 cm",
+                       "de":  "30 cm",
+                       "nl":  "30 cm"
+                   },
+        "diameter":  {
+                         "fr":  "8 cm",
+                         "en":  "8 cm",
+                         "de":  "8 cm",
+                         "nl":  "8 cm"
+                     }
     },
     {
         "id":  "nuit-longue-duree",
@@ -430,11 +436,23 @@
                       },
         "calorific_value":  "5,1 kWh/kg",
         "format":  {
-                       "fr":  "Cylindrique écorce",
-                       "en":  "Cylindrical bark",
-                       "de":  "Zylindrisch (Rinde)",
-                       "nl":  "Cilindrische schors"
-                   }
+                       "fr":  "30 cm",
+                       "en":  "30 cm",
+                       "de":  "30 cm",
+                       "nl":  "30 cm"
+                   },
+        "length":  {
+                       "fr":  "30 cm",
+                       "en":  "30 cm",
+                       "de":  "30 cm",
+                       "nl":  "30 cm"
+                   },
+        "diameter":  {
+                         "fr":  "8,5 cm",
+                         "en":  "8.5 cm",
+                         "de":  "8,5 cm",
+                         "nl":  "8,5 cm"
+                     }
     },
     {
         "id":  "jour-forte-chaleur-cubique",
@@ -819,19 +837,31 @@
         "image_packaging":  "/assets/images/products/allume-feu-laine-bois-packaging.jpg",
         "available":  true,
         "volume_m3":  2.16,
-        "packaging":  {
-                          "fr":  "60 cartons",
-                          "en":  "60 boxes",
-                          "de":  "60 Kartons",
-                          "nl":  "60 dozen"
-                      },
         "calorific_value":  "7,0 kWh/kg",
         "format":  {
-                       "fr":  "Rouleaux laine de bois",
-                       "en":  "Wood wool rolls",
-                       "de":  "Holzwollerollen",
-                       "nl":  "Houtwolrollen"
-                   }
+                       "fr":  "50 mm",
+                       "en":  "50 mm",
+                       "de":  "50 mm",
+                       "nl":  "50 mm"
+                   },
+        "packaging":  {
+                          "fr":  "60 cartons de 10 kg",
+                          "en":  "60 boxes of 10 kg",
+                          "de":  "60 Kartons à 10 kg",
+                          "nl":  "60 dozen van 10 kg"
+                      },
+        "length":  {
+                       "fr":  "50 mm",
+                       "en":  "50 mm",
+                       "de":  "50 mm",
+                       "nl":  "50 mm"
+                   },
+        "diameter":  {
+                         "fr":  "25 à 30 mm",
+                         "en":  "25 to 30 mm",
+                         "de":  "25 bis 30 mm",
+                         "nl":  "25 tot 30 mm"
+                     }
     },
     {
         "id":  "buches-torche-suedoise",
