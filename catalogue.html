@@ -353,36 +353,41 @@ window.resolveAssetPath = function(pathStr) {
                             // -------------------------------------------------------
                             // STATE: two separate variables for Bûches format
                             // selectedFormat = "" → no format actually chosen by user
-                            // displayFormat  = "50" → used only for price display
+                            // displayFormat  = "20" → used only for price display
                             // -------------------------------------------------------
                             let selectedFormat = '';   // empty = not yet chosen
-                            const displayFormat = '50'; // default display price
+                            window.selectedFormat = '';
+                            const displayFormat = '20'; // default display price
 
                             // Helper: get effective price for a Bûche product
                             function getBuchePrice(p, fmt) {
-                                if (p.prices_by_length && p.prices_by_length[fmt]) {
-                                    return Number(p.prices_by_length[fmt]);
+                                const targetFmt = fmt || displayFormat;
+                                if (p.prices_by_length && p.prices_by_length[targetFmt]) {
+                                    return Number(p.prices_by_length[targetFmt]);
                                 }
-                                // Fallback: minimum price
-                                if (p.prices_by_length) {
-                                    return Math.min(...Object.values(p.prices_by_length).map(Number));
+                                if (p.prices_by_length && p.prices_by_length['20']) {
+                                    return Number(p.prices_by_length['20']);
                                 }
                                 return p.wholesale_price || 0;
                             }
 
                             // Handler for clicking a Bûche product card
-                            window.handleBucheClick = function(productId) {
+                            window.handleBucheClick = function(productId, ev) {
+                                if (ev) {
+                                    ev.preventDefault();
+                                    ev.stopPropagation();
+                                }
                                 if (!selectedFormat) {
                                     // Scroll to format selector and highlight it
                                     const formatContainer = document.getElementById('buche-format-selector');
                                     if (formatContainer) {
-                                        formatContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                                        formatContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                         formatContainer.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
-                                        setTimeout(() => formatContainer.classList.remove('ring-2', 'ring-primary', 'ring-offset-2'), 2000);
+                                        setTimeout(() => formatContainer.classList.remove('ring-2', 'ring-primary', 'ring-offset-2'), 2500);
                                     }
                                     // Show toast
                                     showToast((typeof t !== 'undefined' && t.catalog && t.catalog.toast_select_format) ? t.catalog.toast_select_format : 'Veuillez sélectionner un format avant de choisir votre bois.');
-                                    return;
+                                    return false;
                                 }
                                 const basePath = './';
                                 window.location.href = `${basePath}produits/${productId}.html?length=${selectedFormat}`;
@@ -395,18 +400,22 @@ window.resolveAssetPath = function(pathStr) {
                             };
 
                             // Simple toast notification
+                            let toastTimeout = null;
                             function showToast(message) {
                                 let toast = document.getElementById('catalogue-toast');
                                 if (!toast) {
                                     toast = document.createElement('div');
                                     toast.id = 'catalogue-toast';
-                                    toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] bg-inverse-surface text-inverse-on-surface px-6 py-3 rounded-xl shadow-2xl text-body-sm font-bold flex items-center gap-3 transition-all duration-300 opacity-0 translate-y-4';
-                                    toast.innerHTML = `<span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1">straighten</span><span id="catalogue-toast-msg"></span>`;
+                                    toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] bg-inverse-surface text-inverse-on-surface px-6 py-3.5 rounded-xl shadow-2xl text-body-sm font-bold flex items-center gap-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none border border-primary/40';
+                                    toast.innerHTML = `<span class="material-symbols-outlined text-amber-400" style="font-variation-settings:'FILL' 1">warning</span><span id="catalogue-toast-msg"></span>`;
                                     document.body.appendChild(toast);
                                 }
                                 document.getElementById('catalogue-toast-msg').textContent = message;
-                                toast.classList.remove('opacity-0', 'translate-y-4');
-                                setTimeout(() => toast.classList.add('opacity-0', 'translate-y-4'), 3000);
+                                if (toastTimeout) clearTimeout(toastTimeout);
+                                requestAnimationFrame(() => {
+                                    toast.classList.remove('opacity-0', 'translate-y-4');
+                                });
+                                toastTimeout = setTimeout(() => toast.classList.add('opacity-0', 'translate-y-4'), 3500);
                             }
 
                             // Render catalog
@@ -435,7 +444,7 @@ window.resolveAssetPath = function(pathStr) {
                                             <!-- Informational banner — shown only when no format is selected -->
                                             <div id="buche-format-banner" class="${selectedFormat ? 'hidden' : ''} flex items-start gap-3 bg-amber-50 border border-amber-300 text-amber-900 rounded-lg px-4 py-3 text-body-sm">
                                                 <span class="material-symbols-outlined text-amber-600 shrink-0" style="font-variation-settings:'FILL' 1">info</span>
-                                                <span>${(typeof t !== 'undefined' && t.catalog && t.catalog.format_warning) ? t.catalog.format_warning : 'Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.'}</span>
+                                                <span>${(typeof t !== 'undefined' && t.catalog && t.catalog.format_warning) ? t.catalog.format_warning : 'Les prix affichés correspondent au format <strong>20 cm</strong>. Sélectionnez votre format avant de choisir votre bois.'}</span>
                                             </div>
                                             <div class="flex items-center gap-4 flex-wrap">
                                                 <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider shrink-0">${(typeof t !== 'undefined' && t.catalog && t.catalog.filters && t.catalog.filters.format) ? t.catalog.filters.format : 'Format :'}</span>
@@ -475,22 +484,29 @@ window.resolveAssetPath = function(pathStr) {
                                                 let priceNote = '';
 
                                                 if (isBuche) {
-                                                    // For Bûches: always show the displayFormat price (50 if not selected, else selected)
+                                                    // For Bûches: always show the displayFormat price (20 if not selected, else selected)
                                                     const effectiveFmt = selectedFormat || displayFormat;
                                                     displayPrice = getBuchePrice(p, effectiveFmt);
                                                     // Note about what format is being shown
                                                     if (!selectedFormat) {
-                                                        const noteText = (typeof t !== 'undefined' && t.catalog && t.catalog.price_note_50cm) ? t.catalog.price_note_50cm : (lang === 'en' ? 'Price for 50 cm' : (lang === 'de' ? 'Preis für 50 cm' : (lang === 'nl' ? 'Prijs voor 50 cm' : 'Prix pour 50 cm')));
+                                                        const noteText = (typeof t !== 'undefined' && t.catalog && t.catalog.price_note_50cm) ? t.catalog.price_note_50cm : (lang === 'en' ? 'Price for 20 cm' : (lang === 'de' ? 'Preis für 20 cm' : (lang === 'nl' ? 'Prijs voor 20 cm' : 'Prix pour 20 cm')));
                                                         priceNote = `<div class="text-[11px] text-amber-700 font-medium mt-0.5">${noteText}</div>`;
                                                     }
                                                 } else {
                                                     displayPrice = p.wholesale_price || 0;
                                                 }
 
+                                                const effectiveBucheFmt = selectedFormat || displayFormat;
+                                                const buchePackaging = (isBuche && p.packaging_by_length && p.packaging_by_length[effectiveBucheFmt])
+                                                    ? (p.packaging_by_length[effectiveBucheFmt][lang] || p.packaging_by_length[effectiveBucheFmt]['fr'] || p.packaging_by_length[effectiveBucheFmt])
+                                                    : null;
+
                                                 const imgPrefix = relPath === '.' ? '' : relPath;
-                                                const productUrl = './produits/' + p.id + '.html';
+                                                const productUrl = isBuche
+                                                    ? (selectedFormat ? ('./produits/' + p.id + '.html?length=' + selectedFormat) : 'javascript:void(0)')
+                                                    : ('./produits/' + p.id + '.html');
                                                 const clickHandler = isBuche
-                                                    ? `handleBucheClick('${p.id}')`
+                                                    ? `handleBucheClick('${p.id}', event)`
                                                     : `goToProduct('${p.id}')`;
 
                                                 return `
@@ -501,17 +517,17 @@ window.resolveAssetPath = function(pathStr) {
                                                             ${isBuche && !selectedFormat ? `<div class="absolute inset-0 bg-black/10 flex items-end justify-center pb-3"><span data-i18n="catalog.filters.format_select" class="bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">${(typeof t !== 'undefined' && t.catalog && t.catalog.filters && t.catalog.filters.format_select) ? t.catalog.filters.format_select : 'Sélectionnez un format ↑'}</span></div>` : ''}
                                                         </div>
                                                         <div class="flex flex-col gap-2">
-                                                            <h3 class="text-headline-md font-headline-md text-on-surface leading-tight"><a href="${productUrl}" class="hover:text-primary transition-colors" ${isBuche ? `onclick="if (!selectedFormat) { event.preventDefault(); handleBucheClick('${p.id}'); }"` : ''}>${getProductName(p)}</a></h3>
+                                                            <h3 class="text-headline-md font-headline-md text-on-surface leading-tight"><a href="${productUrl}" class="hover:text-primary transition-colors" ${isBuche ? `onclick="return handleBucheClick('${p.id}', event);"` : ''}>${getProductName(p)}</a></h3>
                                                             <p class="text-body-sm font-body-sm text-on-surface-variant">${getProductField(p, 'species_material')}</p>
                                                         </div>
                                                         <div class="flex flex-col gap-2 mt-auto">
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span data-i18n="catalog.table.format" class="text-label-md font-label-md text-on-surface-variant">${(t.catalog && t.catalog.table && t.catalog.table.format) ? t.catalog.table.format : 'FORMAT'}</span>
-                                                                <span class="text-data-mono font-data-mono text-on-surface">${isBuche ? (selectedFormat ? selectedFormat + ' cm' : '50 cm*') : getProductField(p, 'format')}</span>
+                                                                <span class="text-data-mono font-data-mono text-on-surface">${isBuche ? (selectedFormat ? selectedFormat + ' cm' : '20 cm*') : getProductField(p, 'format')}</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span data-i18n="catalog.table.unit_pallet" class="text-label-md font-label-md text-on-surface-variant">${(t.catalog && t.catalog.table && t.catalog.table.unit_pallet) ? t.catalog.table.unit_pallet : 'UNITÉ / PALETTE'}</span>
-                                                                <span class="text-data-mono font-data-mono text-on-surface">${p.units_per_palette} ${(typeof t !== 'undefined' && t.catalog && t.catalog.units_per_pallet) ? t.catalog.units_per_pallet : 'unités/palette'}</span>
+                                                                <span class="text-data-mono font-data-mono text-on-surface">${buchePackaging ? buchePackaging : (p.units_per_palette + ' ' + ((typeof t !== 'undefined' && t.catalog && t.catalog.units_per_pallet) ? t.catalog.units_per_pallet : 'unités/palette'))}</span>
                                                             </div>
                                                             <div class="flex justify-between py-2 border-b border-outline/50">
                                                                 <span data-i18n="catalog.table.weight" class="text-label-md font-label-md text-on-surface-variant">${(t.catalog && t.catalog.table && t.catalog.table.weight) ? t.catalog.table.weight : 'POIDS PALETTE'}</span>
@@ -522,8 +538,8 @@ window.resolveAssetPath = function(pathStr) {
                                                             <div class="flex flex-col">
                                                                 <span data-i18n="catalog.table.price" class="text-label-md font-label-md text-on-surface-variant">${(t.catalog && t.catalog.table && t.catalog.table.price) ? t.catalog.table.price : 'PRIX GROS / PALETTE'}</span>
                                                                 <div class="flex items-baseline gap-1">
-                                                                    <span class="text-headline-lg font-headline-lg text-primary">${(displayPrice * 1.2).toFixed(2).replace('.', ',')}</span>
-                                                                    <span data-i18n="catalog.table.currency" class="text-body-md font-body-md text-primary">${(t.catalog && t.catalog.table && t.catalog.table.currency) ? t.catalog.table.currency : '€ TTC'}</span>
+                                                                    <span class="text-headline-lg font-headline-lg ${isBuche && !selectedFormat ? 'text-outline' : 'text-primary'}">${Number(displayPrice).toFixed(2).replace('.', ',')}</span>
+                                                                    <span data-i18n="catalog.table.currency" class="text-body-md font-body-md ${isBuche && !selectedFormat ? 'text-outline' : 'text-primary'}">${(t.catalog && t.catalog.table && t.catalog.table.currency) ? t.catalog.table.currency : '€'}</span>
                                                                 </div>
                                                                 ${priceNote}
                                                             </div>
@@ -556,6 +572,7 @@ window.resolveAssetPath = function(pathStr) {
                                 } else {
                                     selectedFormat = fmt;
                                 }
+                                window.selectedFormat = selectedFormat;
                                 applyFilters();
                             };
 
@@ -631,6 +648,7 @@ window.resolveAssetPath = function(pathStr) {
                             resetButton.addEventListener('click', () => {
                                 categoryInputs.forEach(input => input.checked = false);
                                 selectedFormat = '';
+                                window.selectedFormat = '';
                                 const newUrl = new URL(window.location);
                                 newUrl.searchParams.delete('subgroup');
                                 window.history.replaceState({}, '', newUrl);

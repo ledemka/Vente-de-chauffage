@@ -46,17 +46,17 @@
       "unit_pallet": "UNITÉ / PALETTE",
       "weight": "POIDS PALETTE",
       "price": "PRIX GROS / PALETTE",
-      "currency": "€ TTC"
+      "currency": "€"
     },
     "category_label": "CATÉGORIE",
     "references_label": "Références",
     "reset_filters": "RÉINITIALISER",
     "toast_select_format": "Veuillez sélectionner un format avant de choisir votre bois.",
     "no_products": "Aucun produit ne correspond à ces critères.",
-    "format_warning": "Les prix affichés correspondent au format <strong>50 cm</strong>. Sélectionnez votre format avant de choisir votre bois.",
+    "format_warning": "Les prix affichés correspondent au format <strong>20 cm</strong>. Sélectionnez votre format avant de choisir votre bois.",
     "format_selected": "sélectionné",
     "units_per_pallet": "unités/palette",
-    "price_note_50cm": "Prix pour 50 cm",
+    "price_note_50cm": "Prix pour 20 cm",
     "unspecified": "non spécifié"
   },
   "index": {
@@ -77,7 +77,7 @@
     "full_truckload": "Tarif Camion Complet (-10%)",
     "discount_rate": "Réduction appliquée :",
     "unit_price_after_discount": "Prix unitaire après remise :",
-    "total_price": "Prix total de la commande HT :",
+    "total_price": "Prix total de la commande :",
     "next_tier_incentive": "Ajoutez {count} palette(s) supplémentaire(s) pour bénéficier de -{pct}% !"
   },
   "hero": {
@@ -279,9 +279,9 @@
     "title": "Votre Panier",
     "empty": "Votre panier est vide",
     "checkout_btn": "Valider la commande",
-    "subtotal": "Sous-total HT",
+    "subtotal": "Sous-total",
     "discount": "Remise Volume",
-    "total": "Total HT",
+    "total": "Total",
     "remove": "Supprimer",
     "selected_items": "Articles sélectionnés (0)",
     "order_area": "ESPACE COMMANDE",
@@ -295,7 +295,7 @@
     "clear_confirm": "Vider le panier ?",
     "selected_items_count": "Articles sélectionnés ({count})",
     "format_weight": "Format :",
-    "price_50cm": "prix 50cm",
+    "price_50cm": "prix 20cm",
     "delivery_est_title": "Livraison estimée :",
     "delivery_est_desc": "3 à 5 jours ouvrés (France et limitrophe)",
     "discount_title": "Votre Tarif Dégressif",
@@ -306,11 +306,11 @@
     "more_than": "Plus que",
     "for": "pour",
     "max_discount": "🎉 Vous avez atteint la remise maximale (-10%) !",
-    "subtotal_ttc": "Sous-total TTC",
+    "subtotal_ttc": "Sous-total",
     "volume_discount": "Remise volume",
     "shipping_fees": "Frais de livraison",
     "calc_at_checkout": "Calculés à la validation",
-    "total_ttc": "Total TTC",
+    "total_ttc": "Total",
     "validate_order": "Valider ma commande",
     "secure_payment": "Paiement sécurisé B2B par Virement",
     "similar": "Produits similaires",
@@ -319,7 +319,7 @@
   "checkout": {
     "product": "Produit",
     "qty": "Qté",
-    "total_ttc": "Total TTC",
+    "total_ttc": "Total",
     "discounted": "remisé",
     "to_be_calculated": "À calculer",
     "confirm_address": "Confirmer l'adresse",
@@ -426,7 +426,7 @@
       "ref": "Réf",
       "date": "Date",
       "client": "Client",
-      "total": "Total TTC",
+      "total": "Total",
       "status": "Statut (actuel)",
       "action": "Action"
     },
@@ -445,7 +445,7 @@
       "ref": "Référence",
       "date": "Date",
       "status": "Statut",
-      "total": "Total TTC"
+      "total": "Total"
     }
   },
   "modal": {
@@ -462,7 +462,7 @@
       "pu": "P.U.",
       "total": "Total"
     },
-    "total_ttc": "Total TTC",
+    "total_ttc": "Total",
     "not_specified": "Non spécifiée"
   },
   "contact": {
@@ -961,7 +961,7 @@
     "packaging": "CONDITIONNEMENT",
     "recommended_price": "Prix Conseillé",
     "wholesale_price": "Prix Grossiste",
-    "subtotal": "Sous-total TTC",
+    "subtotal": "Sous-total",
     "pallet_weight": "POIDS PALETTE",
     "discount": "Remise Volume",
     "catalog": "Catalogue",
@@ -969,15 +969,15 @@
     "species": "ESSENCE",
     "volume": "VOLUME",
     "total": "Total",
-    "tax_included": "TTC",
-    "total_ht": "Total HT",
+    "tax_included": "",
+    "total_ht": "Total",
     "add_to_cart": "Ajouter",
     "seo_title": "{name} – sotramsbois",
     "seo_description": "{name} ({species}, {format}). {units} unités/palette, {palette_weight}. Demandez un devis pro gratuit.",
     "units_per_pallet": "unités par palette",
     "origin_tbd": "Origine à préciser",
-    "total_ttc": "Total TTC",
-    "tva_included": "TVA (20%) incluse",
+    "total_ttc": "Total",
+    "tva_included": "",
     "min_qty_warning": "Quantité minimale autorisée : 5 palettes.",
     "min_order_notice": "Commande minimum : 5 palettes. Il n’est pas possible de commander moins de 5 palettes."
   },

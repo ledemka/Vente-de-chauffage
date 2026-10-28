@@ -156,8 +156,7 @@ function writeProductItem(array $data) {
         return; // Skip invalid prices
     }
     
-    $priceTTC = $data['priceHT'] * (1 + $data['vatRate']);
-    $priceFormatted = number_format($priceTTC, 2, '.', '') . ' ' . $data['currency'];
+    $priceFormatted = number_format((float)$data['priceHT'], 2, '.', '') . ' ' . $data['currency'];
 
     echo '<item>' . "\n";
     echo '  <g:id>' . escapeXml($data['id']) . '</g:id>' . "\n";

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" translate="no"><head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18453340840"></script>
 <script>
@@ -615,7 +615,11 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
             const pid = selectProd.value;
             const product = allProducts.find(p => p.id === pid);
             if (!product) return;
-            recapFormat.textContent = selectFmt.value || (product.prices_by_length ? (window.i18n ? window.i18n.t('quote.length_to_choose', 'Longueur à choisir') : 'Longueur à choisir') : (window.i18n ? window.i18n.t('quote.format_standard', 'Standard') : (product.format || 'Standard')));
+            recapFormat.textContent = selectFmt.value || (product.prices_by_length ? '20 cm' : (window.i18n ? window.i18n.t('quote.format_standard', 'Standard') : (product.format || 'Standard')));
+            const selectedLenKey = selectFmt.value ? selectFmt.value.replace(/\s*cm$/i, '').trim() : '20';
+            if (product.packaging_by_length && product.packaging_by_length[selectedLenKey]) {
+                recapUnitsVal.textContent = product.packaging_by_length[selectedLenKey][lang] || product.packaging_by_length[selectedLenKey]['fr'] || product.packaging_by_length[selectedLenKey];
+            }
         });
 
         function updateFormatAndRecap() {
@@ -638,7 +642,7 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
                 if (urlLength && product.prices_by_length[urlLength]) {
                     selectFmt.value = urlLength + ' cm';
                 } else {
-                    selectFmt.selectedIndex = 0;
+                    selectFmt.value = '20 cm';
                 }
             } else {
                 const opt = document.createElement('option');
@@ -657,13 +661,13 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
             recapName.textContent = getProductName(product, lang);
             
             const updateRecapFormatText = () => {
-                recapFormat.textContent = selectFmt.value || (product.prices_by_length ? (window.i18n ? window.i18n.t('quote.length_to_choose', 'Longueur à choisir') : 'Longueur à choisir') : (window.i18n ? window.i18n.t('quote.format_standard', 'Standard') : (product.format || 'Standard')));
+                recapFormat.textContent = selectFmt.value || (product.prices_by_length ? '20 cm' : (window.i18n ? window.i18n.t('quote.format_standard', 'Standard') : (product.format || 'Standard')));
             };
             updateRecapFormatText();
             
             
             if (product.humidity_bucket) {
-                recapHumidity.textContent = product.humidity_bucket;
+                recapHumidity.textContent = typeof product.humidity_bucket === 'object' ? (product.humidity_bucket[lang] || product.humidity_bucket['fr']) : product.humidity_bucket;
                 recapHumidityContainer.classList.remove('hidden');
             } else {
                 recapHumidityContainer.classList.add('hidden');
@@ -676,7 +680,10 @@ gtag('config', 'AW-18453340840', { page_location: cleanUrl });
                 recapMaterialContainer.classList.add('hidden');
             }
 
-            if (product.units_per_palette && product.unit_weight) {
+            const selectedLenKey = selectFmt.value ? selectFmt.value.replace(/\s*cm$/i, '').trim() : '20';
+            if (product.packaging_by_length && product.packaging_by_length[selectedLenKey]) {
+                recapUnitsVal.textContent = product.packaging_by_length[selectedLenKey][lang] || product.packaging_by_length[selectedLenKey]['fr'] || product.packaging_by_length[selectedLenKey];
+            } else if (product.units_per_palette && product.unit_weight) {
                 recapUnitsVal.textContent = product.units_per_palette + ' ' + (window.i18n ? window.i18n.t('quote.units_of', 'unités de') : 'unités de') + ' ' + product.unit_weight;
             } else {
                 recapUnitsVal.textContent = '-';

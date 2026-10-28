@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" translate="no"><head>
     <meta name="robots" content="noindex, nofollow"/>
     <script>
@@ -473,8 +473,8 @@ window.openAdminModal = function(el) {
             const product = productsData[item.product_id] || {};
             const img = product.image_product ? `<img src="${resolveAssetPath(product.image_product)}" class="w-12 h-12 object-cover rounded" />` : '<div class="w-12 h-12 bg-surface-container rounded flex items-center justify-center"><span class="material-symbols-outlined text-outline-variant">image</span></div>';
             const puHT = item.unit_price_net_ht !== undefined ? parseFloat(item.unit_price_net_ht) : parseFloat(item.unit_price || 0);
-            const puTTC = puHT * 1.20;
-            const lineTotal = (item.quantity * puTTC).toFixed(2);
+            const puVal = puHT;
+            const lineTotal = (item.quantity * puVal).toFixed(2);
             
             container.innerHTML += `
                 <tr class="border-b border-outline/10">
@@ -484,7 +484,7 @@ window.openAdminModal = function(el) {
                         <div class="text-body-sm text-outline-variant">${item.format}</div>
                     </td>
                     <td class="py-3 px-2 text-center text-body-md">${item.quantity}</td>
-                    <td class="py-3 px-2 text-right text-body-sm">${puTTC.toFixed(2)} €</td>
+                    <td class="py-3 px-2 text-right text-body-sm">${puVal.toFixed(2)} €</td>
                     <td class="py-3 pl-2 text-right font-data-mono font-bold text-primary">${lineTotal} €</td>
                 </tr>
             `;

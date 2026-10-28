@@ -39,36 +39,37 @@
                              },
         "packaging_by_length":  {
                                     "20":  {
-                                               "fr":  "1 700 à 2 000 bûches par palette",
-                                               "en":  "1,700 to 2,000 logs per pallet",
-                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
-                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                               "fr":  "1 700 à 2 000 bûches",
+                                               "en":  "1,700 to 2,000 logs",
+                                               "de":  "1.700 bis 2.000 Scheite",
+                                               "nl":  "1.700 tot 2.000 blokken"
                                            },
                                     "30":  {
-                                               "fr":  "1 350 à 1 600 bûches par palette",
-                                               "en":  "1,350 to 1,600 logs per pallet",
-                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
-                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                               "fr":  "1 350 à 1 600 bûches",
+                                               "en":  "1,350 to 1,600 logs",
+                                               "de":  "1.350 bis 1.600 Scheite",
+                                               "nl":  "1.350 tot 1.600 blokken"
                                            },
                                     "33":  {
-                                               "fr":  "1 250 à 1 400 bûches par palette",
-                                               "en":  "1,250 to 1,400 logs per pallet",
-                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
-                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                               "fr":  "1 250 à 1 400 bûches",
+                                               "en":  "1,250 to 1,400 logs",
+                                               "de":  "1.250 bis 1.400 Scheite",
+                                               "nl":  "1.250 tot 1.400 blokken"
                                            },
                                     "40":  {
-                                               "fr":  "1 050 à 1 200 bûches par palette",
-                                               "en":  "1,050 to 1,200 logs per pallet",
-                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
-                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                               "fr":  "1 050 à 1 200 bûches",
+                                               "en":  "1,050 to 1,200 logs",
+                                               "de":  "1.050 bis 1.200 Scheite",
+                                               "nl":  "1.050 tot 1.200 blokken"
                                            },
                                     "50":  {
-                                               "fr":  "900 à 1 000 bûches par palette",
-                                               "en":  "900 to 1,000 logs per pallet",
-                                               "de":  "900 bis 1.000 Scheite pro Palette",
-                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                               "fr":  "900 à 1 000 bûches",
+                                               "en":  "900 to 1,000 logs",
+                                               "de":  "900 bis 1.000 Scheite",
+                                               "nl":  "900 tot 1.000 blokken"
                                            }
-                                }
+                                },
+        "calorific_value":  "4,1 kWh/kg"
     },
     {
         "id":  "hetre-demi-sec",
@@ -110,36 +111,37 @@
                              },
         "packaging_by_length":  {
                                     "20":  {
-                                               "fr":  "1 700 à 2 000 bûches par palette",
-                                               "en":  "1,700 to 2,000 logs per pallet",
-                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
-                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                               "fr":  "1 700 à 2 000 bûches",
+                                               "en":  "1,700 to 2,000 logs",
+                                               "de":  "1.700 bis 2.000 Scheite",
+                                               "nl":  "1.700 tot 2.000 blokken"
                                            },
                                     "30":  {
-                                               "fr":  "1 350 à 1 600 bûches par palette",
-                                               "en":  "1,350 to 1,600 logs per pallet",
-                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
-                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                               "fr":  "1 350 à 1 600 bûches",
+                                               "en":  "1,350 to 1,600 logs",
+                                               "de":  "1.350 bis 1.600 Scheite",
+                                               "nl":  "1.350 tot 1.600 blokken"
                                            },
                                     "33":  {
-                                               "fr":  "1 250 à 1 400 bûches par palette",
-                                               "en":  "1,250 to 1,400 logs per pallet",
-                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
-                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                               "fr":  "1 250 à 1 400 bûches",
+                                               "en":  "1,250 to 1,400 logs",
+                                               "de":  "1.250 bis 1.400 Scheite",
+                                               "nl":  "1.250 tot 1.400 blokken"
                                            },
                                     "40":  {
-                                               "fr":  "1 050 à 1 200 bûches par palette",
-                                               "en":  "1,050 to 1,200 logs per pallet",
-                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
-                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                               "fr":  "1 050 à 1 200 bûches",
+                                               "en":  "1,050 to 1,200 logs",
+                                               "de":  "1.050 bis 1.200 Scheite",
+                                               "nl":  "1.050 tot 1.200 blokken"
                                            },
                                     "50":  {
-                                               "fr":  "900 à 1 000 bûches par palette",
-                                               "en":  "900 to 1,000 logs per pallet",
-                                               "de":  "900 bis 1.000 Scheite pro Palette",
-                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                               "fr":  "900 à 1 000 bûches",
+                                               "en":  "900 to 1,000 logs",
+                                               "de":  "900 bis 1.000 Scheite",
+                                               "nl":  "900 tot 1.000 blokken"
                                            }
-                                }
+                                },
+        "calorific_value":  "3,8 kWh/kg"
     },
     {
         "id":  "chene-etuve",
@@ -181,36 +183,37 @@
                              },
         "packaging_by_length":  {
                                     "20":  {
-                                               "fr":  "1 700 à 2 000 bûches par palette",
-                                               "en":  "1,700 to 2,000 logs per pallet",
-                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
-                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                               "fr":  "1 700 à 2 000 bûches",
+                                               "en":  "1,700 to 2,000 logs",
+                                               "de":  "1.700 bis 2.000 Scheite",
+                                               "nl":  "1.700 tot 2.000 blokken"
                                            },
                                     "30":  {
-                                               "fr":  "1 350 à 1 600 bûches par palette",
-                                               "en":  "1,350 to 1,600 logs per pallet",
-                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
-                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                               "fr":  "1 350 à 1 600 bûches",
+                                               "en":  "1,350 to 1,600 logs",
+                                               "de":  "1.350 bis 1.600 Scheite",
+                                               "nl":  "1.350 tot 1.600 blokken"
                                            },
                                     "33":  {
-                                               "fr":  "1 250 à 1 400 bûches par palette",
-                                               "en":  "1,250 to 1,400 logs per pallet",
-                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
-                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                               "fr":  "1 250 à 1 400 bûches",
+                                               "en":  "1,250 to 1,400 logs",
+                                               "de":  "1.250 bis 1.400 Scheite",
+                                               "nl":  "1.250 tot 1.400 blokken"
                                            },
                                     "40":  {
-                                               "fr":  "1 050 à 1 200 bûches par palette",
-                                               "en":  "1,050 to 1,200 logs per pallet",
-                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
-                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                               "fr":  "1 050 à 1 200 bûches",
+                                               "en":  "1,050 to 1,200 logs",
+                                               "de":  "1.050 bis 1.200 Scheite",
+                                               "nl":  "1.050 tot 1.200 blokken"
                                            },
                                     "50":  {
-                                               "fr":  "900 à 1 000 bûches par palette",
-                                               "en":  "900 to 1,000 logs per pallet",
-                                               "de":  "900 bis 1.000 Scheite pro Palette",
-                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                               "fr":  "900 à 1 000 bûches",
+                                               "en":  "900 to 1,000 logs",
+                                               "de":  "900 bis 1.000 Scheite",
+                                               "nl":  "900 tot 1.000 blokken"
                                            }
-                                }
+                                },
+        "calorific_value":  "4,1 kWh/kg"
     },
     {
         "id":  "chene-sec-air",
@@ -240,7 +243,7 @@
                              },
         "image_product":  "/assets/images/products/chene-sec-air-product.jpg",
         "image_packaging":  "/assets/images/products/chene-sec-air-packaging.jpg",
-        "humidity_bucket":  "non spécifié",
+        "humidity_bucket":  "15 à 20%",
         "available":  true,
         "volume_m3":  2.16,
         "prices_by_length":  {
@@ -252,36 +255,37 @@
                              },
         "packaging_by_length":  {
                                     "20":  {
-                                               "fr":  "1 700 à 2 000 bûches par palette",
-                                               "en":  "1,700 to 2,000 logs per pallet",
-                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
-                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                               "fr":  "1 700 à 2 000 bûches",
+                                               "en":  "1,700 to 2,000 logs",
+                                               "de":  "1.700 bis 2.000 Scheite",
+                                               "nl":  "1.700 tot 2.000 blokken"
                                            },
                                     "30":  {
-                                               "fr":  "1 350 à 1 600 bûches par palette",
-                                               "en":  "1,350 to 1,600 logs per pallet",
-                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
-                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                               "fr":  "1 350 à 1 600 bûches",
+                                               "en":  "1,350 to 1,600 logs",
+                                               "de":  "1.350 bis 1.600 Scheite",
+                                               "nl":  "1.350 tot 1.600 blokken"
                                            },
                                     "33":  {
-                                               "fr":  "1 250 à 1 400 bûches par palette",
-                                               "en":  "1,250 to 1,400 logs per pallet",
-                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
-                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                               "fr":  "1 250 à 1 400 bûches",
+                                               "en":  "1,250 to 1,400 logs",
+                                               "de":  "1.250 bis 1.400 Scheite",
+                                               "nl":  "1.250 tot 1.400 blokken"
                                            },
                                     "40":  {
-                                               "fr":  "1 050 à 1 200 bûches par palette",
-                                               "en":  "1,050 to 1,200 logs per pallet",
-                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
-                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                               "fr":  "1 050 à 1 200 bûches",
+                                               "en":  "1,050 to 1,200 logs",
+                                               "de":  "1.050 bis 1.200 Scheite",
+                                               "nl":  "1.050 tot 1.200 blokken"
                                            },
                                     "50":  {
-                                               "fr":  "900 à 1 000 bûches par palette",
-                                               "en":  "900 to 1,000 logs per pallet",
-                                               "de":  "900 bis 1.000 Scheite pro Palette",
-                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                               "fr":  "900 à 1 000 bûches",
+                                               "en":  "900 to 1,000 logs",
+                                               "de":  "900 bis 1.000 Scheite",
+                                               "nl":  "900 tot 1.000 blokken"
                                            }
-                                }
+                                },
+        "calorific_value":  "4,0 kWh/kg"
     },
     {
         "id":  "melange-essences",
@@ -323,36 +327,37 @@
                              },
         "packaging_by_length":  {
                                     "20":  {
-                                               "fr":  "1 700 à 2 000 bûches par palette",
-                                               "en":  "1,700 to 2,000 logs per pallet",
-                                               "de":  "1.700 bis 2.000 Scheite pro Palette",
-                                               "nl":  "1.700 tot 2.000 blokken per pallet"
+                                               "fr":  "1 700 à 2 000 bûches",
+                                               "en":  "1,700 to 2,000 logs",
+                                               "de":  "1.700 bis 2.000 Scheite",
+                                               "nl":  "1.700 tot 2.000 blokken"
                                            },
                                     "30":  {
-                                               "fr":  "1 350 à 1 600 bûches par palette",
-                                               "en":  "1,350 to 1,600 logs per pallet",
-                                               "de":  "1.350 bis 1.600 Scheite pro Palette",
-                                               "nl":  "1.350 tot 1.600 blokken per pallet"
+                                               "fr":  "1 350 à 1 600 bûches",
+                                               "en":  "1,350 to 1,600 logs",
+                                               "de":  "1.350 bis 1.600 Scheite",
+                                               "nl":  "1.350 tot 1.600 blokken"
                                            },
                                     "33":  {
-                                               "fr":  "1 250 à 1 400 bûches par palette",
-                                               "en":  "1,250 to 1,400 logs per pallet",
-                                               "de":  "1.250 bis 1.400 Scheite pro Palette",
-                                               "nl":  "1.250 tot 1.400 blokken per pallet"
+                                               "fr":  "1 250 à 1 400 bûches",
+                                               "en":  "1,250 to 1,400 logs",
+                                               "de":  "1.250 bis 1.400 Scheite",
+                                               "nl":  "1.250 tot 1.400 blokken"
                                            },
                                     "40":  {
-                                               "fr":  "1 050 à 1 200 bûches par palette",
-                                               "en":  "1,050 to 1,200 logs per pallet",
-                                               "de":  "1.050 bis 1.200 Scheite pro Palette",
-                                               "nl":  "1.050 tot 1.200 blokken per pallet"
+                                               "fr":  "1 050 à 1 200 bûches",
+                                               "en":  "1,050 to 1,200 logs",
+                                               "de":  "1.050 bis 1.200 Scheite",
+                                               "nl":  "1.050 tot 1.200 blokken"
                                            },
                                     "50":  {
-                                               "fr":  "900 à 1 000 bûches par palette",
-                                               "en":  "900 to 1,000 logs per pallet",
-                                               "de":  "900 bis 1.000 Scheite pro Palette",
-                                               "nl":  "900 tot 1.000 blokken per pallet"
+                                               "fr":  "900 à 1 000 bûches",
+                                               "en":  "900 to 1,000 logs",
+                                               "de":  "900 bis 1.000 Scheite",
+                                               "nl":  "900 tot 1.000 blokken"
                                            }
-                                }
+                                },
+        "calorific_value":  "4,0 kWh/kg"
     },
     {
         "id":  "jour-premium-cylindrique",
@@ -368,7 +373,7 @@
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
-        "wholesale_price":  225,
+        "wholesale_price":  270,
         "recommended_price":  337.5,
         "positioning":  {
                             "fr":  "Très bon prix",
@@ -409,7 +414,8 @@
                           "en":  "100 units per pallet",
                           "de":  "100 Einheiten pro Palette",
                           "nl":  "100 stuks per pallet"
-                      }
+                      },
+        "calorific_value":  "5,0 kWh/kg"
     },
     {
         "id":  "nuit-longue-duree",
@@ -425,7 +431,7 @@
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
-        "wholesale_price":  216.67,
+        "wholesale_price":  260,
         "recommended_price":  325,
         "positioning":  {
                             "fr":  "Très bon prix",
@@ -454,7 +460,8 @@
                           "en":  "100 units of 10 kg each",
                           "de":  "100 Einheiten à 10 kg",
                           "nl":  "100 eenheden van 10 kg elk"
-                      }
+                      },
+        "calorific_value":  "5,1 kWh/kg"
     },
     {
         "id":  "jour-forte-chaleur-cubique",
@@ -470,7 +477,7 @@
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
-        "wholesale_price":  216.67,
+        "wholesale_price":  260,
         "recommended_price":  325,
         "positioning":  {
                             "fr":  "Très bon prix",
@@ -523,7 +530,8 @@
                           "en":  "100 units per pallet",
                           "de":  "100 Einheiten pro Palette",
                           "nl":  "100 stuks per pallet"
-                      }
+                      },
+        "calorific_value":  "4,9 kWh/kg"
     },
     {
         "id":  "pini-kay-compressbee",
@@ -539,7 +547,7 @@
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
-        "wholesale_price":  225,
+        "wholesale_price":  270,
         "recommended_price":  337.5,
         "positioning":  {
                             "fr":  "Bon prix – sous marché",
@@ -558,13 +566,13 @@
         "available":  true,
         "volume_m3":  2.16,
         "humidity_bucket":  {
-                                "fr":  "Inférieur à 8 %",
+                                "fr":  "inférieur à 8 %",
                                 "en":  "Less than 8%",
                                 "de":  "Unter 8%",
                                 "nl":  "Minder dan 8%"
                             },
         "shape":  {
-                      "fr":  "Octogonale (Pini Kay)",
+                      "fr":  "octogonale (Pini Kay)",
                       "en":  "Octagonal (Pini Kay)",
                       "de":  "Achteckig (Pini Kay)",
                       "nl":  "Achthoekig (Pini Kay)"
@@ -586,7 +594,8 @@
                           "en":  "100 units per pallet",
                           "de":  "100 Einheiten pro Palette",
                           "nl":  "100 stuks per pallet"
-                      }
+                      },
+        "calorific_value":  "4,9 kWh/kg"
     },
     {
         "id":  "jour-eco-cylindrique",
@@ -598,11 +607,11 @@
                      "de":  "TAG ECO – Zylindrisch",
                      "nl":  "DAG ECO – Cilindrisch"
                  },
-        "format":  "Cylindrique standard",
+        "format":  "20 à 30 cm",
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
-        "wholesale_price":  290.83,
+        "wholesale_price":  200,
         "recommended_price":  312.5,
         "positioning":  {
                             "fr":  "Très bon prix",
@@ -619,7 +628,32 @@
         "image_product":  "/assets/images/products/jour-eco-cylindrique-product.jpg",
         "image_packaging":  "/assets/images/products/jour-eco-cylindrique-packaging.jpg",
         "available":  true,
-        "volume_m3":  2.16
+        "volume_m3":  2.16,
+        "humidity_bucket":  {
+                                "fr":  "≤ 10 %",
+                                "en":  "≤ 10%",
+                                "de":  "≤ 10 %",
+                                "nl":  "≤ 10 %"
+                            },
+        "diameter":  {
+                         "fr":  "6 à 9 cm",
+                         "en":  "6 to 9 cm",
+                         "de":  "6 bis 9 cm",
+                         "nl":  "6 tot 9 cm"
+                     },
+        "length":  {
+                       "fr":  "20 à 30 cm",
+                       "en":  "20 to 30 cm",
+                       "de":  "20 bis 30 cm",
+                       "nl":  "20 tot 30 cm"
+                   },
+        "packaging":  {
+                          "fr":  "100 unités par palette",
+                          "en":  "100 units per pallet",
+                          "de":  "100 Einheiten pro Palette",
+                          "nl":  "100 stuks per pallet"
+                      },
+        "calorific_value":  "4,7 kWh/kg"
     },
     {
         "id":  "briquettes-ruf",
@@ -635,7 +669,7 @@
         "unit_weight":  "10 kg",
         "units_per_palette":  96,
         "palette_weight":  "960 kg",
-        "wholesale_price":  156.67,
+        "wholesale_price":  188,
         "recommended_price":  235,
         "positioning":  {
                             "fr":  "Très bon prix",
@@ -653,18 +687,13 @@
         "image_packaging":  "/assets/images/products/briquettes-ruf-packaging.jpg",
         "available":  true,
         "volume_m3":  2.16,
-        "humidity_bucket":  {
-                                "fr":  "6 à 8 %",
-                                "en":  "6 to 8%",
-                                "de":  "6 bis 8%",
-                                "nl":  "6 tot 8%"
-                            },
         "packaging":  {
-                          "fr":  "96 unités par palette",
-                          "en":  "96 units per pallet",
-                          "de":  "96 Einheiten pro Palette",
-                          "nl":  "96 stuks per pallet"
-                      }
+                          "fr":  "96 sacs de 10 kg",
+                          "en":  "96 bags of 10 kg",
+                          "de":  "96 Säcke à 10 kg",
+                          "nl":  "96 zakken van 10 kg"
+                      },
+        "calorific_value":  "4,9 kWh/kg"
     },
     {
         "id":  "briquettes-ecorce",
@@ -680,7 +709,7 @@
         "unit_weight":  "10 kg",
         "units_per_palette":  100,
         "palette_weight":  "1000 kg",
-        "wholesale_price":  165,
+        "wholesale_price":  198,
         "recommended_price":  245,
         "positioning":  {
                             "fr":  "Très bon prix",
@@ -699,17 +728,18 @@
         "available":  true,
         "volume_m3":  2.16,
         "humidity_bucket":  {
-                                "fr":  "12 %",
-                                "en":  "12%",
-                                "de":  "12%",
-                                "nl":  "12%"
+                                "fr":  "Inférieur à 12 %",
+                                "en":  "Less than 12%",
+                                "de":  "Unter 12%",
+                                "nl":  "Minder dan 12%"
                             },
         "packaging":  {
                           "fr":  "100 unités par palette",
                           "en":  "100 units per pallet",
                           "de":  "100 Einheiten pro Palette",
                           "nl":  "100 stuks per pallet"
-                      }
+                      },
+        "calorific_value":  "4,6 kWh/kg"
     },
     {
         "id":  "granules-pellets-premium",
@@ -725,7 +755,7 @@
         "unit_weight":  "15 kg",
         "units_per_palette":  66,
         "palette_weight":  "990 kg",
-        "wholesale_price":  154.17,
+        "wholesale_price":  185,
         "recommended_price":  230,
         "positioning":  {
                             "fr":  "Très bon prix",
@@ -749,7 +779,8 @@
                           "en":  "66 bags of 15 kg each",
                           "de":  "66 Säcke à 15 kg",
                           "nl":  "66 zakken van 15 kg elk"
-                      }
+                      },
+        "calorific_value":  "4,8 kWh/kg"
     },
     {
         "id":  "charbon-bois-morceaux",
@@ -765,7 +796,7 @@
         "unit_weight":  "10 kg",
         "units_per_palette":  80,
         "palette_weight":  "800 kg",
-        "wholesale_price":  166.67,
+        "wholesale_price":  200,
         "recommended_price":  212.5,
         "positioning":  {
                             "fr":  "Bon prix – sous marché",
@@ -794,7 +825,8 @@
                           "en":  "2 big bags of 400 kg per pallet",
                           "de":  "2 Big Bags à 400 kg pro Palette",
                           "nl":  "2 big bags van 400 kg per pallet"
-                      }
+                      },
+        "calorific_value":  "7,5 kWh/kg"
     },
     {
         "id":  "allume-feu-laine-bois",
@@ -810,7 +842,7 @@
         "unit_weight":  "5 kg",
         "units_per_palette":  60,
         "palette_weight":  "600 kg",
-        "wholesale_price":  150,
+        "wholesale_price":  180,
         "recommended_price":  225,
         "positioning":  {
                             "fr":  "Bon prix – sous marché",
@@ -833,7 +865,8 @@
                           "en":  "60 boxes",
                           "de":  "60 Kartons",
                           "nl":  "60 dozen"
-                      }
+                      },
+        "calorific_value":  "7,0 kWh/kg"
     },
     {
         "id":  "buches-torche-suedoise",
@@ -849,7 +882,7 @@
         "unit_weight":  "5 kg",
         "units_per_palette":  160,
         "palette_weight":  "800 kg",
-        "wholesale_price":  186.67,
+        "wholesale_price":  224,
         "recommended_price":  280,
         "positioning":  {
                             "fr":  "Bon prix – sous marché",
@@ -867,6 +900,12 @@
         "image_packaging":  "/assets/images/products/buches-torche-suedoise-packaging.jpg",
         "available":  true,
         "volume_m3":  2.16,
+        "humidity_bucket":  {
+                                "fr":  "15 à 20 %",
+                                "en":  "15 to 20%",
+                                "de":  "15 bis 20 %",
+                                "nl":  "15 tot 20 %"
+                            },
         "packaging":  {
                           "fr":  "160 pièces par palette",
                           "en":  "160 pieces per pallet",
@@ -875,10 +914,11 @@
                       },
         "height":  "25 cm",
         "diameter":  {
-                         "fr":  "environ 15 cm",
-                         "en":  "approx. 15 cm",
-                         "de":  "ca. 15 cm",
-                         "nl":  "ongeveer 15 cm"
-                     }
+                         "fr":  "environ 15 à 25 cm",
+                         "en":  "approx. 15 to 25 cm",
+                         "de":  "ca. 15 bis 25 cm",
+                         "nl":  "ongeveer 15 tot 25 cm"
+                     },
+        "calorific_value":  "3,9 kWh/kg"
     }
 ]

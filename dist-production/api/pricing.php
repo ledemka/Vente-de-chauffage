@@ -53,8 +53,9 @@ function calculateLinePrice(array $product, ?string $length, int $quantity, floa
     
     // Determine catalog base price
     $catalogPriceHT = 0;
-    if (isset($product['prices_by_length']) && $length !== null && isset($product['prices_by_length'][$length])) {
-        $catalogPriceHT = (float)$product['prices_by_length'][$length];
+    if (isset($product['prices_by_length'])) {
+        $effectiveLength = ($length !== null && isset($product['prices_by_length'][$length])) ? $length : '20';
+        $catalogPriceHT = (float)($product['prices_by_length'][$effectiveLength] ?? $product['wholesale_price'] ?? 0);
     } else {
         $catalogPriceHT = (float)($product['wholesale_price'] ?? 0);
     }

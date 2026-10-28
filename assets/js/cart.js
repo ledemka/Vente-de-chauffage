@@ -378,9 +378,8 @@ var CartUI = {
             const prod = this.getProduct(item.product_id);
             if (!prod) return;
             
-            const lineTotalHT = item.total;
-            const lineTotalTTC = lineTotalHT * 1.20;
-            subtotal += lineTotalHT;
+            const lineTotal = item.total;
+            subtotal += lineTotal;
             rawSubtotal += (item.wholesale_price * item.quantity);
             totalQuantity += item.quantity;
             
@@ -416,13 +415,13 @@ var CartUI = {
                     </div>
                     <div class="text-right flex flex-col items-end">
                         ${item.discount_percent > 0 ? `
-                            <div class="text-body-sm text-outline-variant line-through">${this.formatPrice(item.wholesale_price)} HT</div>
+                            <div class="text-body-sm text-outline-variant line-through">${this.formatPrice(item.wholesale_price)}</div>
                             <div class="text-body-sm font-bold text-primary">-${item.discount_percent}%</div>
-                            <div class="text-label-lg font-bold">${this.formatPrice(item.unit_price)} HT / pal</div>
+                            <div class="text-label-lg font-bold">${this.formatPrice(item.unit_price)} / pal</div>
                         ` : `
-                            <div class="text-label-lg font-bold">${this.formatPrice(item.unit_price)} HT / pal</div>
+                            <div class="text-label-lg font-bold">${this.formatPrice(item.unit_price)} / pal</div>
                         `}
-                        <div class="text-headline-md font-data-mono font-bold text-on-surface mt-1">${this.formatPrice(lineTotalTTC)} TTC</div>
+                        <div class="text-headline-md font-data-mono font-bold text-on-surface mt-1">${this.formatPrice(lineTotal)}</div>
                     </div>
                 </div>
                 
@@ -481,9 +480,9 @@ var CartUI = {
                 let phtml = '<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">';
                 prodList.forEach(p => {
                     const isBuche = p.subgroup_id === 1 && p.prices_by_length;
-                    // For Bûches: show price at 50cm by default (display only)
+                    // For Bûches: show price at 20cm by default (display only)
                     const displayPrice = isBuche
-                        ? (p.prices_by_length['50'] || Math.min(...Object.values(p.prices_by_length).map(Number)))
+                        ? (p.prices_by_length['20'] || Math.min(...Object.values(p.prices_by_length).map(Number)))
                         : (p.wholesale_price || 0);
 
                     // For Bûches: redirect to catalogue format selector instead of adding directly
@@ -498,7 +497,7 @@ var CartUI = {
                            </button>`;
 
                     const formatLabel = isBuche
-                        ? `<div class="text-body-sm text-amber-700 mb-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> ${window.i18n ? window.i18n.t('quote.specs.select_format', 'Sélectionnez un format...') : 'Sélectionnez un format...'}</div>`
+                        ? `<div class="text-body-sm text-amber-700 mb-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> 20 cm</div>`
                         : `<div class="text-body-sm text-on-surface-variant mb-2">${window.i18n ? window.i18n.t("formats." + p.format, p.format) : p.format}</div>`;
 
                     phtml += `
@@ -509,7 +508,7 @@ var CartUI = {
                                 ${formatLabel}
                             </div>
                             <div>
-                                <div class="text-label-lg font-data-mono font-bold text-primary mb-2">${this.formatPrice(displayPrice * 1.20)} TTC${isBuche ? '<span class="text-[10px] text-amber-700 font-normal ml-1" data-i18n="cart.price_50cm">prix 50cm</span>' : ''}</div>
+                                <div class="text-label-lg font-data-mono font-bold text-primary mb-2">${this.formatPrice(displayPrice)}${isBuche ? '<span class="text-[10px] text-amber-700 font-normal ml-1" data-i18n="cart.price_50cm">prix 20cm</span>' : ''}</div>
                                 ${actionBtn}
                             </div>
                         </div>
@@ -547,9 +546,9 @@ var CartUI = {
         // Rendu de la Sidebar (Tarif Dégressif & Livraison)
         const discount = Math.max(0, rawSubtotal - subtotal);
         const totalHT = subtotal;
-        const totalTTC = totalHT * 1.20;
-        const rawSubtotalTTC = rawSubtotal * 1.20;
-        const discountTTC = discount * 1.20;
+        const totalTTC = totalHT;
+        const rawSubtotalTTC = rawSubtotal;
+        const discountTTC = discount;
         
         const { currentTier, nextTier } = this.getCurrentTier(totalQuantity);
         
@@ -652,7 +651,7 @@ var CartUI = {
                     
                     <div class="border-t border-outline/20 mt-6 pt-6 flex flex-col gap-3">
                         <div class="flex justify-between text-body-sm text-on-surface-variant">
-                            <span data-i18n="cart.subtotal_ttc">Sous-total TTC</span>
+                            <span data-i18n="cart.subtotal_ttc">Sous-total</span>
                               <div class="text-right">
                                   <span class="font-data-mono">${this.formatPrice(rawSubtotalTTC)}</span>
                               </div>
@@ -669,7 +668,7 @@ var CartUI = {
                     </div>
                     
                     <div class="flex justify-between items-end mb-6 text-on-surface border-t border-outline/30 mt-4 pt-4">
-                        <span class="text-headline-md font-headline-md" data-i18n="cart.total_ttc">Total TTC</span>
+                        <span class="text-headline-md font-headline-md" data-i18n="cart.total_ttc">Total</span>
                         <span class="text-headline-lg font-data-mono font-bold text-primary">${this.formatPrice(totalTTC)}</span>
                     </div>
 
@@ -714,7 +713,7 @@ var CartUI = {
         html += '<thead><tr class="border-b border-outline/20">';
         html += '<th class="py-3 pr-2 text-label-md font-label-md uppercase text-on-surface-variant" data-i18n="checkout.product">Produit</th>';
         html += '<th class="py-3 px-2 text-label-md font-label-md uppercase text-on-surface-variant text-center" data-i18n="checkout.qty">Qté</th>';
-        html += '<th class="py-3 pl-2 text-label-md font-label-md uppercase text-on-surface-variant text-right" data-i18n="checkout.total_ttc">Total TTC</th>';
+        html += '<th class="py-3 pl-2 text-label-md font-label-md uppercase text-on-surface-variant text-right" data-i18n="checkout.total_ttc">Total</th>';
         html += '</tr></thead><tbody>';
 
         let checkoutShippingCost = null;
@@ -729,9 +728,9 @@ var CartUI = {
         if (!checkoutSubtotal) return;
         
         const htAfterDiscount = checkoutSubtotal - checkoutDiscountAmt;
-        const totalTTC_products = htAfterDiscount * 1.20;
+        const totalTTC_products = htAfterDiscount;
         
-        // Shipping is already TTC
+        // Shipping
         const total = totalTTC_products + (checkoutShippingCost || 0);
 
         const totalEl = document.getElementById('checkout-total');
@@ -767,7 +766,7 @@ var CartUI = {
             const prod = this.getProduct(item.product_id);
             if (!prod) return;
             const lineTotal = item.total;
-            const lineTotalTTC = lineTotal * 1.20;
+            const lineTotalTTC = lineTotal;
             subtotal += lineTotal;
             rawSubtotal += (item.wholesale_price * item.quantity);
             totalQuantity += item.quantity;
@@ -780,10 +779,10 @@ var CartUI = {
                 </td>
                 <td class="py-3 px-2 text-center text-body-sm font-data-mono">
                     ${item.quantity}<br>
-                    <span class="text-xs text-outline-variant">${this.formatPrice(item.unit_price)} HT</span>
+                    <span class="text-xs text-outline-variant">${this.formatPrice(item.unit_price)}</span>
                 </td>
                 <td class="py-3 pl-2 text-right text-body-sm font-data-mono font-bold text-primary">
-                    ${this.formatPrice(lineTotalTTC)} TTC
+                    ${this.formatPrice(lineTotalTTC)}
                     ${item.discount_percent > 0 ? `<span class="text-xs text-primary font-bold block">-${item.discount_percent}% <span data-i18n="checkout.discounted">remisé</span></span>` : ''}
                 </td>
             </tr>`;
@@ -821,8 +820,8 @@ var CartUI = {
         checkoutSubtotal = rawSubtotal;
         checkoutTotalQty = totalQuantity;
         checkoutDiscountAmt = discount;
-        const subtotalTTC = rawSubtotal * 1.20;
-        const discountTTC = discount * 1.20;
+        const subtotalTTC = rawSubtotal;
+        const discountTTC = discount;
         
         document.getElementById('checkout-subtotal').innerHTML = `${this.formatPrice(subtotalTTC)}`;
         document.getElementById('checkout-discount').textContent = '-' + this.formatPrice(discountTTC);

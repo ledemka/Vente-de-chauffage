@@ -393,7 +393,7 @@
             </div>
             
             <div class="border-t border-outline/20 pt-4 flex justify-between items-center text-headline-md font-headline-md">
-                <span data-i18n="modal.total_ttc">Totaal incl. btw</span>
+                <span data-i18n="modal.total_ttc">Totaal</span>
                 <span id="modal-total" class="text-primary font-data-mono"></span>
             </div>
         </div>
@@ -765,7 +765,7 @@ function renderClientOrders() {
         return;
     }
 
-    let html = `<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">${t('order.table.ref', 'Référence')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">${t('order.table.date', 'Date')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">${t('order.table.status', 'Statut')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant text-right" data-i18n="modal.total_ttc">${t('order.table.total', 'Total TTC')}</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">${t('order.table.actions', 'Actions')}</th></tr></thead><tbody>`;
+    let html = `<table class="w-full text-left border-collapse"><thead class="border-b border-outline/20"><tr><th class="py-3 pr-2 text-label-md font-label-md text-on-surface-variant">${t('order.table.ref', 'Référence')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">${t('order.table.date', 'Date')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant">${t('order.table.status', 'Statut')}</th><th class="py-3 px-2 text-label-md font-label-md text-on-surface-variant text-right" data-i18n="modal.total_ttc">${t('order.table.total', 'Total')}</th><th class="py-3 pl-2 text-label-md font-label-md text-on-surface-variant text-right">${t('order.table.actions', 'Actions')}</th></tr></thead><tbody>`;
     
     filtered.forEach(order => {
         const dateObj = new Date(order.created_at);
@@ -881,7 +881,7 @@ window.openOrderModal = (data) => {
             const img = product.image_product ? `<img src="${resolveAssetPath(product.image_product)}" class="w-12 h-12 object-cover rounded" />` : '<div class="w-12 h-12 bg-surface-container rounded flex items-center justify-center"><span class="material-symbols-outlined text-outline-variant">image</span></div>';
             
             const puHT = item.unit_price_net_ht !== undefined ? parseFloat(item.unit_price_net_ht) : parseFloat(item.unit_price || 0);
-            const puTTC = puHT * 1.20;
+            const puTTC = puHT;
             const lineTotal = (item.quantity * puTTC).toFixed(2);
             
             container.innerHTML += `
